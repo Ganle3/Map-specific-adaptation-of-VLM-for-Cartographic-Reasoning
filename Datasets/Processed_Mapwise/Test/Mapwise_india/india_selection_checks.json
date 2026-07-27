@@ -1,0 +1,32 @@
+{
+  "source_file": "with_annotations(7).json",
+  "raw_QA": 1001,
+  "excluded_templates": [
+    1,
+    2,
+    5,
+    6,
+    7
+  ],
+  "excluded_reason_counts": {
+    "excluded_template_1_2_5_6_7": 118
+  },
+  "eligible_QA_across_all_C_D_versions": 883,
+  "underlying_data_groups": 98,
+  "available_map_versions": 100,
+  "test_QA": 75,
+  "test_groups": 9,
+  "test_map_versions": 9,
+  "selected_multiple_variants_same_group": false,
+  "excluded_templates_remaining": [],
+  "qa_ids_unique": true,
+  "only_test_split_created": true,
+  "output_type_counts": {
+    "Range": 14,
+    "List": 16,
+    "Count": 13,
+    "Binary": 16,
+    "Single": 16
+  },
+  "solver_status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+}

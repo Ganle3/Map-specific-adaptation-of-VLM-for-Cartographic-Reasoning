@@ -1,0 +1,7 @@
+﻿category,overall_count,overall_pct,train_count,train_pct,train_expected,train_deviation,validation_count,validation_pct,validation_expected,validation_deviation,test_count,test_pct,test_expected,test_deviation
+Disaster/hazard,83,16.6,49,14.0,58.1,-9.1,10,13.33,12.45,-2.45,24,32.0,12.45,11.55
+Environmental review,100,20.0,78,22.29,70.0,8.0,9,12.0,15.0,-6.0,13,17.33,15.0,-2.0
+Geology report,166,33.2,121,34.57,116.2,4.8,26,34.67,24.9,1.1,19,25.33,24.9,-5.9
+Investment/infrastructure,27,5.4,24,6.86,18.9,5.1,0,0.0,4.05,-4.05,3,4.0,4.05,-1.05
+Park & trail map,22,4.4,17,4.86,15.4,1.6,2,2.67,3.3,-1.3,3,4.0,3.3,-0.3
+Planning (city/region),102,20.4,61,17.43,71.4,-10.4,28,37.33,15.3,12.7,13,17.33,15.3,-2.3

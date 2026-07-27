@@ -1,0 +1,5 @@
+﻿split,QA_count,source_documents,Single,Multi,compass,legend,map text,scale
+overall,500,199,204,296,137,417,366,46
+train,350,139,127,223,96,290,259,32
+validation,75,30,42,33,20,64,57,7
+test,75,30,35,40,21,63,50,7

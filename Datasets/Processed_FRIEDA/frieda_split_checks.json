@@ -1,0 +1,17 @@
+{
+  "input_records": 500,
+  "split_sizes": {
+    "train": 350,
+    "validation": 75,
+    "test": 75
+  },
+  "all_records_preserved": true,
+  "question_refs_unique": true,
+  "train_validation_document_overlap": 0,
+  "train_test_document_overlap": 0,
+  "validation_test_document_overlap": 0,
+  "source_documents_total": 199,
+  "connected_document_components": 198,
+  "optimization_score": 128.877735,
+  "contextual_urls_policy": "Preserved as metadata; excluded from input definition and Single/Multi recomputation."
+}

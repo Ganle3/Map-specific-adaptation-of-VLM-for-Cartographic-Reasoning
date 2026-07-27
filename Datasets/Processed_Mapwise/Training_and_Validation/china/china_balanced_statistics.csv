@@ -1,0 +1,4 @@
+﻿split,QA_total,data_groups,map_versions,Binary,Binary_pct,Count,Count_pct,Range,Range_pct,Single,Single_pct,List,List_pct,Binary_target,Binary_difference,Count_target,Count_difference,Range_target,Range_difference,Single_target,Single_difference,List_target,List_difference
+eligible_all_versions,846,81,100,343,40.54,77,9.1,116,13.71,121,14.3,189,22.34,,,,,,,,,,
+train,175,20,20,41,23.43,28,16.0,29,16.57,35,20.0,42,24.0,35.0,6.0,35.0,-7.0,35.0,-6.0,35.0,0.0,35.0,7.0
+validation,37,4,4,8,21.62,7,18.92,7,18.92,7,18.92,8,21.62,7.4,0.6,7.4,-0.4,7.4,-0.4,7.4,-0.4,7.4,0.6

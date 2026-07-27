@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Unsloth and ML caches
+unsloth_compiled_cache/
+**/unsloth_compiled_cache/
+.cache/
+**/.cache/
+torch_extensions/
+wandb/
+
+# Training outputs
+outputs/
+output/
+training_output/
+runs/
+logs/
+
+# Checkpoints and model weights
+checkpoints/
+checkpoint-*/
+**/checkpoint-*/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# Dataset images: retain JSON and documentation
+Datasets/**/*.png
+Datasets/**/*.jpg
+Datasets/**/*.jpeg
+Datasets/**/*.webp
+Datasets/**/*.tif
+Datasets/**/*.tiff
+
+Test_data/**/*.png
+Test_data/**/*.jpg
+Test_data/**/*.jpeg
+Test_data/**/*.webp
+Test_data/**/*.tif
+Test_data/**/*.tiff
+
+# Archives
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# Temporary and OS files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

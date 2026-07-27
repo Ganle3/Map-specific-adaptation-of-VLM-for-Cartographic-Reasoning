@@ -1,0 +1,5 @@
+﻿category,overall_count,overall_pct,train_count,train_pct,train_expected,train_deviation,validation_count,validation_pct,validation_expected,validation_deviation,test_count,test_pct,test_expected,test_deviation
+compass,137,27.4,96,27.43,95.9,0.1,20,26.67,20.55,-0.55,21,28.0,20.55,0.45
+legend,417,83.4,290,82.86,291.9,-1.9,64,85.33,62.55,1.45,63,84.0,62.55,0.45
+map text,366,73.2,259,74.0,256.2,2.8,57,76.0,54.9,2.1,50,66.67,54.9,-4.9
+scale,46,9.2,32,9.14,32.2,-0.2,7,9.33,6.9,0.1,7,9.33,6.9,0.1

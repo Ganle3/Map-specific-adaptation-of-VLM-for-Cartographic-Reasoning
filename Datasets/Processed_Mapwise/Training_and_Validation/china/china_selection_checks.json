@@ -1,0 +1,25 @@
+{
+  "source_file": "with_annotations(4).json",
+  "excluded_templates": [
+    1,
+    2,
+    5,
+    6,
+    7
+  ],
+  "raw_QA": 1000,
+  "eligible_QA_before_CD_choice": 846,
+  "underlying_data_groups": 81,
+  "available_map_versions_after_filter": 100,
+  "train_QA": 175,
+  "validation_QA": 37,
+  "train_groups": 20,
+  "validation_groups": 4,
+  "train_validation_group_overlap": [],
+  "selected_multiple_variants_same_group": false,
+  "excluded_templates_remaining": [],
+  "qa_ids_unique": true,
+  "test_split_created": false,
+  "unused_candidates_are_not_test": true,
+  "solver_status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+}

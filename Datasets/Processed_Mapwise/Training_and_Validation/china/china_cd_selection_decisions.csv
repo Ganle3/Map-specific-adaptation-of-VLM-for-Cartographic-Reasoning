@@ -1,0 +1,25 @@
+﻿data_group_id,available_styles,selected_style,selected_map,split,C_eligible,D_eligible,decision_basis
+map10_3,D,D,map10_3D,train,0,8,Joint optimization for exact split size and near-equal output-type distribution
+map11_1,D,D,map11_1D,train,0,8,Joint optimization for exact split size and near-equal output-type distribution
+map11_8,D,D,map11_8D,train,0,9,Joint optimization for exact split size and near-equal output-type distribution
+map12_2,"C,D",D,map12_2D,validation,8,8,Joint optimization for exact split size and near-equal output-type distribution
+map12_4,C,C,map12_4C,train,9,0,Joint optimization for exact split size and near-equal output-type distribution
+map13_4,"C,D",C,map13_4C,validation,9,7,Joint optimization for exact split size and near-equal output-type distribution
+map14_0,D,D,map14_0D,train,0,8,Joint optimization for exact split size and near-equal output-type distribution
+map14_8,C,C,map14_8C,train,9,0,Joint optimization for exact split size and near-equal output-type distribution
+map17_2,"C,D",D,map17_2D,train,10,10,Joint optimization for exact split size and near-equal output-type distribution
+map18_0,D,D,map18_0D,train,0,7,Joint optimization for exact split size and near-equal output-type distribution
+map18_4,D,D,map18_4D,train,0,9,Joint optimization for exact split size and near-equal output-type distribution
+map20_0,"C,D",C,map20_0C,train,10,10,Joint optimization for exact split size and near-equal output-type distribution
+map22_0,D,D,map22_0D,train,0,10,Joint optimization for exact split size and near-equal output-type distribution
+map22_6,D,D,map22_6D,train,0,9,Joint optimization for exact split size and near-equal output-type distribution
+map22_8,D,D,map22_8D,train,0,10,Joint optimization for exact split size and near-equal output-type distribution
+map3_2,D,D,map3_2D,train,0,8,Joint optimization for exact split size and near-equal output-type distribution
+map3_6,"C,D",C,map3_6C,train,10,8,Joint optimization for exact split size and near-equal output-type distribution
+map4_1,C,C,map4_1C,train,7,0,Joint optimization for exact split size and near-equal output-type distribution
+map5_1,C,C,map5_1C,train,10,0,Joint optimization for exact split size and near-equal output-type distribution
+map5_5,C,C,map5_5C,train,10,0,Joint optimization for exact split size and near-equal output-type distribution
+map6_0,"C,D",C,map6_0C,train,6,8,Joint optimization for exact split size and near-equal output-type distribution
+map7_0,"C,D",C,map7_0C,train,8,6,Joint optimization for exact split size and near-equal output-type distribution
+map8_0,D,D,map8_0D,validation,0,10,Joint optimization for exact split size and near-equal output-type distribution
+map9_2,C,C,map9_2C,validation,10,0,Joint optimization for exact split size and near-equal output-type distribution

@@ -1,0 +1,10 @@
+﻿data_group_id,available_styles,selected_style,selected_map,C_eligible_QA,D_eligible_QA,decision_basis
+map101_2,D,D,map101_2D,0,8,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map10_8,C,C,map10_8C,9,0,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map112_2,D,D,map112_2D,0,7,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map128_7,D,D,map128_7D,0,8,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map134_3,C,C,map134_3C,8,0,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map162_1,D,D,map162_1D,0,10,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map168_4,C,C,map168_4C,9,0,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map3_1,D,D,map3_1D,0,8,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution
+map53_0,C,C,map53_0C,8,0,Joint MILP optimization for exact 75 QA and near-equal Binary/Count/Range/Single/List distribution

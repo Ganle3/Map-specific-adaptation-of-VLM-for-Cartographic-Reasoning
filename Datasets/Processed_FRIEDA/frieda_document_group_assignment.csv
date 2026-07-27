@@ -1,0 +1,199 @@
+﻿component_root,split,qa_count,source_documents,question_refs
+seattle-planning/23rdAvenueUDF,test,4,seattle-planning/23rdAvenueUDF,q_0001 | q_0002 | q_0003 | q_0004
+seattle-planning/130_145_Alternatives__2022_1202,train,3,seattle-planning/130_145_Alternatives__2022_1202,q_0005 | q_0006 | q_1059
+seattle-planning/507SeattleStudio_Web,train,9,seattle-planning/507SeattleStudio_Web,q_0007 | q_1016 | q_1026 | q_1041 | q_1049 | q_1065 | q_1075 | q_5010 | q_8001
+seattle-planning/CouncilAdopted2020,train,10,seattle-planning/CouncilAdopted2020,q_0008 | q_0009 | q_0010 | q_0011 | q_1007 | q_1011 | q_1035 | q_1038 | q_1079 | q_1091
+seattle-planning/EDIImpPlan042916final,train,1,seattle-planning/EDIImpPlan042916final,q_0012
+seattle-planning/IndustrialMaritimeStrategyFinalEIS,validation,24,seattle-planning/IndustrialMaritimeStrategyFinalEIS,q_0013 | q_0014 | q_0015 | q_0017 | q_0018 | q_0020 | q_0021 | q_0022 | q_0023 | q_0024 | q_0025 | q_0026 | q_0027 | q_0028 | q_0029 | q_0030 | q_0031 | q_0032 | q_0142 | q_0159 | q_0182 | q_0187 | q_1012 | q_1053
+seattle-planning/lfs-existing-conditions-and-context-memorandum,train,1,seattle-planning/lfs-existing-conditions-and-context-memorandum,q_0033
+aiib/2.-Supplementary-ESIA_23042025-EN,train,6,aiib/2.-Supplementary-ESIA_23042025-EN,q_0070 | q_0082 | q_0088 | q_0099 | q_0109 | q_0120
+aiib/EA-EMP-Trespass-control-FOB-works-on-Central-Western-Railway-MUTP-III-Project,train,4,aiib/EA-EMP-Trespass-control-FOB-works-on-Central-Western-Railway-MUTP-III-Project,q_0072 | q_0083 | q_0102 | q_0138
+seychelles/ESIA-Report-ARIA-Eco-Sol-11.07.25,train,2,seychelles/ESIA-Report-ARIA-Eco-Sol-11.07.25,q_0073 | q_0081
+ireland/State-of-the-environment-in-Ireland-2004-reduced,train,11,ireland/State-of-the-environment-in-Ireland-2004-reduced,q_0074 | q_0104 | q_0118 | q_0128 | q_0130 | q_1029 | q_1045 | q_1069 | q_1084 | q_1085 | q_1087
+seychelles/91346907,train,3,seychelles/91346907,q_0075 | q_0095 | q_0107
+abu-dhabi/2011-HM-Urban-Design21,train,3,abu-dhabi/2011-HM-Urban-Design21,q_0076 | q_0112 | q_0137
+aiib/environmental-and-social-management-framework-English,train,2,aiib/environmental-and-social-management-framework-English,q_0077 | q_0121
+ireland/EPA_Irelands_Environment_2020,train,13,ireland/EPA_Irelands_Environment_2020,q_0078 | q_0079 | q_0093 | q_0101 | q_0116 | q_0123 | q_0124 | q_0126 | q_0132 | q_0134 | q_0136 | q_0175 | q_1004
+sg-ura/AnnualReport_1997-1998,test,3,sg-ura/AnnualReport_1997-1998,q_0080 | q_0090 | q_0115
+seychelles/East-Coast-ECP4-Reclamation-Project-Environmental-And-Social-Impact-Report,train,4,seychelles/East-Coast-ECP4-Reclamation-Project-Environmental-And-Social-Impact-Report,q_0084 | q_0096 | q_0110 | q_0129
+seychelles/ESIA-Report-FC-and-SS-Redevelopment-_-Vol-1_FINAL-1,train,5,seychelles/ESIA-Report-FC-and-SS-Redevelopment-_-Vol-1_FINAL-1,q_0085 | q_0087 | q_0091 | q_0094 | q_0122
+aiib/CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject,train,5,aiib/CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject,q_0086 | q_0097 | q_0100 | q_0108 | q_0133
+sg-ura/30yrs-of-conservation,test,3,sg-ura/30yrs-of-conservation,q_0089 | q_0103 | q_0131
+aiib/Environmental-and-Social-Impact-Assessment,train,6,aiib/Environmental-and-Social-Impact-Assessment,q_0092 | q_0098 | q_0105 | q_0111 | q_0125 | q_0127
+aiib/P000124-SL-Landslide,test,3,aiib/P000124-SL-Landslide,q_0106 | q_0119 | q_0135
+aiib/IEE-20240306-iee-report,train,1,aiib/IEE-20240306-iee-report,q_0113
+FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702,test,6,FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702,q_0140 | q_0146 | q_0165 | q_0191 | q_5018 | q_6011
+FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710,validation,2,FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710,q_0143 | q_0170
+FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126,train,14,FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126,q_0144 | q_0147 | q_0150 | q_0156 | q_0157 | q_0162 | q_0163 | q_0172 | q_0179 | q_0180 | q_0184 | q_0188 | q_0193 | q_0202
+FEMA/HMGP-DR-4407-CA-ButteCountyWildfireMitigation-FEA-FONSI-20241010,train,1,FEMA/HMGP-DR-4407-CA-ButteCountyWildfireMitigation-FEA-FONSI-20241010,q_0145
+FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202,test,6,FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202,q_0148 | q_0153 | q_0160 | q_0189 | q_0199 | q_7003
+FEMA/fema_rm-hurriance-ian-mat-report-12-2023,train,3,FEMA/fema_rm-hurriance-ian-mat-report-12-2023,q_0151 | q_0155 | q_0178
+FEMA/fema_ehp-lpdm-pj-06-nm-2023-001-loslucerosfiremit-drafttea-2024412,train,3,FEMA/fema_ehp-lpdm-pj-06-nm-2023-001-loslucerosfiremit-drafttea-2024412,q_0152 | q_0186 | q_6022
+FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729,validation,4,FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729,q_0154 | q_0183 | q_0194 | q_8025
+FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603,validation,1,FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603,q_0158
+FEMA/fema_oehp_emt-2021-fm-022-0010-tx-virginia-street-dea-052125,train,4,FEMA/fema_oehp_emt-2021-fm-022-0010-tx-virginia-street-dea-052125,q_0161 | q_0167 | q_0171 | q_0176
+FEMA/BRIC-EMA-2020-BR-100-0009-NC-LumbertonLoop-DEA-2024614,train,4,FEMA/BRIC-EMA-2020-BR-100-0009-NC-LumbertonLoop-DEA-2024614,q_0164 | q_0166 | q_0181 | q_0201
+FEMA/fema_oehp_lpdm-pj-06-tx-2022-006-westador-stormwater-dea-07022025,train,2,FEMA/fema_oehp_lpdm-pj-06-tx-2022-006-westador-stormwater-dea-07022025,q_0168 | q_0185
+FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925,test,3,FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925,q_0173 | q_0174 | q_0195
+FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722,test,1,FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722,q_0190
+FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904,test,2,FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904,q_0192 | q_6002
+FEMA/fema_dr-4559-st-louis-hs-appendix,train,3,FEMA/fema_dr-4559-st-louis-hs-appendix,q_0196 | q_0200 | q_7012
+FEMA/fema_ehp_il-in-oh-mi-mn-wi-floodcontrol-revdpea_03252025,train,2,FEMA/fema_ehp_il-in-oh-mi-mn-wi-floodcontrol-revdpea_03252025,q_0197 | q_5001
+capetown/District_Six_LSDF,train,11,capetown/District_Six_LSDF,q_1001 | q_1002 | q_1005 | q_1013 | q_1028 | q_1040 | q_1042 | q_1050 | q_1072 | q_1073 | q_1078
+"capetown/Elsieskraal River Valley Development Framework, 1998",train,11,"capetown/Elsieskraal River Valley Development Framework, 1998",q_1003 | q_1006 | q_1008 | q_1014 | q_1015 | q_1046 | q_1052 | q_1064 | q_1076 | q_1077 | q_1090
+FEMA/hmgp-dr-4332-hmgp-4332-0197-tx_1-a3adetention-dea-2025225,train,4,FEMA/hmgp-dr-4332-hmgp-4332-0197-tx_1-a3adetention-dea-2025225,q_1010 | q_1082 | q_1086 | q_8018
+national-parks/659668,test,1,national-parks/659668,q_1017
+national-parks/639363,validation,2,national-parks/639363,q_1018 | q_1062
+national-parks/642208,train,1,national-parks/642208,q_1019
+national-parks/656810,train,1,national-parks/656810,q_1020
+capetown/Annexure B - Cape Town Spatial Development Framework,train,6,capetown/Annexure B - Cape Town Spatial Development Framework,q_1021 | q_1023 | q_1027 | q_1043 | q_1058 | q_1089
+national-parks/732920,train,7,national-parks/732920,q_1022 | q_1034 | q_1044 | q_1048 | q_1054 | q_1060 | q_1083
+FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025,test,4,FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025,q_1024 | q_1068 | q_1080 | q_1081
+national-parks/639106,test,1,national-parks/639106,q_1025
+capetown/Draft_LSDF_Mamre,train,1,capetown/Draft_LSDF_Mamre,q_1030
+national-parks/711316,train,4,national-parks/711316,q_1031 | q_1061 | q_1067 | q_1092
+seattle-planning/Aurora-Licton-plan,validation,2,seattle-planning/Aurora-Licton-plan,q_1032 | q_1074
+national-parks/646954,test,1,national-parks/646954,q_1033
+seattle-planning/ComprehensivePlanRacialEquityAnalysisPresentation2021,train,1,seattle-planning/ComprehensivePlanRacialEquityAnalysisPresentation2021,q_1037
+national-parks/664400,train,2,national-parks/664400,q_1047 | q_1063
+national-parks/698075,train,1,national-parks/698075,q_1051
+national-parks/707314,train,1,national-parks/707314,q_1055
+FEMA/mat-report_hurricane-harvey-texas,train,2,FEMA/mat-report_hurricane-harvey-texas,q_1057 | q_1070
+seattle-planning/BitterLakeDirectorsReport,train,1,seattle-planning/BitterLakeDirectorsReport,q_1066
+FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024,test,2,FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024,q_1071 | q_7006
+capetown/KMPGB_DSDF_EMF_Vol_3_2022,train,1,capetown/KMPGB_DSDF_EMF_Vol_3_2022,q_1088
+EIS/Vol-3-FEISAppendixA-M-May-2025,test,10,EIS/Vol-3-FEISAppendixA-M-May-2025,q_1093 | q_1128 | q_1129 | q_1134 | q_1141 | q_1142 | q_1149 | q_1153 | q_1155 | q_1159
+EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1,validation,3,EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1,q_1094 | q_1111 | q_1138
+sg-ura/Skyline_Issue_13,test,3,sg-ura/Skyline_Issue_13,q_1095 | q_1152 | q_1158
+EIS/Green Eagle Railroad FEIS Volume II- Appendices,train,3,EIS/Green Eagle Railroad FEIS Volume II- Appendices,q_1096 | q_1112 | q_1143
+EIS/Appendix D - Biological Assessment,train,1,EIS/Appendix D - Biological Assessment,q_1097
+EIS/Volume 1 - Bremerton Waterfront Infrastructure Improvements at Puget Sound Naval Shipyard and Intermediate Maintenance Facility,train,3,EIS/Volume 1 - Bremerton Waterfront Infrastructure Improvements at Puget Sound Naval Shipyard and Intermediate Maintenance Facility,q_1098 | q_1115 | q_1132
+EIS/1_CJMT_RDEIS_ExecSum-Ch1-PurposeNeed-Ch2-Alternatives,train,4,EIS/1_CJMT_RDEIS_ExecSum-Ch1-PurposeNeed-Ch2-Alternatives,q_1099 | q_1107 | q_1120 | q_1145
+EIS/SpaceX SSH at LC-39A Draft EIS_Volume I_Main EIS,train,2,EIS/SpaceX SSH at LC-39A Draft EIS_Volume I_Main EIS,q_1100 | q_1136
+EIS/P-2485-071etc_NorthfieldMtn_TurnersFallsDEIS_Appendices,train,2,EIS/P-2485-071etc_NorthfieldMtn_TurnersFallsDEIS_Appendices,q_1101 | q_1137
+EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1,train,8,EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1,q_1102 | q_1105 | q_1116 | q_1124 | q_1127 | q_1140 | q_1150 | q_1160
+EIS/Final EIS - Barred Owl Management Strategy,test,2,EIS/Final EIS - Barred Owl Management Strategy,q_1103 | q_1146
+EIS/Enbridge Line 5 Tunnel Project Draft Environmental Statement_Volume 1_Chapters 1 through 7,train,2,EIS/Enbridge Line 5 Tunnel Project Draft Environmental Statement_Volume 1_Chapters 1 through 7,q_1104 | q_1118
+EIS/MetroTransitExpansion_Appendix A1_Purpose and Need,train,1,EIS/MetroTransitExpansion_Appendix A1_Purpose and Need,q_1106
+EIS/Final EIS for the Elliott State Research Forest HCP,train,4,EIS/Final EIS for the Elliott State Research Forest HCP,q_1108 | q_1121 | q_1126 | q_1130
+EIS/IHNC Appendix F - 2017 Draft GRR and Draft SEIS IHNC Lock Replacement Project,train,1,EIS/IHNC Appendix F - 2017 Draft GRR and Draft SEIS IHNC Lock Replacement Project,q_1109
+EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.1_ESA Consultation (USFWS)_Part3,train,1,EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.1_ESA Consultation (USFWS)_Part3,q_1113
+EIS/Annex 4 - NHPA Section 106 May 2025,validation,3,EIS/Annex 4 - NHPA Section 106 May 2025,q_1114 | q_1147 | q_1151
+EIS/Appendices A through L_CJMT_RDEIS,train,5,EIS/Appendices A through L_CJMT_RDEIS,q_1119 | q_1123 | q_1125 | q_1135 | q_1157
+EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025,train,2,EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025,q_1122 | q_1131
+EIS/Vol-1-FEIS-US6219-Section050-Transportation-Improvement-Project-Combined-FEIS-ROD-May-2025,train,1,EIS/Vol-1-FEIS-US6219-Section050-Transportation-Improvement-Project-Combined-FEIS-ROD-May-2025,q_1133
+EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered,test,1,EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered,q_1139
+EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation,validation,2,EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation,q_1144 | q_1148
+EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement,validation,1,EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement,q_1154
+NI43-101/w__McFarlaneLakeMining_SEDAR_1210098_tech_Jul04_2023_mcfarlaneTR-july42023,train,1,NI43-101/w__McFarlaneLakeMining_SEDAR_1210098_tech_Jul04_2023_mcfarlaneTR-july42023,q_2001
+NI43-101/z__AgnicoEagle_Techreport_TechReport-221231_TechReport-LaRonde,train,2,NI43-101/z__AgnicoEagle_Techreport_TechReport-221231_TechReport-LaRonde,q_2002 | q_4006
+NI43-101/C__AA-SEDAR_VELVET-PEA-2023,train,5,NI43-101/C__AA-SEDAR_VELVET-PEA-2023,q_2003 | q_4020 | q_7027 | q_9008 | q_9018
+NI43-101/C__FILINGS_Tearlach_Tearlach_TechnicalReport,train,3,NI43-101/C__FILINGS_Tearlach_Tearlach_TechnicalReport,q_2004 | q_9013 | q_9022
+NI43-101/C__SEDAR_FILINGS_2023_Technical_Report_COZ_TR_20230502,train,1,NI43-101/C__SEDAR_FILINGS_2023_Technical_Report_COZ_TR_20230502,q_2005
+NI43-101/t__SEDAR_Mineros_2023_TechnicalReport_TechReport,train,1,NI43-101/t__SEDAR_Mineros_2023_TechnicalReport_TechReport,q_2007
+NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023,test,2,NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023,q_2008 | q_8008
+NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101,test,3,NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101,q_2009 | q_7025 | q_8007
+NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport,validation,8,NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport | NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed,q_2013 | q_2030 | q_3023 | q_4011 | q_5012 | q_7005 | q_7014 | q_9001
+NI43-101/w__P2Gold_SEDAR_1187436_tech_Feb17_2023_02172023p2gold-tr,train,1,NI43-101/w__P2Gold_SEDAR_1187436_tech_Feb17_2023_02172023p2gold-tr,q_2015
+NI43-101/C__Filings_Yaramoko_43_101_Yaramoko_43101,train,1,NI43-101/C__Filings_Yaramoko_43_101_Yaramoko_43101,q_2016
+NI43-101/C__SEDAR_FILINGS_SGOTechRep20230324,train,1,NI43-101/C__SEDAR_FILINGS_SGOTechRep20230324,q_2017
+NI43-101/C__SEDAR_FILINGS_LEK_TechReport_2023_v3_5,train,1,NI43-101/C__SEDAR_FILINGS_LEK_TechReport_2023_v3_5,q_2019
+NI43-101/C__SEDAR_43101 (1),train,1,NI43-101/C__SEDAR_43101 (1),q_2020
+NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101,test,1,NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101,q_2021
+NI43-101/C__SEDAR_FILINGS_SRG_REPORT,train,1,NI43-101/C__SEDAR_FILINGS_SRG_REPORT,q_2022
+NI43-101/w__GalianoGold_SEDAR_1194039_tech_Mar28_2023_galiano_techreport,train,1,NI43-101/w__GalianoGold_SEDAR_1194039_tech_Mar28_2023_galiano_techreport,q_2024
+NI43-101/C__SEDAR_1-TR,train,5,NI43-101/C__SEDAR_1-TR,q_2025 | q_6010 | q_8026 | q_9004 | q_9017
+NI43-101/C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA,train,4,NI43-101/C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA,q_2026 | q_4014 | q_4018 | q_8003
+NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9,train,3,NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9,q_2027 | q_3002 | q_3024
+NI43-101/i__SEDAR_DenisonMines_2023_DenisonTRVol,train,1,NI43-101/i__SEDAR_DenisonMines_2023_DenisonTRVol,q_2028
+NI43-101/s__SEDAR_Onyx_43101TechnicalReport,train,5,NI43-101/s__SEDAR_Onyx_43101TechnicalReport,q_2029 | q_3029 | q_5020 | q_9005 | q_9024
+NI43-101/C__SEDAR_01SEDARFilings_EuropacTECHRPT01312023JA,train,2,NI43-101/C__SEDAR_01SEDARFilings_EuropacTECHRPT01312023JA,q_3001 | q_4027
+NI43-101/C__DATA_tmc43101mar21,validation,1,NI43-101/C__DATA_tmc43101mar21,q_3006
+NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex,validation,2,NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex,q_3009 | q_7030
+NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport,test,1,NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport,q_3010
+NI43-101/d__SEDAR_Montreal_JEAN-LUC_Osisko_Technical_Report_Osisko_NI-43-101-Report_Jan27,train,1,NI43-101/d__SEDAR_Montreal_JEAN-LUC_Osisko_Technical_Report_Osisko_NI-43-101-Report_Jan27,q_3012
+NI43-101/C__SEDAR_FILINGS_TR-FordingRiver-2023TR,train,2,NI43-101/C__SEDAR_FILINGS_TR-FordingRiver-2023TR,q_3013 | q_5028
+NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023,test,2,NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023,q_3014 | q_8005
+NI43-101/y__PUBLIC_Lithium-Americas-Corp_2023_technical-reports_Pastos-Grandes-Project_TR-pastos-grandes-update,train,2,NI43-101/y__PUBLIC_Lithium-Americas-Corp_2023_technical-reports_Pastos-Grandes-Project_TR-pastos-grandes-update,q_3016 | q_7013
+NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport,test,1,NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport,q_3018
+NI43-101/C__SEDAR_filings_Alpha_TechReport_July13,validation,1,NI43-101/C__SEDAR_filings_Alpha_TechReport_July13,q_3020
+NI43-101/C___docs_230404catStrategicTR_230404catStrategicTR_cwm,train,3,NI43-101/C___docs_230404catStrategicTR_230404catStrategicTR_cwm,q_3021 | q_4001 | q_9002
+NI43-101/y__PUBLIC_Discovery-Silver-Corp_2023_technical-reports_DSV-Cordero-technical-report,train,1,NI43-101/y__PUBLIC_Discovery-Silver-Corp_2023_technical-reports_DSV-Cordero-technical-report,q_3022
+NI43-101/C__SEDAR_FILINGS_North-Peaks_43-101_NPR-NI-43-101-Tech-Report,train,1,NI43-101/C__SEDAR_FILINGS_North-Peaks_43-101_NPR-NI-43-101-Tech-Report,q_3027
+NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report,validation,1,NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report,q_3028
+NI43-101/C__SEDAR_FILINGS_Element79_43-101_LuceroNI43-101-Final,train,1,NI43-101/C__SEDAR_FILINGS_Element79_43-101_LuceroNI43-101-Final,q_3030
+NI43-101/i__Securities_SEDAR_ToFile_Level14_Level14_Tech_Rept_May_2023,train,4,NI43-101/i__Securities_SEDAR_ToFile_Level14_Level14_Tech_Rept_May_2023,q_4002 | q_4029 | q_5014 | q_6029
+NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023,test,1,NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023,q_4005
+NI43-101/d__SEDAR_Montreal_Radisson_TechReport_0417,train,1,NI43-101/d__SEDAR_Montreal_Radisson_TechReport_0417,q_4007
+NI43-101/C__Users_silve_Downloads_Sedar_PEATR,train,2,NI43-101/C__Users_silve_Downloads_Sedar_PEATR,q_4008 | q_5015
+NI43-101/C__SEDAR_LUG_2023LUGTechnicalReport,train,1,NI43-101/C__SEDAR_LUG_2023LUGTechnicalReport,q_4010
+NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023,test,3,NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023,q_4013 | q_6006 | q_7011
+NI43-101/z__nou-43101-PEA-ang,validation,1,NI43-101/z__nou-43101-PEA-ang,q_4015
+NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp,validation,1,NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp,q_4016
+NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA,test,2,NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA,q_4021 | q_9014
+NI43-101/C__SEDAR_FILINGS_RMCTechnicalReport,train,1,NI43-101/C__SEDAR_FILINGS_RMCTechnicalReport,q_4022
+NI43-101/C__RedWillow_TechnicalReport,train,4,NI43-101/C__RedWillow_TechnicalReport,q_4024 | q_5027 | q_6001 | q_6005
+NI43-101/C__SEDARDocs_ASC-LaPrincesa_TechRep,train,1,NI43-101/C__SEDARDocs_ASC-LaPrincesa_TechRep,q_4025
+NI43-101/C__Filings_Alchemist_Technical_report_alchemist,train,1,NI43-101/C__Filings_Alchemist_Technical_report_alchemist,q_4026
+NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA,validation,1,NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA,q_4028
+NI43-101/n__SEDAR_WRLG_NI43-101_Report_Update_v20230619,train,2,NI43-101/n__SEDAR_WRLG_NI43-101_Report_Update_v20230619,q_4030 | q_8020
+seattle-planning/OneSeattlePlanDEIS,train,2,seattle-planning/OneSeattlePlanDEIS,q_5003 | q_5024
+NI43-101/p__BC_Securities_and_MA_SEDAR_DOWNLOAD_ARIS_20230331TR,train,1,NI43-101/p__BC_Securities_and_MA_SEDAR_DOWNLOAD_ARIS_20230331TR,q_5004
+NI43-101/C__SEDAR_FILINGS_HighTideTR04062023,train,2,NI43-101/C__SEDAR_FILINGS_HighTideTR04062023,q_5005 | q_7029
+FEMA/fema_bric-ema-2021-br-005-0044-nc-salisburywatersupplyresilency-fea-signed_fonsi-20240715,train,1,FEMA/fema_bric-ema-2021-br-005-0044-nc-salisburywatersupplyresilency-fea-signed_fonsi-20240715,q_5007
+NI43-101/C__FILINGS_SEDAR-OTC-CSE_722031_AAGBerenTR,train,3,NI43-101/C__FILINGS_SEDAR-OTC-CSE_722031_AAGBerenTR,q_5009 | q_5022 | q_6009
+NI43-101/C__SEDAR_FILINGS_3_Amend_43101_Jul122023_esign,train,1,NI43-101/C__SEDAR_FILINGS_3_Amend_43101_Jul122023_esign,q_5011
+seattle-planning/UptownDirectorsReport2017,validation,1,seattle-planning/UptownDirectorsReport2017,q_5013
+NI43-101/C__FILINGS_DarkStar_FinalProspectus_DarkStar_TechnicalReport,train,1,NI43-101/C__FILINGS_DarkStar_FinalProspectus_DarkStar_TechnicalReport,q_5016
+NI43-101/C__SEDAR_FILINGS_BenzMining_2023_TechReport_BZTechRpt,train,2,NI43-101/C__SEDAR_FILINGS_BenzMining_2023_TechReport_BZTechRpt,q_5017 | q_6014
+NI43-101/l__49926_1_TechReports2023_Guanacevi_Guanacevi_TechReport_2023,train,1,NI43-101/l__49926_1_TechReports2023_Guanacevi_Guanacevi_TechReport_2023,q_5019
+NI43-101/z__PUBLIC_Consolidated-Uranium-Inc_2023_AN-SPMeeting_CUR-Cyclone-Rim-TR,train,1,NI43-101/z__PUBLIC_Consolidated-Uranium-Inc_2023_AN-SPMeeting_CUR-Cyclone-Rim-TR,q_5021
+NI43-101/C__Upload_Denarius_2023_Apr14_Denarius_TechRep_0414,train,1,NI43-101/C__Upload_Denarius_2023_Apr14_Denarius_TechRep_0414,q_5023
+NI43-101/i__Soco_Sedar_2023_ST_Fokus_Technical_Report_FOKUS_techreport_NI43-101,train,2,NI43-101/i__Soco_Sedar_2023_ST_Fokus_Technical_Report_FOKUS_techreport_NI43-101,q_5026 | q_7001
+NI43-101/i__SEDAR_TrilogyMetals(NovaCopper)_2023_TechReportBornite_021423,train,1,NI43-101/i__SEDAR_TrilogyMetals(NovaCopper)_2023_TechReportBornite_021423,q_5029
+seattle-planning/lfs-test-case-memorandum,validation,1,seattle-planning/lfs-test-case-memorandum,q_5030
+NI43-101/C__SEDAR_FILINGS_StamperOil_2023_STMP2301170550_STMP2301170550TR,train,2,NI43-101/C__SEDAR_FILINGS_StamperOil_2023_STMP2301170550_STMP2301170550TR,q_6004 | q_8013
+NI43-101/C__Jul_14_Reunion_TR,train,1,NI43-101/C__Jul_14_Reunion_TR,q_6007
+NI43-101/C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23,train,2,NI43-101/C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23,q_6008 | q_6018
+NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport,validation,1,NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport,q_6012
+NI43-101/C__SEDAR_TechnicalReport (1),train,1,NI43-101/C__SEDAR_TechnicalReport (1),q_6013
+NI43-101/C__SEDAR_FILINGS_OSK_TchRpt_WindfallProjectJan2023,train,4,NI43-101/C__SEDAR_FILINGS_OSK_TchRpt_WindfallProjectJan2023,q_6015 | q_6024 | q_7020 | q_7021
+NI43-101/d__AYM-NI43-101-PEA-Feb21-2023,train,1,NI43-101/d__AYM-NI43-101-PEA-Feb21-2023,q_6019
+NI43-101/k__filings_livework_wkout_71400_Karora_TechReport,train,1,NI43-101/k__filings_livework_wkout_71400_Karora_TechReport,q_6023
+NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323,validation,1,NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323,q_6025
+NI43-101/g__Sayona_2023_Moblan_20230414_Moblan_Report,train,2,NI43-101/g__Sayona_2023_Moblan_20230414_Moblan_Report,q_6026 | q_8002
+NI43-101/C__SF_TECHREPORT,validation,1,NI43-101/C__SF_TECHREPORT,q_6027
+NI43-101/z__Manuela_TechnicalR,train,1,NI43-101/z__Manuela_TechnicalR,q_6030
+NI43-101/f__Arabella_SEDAR_KNGTechReport,validation,1,NI43-101/f__Arabella_SEDAR_KNGTechReport,q_7002
+NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose,test,1,NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose,q_7004
+NI43-101/y__filings_livework_wkout_71500_HopeMining_TechReport,train,1,NI43-101/y__filings_livework_wkout_71500_HopeMining_TechReport,q_7008
+NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL,validation,2,NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL,q_7009 | q_8010
+FEMA/fema_ehp-hmgp-dr-4407-ca-buttecountywildfiremitigation-dea-20240411,train,1,FEMA/fema_ehp-hmgp-dr-4407-ca-buttecountywildfiremitigation-dea-20240411,q_7010
+NI43-101/C__MS_SEDAR_Technical_Report_MAC_Project,train,2,NI43-101/C__MS_SEDAR_Technical_Report_MAC_Project,q_7015 | q_8004
+NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA,validation,1,NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA,q_7016
+NI43-101/C__KosterDamTechReportISM,validation,2,NI43-101/C__KosterDamTechReportISM,q_7017 | q_9003
+FEMA/fema_pa-dr-4611-3143-la-southterrebonnemiddleschool-fea-20250311,train,2,FEMA/fema_pa-dr-4611-3143-la-southterrebonnemiddleschool-fea-20250311,q_7018 | q_7026
+NI43-101/C__Users_Nathalie_Documents_RappTech,train,1,NI43-101/C__Users_Nathalie_Documents_RappTech,q_7019
+NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport,test,1,NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport,q_7022
+NI43-101/C__SEDAR_FILINGS_SantaAna2023,train,1,NI43-101/C__SEDAR_FILINGS_SantaAna2023,q_7023
+FEMA/fema-oehp_hmgp-dr-4489-0041-il-peoria-borrow-fsea-fonsi-07022025,train,1,FEMA/fema-oehp_hmgp-dr-4489-0041-il-peoria-borrow-fsea-fonsi-07022025,q_7028
+NI43-101/C__1SEDARFilings_CascadeTechnicalPriJan24,train,1,NI43-101/C__1SEDARFilings_CascadeTechnicalPriJan24,q_8006
+FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217,validation,3,FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217,q_8009 | q_8022 | q_8027
+NI43-101/C__SEDAR_FILINGS_SEM_PROSPECTUS_FINAL_4SEMTechReportMurdockMtn,train,1,NI43-101/C__SEDAR_FILINGS_SEM_PROSPECTUS_FINAL_4SEMTechReportMurdockMtn,q_8012
+NI43-101/k__filings_livework_wkout_71561_E3Lithium_TechReport,train,1,NI43-101/k__filings_livework_wkout_71561_E3Lithium_TechReport,q_8014
+NI43-101/C__SEDAR_FILINGS_AAAA_Viscount_2023-KSR-43-101F,train,1,NI43-101/C__SEDAR_FILINGS_AAAA_Viscount_2023-KSR-43-101F,q_8015
+NI43-101/C__Users_sedar.LAW_Desktop_Hermonie_WhistlerTR,train,1,NI43-101/C__Users_sedar.LAW_Desktop_Hermonie_WhistlerTR,q_8016
+NI43-101/C__SEDAR_FILINGS_20230628collectivetech,train,1,NI43-101/C__SEDAR_FILINGS_20230628collectivetech,q_8017
+NI43-101/C__SEDAR_TechnicalReport,train,1,NI43-101/C__SEDAR_TechnicalReport,q_8021
+NI43-101/C__TK_SEDAR_4847_102_7TECHREPORT,train,1,NI43-101/C__TK_SEDAR_4847_102_7TECHREPORT,q_8023
+FEMA/fema_ehp-bric-emd-2021-br-063-0016-ut-citycreekwtp-dea-20240318,train,1,FEMA/fema_ehp-bric-emd-2021-br-063-0016-ut-citycreekwtp-dea-20240318,q_8024
+NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss,test,1,NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss,q_8028
+NI43-101/C__SEDAR_FILINGS_Volt_230523TechReport,train,1,NI43-101/C__SEDAR_FILINGS_Volt_230523TechReport,q_8029
+FEMA/fema_bric-ema-2020-br-100-0009-nc-lumbertonloop-fea-signedfonsi-20240731,train,1,FEMA/fema_bric-ema-2020-br-100-0009-nc-lumbertonloop-fea-signedfonsi-20240731,q_8030
+NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL,validation,1,NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL,q_9006
+NI43-101/C__SEDAR_FILINGS_20230711LithiumChileNI43101,train,1,NI43-101/C__SEDAR_FILINGS_20230711LithiumChileNI43101,q_9007
+NI43-101/C__SEDAR_FILINGS_ESGold_TechnicalReport_Montauban,train,1,NI43-101/C__SEDAR_FILINGS_ESGold_TechnicalReport_Montauban,q_9010
+NI43-101/z__PUBLIC_Lundin-Mining-Corporation_2023_technical-reports_Caserones_Lundin-NI43-101-TR-Caserones,train,1,NI43-101/z__PUBLIC_Lundin-Mining-Corporation_2023_technical-reports_Caserones_Lundin-NI43-101-TR-Caserones,q_9011
+NI43-101/C___docs_221231alturasMineralsAFSaif_220629alturasMineralsTR_cwm,train,2,NI43-101/C___docs_221231alturasMineralsAFSaif_220629alturasMineralsTR_cwm,q_9012 | q_9015
+NI43-101/C__Data_zbnitrjul17,train,2,NI43-101/C__Data_zbnitrjul17,q_9016 | q_9023
+NI43-101/C__KC_SEDAR_4811101_LABTechnicalReport,train,1,NI43-101/C__KC_SEDAR_4811101_LABTechnicalReport,q_9019

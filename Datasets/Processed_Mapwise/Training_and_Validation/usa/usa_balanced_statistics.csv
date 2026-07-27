@@ -1,0 +1,4 @@
+﻿split,QA_total,data_groups,map_versions,Binary,Binary_pct,Count,Count_pct,Range,Range_pct,Single,Single_pct,List,List_pct,Binary_target,Binary_difference,Count_target,Count_difference,Range_target,Range_difference,Single_target,Single_difference,List_target,List_difference
+filtered_candidate_pool,841,98,98,349,41.5,32,3.8,146,17.36,126,14.98,188,22.35,,,,,,,,,,
+train,175,21,21,53,30.29,17,9.71,35,20.0,34,19.43,36,20.57,35.0,18.0,35.0,-18.0,35.0,0.0,35.0,-1.0,35.0,1.0
+validation,38,5,5,9,23.68,6,15.79,8,21.05,7,18.42,8,21.05,7.6,1.4,7.6,-1.6,7.6,0.4,7.6,-0.6,7.6,0.4

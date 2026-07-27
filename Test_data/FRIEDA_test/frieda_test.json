@@ -1,0 +1,2613 @@
+[
+  {
+    "question_ref": "q_0001",
+    "question_text": "The 23rd Ave and E Union St Rezone (Draft) classifies each area into four distinct Rezone Areas. The rezone area that includes the 'Midtown Center' and the 'Post Office' overlaps with which four streets forming its borders?",
+    "expected_answer": "23RD AVE; 24TH AVE; E PIKE ST; E SPRING ST",
+    "image_urls": [
+      "seattle-planning/23rdAvenueUDF/image25_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/23rdAvenueUDF/image37_m1.png",
+      "seattle-planning/23rdAvenueUDF/image34_1.png",
+      "seattle-planning/23rdAvenueUDF/image25_m0.png",
+      "seattle-planning/23rdAvenueUDF/image22_m0.png",
+      "seattle-planning/23rdAvenueUDF/image35_m0.png",
+      "seattle-planning/23rdAvenueUDF/image31_m0.png",
+      "seattle-planning/23rdAvenueUDF/image23_m0.png",
+      "seattle-planning/23rdAvenueUDF/image29_m0.png",
+      "seattle-planning/23rdAvenueUDF/image38_m4.png",
+      "seattle-planning/23rdAvenueUDF/image37_m0.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/23rdAvenueUDF"
+    ],
+    "source_document_id": "seattle-planning/23rdAvenueUDF",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0002",
+    "question_text": "The 23rd Ave and E Union St Rezone (Draft) classifies each area into four distinct Rezone Areas. With which Rezone Area does 'Rezone Area 4' share its westernmost boundary. Give the name of the area in form Rezone Area #.",
+    "expected_answer": "Rezone Area 6",
+    "image_urls": [
+      "seattle-planning/23rdAvenueUDF/image31_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/23rdAvenueUDF/image37_m0.png",
+      "seattle-planning/23rdAvenueUDF/image38_m4.png",
+      "seattle-planning/23rdAvenueUDF/image25_m0.png",
+      "seattle-planning/23rdAvenueUDF/image23_m0.png",
+      "seattle-planning/23rdAvenueUDF/image31_m0.png",
+      "seattle-planning/23rdAvenueUDF/image35_m0.png",
+      "seattle-planning/23rdAvenueUDF/image37_m1.png",
+      "seattle-planning/23rdAvenueUDF/image22_m0.png",
+      "seattle-planning/23rdAvenueUDF/image29_m0.png",
+      "seattle-planning/23rdAvenueUDF/image34_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/23rdAvenueUDF"
+    ],
+    "source_document_id": "seattle-planning/23rdAvenueUDF",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0003",
+    "question_text": "In the neighborhood node crossed by S Jackson Street and located near Washington Middle School, there are two Current Transit stops. Which 'Central Greenway Phase 3' is located closer to these two stops?",
+    "expected_answer": "Central Greenway Phase 3: Alternative 1",
+    "image_urls": [
+      "seattle-planning/23rdAvenueUDF/image35_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/23rdAvenueUDF/image37_m0.png",
+      "seattle-planning/23rdAvenueUDF/image34_1.png",
+      "seattle-planning/23rdAvenueUDF/image25_m0.png",
+      "seattle-planning/23rdAvenueUDF/image29_m0.png",
+      "seattle-planning/23rdAvenueUDF/image38_m4.png",
+      "seattle-planning/23rdAvenueUDF/image44_m3.png",
+      "seattle-planning/23rdAvenueUDF/image35_m0.png",
+      "seattle-planning/23rdAvenueUDF/image37_m1.png",
+      "seattle-planning/23rdAvenueUDF/image45_m3.png",
+      "seattle-planning/23rdAvenueUDF/image31_m0.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/23rdAvenueUDF"
+    ],
+    "source_document_id": "seattle-planning/23rdAvenueUDF",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0004",
+    "question_text": "In the 23rd Ave and S Jackson St Rezone (Draft), 'Rezone Area 8' is divided into approximately four segments by the “Max structure width of 250'” lines, excluding the central area enclosed within these lines. In which cardinal direction is the segment closest to Franz Bakery located?",
+    "expected_answer": "South West",
+    "image_urls": [
+      "seattle-planning/23rdAvenueUDF/image37_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "seattle-planning/23rdAvenueUDF/image37_m1.png",
+      "seattle-planning/23rdAvenueUDF/image44_m3.png",
+      "seattle-planning/23rdAvenueUDF/image34_1.png",
+      "seattle-planning/23rdAvenueUDF/image31_m0.png",
+      "seattle-planning/23rdAvenueUDF/image38_m4.png",
+      "seattle-planning/23rdAvenueUDF/image37_m0.png",
+      "seattle-planning/23rdAvenueUDF/image45_m4.png",
+      "seattle-planning/23rdAvenueUDF/image35_m0.png",
+      "seattle-planning/23rdAvenueUDF/image45_m3.png",
+      "seattle-planning/23rdAvenueUDF/image29_m0.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/23rdAvenueUDF"
+    ],
+    "source_document_id": "seattle-planning/23rdAvenueUDF",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0080",
+    "question_text": "Identify the 'PHASE 1B' CST phasing line. How many 'SUBJECT TO DETAILED PLANNING' areas does this line intersect with?",
+    "expected_answer": "2",
+    "image_urls": [
+      "sg-ura/AnnualReport_1997-1998/image16_1.png",
+      "sg-ura/AnnualReport_1997-1998/image18_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/AnnualReport_1997-1998/image14_1.png",
+      "sg-ura/AnnualReport_1997-1998/image12_1.png",
+      "sg-ura/AnnualReport_1997-1998/image20_1.png",
+      "sg-ura/AnnualReport_1997-1998/image26_1.png",
+      "sg-ura/AnnualReport_1997-1998/image16_1.png",
+      "sg-ura/AnnualReport_1997-1998/image13_1.png",
+      "sg-ura/AnnualReport_1997-1998/image18_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "sg-ura/AnnualReport_1997-1998"
+    ],
+    "source_document_id": "sg-ura/AnnualReport_1997-1998",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0089",
+    "question_text": "In the Concept Plan of the Historic District of Little India, identify the unnamed ‘CAR PARK’ point. What is the name of the farthest named ‘CAR PARK’ from this point?",
+    "expected_answer": "President Shopping Centre/Hotel",
+    "image_urls": [
+      "sg-ura/30yrs-of-conservation/image15_m1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/30yrs-of-conservation/image6_m2.png",
+      "sg-ura/30yrs-of-conservation/image29_m3.png",
+      "sg-ura/30yrs-of-conservation/image15_m1.png",
+      "sg-ura/30yrs-of-conservation/image6_m1.png",
+      "sg-ura/30yrs-of-conservation/image31_m1.png",
+      "sg-ura/30yrs-of-conservation/image14_m0.png",
+      "sg-ura/30yrs-of-conservation/image15_m0.png",
+      "sg-ura/30yrs-of-conservation/image36_m1.png",
+      "sg-ura/30yrs-of-conservation/image12_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/30yrs-of-conservation"
+    ],
+    "source_document_id": "sg-ura/30yrs-of-conservation",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0090",
+    "question_text": "Within Chinatown, each area inside the conservation boundary is labeled with a name (e.g., TANGJONG PAGAR) and each Gazetted Monument is labeled with a number and name (e.g., 5: Al-Abrar Mosque). Which Gazetted Monuments are located in the area that contains the ‘Future malls’ line? Give just the names.",
+    "expected_answer": "Jamae Mosque; Sri Mariamman Temple",
+    "image_urls": [
+      "sg-ura/AnnualReport_1997-1998/image26_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/AnnualReport_1997-1998/image14_1.png",
+      "sg-ura/AnnualReport_1997-1998/image26_1.png",
+      "sg-ura/AnnualReport_1997-1998/image18_1.png",
+      "sg-ura/AnnualReport_1997-1998/image13_1.png",
+      "sg-ura/AnnualReport_1997-1998/image12_1.png",
+      "sg-ura/AnnualReport_1997-1998/image20_1.png",
+      "sg-ura/AnnualReport_1997-1998/image16_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/AnnualReport_1997-1998"
+    ],
+    "source_document_id": "sg-ura/AnnualReport_1997-1998",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0103",
+    "question_text": "As given in the Extended Central Sketch Plan, how many ‘Major Bus Terminals’ are located inside the ‘High Density Housing with Commercial Uses’ region?",
+    "expected_answer": "1",
+    "image_urls": [
+      "sg-ura/30yrs-of-conservation/image6_m1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/30yrs-of-conservation/image36_m1.png",
+      "sg-ura/30yrs-of-conservation/image12_1.png",
+      "sg-ura/30yrs-of-conservation/image15_m0.png",
+      "sg-ura/30yrs-of-conservation/image31_m1.png",
+      "sg-ura/30yrs-of-conservation/image14_m0.png",
+      "sg-ura/30yrs-of-conservation/image6_m1.png",
+      "sg-ura/30yrs-of-conservation/image15_m1.png",
+      "sg-ura/30yrs-of-conservation/image6_m2.png",
+      "sg-ura/30yrs-of-conservation/image29_m3.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/30yrs-of-conservation"
+    ],
+    "source_document_id": "sg-ura/30yrs-of-conservation",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0106",
+    "question_text": "What is the shortest distance between the Initiation Point (145) and the Project Impact Boundary as given in AIIB's Integrated Landslide Hazard Zoning?",
+    "expected_answer": "40 m",
+    "image_urls": [
+      "aiib/P000124-SL-Landslide/image51_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "aiib/P000124-SL-Landslide/image36_2.png",
+      "aiib/P000124-SL-Landslide/image40_m1.png",
+      "aiib/P000124-SL-Landslide/image50_m0.png",
+      "aiib/P000124-SL-Landslide/image39_m1.png",
+      "aiib/P000124-SL-Landslide/image52_1.png",
+      "aiib/P000124-SL-Landslide/image37_1.png",
+      "aiib/P000124-SL-Landslide/image51_1.png",
+      "aiib/P000124-SL-Landslide/image38_1.png",
+      "aiib/P000124-SL-Landslide/image35_1.png"
+    ],
+    "domain": "Investment/infrastructure",
+    "map_elements": [
+      "legend",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "aiib/P000124-SL-Landslide"
+    ],
+    "source_document_id": "aiib/P000124-SL-Landslide",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0115",
+    "question_text": "China Square is divided into multiple land parcels, each labeled with an alphabet. What is the orientation of 'Parcel B' in relation to 'Parcel D'?",
+    "expected_answer": "West",
+    "image_urls": [
+      "sg-ura/AnnualReport_1997-1998/image20_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "sg-ura/AnnualReport_1997-1998/image18_1.png",
+      "sg-ura/AnnualReport_1997-1998/image20_1.png",
+      "sg-ura/AnnualReport_1997-1998/image13_1.png",
+      "sg-ura/AnnualReport_1997-1998/image12_1.png",
+      "sg-ura/AnnualReport_1997-1998/image16_1.png",
+      "sg-ura/AnnualReport_1997-1998/image26_1.png",
+      "sg-ura/AnnualReport_1997-1998/image14_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/AnnualReport_1997-1998"
+    ],
+    "source_document_id": "sg-ura/AnnualReport_1997-1998",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0119",
+    "question_text": "Each 'Critical Location' point in the AIIB Selected Landslide Sites is associated with a one-digit, two-digit, or three-digit number. Identify the 'Critical Location' point numbers within MATARA that are intersected by a Major Road.",
+    "expected_answer": "19; 21; 22",
+    "image_urls": [
+      "aiib/P000124-SL-Landslide/image35_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "aiib/P000124-SL-Landslide/image52_1.png",
+      "aiib/P000124-SL-Landslide/image37_1.png",
+      "aiib/P000124-SL-Landslide/image39_m1.png",
+      "aiib/P000124-SL-Landslide/image50_m0.png",
+      "aiib/P000124-SL-Landslide/image40_m1.png",
+      "aiib/P000124-SL-Landslide/image35_1.png",
+      "aiib/P000124-SL-Landslide/image38_1.png",
+      "aiib/P000124-SL-Landslide/image36_2.png",
+      "aiib/P000124-SL-Landslide/image51_1.png"
+    ],
+    "domain": "Investment/infrastructure",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "aiib/P000124-SL-Landslide"
+    ],
+    "source_document_id": "aiib/P000124-SL-Landslide",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0131",
+    "question_text": "Within the 'BUKIT PASOH' area of the Historic District Chinatown, how many 'ENVELOPE CONTROL SITE's are located inside it?",
+    "expected_answer": "5",
+    "image_urls": [
+      "sg-ura/30yrs-of-conservation/image14_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/30yrs-of-conservation/image6_m1.png",
+      "sg-ura/30yrs-of-conservation/image36_m1.png",
+      "sg-ura/30yrs-of-conservation/image14_m0.png",
+      "sg-ura/30yrs-of-conservation/image15_m0.png",
+      "sg-ura/30yrs-of-conservation/image29_m3.png",
+      "sg-ura/30yrs-of-conservation/image31_m1.png",
+      "sg-ura/30yrs-of-conservation/image15_m1.png",
+      "sg-ura/30yrs-of-conservation/image12_1.png",
+      "sg-ura/30yrs-of-conservation/image6_m2.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/30yrs-of-conservation"
+    ],
+    "source_document_id": "sg-ura/30yrs-of-conservation",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0135",
+    "question_text": "In the AIIB Project, the Critical Landslide Sites are divided into two regions: RE North and RE South. The Other Sites are grouped into three 'Group's, each consisting of multiple 'Pack's. Identify the Group located entirely within the 'RE South' region. What are the Pack numbers (with leading zeros) included in this Group?",
+    "expected_answer": "05; 07; 08; 09",
+    "image_urls": [
+      "aiib/P000124-SL-Landslide/image36_2.png",
+      "aiib/P000124-SL-Landslide/image37_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "aiib/P000124-SL-Landslide/image50_m0.png",
+      "aiib/P000124-SL-Landslide/image38_1.png",
+      "aiib/P000124-SL-Landslide/image51_1.png",
+      "aiib/P000124-SL-Landslide/image52_1.png",
+      "aiib/P000124-SL-Landslide/image36_2.png",
+      "aiib/P000124-SL-Landslide/image40_m1.png",
+      "aiib/P000124-SL-Landslide/image37_1.png",
+      "aiib/P000124-SL-Landslide/image39_m1.png",
+      "aiib/P000124-SL-Landslide/image35_1.png"
+    ],
+    "domain": "Investment/infrastructure",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "aiib/P000124-SL-Landslide"
+    ],
+    "source_document_id": "aiib/P000124-SL-Landslide",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0140",
+    "question_text": "The Lake Lery Marsh Creation and Rim Restoration Phase III divides the Project Area into three categories, each named in the form of '{NAME} Area'. Which categories correspond to the Site Outline shown in Lake Lery Phase III? Provide only the NAME portion.",
+    "expected_answer": "Borrow; Project",
+    "image_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image8_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image120_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image119_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image112_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image14_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image121_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image8_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702"
+    ],
+    "source_document_id": "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0146",
+    "question_text": "Identify the area referred to as the Marsh Creation Borrow Area (MCBA) in the Project Proposed Action. What is this area called in the Proposed Impacts of the Lake Lery Marsh Creation and Rim Restoration Phase III?",
+    "expected_answer": "Dredge Area",
+    "image_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image14_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image23_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image14_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image21_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image8_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image23_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image39_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image112_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702"
+    ],
+    "source_document_id": "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0148",
+    "question_text": "In the Flood Hazard Zones map, by what other name is the 'Vegetation Removal Area' of the T.C. Jester Stormwater Detention Basin referred?",
+    "expected_answer": "Areas of Basins",
+    "image_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image45_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image41_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image37_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image45_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image11_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image41_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image50_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image115_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image98_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image99_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image39_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image12_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202"
+    ],
+    "source_document_id": "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0153",
+    "question_text": "In the T.C. Jester Stormwater Detention Basin, what are the 'Flood Hazard Zones' that contain the two 'Wet-Bottom Area in Proposed Basins'?",
+    "expected_answer": "1% Annual Chance Flood Hazard; Regulatory Floodway",
+    "image_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image39_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image98_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image115_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image50_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image39_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image12_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image45_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image99_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image98_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image41_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image37_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image125_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202"
+    ],
+    "source_document_id": "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0160",
+    "question_text": "The T.C. Jester Stormwater Detention Basin consists of several area types ending with 'Wetlands'. Which type overlaps with the 'Proposed Basin 1A' Action Area? Provide the answer including the word 'Wetlands'.",
+    "expected_answer": "Delineated Wetlands",
+    "image_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image99_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image115_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image150_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image115_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image149_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image156_m0.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image164_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image155_m0.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image163_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image99_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image125_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image98_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202"
+    ],
+    "source_document_id": "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0165",
+    "question_text": "The 'Perimeter Line ~ 16.984'' in Lake Lery Phase III corresponds to which line bordering the Marsh Creation Area (MCA) as indicated in the legend?",
+    "expected_answer": "EARTHEN CONTAINMENT DIKE BORROW AREA (ECD-BA)",
+    "image_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image143_m0.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image143_m1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image119_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image120_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image112_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image121_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702"
+    ],
+    "source_document_id": "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0173",
+    "question_text": "What is the approximate distance, in miles, between the two Dam Embankments in the Hancock County Flood Risk Reduction Project?",
+    "expected_answer": "0.62 Miles",
+    "image_urls": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image125_m0.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image165_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image173_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image163_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image126_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image172_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image164_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image127_m0.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image165_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image124_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image123_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image125_m0.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "map text",
+      "scale"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925"
+    ],
+    "source_document_id": "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0174",
+    "question_text": "In the Hancock County Flood Risk Reduction Project, which Flood Hazard type does the PROP MAJOR 5\" CONTOUR cross?",
+    "expected_answer": "Zone AE - Regulatory Floodway",
+    "image_urls": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image30_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image123_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image135_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image125_m0.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image127_m0.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image25_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image126_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image31_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image124_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image24_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image123_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image30_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925"
+    ],
+    "source_document_id": "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0189",
+    "question_text": "What is the name of the creek that intersects the 'APE' area but is disjoint from the 'Proposed Basin' area? Provide the answer without including the word 'Creek'.",
+    "expected_answer": "Cypress",
+    "image_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image164_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image163_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image125_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image150_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image163_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image149_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image99_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image155_m0.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image115_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image156_m0.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image178_m3.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image164_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202"
+    ],
+    "source_document_id": "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0190",
+    "question_text": "What is the approximate distance from the ‘6. BROOKLINE DR. FLOOD STUDY’ to the easternmost Utility Pole location in the Rayhill Memorial Trail project in Oneida County, New York?",
+    "expected_answer": "7500 Feet",
+    "image_urls": [
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image55_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image62_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image50_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image62_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image52_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image39_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image55_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image59_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image60_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image51_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image61_1.png",
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722/image56_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text",
+      "scale"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722"
+    ],
+    "source_document_id": "FEMA/fema_pa-dr-4472-00801-ny-rayhilltrail-dea-20240722",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0191",
+    "question_text": "What is the label of the 'Water Depth' at the northwest corner of the 'Estuarine and Marine Deepwater' within the Project Area of the Lake Lery Marsh Creation and Rim Restoration Phase III?",
+    "expected_answer": "-4'",
+    "image_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image21_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image21_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image120_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image121_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image119_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image112_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image23_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702"
+    ],
+    "source_document_id": "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0192",
+    "question_text": "Which 'Flood Hazard Zones' area contains the 'Estuarine and Marine Wetland' region, as shown in the City of New Haven Inland and Coastal Flood Resiliency Project? Provide the name, excluding the 'Hazard Zone' portion.",
+    "expected_answer": "1% Annual Chance",
+    "image_urls": [
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image31_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image34_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image17_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image20_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image34_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image8_m0.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image62_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image31_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904"
+    ],
+    "source_document_id": "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0195",
+    "question_text": "What is the orientation of Interstate 75 (the line labled \"75\") in relation to Township Road 49 within the Eagle Creek Basin?",
+    "expected_answer": "North West",
+    "image_urls": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image9_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image16_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image31_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image16_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image15_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image123_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image30_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image25_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image9_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image24_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image50_1.png",
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925/image124_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925"
+    ],
+    "source_document_id": "FEMA/fema_oehp_hancock-county-flood-risk-reduction-program_050925",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_0199",
+    "question_text": "Identify the 'Inflow Weirs' area within 'Proposed Basin 1A' of the T.C. Jester Stormwater Detention Basin project area. What is the orientation of the identified 'Inflow Weirs' area in relation to 'BEECHAM DR'?",
+    "expected_answer": "North West",
+    "image_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image12_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image149_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image163_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image156_m0.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image37_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image11_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image150_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image164_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image125_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image12_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image155_m0.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image149_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202"
+    ],
+    "source_document_id": "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1017",
+    "question_text": "In the vicinity of Yosemite National Park, which quadrangles does the northernmost segment of CA-41 Highway (north of the city of Oakhurst) intersect with?",
+    "expected_answer": "Yosemite; Bass Lake",
+    "image_urls": [
+      "national-parks/659668/image1_m1.png",
+      "national-parks/659668/image1_m32.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "national-parks/659668/image1_m3.png",
+      "national-parks/659668/image1_m43.png",
+      "national-parks/659668/image1_m32.png",
+      "national-parks/659668/image1_m8.png",
+      "national-parks/659668/image1_m4.png",
+      "national-parks/659668/image1_m9.png",
+      "national-parks/659668/image1_m7.png",
+      "national-parks/659668/image1_m44.png",
+      "national-parks/659668/image1_m1.png",
+      "national-parks/659668/image1_m14.png"
+    ],
+    "domain": "Park & trail map",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "national-parks/659668"
+    ],
+    "source_document_id": "national-parks/659668",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1024",
+    "question_text": "What type of area is not intersected by the 'Leeves' line in the Project Area and Vincinity of CRFREE Project?",
+    "expected_answer": "State Parks Barn Complex",
+    "image_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image93_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image94_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image98_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image97_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image99_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image154_m0.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image101_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image93_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image96_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image100_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image94_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image95_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025"
+    ],
+    "source_document_id": "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1025",
+    "question_text": "In what orientation is Minute Man National Historical Park relative to the 7.5-minute quadrangle of Natick?",
+    "expected_answer": "North",
+    "image_urls": [
+      "national-parks/639106/image1_m2.png",
+      "national-parks/639106/image1_m9.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "national-parks/639106/image1_m10.png",
+      "national-parks/639106/image1_m7.png",
+      "national-parks/639106/image1_m6.png",
+      "national-parks/639106/image1_m9.png",
+      "national-parks/639106/image1_m2.png"
+    ],
+    "domain": "Park & trail map",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "national-parks/639106"
+    ],
+    "source_document_id": "national-parks/639106",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1033",
+    "question_text": "In what orientation is Snag Peak block relative to the city of Seattle?",
+    "expected_answer": "North West",
+    "image_urls": [
+      "national-parks/646954/image1_m1.png",
+      "national-parks/646954/image1_m2.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "national-parks/646954/image1_m7.png",
+      "national-parks/646954/image1_m13.png",
+      "national-parks/646954/image1_m11.png",
+      "national-parks/646954/image1_m1.png",
+      "national-parks/646954/image1_m2.png",
+      "national-parks/646954/image1_m3.png",
+      "national-parks/646954/image1_m5.png",
+      "national-parks/646954/image1_m9.png"
+    ],
+    "domain": "Park & trail map",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "national-parks/646954"
+    ],
+    "source_document_id": "national-parks/646954",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1068",
+    "question_text": "In the CRFREE Project, what type of CAWD Pipeline Undergrounding and Replacement Work Area nearly exactly overlaps with the Trenching Area?",
+    "expected_answer": "Existing Lagoon Crossing Structure",
+    "image_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image99_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image189_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image97_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image94_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image96_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image99_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image95_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image98_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image189_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image93_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image101_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image100_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025"
+    ],
+    "source_document_id": "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1071",
+    "question_text": "Around the North Chicago Storm Sewer Project area, in which orientation is the westernmost 'Staging Area' located relative to the 'Naval Station Great Lakes'?",
+    "expected_answer": "South West",
+    "image_urls": [
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image10_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image32_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image49_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image13_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image54_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image26_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image55_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image32_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image10_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024"
+    ],
+    "source_document_id": "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1080",
+    "question_text": "In the CRFREE Project, in which orientation is the 'Intermittent Drainage Channel (MFCA)' located relative to the 'CARMEL MEADOWS PUMP STATION'?",
+    "expected_answer": "East",
+    "image_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image97_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image98_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image93_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image154_m0.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image94_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image96_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image100_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image99_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image95_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image97_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image98_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image101_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025"
+    ],
+    "source_document_id": "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1081",
+    "question_text": "The CRFREE Project Area/Vicinity and Parcels are classified into one of six types. What type of Project Area/Vicinity and Parcels is the Project Component of the 'State Parks Barn Complex'?",
+    "expected_answer": "California State Parks",
+    "image_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image95_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image101_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image96_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image100_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image93_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image97_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image95_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image101_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image99_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image94_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image98_1.png",
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025/image154_m0.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025"
+    ],
+    "source_document_id": "FEMA/fema_r9_draft-environmental-assessment-for-carmel-river-floodplain-restoration-and-environmental-enhancement-project-hmgp-dr-4344-539-097-ca_042025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1093",
+    "question_text": "What is the orientation of 'Bryan Palmer & Barry Maust' in relation to 'Gary Blocher' within the Meyersdale Study Area?",
+    "expected_answer": "South",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image21_m1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image10_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image26_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image21_m0.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image19_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image20_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image11_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image15_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image12_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image22_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image21_m1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1095",
+    "question_text": "What is the dominant travel time range of the 'Paya Lebar' region? The ranges are labeled in the format 'minimum mins < Travel Time ≤ maximum mins.' Provide only the maximum value in minutes.",
+    "expected_answer": "60",
+    "image_urls": [
+      "sg-ura/Skyline_Issue_13/image7_m2.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/Skyline_Issue_13/image17_1.png",
+      "sg-ura/Skyline_Issue_13/image12_m1.png",
+      "sg-ura/Skyline_Issue_13/image7_m1.png",
+      "sg-ura/Skyline_Issue_13/image14_m1.png",
+      "sg-ura/Skyline_Issue_13/image9_m2.png",
+      "sg-ura/Skyline_Issue_13/image15_m1.png",
+      "sg-ura/Skyline_Issue_13/image7_m0.png",
+      "sg-ura/Skyline_Issue_13/image7_m2.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/Skyline_Issue_13"
+    ],
+    "source_document_id": "sg-ura/Skyline_Issue_13",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1103",
+    "question_text": "Areas within the NSO Eastern Boundary are assigned a name (e.g., South CA Coast). What is the name of the area that shares a border with the 'Sierra Nevada' CSO Range?",
+    "expected_answer": "South CA Cascades Zone",
+    "image_urls": [
+      "EIS/Final EIS - Barred Owl Management Strategy/image146_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image56_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Final EIS - Barred Owl Management Strategy/image50_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image146_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image52_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image44_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image56_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image144_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image145_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image147_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image48_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image54_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Final EIS - Barred Owl Management Strategy"
+    ],
+    "source_document_id": "EIS/Final EIS - Barred Owl Management Strategy",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1128",
+    "question_text": "All 'Noise Sensitive Areas' (NSA) within the study area are associated with a number (e.g., NSA 1). Identify the NSAs located within Somerset County, Pennsylvania. Among these, which NSAs lie west of the 'Alignment AE' area? Provide your answer in the format NSA #.",
+    "expected_answer": "NSA 7; NSA 8; NSA 10; NSA 9; NSA 11; NSA 12; NSA 13; NSA 14",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image241_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image273_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image245_m1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image273_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image222_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image216_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image236_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image226_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image227_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image220_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image241_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image237_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1129",
+    "question_text": "Identify all 'Sharp Curves' roadway lines that cross a boundary between two townships. For these sharp curve segments, how many 'Sight Distance' points are located along them? (If a sight distance symbol has two arrows originating from it, count it as one point.)",
+    "expected_answer": "3",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image119_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image124_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image126_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image119_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image101_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image117_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image121_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image137_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image131_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image133_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image122_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1134",
+    "question_text": "Identify the 'I-68 Corridor Overuse' area near Somerset. Which area is intersected by the boundary of the identified area?",
+    "expected_answer": "SR 669 Weight Restrictions",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image629_m9.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image629_m9.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image631_m0.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image647_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image626_m0.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image633_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image625_m0.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image648_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image619_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image642_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image650_m0.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1139",
+    "question_text": "The Buffalo-Amherst–Tonawanda Corridor Transit Expansion includes several categories of 'Track Alignments' (legend labels beginning with 'Track Alignment,'). Identify the 'LIGHT RAIL GRADE SEPARATED' line located along Maple Road and Sweet Home Road. With which type of Track Alignment line does this segment overlap?",
+    "expected_answer": "Track Alignment, Below Grade",
+    "image_urls": [
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image8_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image16_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image9_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image21_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image19_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image24_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image18_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image12_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image8_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image20_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image10_1.png",
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered/image16_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered"
+    ],
+    "source_document_id": "EIS/MetroTransitExpansion_Chapter 2_Alternatives Considered",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1141",
+    "question_text": "What is the name of the 'Potentially Eligible Resources' area that shares a border with the 'MD Priority Funding Areas'?",
+    "expected_answer": "Kinsinger Farm",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image222_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image226_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image241_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image226_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image208_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image216_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image222_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image227_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image220_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image215_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image236_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image237_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1142",
+    "question_text": "Identify the 'Federal Opportunity Zone' within the Meyersdale Transportation 'Study Area'. What is the 'Minority Population Percentage by Block Group (2020 Decennial Data)' for this region? Provide the answer in the exact range format ({number}-{number}) without the percentage (%) symbol.",
+    "expected_answer": "3.01-6.00",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image770_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image781_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image770_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image785_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image789_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image765_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image764_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image782_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image795_m0.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image781_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image759_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image769_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1146",
+    "question_text": "Identify the 'Physiographic Province' in which 'Portland' is located. Which 'Physiographic Provinces' share a border with the identified province?",
+    "expected_answer": "Oregon Coast Range; Western Oregon Cascades; Western Washington Lowlands",
+    "image_urls": [
+      "EIS/Final EIS - Barred Owl Management Strategy/image29_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Final EIS - Barred Owl Management Strategy/image29_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image43_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image56_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image52_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image42_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image50_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image44_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image48_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image21_1.png",
+      "EIS/Final EIS - Barred Owl Management Strategy/image54_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Final EIS - Barred Owl Management Strategy"
+    ],
+    "source_document_id": "EIS/Final EIS - Barred Owl Management Strategy",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1149",
+    "question_text": "Identify the study area under 'Maryland Census Tract 3' 'Census Block Groups' 1. What are the numbers of the 'Waste Sites' located within this region?",
+    "expected_answer": "19; 30; 23; 33",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image220_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image227_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image236_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image215_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image216_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image241_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image222_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image220_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image208_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image237_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image227_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image226_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1152",
+    "question_text": "Among the four points with the highest Average Travel Time, identify the one located in the CHANGI region. What is the dominant transport mode at this point? Omit the word 'Mainly'.",
+    "expected_answer": "Bus",
+    "image_urls": [
+      "sg-ura/Skyline_Issue_13/image7_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/Skyline_Issue_13/image7_m1.png",
+      "sg-ura/Skyline_Issue_13/image15_m1.png",
+      "sg-ura/Skyline_Issue_13/image12_m1.png",
+      "sg-ura/Skyline_Issue_13/image17_1.png",
+      "sg-ura/Skyline_Issue_13/image7_m2.png",
+      "sg-ura/Skyline_Issue_13/image7_m0.png",
+      "sg-ura/Skyline_Issue_13/image9_m2.png",
+      "sg-ura/Skyline_Issue_13/image14_m1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "sg-ura/Skyline_Issue_13"
+    ],
+    "source_document_id": "sg-ura/Skyline_Issue_13",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1153",
+    "question_text": "Each block group is associated with a 'Low-Income Population Percentage' category represented as a percentage range. Identify the two block groups that share a boundary with Meyersdale. What is the maximum value of the higher percentage range block group?",
+    "expected_answer": "25",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image782_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image770_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image795_m0.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image782_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image789_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image799_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image785_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image765_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image769_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image764_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image781_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1155",
+    "question_text": "Within the Study Area of Meyersdale, there are seven different community resources (e.g., EMS and Medical). Identify the community resource points that are located south of the Natural Gas Pipeline. What type of community resource are these points?",
+    "expected_answer": "Place of Worship",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image789_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image782_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image799_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image765_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image789_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image769_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image764_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image785_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image770_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image781_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image795_m0.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1158",
+    "question_text": "What is the name of the 'Fresh Water' body located closest to the 'Pasir Panjang Linear Park' greeneries area?",
+    "expected_answer": "Performance Promenade",
+    "image_urls": [
+      "sg-ura/Skyline_Issue_13/image15_m1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "sg-ura/Skyline_Issue_13/image7_m0.png",
+      "sg-ura/Skyline_Issue_13/image9_m2.png",
+      "sg-ura/Skyline_Issue_13/image17_1.png",
+      "sg-ura/Skyline_Issue_13/image14_m1.png",
+      "sg-ura/Skyline_Issue_13/image7_m1.png",
+      "sg-ura/Skyline_Issue_13/image7_m2.png",
+      "sg-ura/Skyline_Issue_13/image15_m1.png",
+      "sg-ura/Skyline_Issue_13/image12_m1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "sg-ura/Skyline_Issue_13"
+    ],
+    "source_document_id": "sg-ura/Skyline_Issue_13",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_1159",
+    "question_text": "Identify the 'LOS D' road section that crosses through the 'Elk Lick Township'. What is the 'Average Travel Speed (MPH)' on this segment? Answer with just the number without the unit.",
+    "expected_answer": "30.1",
+    "image_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image124_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image126_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image119_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image137_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image124_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image133_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image121_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image131_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image126_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image101_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image122_1.png",
+      "EIS/Vol-3-FEISAppendixA-M-May-2025/image117_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Vol-3-FEISAppendixA-M-May-2025"
+    ],
+    "source_document_id": "EIS/Vol-3-FEISAppendixA-M-May-2025",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_2008",
+    "question_text": "Which project area of MON Concession boundary has the most drill hole collar?",
+    "expected_answer": "MUL",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image69_2.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image27_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image43_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image24_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image28_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image34_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image69_2.png",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image60_2.png",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image40_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image57_2.png",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image41_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_2009",
+    "question_text": "Which feature on the infrastructure map corresponds to Existing Component 60 of the Santander project?",
+    "expected_answer": "Worker camp",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image71_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image241_3.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image62_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image53_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image67_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image63_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image52_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image60_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image64_3.png",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image71_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image90_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image241_3.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_2021",
+    "question_text": "What is the orientation of the New 2B2 Pegmatite relative to Pegmatite #2 within the Raleigh Lake Project claim boundary?",
+    "expected_answer": "South",
+    "image_urls": [
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image37_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image33_1.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image37_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image27_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image33_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image28_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image35_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image41_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image39_1.jpeg",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image33_1.png",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image37_1.png",
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101/image30_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101"
+    ],
+    "source_document_id": "NI43-101/k__PROJECTS_ILC_NewsReleases_2023_2023-04-13-Raleigh-43101_22141-01-ILC-MinResEstNI-43101",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_3010",
+    "question_text": "What is the name of the 'Currently in exploitation' area that is intersected by the 'Cuchillas del Toa Biosphere' line?",
+    "expected_answer": "Camarioca Norte",
+    "image_urls": [
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image176_2.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image166_1.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image139_1.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image160_2.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image88_1.png",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image179_2.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image138_2.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image85_1.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image142_1.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image176_2.jpeg",
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport/image165_2.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_Sherritt-Technicals_NI43-101_TechnicalReport",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_3014",
+    "question_text": "Identify the WRD located between Klein Okawayo and Okawayo farms. What is the full name of this region as given by the Ultimate Pit Design with Project Infrastructure by Osino Resources. Give the name without abbreviating.",
+    "expected_answer": "Waste Rock Dump C",
+    "image_urls": [
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image121_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image432_2.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image121_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image108_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image124_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image126_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image127_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image433_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image128_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image432_2.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image131_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image123_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023"
+    ],
+    "source_document_id": "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_3018",
+    "question_text": "Identify all Silver Cloud Target Areas that do not share a boundary with the Silver Cloud Property. What is the count of Placer Dome within these areas.",
+    "expected_answer": "10",
+    "image_urls": [
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image29_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image48_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image38_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image37_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image43_m1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image40_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image29_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image12_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image22_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image39_1.png",
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport/image43_m0.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport"
+    ],
+    "source_document_id": "NI43-101/l__55954_1_TECHRPT_SilverCloud-2023-01-27_BRCTechReport",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_4005",
+    "question_text": "What is the name and acquisition year (as shown on the map) of the Cabacal Option Agreement block whose part of its southernmost edge crosses Tertiary Cover area?",
+    "expected_answer": "867407/2008",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image74_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image114_1.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image74_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image83_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image86_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image113_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image72_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image126_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image115_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image87_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image114_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023/image118_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_Meridian_2023_TechRpt2023_MNOTechRpt2023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_4013",
+    "question_text": "What is the orientation of the Product Stockpile in relation to the Heap Leach Stockpile at the Fremont Gold Project?",
+    "expected_answer": "North East",
+    "image_urls": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image264_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image222_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image233_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image278_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image193_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image127_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image221_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image189_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image256_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image209_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image264_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023"
+    ],
+    "source_document_id": "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_4021",
+    "question_text": "What is La Preciosa Area concession’s east-west width? Unit is not required.",
+    "expected_answer": "25000",
+    "image_urls": [
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image41_2.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image25_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image63_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image47_2.png",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image60_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image40_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image53_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image22_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image44_2.png",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image65_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image41_2.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_5018",
+    "question_text": "In the Lake Lery Marsh Creation and Rim Restoration Phase III project, what other name is the Permanent Project Activities 'Project Area' referred as?",
+    "expected_answer": "Marsh Creation Area",
+    "image_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image14_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image8_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image8_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image112_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image23_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image14_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image21_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image39_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702"
+    ],
+    "source_document_id": "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_6002",
+    "question_text": "For the City of New Haven Inland and Coastal Flood Resiliency Project, what is the shortest distance between the 'Proposed Living Shoreline' and the 'Proposed 10 ft Diameter Pipeline'?",
+    "expected_answer": "0.18 mile",
+    "image_urls": [
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image20_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image20_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image31_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image17_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image62_1.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image8_m0.png",
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904/image34_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904"
+    ],
+    "source_document_id": "FEMA/fema_bric-emb-2021-br-002-0005-ct-newhaven-fea-signedfonsi-20240904",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_6006",
+    "question_text": "How many 'Diamond Drill Holes' are located outside the 'Exploration Target' areas of the Fremont Gold Project?",
+    "expected_answer": "5",
+    "image_urls": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image104_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image83_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image118_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image112_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image96_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image84_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image85_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image98_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image104_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image110_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image115_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023"
+    ],
+    "source_document_id": "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_6011",
+    "question_text": "In the Lake Lery Marsh Creation and Rim Restoration Project (Phase III), within which MCA Cell is the 60-foot boring point SB60-09 located? Give the answer in form 'MCA Cell #'.",
+    "expected_answer": "MCA Cell 1",
+    "image_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image120_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image121_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image121_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image112_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image118_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image120_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image113_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image119_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image143_m1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image114_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image115_1.png",
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702/image143_m0.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702"
+    ],
+    "source_document_id": "FEMA/fema_ehp-emt-2020-fm-053-0007-la-lakelery-sdea-20240702",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_7003",
+    "question_text": "In the TC Jester Stormwater Detention Basin, by approximately how far does the 'Action Area' boundary extend outward from the boundary of the 'Project Area'?",
+    "expected_answer": "1523 feet",
+    "image_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image50_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image98_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image12_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image99_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image41_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image39_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image50_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image11_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image37_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image45_1.png",
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202/image115_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202"
+    ],
+    "source_document_id": "FEMA/fema_ehp-lpdm-pj-06-tx-2022-007-tc-jester-dea-20241202",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_7004",
+    "question_text": "In Sudbury, what is the shortest straight-line distance between the 'Mining Claims S 470253' and the nearest 'Freehold Property'?",
+    "expected_answer": "525 m",
+    "image_urls": [
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image73_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image73_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image64_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image61_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image70_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image42_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image66_1.png",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image67_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image50_1.jpeg",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image72_1.png",
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose/image48_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose"
+    ],
+    "source_document_id": "NI43-101/C__SEDARFilings_Atha_ARPreProspectus_TechRepGoldenRose",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_7006",
+    "question_text": "In the North Chicago Storm Sewer Project, what is the orientation of the 'Shorecrest Estates Pond/Bittersweet Avenue Improvements' in relation to 'Wetland 6'?",
+    "expected_answer": "West",
+    "image_urls": [
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image13_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image26_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image26_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image10_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image54_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image49_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image32_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image13_1.png",
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024/image55_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024"
+    ],
+    "source_document_id": "FEMA/LPDM-PJ-05-IL-2022-002-North_Chicago-FEA-11202024",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_7011",
+    "question_text": "How many 'Twinned RC Hole - 2013' are located within the 'Pine Tree/Josephine Mineralized Zones'?",
+    "expected_answer": "3",
+    "image_urls": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image112_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image127_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image85_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image115_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image112_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image96_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image98_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image84_1.png",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image104_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image110_1.jpeg",
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023/image118_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023"
+    ],
+    "source_document_id": "NI43-101/w__StrataboundMinerals_SEDAR_1194765_tech_Mar31_2023_file_strata_tr_03312023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_7022",
+    "question_text": "Which Alvos within 'Direitos Minerários - Jaguar Mining' but outside of 'Direitos Minerários (Contracto AGA)' is located closest to the Santa Isabel Mine?",
+    "expected_answer": "Ouro Fino",
+    "image_urls": [
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image21_1.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image24_1.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image24_1.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image26_1.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image42_2.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image41_2.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image40_2.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image21_1.jpeg",
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport/image37_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport"
+    ],
+    "source_document_id": "NI43-101/m__SEDAR_Jaguar_NI43-101-TechnicalReport",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_7025",
+    "question_text": "The Santander Concessions area is divided into blocks associated with unique numbers ranging from 1-72. The area is also classified under different Community and Agreement regions. What agreement is 'Block 5' under?",
+    "expected_answer": "Exploration Agreement-Rural Community Santa Cruz de Andamarca",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image53_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image64_3.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image93_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image52_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image63_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image62_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image67_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image90_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image53_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image71_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image64_3.png",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image60_3.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_8005",
+    "question_text": "In the process plant layout, which feature (as given on the legend) is located closest to the northeast of the Caustic Reagent Store?",
+    "expected_answer": "Acidic Reagent Store",
+    "image_urls": [
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image526_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image526_1.png",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image530_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image549_1.png",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image548_1.png",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image547_1.png",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image533_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image535_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image550_1.png",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image534_1.jpeg",
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023/image551_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023"
+    ],
+    "source_document_id": "NI43-101/l__SEDAR_Osino_DFSTechReportJuly132023_OsinoDFSJuly132023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_8007",
+    "question_text": "How many 'Stations' are located entirely within both the 'Deep Conductor (Intrusion?)' and the 'Phase Tensor NW–SE (Upper 500 m)' region of the CDPR-Santander concession?",
+    "expected_answer": "10",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image115_3.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image97_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image115_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image110_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image126_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image116_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image118_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image90_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image94_3.png",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image93_3.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101/image95_3.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CDPR_2023_Santander_Pipe_Technical_Report_Santander_Piper_NI43-101",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_8008",
+    "question_text": "What program of which year simultaneously enclose both the HAW and HAL concession of MON Concession boundary. Give it in format (YEAR PROGRAM)",
+    "expected_answer": "2022 Magnetics",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image57_2.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image41_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image28_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image43_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image69_2.png",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image27_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image60_2.png",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image57_2.png",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image40_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image34_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023/image24_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_2023_Mulatos_Tech_Rep_Mar_27_2023",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_8028",
+    "question_text": "What is the orientation of the drilling collars completed by 'UKHM' compared to the drilling collars by 'Spectrum (2003)' at AurMac Project?",
+    "expected_answer": "South West",
+    "image_urls": [
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image49_3.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image30_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image29_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image38_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image63_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image50_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image48_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image53_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image49_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image64_3.jpeg",
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss/image56_3.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss"
+    ],
+    "source_document_id": "NI43-101/C__SEDARFILINGS_Banyan-TR_BanyanTR_ss",
+    "split": "test"
+  },
+  {
+    "question_ref": "q_9014",
+    "question_text": "Which holding (name and T-code) lies immediately east of El Choque Seis?",
+    "expected_answer": "Huracan 4 R1A; T.246910",
+    "image_urls": [
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image47_2.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image41_2.png",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image63_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image53_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image40_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image66_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image44_2.png",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image60_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image67_2.jpeg",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image47_2.png",
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA/image65_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_01SEDARFilings_AvinoTCHRPT03302023JA",
+    "split": "test"
+  }
+]
