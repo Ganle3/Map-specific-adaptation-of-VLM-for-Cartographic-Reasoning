@@ -38,6 +38,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import logging
 import math
 import pickle
 import re
@@ -46,6 +47,10 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Iterable, Mapping, Optional, Protocol
+
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+LOGGER = logging.getLogger("frieda_evaluation")
 
 
 RESPONSE_FIELDS = (
@@ -828,18 +833,22 @@ def save_results(
     rows: list[Mapping[str, Any]],
     summary: Mapping[str, Any],
     output_dir: str | Path,
-) -> None:
+) -> dict[str, Path]:
+    """Save detailed and aggregate evaluation outputs.
+
+    Returns the generated paths so orchestration scripts can record them.
+    """
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
 
-    with (output / "frieda_evaluated_results.json").open(
-        "w", encoding="utf-8"
-    ) as handle:
+    details_json = output / "evaluation_details.json"
+    summary_json = output / "evaluation_summary.json"
+    details_csv = output / "evaluation_details.csv"
+
+    with details_json.open("w", encoding="utf-8") as handle:
         json.dump(rows, handle, ensure_ascii=False, indent=2)
 
-    with (output / "frieda_evaluation_summary.json").open(
-        "w", encoding="utf-8"
-    ) as handle:
+    with summary_json.open("w", encoding="utf-8") as handle:
         json.dump(summary, handle, ensure_ascii=False, indent=2)
 
     csv_fields = [
@@ -848,40 +857,238 @@ def save_results(
         "spatial_relationship",
         "map_count",
         "domain",
+        "question_text",
         "expected_answer",
         "extracted_answer",
         "correct",
         "evaluator",
+        "normalized_expected",
+        "normalized_prediction",
+        "distance_expected_m",
+        "distance_prediction_m",
         "absolute_percentage_error",
         "evaluation_note",
     ]
-    with (output / "frieda_evaluated_results.csv").open(
+    with details_csv.open(
         "w", encoding="utf-8-sig", newline=""
     ) as handle:
         writer = csv.DictWriter(handle, fieldnames=csv_fields, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
 
+    return {
+        "details_json": details_json,
+        "summary_json": summary_json,
+        "details_csv": details_csv,
+    }
+
+
+def load_qa_data(path: str | Path) -> list[Mapping[str, Any]]:
+    """Load a FRIEDA QA list, including common wrapper structures."""
+    qa_path = Path(path)
+    with qa_path.open("r", encoding="utf-8") as handle:
+        obj = json.load(handle)
+
+    if isinstance(obj, dict):
+        for key in ("data", "questions", "results", "items"):
+            if isinstance(obj.get(key), list):
+                obj = obj[key]
+                break
+
+    if not isinstance(obj, list):
+        raise ValueError(
+            f"QA JSON must contain a list of question objects: {qa_path}"
+        )
+
+    rows = [x for x in obj if isinstance(x, Mapping)]
+    if len(rows) != len(obj):
+        raise ValueError("Every QA entry must be a JSON object.")
+    return rows
+
+
+def load_prediction_records(path: str | Path) -> list[Mapping[str, Any]]:
+    """Load raw prediction records when they already contain QA metadata."""
+    with Path(path).open("r", encoding="utf-8") as handle:
+        obj = json.load(handle)
+
+    if isinstance(obj, dict):
+        for key in ("results", "predictions", "data"):
+            if isinstance(obj.get(key), list):
+                obj = obj[key]
+                break
+
+    if not isinstance(obj, list):
+        return []
+    return [x for x in obj if isinstance(x, Mapping)]
+
+
+def _qa_from_prediction_records(
+    records: list[Mapping[str, Any]],
+) -> list[Mapping[str, Any]]:
+    """Use prediction records as QA metadata when inference saved gold fields."""
+    required = {"question_ref", "expected_answer"}
+    if not records or any(not required.issubset(record) for record in records):
+        return []
+
+    qa_fields = {
+        "question_ref",
+        "qa_id",
+        "id",
+        "question_text",
+        "expected_answer",
+        "answer_type",
+        "spatial_relationship",
+        "map_count",
+        "domain",
+        "image_urls",
+    }
+    return [
+        {key: value for key, value in record.items() if key in qa_fields}
+        for record in records
+    ]
+
+
+def _flatten_summary(summary: dict[str, Any]) -> dict[str, Any]:
+    """Add stable convenience keys for run_frieda.py and later experiments."""
+    overall = summary.get("overall", {})
+    summary["total"] = overall.get("total", 0)
+    summary["correct"] = overall.get("correct", 0)
+    summary["overall_accuracy"] = overall.get("accuracy")
+
+    answer_groups = summary.get("by_answer_type", {})
+
+    def group_accuracy(*names: str) -> Optional[float]:
+        for name in names:
+            for key, value in answer_groups.items():
+                if str(key).casefold() == name.casefold():
+                    return value.get("accuracy")
+        return None
+
+    summary["textual_accuracy"] = group_accuracy("textual", "text")
+    summary["distance_accuracy"] = group_accuracy("distance", "metric")
+    summary["cardinal_accuracy"] = group_accuracy(
+        "cardinal", "direction", "orientation"
+    )
+    return summary
+
+
+def evaluate_frieda(
+    prediction_json: str | Path,
+    qa_json: Optional[str | Path] = None,
+    *,
+    output_dir: Optional[str | Path] = None,
+    orientation_pkl: Optional[str | Path] = None,
+    distance_tolerance: float = 0.20,
+    judge: Optional[JudgeProtocol] = None,
+    judge_model: Optional[str] = None,
+    judge_load_in_4bit: bool = True,
+) -> dict[str, Any]:
+    """Evaluate a FRIEDA prediction file and save all result artifacts.
+
+    Parameters
+    ----------
+    prediction_json:
+        Path to ``frieda_predictions.json``.
+    qa_json:
+        Path to the held-out FRIEDA QA JSON. This may be omitted only when
+        prediction records already contain ``question_ref``,
+        ``expected_answer``, ``question_text`` and ``answer_type`` metadata.
+    output_dir:
+        Destination for evaluation outputs. Defaults to the prediction file's
+        parent directory.
+    judge / judge_model:
+        Provide either a callable judge or a Hugging Face judge model name.
+        Deterministic matching is always attempted first.
+
+    Returns
+    -------
+    dict
+        Aggregate summary with convenience keys such as
+        ``overall_accuracy``, ``textual_accuracy``, ``distance_accuracy`` and
+        ``cardinal_accuracy``.
+    """
+    prediction_path = Path(prediction_json).resolve()
+    if not prediction_path.exists():
+        raise FileNotFoundError(f"Prediction JSON not found: {prediction_path}")
+
+    if qa_json is not None:
+        qa_path = Path(qa_json).resolve()
+        if not qa_path.exists():
+            raise FileNotFoundError(f"QA JSON not found: {qa_path}")
+        qa_data = load_qa_data(qa_path)
+    else:
+        records = load_prediction_records(prediction_path)
+        qa_data = _qa_from_prediction_records(records)
+        if not qa_data:
+            raise ValueError(
+                "qa_json was omitted, but the prediction records do not "
+                "contain sufficient ground-truth metadata. Pass qa_json."
+            )
+
+    predictions = load_predictions(prediction_path)
+    orientation_map = load_orientation_map(orientation_pkl)
+
+    if judge is not None and judge_model is not None:
+        raise ValueError("Provide either judge or judge_model, not both.")
+    if judge_model is not None:
+        judge = TransformersJudge(
+            judge_model,
+            load_in_4bit=judge_load_in_4bit,
+        )
+
+    rows, summary = evaluate_dataset(
+        qa_data,
+        predictions,
+        judge=judge,
+        orientation_map=orientation_map,
+        distance_tolerance=distance_tolerance,
+    )
+    summary = _flatten_summary(summary)
+
+    destination = (
+        Path(output_dir).resolve()
+        if output_dir is not None
+        else prediction_path.parent
+    )
+    paths = save_results(rows, summary, destination)
+    summary["artifacts"] = {key: str(path.resolve()) for key, path in paths.items()}
+
+    # Re-save after adding artifact paths.
+    with paths["summary_json"].open("w", encoding="utf-8") as handle:
+        json.dump(summary, handle, ensure_ascii=False, indent=2)
+
+    return summary
+
+
+def _format_accuracy(value: Optional[float]) -> str:
+    return "N/A" if value is None else f"{value:.4f} ({value:.2%})"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Evaluate Qwen3-VL outputs using the FRIEDA protocol."
     )
-    parser.add_argument("--qa-json", required=True, help="FRIEDA test QA JSON.")
+    parser.add_argument(
+        "--qa-json",
+        default=None,
+        help=(
+            "FRIEDA test QA JSON. Optional only when predictions already "
+            "contain all required gold metadata."
+        ),
+    )
     parser.add_argument(
         "--predictions-json",
         required=True,
-        help="JSON containing model outputs keyed by question_ref.",
+        help="Path to frieda_predictions.json.",
     )
     parser.add_argument(
         "--orientation-pkl",
         default=None,
-        help="Optional FRIEDA orientation.pkl. Built-in mapping is identical.",
+        help="Optional FRIEDA orientation.pkl; otherwise built-in mapping is used.",
     )
     parser.add_argument(
         "--output-dir",
-        default="frieda_evaluation_output",
-        help="Directory for JSON/CSV results.",
+        default=None,
+        help="Output directory. Defaults to the prediction file's directory.",
     )
     parser.add_argument(
         "--distance-tolerance",
@@ -893,8 +1100,8 @@ def parse_args() -> argparse.Namespace:
         "--judge-model",
         default=None,
         help=(
-            "Optional Hugging Face text judge. When omitted, textual answers "
-            "that fail deterministic matching are marked incorrect."
+            "Optional Hugging Face textual-answer judge. When omitted, "
+            "deterministic mismatches are marked incorrect."
         ),
     )
     parser.add_argument(
@@ -905,44 +1112,44 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def main() -> None:
-    args = parse_args()
-
-    with Path(args.qa_json).open("r", encoding="utf-8") as handle:
-        qa_data = json.load(handle)
-    if not isinstance(qa_data, list):
-        raise ValueError("QA JSON must contain a list of question objects.")
-
-    predictions = load_predictions(args.predictions_json)
-    orientation_map = load_orientation_map(args.orientation_pkl)
-
-    judge: Optional[JudgeProtocol] = None
-    if args.judge_model:
-        judge = TransformersJudge(
-            args.judge_model,
-            load_in_4bit=not args.judge_no_4bit,
-        )
-
-    rows, summary = evaluate_dataset(
-        qa_data,
-        predictions,
-        judge=judge,
-        orientation_map=orientation_map,
-        distance_tolerance=args.distance_tolerance,
-    )
-    save_results(rows, summary, args.output_dir)
-
-    overall = summary["overall"]
+def print_summary(summary: Mapping[str, Any]) -> None:
     print("=" * 72)
     print("FRIEDA EVALUATION")
     print("=" * 72)
-    print(f"Questions: {overall['total']}")
-    print(f"Correct:   {overall['correct']}")
-    print(f"Accuracy:  {overall['accuracy']:.4f}")
-    if summary["distance_mape"] is not None:
-        print(f"Distance MAPE: {summary['distance_mape']:.4f}")
-    print(f"Missing/empty predictions: {summary['missing_or_empty_predictions']}")
-    print(f"Results saved to: {Path(args.output_dir).resolve()}")
+    print(f"Questions:             {summary.get('total', 0)}")
+    print(f"Correct:               {summary.get('correct', 0)}")
+    print(f"Overall accuracy:      {_format_accuracy(summary.get('overall_accuracy'))}")
+    print(f"Textual accuracy:      {_format_accuracy(summary.get('textual_accuracy'))}")
+    print(f"Distance accuracy:     {_format_accuracy(summary.get('distance_accuracy'))}")
+    print(f"Cardinal accuracy:     {_format_accuracy(summary.get('cardinal_accuracy'))}")
+
+    distance_mape = summary.get("distance_mape")
+    if distance_mape is not None:
+        print(f"Distance MAPE:         {distance_mape:.4f} ({distance_mape:.2%})")
+
+    print(
+        "Missing predictions:   "
+        f"{summary.get('missing_or_empty_predictions', 0)}"
+    )
+    artifacts = summary.get("artifacts", {})
+    if artifacts:
+        print(f"Summary JSON:          {artifacts.get('summary_json', '')}")
+        print(f"Details JSON:          {artifacts.get('details_json', '')}")
+        print(f"Details CSV:           {artifacts.get('details_csv', '')}")
+
+
+def main() -> None:
+    args = parse_args()
+    summary = evaluate_frieda(
+        prediction_json=args.predictions_json,
+        qa_json=args.qa_json,
+        output_dir=args.output_dir,
+        orientation_pkl=args.orientation_pkl,
+        distance_tolerance=args.distance_tolerance,
+        judge_model=args.judge_model,
+        judge_load_in_4bit=not args.judge_no_4bit,
+    )
+    print_summary(summary)
 
 
 if __name__ == "__main__":
