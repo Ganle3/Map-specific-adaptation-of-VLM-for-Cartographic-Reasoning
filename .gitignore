@@ -50,6 +50,13 @@ Test_data/**/*.webp
 Test_data/**/*.tif
 Test_data/**/*.tiff
 
+Train_Val_data/**/*.png
+Train_Val_data/**/*.jpg
+Train_Val_data/**/*.jpeg
+Train_Val_data/**/*.webp
+Train_Val_data/**/*.tif
+Train_Val_data/**/*.tiff
+
 # Archives
 *.zip
 *.7z

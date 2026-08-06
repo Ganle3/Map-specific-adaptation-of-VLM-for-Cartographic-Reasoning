@@ -1,0 +1,2636 @@
+[
+  {
+    "question_ref": "q_0013",
+    "question_text": "Within the City of Seattle, which 'Industrial Lands Subareas' share a boundary with areas designated as 'UGAs'?",
+    "expected_answer": "Georgetown",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image36_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image60_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image36_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image96_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image46_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image51_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image44_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image56_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image54_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image97_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image58_m0.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0014",
+    "question_text": "Every 'Ballard/Interbay/Northend Study Corridor' is associated with a unique number. Within the Ballard-Interbay MIC, which 'Ballard/Interbay/Northend Study Corridor' number corresponds to the line where 'Interbay Davus' and 'Interbay Smith Cove' Industrial Lands Subareas intersect?",
+    "expected_answer": "7",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image96_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image51_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image96_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image56_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image54_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image58_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image128_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image110_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image97_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image46_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image60_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0015",
+    "question_text": "Every 'Duwamish Study Corridor Main' is associated with a unique number. Which 'Duwamish Study Corridor Main' number runs along the eastern boundary of the Duwamish MIC?",
+    "expected_answer": "17",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image97_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image110_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image128_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image54_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image96_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image97_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image60_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image58_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image51_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image46_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image56_m0.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0017",
+    "question_text": "What is the name of the 'Project-Specific Air Quality Monitoring Location' furthest from any Manufacturing Industrial Centers boundary?",
+    "expected_answer": "South Park #2",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image207_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image187_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image186_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image271_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image159_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image167_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image207_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image272_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image155_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image163_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image151_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0018",
+    "question_text": "Identify the area within the 0.25 Mile Buffer from Ballard-Interbay MIC where the 'Abandoned landfill' overlaps with the '1000' methane buffer'. How many 'Toxics Cleanup' points are located within this area?",
+    "expected_answer": "1",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image323_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image306_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image306_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image323_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image324_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image326_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image325_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image309_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image308_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image307_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image304_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0020",
+    "question_text": "Identify the Noise-sensitive Area with the smallest area size. In which Industrial Lands Subareas is this area located within?",
+    "expected_answer": "SoDo Stadium",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image354_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image348_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image325_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image379_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image377_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image326_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image376_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image352_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image372_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image373_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image354_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0021",
+    "question_text": "What is the name of the 'High Sensitivity Locations' located closest to the Georgetown Industrial Lands Subareas?",
+    "expected_answer": "West Duwamish Greenbelt",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image377_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image379_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image373_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image393_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image390_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image377_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image372_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image376_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image395_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image383_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image388_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0022",
+    "question_text": "Within the boundaries of the Ballard-Interbay MIC, which 'Alternative 3 - Targeted' category does the 'Bicycle / Pedestrian Multi-Use Trail' cross through?",
+    "expected_answer": "Maritime, Manufacturing & Logistics",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image407_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image411_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image413_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image403_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image409_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image415_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image397_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image399_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image405_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image407_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image401_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0023",
+    "question_text": "Which is the northernmost Settlements located along the shoreline of Lake Washington in 1902?",
+    "expected_answer": "Kirkland",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image438_m0.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image423_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image438_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image438_m2.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image421_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image419_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image441_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image427_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image438_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image425_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image456_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0024",
+    "question_text": "In the SoDo Stadium Industrial Lands Subareas, how many 'Terminal & Rail Yard Gate' points are located outside the boundaries of both 'Intermodal Facilities'?",
+    "expected_answer": "7",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image590_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image570_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image593_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image579_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image587_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image578_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image594_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image590_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image589_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image586_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image598_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0025",
+    "question_text": "Identify all 'Screenline's that intersect the SoDo Stadium Industrial Landas Subareas. Which of these is closest to a 'Ferry' line?",
+    "expected_answer": "D",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image598_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image586_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image611_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image598_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image589_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image593_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image594_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image587_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image614_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image590_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image610_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0026",
+    "question_text": "Which 'National Register Districts' overlap with both the 'Ballard' and 'Interbay Dravus' Industrial Lands Subareas within the Ballard-Interbay MIC?",
+    "expected_answer": "Washington Ship Canal",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image687_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image663_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image728_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image688_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image692_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image687_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image664_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image717_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image689_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image694_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image691_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0027",
+    "question_text": "How many 'Historic- Not Evaluated' Archaeological Resources are located within the 'Georgetown' Industrial Lands Subareas?",
+    "expected_answer": "5",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image691_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image687_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image694_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image717_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image663_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image728_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image664_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image688_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image689_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image691_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image692_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0028",
+    "question_text": "Identify the segments of the 'Bicycle/Pedestrian Multi-Use Trail' along the Pudget Sound shorline in the City of Seattle. How many 'Public Boat Ramps' are located along these segments?",
+    "expected_answer": "5",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image717_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image688_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image717_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image692_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image689_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image687_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image694_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image691_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image728_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0029",
+    "question_text": "Which Fire Battalions in the City of Seattle have no hospitals within their boundaries? Provide the answer in the format 'Battalion #'.",
+    "expected_answer": "Battalion 7",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image717_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image728_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0030",
+    "question_text": "Identify the 'Seattle Public Libraries' point located closest to the eastern boundary of the 'SoDO Stadium' Industrials Lands Subarea. In which 'Police Beat' is it located.",
+    "expected_answer": "R1",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image728_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0031",
+    "question_text": "Seattle Public Schools classifies every 'Elementary Attendance Area' into one of 12 categories. Which categories contain the 'Highly Capable Cohort Site'?",
+    "expected_answer": "Robert Eagle Staff; Eckstein",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image786_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0032",
+    "question_text": "How many 'King County CSO' points lie on the boundary of the 'Georgetown' Industrial Lands Subareas within the Duwamish MIC?",
+    "expected_answer": "6",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image786_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0142",
+    "question_text": "Which 'Fire 911 Responses by ZIP Code (2016-2020)' area is the 'Police HQ' located in?",
+    "expected_answer": "More than 30,000",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image728_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image717_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0143",
+    "question_text": "The Marlette Lake Dam Resilient Infrastructure project labels several points along the Project Site Access Route (e.g., ‘Marlette Dam Construction Site’). How many points labeled ‘Flume Trail’ lie within the Lake Tahoe–Nevada State Park boundaries?",
+    "expected_answer": "1",
+    "image_urls": [
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image28_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image10_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image15_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image12_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image18_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image13_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image16_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image47_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image28_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image25_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image10_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image48_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710"
+    ],
+    "source_document_id": "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0154",
+    "question_text": "What is the orientation of the Communications Tower within Prescott Park, Medford, OR, in relation to the Bear Creek Greenway within Medford city limits?",
+    "expected_answer": "East",
+    "image_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image30_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image19_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image30_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image36_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image27_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image39_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image19_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image55_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image141_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image143_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image29_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image28_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+    ],
+    "source_document_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0158",
+    "question_text": "Lorraine Hwy crosses through the northern region of the Gillespie Corners Flood Mitigation and Reconstruction Project Area. Which Zoning categories does Lorraine Hwy pass through? Provide only the zoning category codes (in {alphabet}{number} form).",
+    "expected_answer": "E40; F2",
+    "image_urls": [
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image21_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image123_1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image134_m2.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image21_1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image30_1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image122_1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image33_1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image57_1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image134_m1.png",
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603/image19_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603"
+    ],
+    "source_document_id": "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0159",
+    "question_text": "Which type of 'Wastewater system mainline' has the most overlapping service area with the 'Stormwater system mainline'?",
+    "expected_answer": "Sanitary mainlines",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image786_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0170",
+    "question_text": "What is the orientation of 'Marlette Lake' within the 'Tahoe Management Unit' in relation to the point labeled 'Reese' in the Lahontan Basin?",
+    "expected_answer": "South West",
+    "image_urls": [
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image130_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image137_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image137_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image51_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image49_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image50_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image54_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image52_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image48_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image53_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image47_1.png",
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710/image130_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710"
+    ],
+    "source_document_id": "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0182",
+    "question_text": "What type of 'Industrial Lands Subareas' does 'Terminal 91' belong to?",
+    "expected_answer": "Interbay Smith Cove",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image786_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image786_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0183",
+    "question_text": "Identify the county in which the area labeled 'Centrol Point' is located. What is the orientation of 'Centrol Point' in relation to the Known Wolf Use Area that intersects this county?",
+    "expected_answer": "South West",
+    "image_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image164_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image167_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image189_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image163_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image143_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image164_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image159_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image158_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image167_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image141_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image169_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image168_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+    ],
+    "source_document_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0187",
+    "question_text": "Every 'Screenline' in the City of Seattle is associated with a unique ID in the format {NUMBER}.{NUMBER}. Which screenlines intersect with State Routes/Freeways?",
+    "expected_answer": "8; 10.11; 9.12; 4.13",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image570_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image578_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image568_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image567_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image570_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image565_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image589_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image579_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image590_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image578_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image586_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image587_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_0194",
+    "question_text": "In Jackson County, what is the orientation of Ashland in relation to the southwest corner of the Rogue Wolf Use Area border?",
+    "expected_answer": "South",
+    "image_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image163_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image168_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image189_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image164_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image167_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image141_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image159_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image143_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image168_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image163_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image158_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image169_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text",
+      "scale"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+    ],
+    "source_document_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1012",
+    "question_text": "Which 'Elementary Attendance Area' is the 'Seattle Schools Administration' located in?",
+    "expected_answer": "Mercer",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image746_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image784_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image761_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image782_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m0.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image751_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image760_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image752_m1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image786_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image742_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1018",
+    "question_text": "What is the approximate distance from the Two Medicine Lake to the Logan Pass in the Glacier National Park? Answer in MILES.",
+    "expected_answer": "22.5MILES",
+    "image_urls": [
+      "national-parks/639363/image1_m8.png",
+      "national-parks/639363/image1_m13.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "national-parks/639363/image1_m4.png",
+      "national-parks/639363/image1_m2.png",
+      "national-parks/639363/image1_m6.png",
+      "national-parks/639363/image1_m14.png",
+      "national-parks/639363/image1_m9.png",
+      "national-parks/639363/image1_m13.png",
+      "national-parks/639363/image1_m7.png",
+      "national-parks/639363/image1_m8.png"
+    ],
+    "domain": "Park & trail map",
+    "map_elements": [
+      "map text",
+      "scale"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "national-parks/639363"
+    ],
+    "source_document_id": "national-parks/639363",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1032",
+    "question_text": "In the Aurora Ave and 97th Residential Urban Village, which Safety Audit Team's route is intersected by N. 100 Ave? Answer with the team number.",
+    "expected_answer": "1",
+    "image_urls": [
+      "seattle-planning/Aurora-Licton-plan/image69_1.png",
+      "seattle-planning/Aurora-Licton-plan/image70_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/Aurora-Licton-plan/image73_1.png",
+      "seattle-planning/Aurora-Licton-plan/image69_1.png",
+      "seattle-planning/Aurora-Licton-plan/image71_1.png",
+      "seattle-planning/Aurora-Licton-plan/image75_1.png",
+      "seattle-planning/Aurora-Licton-plan/image74_1.png",
+      "seattle-planning/Aurora-Licton-plan/image43_1.png",
+      "seattle-planning/Aurora-Licton-plan/image34_1.png",
+      "seattle-planning/Aurora-Licton-plan/image70_1.png",
+      "seattle-planning/Aurora-Licton-plan/image68_1.png",
+      "seattle-planning/Aurora-Licton-plan/image72_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/Aurora-Licton-plan"
+    ],
+    "source_document_id": "seattle-planning/Aurora-Licton-plan",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1053",
+    "question_text": "What type of 'Alternative 1 - No Action' is the SoDo Stadium Industrial Lands Subareas located?",
+    "expected_answer": "Industrial General",
+    "image_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image128_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image151_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image110_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image128_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image151_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image96_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image163_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image159_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image97_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image167_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image186_1.png",
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS/image155_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+    ],
+    "source_document_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1062",
+    "question_text": "In the Glacier National Park region and its surrounding areas, what is the approximate distance from East Glacier Park to Missoula, MT? Answer in MILES.",
+    "expected_answer": "122MILES",
+    "image_urls": [
+      "national-parks/639363/image1_m9.png",
+      "national-parks/639363/image1_m14.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "national-parks/639363/image1_m9.png",
+      "national-parks/639363/image1_m13.png",
+      "national-parks/639363/image1_m8.png",
+      "national-parks/639363/image1_m4.png",
+      "national-parks/639363/image1_m7.png",
+      "national-parks/639363/image1_m6.png",
+      "national-parks/639363/image1_m14.png",
+      "national-parks/639363/image1_m2.png"
+    ],
+    "domain": "Park & trail map",
+    "map_elements": [
+      "map text",
+      "scale"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "national-parks/639363"
+    ],
+    "source_document_id": "national-parks/639363",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1074",
+    "question_text": "In the Aurora Ave and 97th Residential Urban Village, which Safety Audit Team's route is intersected by N. 105 Ave? Answer with the team number.",
+    "expected_answer": "3",
+    "image_urls": [
+      "seattle-planning/Aurora-Licton-plan/image71_1.png",
+      "seattle-planning/Aurora-Licton-plan/image72_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/Aurora-Licton-plan/image68_1.png",
+      "seattle-planning/Aurora-Licton-plan/image43_1.png",
+      "seattle-planning/Aurora-Licton-plan/image74_1.png",
+      "seattle-planning/Aurora-Licton-plan/image71_1.png",
+      "seattle-planning/Aurora-Licton-plan/image73_1.png",
+      "seattle-planning/Aurora-Licton-plan/image34_1.png",
+      "seattle-planning/Aurora-Licton-plan/image75_1.png",
+      "seattle-planning/Aurora-Licton-plan/image72_1.png",
+      "seattle-planning/Aurora-Licton-plan/image70_1.png",
+      "seattle-planning/Aurora-Licton-plan/image69_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/Aurora-Licton-plan"
+    ],
+    "source_document_id": "seattle-planning/Aurora-Licton-plan",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1094",
+    "question_text": "Within the Tinian Military Lease Area, how many 'CJMT Modeled Pumping Wells' do not intersect with the 'CJMT Water Mains' line?",
+    "expected_answer": "8",
+    "image_urls": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image36_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image86_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image36_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image73_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image75_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image16_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image14_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image17_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image13_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image88_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image65_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1"
+    ],
+    "source_document_id": "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1111",
+    "question_text": "Within the Tinian Military Lease Area, what is the orientation of the 'General Groundwater Directional Flow' arrow that passes through the 'North Lowland' Physiographic Area?",
+    "expected_answer": "North East",
+    "image_urls": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image16_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image73_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image16_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image75_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image65_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image36_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image17_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image88_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image86_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image13_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image14_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image73_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1"
+    ],
+    "source_document_id": "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1114",
+    "question_text": "Identify the 'Previously Recorded Historic Structure (Demolished)' point labeled '911 Deslonde Street'. Which 'Streetscape Photo Point' number is located closest to this structure?",
+    "expected_answer": "5",
+    "image_urls": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image203_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image239_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image200_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image223_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image202_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image225_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image185_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image222_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image239_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image203_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image186_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image241_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025"
+    ],
+    "source_document_id": "EIS/Annex 4 - NHPA Section 106 May 2025",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1138",
+    "question_text": "How many 'Existing Water Storage Tanks' are located within the 'Low-Permeability Tinian Pyroclastic Rocks at Sea Level' area in Tinian?",
+    "expected_answer": "2",
+    "image_urls": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image17_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image65_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image75_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image86_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image73_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image65_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image88_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image36_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image13_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image14_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image17_1.png",
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1/image16_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1"
+    ],
+    "source_document_id": "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1144",
+    "question_text": "The area around the 'LC-39A Boundary' is divided into 11 numbered regions. Identify the regions that are intersected only by the boundary of the '2 PSF (APE)' zone. Among those regions, which one has the highest count of 'Previously Recorded Historic Buildings'? Provide only the associated number.",
+    "expected_answer": "10",
+    "image_urls": [
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image26_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image33_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image31_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image26_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image27_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image34_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image29_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image28_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image22_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image30_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image32_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation"
+    ],
+    "source_document_id": "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1147",
+    "question_text": "All Survey Type areas are associated with a code in the format 22-#. Identify the northwestern border of the 'Inner Harbor Navigation Canal APE.' What is the code number of the 'Phase I' Survey Type area that shares a border with the 'Inner Harbor Navigation Canal APE'?",
+    "expected_answer": "22-2522",
+    "image_urls": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image200_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image200_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image222_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image225_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image186_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image185_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image221_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image239_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image203_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image202_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image223_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025"
+    ],
+    "source_document_id": "EIS/Annex 4 - NHPA Section 106 May 2025",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1148",
+    "question_text": "Identify the 'Prev. Recorded Historic Bridge' labeled '8BR02956' along Nasa Pkwy W and the 'Prev. Recorded Historic Building' labeled '8BR01693*'. What is the orientation of the bridge in relation to the building?",
+    "expected_answer": "West",
+    "image_urls": [
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image31_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image32_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image31_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image28_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image30_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image32_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image33_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image35_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image29_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image36_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image27_1.png",
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation/image34_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation"
+    ],
+    "source_document_id": "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1151",
+    "question_text": "Identify the boundary between the 'Proposed Expansion of the Bywater Historic District' and the 'Bywater Historic District'. Among the 'Newly Recorded Historic Structures' located within the 'Bywater Historic District', which structure is farthest from this boundary?",
+    "expected_answer": "4548 North Rampart Street",
+    "image_urls": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image202_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image241_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image202_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image186_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image221_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image203_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image239_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image225_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image185_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image241_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image200_1.png",
+      "EIS/Annex 4 - NHPA Section 106 May 2025/image223_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Annex 4 - NHPA Section 106 May 2025"
+    ],
+    "source_document_id": "EIS/Annex 4 - NHPA Section 106 May 2025",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_1154",
+    "question_text": "What is the orientation of the 'Delta Substation' in relation to 'Launch Complex 39A'?",
+    "expected_answer": "South East",
+    "image_urls": [
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image44_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image45_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image44_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image52_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image86_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image83_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image45_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image71_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image73_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image35_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image51_1.png",
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement/image66_1.png"
+    ],
+    "domain": "Environmental review",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement"
+    ],
+    "source_document_id": "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_2013",
+    "question_text": "What is the shortest straight line distance from Eden Project to Eden 2 Claim?",
+    "expected_answer": "1.5 km",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image11_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image22_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image33_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image19_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image11_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image25_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image27_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image10_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image37_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image15_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image35_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_2030",
+    "question_text": "Which 2023 Resource Pit Crest of Los Reyes consist of the Metallurgical Test Drill Hole that is located farthest South?",
+    "expected_answer": "Noche Buena",
+    "image_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image131_2.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image174_1.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image71_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image177_1.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image96_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image72_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image169_1.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image131_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image68_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image82_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image89_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+    ],
+    "source_document_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_3006",
+    "question_text": "Golden Sky Minerals Corp owns Bullseye property. Which company’s property shares the longest continuous boundary with Bullseye property? Give the name of the company as shown on the legend.",
+    "expected_answer": "White Gold Corp",
+    "image_urls": [
+      "NI43-101/C__DATA_tmc43101mar21/image62_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__DATA_tmc43101mar21/image35_1.png",
+      "NI43-101/C__DATA_tmc43101mar21/image45_1.jpeg",
+      "NI43-101/C__DATA_tmc43101mar21/image33_1.png",
+      "NI43-101/C__DATA_tmc43101mar21/image31_1.png",
+      "NI43-101/C__DATA_tmc43101mar21/image32_1.png",
+      "NI43-101/C__DATA_tmc43101mar21/image28_1.jpeg",
+      "NI43-101/C__DATA_tmc43101mar21/image27_1.jpeg",
+      "NI43-101/C__DATA_tmc43101mar21/image24_1.jpeg",
+      "NI43-101/C__DATA_tmc43101mar21/image34_1.png",
+      "NI43-101/C__DATA_tmc43101mar21/image62_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__DATA_tmc43101mar21"
+    ],
+    "source_document_id": "NI43-101/C__DATA_tmc43101mar21",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_3009",
+    "question_text": "What is the name of the '2020 Water Sample' that is closest to the Cultural Heritage Site 'Sinkedoumba'?",
+    "expected_answer": "CBS",
+    "image_urls": [
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image354_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image358_1.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image295_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image354_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image365_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image349_1.png",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image362_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image327_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image338_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image336_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image358_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image331_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex"
+    ],
+    "source_document_id": "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_3020",
+    "question_text": "Which Mining Concessions does the 'Former Property Boundary' of Salar de Tolillar Basin represent? Give just the numbers associated with the Mining Concession.",
+    "expected_answer": "17946; 17947; 17948",
+    "image_urls": [
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image88_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image68_2.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image88_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image97_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image100_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image68_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image74_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image82_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image62_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image86_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image79_2.jpeg",
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13/image90_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_3023",
+    "question_text": "Identify two points: (1) the westernmost historic drill hole at Zapote North and (2) the easternmost historic drill hole at Guadalupe East. Estimate the straight-line distance between the two points.",
+    "expected_answer": "3 km",
+    "image_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image45_2.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image42_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image45_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image67_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image40_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_3.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image27_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image28_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image66_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image56_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+    ],
+    "source_document_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_3028",
+    "question_text": "Identify the Adjacent property that Claim LAN shares its easternmost edge. What is the length of eastern edge shared between this Adjacent property and Claim LAN.",
+    "expected_answer": "3.3 km",
+    "image_urls": [
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image355_3.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image279_2.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image280_2.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image355_3.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image288_3.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image281_2.png",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image287_3.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image279_1.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image273_4.jpeg",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image280_1.png",
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report/image354_4.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report"
+    ],
+    "source_document_id": "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_4011",
+    "question_text": "Which Los Reyes 'Claim's share border with Eden Property?",
+    "expected_answer": "Los Reyes Tres; Los Reyes Fracc Norte",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image19_1.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image13_2.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image19_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image15_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image25_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image35_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image33_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image37_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image22_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image10_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image11_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image27_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport || NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_4015",
+    "question_text": "The Uatnan property is divided into multiple claim blocks associated with a unique number (e.g., 1040933). How many claim blocks are crossed by forestry road R0928?",
+    "expected_answer": "12",
+    "image_urls": [
+      "NI43-101/z__nou-43101-PEA-ang/image61_3.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/z__nou-43101-PEA-ang/image69_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image93_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image97_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image85_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image62_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image60_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image80_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image84_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image71_3.png",
+      "NI43-101/z__nou-43101-PEA-ang/image61_3.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/z__nou-43101-PEA-ang"
+    ],
+    "source_document_id": "NI43-101/z__nou-43101-PEA-ang",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_4016",
+    "question_text": "How many 'Long Lac Mines (1975)' Drill Hole Collars exist outside of Koval Patent Claims but within Historic Ben Lake Claim Group?",
+    "expected_answer": "0",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image34_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image47_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image36_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image16_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image48_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image34_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image17_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image19_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image37_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image51_1.png",
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp/image49_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_4028",
+    "question_text": "How many Souris River penetrations within the Mansur Project area are located outside the HCL permit boundary?",
+    "expected_answer": "2",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image29_2.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image23_2.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image32_2.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image34_2.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image37_2.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image24_2.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image30_3.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image36_3.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image29_2.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image32_3.png",
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA/image28_3.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_5012",
+    "question_text": "Which 'Urban & Rural Areas' are completely within the boundary of Los Reyes property?",
+    "expected_answer": "Guadalupe de los Reyes",
+    "image_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image40_2.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image56_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image40_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image28_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image66_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image45_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image27_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_3.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image42_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image15_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+    ],
+    "source_document_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_5013",
+    "question_text": "The 'Broad Street Redesign' line lies on the border of which 'Mixed use zone, height increases range 15'-75'' of the Uptown rezone recommendation regions? Give the zone name as given on the map.",
+    "expected_answer": "M From 85' to 125'/160'",
+    "image_urls": [
+      "seattle-planning/UptownDirectorsReport2017/image12_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image18_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Border",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "seattle-planning/UptownDirectorsReport2017/image11_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image23_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image18_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image13_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image24_m0.png",
+      "seattle-planning/UptownDirectorsReport2017/image12_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image21_m0.png",
+      "seattle-planning/UptownDirectorsReport2017/image20_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image10_1.png",
+      "seattle-planning/UptownDirectorsReport2017/image8_1.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "seattle-planning/UptownDirectorsReport2017"
+    ],
+    "source_document_id": "seattle-planning/UptownDirectorsReport2017",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_5030",
+    "question_text": "Within Area 1 SAB Boundary, what is the orientation of 'Up-to Mid‑rise Load Level' in relation to 'Up-to High-rise Load Level'?",
+    "expected_answer": "East",
+    "image_urls": [
+      "seattle-planning/lfs-test-case-memorandum/image42_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "seattle-planning/lfs-test-case-memorandum/image48_1.png",
+      "seattle-planning/lfs-test-case-memorandum/image44_m1.png",
+      "seattle-planning/lfs-test-case-memorandum/image44_m0.png",
+      "seattle-planning/lfs-test-case-memorandum/image37_m0.png",
+      "seattle-planning/lfs-test-case-memorandum/image41_m1.png",
+      "seattle-planning/lfs-test-case-memorandum/image47_2.png",
+      "seattle-planning/lfs-test-case-memorandum/image46_1.png",
+      "seattle-planning/lfs-test-case-memorandum/image42_1.png",
+      "seattle-planning/lfs-test-case-memorandum/image43_1.png",
+      "seattle-planning/lfs-test-case-memorandum/image41_m0.png"
+    ],
+    "domain": "Planning (city/region)",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "seattle-planning/lfs-test-case-memorandum"
+    ],
+    "source_document_id": "seattle-planning/lfs-test-case-memorandum",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_6012",
+    "question_text": "The Mining Concession area of the Björkdal property consists of multiple blocks with unique names (e.g., Norrberget K nr 1). Which Mining Concession area is located closest to the Östra Ströhyden?",
+    "expected_answer": "Storheden K nr 1",
+    "image_urls": [
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image81_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image40_1.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image46_2.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image67_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image73_2.png",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image52_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image85_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image81_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image55_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image80_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image40_1.jpeg",
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport/image74_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport"
+    ],
+    "source_document_id": "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_6025",
+    "question_text": "IAMGOLD (100%) means IAMGOLD owns 100% of that land. Each tenements consists of multiple sub-areas associated with a number (e.g., 2396140). Assuming each sub-areas are equally size and that there are 163 sub-areas within Nelligan project, what is the weighted average percentage owned by IAMGOLD? Round the percentage down to the nearest whole number.",
+    "expected_answer": "76",
+    "image_urls": [
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image21_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image41_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image26_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image1_m4.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image1_m0.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image37_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image21_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image32_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image35_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image39_1.png",
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323/image19_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323"
+    ],
+    "source_document_id": "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_6027",
+    "question_text": "In the map image by Oroco, which 'Concessions' does the 'Property access' line have the second longest crossing distance?",
+    "expected_answer": "Roberto Verde",
+    "image_urls": [
+      "NI43-101/C__SF_TECHREPORT/image46_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SF_TECHREPORT/image54_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image50_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image105_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image102_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image82_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image46_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image68_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image1_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image41_1.jpeg",
+      "NI43-101/C__SF_TECHREPORT/image64_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SF_TECHREPORT"
+    ],
+    "source_document_id": "NI43-101/C__SF_TECHREPORT",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7002",
+    "question_text": "Which mine/shaft is geographically closest to the El Reno Shaft within the Las Coloradas Project Area?",
+    "expected_answer": "La Ramada Shaft",
+    "image_urls": [
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image21_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image10_1.png",
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image21_1.png",
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image18_1.png",
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image17_1.png",
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image16_1.png",
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport/image19_m0.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/f__Arabella_SEDAR_KNGTechReport"
+    ],
+    "source_document_id": "NI43-101/f__Arabella_SEDAR_KNGTechReport",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7005",
+    "question_text": "Which community boundary surrounds majority of 'Claim: El Eden'?",
+    "expected_answer": "Nucleo Agrario: SAN ANTONIO DEl CERRO",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image15_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image27_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image35_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image25_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image22_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image37_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image33_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image10_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image11_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image19_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image15_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7009",
+    "question_text": "Which rock samples were collected along the 'Access Trails' on the St. Anthony Property in 2020?",
+    "expected_answer": "466151; 466340; 466150",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image23_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image25_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image29_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image30_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image31_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image28_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image21_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image19_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image27_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image26_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image23_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7014",
+    "question_text": "Which 'Prospects' is located closest to the border of El Eden Claim.",
+    "expected_answer": "Tramposa",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image22_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image37_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image35_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image15_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image27_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image10_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image22_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image33_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image19_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image11_1.jpeg",
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport/image25_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7016",
+    "question_text": "Which 'Historic Prospects' within the Copper Mountain Uranium area is located closest to the 'Primary Road Travel' line as recorded by Rush Rare Metals Corp?",
+    "expected_answer": "Canning Prospect",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image22_1.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image18_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image14_5.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image27_2.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image18_1.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image14_4.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image14_19.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image22_1.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image14_20.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image14_21.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image28_1.png",
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA/image27_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7017",
+    "question_text": "The Koster Dam Project maps the underlying geology and gives a unique alphabetical code for each geology type. What is the geology code, as given on the map, in which 'Borin Creek Placer' lies in?",
+    "expected_answer": "EOlv",
+    "image_urls": [
+      "NI43-101/C__KosterDamTechReportISM/image13_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__KosterDamTechReportISM/image20_1.jpeg",
+      "NI43-101/C__KosterDamTechReportISM/image9_1.jpeg",
+      "NI43-101/C__KosterDamTechReportISM/image13_1.jpeg",
+      "NI43-101/C__KosterDamTechReportISM/image7_1.png",
+      "NI43-101/C__KosterDamTechReportISM/image16_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__KosterDamTechReportISM"
+    ],
+    "source_document_id": "NI43-101/C__KosterDamTechReportISM",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_7030",
+    "question_text": "The Kiniero Exploitation Licenses region is divided into four sub-areas. Identify the town located between the two sub-areas. What is the straight-line distance between this point and the Kiniero Project.",
+    "expected_answer": "6 km",
+    "image_urls": [
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image64_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Distance",
+    "answer_type": "distance",
+    "contextual_urls": [
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image88_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image66_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image79_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image81_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image89_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image54_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image58_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image93_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image64_1.jpeg",
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex/image83_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text",
+      "scale"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex"
+    ],
+    "source_document_id": "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_8009",
+    "question_text": "What is the name of the northeastern boundary of the 1% Annual Chance Flood Hazard area of City of Harvey?",
+    "expected_answer": "CSX Transportation Soo Line",
+    "image_urls": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image136_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image33_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image134_m1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image138_m0.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image135_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image132_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image22_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image133_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image33_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image131_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image136_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image137_m0.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217"
+    ],
+    "source_document_id": "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_8010",
+    "question_text": "How many 2022 Rock Sample Locations are along the southern edge of St. Anthony property?",
+    "expected_answer": "2",
+    "image_urls": [
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image29_1.png"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image30_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image28_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image25_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image31_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image33_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image23_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image26_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image27_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image29_1.png",
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL/image21_1.png"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "legend"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL"
+    ],
+    "source_document_id": "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_8022",
+    "question_text": "In which orientation is University Park located in relation to the Proposed Wet Pond within the MWRD City of Harvey BRIC Funding Infrastructure Project Area?",
+    "expected_answer": "South West",
+    "image_urls": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image149_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image158_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image158_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image135_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image167_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image149_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image133_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image136_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image150_m0.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image161_m0.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image138_m0.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image137_m0.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217"
+    ],
+    "source_document_id": "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_8025",
+    "question_text": "Which 'XERCES_Bumble Bee Watch' observation point is located closest to the 'Moderate' wildfire risk area at Prescott Park?",
+    "expected_answer": "Bombus vosnesenskii Radoszkowski, 1862",
+    "image_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image39_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image159_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Distance",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image163_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image39_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image169_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image30_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image158_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image159_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image164_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image167_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image36_1.png",
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729/image168_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+    ],
+    "source_document_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_8027",
+    "question_text": "What orientation is Needles Park located in relation to the Proposed Detention Basin of the City of Harvey Stormwater Management Project?",
+    "expected_answer": "North East",
+    "image_urls": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image16_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image21_1.png"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Orientation",
+    "answer_type": "cardinal",
+    "contextual_urls": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image136_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image134_m1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image131_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image135_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image133_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image33_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image16_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image22_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image132_1.png",
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217/image21_1.png"
+    ],
+    "domain": "Disaster/hazard",
+    "map_elements": [
+      "compass",
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217"
+    ],
+    "source_document_id": "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_9001",
+    "question_text": "Which Los Reyes Claim block equals the 1 percent royalty block?",
+    "expected_answer": "Los Reyes Seis",
+    "image_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_3.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_2.jpeg"
+    ],
+    "map_count": "Multi",
+    "spatial_relationship": "Equal",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image56_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image15_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image13_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image27_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image35_3.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image45_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image28_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image42_2.jpeg",
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed/image40_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "legend",
+      "map text"
+    ],
+    "image_count": 2,
+    "map_count_original": "Multi",
+    "source_document_ids": [
+      "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+    ],
+    "source_document_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_9003",
+    "question_text": "What is the northern-most mineral tile number within Koster Dam project?",
+    "expected_answer": "1088616",
+    "image_urls": [
+      "NI43-101/C__KosterDamTechReportISM/image9_1.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Within",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__KosterDamTechReportISM/image13_1.jpeg",
+      "NI43-101/C__KosterDamTechReportISM/image16_1.jpeg",
+      "NI43-101/C__KosterDamTechReportISM/image7_1.png",
+      "NI43-101/C__KosterDamTechReportISM/image20_1.jpeg",
+      "NI43-101/C__KosterDamTechReportISM/image9_1.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "compass",
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__KosterDamTechReportISM"
+    ],
+    "source_document_id": "NI43-101/C__KosterDamTechReportISM",
+    "split": "validation"
+  },
+  {
+    "question_ref": "q_9006",
+    "question_text": "The Niblack Exploration Drift intersects with a stream originating from which body of water?",
+    "expected_answer": "Waterfall Creek",
+    "image_urls": [
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image22_2.jpeg"
+    ],
+    "map_count": "Single",
+    "spatial_relationship": "Intersect",
+    "answer_type": "textual",
+    "contextual_urls": [
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image20_2.jpeg",
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image18_2.jpeg",
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image38_2.jpeg",
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image34_2.jpeg",
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image89_2.jpeg",
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL/image22_2.jpeg"
+    ],
+    "domain": "Geology report",
+    "map_elements": [
+      "map text"
+    ],
+    "image_count": 1,
+    "map_count_original": "Single",
+    "source_document_ids": [
+      "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL"
+    ],
+    "source_document_id": "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL",
+    "split": "validation"
+  }
+]

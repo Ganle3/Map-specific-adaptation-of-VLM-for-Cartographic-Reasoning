@@ -1,0 +1,3784 @@
+[
+  {
+    "sample_id": "mapwise_usa_map_20781_t35_src0785",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+    ],
+    "question": "How many states bordering Canada have a value similar to Utah?",
+    "answer": "2",
+    "target_text": "Final answer: 2",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map_20781",
+    "metadata": {
+      "country": "usa",
+      "template_no": 35,
+      "relative_region": "N",
+      "data_group_id": "map_20781",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 785
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t35_src0038",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "How many states bordering Texas have a value similar to state South Carolina?",
+    "answer": "4",
+    "target_text": "Final answer: 4",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 35,
+      "relative_region": "Y",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 38
+    }
+  },
+  {
+    "sample_id": "frieda_q_0194",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image163_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image168_1.png"
+    ],
+    "question": "In Jackson County, what is the orientation of Ashland in relation to the southwest corner of the Rogue Wolf Use Area border?",
+    "answer": "South",
+    "target_text": "Final answer: South",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2030",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image131_2.jpeg"
+    ],
+    "question": "Which 2023 Resource Pit Crest of Los Reyes consist of the Metallurgical Test Drill Hole that is located farthest South?",
+    "answer": "Noche Buena",
+    "target_text": "Final answer: Noche Buena",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t9_src0084",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Does the value of Tibet fall in range >14?",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_9",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 9,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 84
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t43_src0369",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "Rank the states Jilin, Beijing and Hebei in terms of the legend value.",
+    "answer": "Hebei > Jilin > Beijing",
+    "target_text": "Final answer: Hebei > Jilin > Beijing",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_43",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 43,
+      "relative_region": "N",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 369
+    }
+  },
+  {
+    "sample_id": "frieda_q_0158",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603\\image21_1.png"
+    ],
+    "question": "Lorraine Hwy crosses through the northern region of the Gillespie Corners Flood Mitigation and Reconstruction Project Area. Which Zoning categories does Lorraine Hwy pass through? Provide only the zoning category codes (in {alphabet}{number} form).",
+    "answer": "E40; F2",
+    "target_text": "Final answer: E40; F2",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "FEMA/fema_ehp-hmgp-dr-4562-27-or-gillespiecorners-fea-signedfonsi-20240603"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0026",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image687_1.png"
+    ],
+    "question": "Which 'National Register Districts' overlap with both the 'Ballard' and 'Interbay Dravus' Industrial Lands Subareas within the Ballard-Interbay MIC?",
+    "answer": "Washington Ship Canal",
+    "target_text": "Final answer: Washington Ship Canal",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3028",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\g__Sayona_2023_NAL_Refiling_20230420_NAL_Report\\image355_3.jpeg"
+    ],
+    "question": "Identify the Adjacent property that Claim LAN shares its easternmost edge. What is the length of eastern edge shared between this Adjacent property and Claim LAN.",
+    "answer": "3.3 km",
+    "target_text": "Final answer: 3.3 km",
+    "has_reasoning": false,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/g__Sayona_2023_NAL_Refiling_20230420_NAL_Report"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1144",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation\\image26_1.png"
+    ],
+    "question": "The area around the 'LC-39A Boundary' is divided into 11 numbered regions. Identify the regions that are intersected only by the boundary of the '2 PSF (APE)' zone. Among those regions, which one has the highest count of 'Previously Recorded Historic Buildings'? Provide only the associated number.",
+    "answer": "10",
+    "target_text": "Final answer: 10",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5012",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image40_2.jpeg"
+    ],
+    "question": "Which 'Urban & Rural Areas' are completely within the boundary of Los Reyes property?",
+    "answer": "Guadalupe de los Reyes",
+    "target_text": "Final answer: Guadalupe de los Reyes",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0182",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image752_m0.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image786_1.png"
+    ],
+    "question": "What type of 'Industrial Lands Subareas' does 'Terminal 91' belong to?",
+    "answer": "Interbay Smith Cove",
+    "target_text": "Final answer: Interbay Smith Cove",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t26_src0655",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "Which states bordering Canada have a value lower than 8200?",
+    "answer": "Minnesota, New York",
+    "target_text": "Final answer: Minnesota, New York",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_26",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 26,
+      "relative_region": "N",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 655
+    }
+  },
+  {
+    "sample_id": "frieda_q_0031",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image761_1.png"
+    ],
+    "question": "Seattle Public Schools classifies every 'Elementary Attendance Area' into one of 12 categories. Which categories contain the 'Highly Capable Cohort Site'?",
+    "answer": "Robert Eagle Staff; Eckstein",
+    "target_text": "Final answer: Robert Eagle Staff; Eckstein",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3009",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\d__SEDAR_Boston_23june3585143_Tech_Report_Robex\\image354_1.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\d__SEDAR_Boston_23june3585143_Tech_Report_Robex\\image358_1.jpeg"
+    ],
+    "question": "What is the name of the '2020 Water Sample' that is closest to the Cultural Heritage Site 'Sinkedoumba'?",
+    "answer": "CBS",
+    "target_text": "Final answer: CBS",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t4_src0657",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "What value range does the darkest shade represent?",
+    "answer": "1700-8200",
+    "target_text": "Final answer: 1700-8200",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_4",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 4,
+      "relative_region": "N",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 657
+    }
+  },
+  {
+    "sample_id": "frieda_q_1094",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendix_M_CJMT_RDEIS_Utility Studies_Part 1\\image36_1.png"
+    ],
+    "question": "Within the Tinian Military Lease Area, how many 'CJMT Modeled Pumping Wells' do not intersect with the 'CJMT Water Mains' line?",
+    "answer": "8",
+    "target_text": "Final answer: 8",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t4_src0625",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "What value range does the second lightest shade represent?",
+    "answer": "15.9-21%",
+    "target_text": "Final answer: 15.9-21%",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_4",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 4,
+      "relative_region": "N",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 625
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t20_src0954",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Name the northmost state that belongs a higher value range compared to all its neighbours.",
+    "answer": "Beijing",
+    "target_text": "Final answer: Beijing",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_20",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 20,
+      "relative_region": "Y",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 954
+    }
+  },
+  {
+    "sample_id": "frieda_q_2013",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_CENTTechnicalReport\\image11_1.jpeg"
+    ],
+    "question": "What is the shortest straight line distance from Eden Project to Eden 2 Claim?",
+    "answer": "1.5 km",
+    "target_text": "Final answer: 1.5 km",
+    "has_reasoning": false,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t16_src0375",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "What value range does Ningxia fall in?",
+    "answer": "31.30 - 259.20",
+    "target_text": "Final answer: 31.30 - 259.20",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_16",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 16,
+      "relative_region": "N",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 375
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t17_src0955",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Count the states with the values in range -5.76 - -1.91 in the region South China.",
+    "answer": "0",
+    "target_text": "Final answer: 0",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_17",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 17,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 955
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t12_src0376",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "What is the least value range in the South east region?",
+    "answer": "31.29 - 259.20",
+    "target_text": "Final answer: 31.29 - 259.20",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_12",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 12,
+      "relative_region": "N",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 376
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t15_src0721",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "Which state bordering Lake Superior has the highest value?",
+    "answer": "Michigan",
+    "target_text": "Final answer: Michigan",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_15",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 15,
+      "relative_region": "N",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 721
+    }
+  },
+  {
+    "sample_id": "frieda_q_0170",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710\\image130_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710\\image137_1.png"
+    ],
+    "question": "What is the orientation of 'Marlette Lake' within the 'Tahoe Management Unit' in relation to the point labeled 'Reese' in the Lahontan Basin?",
+    "answer": "South West",
+    "target_text": "Final answer: South West",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t17_src0371",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "Count the states with the values in the highest range in the East China Sea region.",
+    "answer": "5",
+    "target_text": "Final answer: 5",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_17",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 17,
+      "relative_region": "N",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 371
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t37_src0651",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "Which state in the range 44000-130400 doesn't border any states from 9000-17900?",
+    "answer": "None",
+    "target_text": "Final answer: None",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_37",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 37,
+      "relative_region": "N",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 651
+    }
+  },
+  {
+    "sample_id": "frieda_q_0023",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image438_m0.png"
+    ],
+    "question": "Which is the northernmost Settlements located along the shoreline of Lake Washington in 1902?",
+    "answer": "Kirkland",
+    "target_text": "Final answer: Kirkland",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1053",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image128_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image151_1.png"
+    ],
+    "question": "What type of 'Alternative 1 - No Action' is the SoDo Stadium Industrial Lands Subareas located?",
+    "answer": "Industrial General",
+    "target_text": "Final answer: Industrial General",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0143",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710\\image28_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710\\image10_1.png"
+    ],
+    "question": "The Marlette Lake Dam Resilient Infrastructure project labels several points along the Project Site Access Route (e.g., ‘Marlette Dam Construction Site’). How many points labeled ‘Flume Trail’ lie within the Lake Tahoe–Nevada State Park boundaries?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_pdmc-pj-09-nv-2018-001-marlette-dea-20240710"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t27_src0729",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "Which states bordering Florida have a value similar to Texas?",
+    "answer": "Georgia",
+    "target_text": "Final answer: Georgia",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_27",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 27,
+      "relative_region": "Y",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 729
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t34_src0678",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "Yes or no: Heilongjiang is the North most state that has a higher value compared to all its neighbours.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_34",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 34,
+      "relative_region": "Y",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 678
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_20781_t21_src0782",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+    ],
+    "question": "Yes or no: Rhode Island has the same value as Washington.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_21",
+    "map_id": "map_20781",
+    "metadata": {
+      "country": "usa",
+      "template_no": 21,
+      "relative_region": "N",
+      "data_group_id": "map_20781",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 782
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t36_src0674",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "Name the South most state with values in range >120.",
+    "answer": "Tibet",
+    "target_text": "Final answer: Tibet",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_36",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 36,
+      "relative_region": "N",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 674
+    }
+  },
+  {
+    "sample_id": "frieda_q_4011",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_CENTTechnicalReport\\image19_1.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image13_2.jpeg"
+    ],
+    "question": "Which Los Reyes 'Claim's share border with Eden Property?",
+    "answer": "Los Reyes Tres; Los Reyes Fracc Norte",
+    "target_text": "Final answer: Los Reyes Tres; Los Reyes Fracc Norte",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport || NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+        "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t27_src0082",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Which states bordering India have a value higher than state Shanghai?",
+    "answer": "Xinjiang",
+    "target_text": "Final answer: Xinjiang",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_27",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 27,
+      "relative_region": "Y",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 82
+    }
+  },
+  {
+    "sample_id": "frieda_q_9003",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__KosterDamTechReportISM\\image9_1.jpeg"
+    ],
+    "question": "What is the northern-most mineral tile number within Koster Dam project?",
+    "answer": "1088616",
+    "target_text": "Final answer: 1088616",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__KosterDamTechReportISM",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__KosterDamTechReportISM"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8025",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image39_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image159_1.png"
+    ],
+    "question": "Which 'XERCES_Bumble Bee Watch' observation point is located closest to the 'Moderate' wildfire risk area at Prescott Park?",
+    "answer": "Bombus vosnesenskii Radoszkowski, 1862",
+    "target_text": "Final answer: Bombus vosnesenskii Radoszkowski, 1862",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4016",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp\\image34_1.png"
+    ],
+    "question": "How many 'Long Lac Mines (1975)' Drill Hole Collars exist outside of Koval Patent Claims but within Historic Ben Lake Claim Group?",
+    "answer": "0",
+    "target_text": "Final answer: 0",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS__doc__SEDAR_NewOriginGoldTR_pp"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t40_src0620",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "Which pair of states belonging to the highest range are the closest to each other along the Mexico border?",
+    "answer": "California, Texas",
+    "target_text": "Final answer: California, Texas",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_40",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 40,
+      "relative_region": "N",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 620
+    }
+  },
+  {
+    "sample_id": "frieda_q_0013",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image36_1.png"
+    ],
+    "question": "Within the City of Seattle, which 'Industrial Lands Subareas' share a boundary with areas designated as 'UGAs'?",
+    "answer": "Georgetown",
+    "target_text": "Final answer: Georgetown",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_6027",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SF_TECHREPORT\\image46_1.jpeg"
+    ],
+    "question": "In the map image by Oroco, which 'Concessions' does the 'Property access' line have the second longest crossing distance?",
+    "answer": "Roberto Verde",
+    "target_text": "Final answer: Roberto Verde",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__SF_TECHREPORT",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SF_TECHREPORT"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1032",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\Aurora-Licton-plan\\image69_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\Aurora-Licton-plan\\image70_1.png"
+    ],
+    "question": "In the Aurora Ave and 97th Residential Urban Village, which Safety Audit Team's route is intersected by N. 100 Ave? Answer with the team number.",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/Aurora-Licton-plan",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/Aurora-Licton-plan"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t35_src0727",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "How many states bordering Mexico have a value higher than Washington?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 35,
+      "relative_region": "N",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 727
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t10_src0086",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Is the value of Shanghai closer to 6 or 10?",
+    "answer": "6",
+    "target_text": "Final answer: 6",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_10",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 10,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 86
+    }
+  },
+  {
+    "sample_id": "frieda_q_0024",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image590_1.png"
+    ],
+    "question": "In the SoDo Stadium Industrial Lands Subareas, how many 'Terminal & Rail Yard Gate' points are located outside the boundaries of both 'Intermodal Facilities'?",
+    "answer": "7",
+    "target_text": "Final answer: 7",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t31_src0623",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "Yes or no: a majority of states bordering Mexico have values greater than North Dakota.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_31",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 31,
+      "relative_region": "N",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 623
+    }
+  },
+  {
+    "sample_id": "frieda_q_1012",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image760_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image761_1.png"
+    ],
+    "question": "Which 'Elementary Attendance Area' is the 'Seattle Schools Administration' located in?",
+    "answer": "Mercer",
+    "target_text": "Final answer: Mercer",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0018",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image323_1.png"
+    ],
+    "question": "Identify the area within the 0.25 Mile Buffer from Ballard-Interbay MIC where the 'Abandoned landfill' overlaps with the '1000' methane buffer'. How many 'Toxics Cleanup' points are located within this area?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t28_src0677",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "Which state bordering South China Sea has the closest value to Xinjiang?",
+    "answer": "Hainan",
+    "target_text": "Final answer: Hainan",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_28",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 28,
+      "relative_region": "Y",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 677
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_20781_t36_src0786",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+    ],
+    "question": "Name the state west to New York in the range 20.2-22.9%.",
+    "answer": "Alaska, South Dakota",
+    "target_text": "Final answer: Alaska, South Dakota",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_36",
+    "map_id": "map_20781",
+    "metadata": {
+      "country": "usa",
+      "template_no": 36,
+      "relative_region": "N",
+      "data_group_id": "map_20781",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 786
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t16_src0653",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "What value range does Florida fall in?",
+    "answer": "23,300",
+    "target_text": "Final answer: 23,300",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_16",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 16,
+      "relative_region": "N",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 653
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t41_src0035",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "Are there significant gaps between certain ranges in the legend? Yes/No",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_41",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 41,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 35
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t23_src0081",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "How many states bordering Guangdong have a value higher than 12?",
+    "answer": "3",
+    "target_text": "Final answer: 3",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_23",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 23,
+      "relative_region": "Y",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 81
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t21_src0616",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "Yes or no: Rhode Island has the same value as Utah.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_21",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 21,
+      "relative_region": "N",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 616
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t35_src0648",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "How many states along the west coast have a value higher than New York?",
+    "answer": "2",
+    "target_text": "Final answer: 2",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 35,
+      "relative_region": "N",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 648
+    }
+  },
+  {
+    "sample_id": "frieda_q_0022",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image407_1.png"
+    ],
+    "question": "Within the boundaries of the Ballard-Interbay MIC, which 'Alternative 3 - Targeted' category does the 'Bicycle / Pedestrian Multi-Use Trail' cross through?",
+    "answer": "Maritime, Manufacturing & Logistics",
+    "target_text": "Final answer: Maritime, Manufacturing & Logistics",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7030",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\d__SEDAR_Boston_23june3585143_Tech_Report_Robex\\image64_1.jpeg"
+    ],
+    "question": "The Kiniero Exploitation Licenses region is divided into four sub-areas. Identify the town located between the two sub-areas. What is the straight-line distance between this point and the Kiniero Project.",
+    "answer": "6 km",
+    "target_text": "Final answer: 6 km",
+    "has_reasoning": false,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/d__SEDAR_Boston_23june3585143_Tech_Report_Robex"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t11_src0670",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "Which state bordering North Korea belong to range 100 - 120?",
+    "answer": "None",
+    "target_text": "Final answer: None",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_11",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 11,
+      "relative_region": "Y",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 670
+    }
+  },
+  {
+    "sample_id": "frieda_q_9001",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image35_3.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image35_2.jpeg"
+    ],
+    "question": "Which Los Reyes Claim block equals the 1 percent royalty block?",
+    "answer": "Los Reyes Seis",
+    "target_text": "Final answer: Los Reyes Seis",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t21_src0042",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "Yes or no: Alaska has the same value as North Dakota.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_21",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 21,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 42
+    }
+  },
+  {
+    "sample_id": "frieda_q_8027",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217\\image16_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217\\image21_1.png"
+    ],
+    "question": "What orientation is Needles Park located in relation to the Proposed Detention Basin of the City of Harvey Stormwater Management Project?",
+    "answer": "North East",
+    "target_text": "Final answer: North East",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t41_src0089",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Are the legends evenly spaced?",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_41",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 41,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 89
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t42_src0088",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Yes/No: Gansu has a similar value as Sichuan and also have a lower value than Ningxia.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_42",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 42,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 88
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t22_src0950",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Yes or no: States of region South China have higher values on average than states of region North China.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_22",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 22,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 950
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t3_src0652",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "What is the overall range of the legend?",
+    "answer": "1700-130400",
+    "target_text": "Final answer: 1700-130400",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_3",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 3,
+      "relative_region": "N",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 652
+    }
+  },
+  {
+    "sample_id": "frieda_q_0025",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image598_1.png"
+    ],
+    "question": "Identify all 'Screenline's that intersect the SoDo Stadium Industrial Landas Subareas. Which of these is closest to a 'Ferry' line?",
+    "answer": "D",
+    "target_text": "Final answer: D",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t37_src0618",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "Which is the westernmost state that borders at least two states from the highest range?",
+    "answer": "Nevada",
+    "target_text": "Final answer: Nevada",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_37",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 37,
+      "relative_region": "",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 618
+    }
+  },
+  {
+    "sample_id": "frieda_q_6025",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323\\image21_1.png"
+    ],
+    "question": "IAMGOLD (100%) means IAMGOLD owns 100% of that land. Each tenements consists of multiple sub-areas associated with a number (e.g., 2396140). Assuming each sub-areas are equally size and that there are 163 sub-areas within Nelligan project, what is the weighted average percentage owned by IAMGOLD? Round the percentage down to the nearest whole number.",
+    "answer": "76",
+    "target_text": "Final answer: 76",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/w__Iamgold_SEDAR_1188221_tech_Feb22_2023_iag_tr_022323"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t41_src0723",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "Are the ranges in the legend equally sized?",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_41",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 41,
+      "relative_region": "N",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 723
+    }
+  },
+  {
+    "sample_id": "frieda_q_0020",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image354_1.png"
+    ],
+    "question": "Identify the Noise-sensitive Area with the smallest area size. In which Industrial Lands Subareas is this area located within?",
+    "answer": "SoDo Stadium",
+    "target_text": "Final answer: SoDo Stadium",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t39_src0037",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "Yes or no: all states bordering Canada have values below 100K.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_39",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 39,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 37
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t3_src0672",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "What is the overall range of the legend?",
+    "answer": "-40 - >120",
+    "target_text": "Final answer: -40 - >120",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_3",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 3,
+      "relative_region": "N",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 672
+    }
+  },
+  {
+    "sample_id": "frieda_q_0029",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image742_1.png"
+    ],
+    "question": "Which Fire Battalions in the City of Seattle have no hospitals within their boundaries? Provide the answer in the format 'Battalion #'.",
+    "answer": "Battalion 7",
+    "target_text": "Final answer: Battalion 7",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t27_src0374",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "Which states bordering Vietnam have a value similar to Shanghai?",
+    "answer": "None",
+    "target_text": "Final answer: None",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_27",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 27,
+      "relative_region": "Y",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 374
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_20781_t30_src0784",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+    ],
+    "question": "Does North Carolina have the same value as Florida in the east coast region.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_30",
+    "map_id": "map_20781",
+    "metadata": {
+      "country": "usa",
+      "template_no": 30,
+      "relative_region": "N",
+      "data_group_id": "map_20781",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 784
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t29_src0724",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "Which range has the highest number of states?",
+    "answer": "0-107",
+    "target_text": "Final answer: 0-107",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_29",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 29,
+      "relative_region": "N",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 724
+    }
+  },
+  {
+    "sample_id": "frieda_q_8009",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217\\image136_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217\\image33_1.png"
+    ],
+    "question": "What is the name of the northeastern boundary of the 1% Annual Chance Flood Hazard area of City of Harvey?",
+    "answer": "CSX Transportation Soo Line",
+    "target_text": "Final answer: CSX Transportation Soo Line",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t23_src0036",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "How many states bordering Lake Erie have a value higher than 500K?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_23",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 23,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 36
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t38_src0948",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Yes or no: the value of state Xinjiang is below the median value amongst states in the region bordering Tibet.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_38",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 38,
+      "relative_region": "Y",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 948
+    }
+  },
+  {
+    "sample_id": "frieda_q_0142",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image746_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image751_1.png"
+    ],
+    "question": "Which 'Fire 911 Responses by ZIP Code (2016-2020)' area is the 'Police HQ' located in?",
+    "answer": "More than 30,000",
+    "target_text": "Final answer: More than 30,000",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t3_src0957",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "What is the overall range of the legend?",
+    "answer": "-5.76 - 8.76",
+    "target_text": "Final answer: -5.76 - 8.76",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_3",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 3,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 957
+    }
+  },
+  {
+    "sample_id": "frieda_q_0032",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image784_1.png"
+    ],
+    "question": "How many 'King County CSO' points lie on the boundary of the 'Georgetown' Industrial Lands Subareas within the Duwamish MIC?",
+    "answer": "6",
+    "target_text": "Final answer: 6",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t37_src0034",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "Which states have missing data?",
+    "answer": "None",
+    "target_text": "Final answer: None",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_37",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 37,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 34
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t23_src0378",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "How many states bordering Myanmar have a value higher than 259.20?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_23",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 23,
+      "relative_region": "Y",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 378
+    }
+  },
+  {
+    "sample_id": "frieda_q_0030",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image751_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image760_1.png"
+    ],
+    "question": "Identify the 'Seattle Public Libraries' point located closest to the eastern boundary of the 'SoDO Stadium' Industrials Lands Subarea. In which 'Police Beat' is it located.",
+    "answer": "R1",
+    "target_text": "Final answer: R1",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1151",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Annex 4 - NHPA Section 106 May 2025\\image202_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Annex 4 - NHPA Section 106 May 2025\\image241_1.png"
+    ],
+    "question": "Identify the boundary between the 'Proposed Expansion of the Bywater Historic District' and the 'Bywater Historic District'. Among the 'Newly Recorded Historic Structures' located within the 'Bywater Historic District', which structure is farthest from this boundary?",
+    "answer": "4548 North Rampart Street",
+    "target_text": "Final answer: 4548 North Rampart Street",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "EIS/Annex 4 - NHPA Section 106 May 2025",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Annex 4 - NHPA Section 106 May 2025"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t35_src0673",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "How many states bordering India have a value lower than Fujian?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 35,
+      "relative_region": "Y",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 673
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t23_src0669",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "How many states bordering Russia have a value higher than 100?",
+    "answer": "0",
+    "target_text": "Final answer: 0",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_23",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 23,
+      "relative_region": "Y",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 669
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t3_src0085",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "What is the overall range of the legend?",
+    "answer": "<6 - >14",
+    "target_text": "Final answer: <6 - >14",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_3",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 3,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 85
+    }
+  },
+  {
+    "sample_id": "frieda_q_7014",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_CENTTechnicalReport\\image22_1.jpeg"
+    ],
+    "question": "Which 'Prospects' is located closest to the border of El Eden Claim.",
+    "answer": "Tramposa",
+    "target_text": "Final answer: Tramposa",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t20_src0654",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "Name the southernmost state that belongs to a similar range as all its neighbours.",
+    "answer": "Ohio",
+    "target_text": "Final answer: Ohio",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_20",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 20,
+      "relative_region": "Y",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 654
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t35_src0373",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "How many states bordering India have a value similar to Beijing?",
+    "answer": "1",
+    "target_text": "Final answer: 1",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 35,
+      "relative_region": "N",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 373
+    }
+  },
+  {
+    "sample_id": "frieda_q_7002",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\f__Arabella_SEDAR_KNGTechReport\\image21_1.png"
+    ],
+    "question": "Which mine/shaft is geographically closest to the El Reno Shaft within the Las Coloradas Project Area?",
+    "answer": "La Ramada Shaft",
+    "target_text": "Final answer: La Ramada Shaft",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/f__Arabella_SEDAR_KNGTechReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/f__Arabella_SEDAR_KNGTechReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t11_src0033",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "Which states in the north-east region belong to range 500-600k?",
+    "answer": "New York",
+    "target_text": "Final answer: New York",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_11",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 11,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 33
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t12_src0726",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "What is the highest value range in the east coast region?",
+    "answer": "370-1035",
+    "target_text": "Final answer: 370-1035",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_12",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 12,
+      "relative_region": "N",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 726
+    }
+  },
+  {
+    "sample_id": "frieda_q_1148",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation\\image31_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation\\image32_1.png"
+    ],
+    "question": "Identify the 'Prev. Recorded Historic Bridge' labeled '8BR02956' along Nasa Pkwy W and the 'Prev. Recorded Historic Building' labeled '8BR01693*'. What is the orientation of the bridge in relation to the building?",
+    "answer": "West",
+    "target_text": "Final answer: West",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/SpaceX SSH at LC-39A Draft EIS_Volume II_AppB.4_DOT Section 4(f) Consultation"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t28_src0949",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Which states in the region of the Tibetan Plateau have the same value to Yunnan?",
+    "answer": "Gansu",
+    "target_text": "Final answer: Gansu",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_28",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 28,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 949
+    }
+  },
+  {
+    "sample_id": "frieda_q_0159",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image782_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image784_1.png"
+    ],
+    "question": "Which type of 'Wastewater system mainline' has the most overlapping service area with the 'Stormwater system mainline'?",
+    "answer": "Sanitary mainlines",
+    "target_text": "Final answer: Sanitary mainlines",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0187",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image570_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image578_1.png"
+    ],
+    "question": "Every 'Screenline' in the City of Seattle is associated with a unique ID in the format {NUMBER}.{NUMBER}. Which screenlines intersect with State Routes/Freeways?",
+    "answer": "8; 10.11; 9.12; 4.13",
+    "target_text": "Final answer: 8; 10.11; 9.12; 4.13",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0183",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image164_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image167_1.png"
+    ],
+    "question": "Identify the county in which the area labeled 'Centrol Point' is located. What is the orientation of 'Centrol Point' in relation to the Known Wolf Use Area that intersects this county?",
+    "answer": "South West",
+    "target_text": "Final answer: South West",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t3_src0622",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "What is the overall range of the legend?",
+    "answer": "10.9-35.3%",
+    "target_text": "Final answer: 10.9-35.3%",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_3",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 3,
+      "relative_region": "N",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 622
+    }
+  },
+  {
+    "sample_id": "frieda_q_0021",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image377_1.png"
+    ],
+    "question": "What is the name of the 'High Sensitivity Locations' located closest to the Georgetown Industrial Lands Subareas?",
+    "answer": "West Duwamish Greenbelt",
+    "target_text": "Final answer: West Duwamish Greenbelt",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_9006",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL\\image22_2.jpeg"
+    ],
+    "question": "The Niblack Exploration Drift intersects with a stream originating from which body of water?",
+    "answer": "Waterfall Creek",
+    "target_text": "Final answer: Waterfall Creek",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__FILINGS_SEDAR-OTC-CSE_1_TechReport_2022_FINAL"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t18_src0039",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "Yes or no: the value of the state Connecticut is lower than its neighbouring state Rhode Island.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_18",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 18,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 39
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t40_src0952",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Which pair of states belonging to the range N/A are the closest to each other?",
+    "answer": "None",
+    "target_text": "Final answer: None",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_40",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 40,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 952
+    }
+  },
+  {
+    "sample_id": "frieda_q_3006",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__DATA_tmc43101mar21\\image62_1.jpeg"
+    ],
+    "question": "Golden Sky Minerals Corp owns Bullseye property. Which company’s property shares the longest continuous boundary with Bullseye property? Give the name of the company as shown on the legend.",
+    "answer": "White Gold Corp",
+    "target_text": "Final answer: White Gold Corp",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__DATA_tmc43101mar21",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__DATA_tmc43101mar21"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t13_src0953",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Which state has the highest value in the region of North China?",
+    "answer": "-0.28 - 0.66",
+    "target_text": "Final answer: -0.28 - 0.66",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_13",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 13,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 953
+    }
+  },
+  {
+    "sample_id": "frieda_q_0028",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image717_1.png"
+    ],
+    "question": "Identify the segments of the 'Bicycle/Pedestrian Multi-Use Trail' along the Pudget Sound shorline in the City of Seattle. How many 'Public Boat Ramps' are located along these segments?",
+    "answer": "5",
+    "target_text": "Final answer: 5",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_20781_t9_src0780",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+    ],
+    "question": "Does state Alaska come in the range 30.1 - 34.2?",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_9",
+    "map_id": "map_20781",
+    "metadata": {
+      "country": "usa",
+      "template_no": 9,
+      "relative_region": "N",
+      "data_group_id": "map_20781",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 780
+    }
+  },
+  {
+    "sample_id": "frieda_q_1154",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement\\image44_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement\\image45_1.png"
+    ],
+    "question": "What is the orientation of the 'Delta Substation' in relation to 'Launch Complex 39A'?",
+    "answer": "South East",
+    "target_text": "Final answer: South East",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Draft SpaceX Starship-Super Heavy CCSFS Environmental Impact Statement"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7009",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL\\image23_1.png"
+    ],
+    "question": "Which rock samples were collected along the 'Access Trails' on the St. Anthony Property in 2020?",
+    "answer": "466151; 466340; 466150",
+    "target_text": "Final answer: 466151; 466340; 466150",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8010",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL\\image29_1.png"
+    ],
+    "question": "How many 2022 Rock Sample Locations are along the southern edge of St. Anthony property?",
+    "answer": "2",
+    "target_text": "Final answer: 2",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_Jerico-Cumberland_TR-ST-ANT-FINAL"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t35_src0617",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "How many states along the Canada border have value similar to Arizona",
+    "answer": "3",
+    "target_text": "Final answer: 3",
+    "has_reasoning": false,
+    "answer_type": "Count",
+    "task_category": "template_35",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 35,
+      "relative_region": "N",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 617
+    }
+  },
+  {
+    "sample_id": "frieda_q_4028",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA\\image29_2.png"
+    ],
+    "question": "How many Souris River penetrations within the Mansur Project area are located outside the HCL permit boundary?",
+    "answer": "2",
+    "target_text": "Final answer: 2",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_rokcrsourcesTECH05082023CA"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0015",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image97_1.png"
+    ],
+    "question": "Every 'Duwamish Study Corridor Main' is associated with a unique number. Which 'Duwamish Study Corridor Main' number runs along the eastern boundary of the Duwamish MIC?",
+    "answer": "17",
+    "target_text": "Final answer: 17",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t16_src0090",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Between which two legend markings does Hainan fall in?",
+    "answer": "12-13",
+    "target_text": "Final answer: 12-13",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_16",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 16,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 90
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t19_src0083",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Yes or no: the value of Beijing is lower than Tibet.",
+    "answer": "Yes",
+    "target_text": "Final answer: Yes",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_19",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 19,
+      "relative_region": "N",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 83
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t8_src0951",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Which class has the largest range of values?",
+    "answer": "0.66 - 8.76",
+    "target_text": "Final answer: 0.66 - 8.76",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_8",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 8,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 951
+    }
+  },
+  {
+    "sample_id": "frieda_q_1114",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Annex 4 - NHPA Section 106 May 2025\\image203_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Annex 4 - NHPA Section 106 May 2025\\image239_1.png"
+    ],
+    "question": "Identify the 'Previously Recorded Historic Structure (Demolished)' point labeled '911 Deslonde Street'. Which 'Streetscape Photo Point' number is located closest to this structure?",
+    "answer": "5",
+    "target_text": "Final answer: 5",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "EIS/Annex 4 - NHPA Section 106 May 2025",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Annex 4 - NHPA Section 106 May 2025"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1018",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\639363\\image1_m8.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\639363\\image1_m13.png"
+    ],
+    "question": "What is the approximate distance from the Two Medicine Lake to the Logan Pass in the Glacier National Park? Answer in MILES.",
+    "answer": "22.5MILES",
+    "target_text": "Final answer: 22.5MILES",
+    "has_reasoning": false,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "national-parks/639363",
+    "metadata": {
+      "domain": "Park & trail map",
+      "map_elements": [
+        "map text",
+        "scale"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "national-parks/639363"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t19_src0671",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "Yes or no: the value of Guangdong is higher than Jilin.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_19",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 19,
+      "relative_region": "N",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 671
+    }
+  },
+  {
+    "sample_id": "frieda_q_7016",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_RushraremetalsTECH03282023CA\\image22_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_RushraremetalsTECH03282023CA\\image18_1.png"
+    ],
+    "question": "Which 'Historic Prospects' within the Copper Mountain Uranium area is located closest to the 'Primary Road Travel' line as recorded by Rush Rare Metals Corp?",
+    "answer": "Canning Prospect",
+    "target_text": "Final answer: Canning Prospect",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_RushraremetalsTECH03282023CA"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5013",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\UptownDirectorsReport2017\\image12_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\UptownDirectorsReport2017\\image18_1.png"
+    ],
+    "question": "The 'Broad Street Redesign' line lies on the border of which 'Mixed use zone, height increases range 15'-75'' of the Uptown rezone recommendation regions? Give the zone name as given on the map.",
+    "answer": "M From 85' to 125'/160'",
+    "target_text": "Final answer: M From 85' to 125'/160'",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "seattle-planning/UptownDirectorsReport2017",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/UptownDirectorsReport2017"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8022",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217\\image149_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217\\image158_1.png"
+    ],
+    "question": "In which orientation is University Park located in relation to the Proposed Wet Pond within the MWRD City of Harvey BRIC Funding Infrastructure Project Area?",
+    "answer": "South West",
+    "target_text": "Final answer: South West",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_bric-emc-2022-br-012-0015-il-harveystormwater-fea-signedfonsi-20241217"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0017",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image207_1.png"
+    ],
+    "question": "What is the name of the 'Project-Specific Air Quality Monitoring Location' furthest from any Manufacturing Industrial Centers boundary?",
+    "answer": "South Park #2",
+    "target_text": "Final answer: South Park #2",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_12788_t34_src0624",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_12788.png"
+    ],
+    "question": "Yes or no: Maine is the Northern-most state that has a lower value compared to all its neighbours.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_34",
+    "map_id": "map_12788",
+    "metadata": {
+      "country": "usa",
+      "template_no": 34,
+      "relative_region": "Y",
+      "data_group_id": "map_12788",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 624
+    }
+  },
+  {
+    "sample_id": "frieda_q_1074",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\Aurora-Licton-plan\\image71_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\Aurora-Licton-plan\\image72_1.png"
+    ],
+    "question": "In the Aurora Ave and 97th Residential Urban Village, which Safety Audit Team's route is intersected by N. 105 Ave? Answer with the team number.",
+    "answer": "3",
+    "target_text": "Final answer: 3",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/Aurora-Licton-plan",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/Aurora-Licton-plan"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map13_4C_t30_src0675",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map13_4C.png"
+    ],
+    "question": "Does Jilin have the same value as Beijing amongst the states in the north east region.",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Binary",
+    "task_category": "template_30",
+    "map_id": "map13_4C",
+    "metadata": {
+      "country": "china",
+      "template_no": 30,
+      "relative_region": "N",
+      "data_group_id": "map13_4",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 675
+    }
+  },
+  {
+    "sample_id": "frieda_q_0154",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image30_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image19_1.png"
+    ],
+    "question": "What is the orientation of the Communications Tower within Prescott Park, Medford, OR, in relation to the Bear Creek Greenway within Medford city limits?",
+    "answer": "East",
+    "target_text": "Final answer: East",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1138",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendix_M_CJMT_RDEIS_Utility Studies_Part 1\\image17_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendix_M_CJMT_RDEIS_Utility Studies_Part 1\\image65_1.png"
+    ],
+    "question": "How many 'Existing Water Storage Tanks' are located within the 'Low-Permeability Tinian Pyroclastic Rocks at Sea Level' area in Tinian?",
+    "answer": "2",
+    "target_text": "Final answer: 2",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_6012",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\k__filings_livework_wkout_71392_Mandalay_TechReport\\image81_1.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\k__filings_livework_wkout_71392_Mandalay_TechReport\\image40_1.jpeg"
+    ],
+    "question": "The Mining Concession area of the Björkdal property consists of multiple blocks with unique names (e.g., Norrberget K nr 1). Which Mining Concession area is located closest to the Östra Ströhyden?",
+    "answer": "Storheden K nr 1",
+    "target_text": "Final answer: Storheden K nr 1",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/k__filings_livework_wkout_71392_Mandalay_TechReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_15061_t11_src0656",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_15061.png"
+    ],
+    "question": "Which states bordering Arizona belong to range 1700-8200?",
+    "answer": "Colorado",
+    "target_text": "Final answer: Colorado",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_11",
+    "map_id": "map_15061",
+    "metadata": {
+      "country": "usa",
+      "template_no": 11,
+      "relative_region": "Y",
+      "data_group_id": "map_15061",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 656
+    }
+  },
+  {
+    "sample_id": "frieda_q_7005",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_CENTTechnicalReport\\image15_1.jpeg"
+    ],
+    "question": "Which community boundary surrounds majority of 'Claim: El Eden'?",
+    "answer": "Nucleo Agrario: SAN ANTONIO DEl CERRO",
+    "target_text": "Final answer: Nucleo Agrario: SAN ANTONIO DEl CERRO",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_CENTTechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3023",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image45_2.jpeg"
+    ],
+    "question": "Identify two points: (1) the westernmost historic drill hole at Zapote North and (2) the easternmost historic drill hole at Guadalupe East. Estimate the straight-line distance between the two points.",
+    "answer": "3 km",
+    "target_text": "Final answer: 3 km",
+    "has_reasoning": false,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1147",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Annex 4 - NHPA Section 106 May 2025\\image200_1.png"
+    ],
+    "question": "All Survey Type areas are associated with a code in the format 22-#. Identify the northwestern border of the 'Inner Harbor Navigation Canal APE.' What is the code number of the 'Phase I' Survey Type area that shares a border with the 'Inner Harbor Navigation Canal APE'?",
+    "answer": "22-2522",
+    "target_text": "Final answer: 22-2522",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "EIS/Annex 4 - NHPA Section 106 May 2025",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/Annex 4 - NHPA Section 106 May 2025"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_7444_t26_src0725",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7444.png"
+    ],
+    "question": "Which states borering California have a value higher than Illinois?",
+    "answer": "None",
+    "target_text": "Final answer: None",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_26",
+    "map_id": "map_7444",
+    "metadata": {
+      "country": "usa",
+      "template_no": 26,
+      "relative_region": "N",
+      "data_group_id": "map_7444",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 725
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_20781_t15_src0779",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+    ],
+    "question": "Which state on the West Coast has the highest value?",
+    "answer": "Washington",
+    "target_text": "Final answer: Washington",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_15",
+    "map_id": "map_20781",
+    "metadata": {
+      "country": "usa",
+      "template_no": 15,
+      "relative_region": "N",
+      "data_group_id": "map_20781",
+      "legend_style": null,
+      "c_or_d": "d",
+      "source_index": 779
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map9_2C_t13_src0087",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map9_2C.png"
+    ],
+    "question": "Which state has the highest value in the region bordering Vietnam?",
+    "answer": "Guangxi",
+    "target_text": "Final answer: Guangxi",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_13",
+    "map_id": "map9_2C",
+    "metadata": {
+      "country": "china",
+      "template_no": 13,
+      "relative_region": "Y",
+      "data_group_id": "map9_2",
+      "legend_style": "C",
+      "c_or_d": "c",
+      "source_index": 87
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map12_2D_t40_src0372",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map12_2D.png"
+    ],
+    "question": "Which pair of north east states belonging to the second highest range are the closest to each other?",
+    "answer": "Liaoning and Jilin",
+    "target_text": "Final answer: Liaoning and Jilin",
+    "has_reasoning": false,
+    "answer_type": "List",
+    "task_category": "template_40",
+    "map_id": "map12_2D",
+    "metadata": {
+      "country": "china",
+      "template_no": 40,
+      "relative_region": "N",
+      "data_group_id": "map12_2",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 372
+    }
+  },
+  {
+    "sample_id": "mapwise_usa_map_49_t4_src0040",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+    ],
+    "question": "What value range does the darkest shade represent?",
+    "answer": "700k - 800k",
+    "target_text": "Final answer: 700k - 800k",
+    "has_reasoning": false,
+    "answer_type": "Range",
+    "task_category": "template_4",
+    "map_id": "map_49",
+    "metadata": {
+      "country": "usa",
+      "template_no": 4,
+      "relative_region": "N",
+      "data_group_id": "map_49",
+      "legend_style": null,
+      "c_or_d": "c",
+      "source_index": 40
+    }
+  },
+  {
+    "sample_id": "frieda_q_0014",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image96_1.png"
+    ],
+    "question": "Every 'Ballard/Interbay/Northend Study Corridor' is associated with a unique number. Within the Ballard-Interbay MIC, which 'Ballard/Interbay/Northend Study Corridor' number corresponds to the line where 'Interbay Davus' and 'Interbay Smith Cove' Industrial Lands Subareas intersect?",
+    "answer": "7",
+    "target_text": "Final answer: 7",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1062",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\639363\\image1_m9.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\639363\\image1_m14.png"
+    ],
+    "question": "In the Glacier National Park region and its surrounding areas, what is the approximate distance from East Glacier Park to Missoula, MT? Answer in MILES.",
+    "answer": "122MILES",
+    "target_text": "Final answer: 122MILES",
+    "has_reasoning": false,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "national-parks/639363",
+    "metadata": {
+      "domain": "Park & trail map",
+      "map_elements": [
+        "map text",
+        "scale"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "national-parks/639363"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3020",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_filings_Alpha_TechReport_July13\\image88_2.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_filings_Alpha_TechReport_July13\\image68_2.jpeg"
+    ],
+    "question": "Which Mining Concessions does the 'Former Property Boundary' of Salar de Tolillar Basin represent? Give just the numbers associated with the Mining Concession.",
+    "answer": "17946; 17947; 17948",
+    "target_text": "Final answer: 17946; 17947; 17948",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_filings_Alpha_TechReport_July13"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5030",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\lfs-test-case-memorandum\\image42_1.png"
+    ],
+    "question": "Within Area 1 SAB Boundary, what is the orientation of 'Up-to Mid‑rise Load Level' in relation to 'Up-to High-rise Load Level'?",
+    "answer": "East",
+    "target_text": "Final answer: East",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "seattle-planning/lfs-test-case-memorandum",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/lfs-test-case-memorandum"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0027",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\IndustrialMaritimeStrategyFinalEIS\\image691_1.png"
+    ],
+    "question": "How many 'Historic- Not Evaluated' Archaeological Resources are located within the 'Georgetown' Industrial Lands Subareas?",
+    "answer": "5",
+    "target_text": "Final answer: 5",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/IndustrialMaritimeStrategyFinalEIS",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/IndustrialMaritimeStrategyFinalEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "mapwise_china_map8_0D_t41_src0956",
+    "dataset": "MapWise",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map8_0D.png"
+    ],
+    "question": "Are the legends evenly spaced?",
+    "answer": "No",
+    "target_text": "Final answer: No",
+    "has_reasoning": false,
+    "answer_type": "Single",
+    "task_category": "template_41",
+    "map_id": "map8_0D",
+    "metadata": {
+      "country": "china",
+      "template_no": 41,
+      "relative_region": "N",
+      "data_group_id": "map8_0",
+      "legend_style": "D",
+      "c_or_d": "d",
+      "source_index": 956
+    }
+  },
+  {
+    "sample_id": "frieda_q_1111",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendix_M_CJMT_RDEIS_Utility Studies_Part 1\\image16_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendix_M_CJMT_RDEIS_Utility Studies_Part 1\\image73_1.png"
+    ],
+    "question": "Within the Tinian Military Lease Area, what is the orientation of the 'General Groundwater Directional Flow' arrow that passes through the 'North Lowland' Physiographic Area?",
+    "answer": "North East",
+    "target_text": "Final answer: North East",
+    "has_reasoning": false,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Appendix_M_CJMT_RDEIS_Utility Studies_Part 1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4015",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__nou-43101-PEA-ang\\image61_3.png"
+    ],
+    "question": "The Uatnan property is divided into multiple claim blocks associated with a unique number (e.g., 1040933). How many claim blocks are crossed by forestry road R0928?",
+    "answer": "12",
+    "target_text": "Final answer: 12",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/z__nou-43101-PEA-ang",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/z__nou-43101-PEA-ang"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7017",
+    "dataset": "FRIEDA",
+    "split": "validation",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__KosterDamTechReportISM\\image13_1.jpeg"
+    ],
+    "question": "The Koster Dam Project maps the underlying geology and gives a unique alphabetical code for each geology type. What is the geology code, as given on the map, in which 'Borin Creek Placer' lies in?",
+    "answer": "EOlv",
+    "target_text": "Final answer: EOlv",
+    "has_reasoning": false,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__KosterDamTechReportISM",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__KosterDamTechReportISM"
+      ]
+    }
+  }
+]

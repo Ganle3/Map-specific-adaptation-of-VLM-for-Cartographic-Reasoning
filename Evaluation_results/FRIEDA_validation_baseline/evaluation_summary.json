@@ -1,0 +1,130 @@
+{
+  "overall": {
+    "total": 75,
+    "correct": 18,
+    "accuracy": 0.24
+  },
+  "by_answer_type": {
+    "cardinal": {
+      "total": 10,
+      "correct": 6,
+      "accuracy": 0.6
+    },
+    "distance": {
+      "total": 6,
+      "correct": 1,
+      "accuracy": 0.16666666666666666
+    },
+    "textual": {
+      "total": 59,
+      "correct": 11,
+      "accuracy": 0.1864406779661017
+    }
+  },
+  "by_spatial_relationship": {
+    "Border": {
+      "total": 8,
+      "correct": 1,
+      "accuracy": 0.125
+    },
+    "Distance": {
+      "total": 18,
+      "correct": 3,
+      "accuracy": 0.16666666666666666
+    },
+    "Equal": {
+      "total": 4,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "Intersect": {
+      "total": 14,
+      "correct": 4,
+      "accuracy": 0.2857142857142857
+    },
+    "Orientation": {
+      "total": 10,
+      "correct": 6,
+      "accuracy": 0.6
+    },
+    "Within": {
+      "total": 21,
+      "correct": 4,
+      "accuracy": 0.19047619047619047
+    }
+  },
+  "by_map_count": {
+    "Multi": {
+      "total": 33,
+      "correct": 11,
+      "accuracy": 0.3333333333333333
+    },
+    "Single": {
+      "total": 42,
+      "correct": 7,
+      "accuracy": 0.16666666666666666
+    }
+  },
+  "by_domain": {
+    "Disaster/hazard": {
+      "total": 10,
+      "correct": 6,
+      "accuracy": 0.6
+    },
+    "Environmental review": {
+      "total": 9,
+      "correct": 1,
+      "accuracy": 0.1111111111111111
+    },
+    "Geology report": {
+      "total": 26,
+      "correct": 2,
+      "accuracy": 0.07692307692307693
+    },
+    "Park & trail map": {
+      "total": 2,
+      "correct": 1,
+      "accuracy": 0.5
+    },
+    "Planning (city/region)": {
+      "total": 28,
+      "correct": 8,
+      "accuracy": 0.2857142857142857
+    }
+  },
+  "by_evaluator": {
+    "cardinal_adjacent": {
+      "total": 10,
+      "correct": 6,
+      "accuracy": 0.6
+    },
+    "distance_mape": {
+      "total": 6,
+      "correct": 1,
+      "accuracy": 0.16666666666666666
+    },
+    "llm_judge": {
+      "total": 49,
+      "correct": 1,
+      "accuracy": 0.02040816326530612
+    },
+    "normalized_exact": {
+      "total": 10,
+      "correct": 10,
+      "accuracy": 1.0
+    }
+  },
+  "distance_mape": 10833.583253298008,
+  "missing_or_empty_predictions": 0,
+  "total": 75,
+  "correct": 18,
+  "overall_accuracy": 0.24,
+  "textual_accuracy": 0.1864406779661017,
+  "distance_accuracy": 0.16666666666666666,
+  "cardinal_accuracy": 0.6,
+  "artifacts": {
+    "details_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_results\\FRIEDA_validation_baseline\\evaluation_details.json",
+    "summary_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_results\\FRIEDA_validation_baseline\\evaluation_summary.json",
+    "details_csv": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_results\\FRIEDA_validation_baseline\\evaluation_details.csv"
+  }
+}

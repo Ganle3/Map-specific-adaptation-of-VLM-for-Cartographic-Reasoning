@@ -33,6 +33,7 @@ import unsloth  # noqa: F401
 import torch
 from PIL import Image
 from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
+from peft import PeftModel
 
 
 # ============================================================
@@ -227,24 +228,54 @@ def print_gpu_information() -> None:
     print(f"GPU VRAM: {properties.total_memory / 1024**3:.2f} GB", flush=True)
 
 
-def load_model_and_processor(model_name: str = MODEL_NAME):
-    """Load Qwen3-VL-8B-Thinking and its processor."""
+def load_model_and_processor(
+    model_name: str = MODEL_NAME,
+    adapter_path: Optional[Path] = None,
+):
+    """Load the baseline model or the base model with a PEFT/LoRA adapter."""
     print("\nLoading Qwen3-VL model...", flush=True)
-    print(f"Model: {model_name}", flush=True)
+    print(f"Base model: {model_name}", flush=True)
     print_gpu_information()
 
+    resolved_adapter: Optional[Path] = None
+    if adapter_path is not None:
+        resolved_adapter = Path(adapter_path).expanduser().resolve()
+        if not resolved_adapter.exists():
+            raise FileNotFoundError(
+                f"Adapter directory does not exist:\n{resolved_adapter}"
+            )
+        if not (resolved_adapter / "adapter_config.json").exists():
+            raise FileNotFoundError(
+                "The adapter directory does not contain adapter_config.json:\n"
+                f"{resolved_adapter}"
+            )
+        print(f"Adapter:    {resolved_adapter}", flush=True)
+    else:
+        print("Adapter:    None (baseline)", flush=True)
+
+    # Use the base-model processor for both baseline and adapted inference so
+    # preprocessing and chat-template behavior remain identical.
     processor = AutoProcessor.from_pretrained(
         model_name,
         trust_remote_code=True,
     )
 
-    model = Qwen3VLForConditionalGeneration.from_pretrained(
+    base_model = Qwen3VLForConditionalGeneration.from_pretrained(
         model_name,
         device_map="auto",
         dtype=torch.bfloat16,
         trust_remote_code=True,
         low_cpu_mem_usage=True,
     )
+
+    if resolved_adapter is None:
+        model = base_model
+    else:
+        model = PeftModel.from_pretrained(
+            base_model,
+            str(resolved_adapter),
+            is_trainable=False,
+        )
 
     model.eval()
     print("Model and processor loaded successfully.", flush=True)
@@ -383,6 +414,7 @@ def build_prediction_record(
     image_paths: list[Path],
     raw_response: str,
     model_name: str,
+    adapter_path: Optional[Path],
     max_new_tokens: int,
     inference_seconds: float,
 ) -> dict[str, Any]:
@@ -404,7 +436,13 @@ def build_prediction_record(
         "domain": str(sample.get("domain", "")).strip(),
         "image_urls": list(sample.get("image_urls", [])),
         "resolved_image_paths": [str(path) for path in image_paths],
-        "model_name": model_name,
+        "base_model_name": model_name,
+        "adapter_path": (
+            str(Path(adapter_path).expanduser().resolve())
+            if adapter_path is not None
+            else None
+        ),
+        "model_variant": "adapted" if adapter_path is not None else "baseline",
         "max_new_tokens": max_new_tokens,
         "raw_response": raw_response,
         "final_answer": extract_final_answer(raw_response),
@@ -416,6 +454,7 @@ def build_prediction_record(
 def run_frieda_inference(
     *,
     model_name: str = MODEL_NAME,
+    adapter_path: Optional[Path] = None,
     qa_json: Path = FRIEDA_JSON,
     image_root: Path = FRIEDA_IMAGE_ROOT,
     output_json: Path = DEFAULT_OUTPUT_JSON,
@@ -474,8 +513,15 @@ def run_frieda_inference(
     print(f"Resume:        {resume}")
     print(f"Already done:  {len(completed)}")
     print(f"Max tokens:    {max_new_tokens}")
+    print(
+        "Adapter:       "
+        + (str(Path(adapter_path).expanduser().resolve()) if adapter_path else "None (baseline)")
+    )
 
-    model, processor = load_model_and_processor(model_name)
+    model, processor = load_model_and_processor(
+        model_name=model_name,
+        adapter_path=adapter_path,
+    )
 
     newly_completed = 0
     skipped = 0
@@ -532,6 +578,7 @@ def run_frieda_inference(
                     image_paths=image_paths,
                     raw_response=raw_response,
                     model_name=model_name,
+                    adapter_path=adapter_path,
                     max_new_tokens=max_new_tokens,
                     inference_seconds=inference_seconds,
                 )
@@ -569,7 +616,15 @@ def run_frieda_inference(
                     "map_count": str(sample.get("map_count", "")).strip(),
                     "domain": str(sample.get("domain", "")).strip(),
                     "image_urls": list(sample.get("image_urls", [])),
-                    "model_name": model_name,
+                    "base_model_name": model_name,
+                    "adapter_path": (
+                        str(Path(adapter_path).expanduser().resolve())
+                        if adapter_path is not None
+                        else None
+                    ),
+                    "model_variant": (
+                        "adapted" if adapter_path is not None else "baseline"
+                    ),
                     "max_new_tokens": max_new_tokens,
                     "raw_response": "",
                     "final_answer": "",
@@ -631,6 +686,12 @@ def parse_args() -> argparse.Namespace:
     )
 
     parser.add_argument("--model-name", default=MODEL_NAME)
+    parser.add_argument(
+        "--adapter-path",
+        type=Path,
+        default=None,
+        help="Optional PEFT/LoRA adapter directory. Omit for baseline inference.",
+    )
     parser.add_argument("--qa-json", type=Path, default=FRIEDA_JSON)
     parser.add_argument("--image-root", type=Path, default=FRIEDA_IMAGE_ROOT)
     parser.add_argument("--output-json", type=Path, default=DEFAULT_OUTPUT_JSON)
@@ -650,6 +711,7 @@ def main() -> Path:
 
     return run_frieda_inference(
         model_name=args.model_name,
+        adapter_path=args.adapter_path,
         qa_json=args.qa_json,
         image_root=args.image_root,
         output_json=args.output_json,

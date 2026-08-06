@@ -1,0 +1,290 @@
+{
+  "train": [
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_Volt_230523TechReport\\image37_1.jpeg"
+            },
+            {
+              "type": "text",
+              "text": "Which Field/Pool/Unit occupies the most area within the Rainbow Lake Property boundary?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: Rainbow"
+            }
+          ]
+        }
+      ],
+      "sample_id": "frieda_q_8029",
+      "dataset": "FRIEDA",
+      "split": "train",
+      "answer": "Rainbow",
+      "answer_type": "textual",
+      "task_category": "Within",
+      "map_id": "NI43-101/C__SEDAR_FILINGS_Volt_230523TechReport",
+      "image_count": 1,
+      "has_reasoning": false
+    },
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_7729.png"
+            },
+            {
+              "type": "text",
+              "text": "Rank the states West Virginia, Kentucky, and Tennessee in terms of the legend value in the Appalachian region?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: Tennessee < Kentucky < West Virginia"
+            }
+          ]
+        }
+      ],
+      "sample_id": "mapwise_usa_map_7729_t43_src0948",
+      "dataset": "MapWise",
+      "split": "train",
+      "answer": "Tennessee < Kentucky < West Virginia",
+      "answer_type": "List",
+      "task_category": "template_43",
+      "map_id": "map_7729",
+      "image_count": 1,
+      "has_reasoning": false
+    },
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9\\image144_3.jpeg"
+            },
+            {
+              "type": "text",
+              "text": "What is the shortest distance between the largest follow-up area within the NHK property and the property's boundary?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: 3.2 km"
+            }
+          ]
+        }
+      ],
+      "sample_id": "frieda_q_2027",
+      "dataset": "FRIEDA",
+      "split": "train",
+      "answer": "3.2 km",
+      "answer_type": "distance",
+      "task_category": "Distance",
+      "map_id": "NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9",
+      "image_count": 1,
+      "has_reasoning": false
+    },
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_11719.png"
+            },
+            {
+              "type": "text",
+              "text": "What is the least value range along the Canada border?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: 0.4-0.9%"
+            }
+          ]
+        }
+      ],
+      "sample_id": "mapwise_usa_map_11719_t12_src0602",
+      "dataset": "MapWise",
+      "split": "train",
+      "answer": "0.4-0.9%",
+      "answer_type": "Range",
+      "task_category": "template_12",
+      "map_id": "map_11719",
+      "image_count": 1,
+      "has_reasoning": false
+    }
+  ],
+  "validation": [
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_20781.png"
+            },
+            {
+              "type": "text",
+              "text": "How many states bordering Canada have a value similar to Utah?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: 2"
+            }
+          ]
+        }
+      ],
+      "sample_id": "mapwise_usa_map_20781_t35_src0785",
+      "dataset": "MapWise",
+      "split": "validation",
+      "answer": "2",
+      "answer_type": "Count",
+      "task_category": "template_35",
+      "map_id": "map_20781",
+      "image_count": 1,
+      "has_reasoning": false
+    },
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\MAPWise\\image\\map_49.png"
+            },
+            {
+              "type": "text",
+              "text": "How many states bordering Texas have a value similar to state South Carolina?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: 4"
+            }
+          ]
+        }
+      ],
+      "sample_id": "mapwise_usa_map_49_t35_src0038",
+      "dataset": "MapWise",
+      "split": "validation",
+      "answer": "4",
+      "answer_type": "Count",
+      "task_category": "template_35",
+      "map_id": "map_49",
+      "image_count": 1,
+      "has_reasoning": false
+    },
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image163_1.png"
+            },
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729\\image168_1.png"
+            },
+            {
+              "type": "text",
+              "text": "In Jackson County, what is the orientation of Ashland in relation to the southwest corner of the Rogue Wolf Use Area border?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: South"
+            }
+          ]
+        }
+      ],
+      "sample_id": "frieda_q_0194",
+      "dataset": "FRIEDA",
+      "split": "validation",
+      "answer": "South",
+      "answer_type": "cardinal",
+      "task_category": "Orientation",
+      "map_id": "FEMA/HMGP-DR-4562-24-OR-MedfordHazFuels-FEA-SignedFONSI-20250729",
+      "image_count": 2,
+      "has_reasoning": false
+    },
+    {
+      "messages": [
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "image",
+              "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed\\image131_2.jpeg"
+            },
+            {
+              "type": "text",
+              "text": "Which 2023 Resource Pit Crest of Los Reyes consist of the Metallurgical Test Drill Hole that is located farthest South?"
+            }
+          ]
+        },
+        {
+          "role": "assistant",
+          "content": [
+            {
+              "type": "text",
+              "text": "Final answer: Noche Buena"
+            }
+          ]
+        }
+      ],
+      "sample_id": "frieda_q_2030",
+      "dataset": "FRIEDA",
+      "split": "validation",
+      "answer": "Noche Buena",
+      "answer_type": "textual",
+      "task_category": "Within",
+      "map_id": "NI43-101/z__PUBLIC_Prime-Mining-Corp_2023_Tech-Report_PRYM-LosReyes-TR-conformed",
+      "image_count": 1,
+      "has_reasoning": false
+    }
+  ]
+}

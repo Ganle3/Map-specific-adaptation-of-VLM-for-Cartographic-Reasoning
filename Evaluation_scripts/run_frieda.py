@@ -1,33 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Run the complete FRIEDA baseline pipeline:
-
-    1. Qwen3-VL inference
-    2. FRIEDA evaluation
-    3. Save predictions and evaluation results
-
-Expected project structure
---------------------------
-Thesis/
-├── Evaluation_scripts/
-│   ├── run_frieda.py
-│   ├── inference_frieda.py
-│   ├── frieda_evaluation.py
-│   └── orientation.pkl
-│
-├── Test_data/
-│   └── FRIEDA_test/
-│       ├── frieda_test.json
-│       └── image/
-│
-└── Evaluation_results/
-    └── FRIEDA_Qwen3VL/
-        ├── frieda_predictions.json
-        ├── evaluation_summary.json
-        ├── evaluation_details.json
-        └── evaluation_details.csv
-"""
 
 from __future__ import annotations
 
@@ -42,99 +14,86 @@ from frieda_evaluation import evaluate_frieda, print_summary
 
 
 # ============================================================
-# 1. Experiment configuration
+# 1. Stable experiment settings
 # ============================================================
 
-EXPERIMENT_NAME = "FRIEDA_Qwen3VL"
-
-MODEL_NAME = (
-    "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit"
-)
-
+MODEL_NAME = "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit"
 MAX_NEW_TOKENS = 3072
-
 DISTANCE_TOLERANCE = 0.20
-
-# None means deterministic textual matching only.
-#
-# To use a local LLM judge later, replace None with a model name, for example:
-#
-JUDGE_MODEL = "mistralai/Ministral-8B-Instruct-2410"
-#
-# Loading the inference model and judge simultaneously may exceed GPU memory.
-# Therefore, it is safer to run evaluation after inference has released
-# the Qwen model.
-# JUDGE_MODEL: Optional[str] = None
-
-
-# ============================================================
-# 2. Automatic project paths
-# ============================================================
+JUDGE_MODEL: Optional[str] = "mistralai/Ministral-8B-Instruct-2410"
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-
-# The scripts are assumed to be inside:
-# Thesis/Evaluation_scripts/
 PROJECT_ROOT = SCRIPT_DIR.parent
-
-FRIEDA_ROOT = PROJECT_ROOT / "Test_data" / "FRIEDA_test"
-QA_JSON = FRIEDA_ROOT / "frieda_test.json"
-IMAGE_ROOT = FRIEDA_ROOT / "image"
-
-OUTPUT_DIR = (
-    PROJECT_ROOT
-    / "Evaluation_results"
-    / EXPERIMENT_NAME
-)
-
-PREDICTION_JSON = OUTPUT_DIR / "frieda_predictions.json"
-
-# The official FRIEDA orientation file is preferred when present.
 ORIENTATION_PKL = SCRIPT_DIR / "orientation.pkl"
 
 
 # ============================================================
-# 3. Validation utilities
+# 2. Split-aware default paths
 # ============================================================
 
-def validate_project_paths() -> None:
-    """Check all required input files and directories before execution."""
+def default_data_paths(split: str) -> tuple[Path, Path]:
+    """Return the default original-format QA JSON and image directory."""
+    if split == "validation":
+        root = PROJECT_ROOT / "Train_Val_data" / "FRIEDA"
+        return root / "frieda_validation.json", root / "image"
+
+    if split == "test":
+        root = PROJECT_ROOT / "Test_data" / "FRIEDA_test"
+        return root / "frieda_test.json", root / "image"
+
+    raise ValueError(f"Unsupported split: {split}")
+
+
+def default_experiment_name(split: str, adapter_path: Optional[Path]) -> str:
+    variant = "adapted" if adapter_path is not None else "baseline"
+    return f"FRIEDA_{split}_{variant}"
+
+
+# ============================================================
+# 3. Validation and reporting utilities
+# ============================================================
+
+def validate_project_paths(
+    qa_json: Path,
+    image_root: Path,
+    adapter_path: Optional[Path],
+    output_dir: Path,
+) -> None:
     required_paths = {
-        "FRIEDA QA JSON": QA_JSON,
-        "FRIEDA image directory": IMAGE_ROOT,
+        "FRIEDA QA JSON": qa_json,
+        "FRIEDA image directory": image_root,
     }
 
-    missing: list[str] = []
+    if adapter_path is not None:
+        required_paths["LoRA adapter directory"] = adapter_path
+        required_paths["LoRA adapter config"] = adapter_path / "adapter_config.json"
 
-    for label, path in required_paths.items():
-        if not path.exists():
-            missing.append(f"{label}:\n  {path}")
+    missing = [
+        f"{label}:\n  {path}"
+        for label, path in required_paths.items()
+        if not path.exists()
+    ]
 
     if missing:
-        joined = "\n\n".join(missing)
         raise FileNotFoundError(
-            "The following required FRIEDA paths were not found:\n\n"
-            f"{joined}"
+            "The following required paths were not found:\n\n"
+            + "\n\n".join(missing)
         )
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
 
 def count_qa_samples(qa_json: Path) -> int:
-    """Return the number of QA records in the FRIEDA JSON."""
     with qa_json.open("r", encoding="utf-8") as handle:
         data = json.load(handle)
 
     if not isinstance(data, list):
-        raise ValueError(
-            f"FRIEDA QA JSON must contain a list: {qa_json}"
-        )
+        raise ValueError(f"FRIEDA QA JSON must contain a list: {qa_json}")
 
     return len(data)
 
 
 def count_prediction_records(prediction_json: Path) -> int:
-    """Return the number of prediction records already saved."""
     if not prediction_json.exists():
         return 0
 
@@ -143,61 +102,55 @@ def count_prediction_records(prediction_json: Path) -> int:
 
     if isinstance(data, list):
         return len(data)
-
     if isinstance(data, dict):
         for key in ("results", "predictions", "data"):
             if isinstance(data.get(key), list):
                 return len(data[key])
         return len(data)
-
     return 0
 
 
 def resolve_orientation_path() -> Optional[Path]:
-    """
-    Use the official orientation.pkl when available.
-
-    If the file is absent, frieda_evaluation.py falls back to its built-in
-    direction mapping.
-    """
     if ORIENTATION_PKL.exists():
         return ORIENTATION_PKL.resolve()
 
     print(
-        "\nWarning: orientation.pkl was not found.",
-        file=sys.stderr,
-    )
-    print(
-        "The built-in orientation mapping in "
-        "frieda_evaluation.py will be used instead.",
+        "\nWarning: orientation.pkl was not found; the built-in mapping will be used.",
         file=sys.stderr,
     )
     return None
 
 
-def print_pipeline_configuration() -> None:
-    """Print the resolved experiment configuration."""
+def print_pipeline_configuration(
+    *,
+    split: str,
+    experiment_name: str,
+    model_name: str,
+    adapter_path: Optional[Path],
+    qa_json: Path,
+    image_root: Path,
+    output_dir: Path,
+    prediction_json: Path,
+) -> None:
     print("=" * 80)
-    print("FRIEDA BASELINE PIPELINE")
+    print("FRIEDA EVALUATION PIPELINE")
     print("=" * 80)
-    print(f"Experiment:       {EXPERIMENT_NAME}")
-    print(f"Model:            {MODEL_NAME}")
-    print(f"QA JSON:          {QA_JSON}")
-    print(f"Image directory:  {IMAGE_ROOT}")
-    print(f"Output directory: {OUTPUT_DIR}")
-    print(f"Prediction JSON:  {PREDICTION_JSON}")
+    print(f"Split:            {split}")
+    print(f"Experiment:       {experiment_name}")
+    print(f"Base model:       {model_name}")
+    print(
+        f"Adapter:          {adapter_path if adapter_path is not None else 'None (baseline)'}"
+    )
+    print(f"QA JSON:          {qa_json}")
+    print(f"Image directory:  {image_root}")
+    print(f"Output directory: {output_dir}")
+    print(f"Prediction JSON:  {prediction_json}")
     print(f"Max new tokens:   {MAX_NEW_TOKENS}")
     print(f"Distance tol.:    {DISTANCE_TOLERANCE:.0%}")
-
-    if ORIENTATION_PKL.exists():
-        print(f"Orientation map:  {ORIENTATION_PKL}")
-    else:
-        print("Orientation map:  built-in mapping")
-
-    if JUDGE_MODEL:
-        print(f"Text judge:       {JUDGE_MODEL}")
-    else:
-        print("Text judge:       deterministic matching only")
+    print(
+        f"Orientation map:  {ORIENTATION_PKL if ORIENTATION_PKL.exists() else 'built-in mapping'}"
+    )
+    print(f"Text judge:       {JUDGE_MODEL or 'deterministic matching only'}")
 
 
 # ============================================================
@@ -206,21 +159,26 @@ def print_pipeline_configuration() -> None:
 
 def run_inference_stage(
     *,
-    start_index: int = 0,
-    end_index: Optional[int] = None,
-    resume: bool = True,
-    overwrite: bool = False,
+    model_name: str,
+    adapter_path: Optional[Path],
+    qa_json: Path,
+    image_root: Path,
+    prediction_json: Path,
+    start_index: int,
+    end_index: Optional[int],
+    resume: bool,
+    overwrite: bool,
 ) -> Path:
-    """Run FRIEDA inference and return the prediction JSON path."""
     print("\n" + "=" * 80)
     print("STAGE 1: FRIEDA INFERENCE")
     print("=" * 80)
 
     prediction_path = run_frieda_inference(
-        model_name=MODEL_NAME,
-        qa_json=QA_JSON,
-        image_root=IMAGE_ROOT,
-        output_json=PREDICTION_JSON,
+        model_name=model_name,
+        adapter_path=adapter_path,
+        qa_json=qa_json,
+        image_root=image_root,
+        output_json=prediction_json,
         max_new_tokens=MAX_NEW_TOKENS,
         start_index=start_index,
         end_index=end_index,
@@ -235,31 +193,28 @@ def run_inference_stage(
             "Inference completed without producing a prediction file:\n"
             f"{prediction_path}"
         )
-
     return prediction_path
 
 
 def run_evaluation_stage(
+    *,
     prediction_json: Path,
+    qa_json: Path,
+    output_dir: Path,
 ) -> dict[str, Any]:
-    """Evaluate the prediction file and return the aggregate summary."""
     print("\n" + "=" * 80)
     print("STAGE 2: FRIEDA EVALUATION")
     print("=" * 80)
 
-    orientation_path = resolve_orientation_path()
-
-    summary = evaluate_frieda(
+    return evaluate_frieda(
         prediction_json=prediction_json,
-        qa_json=QA_JSON,
-        output_dir=OUTPUT_DIR,
-        orientation_pkl=orientation_path,
+        qa_json=qa_json,
+        output_dir=output_dir,
+        orientation_pkl=resolve_orientation_path(),
         distance_tolerance=DISTANCE_TOLERANCE,
         judge_model=JUDGE_MODEL,
         judge_load_in_4bit=True,
     )
-
-    return summary
 
 
 # ============================================================
@@ -268,6 +223,13 @@ def run_evaluation_stage(
 
 def run_frieda_pipeline(
     *,
+    split: str,
+    experiment_name: str,
+    model_name: str,
+    adapter_path: Optional[Path],
+    qa_json: Path,
+    image_root: Path,
+    output_dir: Path,
     inference_only: bool = False,
     evaluation_only: bool = False,
     start_index: int = 0,
@@ -275,40 +237,48 @@ def run_frieda_pipeline(
     resume: bool = True,
     overwrite: bool = False,
 ) -> Optional[dict[str, Any]]:
-    """
-    Run inference, evaluation, or the complete FRIEDA pipeline.
-
-    Returns
-    -------
-    dict or None
-        Evaluation summary when evaluation is run. Returns None for
-        inference-only execution.
-    """
     if inference_only and evaluation_only:
         raise ValueError(
             "--inference-only and --evaluation-only cannot be used together."
         )
 
-    validate_project_paths()
-    print_pipeline_configuration()
+    qa_json = qa_json.expanduser().resolve()
+    image_root = image_root.expanduser().resolve()
+    output_dir = output_dir.expanduser().resolve()
+    adapter_path = (
+        adapter_path.expanduser().resolve() if adapter_path is not None else None
+    )
+    prediction_json = output_dir / "frieda_predictions.json"
 
-    qa_count = count_qa_samples(QA_JSON)
-    existing_predictions = count_prediction_records(PREDICTION_JSON)
+    validate_project_paths(qa_json, image_root, adapter_path, output_dir)
+    print_pipeline_configuration(
+        split=split,
+        experiment_name=experiment_name,
+        model_name=model_name,
+        adapter_path=adapter_path,
+        qa_json=qa_json,
+        image_root=image_root,
+        output_dir=output_dir,
+        prediction_json=prediction_json,
+    )
 
-    print(f"QA samples:       {qa_count}")
-    print(f"Saved predictions:{existing_predictions:>6}")
+    print(f"QA samples:       {count_qa_samples(qa_json)}")
+    print(f"Saved predictions:{count_prediction_records(prediction_json):>6}")
 
     if evaluation_only:
-        if not PREDICTION_JSON.exists():
+        if not prediction_json.exists():
             raise FileNotFoundError(
                 "Evaluation-only mode requires an existing prediction file:\n"
-                f"{PREDICTION_JSON}"
+                f"{prediction_json}"
             )
-
-        prediction_path = PREDICTION_JSON
-
+        prediction_path = prediction_json
     else:
         prediction_path = run_inference_stage(
+            model_name=model_name,
+            adapter_path=adapter_path,
+            qa_json=qa_json,
+            image_root=image_root,
+            prediction_json=prediction_json,
             start_index=start_index,
             end_index=end_index,
             resume=resume,
@@ -320,28 +290,21 @@ def run_frieda_pipeline(
         print(f"Predictions saved to: {prediction_path}")
         return None
 
-    summary = run_evaluation_stage(prediction_path)
+    summary = run_evaluation_stage(
+        prediction_json=prediction_path,
+        qa_json=qa_json,
+        output_dir=output_dir,
+    )
 
     print("\n")
     print_summary(summary)
-
     print("\n" + "=" * 80)
     print("FRIEDA PIPELINE COMPLETED")
     print("=" * 80)
     print(f"Predictions: {prediction_path.resolve()}")
-    print(
-        "Summary:     "
-        f"{OUTPUT_DIR / 'evaluation_summary.json'}"
-    )
-    print(
-        "Details:     "
-        f"{OUTPUT_DIR / 'evaluation_details.json'}"
-    )
-    print(
-        "CSV:         "
-        f"{OUTPUT_DIR / 'evaluation_details.csv'}"
-    )
-
+    print(f"Summary:     {output_dir / 'evaluation_summary.json'}")
+    print(f"Details:     {output_dir / 'evaluation_details.json'}")
+    print(f"CSV:         {output_dir / 'evaluation_details.csv'}")
     return summary
 
 
@@ -352,61 +315,85 @@ def run_frieda_pipeline(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
-            "Run Qwen3-VL inference and FRIEDA evaluation "
-            "as one reproducible baseline pipeline."
+            "Run FRIEDA validation/test inference and evaluation with either "
+            "the baseline Qwen3-VL model or a PEFT/LoRA adapter."
         )
     )
 
-    mode_group = parser.add_mutually_exclusive_group()
-
-    mode_group.add_argument(
-        "--inference-only",
-        action="store_true",
-        help="Run inference without evaluation.",
+    parser.add_argument(
+        "--split",
+        choices=("validation", "test"),
+        default="test",
+        help="Dataset split to evaluate. Default: test.",
     )
-
-    mode_group.add_argument(
-        "--evaluation-only",
-        action="store_true",
+    parser.add_argument("--model-name", default=MODEL_NAME)
+    parser.add_argument(
+        "--adapter-path",
+        type=Path,
+        default=None,
+        help="Optional PEFT/LoRA adapter directory. Omit for baseline evaluation.",
+    )
+    parser.add_argument(
+        "--experiment-name",
+        default=None,
         help=(
-            "Skip model inference and evaluate the existing "
-            "frieda_predictions.json."
+            "Output experiment name. If omitted, uses "
+            "FRIEDA_<split>_<baseline|adapted>."
         ),
     )
-
     parser.add_argument(
-        "--start-index",
-        type=int,
-        default=0,
-        help="Inclusive starting index for inference.",
-    )
-
-    parser.add_argument(
-        "--end-index",
-        type=int,
+        "--qa-json",
+        type=Path,
         default=None,
-        help="Exclusive ending index for inference.",
+        help="Optional QA JSON override for the selected split.",
     )
-
     parser.add_argument(
-        "--no-resume",
-        action="store_true",
-        help="Do not reuse previously completed predictions.",
+        "--image-root",
+        type=Path,
+        default=None,
+        help="Optional image-directory override for the selected split.",
     )
-
     parser.add_argument(
-        "--overwrite",
-        action="store_true",
-        help="Delete the existing prediction file before inference.",
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Optional output-directory override.",
     )
 
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument("--inference-only", action="store_true")
+    mode_group.add_argument("--evaluation-only", action="store_true")
+
+    parser.add_argument("--start-index", type=int, default=0)
+    parser.add_argument("--end-index", type=int, default=None)
+    parser.add_argument("--no-resume", action="store_true")
+    parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
 
 
 def main() -> Optional[dict[str, Any]]:
     args = parse_args()
 
+    default_qa_json, default_image_root = default_data_paths(args.split)
+    qa_json = args.qa_json or default_qa_json
+    image_root = args.image_root or default_image_root
+
+    experiment_name = args.experiment_name or default_experiment_name(
+        args.split,
+        args.adapter_path,
+    )
+    output_dir = args.output_dir or (
+        PROJECT_ROOT / "Evaluation_results" / experiment_name
+    )
+
     return run_frieda_pipeline(
+        split=args.split,
+        experiment_name=experiment_name,
+        model_name=args.model_name,
+        adapter_path=args.adapter_path,
+        qa_json=qa_json,
+        image_root=image_root,
+        output_dir=output_dir,
         inference_only=args.inference_only,
         evaluation_only=args.evaluation_only,
         start_index=args.start_index,
@@ -420,15 +407,9 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print(
-            "\nPipeline interrupted by the user.",
-            file=sys.stderr,
-        )
+        print("\nPipeline interrupted by the user.", file=sys.stderr)
         sys.exit(130)
     except Exception as error:
         print("\nFRIEDA pipeline failed.", file=sys.stderr)
-        print(
-            f"{type(error).__name__}: {error}",
-            file=sys.stderr,
-        )
+        print(f"{type(error).__name__}: {error}", file=sys.stderr)
         raise
