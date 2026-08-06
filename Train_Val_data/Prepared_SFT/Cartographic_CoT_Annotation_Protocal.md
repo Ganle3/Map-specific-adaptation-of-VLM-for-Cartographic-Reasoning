@@ -186,6 +186,32 @@ Instead of:
 > A yellow polygon is beside a blue polygon.
 
 ---
+## 10. Avoid repetitive linguistic patterns
+
+Reasoning traces should not follow a fixed sentence template.
+
+Keep the cartographic operations consistent, while varying the natural language used to express them.
+
+For example, alternate between:
+
+    locate
+    identify
+    search for
+    determine
+
+instead of always using the same verb.
+
+Similarly, vary expressions for:
+
+    legend interpretation
+    map registration
+    measurement
+    comparison
+    filtering
+
+The model should learn the reasoning process, not a writing style.
+
+---
 
 # Task-specific Reasoning
 
@@ -279,18 +305,24 @@ Typical map elements:
 
 Focus on:
 
-- Identify the target entity or region
-- Register multiple maps
-- Transfer the entity or region
+- Establish correspondence between maps
+- Explain the registration evidence
+- Transfer the target location
 - Retrieve the corresponding attribute
 
-Typical map elements:
+Possible registration evidence:
 
-- Coastlines
-- Administrative regions
-- Road networks
-- Concession layouts
+- Coastline
+- River
+- Road network
+- Shared polygons
+- Shared boundaries
 - Coordinates
+- UTM grid
+- Latitude/Longitude
+- Map index
+- Inset map
+- Shared labels
 - Aerial imagery
 
 ---
