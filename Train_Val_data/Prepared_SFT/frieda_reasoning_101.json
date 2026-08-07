@@ -1,0 +1,2767 @@
+[
+  {
+    "sample_id": "frieda_q_8029",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_Volt_230523TechReport\\image37_1.jpeg"
+    ],
+    "question": "Which Field/Pool/Unit occupies the most area within the Rainbow Lake Property boundary?",
+    "answer": "Rainbow",
+    "reasoning": "The map legend identifies the red outline as the Rainbow Lake Property boundary. The Field/Pool/Unit legend shows that the colored blocks represent different named units. Within the red outline area, the large light-pink block occupies more area than the other colored blocks. The label inside this block identifies it as Rainbow.",
+    "target_text": "Final answer: Rainbow",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_Volt_230523TechReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_Volt_230523TechReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2027",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9\\image144_3.jpeg"
+    ],
+    "question": "What is the shortest distance between the largest follow-up area within the NHK property and the property's boundary?",
+    "answer": "3.2 km",
+    "reasoning": "The map legend indicates the follow-up areas as the tan-colored regions and the NHK property boundary as the red outline. Among the follow-up areas enclosed by the property boundary, the largest region is located in the northwestern part of the property. Its nearest point to the property boundary is along the western red boundary. Comparing this gap with the map scale shows that the separation is slightly above 3 km, which corresponds to approximately 3.2 km.",
+    "target_text": "Final answer: 3.2 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0186",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_ehp-lpdm-pj-06-nm-2023-001-loslucerosfiremit-drafttea-2024412\\image34_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_ehp-lpdm-pj-06-nm-2023-001-loslucerosfiremit-drafttea-2024412\\image30_1.png"
+    ],
+    "question": "What is the orientation of the ‘Visitor Center Complex’ relative to the ‘Diversion Dam’ in the LPDM NM #1 Los Luceros Fire Mitigation Project?",
+    "answer": "South",
+    "reasoning": "One map shows the location of the Diversion Dam within the outlined project area. Another map shows the Visitor Center Complex inside a project area with the same boundary shape, indicating that both maps depict the same project region. Aligning the corresponding project boundaries places the Visitor Center Complex below the Diversion Dam. Using the north arrow, this means the Visitor Center Complex is south of the Diversion Dam.",
+    "target_text": "Final answer: South",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/fema_ehp-lpdm-pj-06-nm-2023-001-loslucerosfiremit-drafttea-2024412",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_ehp-lpdm-pj-06-nm-2023-001-loslucerosfiremit-drafttea-2024412"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0185",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_oehp_lpdm-pj-06-tx-2022-006-westador-stormwater-dea-07022025\\image31_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_oehp_lpdm-pj-06-tx-2022-006-westador-stormwater-dea-07022025\\image82_1.png"
+    ],
+    "question": "The Concrete Pilot Channel C (CPC C) area in the Westador Stormwater Detention Basin corresponds to which two 'Inflow Weirs'-related areas? Provide the names exactly as given on the map, excluding the portions in parentheses.",
+    "answer": "Weir C; Channel",
+    "reasoning": "The first map labels the Concrete Pilot Channel C (CPC C) area with an arrow pointing to the corresponding region. The second map depicts the same area with matching shape and location but divides it into labeled components. The labels associated with the corresponding region are Weir C and Channel. Excluding the text in parentheses, the required names are Weir C and Channel.",
+    "target_text": "Final answer: Weir C; Channel",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/fema_oehp_lpdm-pj-06-tx-2022-006-westador-stormwater-dea-07022025",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_oehp_lpdm-pj-06-tx-2022-006-westador-stormwater-dea-07022025"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4024",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__RedWillow_TechnicalReport\\image53_1.jpeg"
+    ],
+    "question": "In the Osprey Grid region of Red Willow project, which Ground Geophysical Survey area is not crossed by the 'SWML Survey - 2007' lines?",
+    "answer": "Gravity Survey - 2007",
+    "reasoning": "According to the legend, the Ground Geophysical Survey areas are represented by four colored boundary types, and the SWML Survey - 2007 is depicted as blue survey lines. Inspecting the map shows that the blue lines intersect the orange, purple, and pink survey boundaries. The green survey boundary is the only one that is not crossed by the blue lines. According to the legend, the green boundary represents Gravity Survey - 2007.",
+    "target_text": "Final answer: Gravity Survey - 2007",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__RedWillow_TechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__RedWillow_TechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_9019",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__KC_SEDAR_4811101_LABTechnicalReport\\image45_1.jpeg"
+    ],
+    "question": "How many mineral showings are within the same claim region as Toots Cove?",
+    "answer": "4",
+    "reasoning": "First read the Mineral Showing symbols and the claim region boundaries from the legend, Mineral Showings are represented by green dots and claim regions are represented by black boundaries. Locate Toots Cove on the map by the label, then determine the claim region enclosed by the black boundary that contains the black dot with 'Toots Cove' label connected. Search only within this claim region for the green dot symbols and count them. There are 4 green dots inside the selected black outlined claim region. So, a total of four Mineral Showings are located within the same claim region as Toots Cove.",
+    "target_text": "Final answer: 4",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__KC_SEDAR_4811101_LABTechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__KC_SEDAR_4811101_LABTechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1073",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\District_Six_LSDF\\image105_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\District_Six_LSDF\\image119_1.png"
+    ],
+    "question": "In Cape Town, on which street do Area 1 and Area 6 border each other near District Six LSDF?",
+    "answer": "TENANT STREET",
+    "reasoning": "The two maps both have Darling Street, Tenant Street, and New Hanover Street. With the map name and legend, segment the colorful regions show Area 1 and Area 6 in the two maps. The continuous street alignment formed by Darling Street and New Hanover Street provides a reliable landmark for matching the two maps. This uninterrupted road runs from the upper left to the lower right in the upper-right portion of both maps, establishing the relative positions of Area 1 and Area 6. Darling Street is the upper border of Area 1, and New Hanover Street is the upper border of Area 6. Their shared boundary meets the street crossing Darling Street and New Hanover Street. The street at this shared boundary is labeled TENANT STREET.",
+    "target_text": "Final answer: TENANT STREET",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "capetown/District_Six_LSDF",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "capetown/District_Six_LSDF"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1101",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\P-2485-071etc_NorthfieldMtn_TurnersFallsDEIS_Appendices\\image12_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\P-2485-071etc_NorthfieldMtn_TurnersFallsDEIS_Appendices\\image19_1.png"
+    ],
+    "question": "All 'Connecticut River Stations' are associated with a unique code in the form '06-{ALPHABET}-{NUMBER/ALPHABET}'. What are the two 'Connecticut River Stations' located closest to the 'Vernon Dam'?",
+    "answer": "06-V-01; 06-V-TR",
+    "reasoning": "One map identifies the Connecticut River Stations with red triangle symbols, each connected to a unique code label. Another map shows the location of Vernon Dam. The river shape and flow pattern match between the two maps, indicating the corresponding geographic location. The Vernon Project boundary shown on the station map further confirms the position of Vernon Dam. Around this location, the two nearest Connecticut River Station labels are 06-V-01 and 06-V-TR.",
+    "target_text": "Final answer: 06-V-01; 06-V-TR",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "EIS/P-2485-071etc_NorthfieldMtn_TurnersFallsDEIS_Appendices",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/P-2485-071etc_NorthfieldMtn_TurnersFallsDEIS_Appendices"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1087",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\State-of-the-environment-in-Ireland-2004-reduced\\image97_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\State-of-the-environment-in-Ireland-2004-reduced\\image104_1.png"
+    ],
+    "question": "Which type of Noise In Quiet Area overlaps the most with artificial areas?",
+    "answer": "Anthropogenic Noise",
+    "reasoning": "Figure 5.5 shows the distribution of Noise In Quiet Areas, while figure 5.3 shows the distribution of artificial areas across the same outline of Ireland. Matching the country boundary aligns the two maps to the same geographic locations. Observing figure 5.3, extract locations of the red artificial areas concentrated regions, correspond these locations to the the Noise In Quiet Areas map, mostly are in the light gray regions. According to the legend, the light gray regions represent Anthropogenic Noise.",
+    "target_text": "Final answer: Anthropogenic Noise",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "ireland/State-of-the-environment-in-Ireland-2004-reduced",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "ireland/State-of-the-environment-in-Ireland-2004-reduced"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4007",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\d__SEDAR_Montreal_Radisson_TechReport_0417\\image110_1.jpeg"
+    ],
+    "question": "What is the category of the area, as given by the legend, that shares the majority of its boundary with the O’Brien Project?",
+    "answer": "Mines Agnico-Eagle Limitee",
+    "reasoning": "According to the legend on the right bottom of the map, the O'Brien Project is represented by the area outlined with a black boundary highlighted in yellow. Inspecting the map shows that the orange area in the north shares the longest portion of its boundary with the O'Brien Project compared with the surrounding areas. According to the legend, the orange area represents Mines Agnico-Eagle Limitee.",
+    "target_text": "Final answer: Mines Agnico-Eagle Limitee",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/d__SEDAR_Montreal_Radisson_TechReport_0417",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/d__SEDAR_Montreal_Radisson_TechReport_0417"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2029",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\s__SEDAR_Onyx_43101TechnicalReport\\image37_1.jpeg"
+    ],
+    "question": "What is the total length of the border shared by the Denovo - Edgecreek block and the adjacent Pat - Argus - JM block?",
+    "answer": "3.5km",
+    "reasoning": "Find the labels showing the Denovo - Edgecreek block and the upper adjacent Pat - Argus - JM block on the map. The two blocks share a continuous boundary made up of several connected horizontal and vertical segments. Estimating the combined length of this shared boundary using the map scale gives approximately 3.5 km.",
+    "target_text": "Final answer: 3.5km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Border",
+    "map_id": "NI43-101/s__SEDAR_Onyx_43101TechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/s__SEDAR_Onyx_43101TechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2028",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\i__SEDAR_DenisonMines_2023_DenisonTRVol\\image33_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\i__SEDAR_DenisonMines_2023_DenisonTRVol\\image55_1.jpeg"
+    ],
+    "question": "Which claim block(s) of the UEX Christie Lake Project are crossed by the power line?",
+    "answer": "CBS 8027; S-101722",
+    "reasoning": "The 'Power Line' text label follows the dashed red line shown on one of the maps. In this map claim blocks are outlined in green, with labels inside every block. Tracing this red dashed line in this map through the green-outlined claim blocks. There are 2 enclosed green outlined blocks have segmentations of red dashed line in it, which means the power line passes through two claim blocks in this map. Find the labels in these blocks: CBS 8027 and S-101722.",
+    "target_text": "Final answer: CBS 8027; S-101722",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/i__SEDAR_DenisonMines_2023_DenisonTRVol",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/i__SEDAR_DenisonMines_2023_DenisonTRVol"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5005",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_HighTideTR04062023\\image42_2.png"
+    ],
+    "question": "How many RTX diamond Drillholes are located within the High Tide Resource Corp. mineral license area but outside the boundaries of the Mineral Resource Optimized Pit Shell?",
+    "answer": "6",
+    "reasoning": "According to the legend, the RTX diamond Drillhole symbols are black dots, the High Tide Resource Corp. mineral license boundary are red lines, and the Mineral Resource Optimized Pit Shell are thick blue lines. Restrict the search to the area inside the red mineral license boundary but outside the blue pit shell boundary. Identify all RTX diamond Drillholes within this region. Six black dots drillholes satisfy these conditions, read the labels beside them: 11LB0024, 12LB0051, 11LB0038, 11LB0031, 12LB0048, and 10LB0011.",
+    "target_text": "Final answer: 6",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_HighTideTR04062023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_HighTideTR04062023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_6023",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\k__filings_livework_wkout_71400_Karora_TechReport\\image26_3.jpeg"
+    ],
+    "question": "A claim block is an area associated with a M #/# ID (e.g., M 15/1705). What is the total length of the shared border between the Beta Hunt sub-lease boundary and the two southernmost claim block?",
+    "answer": "4.3 km",
+    "reasoning": "A note on the map indicates that the Beta Hunt sub-lease boundary is shown in yellow. Using the compass, the two southernmost claim blocks are identified as M 15/1694 and M 15/1691. Only the portions of the yellow boundary shared with these two claim blocks are considered. The shared boundary consists of approximately one long segment and three and a half shorter segments of a certain block. Comparing their combined length with the 1 km scale gives an estimated total shared border length of about 4.3 km.",
+    "target_text": "Final answer: 4.3 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/k__filings_livework_wkout_71400_Karora_TechReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/k__filings_livework_wkout_71400_Karora_TechReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0072",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\EA-EMP-Trespass-control-FOB-works-on-Central-Western-Railway-MUTP-III-Project\\image51_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\EA-EMP-Trespass-control-FOB-works-on-Central-Western-Railway-MUTP-III-Project\\image52_1.png"
+    ],
+    "question": "Maharashtra State is divided into multiple districts, and each district is further divided into multiple tahsils. Identify the district named 'Thane'. How many 'Drought Affected Tahsil's are located within this district?",
+    "answer": "1",
+    "reasoning": "The district labeled Thane is first identified on the Earthquake Zones map. Its location in the northwestern part of Maharashtra and its district shape are then used to locate the corresponding district on the Drought Affected Tahsils map. The red district boundary defines the search area, while the legend of Drought Affected Tahsils map identifies the yellow polygons as Drought Affected Tahsils. Counting only the yellow tahsils within the Thane district gives one.",
+    "target_text": "Final answer: 1",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "aiib/EA-EMP-Trespass-control-FOB-works-on-Central-Western-Railway-MUTP-III-Project",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "aiib/EA-EMP-Trespass-control-FOB-works-on-Central-Western-Railway-MUTP-III-Project"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0033",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\lfs-existing-conditions-and-context-memorandum\\image68_m0.png"
+    ],
+    "question": "In the Yesler Terrace Redevelopment, how many buildings are located within the boundary of 'The Green Loop'. (All buildings are associated with a Building Key.)",
+    "answer": "5",
+    "reasoning": "The legend is used to identify the boundary of The Green Loop as the red dashed outline, defining the area to be searched. The question states that every building is represented by a Building Key, and the legend shows these as circled letters. Only the Building Keys enclosed by the Green Loop boundary are counted. Five Building Keys (A–E) lie within the boundary.",
+    "target_text": "Final answer: 5",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "seattle-planning/lfs-existing-conditions-and-context-memorandum",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/lfs-existing-conditions-and-context-memorandum"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0133",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject\\image176_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject\\image177_1.png"
+    ],
+    "question": "Identify the two types of 'Mammal Species at OTP' and the two types of 'Fish Species at OTP'. Which species has the greatest number of points within the 'Out Ta Paong - OPT Canal' boundary? Answer with the specific species name.",
+    "answer": "Siamese Tiger Perch",
+    "reasoning": "The matching coordinate frames, scales, and red Out Ta Paong - OTP Canal boundary show that the mammal map is an enlarged view of the northern part of the fish map. Check the two mammal-species symbols against the red canal boundary; neither occurs inside it. On the fish map, both fish-species symbols fall within the red canal boundary. Count the points for each fish species: Siamese Tiger Perch appears at four purple points, while Striped catfish appears once as an orange triangle. The species with the greatest number of points is Siamese Tiger Perch.",
+    "target_text": "Final answer: Siamese Tiger Perch",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "aiib/CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "aiib/CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1083",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\732920\\image1_m125.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\732920\\image1_m147.png"
+    ],
+    "question": "Surrounding the La Vida Mission of New Mexico, which county is the Lake Valley School located in?",
+    "answer": "SAN JUAN CO",
+    "reasoning": "The coordinate labels show that Figure 12 covers approximately 35°37′30″–36°07′30″ N and 108°15′–108°07′30″ W. Figure 35 covers a larger area bounded by 36°00′–37°00′ N and 109°00′–108°00′ W. The overlapping coordinate ranges indicate that the upper part of Figure 12 corresponds to the southern edge of Figure 35. Combined with the difference in map scale, this shows that Figure 12 is a magnified view of a smaller region within Figure 35. The quadrangle with La Vida Mission textual labels appears in both maps, allowing the corresponding area to be matched. On the Figure 12, Lake Valley School is located in the northern part of the La Vida Mission quadrangle. The same quadrangle with La Vida Mission textual label is then located on the Figure 35. It lies on the same side of the county boundary as the SAN JUAN CO label. So the La Vida Mission quadrangle is in SAN JUAN CO. And the Lake Valley School is located inside this quadrangle. Therefore, Lake Valley School is located in SAN JUAN CO.",
+    "target_text": "Final answer: SAN JUAN CO",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "national-parks/732920",
+    "metadata": {
+      "domain": "Park & trail map",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "national-parks/732920"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1104",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Enbridge Line 5 Tunnel Project Draft Environmental Statement_Volume 1_Chapters 1 through 7\\image104_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Enbridge Line 5 Tunnel Project Draft Environmental Statement_Volume 1_Chapters 1 through 7\\image109_1.png"
+    ],
+    "question": "Identify the eastern area of 'Decommissioning Sub-Alternative 2B'. Which 'Community Type's overlap this area? Provide the letter codes shown on the map.",
+    "answer": "MNFd; BSMHF",
+    "reasoning": "The coastline, vegetation patterns, and road network provide common reference features for aligning the two maps. On one map, the legend shows that the Decommissioning Sub-Alternative 2B is represented by the blue segmented area. This area is located on the Community Type map using its shape and its position relative to the coastline. Two Community Type regions overlap the corresponding area in the other map. The labels within these regions are MNFd and BSMHF.",
+    "target_text": "Final answer: MNFd; BSMHF",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "EIS/Enbridge Line 5 Tunnel Project Draft Environmental Statement_Volume 1_Chapters 1 through 7",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Enbridge Line 5 Tunnel Project Draft Environmental Statement_Volume 1_Chapters 1 through 7"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0084",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\East-Coast-ECP4-Reclamation-Project-Environmental-And-Social-Impact-Report\\image80_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\East-Coast-ECP4-Reclamation-Project-Environmental-And-Social-Impact-Report\\image83_1.png"
+    ],
+    "question": "Île Aurore Nouvelle consists of five rectangular sub-regions associated with a number. Which rectangular region has the largest 'Unmapped Benthic Habitat (1-8m depth)' area? Give just the number associated with the region.",
+    "answer": "1",
+    "reasoning": "The legend identifies the Unmapped Benthic Habitat (1–8 m depth) by the dark blue fill in one map. Comparing the five rectangular sub-regions on this map shows that the northernmost rectangle contains the largest dark blue area. Then according to the distribution and shape of the rectangles, also the aerial image base, the corresponding rectangle is then located on the numbered overview map, where it is labeled 1.",
+    "target_text": "Final answer: 1",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "seychelles/East-Coast-ECP4-Reclamation-Project-Environmental-And-Social-Impact-Report",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seychelles/East-Coast-ECP4-Reclamation-Project-Environmental-And-Social-Impact-Report"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1044",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\732920\\image1_m143.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\732920\\image1_m145.png"
+    ],
+    "question": "Surrounding the Chaco Culture National Historical Park, what is the orientation of 'North Mesa' relative to the 'Tanner Lake' Quadrangle?",
+    "answer": "South",
+    "reasoning": "The course of the Chaco River and the surrounding tributaries have the some same segment pattern on both maps, allowing the two maps to be aligned to the same locations. North Mesa is located near the corresponding position on one map in the intersection place of square 25 and 30. On the other map, Tanner Lake Quadrangle lies north of this location. Also find the 25 and 30 labeled squares in this map to indicate the location of North Mesa, it is therefore south of the Tanner Lake Quadrangle.",
+    "target_text": "Final answer: South",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "national-parks/732920",
+    "metadata": {
+      "domain": "Park & trail map",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "national-parks/732920"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5007",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-ema-2021-br-005-0044-nc-salisburywatersupplyresilency-fea-signed_fonsi-20240715\\image30_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-ema-2021-br-005-0044-nc-salisburywatersupplyresilency-fea-signed_fonsi-20240715\\image24_1.png"
+    ],
+    "question": "Each Potential Site blocks of Yadkin River is associated with a number (e.g., 5763595798). Which of these blocks are located closest to the 'Existing Raw Water Pump Station (to be abandoned/demolished)'?",
+    "answer": "5763-04-91-7009",
+    "reasoning": "The matching red Selected/Project Site outlines and the distinctive confluence of the two Yadkin River branches establish the correspondence between the overview map and the enlarged site map. On the enlarged map, the Existing Raw Water Pump Station (to be abandoned/demolished) is located from its label. The compass shows that this map is rotated, allowing the  Existing Raw Water Pump Station (to be abandoned/demolished) to be identified on the west bank of the western tributary within a small outlined Project Site. Returning to the overview map, the nearest Potential Site block to this Project Site block is determined by the nearest yellow boundary. The corresponding block is labeled 5763-04-91-7009.",
+    "target_text": "Final answer: 5763-04-91-7009",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "FEMA/fema_bric-ema-2021-br-005-0044-nc-salisburywatersupplyresilency-fea-signed_fonsi-20240715",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_bric-ema-2021-br-005-0044-nc-salisburywatersupplyresilency-fea-signed_fonsi-20240715"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4029",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\i__Securities_SEDAR_ToFile_Level14_Level14_Tech_Rept_May_2023\\image50_1.jpeg"
+    ],
+    "question": "What is the shortest straight-line distance from the 'Lookout' B.C. Minfile Occurrence to the Green Mountain Property tenure?",
+    "answer": "0.7 km",
+    "reasoning": "The LOOKOUT B.C. Minfile Occurrence is located using the star symbol and its map label. The Green Mountain Property tenure is outlined in red, defining the target boundary. The shortest straight-line distance is determined by finding the nearest point on the red property boundary to the LOOKOUT occurrence, which is in the boundary immediately to its right. Comparing this separation with the map scale gives an approximate distance of 0.7 km.",
+    "target_text": "Final answer: 0.7 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/i__Securities_SEDAR_ToFile_Level14_Level14_Tech_Rept_May_2023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/i__Securities_SEDAR_ToFile_Level14_Level14_Tech_Rept_May_2023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1143",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Green Eagle Railroad FEIS Volume II- Appendices\\image247_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Green Eagle Railroad FEIS Volume II- Appendices\\image113_1.png"
+    ],
+    "question": "What is the orientation of the 'Receptor Location' numbered '17' in relation to the 'Central Targeting Tower' near the 'Eagle Pass City Boundary'?",
+    "answer": "South",
+    "reasoning": "The based aerial imagery and the pattern of the major roads show that one map is a zoomed-in view of the area shown in the other map. On the enlarged map, the legend indicates that numbered white circles represent Receptor Locations, and the circle labeled 17 is located south of the purple dashed line which represents the Eagle Pass City Boundary according to the legend. On the overview map, the Central Targeting Tower is located north of the same section of the Eagle Pass City Boundary. Aligning the corresponding locations between the two maps shows that Receptor Location 17 is south of the Central Targeting Tower.",
+    "target_text": "Final answer: South",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "EIS/Green Eagle Railroad FEIS Volume II- Appendices",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Green Eagle Railroad FEIS Volume II- Appendices"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0136",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\EPA_Irelands_Environment_2020\\image364_1.png"
+    ],
+    "question": "The Ordnance Survey Ireland records each 'Bathing Water Quality Status' with a unique number. What are the numbers of the points classified as having 'Sufficient' Bathing Water Quality Status within the 'Dublin Area'?",
+    "answer": "6; 15; 17",
+    "reasoning": "Use the legend to distinguish the Bathing Water Quality Status categories and know that the yellow triangles represent Sufficient status. Focus the search on the enlarged Dublin Area in the lower-right corner of the map. Read the number attached to each yellow triangle within this inset. From top to bottom, the attached numbers are numbered 6, 15, and 17.",
+    "target_text": "Final answer: 6; 15; 17",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "ireland/EPA_Irelands_Environment_2020",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "ireland/EPA_Irelands_Environment_2020"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0085",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\ESIA-Report-FC-and-SS-Redevelopment-_-Vol-1_FINAL-1\\image70_1.png"
+    ],
+    "question": "In the Fisherman's Cove / H Resort map, one of the 'Other bird species – Flight paths' arrows originates from the sea area. What is the orientation of this arrow?",
+    "answer": "South West",
+    "reasoning": "The aerial imagery shows a large bay occupying the northern part of the map, allowing the sea area to be distinguished from the surrounding land. The legend indicates that the green arrows represent the 'Other bird species – Flight paths'. Among these arrows, only one originates from the sea area. Following this arrow shows that it points toward the lower left of the map. Using the north arrow, this corresponds to the southwest direction.",
+    "target_text": "Final answer: South West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "seychelles/ESIA-Report-FC-and-SS-Redevelopment-_-Vol-1_FINAL-1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seychelles/ESIA-Report-FC-and-SS-Redevelopment-_-Vol-1_FINAL-1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5027",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__RedWillow_TechnicalReport\\image13_1.jpeg"
+    ],
+    "question": "Identify the southernmost 'Diamond Drill Hole -Historical'. What is the distance between this point to the 'Radon Lake Radon-in-water Anomaly' point.",
+    "answer": "5 km",
+    "reasoning": "The historical Diamond Drill Holes are represented by the orange circular symbols. The southernmost historical drill hole is selected. The Radon Lake Radon-in-water Anomaly is then located from its annotation on the map. The straight-line distance between these two points is estimated using the scale, giving approximately 5 km.",
+    "target_text": "Final answer: 5 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__RedWillow_TechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__RedWillow_TechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1089",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\Annexure B - Cape Town Spatial Development Framework\\image65_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\Annexure B - Cape Town Spatial Development Framework\\image66_1.png"
+    ],
+    "question": "What type of Aquifer Productivity does the southwest side of BLAAUWBERG CONSERVATION AREA in Cape Town belong to?",
+    "answer": "Moderate",
+    "reasoning": "The BLAAUWBERG CONSERVATION AREA is located from its map label in left-upper part of one map, with green dashed circle boundaries which represents 'Priority Conservation Action Areas'. The matching coastline, the offshore island in the left side of this area, and the surrounding urban edge shapes establish the correspondence between the two maps. By these correspondences, the southwestern part of the BLAAUWBERG CONSERVATION AREA is then identified on the other map. This area falls within the light green region, which the legend in this map classifies as Moderate aquifer productivity.",
+    "target_text": "Final answer: Moderate",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "capetown/Annexure B - Cape Town Spatial Development Framework",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "capetown/Annexure B - Cape Town Spatial Development Framework"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3002",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9\\image165_3.jpeg"
+    ],
+    "question": "Which 2021 Drill Collars in Tenure K14955 of Nighthawk Gold Corp is the longest?",
+    "answer": "TFS21-07",
+    "reasoning": "Focus on the tenure block labeled K14955 in the lower-left part of the map. Within this block, compare the lengths of the line symbols used for the 2021 Drill Collars. The longest of these drill-collar lines is attached to the label TFS21-07.",
+    "target_text": "Final answer: TFS21-07",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_2023-06-09_NHK_NHK-NI43-101_REPORT_Jun9"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1107",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\1_CJMT_RDEIS_ExecSum-Ch1-PurposeNeed-Ch2-Alternatives\\image39_m0.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\1_CJMT_RDEIS_ExecSum-Ch1-PurposeNeed-Ch2-Alternatives\\image53_m0.png"
+    ],
+    "question": "Each 'Landing Zone' within the Tinian Military Lease Area is labeled with a number. Identify the 'Existing Restricted Area' located nearest to 96th Street. Which Landing Zone is closest to this area? Provide only the Landing Zone number.",
+    "answer": "6",
+    "reasoning": "The two maps cover the same project area, allowing corresponding locations to be matched using the shared topographic features. On one map, the 'Existing Restricted Area' is represented by the red hatched area in the legend. Find the red hatched area nearest to 96th Street, which is recognized  overlapping the blue wetland polygon on the north of the road. The corresponding location is then found on the Landing Zone map with same blue wetland polygon. Comparing the numbered Landing Zones around this area shows that Landing Zone 6 is the closest.",
+    "target_text": "Final answer: 6",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "EIS/1_CJMT_RDEIS_ExecSum-Ch1-PurposeNeed-Ch2-Alternatives",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/1_CJMT_RDEIS_ExecSum-Ch1-PurposeNeed-Ch2-Alternatives"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_9018",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__AA-SEDAR_VELVET-PEA-2023\\image44_1.png"
+    ],
+    "question": "What is the orientation of Velvet-Wood Project in relation to Slick Rock Project Area?",
+    "answer": "North West",
+    "reasoning": "The project boundaries are distinguished by different colored outlines in the legend, with the Velvet-Wood Project outlined in dark blue and the Slick Rock Project Area outlined in dark red. On the map, the Velvet-Wood Project lies to the left and above the Slick Rock Project Area. Interpreting this relative position with the north arrow places the Velvet-Wood Project to the northwest of the Slick Rock Project Area.",
+    "target_text": "Final answer: North West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "NI43-101/C__AA-SEDAR_VELVET-PEA-2023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__AA-SEDAR_VELVET-PEA-2023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1040",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\District_Six_LSDF\\image31_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\District_Six_LSDF\\image58_1.png"
+    ],
+    "question": "In Cape Town, near the District Six LSDF, what is the orientation of the westernmost IRT location relative to the CPUT Square?",
+    "answer": "North",
+    "reasoning": "The layout and orientation of the major streets show that the two maps cover the same part of District Six. On one map, the westernmost IRT location is positioned along the northern street. Aligning the road network places this location on the corresponding street in the other map, where the CPUT Square is marked farther beneath it. Using the north arrow, the westernmost IRT location is therefore north of the CPUT Square.",
+    "target_text": "Final answer: North",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "capetown/District_Six_LSDF",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "capetown/District_Six_LSDF"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5015",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__Users_silve_Downloads_Sedar_PEATR\\image62_1.png"
+    ],
+    "question": "Which 'Area excluded from the MPC' shares a boundary with the 'MPC area'?",
+    "answer": "Huascar",
+    "reasoning": "The MPC area is shown as a purple-outlined region, reinforced by the “MPC Area” label and its arrow. 'Areas excluded from the MPC' are outlined in pink. Tracing the purple boundary reveals one pink-outlined area that shares a common edge with it. The label inside that pink-outlined area is Huascar.",
+    "target_text": "Final answer: Huascar",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__Users_silve_Downloads_Sedar_PEATR",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__Users_silve_Downloads_Sedar_PEATR"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1122",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\VSFB_Falcon_Launch_Draft_EIS_May_2025\\image39_1.png"
+    ],
+    "question": "What is the orientation of the 'Water Tower' in relation to the 'Existing Mobile Assembly Shelter (to be demolished)' in the site plan of SLC-6?",
+    "answer": "East",
+    "reasoning": "The Water Tower is located from its map label, and the Existing Mobile Assembly Shelter (to be demolished) is identified from its corresponding label. Comparing their positions shows that the Water Tower lies directly to the right of the shelter. Using the compass to interpret this relative position gives an orientation of east.",
+    "target_text": "Final answer: East",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1010",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\hmgp-dr-4332-hmgp-4332-0197-tx_1-a3adetention-dea-2025225\\image14_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\hmgp-dr-4332-hmgp-4332-0197-tx_1-a3adetention-dea-2025225\\image16_1.png"
+    ],
+    "question": "Within the A3A Detention Pond in Texas, each 'Soil Unit' area is associated with an alphabetical letter code. In which 'Soil Unit' is the 'GROVE CORP BDY' area located?",
+    "answer": "URLX",
+    "reasoning": "The matching Subject Site, Soil Disposal Area, and Wood Chip Disposal Area outlines establish the correspondence between the two maps. On the topographic map, the area labeled GROVES CORP BDY is located within the northeastern part of the shared Subject Site. The corresponding location is then identified on the soil map, where it falls inside the Soil Unit labeled URLX.",
+    "target_text": "Final answer: URLX",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/hmgp-dr-4332-hmgp-4332-0197-tx_1-a3adetention-dea-2025225",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/hmgp-dr-4332-hmgp-4332-0197-tx_1-a3adetention-dea-2025225"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1075",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\507SeattleStudio_Web\\image10_m1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\507SeattleStudio_Web\\image11_1.png"
+    ],
+    "question": "Identify the '121–166' 'Elevation (unit: feet)' lines within the '5-min walkshed' of Seattle. What is the orientation of these lines relative to 'Lake Union'?",
+    "answer": "South",
+    "reasoning": "The matching Potential lid area outlines indicate that the Seattle Topographic Map is an enlarged view of part of the 5 to 15-min Walkshed Basemap. On the topographic map, the color line corresponding to the 121–166 feet elevation range is used together with the dashed orange 5-min walkshed boundary to isolate the required elevation lines. This identified area is then matched to the overview map using the same reference features. Lake Union is labeled near the top of the overview map, and the corresponding elevation lines lie below it. Interpreting their relative positions with the compass shows that the elevation lines are south of Lake Union.",
+    "target_text": "Final answer: South",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "seattle-planning/507SeattleStudio_Web",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/507SeattleStudio_Web"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2019",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_LEK_TechReport_2023_v3_5\\image16_1.jpeg"
+    ],
+    "question": "The Lekcin claim block that contains the Swede showing partially shares a border with the claim block of which tenure?",
+    "answer": "Barrick Gold Inc",
+    "reasoning": "The label 'Swede' is located within the red claim block labeled 851111. Tracing the boundary of the claim block 851111 shows that part of it is shared with a neighboring claim outlined in yellow. The legend shows that the yellow outline represents Barrick Gold Inc.",
+    "target_text": "Final answer: Barrick Gold Inc",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_LEK_TechReport_2023_v3_5",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_LEK_TechReport_2023_v3_5"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1150",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1\\image51_m0.png"
+    ],
+    "question": "What is the approximate straight-line distance between the SLC-6 Launch Site and the 2 psf contour of the Falcon Heavy Launch line?",
+    "answer": "40 Miles",
+    "reasoning": "According to the legend, the SLC-6 Launch Site is marked by a red point, while the Falcon Heavy Launch 2 psf contour is the purple line labeled with the value 2. The nearest position on this contour to the launch-site point is selected for the measurement. The straight-line gap between these two locations is then compared with the bidirectional scale bar. This gives an approximate distance of 40 miles.",
+    "target_text": "Final answer: 40 Miles",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1105",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1\\image354_1.png"
+    ],
+    "question": "Identify the inner hole area within the 'Approved Landing Area'. What is the approximate distance from the boundary of this hole area to the 'SLC-4/SLC-6' point?",
+    "answer": "450 Miles",
+    "reasoning": "The legend shows that the Approved Landing Area is outlined in red. There is a smaller enclosed red outlined region forming a hole inside the larger red outlined area in the map. The SLC-4/SLC-6 location is marked by the green point on the map. Estimating the shortest distance from the boundary of the small red outlined enclosed hole to the green point using the map scale gives a value between 300 and 600 miles, which is approximately 450 miles.",
+    "target_text": "Final answer: 450 Miles",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5022",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__FILINGS_SEDAR-OTC-CSE_722031_AAGBerenTR\\image45_1.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__FILINGS_SEDAR-OTC-CSE_722031_AAGBerenTR\\image41_1.jpeg"
+    ],
+    "question": "Each Concessions area is associated with a unique code (e.g., Berenguela 03-18). In which concession area is 'Hacienda Andamarca' located within? Give the code of the area.",
+    "answer": "Berenguela 04-09",
+    "reasoning": "One map labels the concession areas with blue boundaries and unique concession codes, while the other shows Hacienda Andamarca within the black concession boundary. The outer concession boundary and the shared green 2022 Claims area have matching shapes on both maps, allowing the corresponding locations to be aligned. After locating Hacienda Andamarca on the blue concession boundaries map, the same position falls within the concession block labeled Berenguela 04-09.",
+    "target_text": "Final answer: Berenguela 04-09",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__FILINGS_SEDAR-OTC-CSE_722031_AAGBerenTR",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__FILINGS_SEDAR-OTC-CSE_722031_AAGBerenTR"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0132",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\EPA_Irelands_Environment_2020\\image176_m0.png"
+    ],
+    "question": "The Ordnance Survey Ireland divides the country into counties, each labeled with either a number or a number-letter combination. Identify the county labeled '03'. Which counties border it?",
+    "answer": "36; 06",
+    "reasoning": "The county labeled 03 is located in the northeastern part of the map. Tracing its boundary shows that it shares edges with two neighboring counties on the south of it. The labels inside those adjacent counties are 36 and 06.",
+    "target_text": "Final answer: 36; 06",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "ireland/EPA_Irelands_Environment_2020",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "ireland/EPA_Irelands_Environment_2020"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0075",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\91346907\\image56_m0.png"
+    ],
+    "question": "Identify the 'Wetland' adjacent to the 'Soupape Marsh' area. What are the names of the 'Trial Sites' located on the boundary of this Wetland?",
+    "answer": "IAS, Waste; Animal waste",
+    "reasoning": "The Wetlands are shown as blue areas, while Soupape Marsh is located by the textual label in the map. The blue wetland directly below and adjacent to Soupape Marsh is selected. Trial Sites are marked by green points. So find the green points lie on the boundary of this selected wetland. Two green points lie on the northwestern boundary of this wetland, and their labels are IAS, Waste and Animal waste.",
+    "target_text": "Final answer: IAS, Waste; Animal waste",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "seychelles/91346907",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seychelles/91346907"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8002",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\g__Sayona_2023_Moblan_20230414_Moblan_Report\\image198_2.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\g__Sayona_2023_Moblan_20230414_Moblan_Report\\image33_2.jpeg"
+    ],
+    "question": "What is the Adjacent properties (as of 2023/02/27) located immediately east of TORTIGNY. If the adjacent property is divided by percentage, identify the company/individual with the largest percentage.",
+    "answer": "Sumitomo",
+    "reasoning": "One map shows the TORTIGNY label inside a distinct blue property polygon. The shapes of the blue polygons in this map match the black-outlined polygons on the Adjacent Properties map, allowing the TORTIGNY location to be transferred between the two maps. The north arrow shows that east lies to the left on this map. The property immediately east of TORTIGNY is therefore the dark purple area on the left of the corresponding black-outlined polygon. In the Adjacent Properties legend, this color corresponds to Sumitomo 80% and Kenorland 20%. Since the question asks for the owner with the larger percentage, the required name is Sumitomo.",
+    "target_text": "Final answer: Sumitomo",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/g__Sayona_2023_Moblan_20230414_Moblan_Report",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/g__Sayona_2023_Moblan_20230414_Moblan_Report"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1127",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1\\image150_m0.png"
+    ],
+    "question": "The 'Peak Overpressure' of the SLC-4 Falcon 9 First Stage Landing Sonic Boom is classified into seven levels. Identify the 'LBVI Localities' that lie on the 'VSFB Boundary'. Within which 'Peak Overpressure' level is this locality located? Report the smallest value.",
+    "answer": "4",
+    "reasoning": "The legend identifies the Peak Overpressure levels as a series of colored boundaries, shows the 'VSFB Boundary' with a black line and marks the LBVI Localities with purple points. Therefore, to identify the 'LBVI Localities' on the 'VSFB Boundary', is to examine the purple points on the black line. Find only one purple point that lies on the black line, which lies outside the red Level 5 boundary but inside the orange Level 4 boundary. Therefore, the smallest Peak Overpressure level containing this locality is 4.",
+    "target_text": "Final answer: 4",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0079",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\EPA_Irelands_Environment_2020\\image143_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\EPA_Irelands_Environment_2020\\image365_1.png"
+    ],
+    "question": "According to Ordnance Survey Ireland in 2019, identify the largest 'Designated WFD Shellfish Areas'. What is the name of the 'Large Towns' located closest to it?",
+    "answer": "Dundalk",
+    "reasoning": "Both maps show the full outline of Ireland, which allows the same geographic locations to be matched between them. On one map, the Designated WFD Shellfish Areas are shown as pink hatched regions. The largest of these regions is located in the northeastern part of Ireland. On another map, the legend shows that Large Towns are marked by red squares. After transferring the location of the largest shellfish area to this map, the closest red square is selected. The label beside that square is Dundalk.",
+    "target_text": "Final answer: Dundalk",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "ireland/EPA_Irelands_Environment_2020",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "ireland/EPA_Irelands_Environment_2020"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2022",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_SRG_REPORT\\image90_2.jpeg"
+    ],
+    "question": "In Lola Graphite Project, how many diamond drill holes (DDH) were completed by SRG Mining with the type 'Soil'?",
+    "answer": "11",
+    "reasoning": "The map is the DDH completed by SRG Mining map for the Lola Graphite Project. The legend indicates that 'Soil' drill holes are represented by orange points. Because many different colored drillhole symbols overlap, the points are distinguished using their connected labels, which share the same color as the corresponding symbols. Count the orange drillhole labels across the map. A total of 11 Soil drill holes are recorded.",
+    "target_text": "Final answer: 11",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_SRG_REPORT",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_SRG_REPORT"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7029",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_HighTideTR04062023\\image51_2.png"
+    ],
+    "question": "Identify the region between the two 'Section Line's within the Mineral Resource Optimized Pit Shell of Labrador West Iron Project. How many Diamond Drillholes (both 2022 and 2020) are located in this region.",
+    "answer": "3",
+    "reasoning": "The 'Section Line's are recognized as yellow lines in the legend, while the Mineral Resource Optimized Pit Shell is enclosed by the thick blue boundary. There are two yellow Section Lines, AA′ and BB′. The region of interest is the portion inside the blue boundary between these two section lines. Both the 2020 and 2022 Diamond Drillholes are considered, and only those falling inside this region are counted. According to the legend, 2020 Diamond Drillholes are represented as yellow dots and 2022 Diamond Drillholes are represented as blue dots. Only 3 blue dots occur inside the region of interest, labeled 22LB0061, 22LB0062, and 22LB0064.",
+    "target_text": "Final answer: 3",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_HighTideTR04062023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_HighTideTR04062023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0162",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126\\image27_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126\\image36_1.png"
+    ],
+    "question": "In North Shore Levee West, the Proposed Action Sequence classifies five types of construction segments. The ‘Raised Roadway’ of North Shore Levee West corresponds to which construction segment? Provide the answer excluding the part in parentheses.",
+    "answer": "4th Segment of Construction",
+    "reasoning": "The Raised Roadway is showed as the red line on the Visual Resource Areas map. The shared aerial imagery, river, shoreline, and road network establish the correspondence between the two maps. The same roadway is then located on the Proposed Action Sequence map, where the matching red line is classified as the 4th Segment of Construction. Excluding the text in parentheses, the construction segment is 4th Segment of Construction.",
+    "target_text": "Final answer: 4th Segment of Construction",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8030",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_bric-ema-2020-br-100-0009-nc-lumbertonloop-fea-signedfonsi-20240731\\image43_1.png"
+    ],
+    "question": "Identify the Freshwater Emergent Wetland area of Lumberton Loops Project Area. Which road(s) enclose this area?",
+    "answer": "Tartan Rd; Vann Dr; Stirling Dr",
+    "reasoning": "The Freshwater Emergent Wetland is represented by the blue filled area in the legend. Then locate the small blue wetland area in the northeastern part of the map. This wetland is completely enclosed within one road block. Follow the roads forming the boundary of this block and read their labels. The enclosing roads are Tartan Rd, Vann Dr, and Stirling Dr.",
+    "target_text": "Final answer: Tartan Rd; Vann Dr; Stirling Dr",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "FEMA/fema_bric-ema-2020-br-100-0009-nc-lumbertonloop-fea-signedfonsi-20240731",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "FEMA/fema_bric-ema-2020-br-100-0009-nc-lumbertonloop-fea-signedfonsi-20240731"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8004",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__MS_SEDAR_Technical_Report_MAC_Project\\image43_6.jpeg"
+    ],
+    "question": "In MAC Project, what is the geologic unit code (as shown on the map) for the area where the developed prospect is located?",
+    "answer": "MJKFgr",
+    "reasoning": "Find in the legend, the developed prospect is marked by a red star. Locate the red star on the map. Its falls in a small dark orange continuous region without label. Regions with same color means they belong to the same geologic unit, and observe a same dark orange color continuous geologic unit in a nearby left-bottom area where its code is labeled. Reading the label associated with this dark orange unit gives the geologic unit code MJKFgr.",
+    "target_text": "Final answer: MJKFgr",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__MS_SEDAR_Technical_Report_MAC_Project",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__MS_SEDAR_Technical_Report_MAC_Project"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_9007",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_20230711LithiumChileNI43101\\image43_2.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_20230711LithiumChileNI43101\\image26_2.jpeg"
+    ],
+    "question": "What SEV point lies on the border of  project concession TOLAR05 and SALARI07?",
+    "answer": "SEV14",
+    "reasoning": "The same white part of based aerial imagery and the matching layout of five rectangular concession blocks, four horizontally adjacent rectangular blocks on the bottom with one rectangular block on the right-top, show that one map is an enlarged view of the northern part of the other. On the overview map, TOLAR05 and SALARI07 are the two horizontally adjacent blocks in the southwestern part of this group. The same pair of blocks is then located on the enlarged map. Find the red SEV point lies directly on their shared vertical boundary. The label beside this point is SEV14.",
+    "target_text": "Final answer: SEV14",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_20230711LithiumChileNI43101",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_20230711LithiumChileNI43101"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2007",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\t__SEDAR_Mineros_2023_TechnicalReport_TechReport\\image350_1.jpeg"
+    ],
+    "question": "What is the orientation of La Pista in relation to population center (centro poblado) Bonanza within the Bonanza concession area?",
+    "answer": "North West",
+    "reasoning": "The airplane symbol is used to locate La Pista, while the house symbol and the BONANZA label identify the population center Bonanza. Comparing their positions on the map shows that La Pista lies to the left and slightly above Bonanza. Interpreting this relative position with the compass indicates that La Pista is northwest of Bonanza.",
+    "target_text": "Final answer: North West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "NI43-101/t__SEDAR_Mineros_2023_TechnicalReport_TechReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/t__SEDAR_Mineros_2023_TechnicalReport_TechReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8017",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_20230628collectivetech\\image11_1.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_20230628collectivetech\\image14_1.jpeg"
+    ],
+    "question": "The claim area of Collective Metals contains of several claim blocks associated with a unique number (e.g., 1083660). Which claim block has least number of Cu ppm points?",
+    "answer": "1083728",
+    "reasoning": "The matching map coordinates and the overall shapes of the red property outline and the black claim boundaries establish the correspondence between the two maps. The history geochemistry map uses different symbols to represent Cu ppm measurements from rocks, silts, and soils, but all of these symbols are counted because the question refers to Cu ppm points regardless of sampling type. Comparing the claim areas shows that the southwestern protruding claim contains the fewest Cu ppm points. Transferring this location to the claim map identifies the corresponding claim block as 1083728.",
+    "target_text": "Final answer: 1083728",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_20230628collectivetech",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_20230628collectivetech"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0193",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126\\image136_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126\\image138_1.png"
+    ],
+    "question": "What area types, as indicated in the legend, compose the 'Mitigation Area' of North Shore Levee West?",
+    "answer": "Scrub-Shrub or Forested Wetland; Marsh or Scrub-Shrub Wetland; Tidal Channel or Mud Flat Wetland; Upland Fill Riparian Area",
+    "reasoning": "The Mitigation Site is identified as the yellow cross-hatched area on the overview map. The matching location is then found on the enlarged map using the inset index and the shared aerial imagery. Within this Mitigation Area, the different colored regions are matched to the legend, showing that it is composed of Marsh or Scrub-Shrub Wetland, Scrub-Shrub or Forested Wetland, Tidal Channel or Mud Flat Wetland, and Upland Fill Riparian Area.",
+    "target_text": "Final answer: Scrub-Shrub or Forested Wetland; Marsh or Scrub-Shrub Wetland; Tidal Channel or Mud Flat Wetland; Upland Fill Riparian Area",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_6005",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__RedWillow_TechnicalReport\\image78_1.jpeg"
+    ],
+    "question": "Which Drill Hole(s) are located closest to the 'Graphitic/Pyritic Gneiss' in the Red Willow Osprey Zone? If one point is labeled with multiple OSP codes, give all OSP codes associated with that point.",
+    "answer": "OSP22-08; OSP22-09",
+    "reasoning": "The legend shows that Drill Holes are represented by point symbols. The Graphitic/Pyritic Gneiss is the diagonally hatched band labeled on the map. The Drill Hole closest to this band is identified by comparing the distance from each nearby point to the hatched area. One point lies almost inside the left edge of the Graphitic/Pyritic Gneiss band, while the other Drill Holes are farther away. This point is labeled with two drill hole codes: OSP22-08 and OSP22-09.",
+    "target_text": "Final answer: OSP22-08; OSP22-09",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__RedWillow_TechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__RedWillow_TechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0196",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_dr-4559-st-louis-hs-appendix\\image136_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_dr-4559-st-louis-hs-appendix\\image132_1.png"
+    ],
+    "question": "Identify the 'Wetland Area' of size 0.9 acres in the Wetland Delineation Proposed St. Louis School. What is the 'Sample Plot & ID' number located within this area?",
+    "answer": "2",
+    "reasoning": "The two maps depict the same site, and the two matching wetland outlines make it possible to align the corresponding wetland areas. On one map, the wetland labeled 'Wetland A 0.9 Acres' is recognized and located the west one. The same wetland is then located on the Sample Plot map using its relative position. Within this wetland, the Sample Plot point is labeled 2.",
+    "target_text": "Final answer: 2",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Within",
+    "map_id": "FEMA/fema_dr-4559-st-louis-hs-appendix",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_dr-4559-st-louis-hs-appendix"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8020",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\n__SEDAR_WRLG_NI43-101_Report_Update_v20230619\\image61_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\n__SEDAR_WRLG_NI43-101_Report_Update_v20230619\\image28_1.jpeg"
+    ],
+    "question": "What is the approximate straight-line distance between Current Exploration Target ‘Dome’ of PureGold Mine to 'Cochenour'?",
+    "answer": "8.5 km",
+    "reasoning": "The distinctive property outlines provide a common reference for matching the two maps. On one map, the Dome Exploration Target is identified by the yellow target symbol near the northern end of the gray property outline. The corresponding location is then located on the second map, where there is a mine symbol labeled Cochenour Mine. The straight-line distance between the Dome Exploration Target and the Cochenour location is estimated using the map scale, giving approximately 8.5 km.",
+    "target_text": "Final answer: 8.5 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/n__SEDAR_WRLG_NI43-101_Report_Update_v20230619",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/n__SEDAR_WRLG_NI43-101_Report_Update_v20230619"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0081",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\ESIA-Report-ARIA-Eco-Sol-11.07.25\\image67_1.png"
+    ],
+    "question": "Identify the two 'Upper Canopy' regions that are intersected by the '25m Setback Line'. What are the percentage values shown in parentheses for each regions?",
+    "answer": "10.49; 7.41",
+    "reasoning": "The 25 m Setback Line is the red line in the legend. Tracing this red line across the map shows that it intersects two Upper Canopy regions, one filled with the purple cross-hatched pattern and the other with the brown diagonal-hatched pattern. These two colored patterns are then matched to the legend, where the percentages in parentheses are listed as 10.49% and 7.41%, respectively.",
+    "target_text": "Final answer: 10.49; 7.41",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seychelles/ESIA-Report-ARIA-Eco-Sol-11.07.25",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seychelles/ESIA-Report-ARIA-Eco-Sol-11.07.25"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7019",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__Users_Nathalie_Documents_RappTech\\image80_2.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__Users_Nathalie_Documents_RappTech\\image62_2.jpeg"
+    ],
+    "question": "Which Gold Showing is located on the border of the GEANT DORMANT property?",
+    "answer": "Géant Dormant-SO",
+    "reasoning": "Gold Showings are represented by yellow circular symbols on one map. On the other map, the GEANT DORMANT property is identified by its black outlined boundary. The identical property outline and matching map coordinates allow the two maps to be aligned, indicating that the same black outline represents the GEANT DORMANT property on both maps. The required Gold Showing is the one located directly on the black property boundary. Only one yellow showing point satisfies this condition, and its label is Géant Dormant-SO.",
+    "target_text": "Final answer: Géant Dormant-SO",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__Users_Nathalie_Documents_RappTech",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__Users_Nathalie_Documents_RappTech"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_9022",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__FILINGS_Tearlach_Tearlach_TechnicalReport\\image45_1.jpeg"
+    ],
+    "question": "What is the length of the shortest border shared between Tearlach Resources and another company (excluding Fee Parcels)?",
+    "answer": "0.5 miles",
+    "reasoning": "The map labels the Tearlach Resources claim area. The legend distinguishes the claim areas by different colors, while the Fee Parcels shown with black hatching are excluded according to the question. Comparing the shared boundaries between Tearlach Resources and the remaining neighboring companies shows that the shortest shared border is with the Entertopia Corp MS claim. Estimating the length of this shared boundary using the map scale gives approximately 0.5 miles.",
+    "target_text": "Final answer: 0.5 miles",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__FILINGS_Tearlach_Tearlach_TechnicalReport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__FILINGS_Tearlach_Tearlach_TechnicalReport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4030",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\n__SEDAR_WRLG_NI43-101_Report_Update_v20230619\\image26_1.png"
+    ],
+    "question": "The legend describes the different mining license of PureGold Mine Property. What is the code of the mining license blocks that shares boundary with a nearby lake?",
+    "answer": "MLO-10671; MLO-10670",
+    "reasoning": "The legend distinguishes lakes as blue areas and the PureGold mining licenses as colored-outline polygons. Scanning the lake boundaries across the map shows that only one northern lake shares its edge with two yello-outlined mining license blocks. Other blocks' colored-outline merely cross lakes' boundary. The codes written inside these yellow-outlined blocks are MLO-10671 and MLO-10670.",
+    "target_text": "Final answer: MLO-10671; MLO-10670",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/n__SEDAR_WRLG_NI43-101_Report_Update_v20230619",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/n__SEDAR_WRLG_NI43-101_Report_Update_v20230619"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4006",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\z__AgnicoEagle_Techreport_TechReport-221231_TechReport-LaRonde\\image86_2.jpeg"
+    ],
+    "question": "What is the orientation of Sulphide Zone 3FW in relation to Sulphide Zone 2 for Agnico Eagle’s LaRonde Complex?",
+    "answer": "North",
+    "reasoning": "The labels for Zone 2 and Zone 3FW identify the locations of the two zones. Comparing their positions on the map shows that Sulphide Zone 3FW is right above Sulphide Zone 2. The North text in the right-upper corner indicates that this corresponds to a northward orientation.",
+    "target_text": "Final answer: North",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "NI43-101/z__AgnicoEagle_Techreport_TechReport-221231_TechReport-LaRonde",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/z__AgnicoEagle_Techreport_TechReport-221231_TechReport-LaRonde"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0095",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\91346907\\image71_m0.png"
+    ],
+    "question": "Identify the ‘Moulded Concrete Gutter’ at the Seychelles Water and Sanitation Project Wastewater Treatment Plant. What is the ‘Elevation’ indicated on the map at the point where it intersects the ‘Drainage Ditch’? Give just the number.",
+    "answer": "1.8",
+    "reasoning": "In the Legend, the Moulded Concrete Gutter is identified as the red dashed line, while the Drainage Ditch is shown as a blue dashed line. Tracing the two features reveals a single intersection at the right end of the gutter. The elevation is indicated by the survey benchmark symbol placed at this intersection, and the adjacent number annotation reads 1.8.",
+    "target_text": "Final answer: 1.8",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seychelles/91346907",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seychelles/91346907"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1136",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\SpaceX SSH at LC-39A Draft EIS_Volume I_Main EIS\\image6_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\SpaceX SSH at LC-39A Draft EIS_Volume I_Main EIS\\image16_1.png"
+    ],
+    "question": "Identify the 'Vehicle Assembly Building' within the KSC Property Boundary. What is the name of the body of water that borders it?",
+    "answer": "Banana Creek",
+    "reasoning": "The Atlantic coastline and the location of the CCSFS area align the two maps to the same geographic region. The enlarged map covers the area north of CCSFS around LC-39A. On this map, the Vehicle Assembly Building is located northwest of CCSFS within a distinctive enclosed purple boundary. The same building is then identified on the overview map using its relative position to CCSFS and same green boundary shape. The body of water sharing the boundary with this location is selected. Its label on the overview map is Banana Creek.",
+    "target_text": "Final answer: Banana Creek",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "EIS/SpaceX SSH at LC-39A Draft EIS_Volume I_Main EIS",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/SpaceX SSH at LC-39A Draft EIS_Volume I_Main EIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1070",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\mat-report_hurricane-harvey-texas\\image39_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\mat-report_hurricane-harvey-texas\\image0_1.png"
+    ],
+    "question": "In the Hurricane Harvey–affected areas, what is the direction of 'League City' within 'Galveston County' relative to the '0000 UTC Pos/Date' point labeled '2'?",
+    "answer": "South West",
+    "reasoning": "The location of League City is determined from the map showing the coastal zone in Texas. This location is then related to the Hurricane Harvey map by matching the geographic extent and administrative boundaries of Texas. The point labeled '2' lies northeast of the Texas location. Based on their relative positions, League City is southwest of point 2.",
+    "target_text": "Final answer: South West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/mat-report_hurricane-harvey-texas",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/mat-report_hurricane-harvey-texas"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7018",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_pa-dr-4611-3143-la-southterrebonnemiddleschool-fea-20250311\\image16_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_pa-dr-4611-3143-la-southterrebonnemiddleschool-fea-20250311\\image21_1.png"
+    ],
+    "question": "Soil types are associated with a 3-letter alphabet code. What are the soil types in the Proposed South Terrebonne Middle School project area?",
+    "answer": "CbA; CdA",
+    "reasoning": "The proposed South Terrebonne Middle School project area is first located on the aerial image. Its footprint is then matched to the soil map using the surrounding roads and the outline of the site. The project area extends across two mapped soil units, whose labels are CdA and CbA.",
+    "target_text": "Final answer: CbA; CdA",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/fema_pa-dr-4611-3143-la-southterrebonnemiddleschool-fea-20250311",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_pa-dr-4611-3143-la-southterrebonnemiddleschool-fea-20250311"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1047",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\664400\\image1_m20.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\664400\\image1_m23.png"
+    ],
+    "question": "In Delaware Water Gap National Recreation Area, what is the approximate straight-line distance in miles from the southwestmost corner of Lake Sparta to Sussex?",
+    "answer": "15miles",
+    "reasoning": "The shared Uplands area and the red reference rectangle allow the two maps to be aligned to the same geographic area. On the map showing the Glacial Lake Basins, Lake Sparta is located first with text label. On the other map, the Sussex location is identified arround the left boundary of the red reference rectangle. This location of Sussex is then transferred back to the Glacial Lake Basins map using the shared reference features. The southwestmost corner of Lake Sparta is the lower-left corner of the lake according to the north arrow. Comparing the straight-line distance between this corner and the transferred Sussex location with the map scale gives approximately 15 miles.",
+    "target_text": "Final answer: 15miles",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "national-parks/664400",
+    "metadata": {
+      "domain": "Park & trail map",
+      "map_elements": [
+        "compass",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "national-parks/664400"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1034",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\732920\\image1_m104.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\national-parks\\732920\\image1_m124.png"
+    ],
+    "question": "What is the structural element of the San Juan Basin where the source map 3 'Kirk and Condon, 1989' is fully located?",
+    "answer": "CHACO SLOPE",
+    "reasoning": "Source map 3 is located on the index map by reading the latitude and longitude values along the map frame. Its coverage lies in the northern part of the mapped region, approximately between 35°30′ and 36° north and near 108° west. The same coordinate range is then located on the structural elements map of the San Juan Basin. This area falls within the structural element labeled CHACO SLOPE.",
+    "target_text": "Final answer: CHACO SLOPE",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "national-parks/732920",
+    "metadata": {
+      "domain": "Park & trail map",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "national-parks/732920"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1133",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Vol-1-FEIS-US6219-Section050-Transportation-Improvement-Project-Combined-FEIS-ROD-May-2025\\image106_2.png"
+    ],
+    "question": "Identify 'Greenville Road' that intersects with the 'Detailed Alternative LOD' area. Which 'NRHP Eligible' areas does Greenville Road act as a boundary between?",
+    "answer": "Deal Farm; Jacob Glotfelty Barn",
+    "reasoning": "Greenville Road appears near the center of the map as a vertical orientation white line with its name written along it. The Detailed Alternative LOD is enclosed by black lines and forms a horizontal band across the middle of the map. To the left of Greenville Road, this band splits into two branches that both intersect the road, and the branches merge again on the right. Within the area enclosed by these branches, Greenville Road separates two NRHP Eligible areas. The labels of areas on the two sides of the road are Deal Farm and Jacob Glotfelty Barn.",
+    "target_text": "Final answer: Deal Farm; Jacob Glotfelty Barn",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "EIS/Vol-1-FEIS-US6219-Section050-Transportation-Improvement-Project-Combined-FEIS-ROD-May-2025",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/Vol-1-FEIS-US6219-Section050-Transportation-Improvement-Project-Combined-FEIS-ROD-May-2025"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3016",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\y__PUBLIC_Lithium-Americas-Corp_2023_technical-reports_Pastos-Grandes-Project_TR-pastos-grandes-update\\image161_2.jpeg",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\y__PUBLIC_Lithium-Americas-Corp_2023_technical-reports_Pastos-Grandes-Project_TR-pastos-grandes-update\\image75_2.jpeg"
+    ],
+    "question": "Atacama Water divides the project area within concession blocks associated with unique numbers (e.g., 24255). The LAC old concession block containing Diamond Drilling 'PGMW17-10' shares border with which 'Third-party concessions'?",
+    "answer": "Ganfeng Lithium Co.",
+    "reasoning": "The layout of the LAC old concession purple blocks, together with the map coordinates, allows the two maps to be aligned. On one map, Diamond Drilling PGMW17-10 is located within a purple concession block near the intersection of the map-edge coordinate references around 3430000 and 72854000. The reference coordinates, shape and orientation of this block, together with the surrounding purple blocks, are then matched to the other map. The corresponding block on that map is labeled 17588. Tracing the boundary of this block shows that it shares borders with adjacent yellow concession areas. The legend classifies these yellow areas as Third-party concessions owned by Ganfeng Lithium Co.",
+    "target_text": "Final answer: Ganfeng Lithium Co.",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/y__PUBLIC_Lithium-Americas-Corp_2023_technical-reports_Pastos-Grandes-Project_TR-pastos-grandes-update",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/y__PUBLIC_Lithium-Americas-Corp_2023_technical-reports_Pastos-Grandes-Project_TR-pastos-grandes-update"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8016",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__Users_sedar.LAW_Desktop_Hermonie_WhistlerTR\\image77_m0.png"
+    ],
+    "question": "What is the vertical distance from the conventional drilling point located outside the Whistler Property Outline to the boundary of the Whistler Property Outline?",
+    "answer": "1.375 km",
+    "reasoning": "The legend shows that conventional drilling locations are marked by solid black points and the Whistler Property Outline is shown with a black line. Only one conventional drilling point outside the property outline is is located to the upper right of the outlined area. The required measurement is the vertical distance from this point to the property boundary directly below it. Comparing this vertical separation with the map scale gives approximately 1.375 km.",
+    "target_text": "Final answer: 1.375 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__Users_sedar.LAW_Desktop_Hermonie_WhistlerTR",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__Users_sedar.LAW_Desktop_Hermonie_WhistlerTR"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1160",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1\\image78_m0.png"
+    ],
+    "question": "Based on the Estimated Noise Levels from Demolition Explosive Events, what is the approximate distance between the '140 dB / 4.17 psf' boundary and the '120 dB / 0.42 psf' Peak Overpressure boundary?",
+    "answer": "3 Miles",
+    "reasoning": "The legend assigns the 140 dB / 4.17 psf boundary to the red contour and the 120 dB / 0.42 psf boundary to the yellow contour. On the map, these appear as two nested rings, with the red boundary inside the larger yellow boundary. The required distance is the gap between the two contours. Comparing this separation with the map scale gives an approximate distance of 3 miles.",
+    "target_text": "Final answer: 3 Miles",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025_Appendices_Volume1"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0111",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\Environmental-and-Social-Impact-Assessment\\image246_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\Environmental-and-Social-Impact-Assessment\\image219_1.png"
+    ],
+    "question": "All Surface Water Sampling Locations are associated with a unique code in the format 'SW #'. Which two Soil Categories form the boundary where the two Surface Water Sampling locations lie?",
+    "answer": "Jamuna,Karatoya-Bengali and Lakhya floodplain; Madhupur Soils",
+    "reasoning": "The 2 km buffer, the 5 km buffer, and the major river pattern provide common reference features for aligning the two maps. On the Surface Water Sampling Locations map, the legend shows that Surface Water Sampling Locations are marked with the blue sampling symbol and labeled with codes in the format 'SW #'. The two sampling locations are found in a distinctive bend of the Karnatail River. The same river bend is located on the Soil Category map. The boundary passing through this location separates two soil categories. The labels on either side of this boundary are Jamuna, Karatoya-Bengali and Lakhya floodplain and Madhupur Soils.",
+    "target_text": "Final answer: Jamuna,Karatoya-Bengali and Lakhya floodplain; Madhupur Soils",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "aiib/Environmental-and-Social-Impact-Assessment",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "aiib/Environmental-and-Social-Impact-Assessment"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1097",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendix D - Biological Assessment\\image10_1.png"
+    ],
+    "question": "The mines 'Mine No. 4 - ALES-055797' and 'Blue Creek Mine No. 1 - ALES-056519' are divided into multiple smaller blocks. What is the orientation of the southernmost block(s) of Blue Creek Mine No. 1 relative to the northernmost block(s) of Mine No. 4?",
+    "answer": "South West",
+    "reasoning": "The legend separates Mine No. 4 - ALES-055797 as green blocks and Blue Creek Mine No. 1 - ALES-056519 as blue blocks. Among the blue blocks, the southernmost one is selected in the lower-left part of the map. The northernmost green block lies farther to the upper right. Comparing these two extreme blocks with the compass places the southernmost Blue Creek Mine No. 1 block southwest of the northernmost Mine No. 4 block.",
+    "target_text": "Final answer: South West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "EIS/Appendix D - Biological Assessment",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/Appendix D - Biological Assessment"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_9008",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__AA-SEDAR_VELVET-PEA-2023\\image25_1.jpeg"
+    ],
+    "question": "Which claim block(s) and number(s) of Wood Project area borders the state mining lease?",
+    "answer": "UT31; UT32",
+    "reasoning": "Find the Wood Project area borders the state mining lease firstly. The Wood Project area is outlined in blue and occupies the western part of the map. According to the legend, the State Mining Lease is shown as a solid blue area. Recognizing the shared boundary between these two areas is located near the junction of grid squares S2 and S11. Along the southern side of this shared boundary to find the two small Wood Project claim blocks aquired by the question. The labels inside these claim blocks are UT31 and UT32.",
+    "target_text": "Final answer: UT31; UT32",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "NI43-101/C__AA-SEDAR_VELVET-PEA-2023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__AA-SEDAR_VELVET-PEA-2023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0144",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126\\image164_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126\\image149_1.png"
+    ],
+    "question": "Areas of North Shore Levee West are classified either as one of the four Areas (categories ending with 'Area') or as one of the two Wetlands (categories ending with 'Wetlands'). Within Area 13, which three Areas or Wetlands border the 'Re-Pavement Area'?",
+    "answer": "Delineated Wetlands; Temporary Impact Area; Permanent Impact Area",
+    "reasoning": "First identify the Re-Pavement Area from the legend. It appears as a solid black T-shaped region following the roadway. Match this distinctive T-shaped region to the corresponding roadway area outlined in red on the second map using its shape and position. Then trace the boundary of this roadway area to determine which Areas or Wetlands are adjacent to it. The bordering regions are shown in pink, flesh-colored, and green. According to the legend, these correspond to Temporary Impact Area, Permanent Impact Area, and Delineated Wetlands.",
+    "target_text": "Final answer: Delineated Wetlands; Temporary Impact Area; Permanent Impact Area",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/BRIC-EMS-2020-BR-102-0002_WA-NorthShoreLeveeWest-DEA-20241126"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1011",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\CouncilAdopted2020\\image433_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\CouncilAdopted2020\\image549_1.png"
+    ],
+    "question": "In Seattle, in which direction is the area of SW NSC located relative to Green Lake?",
+    "answer": "South West",
+    "reasoning": "The matching map content of Seattle city provides a common reference for aligning the two maps. On one map, the label SW NSC marks an area in the lower-left part of the city. Green Lake is labeled on the other map in the north-central part of Seattle. Therefore, SW NSC lies left and below Green Lake. The compass places SW NSC southwest of Green Lake.",
+    "target_text": "Final answer: South West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "seattle-planning/CouncilAdopted2020",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "seattle-planning/CouncilAdopted2020"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1125",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendices A through L_CJMT_RDEIS\\image147_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Appendices A through L_CJMT_RDEIS\\image148_1.png"
+    ],
+    "question": "Within the Tinian Military Lease Area, identify the 30 ft Transects Terrestrial Survey Area located between 'Runway Able' and 'Runway Charlie'. What is the dominant 'Vegetation Type' in this area?",
+    "answer": "Leucaena Forest",
+    "reasoning": "The 30 ft Transects Terrestrial Survey Areas are represented by the purple polygons. Locate the survey area positioned between the labels Runway Able and Runway Charlie in the northern part of the island. The same location is then identified on the vegetation map using the runway labels as references. The survey area is predominantly covered by the light green vegetation class, which the legend identifies as Leucaena Forest.",
+    "target_text": "Final answer: Leucaena Forest",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "EIS/Appendices A through L_CJMT_RDEIS",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "EIS/Appendices A through L_CJMT_RDEIS"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0088",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\2.-Supplementary-ESIA_23042025-EN\\image20_1.png"
+    ],
+    "question": "How many times does the line labeled 'Existing Railway Infrastructure' cross the 'Other Country's Boundary'? Do not include cases where the railway runs along or touches the border without crossing.",
+    "answer": "3",
+    "reasoning": "The legend shows that the Existing Railway Infrastructure is represented by a thick alternating black-and-white line, while the Other Country's Boundary is shown as a thin yellow line. The railway is traced across the map, and only crossings where it passes from one side of the yellow boundary to the other are counted. Intersections where the railway only follows or touches the boundary are excluded. Three valid crossings are observed: one between Uzbekistan and Kyrgyzstan in the southwestern part of the map, and two along the China boundary on the eastern side of the map.",
+    "target_text": "Final answer: 3",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "aiib/2.-Supplementary-ESIA_23042025-EN",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "aiib/2.-Supplementary-ESIA_23042025-EN"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1057",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\mat-report_hurricane-harvey-texas\\image41_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\mat-report_hurricane-harvey-texas\\image42_1.png"
+    ],
+    "question": "Identify the 'Highest Water Levels' point labeled 'Manchester, TX' for Hurricane Harvey. Within which 'Annual Exceedance Probabilities (AEPs) for the Worst-Case 4-Day Rainfall' range does this point fall?",
+    "answer": "< 1/1000",
+    "reasoning": "The purple point labeled Manchester, TX is located on the Highest Water Levels map near Houston. The Houston label and the shape of the Texas Gulf Coast provide reference points for placing the same location on the rainfall AEP map. At this position, Manchester falls within the darkest blue rainfall zone. The AEP legend assigns this color to the range below 1/1000.",
+    "target_text": "Final answer: < 1/1000",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "FEMA/mat-report_hurricane-harvey-texas",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/mat-report_hurricane-harvey-texas"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1126",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Final EIS for the Elliott State Research Forest HCP\\image218_1.png"
+    ],
+    "question": "Which 'Land Ownership' category, other than 'Other Private', shares a boundary with the 'HCP Permit Area' located near Devil's Staircase Wilderness?",
+    "answer": "Oregon Board of Forestry; BLM; Millicoma Tree Farm",
+    "reasoning": "Identify the HCP Permit Area from the legend, where it is outlined by a solid red boundary. Locate Devil's Staircase Wilderness, a green block in the northern part of the map. Finding the red boundary immediately south of the labeled wilderness area. Then trace the red line and identify the neighboring Land Ownership categories. Excluding the gray Other Private areas as required by the question, the remaining adjacent regions are shown in bright yellow, light yellow, and dark gray. According to the legend, these correspond to Oregon Board of Forestry, BLM, and Millicoma Tree Farm.",
+    "target_text": "Final answer: Oregon Board of Forestry; BLM; Millicoma Tree Farm",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Border",
+    "map_id": "EIS/Final EIS for the Elliott State Research Forest HCP",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/Final EIS for the Elliott State Research Forest HCP"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_5019",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\l__49926_1_TechReports2023_Guanacevi_Guanacevi_TechReport_2023\\image36_2.png"
+    ],
+    "question": "'Mine's owned by a 'Concession' are labeled with the same color as the Concession area. Identify the 'Mine's located along the vein separating 'Rhyolite' geology from 'Conglomerates & Redbeds'. Which of these are not owned by EDR concession?",
+    "answer": "Porvenir Dos",
+    "reasoning": "The legend shows the symbols for mines, concession boundaries, veins, and the different geology categories. The question states that each mine uses the same color as the concession that owns it. Since EDR Concessions are shown in black and Other Concessions are shown in gray, mines drawn in gray belong to concessions other than EDR. The red line vein separating the pink Rhyolite unit from the gray Conglomerates & Redbeds unit is first identified. Along this segmentation of red lines, the only gray mine symbol is located. The label beside this mine is Porvenir Dos.",
+    "target_text": "Final answer: Porvenir Dos",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/l__49926_1_TechReports2023_Guanacevi_Guanacevi_TechReport_2023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/l__49926_1_TechReports2023_Guanacevi_Guanacevi_TechReport_2023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1131",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\VSFB_Falcon_Launch_Draft_EIS_May_2025\\image141_1.png"
+    ],
+    "question": "Identify the 'SLC-6 Modification Area' within the 'South Drainage' area. Which 'Hydrology Regime, Wetland Status' category does it intersect?",
+    "answer": "Intermittent, One-Parameter",
+    "reasoning": "The SLC-6 Modification Area is identified as the red outlined polygon refer to the legend. Find the red outlined polygon within the yellow ellipse labeled South Drainage. This part of red outlined polygon intersects a light blue line representing a hydrology feature. Matching the line symbol to the legend shows that it corresponds to the Hydrology Regime, Wetland Status category 'Intermittent, One-Parameter'.",
+    "target_text": "Final answer: Intermittent, One-Parameter",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/VSFB_Falcon_Launch_Draft_EIS_May_2025"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0077",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\environmental-and-social-management-framework-English\\image13_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\environmental-and-social-management-framework-English\\image8_m0.png"
+    ],
+    "question": "Sri Lanka is divided into multiple districts (e.g., Ampara). Identify the district that contains the highest number of 'Landslides occurred within May, 2003'. What is the dominant 'Elevation-FEET' range of that district?",
+    "answer": "0-2000",
+    "reasoning": "Both maps share the same outline and inside districts shape of Sri Lanka, allowing the districts to be matched between them. On the Distribution of Landslides map, the legend shows that the red dots represent landslides that occurred within May 2003. Comparing the number of red dots across the districts shows that Ratnapura contains the highest concentration of landslides. The corresponding district is then located on the Elevation map using its position in the southwestern part of Sri Lanka and its district shape. Within this district, the largest area is covered by the lightest color on the elevation map. According to the legend, this color corresponds to an elevation range of 0–2000 feet.",
+    "target_text": "Final answer: 0-2000",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "aiib/environmental-and-social-management-framework-English",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "aiib/environmental-and-social-management-framework-English"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1098",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\EIS\\Volume 1 - Bremerton Waterfront Infrastructure Improvements at Puget Sound Naval Shipyard and Intermediate Maintenance Facility\\image444_1.png"
+    ],
+    "question": "In the Joint Compatibility Transportation Plan, 'Level of Service (LOS)' points are categorized into six levels. Identify the LOS points located on the border of Naval Base Kitsap-Bremerton. What are their categories?",
+    "answer": "A; C; D",
+    "reasoning": "In the legend, the six LOS categories are encoded by colored point symbols ranging from green to red. Locate the dark gray area labeled Naval Base Kitsap-Bremerton, then trace its boundary and retain only the LOS points positioned directly on that edge. There are 2 points on the left edge and 2 points on the upper edge. Points on the left edge are both yellow-green, corresponding to category A according to the legend, and points on the upper edge are orange and dark green, corresponding to categories C and D respectively. Therefore, the LOS points on the border of Naval Base Kitsap-Bremerton are in categories A, C, and D.",
+    "target_text": "Final answer: A; C; D",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "EIS/Volume 1 - Bremerton Waterfront Infrastructure Improvements at Puget Sound Naval Shipyard and Intermediate Maintenance Facility",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "EIS/Volume 1 - Bremerton Waterfront Infrastructure Improvements at Puget Sound Naval Shipyard and Intermediate Maintenance Facility"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_6008",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23\\image31_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23\\image45_1.png"
+    ],
+    "question": "Which Lithology is Claims area 'WM‑506' located within at the Wind Mountain Project?",
+    "answer": "Aluvial Deposits",
+    "reasoning": "The claim labeled WM-506 is located on the claims map using its distinctive shape and its position relative to other claim blocks and to the PLSS grid lines. The same claim block is then located on the lithology map using the matching coordinate grid and polygon shape. The entire claim falls within the pale yellow lithology unit, which the legend identifies as Alluvial Deposits.",
+    "target_text": "Final answer: Aluvial Deposits",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Equal",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0107",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seychelles\\91346907\\image27_m0.png"
+    ],
+    "question": "On the Seychelles Water and Sanitation Project Wastewater Treatment Plant site layout, every building door is represented as a quarter-circle region indicating the door's swing (either inward or outward). What is the orientation of the Transformer Building's door relative to the Guardhouse's door?",
+    "answer": "North East",
+    "reasoning": "Locate the Transformer Building and the Guardhouse from their labels on the site plan. Their doors are shown by the quarter-circle swing symbols attached to the building outlines. The Transformer Building's door lies above and to the right of the Guardhouse's door. Interpreting this relative position with the map orientation places the Transformer Building's door northeast of the Guardhouse's door.",
+    "target_text": "Final answer: North East",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "seychelles/91346907",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "compass"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seychelles/91346907"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4014",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA\\image71_2.jpeg"
+    ],
+    "question": "What is the approximate distance between the two points where the boundary of 'Swan Zone' meets the Alteration 'Phyllic' boundary?",
+    "answer": "1 km",
+    "reasoning": "The Swan Zone is identified as the dark pink region labeled 'Swan zone', and the Phyllic alteration is enclosed by the gray dashed boundary. The required points are the two intersections where the Swan Zone boundary meets the dashed Phyllic boundary, one on the left and one on the right. The straight-line distance between these two intersection points is estimated referring to the map scale, approximately 1 km.",
+    "target_text": "Final answer: 1 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0078",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\ireland\\EPA_Irelands_Environment_2020\\image245_m0.png"
+    ],
+    "question": "According to Ordnance Survey Ireland, each waste point is associated with a code (e.g., W0165) and the company managing it (e.g., Ballynagran Landfill). What is the name of the company that manages the 'Landfills Accepting Municipal Waste' site located closest to 'Breedon Cement Ireland Limited'?",
+    "answer": "Drehid Waste Management Facility",
+    "reasoning": "The legend indicates that Landfills Accepting Municipal Waste sites are represented by green points. The annotation in the left-upper corner of the map identifies Breedon Cement Ireland Limited as point P0487, which is then located on the map. Among the municipal landfill sites, the nearest green point to P0487 is labeled W0201. Looking up W0201 in the annotation shows that it is managed by Drehid Waste Management Facility.",
+    "target_text": "Final answer: Drehid Waste Management Facility",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Distance",
+    "map_id": "ireland/EPA_Irelands_Environment_2020",
+    "metadata": {
+      "domain": "Environmental review",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "ireland/EPA_Irelands_Environment_2020"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0097",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject\\image170_1.png"
+    ],
+    "question": "Within the 'Ou Ta Paong – OPT Canal' boundary, identify the two 'Elongated Tortoise' points and the two 'Black Marsh Turtle' points. What is the orientation of the two 'Elongated Tortoise' points in relation to the 'Black Marsh Turtle' points?",
+    "answer": "South",
+    "reasoning": "The red boundary shows the outline of Ou Ta Paong – OPT Canal area. According to the map legend, the Elongated Tortoise locations are marked by red triangles, while the Black Marsh Turtle locations use circular symbols with a central black dot. Both Elongated Tortoise points lie below the two Black Marsh Turtle points. With the compass providing the map orientation, the Elongated Tortoise points are south of the Black Marsh Turtle points.",
+    "target_text": "Final answer: South",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "aiib/CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "compass",
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "aiib/CAM_P000452_ESCMP_Outapong_Irrigation_System_Subproject"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0167",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_oehp_emt-2021-fm-022-0010-tx-virginia-street-dea-052125\\image30_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\FEMA\\fema_oehp_emt-2021-fm-022-0010-tx-virginia-street-dea-052125\\image25_1.png"
+    ],
+    "question": "Identify 'Tyrrell Park' within the Coastal Zone of the Virginia Street Drainage Improvements project. What is the orientation of the westernmost 'Proposed Detention Basin' in relation to 'Tyrrell Park'?",
+    "answer": "North East",
+    "reasoning": "Tyrrell Park is located from its label in Figure 8, in the left-bottom corner of the map. The red outlined Proposed Detention Basin areas in Figure 6 match the yellow outlined areas in Figure 8 by their distinctive shapes and spatial arrangement, allowing the detention basins to be identified on the second map. The westernmost Proposed Detention Basin is positioned above and to the right of Tyrrell Park. Based on the compass, it is northeast of Tyrrell Park.",
+    "target_text": "Final answer: North East",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "FEMA/fema_oehp_emt-2021-fm-022-0010-tx-virginia-street-dea-052125",
+    "metadata": {
+      "domain": "Disaster/hazard",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "FEMA/fema_oehp_emt-2021-fm-022-0010-tx-virginia-street-dea-052125"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_8003",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA\\image82_2.jpeg"
+    ],
+    "question": "What is the straight-line distance between 'Christmas Creek' and the nearest 'Trailbreak soil samples 2021 Au (ppb)' associated with the highest value?",
+    "answer": "0.75 km",
+    "reasoning": "Christmas Creek is located from the star symbol and its text label. The Trailbreak soil samples are represented by colored point symbols, with the darkest color indicating the highest Au (ppb) class in the legend. Among the samples in this highest-value class, the point closest on the north of Chrismas Creek is selected. Comparing the straight-line separation with the map scale gives an approximate distance of 0.75 km.",
+    "target_text": "Final answer: 0.75 km",
+    "has_reasoning": true,
+    "answer_type": "distance",
+    "task_category": "Distance",
+    "map_id": "NI43-101/C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text",
+        "scale"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_01SEDARFilings_TrailbreakerTECHRPT05102023JA"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_4020",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__AA-SEDAR_VELVET-PEA-2023\\image51_1.jpeg"
+    ],
+    "question": "What is the name of the line that runs through the Slick Rock Project area from the northwest to the southeast?",
+    "answer": "Disappointment Syncline",
+    "reasoning": "The Slick Rock Project area is located from the red boundary shown in the legend. Using the compass, follow the dirction and find the line that crosses this red outlined area from northwest to southeast. The name written along this line is Disappointment Syncline.",
+    "target_text": "Final answer: Disappointment Syncline",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__AA-SEDAR_VELVET-PEA-2023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__AA-SEDAR_VELVET-PEA-2023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2020",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_43101 (1)\\image93_3.jpeg"
+    ],
+    "question": "What is the orientation of Coronation N in relation to Trimbles in Hyde-Macraes Shear Zone",
+    "answer": "South East",
+    "reasoning": "In the right side of the map, the labels Coronation N and Trimbles locate the two target areas on the map. Coronation N appears lower and to the left of Trimbles on the page. Find the compass in the left-upper corner of the map, it shows that the page's upper orientation cannot be used directly as north. Instead, the relative positions are interpreted comparing direction with the rotated north compass arrow, which shows that Coronation N is southeast of Trimbles.",
+    "target_text": "Final answer: South East",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "NI43-101/C__SEDAR_43101 (1)",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_43101 (1)"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_3022",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\y__PUBLIC_Discovery-Silver-Corp_2023_technical-reports_DSV-Cordero-technical-report\\image75_2.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\y__PUBLIC_Discovery-Silver-Corp_2023_technical-reports_DSV-Cordero-technical-report\\image76_2.png"
+    ],
+    "question": "What is the orientation of 'Titan II T.241084' relative to 'Aida T.163184' within the Cordero mining concession?",
+    "answer": "South West",
+    "reasoning": "The legend associates Titan II T.241084 with the purple claim block labeled 9. The distinctive red outline of the 2022 Resource Pit for PFS in both maps provides a common reference for matching the spatial positions. Once the maps are aligned, Aida T.163184 is found inside the red pit outline, which lies above and to the right of the purple claim block labeled 9. Comparing their positions with the compass shows that Titan II T.241084 is southwest of Aida T.163184.",
+    "target_text": "Final answer: South West",
+    "has_reasoning": true,
+    "answer_type": "cardinal",
+    "task_category": "Orientation",
+    "map_id": "NI43-101/y__PUBLIC_Discovery-Silver-Corp_2023_technical-reports_DSV-Cordero-technical-report",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "compass",
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "NI43-101/y__PUBLIC_Discovery-Silver-Corp_2023_technical-reports_DSV-Cordero-technical-report"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_1077",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\Elsieskraal River Valley Development Framework, 1998\\image45_1.png",
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\capetown\\Elsieskraal River Valley Development Framework, 1998\\image53_1.png"
+    ],
+    "question": "Near ELSIESKRAAL RIVER VALLEY, what is the name of the Stormwater system that intersects the Golf Course area?",
+    "answer": "Golf Course River",
+    "reasoning": "The two maps are aligned using shared landmarks such as the N1 Freeway, confirming that they cover the same section of the Elsieskraal River Valley. On one map, the area labeled Golf Course is located in the northwestern part of the mapped area. The corresponding location is then identified on the other map, where the dotted Stormwater system line passing through the corresponding area is traced. The label along this line reads Golf Course River.",
+    "target_text": "Final answer: Golf Course River",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "capetown/Elsieskraal River Valley Development Framework, 1998",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Multi",
+      "source_document_ids": [
+        "capetown/Elsieskraal River Valley Development Framework, 1998"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_7023",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_SantaAna2023\\image50_1.jpeg"
+    ],
+    "question": "Identify the 'Prospective Veins' with a Sample ID (e.g., Lajas Sample 16211) that intersects a  'Applications' tile. What is the silver equivalent grade (# g/t AgEq) of this sample. Give just the number.",
+    "answer": "9214 g/t",
+    "reasoning": "The Applications tiles are identified as the green polygons, while the Prospective Veins are shown as orange line segments. Locate the orange vein that intersects a green Applications tile, which means part of the orange line overlay with the green Applications tile while also part of the same orange line is outside the green area. Find only one on the bottom of the map. Then trace the arrow that points to this orange vein to read the associated sample annotation. The sample label includes the silver equivalent grade, which is 9214 g/t AgEq.",
+    "target_text": "Final answer: 9214 g/t",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_SantaAna2023",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_SantaAna2023"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_6018",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23\\image61_1.png"
+    ],
+    "question": "Which 'deposits' overlaps with the boundary of the 'heap leach pads' at the Wind Mountain Project?",
+    "answer": "Deep Min deposit",
+    "reasoning": "The legend shows deposits by red outlines and heap leach pads by black dashed outlines. Search for where the red solid line cross the black dashed line to find deposits overlapping the heap leach pads. Only one red outlined deposit satisfies this condition on the left side of the map. Following the annotation pointing to this red outlined area gives the name Deep Min deposit.",
+    "target_text": "Final answer: Deep Min deposit",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/C__SEDAR_FILINGS_BravadaTechR_TOGO_WINDMTN_PEA_20JAN23"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_2024",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\NI43-101\\w__GalianoGold_SEDAR_1194039_tech_Mar28_2023_galiano_techreport\\image121_1.jpeg"
+    ],
+    "question": "How many Asanko tenement blocks does the Haul Road intersect?",
+    "answer": "6",
+    "reasoning": "The Haul Road is identified as the red line, and the Asanko tenement blocks are the enclosed blue outlined polygons. Trace the red Haul Road across the map and see how many blue outlined blocks have segmentation of the red line inside of them to count each tenement block that the road passes through. The road intersects a total of six Asanko tenement blocks.",
+    "target_text": "Final answer: 6",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "NI43-101/w__GalianoGold_SEDAR_1194039_tech_Mar28_2023_galiano_techreport",
+    "metadata": {
+      "domain": "Geology report",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "NI43-101/w__GalianoGold_SEDAR_1194039_tech_Mar28_2023_galiano_techreport"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0008",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\seattle-planning\\CouncilAdopted2020\\image319_1.png"
+    ],
+    "question": "Within 'Commercial & Residential Zone Areas' of Seattle's Georgetown neighborhood, which streets does the Anchor Location lie on?",
+    "answer": "13TH AVE S; S ALBRO PL",
+    "reasoning": "The legend indicates that the Anchor Location is represented by a black circular symbol. Locate this symbol within the Commercial & Residential Zone Areas in the right part of the map, then identify the pavements overlap with this black circle. These pavements can trace to up and left-up seperately. Read the text label names along the two streets, which are 13TH AVE S and S ALBRO PL.",
+    "target_text": "Final answer: 13TH AVE S; S ALBRO PL",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "seattle-planning/CouncilAdopted2020",
+    "metadata": {
+      "domain": "Planning (city/region)",
+      "map_elements": [
+        "legend",
+        "map text"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "seattle-planning/CouncilAdopted2020"
+      ]
+    }
+  },
+  {
+    "sample_id": "frieda_q_0098",
+    "dataset": "FRIEDA",
+    "split": "train",
+    "images": [
+      "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image\\aiib\\Environmental-and-Social-Impact-Assessment\\image72_1.png"
+    ],
+    "question": "There are 19 different types of Important Environmental Features (e.g., Brick Field) within the 5 km buffer of the project boundary proposed by EQMS. Identify the boundary shared between the 'Project Boundary' and the 'Amin Bazar Waste Disposal Area'. Which important environmental feature is located on this boundary?",
+    "answer": "Primary School",
+    "reasoning": "The Project Boundary and the Amin Bazar Waste Disposal Area are distinguished by their different fill patterns in the legend. Locate the boundary shared by these two areas near the center of the map, then inspect the symbols positioned directly on this shared boundary. A yellow circular symbol containing the letter 'P' is located there. Matching this symbol to the legend identifies the corresponding Important Environmental Feature as Primary School.",
+    "target_text": "Final answer: Primary School",
+    "has_reasoning": true,
+    "answer_type": "textual",
+    "task_category": "Intersect",
+    "map_id": "aiib/Environmental-and-Social-Impact-Assessment",
+    "metadata": {
+      "domain": "Investment/infrastructure",
+      "map_elements": [
+        "legend"
+      ],
+      "map_count": "Single",
+      "source_document_ids": [
+        "aiib/Environmental-and-Social-Impact-Assessment"
+      ]
+    }
+  }
+]
