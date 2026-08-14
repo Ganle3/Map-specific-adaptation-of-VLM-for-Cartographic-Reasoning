@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-08-13T03:25:17.804020+02:00",
+  "model_name": "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit + adapter:None",
+  "qa_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\frieda_train.json",
+  "image_root": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Train_Val_data\\FRIEDA\\image",
+  "requested_sample_size": 100,
+  "completed_groups": 100,
+  "num_generations": 4,
+  "total_rollouts": 400,
+  "generation_config": {
+    "max_new_tokens": 3072,
+    "temperature": 0.9,
+    "top_p": 0.95,
+    "top_k": 50,
+    "seed": 42,
+    "distance_relative_tolerance": 0.2,
+    "distance_absolute_tolerance": 0.0
+  },
+  "overall_strict_accuracy": 0.115,
+  "final_answer_parse_rate": 0.52,
+  "final_answer_marker_rate": 0.52,
+  "group_counts": {
+    "all_wrong": 80,
+    "all_correct": 5,
+    "mixed_correctness": 15
+  },
+  "mixed_correctness_group_ratio": 0.15,
+  "groups_with_nonzero_correctness_std": 15,
+  "groups_with_nonzero_total_reward_std": 71,
+  "reasoning_status_counts": {
+    "missing": 192,
+    "malformed": 208
+  },
+  "average_generated_tokens": 2359.24,
+  "average_inference_seconds": 153.147,
+  "feasibility_verdict": "borderline",
+  "interpretation": "Some useful within-group correctness variation exists, but many groups are uniformly correct or uniformly wrong.",
+  "important_limitation": "Textual scoring is deliberately conservative. Normalized exact/set matching may mark valid paraphrases as wrong, so strict accuracy and mixed-group ratios are lower-bound estimates."
+}

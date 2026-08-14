@@ -495,32 +495,14 @@ def _infer_base_model_name(adapter_path: Path, fallback: str) -> str:
         return fallback
 
 
-def load_model_and_processor(model_name: str, adapter_path: Path):
-    """Load adapter exactly like the validated inference_frieda.py pipeline."""
-    adapter_path = Path(adapter_path).expanduser().resolve()
-
-    print("\nLoading Qwen3-VL adapted model...")
+def load_model_and_processor(
+    model_name: str,
+    adapter_path: Optional[Path] = None,
+):
+    print("\nLoading Qwen3-VL model...")
     print(f"Base model: {model_name}")
     print_gpu_information()
 
-    if not adapter_path.exists():
-        raise FileNotFoundError(
-            f"Adapter directory does not exist:\n{adapter_path}"
-        )
-    if not (adapter_path / "adapter_config.json").exists():
-        raise FileNotFoundError(
-            "The adapter directory does not contain adapter_config.json:\n"
-            f"{adapter_path}"
-        )
-
-    print(f"Adapter:    {adapter_path}")
-
-    # IMPORTANT:
-    # Match inference_frieda.py exactly. Always use the BASE-MODEL processor
-    # for both baseline and adapted inference. Do not load the processor from
-    # best_adapter, because its saved training-time configuration may carry
-    # max-length/truncation settings that are unsuitable for high-resolution
-    # multimodal inference.
     processor = AutoProcessor.from_pretrained(
         model_name,
         trust_remote_code=True,
@@ -534,14 +516,28 @@ def load_model_and_processor(model_name: str, adapter_path: Path):
         low_cpu_mem_usage=True,
     )
 
-    model = PeftModel.from_pretrained(
-        base_model,
-        str(adapter_path),
-        is_trainable=False,
-    )
+    if adapter_path is None:
+        print("Adapter:    None (baseline)")
+        model = base_model
+    else:
+        adapter_path = Path(adapter_path).expanduser().resolve()
+
+        if not adapter_path.exists():
+            raise FileNotFoundError(
+                f"Adapter directory does not exist:\n{adapter_path}"
+            )
+
+        print(f"Adapter:    {adapter_path}")
+
+        model = PeftModel.from_pretrained(
+            base_model,
+            str(adapter_path),
+            is_trainable=False,
+        )
 
     model.eval()
     print("Model and processor loaded successfully.")
+
     return model, processor, model_name
 
 
@@ -818,7 +814,8 @@ def run_diagnostic(
     resume: bool,
     overwrite: bool,
 ) -> tuple[Path, Path]:
-    adapter_path = adapter_path.expanduser().resolve()
+    if adapter_path is not None:
+        adapter_path = adapter_path.expanduser().resolve()
     qa_json = qa_json.expanduser().resolve()
     image_root = image_root.expanduser().resolve()
     rollout_json = rollout_json.expanduser().resolve()
@@ -848,7 +845,7 @@ def run_diagnostic(
     print("FRIEDA GRPO FEASIBILITY DIAGNOSTIC")
     print("=" * 80)
     print(f"QA JSON:          {qa_json}")
-    print(f"Adapter path:     {adapter_path.expanduser().resolve()}")
+    print(f"Adapter path:     {adapter_path.expanduser().resolve() if adapter_path is not None else 'None (baseline)'}")
     print(f"Image root:       {image_root}")
     print(f"Dataset size:     {len(samples)}")
     print(f"Selected groups:  {len(selected)}")
@@ -1008,7 +1005,7 @@ def parse_args() -> argparse.Namespace:
         description="Sample multiple FRIEDA rollouts and diagnose GRPO feasibility."
     )
     parser.add_argument("--model-name", default=MODEL_NAME)
-    parser.add_argument("--adapter-path", type=Path, required=True, help="Path to saved best_adapter directory.")
+    parser.add_argument("--adapter-path", type=Path, default=None, help="Optional PEFT/LoRA adapter directory. Omit for baseline.",)
     parser.add_argument("--qa-json", type=Path, default=DEFAULT_QA_JSON)
     parser.add_argument("--image-root", type=Path, default=DEFAULT_IMAGE_ROOT)
     parser.add_argument("--rollout-json", type=Path, default=DEFAULT_ROLLOUT_JSON)
