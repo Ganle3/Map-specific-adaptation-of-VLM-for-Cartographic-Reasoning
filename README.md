@@ -19,7 +19,7 @@ VLM_adaptation/
 │
 ├── Evaluation_scripts/
 │   ├── inference_frieda.py
-│   ├── inference_mapwise_adapter.py
+│   ├── inference_mapwise.py
 │   ├── frieda_evaluation.py
 │   ├── mapwise_evaluation.py
 │   ├── run_frieda.py
