@@ -4,7 +4,7 @@
 
 - 4-bit QLoRA base model.
 - Only Vision LoRA scopes enabled at first.
-- 6 rollouts per prompt, temperature=0.8, top_p=0.95.
+- 4 rollouts per prompt, temperature=0.8, top_p=0.95.
 - Correctness reward reuses mapwise_evaluation.py and ONLY strict_exact_match.
 (- Format reward: +0.05 for exactly one non-empty ``Final answer:`` line.
 (- Behavior reward: -0.10 for severe repeated 4-gram reasoning-loop behavior.
@@ -45,9 +45,9 @@ MODEL_NAME = "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit"
 
 MAX_SEQ_LENGTH = 16384
 MAX_PROMPT_LENGTH = 8192
-MAX_COMPLETION_LENGTH = 3072
+MAX_COMPLETION_LENGTH = 1536
 
-NUM_GENERATIONS = 6
+NUM_GENERATIONS = 4
 TEMPERATURE = 0.8
 TOP_P = 0.95
 

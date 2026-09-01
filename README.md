@@ -133,7 +133,7 @@ Main configuration:
   Top-p                       0.95
   Learning rate               `5e-6`
   Epochs                      1
-  Maximum completion length   3072
+  Maximum completion length   1536
 
 The reward intentionally excludes additional format rewards and
 behavior/repetition penalties for this experiment. This isolates the
@@ -148,12 +148,12 @@ python .\train_mapwise_grpo_unsloth.py `
   --lora-rank 16 `
   --lora-alpha 16 `
   --learning-rate 5e-6 `
-  --num-generations 6 `
+  --num-generations 4 `
   --temperature 0.8 `
   --top-p 0.95 `
   --num-train-epochs 1 `
-  --save-steps 100 `
-  --wandb-project "MapWise-GRPO-Ablation" `
+  --save-steps 50 `
+  --wandb-project "MapWise-GRPO-Ablation-VisOnly" `
   --wandb-run-name "VisionOnly-R16-CorrectnessOnly"
 ```
 
