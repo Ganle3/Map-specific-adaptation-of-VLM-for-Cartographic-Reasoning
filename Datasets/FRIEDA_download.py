@@ -6,4 +6,4 @@ snapshot_download(
     local_dir=r"C:\Users\junyhuang\Thesis\Map-specific-adaptation-of-VLM-for-Cartographic-Reasoning\Datasets\FRIEDA",
 )
 
-print("FRIEDA完整仓库下载完成。")
+print("FRIEDA dataset downloaded successfully.")

@@ -1,0 +1,112 @@
+{
+  "created_at": "2026-08-28T03:23:09.728730+02:00",
+  "model_name": "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit",
+  "adapter_path": null,
+  "qa_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Datasets\\Processed_Mapwise\\Train_Val\\mapwise_grpo_train.json",
+  "image_root": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Datasets\\mapwise-dataset",
+  "requested_sample_size": 60,
+  "completed_groups": 60,
+  "num_generations": 4,
+  "total_rollouts": 240,
+  "generation_config": {
+    "max_new_tokens": 3072,
+    "num_generations": 4,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 50,
+    "seed": 42,
+    "do_sample": true
+  },
+  "correctness_definition": "strict_exact_match from mapwise_evaluation.evaluate_sample",
+  "overall": {
+    "questions": 60,
+    "all_correct": 17,
+    "mixed_correctness": 16,
+    "all_wrong": 27,
+    "mixed_correctness_ratio": 0.2667,
+    "rollout_accuracy": 0.4375
+  },
+  "by_ability_level": {
+    "L0": {
+      "questions": 15,
+      "all_correct": 7,
+      "mixed_correctness": 2,
+      "all_wrong": 6,
+      "mixed_correctness_ratio": 0.1333,
+      "rollout_accuracy": 0.5167
+    },
+    "L1": {
+      "questions": 15,
+      "all_correct": 3,
+      "mixed_correctness": 5,
+      "all_wrong": 7,
+      "mixed_correctness_ratio": 0.3333,
+      "rollout_accuracy": 0.4
+    },
+    "L2": {
+      "questions": 15,
+      "all_correct": 1,
+      "mixed_correctness": 6,
+      "all_wrong": 8,
+      "mixed_correctness_ratio": 0.4,
+      "rollout_accuracy": 0.3
+    },
+    "L3": {
+      "questions": 15,
+      "all_correct": 6,
+      "mixed_correctness": 3,
+      "all_wrong": 6,
+      "mixed_correctness_ratio": 0.2,
+      "rollout_accuracy": 0.5333
+    }
+  },
+  "by_ground_truth_type": {
+    "Binary": {
+      "questions": 21,
+      "all_correct": 9,
+      "mixed_correctness": 8,
+      "all_wrong": 4,
+      "mixed_correctness_ratio": 0.381,
+      "rollout_accuracy": 0.6429
+    },
+    "Count": {
+      "questions": 6,
+      "all_correct": 2,
+      "mixed_correctness": 1,
+      "all_wrong": 3,
+      "mixed_correctness_ratio": 0.1667,
+      "rollout_accuracy": 0.4583
+    },
+    "Range": {
+      "questions": 13,
+      "all_correct": 1,
+      "mixed_correctness": 2,
+      "all_wrong": 10,
+      "mixed_correctness_ratio": 0.1538,
+      "rollout_accuracy": 0.1346
+    },
+    "Single": {
+      "questions": 20,
+      "all_correct": 5,
+      "mixed_correctness": 5,
+      "all_wrong": 10,
+      "mixed_correctness_ratio": 0.25,
+      "rollout_accuracy": 0.4125
+    }
+  },
+  "final_answer_marker_rate": 0.7625,
+  "reasoning_status_counts": {
+    "malformed": 183,
+    "missing": 57
+  },
+  "generation_status_counts": {
+    "complete": 182,
+    "truncated": 57,
+    "not_extractable": 1
+  },
+  "average_generated_tokens": 1447.17,
+  "average_inference_seconds": 75.585,
+  "feasibility_verdict": "promising",
+  "interpretation": "At least 25% of sampled questions contain both correct and incorrect rollouts.",
+  "important_note": "Single recall and continuous-Range overlap primary scores are not treated as correct. Only strict exact match is used for this GRPO diagnostic."
+}

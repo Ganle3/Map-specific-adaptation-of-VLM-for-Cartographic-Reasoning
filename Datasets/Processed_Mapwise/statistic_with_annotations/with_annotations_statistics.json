@@ -1,0 +1,264 @@
+{
+  "total_records": 3031,
+  "source_files": {
+    "with_annotations(8).json": 1000,
+    "with_annotations(9).json": 1001,
+    "with_annotations(10).json": 1030
+  },
+  "country": [
+    {
+      "country": "usa",
+      "count": 1030,
+      "percentage": 33.98
+    },
+    {
+      "country": "india",
+      "count": 1001,
+      "percentage": 33.03
+    },
+    {
+      "country": "china",
+      "count": 1000,
+      "percentage": 32.99
+    }
+  ],
+  "template_no": [
+    {
+      "template_no": 1,
+      "count": 49,
+      "percentage": 1.62
+    },
+    {
+      "template_no": 2,
+      "count": 91,
+      "percentage": 3.0
+    },
+    {
+      "template_no": 3,
+      "count": 91,
+      "percentage": 3.0
+    },
+    {
+      "template_no": 4,
+      "count": 61,
+      "percentage": 2.01
+    },
+    {
+      "template_no": 5,
+      "count": 88,
+      "percentage": 2.9
+    },
+    {
+      "template_no": 6,
+      "count": 93,
+      "percentage": 3.07
+    },
+    {
+      "template_no": 7,
+      "count": 140,
+      "percentage": 4.62
+    },
+    {
+      "template_no": 8,
+      "count": 26,
+      "percentage": 0.86
+    },
+    {
+      "template_no": 9,
+      "count": 103,
+      "percentage": 3.4
+    },
+    {
+      "template_no": 10,
+      "count": 26,
+      "percentage": 0.86
+    },
+    {
+      "template_no": 11,
+      "count": 89,
+      "percentage": 2.94
+    },
+    {
+      "template_no": 12,
+      "count": 54,
+      "percentage": 1.78
+    },
+    {
+      "template_no": 13,
+      "count": 58,
+      "percentage": 1.91
+    },
+    {
+      "template_no": 15,
+      "count": 106,
+      "percentage": 3.5
+    },
+    {
+      "template_no": 16,
+      "count": 102,
+      "percentage": 3.37
+    },
+    {
+      "template_no": 17,
+      "count": 55,
+      "percentage": 1.81
+    },
+    {
+      "template_no": 18,
+      "count": 88,
+      "percentage": 2.9
+    },
+    {
+      "template_no": 19,
+      "count": 86,
+      "percentage": 2.84
+    },
+    {
+      "template_no": 20,
+      "count": 80,
+      "percentage": 2.64
+    },
+    {
+      "template_no": 21,
+      "count": 102,
+      "percentage": 3.37
+    },
+    {
+      "template_no": 22,
+      "count": 80,
+      "percentage": 2.64
+    },
+    {
+      "template_no": 23,
+      "count": 57,
+      "percentage": 1.88
+    },
+    {
+      "template_no": 24,
+      "count": 30,
+      "percentage": 0.99
+    },
+    {
+      "template_no": 25,
+      "count": 12,
+      "percentage": 0.4
+    },
+    {
+      "template_no": 26,
+      "count": 77,
+      "percentage": 2.54
+    },
+    {
+      "template_no": 27,
+      "count": 79,
+      "percentage": 2.61
+    },
+    {
+      "template_no": 28,
+      "count": 74,
+      "percentage": 2.44
+    },
+    {
+      "template_no": 29,
+      "count": 31,
+      "percentage": 1.02
+    },
+    {
+      "template_no": 30,
+      "count": 75,
+      "percentage": 2.47
+    },
+    {
+      "template_no": 31,
+      "count": 75,
+      "percentage": 2.47
+    },
+    {
+      "template_no": 32,
+      "count": 81,
+      "percentage": 2.67
+    },
+    {
+      "template_no": 33,
+      "count": 89,
+      "percentage": 2.94
+    },
+    {
+      "template_no": 34,
+      "count": 77,
+      "percentage": 2.54
+    },
+    {
+      "template_no": 35,
+      "count": 79,
+      "percentage": 2.61
+    },
+    {
+      "template_no": 36,
+      "count": 81,
+      "percentage": 2.67
+    },
+    {
+      "template_no": 37,
+      "count": 59,
+      "percentage": 1.95
+    },
+    {
+      "template_no": 38,
+      "count": 29,
+      "percentage": 0.96
+    },
+    {
+      "template_no": 39,
+      "count": 75,
+      "percentage": 2.47
+    },
+    {
+      "template_no": 40,
+      "count": 45,
+      "percentage": 1.48
+    },
+    {
+      "template_no": 41,
+      "count": 67,
+      "percentage": 2.21
+    },
+    {
+      "template_no": 42,
+      "count": 84,
+      "percentage": 2.77
+    },
+    {
+      "template_no": 43,
+      "count": 87,
+      "percentage": 2.87
+    }
+  ],
+  "ground_truth_type": [
+    {
+      "ground_truth_type": "Binary",
+      "count": 1346,
+      "percentage": 44.41
+    },
+    {
+      "ground_truth_type": "List",
+      "count": 557,
+      "percentage": 18.38
+    },
+    {
+      "ground_truth_type": "Single",
+      "count": 511,
+      "percentage": 16.86
+    },
+    {
+      "ground_truth_type": "Range",
+      "count": 377,
+      "percentage": 12.44
+    },
+    {
+      "ground_truth_type": "Count",
+      "count": 240,
+      "percentage": 7.92
+    }
+  ]
+}

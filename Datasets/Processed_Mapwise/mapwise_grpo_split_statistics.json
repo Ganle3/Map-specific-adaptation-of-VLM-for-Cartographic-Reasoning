@@ -1,0 +1,193 @@
+{
+  "source_total": 3031,
+  "eligible_rule": "ground_truth_type in {Binary, Count, Range, Single}; List excluded",
+  "eligible_total": 2474,
+  "template_number_correction": "raw 1-13 unchanged; raw 15-43 -> corrected 14-42",
+  "ability_mapping_corrected_template_numbers": {
+    "L0": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      40
+    ],
+    "L1": [
+      9,
+      10,
+      15,
+      18
+    ],
+    "L2": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      34,
+      37,
+      38,
+      41,
+      42
+    ],
+    "L3": [
+      17,
+      19,
+      32,
+      33,
+      35,
+      36,
+      39
+    ]
+  },
+  "map_family_rule": "country + map_no with trailing C/D removed",
+  "test_design": "400 QA exactly; L0/L1/L2/L3 = 100 each; countries nearly equal; test families fully held out from train/validation",
+  "validation_design": "~10% of post-test eligible pool stratified by ability level and country; map-family held out",
+  "splits": {
+    "train": {
+      "n": 1859,
+      "ability_level": {
+        "L2": 783,
+        "L0": 544,
+        "L3": 337,
+        "L1": 195
+      },
+      "ground_truth_type": {
+        "Binary": 1007,
+        "Single": 384,
+        "Range": 277,
+        "Count": 191
+      },
+      "country": {
+        "china": 602,
+        "india": 619,
+        "usa": 638
+      },
+      "n_map_families": 214
+    },
+    "validation": {
+      "n": 207,
+      "ability_level": {
+        "L2": 87,
+        "L0": 61,
+        "L1": 22,
+        "L3": 37
+      },
+      "ground_truth_type": {
+        "Binary": 116,
+        "Single": 39,
+        "Range": 30,
+        "Count": 22
+      },
+      "country": {
+        "china": 67,
+        "india": 69,
+        "usa": 71
+      },
+      "n_map_families": 18
+    },
+    "test": {
+      "n": 400,
+      "ability_level": {
+        "L0": 100,
+        "L1": 100,
+        "L3": 100,
+        "L2": 100
+      },
+      "ground_truth_type": {
+        "Binary": 219,
+        "Range": 69,
+        "Single": 87,
+        "Count": 25
+      },
+      "country": {
+        "china": 134,
+        "india": 133,
+        "usa": 133
+      },
+      "n_map_families": 45
+    },
+    "excluded_due_to_test_family_overlap": {
+      "n": 8,
+      "ability_level": {
+        "L2": 7,
+        "L0": 1
+      },
+      "ground_truth_type": {
+        "Binary": 4,
+        "Range": 1,
+        "Count": 2,
+        "Single": 1
+      },
+      "country": {
+        "china": 8
+      },
+      "n_map_families": 7
+    }
+  },
+  "test_level_country": {
+    "L0": {
+      "china": 34,
+      "usa": 33,
+      "india": 33
+    },
+    "L1": {
+      "china": 33,
+      "usa": 34,
+      "india": 33
+    },
+    "L2": {
+      "china": 33,
+      "usa": 33,
+      "india": 34
+    },
+    "L3": {
+      "china": 34,
+      "usa": 33,
+      "india": 33
+    }
+  },
+  "validation_level_country": {
+    "L0": {
+      "china": 20,
+      "usa": 26,
+      "india": 15
+    },
+    "L1": {
+      "china": 6,
+      "usa": 8,
+      "india": 8
+    },
+    "L2": {
+      "china": 29,
+      "usa": 23,
+      "india": 35
+    },
+    "L3": {
+      "china": 12,
+      "usa": 14,
+      "india": 11
+    }
+  },
+  "checks": {
+    "train_val_family_overlap": false,
+    "train_test_family_overlap": false,
+    "val_test_family_overlap": false,
+    "eligible_accounted": 2474
+  }
+}

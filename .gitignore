@@ -21,6 +21,7 @@ wandb/
 outputs/
 output/
 training_output/
+Training_outputs/
 runs/
 logs/
 
