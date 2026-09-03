@@ -8,7 +8,7 @@ import argparse
 from pathlib import Path
 from typing import Optional
 
-from inference_mapwise_adapter import (
+from inference_mapwise import (
     MODEL_NAME,
     MAX_NEW_TOKENS,
     MAPWISE_JSON,

@@ -35,7 +35,7 @@ from unsloth import FastVisionModel
 import torch
 from datasets import Dataset, Image as HFImage, Sequence
 from trl import GRPOConfig, GRPOTrainer
-
+from transformers import TrainerCallback
 
 # ============================================================
 # 1. Defaults
@@ -76,7 +76,7 @@ DEFAULT_QA_JSON = Path(
     r"C:\Users\junyhuang\Thesis\VLM_adaptation\Datasets\Processed_Mapwise\Train_Val\mapwise_grpo_train.json"
 )
 DEFAULT_OUTPUT_DIR = Path(
-    r"C:\Users\junyhuang\Thesis\VLM_adaptation\Training_outputs\MapWise_GRPO_Qwen3-VL-8B-Thinking_only_visLoRA"
+    r"C:\Users\junyhuang\Thesis\VLM_adaptation\Training_outputs\MapWise_GRPO_Qwen3-VL-8B-Thinking_only_languageLoRA"
 )
 DEFAULT_IMAGE_ROOT = Path(
     r"C:\Users\junyhuang\Thesis\VLM_adaptation\Datasets\mapwise-dataset"
@@ -465,6 +465,57 @@ mapwise_correctness_reward.__name__ = "correctness"
 # 8. Utilities
 # ============================================================
 
+class GradientDebugCallback(TrainerCallback):
+    """
+    Inspect gradients after backward and before optimizer.step().
+    Only prints the first few optimizer steps.
+    """
+
+    def __init__(self, model, max_steps_to_print=3):
+        self.model = model
+        self.max_steps_to_print = max_steps_to_print
+
+    def on_pre_optimizer_step(self, args, state, control, **kwargs):
+        if state.global_step >= self.max_steps_to_print:
+            return
+
+        print(
+            f"\n========== GRADIENT DEBUG "
+            f"(global_step={state.global_step}) =========="
+        )
+
+        trainable_count = 0
+        grad_none_count = 0
+        grad_zero_count = 0
+        grad_nonzero_count = 0
+
+        for name, p in self.model.named_parameters():
+            if not p.requires_grad:
+                continue
+
+            trainable_count += 1
+
+            if p.grad is None:
+                grad_none_count += 1
+                print(f"[NONE]    {name}")
+            else:
+                grad_norm = p.grad.detach().float().norm().item()
+
+                if grad_norm == 0.0:
+                    grad_zero_count += 1
+                    print(f"[ZERO]    {name}")
+                else:
+                    grad_nonzero_count += 1
+                    print(f"[NONZERO] {name}: {grad_norm:.8e}")
+
+        print("--------------------------------------------")
+        print(f"Trainable tensors : {trainable_count}")
+        print(f"grad=None         : {grad_none_count}")
+        print(f"grad=0            : {grad_zero_count}")
+        print(f"grad!=0           : {grad_nonzero_count}")
+        print("============================================\n")
+
+
 def print_gpu_info() -> None:
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA GPU is required for this training script.")
@@ -500,8 +551,8 @@ def save_run_config(
         # "repetition_ngram": REPETITION_NGRAM,
     }
     payload["lora_targets"] = {
-        "finetune_vision_layers": True,
-        "finetune_language_layers": False,
+        "finetune_vision_layers": False,
+        "finetune_language_layers": True,
         "finetune_attention_modules": True,
         "finetune_mlp_modules": True,
     }
@@ -556,8 +607,8 @@ def train(args: argparse.Namespace) -> Path:
 
     model = FastVisionModel.get_peft_model(
         model,
-        finetune_vision_layers=True,
-        finetune_language_layers=False,
+        finetune_vision_layers=False,
+        finetune_language_layers=True,
         finetune_attention_modules=True,
         finetune_mlp_modules=True,
         r=args.lora_rank,
@@ -634,6 +685,13 @@ def train(args: argparse.Namespace) -> Path:
             # reasoning_behavior_reward,
         ],
         train_dataset=train_dataset,
+    )
+
+    trainer.add_callback(
+        GradientDebugCallback(
+            model=model,
+            max_steps_to_print=3,
+        )
     )
 
     resume = args.resume_from_checkpoint
