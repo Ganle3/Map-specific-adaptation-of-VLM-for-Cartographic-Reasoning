@@ -71,7 +71,7 @@ MAPWISE_IMAGE_ROOT = Path(
     r"\Datasets\mapwise-dataset"
 )
 
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "Evaluation_results" / "MapWise_GRPO_validation"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "Evaluation_results" / "MapWise_GRPO_test"
 DEFAULT_OUTPUT_JSON = None
 
 

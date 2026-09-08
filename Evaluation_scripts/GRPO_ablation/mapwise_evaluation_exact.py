@@ -1,4 +1,4 @@
-# python3
+
 # -*- coding: utf-8 -*-
 """
 Strict-exact MapWise evaluation for GRPO validation predictions.
@@ -640,6 +640,10 @@ def parse_count(value: Any) -> Optional[int]:
 
 NUMBER_PATTERN = r"[+-]?\s*(?:\d[\d,]*\.?\d*|\.\d+)\s*[kKmM]?"
 
+# Small endpoint tolerance for legend-boundary annotation/display rounding.
+RANGE_ABS_TOL = 0.01
+RANGE_REL_TOL = 1e-9
+
 
 def parse_scaled_number(value: str) -> float:
     text = value.strip().replace(" ", "").replace(",", "")
@@ -653,60 +657,87 @@ def parse_scaled_number(value: str) -> float:
     return float(text) * multiplier
 
 
+def _format_number(value: float) -> str:
+    if math.isclose(value, round(value), rel_tol=0.0, abs_tol=1e-12):
+        return str(int(round(value)))
+    return f"{value:.12g}"
+
+
 def normalize_range_surface(value: Any) -> str:
     """
-    Normalize a range/category expression for exact surface-semantic matching.
-
-    Examples:
-      '8.2% - 10.4%' -> '8.2%-10.4%'
-      '> 10 M'       -> '>10m'
-      '1,000 - 2,000'-> '1000-2000'
+    Fallback surface normalization for non-two-ended range/category answers.
     """
     text = _ascii_text(value).casefold().strip()
     text = text.replace(",", "")
-    text = re.sub(r"\bto\b", "-", text)
+    text = re.sub(r"^\s*(?:between|from)\s+", "", text)
+    text = re.sub(r"\s+(?:to|and)\s+", "-", text)
+    text = re.sub(r"\s*-\s*", "-", text)
     text = re.sub(r"\s+", "", text)
     return text
 
 
-def parse_bounded_range(
-    value: Any,
-) -> Optional[tuple[float, float]]:
+def _extract_numeric_tokens(value: Any) -> list[float]:
     """
-    Parse only a standard two-ended numeric interval.
-
-    Open-ended categories such as >50, <50, or a single 0% are handled by
-    normalized exact matching in evaluate_range().
+    Extract numeric values while preserving a leading minus sign.
     """
-    text = _ascii_text(value)
-
-    match = re.fullmatch(
-        rf"\s*({NUMBER_PATTERN})\s*-\s*({NUMBER_PATTERN})\s*%?\s*",
-        text,
+    text = _ascii_text(value).casefold().replace(",", "")
+    number_re = re.compile(
+        r"(?<![\w.])[+-]?(?:\d+(?:\.\d*)?|\.\d+)\s*[km]?",
         flags=re.I,
     )
 
-    if not match:
-        match = re.fullmatch(
-            rf"\s*({NUMBER_PATTERN})\s+to\s+({NUMBER_PATTERN})\s*%?\s*",
-            text,
-            flags=re.I,
-        )
+    values: list[float] = []
 
-    if not match:
+    for match in number_re.finditer(text):
+        try:
+            values.append(parse_scaled_number(match.group(0)))
+        except ValueError:
+            continue
+
+    return values
+
+
+def parse_semantic_range(value: Any) -> Optional[tuple[float, float]]:
+    """
+    Parse a two-ended numeric range by endpoint values.
+
+    Surface variants such as:
+      0-50
+      0 to 50
+      0 and 50
+      between 0 and 50
+      <0 - >50
+    are treated as the same pair of legend boundary values.
+
+    One-sided categories such as '>350' are NOT converted to a two-ended range.
+    """
+    values = _extract_numeric_tokens(value)
+
+    if len(values) != 2:
         return None
 
-    try:
-        first = parse_scaled_number(match.group(1))
-        second = parse_scaled_number(match.group(2))
-    except ValueError:
-        return None
-
+    first, second = values
     return min(first, second), max(first, second)
 
 
-def numbers_close(a: float, b: float) -> bool:
-    return math.isclose(a, b, rel_tol=1e-6, abs_tol=1e-6)
+def numbers_close(
+    a: float,
+    b: float,
+    *,
+    abs_tol: float = RANGE_ABS_TOL,
+    rel_tol: float = RANGE_REL_TOL,
+) -> bool:
+    # Explicit absolute comparison avoids binary floating-point edge cases
+    # where 31.30 - 31.29 can evaluate slightly above 0.01.
+    if abs(a - b) <= abs_tol + 1e-12:
+        return True
+
+    return math.isclose(
+        a,
+        b,
+        rel_tol=rel_tol,
+        abs_tol=abs_tol,
+    )
 
 
 def ranges_exact(
@@ -719,11 +750,8 @@ def ranges_exact(
     )
 
 
-def ranges_strictly_overlap(
-    gold: tuple[float, float],
-    pred: tuple[float, float],
-) -> bool:
-    return max(gold[0], pred[0]) < min(gold[1], pred[1])
+def looks_like_two_ended_range(value: Any) -> bool:
+    return parse_semantic_range(value) is not None
 
 
 # ============================================================
@@ -765,16 +793,60 @@ def evaluate_count_exact(gold: str, pred: str) -> dict[str, Any]:
 
 
 def evaluate_range_exact(gold: str, pred: str) -> dict[str, Any]:
-    g = normalize_range_surface(gold)
-    p = normalize_range_surface(pred)
-    exact = bool(g) and g == p
+    """
+    Binary 0/1 normalized exact match for Range answers.
+
+    Two-ended numeric ranges are compared by endpoint values rather than raw
+    strings. This removes harmless formatting differences while preserving a
+    binary correctness reward.
+
+    Examples treated as equal:
+      37.20 - 62.90  == 37.2 - 62.9
+      -0.01 - 100.00 == -0.01 - 100.0
+      0-50           == 0 to 50 == 0 and 50
+      <0 - >1500     == 0 to 1500
+      31.30 - 259.20 == 31.29 - 259.2  (within ±0.01 endpoint tolerance)
+
+    There is still no partial credit: both endpoints must match.
+    """
+    g_range = parse_semantic_range(gold)
+    p_range = parse_semantic_range(pred)
+
+    if g_range is not None and p_range is not None:
+        exact = ranges_exact(g_range, p_range)
+
+        normalized_gold = (
+            f"{_format_number(g_range[0])}-"
+            f"{_format_number(g_range[1])}"
+        )
+        normalized_pred = (
+            f"{_format_number(p_range[0])}-"
+            f"{_format_number(p_range[1])}"
+        )
+
+        note = (
+            f"Numeric endpoint comparison; abs_tol={RANGE_ABS_TOL:g}."
+        )
+
+    else:
+        # For one-sided categories, keep semantic symbols such as > or <.
+        normalized_gold = normalize_range_surface(gold)
+        normalized_pred = normalize_range_surface(pred)
+
+        exact = (
+            bool(normalized_gold)
+            and normalized_gold == normalized_pred
+        )
+
+        note = "Surface fallback for non-two-ended range."
+
     return {
         "primary_score": float(exact),
         "strict_exact_match": int(exact),
         "metric": "range_exact_match",
-        "normalized_ground_truth": g,
-        "normalized_prediction": p,
-        "evaluation_note": "",
+        "normalized_ground_truth": normalized_gold,
+        "normalized_prediction": normalized_pred,
+        "evaluation_note": note,
     }
 
 
@@ -810,8 +882,19 @@ def evaluate_sample(record: Mapping[str, Any]) -> dict[str, Any]:
     pred, extraction_method = resolve_prediction_answer(record)
     gold = str(record.get("ground_truth", "") or "").strip()
     answer_type = str(record.get("ground_truth_type", "")).casefold().strip()
+    declared_answer_type = answer_type
     country = normalize_country(record.get("country", ""))
     template_no = int(record.get("template_no", -1))
+
+    # Repair obvious metadata inconsistencies such as:
+    # ground_truth_type='Binary', ground_truth='0-50'.
+    # Ground-truth structure takes precedence only when it is unambiguously a
+    # two-ended numeric range.
+    if (
+        answer_type != "range"
+        and looks_like_two_ended_range(gold)
+    ):
+        answer_type = "range"
 
     if template_no == 43 or answer_type in {"list", "rank", "ranking"}:
         raise ValueError(
@@ -844,6 +927,18 @@ def evaluate_sample(record: Mapping[str, Any]) -> dict[str, Any]:
         result = evaluate_range_exact(gold, pred)
     else:
         result = evaluate_single_exact(gold, pred, country)
+
+    if declared_answer_type != answer_type:
+        prefix = (
+            f"Metadata override: declared {declared_answer_type!r}, "
+            f"evaluated as {answer_type!r} from ground-truth structure."
+        )
+        existing_note = str(result.get("evaluation_note", "") or "").strip()
+        result["evaluation_note"] = (
+            f"{prefix} {existing_note}".strip()
+        )
+        result["declared_ground_truth_type"] = declared_answer_type
+        result["effective_ground_truth_type"] = answer_type
 
     row = dict(record)
     row.update({
@@ -966,6 +1061,8 @@ def save_results(
         "question",
         "ground_truth",
         "ground_truth_type",
+        "declared_ground_truth_type",
+        "effective_ground_truth_type",
         "generation_status",
         "generated_tokens",
         "final_answer",

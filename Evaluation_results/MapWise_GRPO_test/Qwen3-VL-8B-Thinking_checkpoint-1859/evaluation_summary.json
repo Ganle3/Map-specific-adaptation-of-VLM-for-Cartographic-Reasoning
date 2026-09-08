@@ -1,0 +1,68 @@
+{
+  "overall": {
+    "total": 400,
+    "correct": 270,
+    "incorrect": 130,
+    "accuracy": 0.675
+  },
+  "total": 400,
+  "correct": 270,
+  "validation_accuracy": 0.675,
+  "by_ground_truth_type": {
+    "Binary": {
+      "total": 219,
+      "correct": 164,
+      "incorrect": 55,
+      "accuracy": 0.7488584474885844
+    },
+    "Count": {
+      "total": 25,
+      "correct": 12,
+      "incorrect": 13,
+      "accuracy": 0.48
+    },
+    "Range": {
+      "total": 69,
+      "correct": 41,
+      "incorrect": 28,
+      "accuracy": 0.5942028985507246
+    },
+    "Single": {
+      "total": 87,
+      "correct": 53,
+      "incorrect": 34,
+      "accuracy": 0.6091954022988506
+    }
+  },
+  "by_country": {
+    "china": {
+      "total": 134,
+      "correct": 85,
+      "incorrect": 49,
+      "accuracy": 0.6343283582089553
+    },
+    "india": {
+      "total": 133,
+      "correct": 90,
+      "incorrect": 43,
+      "accuracy": 0.6766917293233082
+    },
+    "usa": {
+      "total": 133,
+      "correct": 95,
+      "incorrect": 38,
+      "accuracy": 0.7142857142857143
+    }
+  },
+  "generation": {
+    "extractable_answers": 358,
+    "answer_extraction_rate": 0.895,
+    "complete_generations": 358,
+    "completion_rate": 0.895
+  },
+  "artifacts": {
+    "details_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_scripts\\Evaluation_results\\MapWise_GRPO_test\\Qwen3-VL-8B-Thinking_checkpoint-1859\\evaluation_details.json",
+    "details_csv": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_scripts\\Evaluation_results\\MapWise_GRPO_test\\Qwen3-VL-8B-Thinking_checkpoint-1859\\evaluation_details.csv",
+    "summary_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_scripts\\Evaluation_results\\MapWise_GRPO_test\\Qwen3-VL-8B-Thinking_checkpoint-1859\\evaluation_summary.json"
+  }
+}

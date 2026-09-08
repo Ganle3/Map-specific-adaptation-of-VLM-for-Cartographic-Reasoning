@@ -1,15 +1,15 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
-Formal MapWise Native Vision-only GRPO training.
+Formal MapWise Native Language-only GRPO training.
 
 Stack
 -----
 Qwen/Qwen3-VL-8B-Thinking
 + Hugging Face Transformers
 + bitsandbytes 4-bit NF4
-+ PEFT Vision-only LoRA
++ PEFT Language-only LoRA
 + TRL GRPOTrainer
 
 Design goal
@@ -29,7 +29,7 @@ num_generations = 4
 per_device_train_batch_size = 4
 gradient_accumulation_steps = 4
 
-With current TRL, this gives an effective training batch of 16 completions,
+With current TRL, this gives an effective training batch of 4 completions,
 which is divisible by num_generations=4. Therefore one 4-rollout GRPO group
 is accumulated into one optimizer update instead of performing four optimizer
 updates on the same generation batch.
@@ -68,10 +68,8 @@ Archive important results outside scratch before its automatic cleanup.
 
 from __future__ import annotations
 
-import os
-os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
-
 import argparse
+import os
 import importlib.util
 import json
 import math
@@ -136,8 +134,8 @@ WEIGHT_DECAY = 0.1
 MAX_GRAD_NORM = 0.1
 WARMUP_RATIO_FOR_STEP_CALCULATION = 0.10
 
-SAVE_STEPS = 100
-SAVE_TOTAL_LIMIT = 3
+SAVE_STEPS = 50
+SAVE_TOTAL_LIMIT = 10
 LOGGING_STEPS = 1
 
 SEED = 3407
@@ -165,7 +163,7 @@ DEFAULT_EVALUATION_SCRIPT = (
     VLM_ROOT / "Evaluation_scripts" / "GRPO_ablation" / "mapwise_evaluation_exact.py"
 )
 DEFAULT_OUTPUT_DIR = (
-    OUTPUT_ROOT / "MapWise_GRPO_Qwen3-VL-8B-Thinking_visLoRA_TRL"
+    OUTPUT_ROOT / "MapWise_GRPO_Qwen3-VL-8B-Thinking_LanLoRA_TRL"
 )
 
 
@@ -191,36 +189,37 @@ SUPPORTED_IMAGE_SUFFIXES = (
 
 
 # ============================================================
-# 4. Vision-only LoRA scope
+# 4. Language-only LoRA scope
 # ============================================================
 
-# Verified native Qwen3-VL visual block structure:
+# Verified native Qwen3-VL text-decoder structure:
 #
-# model.visual.blocks.0.attn.qkv
-# model.visual.blocks.0.attn.proj
-# model.visual.blocks.0.mlp.linear_fc1
-# model.visual.blocks.0.mlp.linear_fc2
+# model.language_model.layers.0.self_attn.{q,k,v,o}_proj
+# model.language_model.layers.0.mlp.{gate,up,down}_proj
 # ...
-# model.visual.blocks.26.*
+# model.language_model.layers.35.*
 #
 # Intentionally NOT targeting:
-# model.visual.merger.*
-# model.visual.deepstack_merger_list.*
+# model.visual.*
+# model.language_model.embed_tokens
+# model.language_model.norm
+# lm_head
 #
-# This preserves the same visual-block LoRA scope used in the diagnostic.
+# This adapts every projection inside each language decoder layer while
+# leaving the complete vision tower and non-decoder language modules frozen.
 
-VISION_TARGET_REGEX = (
-    r"^model\.visual\.blocks\.\d+\."
-    r"(attn\.(qkv|proj)|mlp\.(linear_fc1|linear_fc2))$"
+LANGUAGE_TARGET_REGEX = (
+    r"^model\.language_model\.layers\.\d+\."
+    r"(self_attn\.(q_proj|k_proj|v_proj|o_proj)|"
+    r"mlp\.(gate_proj|up_proj|down_proj))$"
 )
 
-EXPECTED_VISION_BLOCKS = 27
-EXPECTED_MODULES_PER_BLOCK = 4
+EXPECTED_LANGUAGE_LAYERS = 36
+EXPECTED_MODULES_PER_LAYER = 7
 EXPECTED_TARGET_MODULES = (
-    EXPECTED_VISION_BLOCKS * EXPECTED_MODULES_PER_BLOCK
+    EXPECTED_LANGUAGE_LAYERS * EXPECTED_MODULES_PER_LAYER
 )
 EXPECTED_LORA_TENSORS = EXPECTED_TARGET_MODULES * 2
-
 
 # ============================================================
 # 5. Globals
@@ -250,7 +249,7 @@ def print_gpu_info() -> None:
     props = torch.cuda.get_device_properties(0)
 
     print("=" * 88)
-    print("MapWise Native Vision-only GRPO")
+    print("MapWise Native Language-only GRPO")
     print("=" * 88)
     print(f"GPU:  {torch.cuda.get_device_name(0)}")
     print(f"VRAM: {props.total_memory / 1024**3:.2f} GB")
@@ -788,7 +787,7 @@ mapwise_correctness_reward.__name__ = "correctness"
 # 14. PEFT verification
 # ============================================================
 
-def verify_vision_only_lora(model) -> None:
+def verify_language_only_lora(model) -> None:
 
     targeted = list(
         getattr(
@@ -804,26 +803,26 @@ def verify_vision_only_lora(model) -> None:
         if param.requires_grad
     ]
 
-    vision_trainable = [
+    language_trainable = [
         name
         for name in trainable_names
-        if "visual" in name.lower()
+        if "language_model.layers" in name
     ]
 
-    nonvision_trainable = [
+    nonlanguage_trainable = [
         name
         for name in trainable_names
-        if "visual" not in name.lower()
+        if "language_model.layers" not in name
     ]
 
     print("\n")
     print("=" * 88)
-    print("PEFT VISION-ONLY LoRA CHECK")
+    print("PEFT LANGUAGE-ONLY LoRA CHECK")
     print("=" * 88)
-    print(f"Target modules:            {len(targeted)}")
-    print(f"Trainable tensors:         {len(trainable_names)}")
-    print(f"Vision trainable tensors:  {len(vision_trainable)}")
-    print(f"Non-vision tensors:        {len(nonvision_trainable)}")
+    print(f"Target modules:              {len(targeted)}")
+    print(f"Trainable tensors:           {len(trainable_names)}")
+    print(f"Language trainable tensors:  {len(language_trainable)}")
+    print(f"Non-language tensors:        {len(nonlanguage_trainable)}")
 
     if len(targeted) != EXPECTED_TARGET_MODULES:
         raise RuntimeError(
@@ -839,34 +838,33 @@ def verify_vision_only_lora(model) -> None:
             f"got {len(trainable_names)}."
         )
 
-    if nonvision_trainable:
+    if nonlanguage_trainable:
         raise RuntimeError(
-            "Non-vision trainable parameters found:\n"
-            + "\n".join(nonvision_trainable)
+            "Non-language-decoder trainable parameters found:\n"
+            + "\n".join(nonlanguage_trainable)
         )
 
     bad_targets = [
         name
         for name in targeted
-        if "visual" not in name.lower()
+        if "language_model.layers" not in name
     ]
 
     if bad_targets:
         raise RuntimeError(
-            "Non-vision LoRA targets found:\n"
+            "Non-language-decoder LoRA targets found:\n"
             + "\n".join(bad_targets)
         )
 
-    print("PASS: LoRA is strictly Vision-only.")
+    print("PASS: LoRA is strictly Language-only.")
     print("=" * 88)
     print()
-
 
 # ============================================================
 # 15. Compact gradient / VRAM monitor
 # ============================================================
 
-class VisionTrainingMonitorCallback(
+class LanguageTrainingMonitorCallback(
     TrainerCallback
 ):
 
@@ -908,17 +906,17 @@ class VisionTrainingMonitorCallback(
         grad_nonzero = 0
         squared_norm_sum = 0.0
 
-        vision_trainable = 0
-        nonvision_trainable = 0
+        language_trainable = 0
+        nonlanguage_trainable = 0
 
         for name, param in self.model.named_parameters():
             if not param.requires_grad:
                 continue
 
-            if "visual" in name.lower():
-                vision_trainable += 1
+            if "language_model.layers" in name:
+                language_trainable += 1
             else:
-                nonvision_trainable += 1
+                nonlanguage_trainable += 1
 
             if param.grad is None:
                 grad_none += 1
@@ -934,8 +932,8 @@ class VisionTrainingMonitorCallback(
                 squared_norm_sum += grad_norm * grad_norm
 
         self.latest_gradient_stats = {
-            "vision_trainable": vision_trainable,
-            "nonvision_trainable": nonvision_trainable,
+            "language_trainable": language_trainable,
+            "nonlanguage_trainable": nonlanguage_trainable,
             "grad_none": grad_none,
             "grad_zero": grad_zero,
             "grad_nonzero": grad_nonzero,
@@ -1136,9 +1134,9 @@ def save_run_config(
             "reward_incorrect": 0.0,
             "format_reward": False,
             "loop_penalty": False,
-            "vision_lora_target_modules":
+            "language_lora_target_modules":
                 EXPECTED_TARGET_MODULES,
-            "vision_lora_trainable_tensors":
+            "language_lora_trainable_tensors":
                 EXPECTED_LORA_TENSORS,
             "unsloth": False,
             "vllm": False,
@@ -1301,17 +1299,17 @@ def run_training(
     )
 
     # --------------------------------------------------------
-    # Vision-only LoRA
+    # Language-only LoRA
     # --------------------------------------------------------
 
-    print("\nApplying Vision-only LoRA...")
+    print("\nApplying Language-only LoRA...")
 
     lora_config = LoraConfig(
         r=args.lora_rank,
         lora_alpha=args.lora_alpha,
         lora_dropout=0.0,
         bias="none",
-        target_modules=VISION_TARGET_REGEX,
+        target_modules=LANGUAGE_TARGET_REGEX,
         task_type="CAUSAL_LM",
     )
 
@@ -1322,7 +1320,7 @@ def run_training(
 
     model.print_trainable_parameters()
 
-    verify_vision_only_lora(model)
+    verify_language_only_lora(model)
 
     # --------------------------------------------------------
     # Resume
@@ -1389,7 +1387,7 @@ def run_training(
         # gradient_accumulation_steps.
         #
         # On one GPU:
-        # 1 * 4 = 4 completions,
+        # 4 * 4 = 16 completions,
         # exactly one complete 4-rollout group.
         num_generations=args.num_generations,
 
@@ -1458,7 +1456,7 @@ def run_training(
     )
 
     trainer.add_callback(
-        VisionTrainingMonitorCallback(
+        LanguageTrainingMonitorCallback(
             model=model,
             output_dir=output_dir,
         )
@@ -1489,9 +1487,9 @@ def run_training(
     print(f"learning rate:                 {args.learning_rate}")
     print(f"warmup steps:                  {warmup_steps}")
     print(f"LoRA rank / alpha:             {args.lora_rank} / {args.lora_alpha}")
-    print("LoRA scope:                    Vision only")
-    print("Expected target modules:       108")
-    print("Expected trainable tensors:    216")
+    print("LoRA scope:                    Language only")
+    print("Expected target modules:       252")
+    print("Expected trainable tensors:    504")
     print("Reward:                        correctness only (0 / 1)")
     print("Format reward:                 False")
     print("Severe-loop penalty:           False")
@@ -1506,9 +1504,9 @@ def run_training(
     print("=" * 88)
 
     if resume_checkpoint is None:
-        print("\nStarting formal Native Vision-GRPO training...\n")
+        print("\nStarting formal Native Language-GRPO training...\n")
     else:
-        print("\nResuming formal Native Vision-GRPO training...\n")
+        print("\nResuming formal Native Language-GRPO training...\n")
 
     torch.cuda.empty_cache()
 
@@ -1630,7 +1628,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
             "Formal MapWise Native HF "
-            "Vision-only LoRA GRPO training."
+            "Language-only LoRA GRPO training."
         )
     )
 
@@ -1762,7 +1760,7 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default=(
             "MapWise_Qwen3VL8B_"
-            "Native_visLoRA_GRPO_correctness"
+            "Native_LanLoRA_GRPO_correctness"
         ),
     )
 
@@ -1924,3 +1922,4 @@ if __name__ == "__main__":
         )
 
         raise
+
