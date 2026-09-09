@@ -71,4 +71,4 @@ Train_Val_data/**/*.tiff
 *.log
 .DS_Store
 Thumbs.db
-desktop.ini
+desktop.ini"Datasets/mapwise-dataset/" 
