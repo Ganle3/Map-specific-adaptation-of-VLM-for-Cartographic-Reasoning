@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import gc
+import os
 import json
 import re
 import sys
@@ -57,21 +58,19 @@ SUPPORTED_COUNTRIES = {"china", "india", "usa"}
 # 2. Default project paths
 # ============================================================
 
+# Same data-root convention as the training scripts. Explicit CLI paths win.
 SCRIPT_DIR = Path(__file__).resolve().parent
-PROJECT_ROOT = SCRIPT_DIR.parent
-
-MAPWISE_JSON = Path(
-    r"C:\Users\junyhuang\Thesis\VLM_adaptation"
-    r"\Datasets\Processed_Mapwise\statistic_with_annotations"
-    r"\mapwise_reasoning_test_no_list_rank.json"
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+DATA_ROOT = Path(os.environ.get("VLM_DATA_ROOT") or str(PROJECT_ROOT / "Datasets")).expanduser().resolve()
+EVALUATION_ROOT = Path(
+    os.environ.get("VLM_EVALUATION_ROOT") or str(PROJECT_ROOT / "Evaluation_results")
+).expanduser().resolve()
+MAPWISE_JSON = (
+    DATA_ROOT / "Processed_Mapwise" / "statistic_with_annotations"
+    / "mapwise_reasoning_test_no_list_rank.json"
 )
-
-MAPWISE_IMAGE_ROOT = Path(
-    r"C:\Users\junyhuang\Thesis\VLM_adaptation"
-    r"\Datasets\mapwise-dataset"
-)
-
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "Evaluation_results" / "MapWise_GRPO_test"
+MAPWISE_IMAGE_ROOT = DATA_ROOT / "mapwise-dataset"
+DEFAULT_OUTPUT_DIR = EVALUATION_ROOT / "MapWise_GRPO_test"
 DEFAULT_OUTPUT_JSON = None
 
 
@@ -526,7 +525,7 @@ def resolve_output_json(
     output_json: Optional[Path],
 ) -> Path:
     if output_json is not None:
-        return Path(output_json).resolve()
+        return Path(output_json).expanduser().resolve()
 
     return (
         DEFAULT_OUTPUT_DIR
@@ -942,9 +941,11 @@ def parse_args() -> argparse.Namespace:
             "Omit for baseline inference."
         ),
     )
-    parser.add_argument("--qa-json", type=Path, default=MAPWISE_JSON)
+    parser.add_argument("--qa-json", type=Path, default=MAPWISE_JSON,
+                        help="Use the fixed training QA JSON for before/after training evaluation.")
     parser.add_argument("--image-root", type=Path, default=MAPWISE_IMAGE_ROOT)
-    parser.add_argument("--output-json", type=Path, default=DEFAULT_OUTPUT_JSON)
+    parser.add_argument("--output-json", type=Path, default=DEFAULT_OUTPUT_JSON,
+                        help="Explicit prediction file; otherwise uses VLM_EVALUATION_ROOT or project Evaluation_results.")
     parser.add_argument("--max-new-tokens", type=int, default=MAX_NEW_TOKENS)
     parser.add_argument(
         "--thinking",

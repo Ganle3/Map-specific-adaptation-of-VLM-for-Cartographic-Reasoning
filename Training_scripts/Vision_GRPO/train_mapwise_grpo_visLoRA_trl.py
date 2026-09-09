@@ -29,14 +29,11 @@ num_generations = 4
 per_device_train_batch_size = 4
 gradient_accumulation_steps = 4
 
-With current TRL, this gives an effective training batch of 16 completions,
-which is divisible by num_generations=4. Therefore one 4-rollout GRPO group
-is accumulated into one optimizer update instead of performing four optimizer
-updates on the same generation batch.
-
-For a dataset with N QA prompts, one epoch is therefore approximately N
-optimizer steps, matching the intended "one QA group -> one optimizer step"
-interpretation.
+On one GPU, the default generation batch contains B*A completions,
+where B is per_device_train_batch_size and A is gradient_accumulation_steps.
+With G=num_generations, this covers B*A/G QA groups per optimizer update.
+Step counts reported here are estimates; Trainer computes scheduler warmup
+from its actual total steps and warmup_fraction.
 
 No Unsloth.
 No vLLM.
@@ -228,6 +225,9 @@ EXPECTED_LORA_TENSORS = EXPECTED_TARGET_MODULES * 2
 
 MAPWISE_EVALUATOR = None
 REWARD_CALL_COUNT = 0
+REWARD_GROUP_SIZE = NUM_GENERATIONS
+REWARD_END_IDS: set[int] = set()
+REWARD_GROUPS_PATH: Optional[Path] = None
 
 
 # ============================================================
@@ -653,6 +653,56 @@ def _as_list(
 # 13. Correctness-only reward
 # ============================================================
 
+def log_qa_reward_groups(qa_ids, rewards, completion_ids=None, log_metric=None, trainer_state=None):
+    """Single-GPU diagnostics; grouping follows TRL's contiguous G completions.
+
+    Termination matches TRL 1.12's EOS/pad test, not answer-text parsing.
+    A signal group has reward variance and at least one unmasked completion.
+    This describes available reward signal, not proof of a nonzero gradient.
+    """
+    groups = []
+    known = completion_ids is not None and len(completion_ids) == len(rewards) and bool(REWARD_END_IDS)
+    for start in range(0, len(rewards), REWARD_GROUP_SIZE):
+        values = rewards[start:start + REWARD_GROUP_SIZE]
+        ids = qa_ids[start:start + REWARD_GROUP_SIZE]
+        valid = len(values) == REWARD_GROUP_SIZE and all(ids) and len(set(ids)) == 1
+        ended = None
+        if known:
+            ended = [bool(tokens) and tokens[-1] in REWARD_END_IDS
+                     for tokens in completion_ids[start:start + REWARD_GROUP_SIZE]]
+        variance = len(set(values)) > 1 if valid else None
+        group = {
+            "qa_id": ids[0] if ids else None,
+            "group_valid": valid,
+            "rewards": values,
+            "reward_variance": variance,
+            "untruncated_count": sum(ended) if ended is not None else None,
+            "truncated_count": len(values) - sum(ended) if ended is not None else None,
+            "signal_group": (variance and any(ended)) if valid and ended is not None else None,
+        }
+        groups.append(group)
+        print(f"[REWARD {REWARD_CALL_COUNT:05d}] " + json.dumps(group, ensure_ascii=False))
+    valid_groups = [g for g in groups if g["group_valid"]]
+    metrics = {"qa_groups/count": len(groups), "qa_groups/invalid_count": len(groups) - len(valid_groups)}
+    if valid_groups:
+        metrics["qa_groups/reward_variance_fraction"] = sum(g["reward_variance"] for g in valid_groups) / len(valid_groups)
+        if known:
+            metrics["qa_groups/signal_count"] = sum(g["signal_group"] for g in valid_groups)
+            metrics["qa_groups/signal_fraction"] = metrics["qa_groups/signal_count"] / len(valid_groups)
+            metrics["qa_groups/truncated_fraction"] = sum(g["truncated_count"] for g in valid_groups) / sum(len(g["rewards"]) for g in valid_groups)
+    if callable(log_metric):
+        for name, value in metrics.items():
+            log_metric(name, float(value))
+    if REWARD_GROUPS_PATH is not None:
+        with REWARD_GROUPS_PATH.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps({
+                "reward_call": REWARD_CALL_COUNT,
+                "global_step_before_update": getattr(trainer_state, "global_step", None),
+                "termination_known": bool(known), "groups": groups, "metrics": metrics,
+            }, ensure_ascii=False) + "\n")
+    return groups
+
+
 def mapwise_correctness_reward(
     completions: list[Any],
     ground_truth: list[str],
@@ -758,24 +808,11 @@ def mapwise_correctness_reward(
 
         rewards.append(reward)
 
-    first_qa = (
-        str(qa_ids[0])
-        if qa_ids
-        else "unknown"
-    )
-
-    mean_reward = (
-        sum(rewards) / max(len(rewards), 1)
-    )
-
-    has_variance = len(set(rewards)) > 1
-
-    print(
-        f"[REWARD {REWARD_CALL_COUNT:05d}] "
-        f"qa={first_qa} | "
-        f"rewards={rewards} | "
-        f"mean={mean_reward:.2f} | "
-        f"variance={'YES' if has_variance else 'NO'}"
+    log_qa_reward_groups(
+        qa_ids, rewards,
+        completion_ids=kwargs.get("completion_ids"),
+        log_metric=kwargs.get("log_metric"),
+        trainer_state=kwargs.get("trainer_state"),
     )
 
     return rewards
@@ -1131,6 +1168,7 @@ def save_run_config(
             "expected_optimizer_steps":
                 expected_optimizer_steps,
             "warmup_steps": warmup_steps,
+            "step_counts_are_estimates": True,
             "reward": "strict_exact_correctness_only",
             "reward_correct": 1.0,
             "reward_incorrect": 0.0,
@@ -1167,7 +1205,7 @@ def run_training(
     args: argparse.Namespace,
 ) -> Path:
 
-    global MAPWISE_EVALUATOR
+    global MAPWISE_EVALUATOR, REWARD_GROUP_SIZE, REWARD_END_IDS, REWARD_GROUPS_PATH
 
     set_seed(args.seed)
     print_gpu_info()
@@ -1213,29 +1251,14 @@ def run_training(
         image_root=image_root,
     )
 
-    # One optimizer step per original QA group under:
-    #
-    # per_device_train_batch_size = 4
-    # gradient_accumulation_steps = num_generations = 4
-    #
-    # For one epoch, expected optimizer steps ~= dataset size.
+    # Single-GPU estimate: G completions per QA, B*A completions per update.
+    # Sampler rounding can affect small datasets. The scheduler below uses
+    # warmup_ratio so Trainer derives warmup from its actual total step count.
     expected_optimizer_steps = math.ceil(
-        (
-            len(train_dataset)
-            * args.num_train_epochs
-        )
-        / args.per_device_train_batch_size
+        len(train_dataset) * args.num_train_epochs * args.num_generations
+        / (args.per_device_train_batch_size * args.gradient_accumulation_steps)
     )
-
-    warmup_steps = max(
-        1,
-        int(
-            round(
-                expected_optimizer_steps
-                * args.warmup_fraction
-            )
-        ),
-    )
+    warmup_steps = math.ceil(expected_optimizer_steps * args.warmup_fraction)
 
     save_run_config(
         output_dir=output_dir,
@@ -1363,7 +1386,7 @@ def run_training(
         adam_beta1=ADAM_BETA1,
         adam_beta2=ADAM_BETA2,
         weight_decay=WEIGHT_DECAY,
-        warmup_steps=warmup_steps,
+        warmup_ratio=args.warmup_fraction,
         lr_scheduler_type="cosine",
         optim="adamw_8bit",
         max_grad_norm=MAX_GRAD_NORM,
@@ -1457,6 +1480,14 @@ def run_training(
         train_dataset=train_dataset,
     )
 
+    REWARD_GROUP_SIZE = args.num_generations
+    tokenizer = getattr(processor, "tokenizer", processor)
+    REWARD_END_IDS = {
+        token_id for token_id in (tokenizer.eos_token_id, tokenizer.pad_token_id)
+        if token_id is not None
+    }
+    REWARD_GROUPS_PATH = output_dir / "qa_group_metrics.jsonl"
+
     trainer.add_callback(
         VisionTrainingMonitorCallback(
             model=model,
@@ -1487,7 +1518,7 @@ def run_training(
     print(f"temperature:                   {args.temperature}")
     print(f"top_p:                         {args.top_p}")
     print(f"learning rate:                 {args.learning_rate}")
-    print(f"warmup steps:                  {warmup_steps}")
+    print(f"warmup steps (estimate):       {warmup_steps}")
     print(f"LoRA rank / alpha:             {args.lora_rank} / {args.lora_alpha}")
     print("LoRA scope:                    Vision only")
     print("Expected target modules:       108")
@@ -1564,6 +1595,7 @@ def run_training(
             "expected_optimizer_steps":
                 expected_optimizer_steps,
             "warmup_steps": warmup_steps,
+            "step_counts_are_estimates": True,
             "final_adapter_dir":
                 str(final_adapter_dir),
         }
