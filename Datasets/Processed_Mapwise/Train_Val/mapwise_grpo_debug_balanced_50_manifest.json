@@ -1,0 +1,1161 @@
+{
+  "purpose": "Small overfitting debug training subset; not a held-out test set.",
+  "seed": 3407,
+  "candidate_count": 73,
+  "selected_count": 50,
+  "criterion": "Four binary rewards, valid group, known truncation count T; error_count>T and correct_count>T. Guarantees at least one untruncated correct and incorrect response in the observed group. Excludes fixed evaluation500.",
+  "balancing": "Greedy max-min ability allocation subject to candidate availability; within each ability prefer least-used corrected_template_no, then country, then map_family; seeded random ties and output order.",
+  "source_sha256": {
+    "VLM_adaptation\\Datasets\\Processed_Mapwise\\Train_Val\\mapwise_grpo_train.json": "f95b313a0ef638720513ce8f38cc8e4e8ab77b85ec3fed371058839414ad0528",
+    "VLM_adaptation\\Datasets\\Processed_Mapwise\\Test\\mapwise_grpo_train_eval_balanced_500.json": "22b7c6903d7cc2e33fc82f757239e0c9354d41560c8a993c5c33a5bede5bf4c0",
+    "Euler_results\\VisionLoRA\\qa_group_metrics.jsonl": "65179ee2462223a4215bd2993e458c86e1503498db122fb6af9014210361deb1"
+  },
+  "distributions": {
+    "ability_level": {
+      "L0": 18,
+      "L1": 7,
+      "L2": 18,
+      "L3": 7
+    },
+    "country": {
+      "china": 15,
+      "india": 16,
+      "usa": 19
+    },
+    "corrected_template_no": {
+      "1": 1,
+      "15": 4,
+      "17": 6,
+      "18": 1,
+      "2": 5,
+      "20": 2,
+      "29": 3,
+      "3": 3,
+      "30": 3,
+      "31": 3,
+      "34": 2,
+      "35": 1,
+      "38": 2,
+      "40": 2,
+      "41": 3,
+      "5": 5,
+      "6": 2,
+      "9": 2
+    },
+    "ground_truth_type": {
+      "Binary": 37,
+      "Count": 3,
+      "Range": 7,
+      "Single": 3
+    }
+  },
+  "qa_overlap_with_eval500": 0,
+  "notes": [
+    "Selection uses observations from an evolving policy; recheck under the starting model.",
+    "QA disjointness does not imply map-family disjointness.",
+    "Source records and split=train preserved."
+  ],
+  "selected_records": [
+    {
+      "qa_id": "mapwise_india_map121_2C_t21_src1715",
+      "source_row_zero_based": 1023,
+      "qualifying_observations": [
+        {
+          "reward_call": 329,
+          "global_step_before_update": 328,
+          "qa_id": "mapwise_india_map121_2C_t21_src1715",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_14598_t36_src2646",
+      "source_row_zero_based": 1600,
+      "qualifying_observations": [
+        {
+          "reward_call": 124,
+          "global_step_before_update": 123,
+          "qa_id": "mapwise_usa_map_14598_t36_src2646",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_689_t18_src2965",
+      "source_row_zero_based": 1804,
+      "qualifying_observations": [
+        {
+          "reward_call": 167,
+          "global_step_before_update": 166,
+          "qa_id": "mapwise_usa_map_689_t18_src2965",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map123_0D_t16_src1726",
+      "source_row_zero_based": 1033,
+      "qualifying_observations": [
+        {
+          "reward_call": 146,
+          "global_step_before_update": 145,
+          "qa_id": "mapwise_india_map123_0D_t16_src1726",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map44_6D_t32_src1289",
+      "source_row_zero_based": 715,
+      "qualifying_observations": [
+        {
+          "reward_call": 90,
+          "global_step_before_update": 89,
+          "qa_id": "mapwise_india_map44_6D_t32_src1289",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map1_0C_t18_src1008",
+      "source_row_zero_based": 608,
+      "qualifying_observations": [
+        {
+          "reward_call": 241,
+          "global_step_before_update": 240,
+          "qa_id": "mapwise_india_map1_0C_t18_src1008",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map139_1C_t18_src1814",
+      "source_row_zero_based": 1095,
+      "qualifying_observations": [
+        {
+          "reward_call": 28,
+          "global_step_before_update": 27,
+          "qa_id": "mapwise_india_map139_1C_t18_src1814",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map97_5D_t16_src1599",
+      "source_row_zero_based": 925,
+      "qualifying_observations": [
+        {
+          "reward_call": 4,
+          "global_step_before_update": 3,
+          "qa_id": "mapwise_india_map97_5D_t16_src1599",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map19_0C_t5_src0825",
+      "source_row_zero_based": 476,
+      "qualifying_observations": [
+        {
+          "reward_call": 251,
+          "global_step_before_update": 250,
+          "qa_id": "mapwise_china_map19_0C_t5_src0825",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_7444_t2_src2720",
+      "source_row_zero_based": 1655,
+      "qualifying_observations": [
+        {
+          "reward_call": 231,
+          "global_step_before_update": 230,
+          "qa_id": "mapwise_usa_map_7444_t2_src2720",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_1136_t39_src2496",
+      "source_row_zero_based": 1506,
+      "qualifying_observations": [
+        {
+          "reward_call": 245,
+          "global_step_before_update": 244,
+          "qa_id": "mapwise_usa_map_1136_t39_src2496",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map3_2D_t5_src0508",
+      "source_row_zero_based": 267,
+      "qualifying_observations": [
+        {
+          "reward_call": 248,
+          "global_step_before_update": 247,
+          "qa_id": "mapwise_china_map3_2D_t5_src0508",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map7_8D_t42_src0321",
+      "source_row_zero_based": 173,
+      "qualifying_observations": [
+        {
+          "reward_call": 183,
+          "global_step_before_update": 182,
+          "qa_id": "mapwise_china_map7_8D_t42_src0321",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_13396_t2_src2686",
+      "source_row_zero_based": 1632,
+      "qualifying_observations": [
+        {
+          "reward_call": 107,
+          "global_step_before_update": 106,
+          "qa_id": "mapwise_usa_map_13396_t2_src2686",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_13_t9_src2279",
+      "source_row_zero_based": 1361,
+      "qualifying_observations": [
+        {
+          "reward_call": 242,
+          "global_step_before_update": 241,
+          "qa_id": "mapwise_usa_map_13_t9_src2279",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_15912_t3_src2925",
+      "source_row_zero_based": 1771,
+      "qualifying_observations": [
+        {
+          "reward_call": 319,
+          "global_step_before_update": 318,
+          "qa_id": "mapwise_usa_map_15912_t3_src2925",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map41_3D_t30_src1262",
+      "source_row_zero_based": 702,
+      "qualifying_observations": [
+        {
+          "reward_call": 203,
+          "global_step_before_update": 202,
+          "qa_id": "mapwise_india_map41_3D_t30_src1262",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map100_4C_t5_src1623",
+      "source_row_zero_based": 945,
+      "qualifying_observations": [
+        {
+          "reward_call": 100,
+          "global_step_before_update": 99,
+          "qa_id": "mapwise_india_map100_4C_t5_src1623",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_6616_t35_src2376",
+      "source_row_zero_based": 1424,
+      "qualifying_observations": [
+        {
+          "reward_call": 92,
+          "global_step_before_update": 91,
+          "qa_id": "mapwise_usa_map_6616_t35_src2376",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_12319_t35_src3026",
+      "source_row_zero_based": 1854,
+      "qualifying_observations": [
+        {
+          "reward_call": 30,
+          "global_step_before_update": 29,
+          "qa_id": "mapwise_usa_map_12319_t35_src3026",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map6_0D_t1_src0525",
+      "source_row_zero_based": 282,
+      "qualifying_observations": [
+        {
+          "reward_call": 335,
+          "global_step_before_update": 334,
+          "qa_id": "mapwise_china_map6_0D_t1_src0525",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map10_8C_t16_src1115",
+      "source_row_zero_based": 659,
+      "qualifying_observations": [
+        {
+          "reward_call": 321,
+          "global_step_before_update": 320,
+          "qa_id": "mapwise_india_map10_8C_t16_src1115",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map19_4D_t16_src0784",
+      "source_row_zero_based": 448,
+      "qualifying_observations": [
+        {
+          "reward_call": 223,
+          "global_step_before_update": 222,
+          "qa_id": "mapwise_china_map19_4D_t16_src0784",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map2_4D_t30_src0867",
+      "source_row_zero_based": 500,
+      "qualifying_observations": [
+        {
+          "reward_call": 39,
+          "global_step_before_update": 38,
+          "qa_id": "mapwise_china_map2_4D_t30_src0867",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_33_t31_src2021",
+      "source_row_zero_based": 1229,
+      "qualifying_observations": [
+        {
+          "reward_call": 338,
+          "global_step_before_update": 337,
+          "qa_id": "mapwise_usa_map_33_t31_src2021",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_20781_t2_src2783",
+      "source_row_zero_based": 1692,
+      "qualifying_observations": [
+        {
+          "reward_call": 132,
+          "global_step_before_update": 131,
+          "qa_id": "mapwise_usa_map_20781_t2_src2783",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map110_5C_t30_src1685",
+      "source_row_zero_based": 995,
+      "qualifying_observations": [
+        {
+          "reward_call": 86,
+          "global_step_before_update": 85,
+          "qa_id": "mapwise_india_map110_5C_t30_src1685",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map2_3D_t31_src0267",
+      "source_row_zero_based": 136,
+      "qualifying_observations": [
+        {
+          "reward_call": 312,
+          "global_step_before_update": 311,
+          "qa_id": "mapwise_china_map2_3D_t31_src0267",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map131_6D_t42_src1769",
+      "source_row_zero_based": 1061,
+      "qualifying_observations": [
+        {
+          "reward_call": 73,
+          "global_step_before_update": 72,
+          "qa_id": "mapwise_india_map131_6D_t42_src1769",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map91_1C_t19_src1535",
+      "source_row_zero_based": 896,
+      "qualifying_observations": [
+        {
+          "reward_call": 24,
+          "global_step_before_update": 23,
+          "qa_id": "mapwise_india_map91_1C_t19_src1535",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map1_2D_t41_src0862",
+      "source_row_zero_based": 496,
+      "qualifying_observations": [
+        {
+          "reward_call": 291,
+          "global_step_before_update": 290,
+          "qa_id": "mapwise_china_map1_2D_t41_src0862",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map21_1D_t6_src0455",
+      "source_row_zero_based": 246,
+      "qualifying_observations": [
+        {
+          "reward_call": 31,
+          "global_step_before_update": 30,
+          "qa_id": "mapwise_china_map21_1D_t6_src0455",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_17382_t39_src2589",
+      "source_row_zero_based": 1555,
+      "qualifying_observations": [
+        {
+          "reward_call": 265,
+          "global_step_before_update": 264,
+          "qa_id": "mapwise_usa_map_17382_t39_src2589",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_6616_t42_src2374",
+      "source_row_zero_based": 1422,
+      "qualifying_observations": [
+        {
+          "reward_call": 296,
+          "global_step_before_update": 295,
+          "qa_id": "mapwise_usa_map_6616_t42_src2374",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_15117_t3_src2051",
+      "source_row_zero_based": 1243,
+      "qualifying_observations": [
+        {
+          "reward_call": 70,
+          "global_step_before_update": 69,
+          "qa_id": "mapwise_usa_map_15117_t3_src2051",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map7_5C_t32_src1064",
+      "source_row_zero_based": 630,
+      "qualifying_observations": [
+        {
+          "reward_call": 75,
+          "global_step_before_update": 74,
+          "qa_id": "mapwise_india_map7_5C_t32_src1064",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map7_6C_t6_src0068",
+      "source_row_zero_based": 41,
+      "qualifying_observations": [
+        {
+          "reward_call": 293,
+          "global_step_before_update": 292,
+          "qa_id": "mapwise_china_map7_6C_t6_src0068",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map21_0C_t41_src0646",
+      "source_row_zero_based": 356,
+      "qualifying_observations": [
+        {
+          "reward_call": 151,
+          "global_step_before_update": 150,
+          "qa_id": "mapwise_china_map21_0C_t41_src0646",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_584_t32_src2459",
+      "source_row_zero_based": 1476,
+      "qualifying_observations": [
+        {
+          "reward_call": 43,
+          "global_step_before_update": 42,
+          "qa_id": "mapwise_usa_map_584_t32_src2459",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_7_t18_src2131",
+      "source_row_zero_based": 1269,
+      "qualifying_observations": [
+        {
+          "reward_call": 122,
+          "global_step_before_update": 121,
+          "qa_id": "mapwise_usa_map_7_t18_src2131",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map101_2D_t5_src1638",
+      "source_row_zero_based": 959,
+      "qualifying_observations": [
+        {
+          "reward_call": 188,
+          "global_step_before_update": 187,
+          "qa_id": "mapwise_india_map101_2D_t5_src1638",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map12_7D_t9_src1130",
+      "source_row_zero_based": 669,
+      "qualifying_observations": [
+        {
+          "reward_call": 306,
+          "global_step_before_update": 305,
+          "qa_id": "mapwise_india_map12_7D_t9_src1130",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_18402_t18_src2196",
+      "source_row_zero_based": 1303,
+      "qualifying_observations": [
+        {
+          "reward_call": 41,
+          "global_step_before_update": 40,
+          "qa_id": "mapwise_usa_map_18402_t18_src2196",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map21_1D_t2_src0456",
+      "source_row_zero_based": 247,
+      "qualifying_observations": [
+        {
+          "reward_call": 264,
+          "global_step_before_update": 263,
+          "qa_id": "mapwise_china_map21_1D_t2_src0456",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_india_map134_7D_t18_src1788",
+      "source_row_zero_based": 1074,
+      "qualifying_observations": [
+        {
+          "reward_call": 157,
+          "global_step_before_update": 156,
+          "qa_id": "mapwise_india_map134_7D_t18_src1788",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map2_0D_t5_src0678",
+      "source_row_zero_based": 384,
+      "qualifying_observations": [
+        {
+          "reward_call": 90,
+          "global_step_before_update": 89,
+          "qa_id": "mapwise_china_map2_0D_t5_src0678",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map17_4D_t31_src0416",
+      "source_row_zero_based": 230,
+      "qualifying_observations": [
+        {
+          "reward_call": 252,
+          "global_step_before_update": 251,
+          "qa_id": "mapwise_china_map17_4D_t31_src0416",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 3,
+          "truncated_count": 1,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_7729_t2_src2944",
+      "source_row_zero_based": 1787,
+      "qualifying_observations": [
+        {
+          "reward_call": 221,
+          "global_step_before_update": 220,
+          "qa_id": "mapwise_usa_map_7729_t2_src2944",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_usa_map_4042_t21_src2823",
+      "source_row_zero_based": 1713,
+      "qualifying_observations": [
+        {
+          "reward_call": 189,
+          "global_step_before_update": 188,
+          "qa_id": "mapwise_usa_map_4042_t21_src2823",
+          "group_valid": true,
+          "rewards": [
+            1.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    },
+    {
+      "qa_id": "mapwise_china_map17_2D_t3_src0807",
+      "source_row_zero_based": 460,
+      "qualifying_observations": [
+        {
+          "reward_call": 107,
+          "global_step_before_update": 106,
+          "qa_id": "mapwise_china_map17_2D_t3_src0807",
+          "group_valid": true,
+          "rewards": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "reward_variance": true,
+          "untruncated_count": 4,
+          "truncated_count": 0,
+          "signal_group": true
+        }
+      ]
+    }
+  ],
+  "output_sha256": "01bc4f2db8636d8a40f11391010a4c613df189e3a7589bc163aeb57be2e626f8"
+}
