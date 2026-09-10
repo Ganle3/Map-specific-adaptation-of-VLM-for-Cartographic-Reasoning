@@ -43,6 +43,7 @@ Datasets/**/*.jpeg
 Datasets/**/*.webp
 Datasets/**/*.tif
 Datasets/**/*.tiff
+Datasets/mapwise-dataset/
 
 Test_data/**/*.png
 Test_data/**/*.jpg

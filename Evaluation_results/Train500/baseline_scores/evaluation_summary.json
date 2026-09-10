@@ -1,0 +1,68 @@
+{
+  "overall": {
+    "total": 500,
+    "correct": 273,
+    "incorrect": 227,
+    "accuracy": 0.546
+  },
+  "total": 500,
+  "correct": 273,
+  "validation_accuracy": 0.546,
+  "by_ground_truth_type": {
+    "Binary": {
+      "total": 248,
+      "correct": 157,
+      "incorrect": 91,
+      "accuracy": 0.6330645161290323
+    },
+    "Count": {
+      "total": 36,
+      "correct": 18,
+      "incorrect": 18,
+      "accuracy": 0.5
+    },
+    "Range": {
+      "total": 104,
+      "correct": 48,
+      "incorrect": 56,
+      "accuracy": 0.46153846153846156
+    },
+    "Single": {
+      "total": 112,
+      "correct": 50,
+      "incorrect": 62,
+      "accuracy": 0.44642857142857145
+    }
+  },
+  "by_country": {
+    "china": {
+      "total": 166,
+      "correct": 83,
+      "incorrect": 83,
+      "accuracy": 0.5
+    },
+    "india": {
+      "total": 167,
+      "correct": 93,
+      "incorrect": 74,
+      "accuracy": 0.5568862275449101
+    },
+    "usa": {
+      "total": 167,
+      "correct": 97,
+      "incorrect": 70,
+      "accuracy": 0.5808383233532934
+    }
+  },
+  "generation": {
+    "extractable_answers": 408,
+    "answer_extraction_rate": 0.816,
+    "complete_generations": 408,
+    "completion_rate": 0.816
+  },
+  "artifacts": {
+    "details_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_results\\Train500\\baseline_scores\\evaluation_details.json",
+    "details_csv": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_results\\Train500\\baseline_scores\\evaluation_details.csv",
+    "summary_json": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Evaluation_results\\Train500\\baseline_scores\\evaluation_summary.json"
+  }
+}
