@@ -85,6 +85,7 @@ import torch
 from datasets import Dataset, Image as HFImage, Sequence
 
 from peft import (
+    PeftModel,
     LoraConfig,
     get_peft_model,
     prepare_model_for_kbit_training,
@@ -1148,6 +1149,10 @@ def save_run_config(
 ) -> None:
 
     payload = vars(args).copy()
+    payload["init_adapter_path"] = (
+        str(args.init_adapter_path.expanduser().resolve())
+        if args.init_adapter_path is not None else None
+    )
 
     for key in (
         "qa_json",
@@ -1338,10 +1343,19 @@ def run_training(
         task_type="CAUSAL_LM",
     )
 
-    model = get_peft_model(
-        model,
-        lora_config,
-    )
+    if args.init_adapter_path is not None:
+        # Load adapter weights only: Trainer starts fresh optimizer/scheduler/state.
+        adapter_path = args.init_adapter_path.expanduser().resolve()
+        model = PeftModel.from_pretrained(model, str(adapter_path), is_trainable=True)
+        loaded_config = model.peft_config["default"]
+        if loaded_config.r != args.lora_rank or loaded_config.lora_alpha != args.lora_alpha:
+            raise ValueError("Adapter rank/alpha differ from CLI settings; use the saved adapter values.")
+        print(f"Initialized trainable adapter from: {adapter_path}")
+    else:
+        model = get_peft_model(
+            model,
+            lora_config,
+        )
 
     model.print_trainable_parameters()
 
@@ -1780,6 +1794,14 @@ def parse_args() -> argparse.Namespace:
     )
 
     parser.add_argument(
+        "--init-adapter-path",
+        type=Path,
+        default=None,
+        help="Initialize from PEFT adapter weights for a NEW run; resets optimizer, scheduler and step count. "
+             "Cannot be combined with --resume-from-checkpoint. Saved adapter configuration is retained.",
+    )
+
+    parser.add_argument(
         "--resume-from-checkpoint",
         type=str,
         default=None,
@@ -1820,6 +1842,18 @@ def parse_args() -> argparse.Namespace:
 def validate_args(
     args: argparse.Namespace,
 ) -> None:
+
+    if args.init_adapter_path is not None:
+        if args.resume_from_checkpoint is not None:
+            raise ValueError("Use only one of --init-adapter-path and --resume-from-checkpoint.")
+        args.init_adapter_path = args.init_adapter_path.expanduser().resolve()
+        if not (args.init_adapter_path / "adapter_config.json").is_file():
+            raise FileNotFoundError(f"No adapter_config.json in {args.init_adapter_path}")
+        if not any((args.init_adapter_path / name).is_file()
+                   for name in ("adapter_model.safetensors", "adapter_model.bin")):
+            raise FileNotFoundError(f"No adapter weights in {args.init_adapter_path}")
+        if Path(args.output_dir).expanduser().resolve() == args.init_adapter_path:
+            raise ValueError("New run output must differ from the source adapter directory.")
 
     if args.num_train_epochs <= 0:
         raise ValueError(
