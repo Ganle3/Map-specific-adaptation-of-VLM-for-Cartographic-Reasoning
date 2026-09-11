@@ -1,0 +1,414 @@
+{
+  "source": "VLM_adaptation\\Datasets\\Processed_Mapwise\\Train_Val\\mapwise_grpo_debug_balanced_50.json",
+  "source_sha256": "01bc4f2db8636d8a40f11391010a4c613df189e3a7589bc163aeb57be2e626f8",
+  "seed": 3407,
+  "selection_basis": "Previous adapter run 13687442, not raw-base performance; diagnostic selection only.",
+  "exclusion_rule": "all240 reward <= 1/6 AND last60 reward <= 0.20 AND wrong in all three complete evaluations",
+  "excluded": [
+    {
+      "qa_number": "14",
+      "qa_id": "mapwise_usa_map_13396_t2_src2686",
+      "question": "Yes or no: in the legend the colour intensity is inversely proportional to the value.",
+      "all240_mean_reward": "0.1625",
+      "last60_mean_reward": "0.1",
+      "all240_truncated_rollouts": "0"
+    },
+    {
+      "qa_number": "24",
+      "qa_id": "mapwise_china_map2_4D_t30_src0867",
+      "question": "Does Xinjiang have the same value to Tibet?",
+      "all240_mean_reward": "0.0375",
+      "last60_mean_reward": "0.0",
+      "all240_truncated_rollouts": "0"
+    },
+    {
+      "qa_number": "31",
+      "qa_id": "mapwise_china_map1_2D_t41_src0862",
+      "question": "Are there significant gaps between certain ranges?",
+      "all240_mean_reward": "0.025",
+      "last60_mean_reward": "0.0",
+      "all240_truncated_rollouts": "12"
+    },
+    {
+      "qa_number": "32",
+      "qa_id": "mapwise_china_map21_1D_t6_src0455",
+      "question": "Yes or no: the map depicts percentages.",
+      "all240_mean_reward": "0.05",
+      "last60_mean_reward": "0.05",
+      "all240_truncated_rollouts": "0"
+    },
+    {
+      "qa_number": "44",
+      "qa_id": "mapwise_china_map21_1D_t2_src0456",
+      "question": "Yes or no: in the legend the colour intensity is inversely proportional to the value.",
+      "all240_mean_reward": "0.1111",
+      "last60_mean_reward": "0.1875",
+      "all240_truncated_rollouts": "0"
+    },
+    {
+      "qa_number": "45",
+      "qa_id": "mapwise_india_map134_7D_t18_src1788",
+      "question": "Yes or no: the value of the Bihar is similar to its neighbouring state Jharkhand.",
+      "all240_mean_reward": "0.1528",
+      "last60_mean_reward": "0.1875",
+      "all240_truncated_rollouts": "0"
+    }
+  ],
+  "kept_type_counts": {
+    "Binary": 32,
+    "Single": 2,
+    "Range": 7,
+    "Count": 3
+  },
+  "kept_ability_counts": {
+    "L2": 17,
+    "L3": 6,
+    "L1": 7,
+    "L0": 14
+  },
+  "qa_per_update": 4,
+  "required_flags": {
+    "preserve_qa_order": true,
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 8,
+    "num_generations": 4
+  },
+  "epochs": 20,
+  "expected_updates": 220,
+  "schedules": {
+    "fixed_random": [
+      {
+        "update_in_epoch": 1,
+        "qa_ids": [
+          "mapwise_india_map1_0C_t18_src1008",
+          "mapwise_usa_map_15912_t3_src2925",
+          "mapwise_china_map3_2D_t5_src0508",
+          "mapwise_usa_map_14598_t36_src2646"
+        ],
+        "types": [
+          "Binary",
+          "Range",
+          "Binary",
+          "Single"
+        ]
+      },
+      {
+        "update_in_epoch": 2,
+        "qa_ids": [
+          "mapwise_usa_map_18402_t18_src2196",
+          "mapwise_india_map10_8C_t16_src1115",
+          "mapwise_india_map44_6D_t32_src1289",
+          "mapwise_india_map12_7D_t9_src1130"
+        ],
+        "types": [
+          "Binary",
+          "Range",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 3,
+        "qa_ids": [
+          "mapwise_india_map7_5C_t32_src1064",
+          "mapwise_china_map21_0C_t41_src0646",
+          "mapwise_usa_map_689_t18_src2965",
+          "mapwise_china_map7_8D_t42_src0321"
+        ],
+        "types": [
+          "Binary",
+          "Single",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 4,
+        "qa_ids": [
+          "mapwise_usa_map_6616_t35_src2376",
+          "mapwise_usa_map_7_t18_src2131",
+          "mapwise_china_map2_0D_t5_src0678",
+          "mapwise_usa_map_6616_t42_src2374"
+        ],
+        "types": [
+          "Count",
+          "Binary",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 5,
+        "qa_ids": [
+          "mapwise_china_map17_4D_t31_src0416",
+          "mapwise_india_map121_2C_t21_src1715",
+          "mapwise_india_map110_5C_t30_src1685",
+          "mapwise_usa_map_17382_t39_src2589"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 6,
+        "qa_ids": [
+          "mapwise_usa_map_20781_t2_src2783",
+          "mapwise_india_map101_2D_t5_src1638",
+          "mapwise_usa_map_584_t32_src2459",
+          "mapwise_usa_map_12319_t35_src3026"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Binary",
+          "Count"
+        ]
+      },
+      {
+        "update_in_epoch": 7,
+        "qa_ids": [
+          "mapwise_usa_map_1136_t39_src2496",
+          "mapwise_india_map139_1C_t18_src1814",
+          "mapwise_usa_map_7444_t2_src2720",
+          "mapwise_china_map17_2D_t3_src0807"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Binary",
+          "Range"
+        ]
+      },
+      {
+        "update_in_epoch": 8,
+        "qa_ids": [
+          "mapwise_india_map97_5D_t16_src1599",
+          "mapwise_usa_map_7729_t2_src2944",
+          "mapwise_india_map91_1C_t19_src1535",
+          "mapwise_india_map100_4C_t5_src1623"
+        ],
+        "types": [
+          "Range",
+          "Binary",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 9,
+        "qa_ids": [
+          "mapwise_usa_map_4042_t21_src2823",
+          "mapwise_china_map7_6C_t6_src0068",
+          "mapwise_usa_map_15117_t3_src2051",
+          "mapwise_india_map41_3D_t30_src1262"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Range",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 10,
+        "qa_ids": [
+          "mapwise_usa_map_33_t31_src2021",
+          "mapwise_china_map6_0D_t1_src0525",
+          "mapwise_china_map2_3D_t31_src0267",
+          "mapwise_usa_map_13_t9_src2279"
+        ],
+        "types": [
+          "Binary",
+          "Count",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 11,
+        "qa_ids": [
+          "mapwise_china_map19_4D_t16_src0784",
+          "mapwise_china_map19_0C_t5_src0825",
+          "mapwise_india_map131_6D_t42_src1769",
+          "mapwise_india_map123_0D_t16_src1726"
+        ],
+        "types": [
+          "Range",
+          "Binary",
+          "Binary",
+          "Range"
+        ]
+      }
+    ],
+    "fixed_mixed": [
+      {
+        "update_in_epoch": 1,
+        "qa_ids": [
+          "mapwise_usa_map_15912_t3_src2925",
+          "mapwise_china_map17_4D_t31_src0416",
+          "mapwise_usa_map_15117_t3_src2051",
+          "mapwise_india_map7_5C_t32_src1064"
+        ],
+        "types": [
+          "Range",
+          "Binary",
+          "Range",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 2,
+        "qa_ids": [
+          "mapwise_india_map110_5C_t30_src1685",
+          "mapwise_india_map100_4C_t5_src1623",
+          "mapwise_india_map121_2C_t21_src1715",
+          "mapwise_india_map123_0D_t16_src1726"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Binary",
+          "Range"
+        ]
+      },
+      {
+        "update_in_epoch": 3,
+        "qa_ids": [
+          "mapwise_usa_map_6616_t42_src2374",
+          "mapwise_usa_map_584_t32_src2459",
+          "mapwise_china_map17_2D_t3_src0807",
+          "mapwise_china_map3_2D_t5_src0508"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Range",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 4,
+        "qa_ids": [
+          "mapwise_usa_map_6616_t35_src2376",
+          "mapwise_usa_map_1136_t39_src2496",
+          "mapwise_india_map44_6D_t32_src1289",
+          "mapwise_usa_map_13_t9_src2279"
+        ],
+        "types": [
+          "Count",
+          "Binary",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 5,
+        "qa_ids": [
+          "mapwise_india_map1_0C_t18_src1008",
+          "mapwise_usa_map_33_t31_src2021",
+          "mapwise_usa_map_14598_t36_src2646",
+          "mapwise_usa_map_4042_t21_src2823"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Single",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 6,
+        "qa_ids": [
+          "mapwise_usa_map_689_t18_src2965",
+          "mapwise_china_map7_8D_t42_src0321",
+          "mapwise_china_map7_6C_t6_src0068",
+          "mapwise_india_map10_8C_t16_src1115"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Binary",
+          "Range"
+        ]
+      },
+      {
+        "update_in_epoch": 7,
+        "qa_ids": [
+          "mapwise_usa_map_18402_t18_src2196",
+          "mapwise_india_map131_6D_t42_src1769",
+          "mapwise_usa_map_20781_t2_src2783",
+          "mapwise_china_map21_0C_t41_src0646"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Binary",
+          "Single"
+        ]
+      },
+      {
+        "update_in_epoch": 8,
+        "qa_ids": [
+          "mapwise_india_map12_7D_t9_src1130",
+          "mapwise_usa_map_17382_t39_src2589",
+          "mapwise_china_map19_4D_t16_src0784",
+          "mapwise_india_map139_1C_t18_src1814"
+        ],
+        "types": [
+          "Binary",
+          "Binary",
+          "Range",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 9,
+        "qa_ids": [
+          "mapwise_china_map2_3D_t31_src0267",
+          "mapwise_india_map97_5D_t16_src1599",
+          "mapwise_usa_map_7_t18_src2131",
+          "mapwise_india_map91_1C_t19_src1535"
+        ],
+        "types": [
+          "Binary",
+          "Range",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 10,
+        "qa_ids": [
+          "mapwise_china_map6_0D_t1_src0525",
+          "mapwise_china_map2_0D_t5_src0678",
+          "mapwise_china_map19_0C_t5_src0825",
+          "mapwise_usa_map_7444_t2_src2720"
+        ],
+        "types": [
+          "Count",
+          "Binary",
+          "Binary",
+          "Binary"
+        ]
+      },
+      {
+        "update_in_epoch": 11,
+        "qa_ids": [
+          "mapwise_usa_map_7729_t2_src2944",
+          "mapwise_usa_map_12319_t35_src3026",
+          "mapwise_india_map41_3D_t30_src1262",
+          "mapwise_india_map101_2D_t5_src1638"
+        ],
+        "types": [
+          "Binary",
+          "Count",
+          "Binary",
+          "Binary"
+        ]
+      }
+    ]
+  }
+}

@@ -1256,6 +1256,14 @@ def run_training(
         image_root=image_root,
     )
 
+    if args.preserve_qa_order:
+        if int(os.environ.get("WORLD_SIZE", "1")) != 1:
+            raise ValueError("--preserve-qa-order batch experiments currently require one GPU.")
+        qas_per_update = (args.per_device_train_batch_size * args.gradient_accumulation_steps
+                          // args.num_generations)
+        if len(train_dataset) % qas_per_update:
+            raise ValueError("Ordered batch experiments require QA count divisible by QAs per update, to avoid dropping an incomplete group.")
+
     # Single-GPU estimate: G completions per QA, B*A completions per update.
     # Sampler rounding can affect small datasets. The scheduler below uses
     # warmup_ratio so Trainer derives warmup from its actual total step count.
@@ -1464,7 +1472,7 @@ def run_training(
         # Checkpointing
         save_strategy="steps",
         save_steps=args.save_steps,
-        save_total_limit=SAVE_TOTAL_LIMIT,
+        save_total_limit=args.save_total_limit,
         load_best_model_at_end=False,
 
         # No validation inside GRPO for now
@@ -1476,6 +1484,7 @@ def run_training(
         # Reproducibility
         seed=args.seed,
         data_seed=args.seed,
+        shuffle_dataset=not args.preserve_qa_order,
     )
 
     # --------------------------------------------------------
@@ -1801,6 +1810,11 @@ def parse_args() -> argparse.Namespace:
              "Cannot be combined with --resume-from-checkpoint. Saved adapter configuration is retained.",
     )
 
+    parser.add_argument("--preserve-qa-order", action="store_true",
+                        help="Disable TRL dataset shuffle to preserve JSON QA batches; single GPU only.")
+    parser.add_argument("--save-total-limit", type=int, default=SAVE_TOTAL_LIMIT,
+                        help="Number of checkpoints to retain; default preserves previous behavior.")
+
     parser.add_argument(
         "--resume-from-checkpoint",
         type=str,
@@ -1842,6 +1856,9 @@ def parse_args() -> argparse.Namespace:
 def validate_args(
     args: argparse.Namespace,
 ) -> None:
+
+    if args.save_total_limit < 1:
+        raise ValueError("--save-total-limit must be at least 1.")
 
     if args.init_adapter_path is not None:
         if args.resume_from_checkpoint is not None:
