@@ -10,13 +10,20 @@ from pathlib import Path
 from types import SimpleNamespace
 import unittest
 
-from _vislora_replay_buffer import SuccessBuffer
+from _vislora_replay_buffer import SuccessBuffer, minimum_entropy_index
 from _vislora_reuse_trainers import make_trainers, replay_correction
 
 HAS_TORCH = importlib.util.find_spec("torch") is not None
 
 
 class BufferChecks(unittest.TestCase):
+    def test_entropy_selection_and_ties(self):
+        self.assertEqual(minimum_entropy_index([.9, .2]), 1)
+        self.assertEqual(minimum_entropy_index([.2, .2]), 0)
+        for scores in ([], [float("nan")], [float("inf")]):
+            with self.assertRaises(ValueError):
+                minimum_entropy_index(scores)
+
     def test_success_and_termination_both_required(self):
         b = SuccessBuffer()
         self.assertFalse(b.add("q", [1], [2], [-0.2], 0, True, 0))
@@ -68,7 +75,18 @@ class ReplayRoutingChecks(unittest.TestCase):
         for i in range(4):
             t.successes.add(f"q{i}", [i], [100 + i, 9], [-0.1, -0.2], 1, True, 0)
         t.fresh_count = t.fresh_tokens = t.replay_count = t.discarded_count = 0
+        t._candidate_entropies = lambda row, prompt, entries: [float(i) for i in range(len(entries))]
+        t._event = lambda *args, **kwargs: None
         return t
+
+    def test_current_entropy_selects_without_changing_old_probabilities(self):
+        t = self.trainer()
+        t.successes.add("q0", [0], [200, 9], [-.8, -.9], 1, True, 1)
+        t._candidate_entropies = lambda row, prompt, entries: [.9, .1][:len(entries)]
+        tokens, _ = t._generate_single_turn([[i // 4] for i in range(16)], None, {})
+        self.assertEqual(tokens[3], [200, 9])
+        self.assertEqual(t._pending_replays[3]["logps"], [-.8, -.9])
+        self.assertEqual(t._pending_replays[3]["step"], 1)
 
     def test_same_question_fixed_slot_and_fresh_budget(self):
         t = self.trainer()
@@ -104,6 +122,44 @@ class ReplayRoutingChecks(unittest.TestCase):
 
 @unittest.skipUnless(HAS_TORCH, "torch unavailable locally; these run in the Euler container")
 class TensorChecks(unittest.TestCase):
+    def test_entropy_scoring_alignment_image_and_mode(self):
+        import torch
+        from contextlib import nullcontext
+        from unittest.mock import patch
+        calls = []
+        class ScoringNative(NativeFake):
+            def _get_per_token_logps_and_entropies(self, model, ids, mask, length, **kwargs):
+                self_test.assertFalse(torch.is_grad_enabled())
+                self_test.assertFalse(model.training)
+                self_test.assertTrue(kwargs["compute_entropy"])
+                self_test.assertEqual(kwargs["num_images"], [1])
+                self_test.assertEqual(kwargs["pixel_values"].tolist(), [[7.0]])
+                self_test.assertEqual(ids.shape, (1, 2 + length))
+                self_test.assertEqual(mask.sum().item(), 2 + length)
+                self_test.assertEqual(kwargs["mm_token_type_ids"].tolist(), [[1, 0] + [0] * length])
+                calls.append(ids.tolist())
+                ent = torch.tensor([[2., 4.]]) if length == 2 else torch.ones((1, length))
+                return torch.zeros_like(ent), ent, None
+        self_test = self
+        _, Replay = make_trainers(SimpleNamespace(torch=torch, GRPOTrainer=ScoringNative), SimpleNamespace())
+        t = Replay.__new__(Replay)
+        t.model = torch.nn.Linear(1, 1).train()
+        t.accelerator = SimpleNamespace(device="cpu")
+        t.args = SimpleNamespace(gradient_checkpointing_kwargs=None)
+        t._entropy_prompts = ["original-image-prompt"]
+        def tokenize(prompts):
+            self.assertEqual(prompts, ["original-image-prompt"])
+            return [[10, 11]], [["original-image"]], {
+                "pixel_values": [[7.]], "image_grid_thw": [[1, 1, 1]],
+                "mm_token_type_ids": [[1, 0]]}
+        t._tokenize_prompts = tokenize
+        utils = SimpleNamespace(disable_gradient_checkpointing=lambda *args: nullcontext())
+        with patch.dict("sys.modules", {"trl.models.utils": utils}):
+            scores = t._candidate_entropies(0, [10, 11], [{"tokens": [20, 9]}, {"tokens": [21, 22, 9]}])
+        self.assertEqual(scores, [3., 1.])
+        self.assertTrue(t.model.training)
+        self.assertEqual(calls, [[[10, 11, 20, 9]], [[10, 11, 21, 22, 9]]])
+
     def test_loss_and_gradient_equal_direct_mixed_objective(self):
         import torch
         for polarity in (-1.0, 0.0, 1.0):

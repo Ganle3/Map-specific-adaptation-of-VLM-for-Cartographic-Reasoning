@@ -1,8 +1,9 @@
 """Small TRL 1.12 overrides for recent reuse and successful-history replay.
 
 A uses ExGRPO Eq. 4 mixed groups and section 4.2 shaping w/(w+0.1).
-Deliberate adaptations: baseline group std scaling, fixed QA exposure, round-robin
-success selection, finite age/capacity, no difficulty retirement or entropy ranking.
+Deliberate adaptations: baseline group std scaling, fixed QA exposure,
+finite age/capacity, no difficulty retirement. Replay selection uses current-policy
+mean full-vocabulary token entropy on the valid completion, including EOS.
 Successful selection and top-p decoding make this a biased surrogate, not an
 unbiased importance-sampling estimator. No SFT or cross-entropy auxiliary loss.
 """
@@ -12,7 +13,7 @@ import math
 from pathlib import Path
 import time
 
-from _vislora_replay_buffer import SuccessBuffer
+from _vislora_replay_buffer import SuccessBuffer, minimum_entropy_index
 
 
 FORWARD_KEYS = ("pixel_values", "image_grid_thw", "num_images", "pixel_attention_mask",
@@ -82,6 +83,56 @@ def make_trainers(base, options):
             return result
 
     class SuccessReplayTrainer(NativeReuseTrainer):
+        def _generate(self, prompts):
+            # These are TRL's prepared messages, already containing the actual images.
+            self._entropy_prompts = prompts
+            try:
+                return super()._generate(prompts)
+            finally:
+                self._entropy_prompts = None
+
+        def _candidate_entropies(self, row, expected_prompt_ids, entries):
+            from trl.models.utils import disable_gradient_checkpointing
+            ids, images, fields = self._tokenize_prompts([self._entropy_prompts[row]])
+            if list(ids[0]) != list(expected_prompt_ids):
+                raise RuntimeError("Entropy scoring prompt differs from rollout prompt")
+            if not images or not images[0]:
+                raise RuntimeError("Visual replay entropy scoring requires the original image")
+            device = self.accelerator.device
+            forward = {}
+            for key, value in fields.items():
+                if key not in FORWARD_KEYS:
+                    raise RuntimeError(f"Unsupported entropy scoring multimodal field: {key}")
+                forward[key] = torch.as_tensor(value, device=device)
+            forward["num_images"] = [len(images[0])]
+            scores = []
+            was_training = self.model.training
+            try:
+                self.model.eval()
+                with torch.no_grad(), disable_gradient_checkpointing(self.model, self.args.gradient_checkpointing_kwargs):
+                    for entry in entries:
+                        tokens = entry["tokens"]
+                        # Exactly one unpadded trajectory per forward: only completion
+                        # positions are scored; neither prompt nor padding enters mean.
+                        input_ids = torch.tensor([list(ids[0]) + tokens], device=device)
+                        kwargs = dict(forward)
+                        for key in ("token_type_ids", "mm_token_type_ids"):
+                            if key in kwargs:
+                                prefix = kwargs[key]
+                                if prefix.shape != (1, len(ids[0])):
+                                    raise RuntimeError("Entropy token-type prefix length mismatch")
+                                kwargs[key] = torch.cat([prefix, prefix.new_zeros((1, len(tokens)))], dim=1)
+                        _, entropies, *_ = super()._get_per_token_logps_and_entropies(
+                            self.model, input_ids, torch.ones_like(input_ids), len(tokens),
+                            batch_size=1, compute_entropy=True, **kwargs)
+                        if entropies is None or entropies.shape != (1, len(tokens)):
+                            raise RuntimeError("Entropy output does not align with completion tokens")
+                        scores.append(entropies.float().mean().item())
+            finally:
+                self.model.train(was_training)
+            minimum_entropy_index(scores)  # fail on NaN/Inf before using a candidate
+            return scores
+
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self.successes = SuccessBuffer(options.replay_capacity_per_qa)
@@ -119,10 +170,18 @@ def make_trainers(base, options):
                 # Alternates the selected half each dataset pass; QA count cannot
                 # increase just because a QA has more historical successes.
                 if self.state.global_step >= options.replay_start_step and (group + pass_index) % 2 == 0:
-                    entry = self.successes.choose(qa_id, prompt_ids[start], self.state.global_step,
-                                                  options.replay_max_age)
-                    if entry is not None:
-                        self._pending_replays[start + g - 1] = entry
+                    entries = self.successes.candidates(qa_id, prompt_ids[start], self.state.global_step,
+                                                       options.replay_max_age)
+                    if entries:
+                        begin = time.monotonic()
+                        scores = self._candidate_entropies(start, prompt_ids[start], entries)
+                        selected = minimum_entropy_index(scores)
+                        self._pending_replays[start + g - 1] = entries[selected]
+                        self._event("entropy_selection", qa_id=qa_id, candidate_entropies=scores,
+                                    candidate_source_steps=[e["step"] for e in entries],
+                                    candidate_lengths=[len(e["tokens"]) for e in entries],
+                                    selected_index=selected, scoring_policy_step=int(self.state.global_step),
+                                    scoring_seconds=time.monotonic() - begin)
             tokens, logps = super()._generate_single_turn(prompt_ids, images, multimodal_fields, **kwargs)
             if logps is not None:
                 raise RuntimeError("Expected native HF generation without backend logprobs")

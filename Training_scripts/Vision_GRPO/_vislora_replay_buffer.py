@@ -8,6 +8,12 @@ def prompt_digest(ids):
     return hashlib.sha256(json.dumps(ids, separators=(",", ":")).encode()).hexdigest()
 
 
+def minimum_entropy_index(scores):
+    if not scores or not all(math.isfinite(x) for x in scores):
+        raise ValueError("Entropy selection requires finite candidate scores")
+    return min(range(len(scores)), key=lambda i: scores[i])
+
+
 class SuccessBuffer:
     def __init__(self, capacity=2):
         if capacity < 1:
@@ -30,10 +36,13 @@ class SuccessBuffer:
         del bucket[:-self.capacity]
         return True
 
-    def choose(self, qa_id, prompt_ids, step, max_age):
-        valid = [x for x in self.items.get(qa_id, [])
+    def candidates(self, qa_id, prompt_ids, step, max_age):
+        return [x for x in self.items.get(qa_id, [])
                  if x["prompt_hash"] == prompt_digest(prompt_ids)
                  and 0 < step - x["step"] <= max_age]
+
+    def choose(self, qa_id, prompt_ids, step, max_age):
+        valid = self.candidates(qa_id, prompt_ids, step, max_age)
         if not valid:
             return None
         cursor = self.cursor.get(qa_id, 0)

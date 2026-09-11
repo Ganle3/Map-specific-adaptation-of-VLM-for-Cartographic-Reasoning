@@ -93,7 +93,8 @@ def run_experiment(mode):
                                   ("torch", "trl", "transformers", "peft", "accelerate")},
                         replay_method="ExGRPO-inspired fixed-QA mixed-group policy shaping",
                         replay_probability_convention="TRL temperature-scaled unfiltered model probabilities; not exact top-p sampling IS",
-                        replay_selection="every other QA group, alternating each dataset pass; max one old answer per selected group",
+                        replay_selection="current-policy minimum mean completion token entropy; same fixed QA selection; max one old answer per group",
+                        replay_entropy="TRL full-vocabulary Shannon entropy, temperature-scaled pre-top-p; completion only including EOS; single-candidate no-grad forwards",
                         generation_cost="A generates G fresh then discards one if replaying; no claimed generation speedup")
         (output_dir / "reuse_manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
         print(f"AUTHORITATIVE BUDGET: {extra.max_steps} optimizer updates; iterations={extra.num_iterations}.")

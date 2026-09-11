@@ -1,4 +1,4 @@
-"""Experiment A: ExGRPO-inspired same-QA successful trajectory replay, pure RL.
+"""Experiment A: ExGRPO-inspired success replay with current-policy entropy selection.
 
 Not a full ExGRPO reproduction: keeps fixed QA exposure and baseline scaling.
 See README_vislora_reuse.md before interpreting the reward curves.

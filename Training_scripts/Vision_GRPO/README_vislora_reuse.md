@@ -11,7 +11,7 @@ process. Do not edit this snapshot when changing the old baseline script.
 | --- | --- | --- | --- |
 | control | train_mapwise_grpo_visLoRA_iterations_trl.py | 1 | Native GRPO |
 | B | train_mapwise_grpo_visLoRA_iterations_trl.py | 2 | Reuse each complete newly generated batch twice |
-| A | train_mapwise_grpo_visLoRA_replay_trl.py | 1 | Same-QA successful-history replay with shaped policy ratios |
+| A | train_mapwise_grpo_visLoRA_replay_trl.py | 1 | Current-entropy-selected successful replay with shaped policy ratios |
 
 All start from the original Qwen/Qwen3-VL-8B-Thinking model and fresh visual LoRA.
 Init-adapter and resume are deliberately rejected for this first controlled run.
@@ -33,7 +33,14 @@ See the [method text](https://arxiv.org/html/2510.02245v2#S4).
   preregistered engineering defaults, not claimed paper-optimal settings.
 - Follow the SAME input QA order as the other arms. Select every other QA group
   for replay, alternating the selected half each dataset pass. A question having
-  more successes never gives it more QA slots. Pick cached trajectories cyclically.
+  more successes never gives it more QA slots. Rescore each eligible cached
+  trajectory using the CURRENT model with the original image and identical prompt
+  tokens, then choose the lowest mean token entropy (stable first-candidate tie).
+  Scores use TRL's full-vocabulary Shannon entropy at the training temperature,
+  before top-p filtering, averaged only over completion tokens including EOS.
+  Each candidate is scored separately without padding or gradients, in evaluation
+  mode; the original training mode is restored afterwards. Historical generation
+  log-probabilities are never overwritten by current entropy scoring.
 - For selected QA with available history, replace the fixed last completion slot
   by ONE old success, retaining three fresh responses (G=4). Select before seeing
   fresh rewards. Without history, retain four fresh responses.
@@ -46,9 +53,14 @@ See the [method text](https://arxiv.org/html/2510.02245v2#S4).
   the native clipped objective. For replay samples replace it by
   `-[w/(w+0.1)] * advantage`, where w is current / stored policy token probability.
   The replay shaping constant is NOT the KL beta. There is no SFT loss.
-- No difficulty buckets, easy-QA retirement or current-entropy ranking: these
+- No difficulty buckets or easy-QA retirement: these
   would change additional variables and sampling exposure in the 44-QA experiment.
   Correct final answers do not establish correctness of every reasoning step.
+  Low entropy is also only a proxy for reasoning quality, not a correctness proof.
+  The official selection pipeline is in
+  [experience_helpers.py](https://github.com/Simplified-Reasoning/LUFFY/blob/main/ExGRPO/exgrpo/verl/verl/mix_src/experience/experience_helpers.py).
+  This implementation uses explicit unpadded per-candidate alignment rather than
+  copying that helper's padding masks and cross-batch indexing.
 - Probability convention matches TRL's temperature-scaled, pre-top-p forward
   probabilities. Together with success selection, group baselines and shaping,
   this is a biased practical surrogate; do not describe it as exact unbiased
@@ -111,7 +123,9 @@ not full-data checkpoint300. No early hyperparameter changes based on A/B curves
 
 - `run_config.json`, `reuse_manifest.json`: effective budget, arguments, versions,
   script/data/scorer hashes and deviations from paper.
-- `reuse_metrics.jsonl`: generation/update-use counts, token counts, replay source
+- `reuse_metrics.jsonl`: `entropy_selection` records each candidate's current
+  entropy, source step, token count, chosen index, scoring policy step and elapsed
+  scoring time. Generation/update-use counts, token counts, replay source
   age and per-QA mixed rewards. `qa_group_metrics.jsonl` logs the actual training groups.
 - `checkpoint-*/success_replay_buffer.json` (A): token IDs, old log-probs and policy
   step for audit. This is not an automatic resume implementation.
@@ -119,6 +133,8 @@ not full-data checkpoint300. No early hyperparameter changes based on A/B curves
 
 ## Windows upload and Euler submission
 
+First commit/push repository code and data from Windows to GitHub using your
+normal workflow. The uploader below handles only files outside that repository.
 Run on local **Windows PowerShell**, not inside SSH:
 
 ```powershell
@@ -126,10 +142,20 @@ Run on local **Windows PowerShell**, not inside SSH:
 ssh junyhuang@euler.ethz.ch
 ```
 
-The uploader copies the NEW Python files and data to the existing repo directories;
-it places the new sbatch and evaluation helpers in scratch. It does not upload or
-overwrite the original training entry point, and does not submit jobs.
-The existing inference and exact-evaluation scripts must already be on Euler.
+The uploader copies only the sbatch and evaluation helpers from Euler_results to
+scratch. It never writes to the Euler Git working tree and does not submit jobs.
+Synchronize all VLM_adaptation code/data exclusively through GitHub. Inside Euler
+SSH, update the repository before submitting:
+
+```bash
+cd "$HOME/VLM_adaptation"
+git pull --ff-only
+git status --short
+```
+
+Resolve any local changes explicitly before pulling; do not automatically reset
+or clean the repository. The training, inference, scoring and QA files must all
+be present in the checked-out Git revision.
 
 Run the following inside **Euler SSH Bash**. `mixed` is an example: if you choose
 random, change BOTH commands to random.
