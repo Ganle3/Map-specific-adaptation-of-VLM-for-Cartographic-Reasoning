@@ -1,0 +1,18 @@
+[
+  {
+    "country": "usa",
+    "map_type": "with_annotations",
+    "map_no": "map_15117",
+    "template_no": 3,
+    "question": "What is the overall range of the legend?",
+    "ground_truth": "0-5",
+    "ground_truth_type": "Range",
+    "c_or_d": "d",
+    "relative_region": "N",
+    "source_index": 2051,
+    "corrected_template_no": 3,
+    "ability_level": "L0",
+    "map_family": "usa:map_15117",
+    "split": "train"
+  }
+]
