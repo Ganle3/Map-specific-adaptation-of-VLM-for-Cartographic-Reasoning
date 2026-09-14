@@ -26,6 +26,15 @@ def dtype_changes(before, after):
             if n not in before or n not in after or before[n]['dtype'] != after[n]['dtype']]
 
 
+def expected_bias_cast(change, allowed_names, already_cast):
+    b, a = change['before'], change['after']
+    return (change['name'] in allowed_names and change['name'] not in already_cast
+            and b is not None and a is not None
+            and b['dtype'] == 'torch.float32' and a['dtype'] == 'torch.bfloat16'
+            and not b['trainable'] and not a['trainable']
+            and b['shape'] == a['shape'] and b['parameter_class'] == a['parameter_class'])
+
+
 def preset(name):
     if name == "joint_r16":
         return 16, preset("vision_merger_r16")[1] | preset("language_r16")[1]
@@ -166,6 +175,18 @@ def main():
     class AuditedTrainer(Trainer):
         def __init__(self, *a, **kw):
             super().__init__(*a, **kw)
+            from bitsandbytes.nn import Linear4bit
+            import inspect
+            self._expected_bias_casts = {
+                n + '.bias' for n, m in self.model.named_modules()
+                if isinstance(m, Linear4bit) and '.visual.' in n
+                and m.bias is not None and not m.bias.requires_grad}
+            self._seen_bias_casts = set()
+            (output / 'quantized_bias_cast_policy.json').write_text(json.dumps(dict(
+                allowed_parameters=sorted(self._expected_bias_casts),
+                policy='Once per frozen visual Linear4bit bias: FP32 to BF16 only',
+                bitsandbytes_version=importlib.metadata.version('bitsandbytes'),
+                installed_forward_source=inspect.getsource(Linear4bit.forward)), indent=2), encoding='utf-8')
             self.add_callback(UpdateAudit())
             if self.use_vllm or self.args.use_transformers_continuous_batching:
                 raise RuntimeError('This diagnostic requires native generation')
@@ -201,9 +222,15 @@ def main():
             finally:
                 after = self._write_dtype_audit('generation_and_scoring', before)
             changes = dtype_changes(before, after)
-            if changes:
-                raise RuntimeError(f'{len(changes)} parameter dtype/name changes during rollout; '
+            unexpected = [c for c in changes if not expected_bias_cast(
+                c, self._expected_bias_casts, self._seen_bias_casts)]
+            if unexpected:
+                raise RuntimeError(f'{len(unexpected)} unexpected parameter dtype/name changes during rollout; '
                                    f'see {output / "rollout_dtype_audit.jsonl"}. No update allowed.')
+            if changes:
+                self._seen_bias_casts.update(c['name'] for c in changes)
+                print(f'Accepted {len(changes)} first-use frozen Linear4bit bias casts; '
+                      'LoRA/base weight casts remain forbidden.', flush=True)
             return result
     base.GRPOTrainer = AuditedTrainer
     base.run_training(args)

@@ -5,12 +5,22 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 from validate_joint4 import validate_dataset, EXPECTED
-from train_mapwise_grpo_joint4 import preset, dtype_changes
+from train_mapwise_grpo_joint4 import preset, dtype_changes, expected_bias_cast
 
 FOLDER=Path(__file__).resolve().parent
 DATA=FOLDER.parents[1]/'Datasets/Processed_Mapwise/Train_Val'
 
 class Checks(unittest.TestCase):
+    def test_only_first_frozen_bias_cast_is_allowed(self):
+        b=dict(dtype='torch.float32',trainable=False,shape=[4],parameter_class='Parameter')
+        a=dict(b,dtype='torch.bfloat16')
+        c=dict(name='visual.bias',before=b,after=a)
+        self.assertTrue(expected_bias_cast(c,{'visual.bias'},set()))
+        self.assertFalse(expected_bias_cast(c,{'visual.bias'},{'visual.bias'}))
+        self.assertFalse(expected_bias_cast(c,set(),set()))
+        self.assertFalse(expected_bias_cast(dict(c,after=dict(a,trainable=True)),{'visual.bias'},set()))
+        self.assertFalse(expected_bias_cast(dict(c,before=a,after=b),{'visual.bias'},set()))
+
     def test_dtype_changes_identify_parameters(self):
         before={'base':{'dtype':'torch.float32'}, 'adapter':{'dtype':'torch.bfloat16'}}
         self.assertEqual(dtype_changes(before, dict(before)), [])

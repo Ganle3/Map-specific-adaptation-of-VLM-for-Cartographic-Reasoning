@@ -25,7 +25,12 @@ See mapwise_grpo_joint_debug4_selection.json for provenance and full rankings.
 - No replay or SFT; maximum completion length 1536; seed 3407.
 - Save every 20 updates; retain all six checkpoints.
 - Verify adapter scope, optimizer registration, generation group membership,
-  and unchanged parameter dtypes across generation/scoring.
+  and parameter dtypes across generation/scoring. Allow only a first-use FP32 to
+  BF16 conversion of frozen visual bitsandbytes Linear4bit biases; retain all
+  other dtype-change failures. Record installed Linear4bit.forward source and
+  before/after inventories. Job 14187080 showed exactly 116 such bias casts,
+  with no additional changes between generation and scoring. The original
+  unconditional dtype guard incorrectly rejected this library behavior.
 
 Each QA receives 120 sampled groups. Its contribution is averaged with the other
 three QAs, so this does not reproduce the single-QA experiment's update strength.
