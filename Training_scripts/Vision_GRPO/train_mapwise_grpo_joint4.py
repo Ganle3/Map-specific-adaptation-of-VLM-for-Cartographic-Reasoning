@@ -14,6 +14,18 @@ import re
 import sys
 
 
+def parameter_inventory(model):
+    return {n: dict(dtype=str(p.dtype), shape=list(p.shape),
+                    parameter_class=type(p).__name__, trainable=p.requires_grad)
+            for n, p in model.named_parameters()}
+
+
+def dtype_changes(before, after):
+    return [dict(name=n, before=before.get(n), after=after.get(n))
+            for n in sorted(before.keys() | after.keys())
+            if n not in before or n not in after or before[n]['dtype'] != after[n]['dtype']]
+
+
 def preset(name):
     if name == "joint_r16":
         return 16, preset("vision_merger_r16")[1] | preset("language_r16")[1]
@@ -158,17 +170,40 @@ def main():
             if self.use_vllm or self.args.use_transformers_continuous_batching:
                 raise RuntimeError('This diagnostic requires native generation')
 
+        def _write_dtype_audit(self, phase, before):
+            after = parameter_inventory(self.model)
+            changes = dtype_changes(before, after)
+            record = dict(step=self.state.global_step, phase=phase, changes=changes,
+                          before=before, after=after,
+                          autocast_enabled=base.torch.is_autocast_enabled())
+            with (output / 'rollout_dtype_audit.jsonl').open('a', encoding='utf-8') as f:
+                f.write(json.dumps(record) + '\n')
+            if changes:
+                print('DTYPE CHANGE ' + phase + ': ' + json.dumps(changes), flush=True)
+            return after
+
+        def _generate_single_turn(self, *a, **kw):
+            before = parameter_inventory(self.model)
+            try:
+                return super()._generate_single_turn(*a, **kw)
+            finally:
+                self._write_dtype_audit('native_generation', before)
+
         def _generate_and_score_completions(self, inputs):
             from collections import Counter
             counts = Counter((r['country'], r['source_index']) for r in inputs)
             from validate_joint4 import EXPECTED
             if counts != Counter({key: 4 for key in EXPECTED}):
                 raise RuntimeError(f'Expected four rollouts for each of four QAs: {counts}')
-            before = {n: str(p.dtype) for n,p in self.model.named_parameters()}
-            result = super()._generate_and_score_completions(inputs)
-            after = {n: str(p.dtype) for n,p in self.model.named_parameters()}
-            if before != after:
-                raise RuntimeError('Parameter dtype changed during rollout generation/scoring')
+            before = parameter_inventory(self.model)
+            try:
+                result = super()._generate_and_score_completions(inputs)
+            finally:
+                after = self._write_dtype_audit('generation_and_scoring', before)
+            changes = dtype_changes(before, after)
+            if changes:
+                raise RuntimeError(f'{len(changes)} parameter dtype/name changes during rollout; '
+                                   f'see {output / "rollout_dtype_audit.jsonl"}. No update allowed.')
             return result
     base.GRPOTrainer = AuditedTrainer
     base.run_training(args)

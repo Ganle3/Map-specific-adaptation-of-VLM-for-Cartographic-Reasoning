@@ -5,12 +5,22 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 from validate_joint4 import validate_dataset, EXPECTED
-from train_mapwise_grpo_joint4 import preset
+from train_mapwise_grpo_joint4 import preset, dtype_changes
 
 FOLDER=Path(__file__).resolve().parent
 DATA=FOLDER.parents[1]/'Datasets/Processed_Mapwise/Train_Val'
 
 class Checks(unittest.TestCase):
+    def test_dtype_changes_identify_parameters(self):
+        before={'base':{'dtype':'torch.float32'}, 'adapter':{'dtype':'torch.bfloat16'}}
+        self.assertEqual(dtype_changes(before, dict(before)), [])
+        after={**before, 'base':{'dtype':'torch.bfloat16'}}
+        changed=dtype_changes(before,after)
+        self.assertEqual([r['name'] for r in changed], ['base'])
+        self.assertEqual(changed[0]['before']['dtype'], 'torch.float32')
+        self.assertEqual(changed[0]['after']['dtype'], 'torch.bfloat16')
+        self.assertEqual(len(dtype_changes(before,{})),2)
+
     def test_selection_and_anchor(self):
         rows=validate_dataset(DATA/'mapwise_grpo_joint_debug4_src2051.json')
         improved=json.loads((DATA/'mapwise_grpo_joint44_improved_20.json').read_text(encoding='utf-8'))
