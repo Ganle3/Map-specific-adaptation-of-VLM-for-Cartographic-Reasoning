@@ -7,6 +7,24 @@ from pathlib import Path
 import sys
 
 
+def active_adapter_names(model, adapter_loaded):
+    """Normalize PEFT properties and Transformers methods for the JSON audit."""
+    # Transformers exposes this method even without adapters, and calling it
+    # on a plain baseline can raise ValueError("No adapter loaded").
+    if not adapter_loaded:
+        return []
+    value = getattr(model, 'active_adapters', None)
+    if callable(value):
+        value = value()
+    if value is None:
+        return None
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, (list, tuple)) and all(isinstance(n, str) for n in value):
+        return list(value)
+    raise TypeError(f'Unexpected active_adapters value: {type(value).__name__}')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--loading-mode', choices=['E0', 'E1', 'E2'], required=True)
@@ -60,7 +78,7 @@ def main():
         write(current_label + '_loading_audit.json', dict(
             mode=args.loading_mode, checkpoint=str(adapter),
             checkpoint_hashes=checkpoint_hashes,
-            active_adapters=getattr(model, 'active_adapters', None),
+            active_adapters=active_adapter_names(model, adapter is not None),
             adapter_tensor_count=adapter_count, training=model.training,
             autocast_enabled=torch.is_autocast_enabled(),
             dtype_tensor_counts=dict(Counter(p['dtype'] for p in inventory)),
