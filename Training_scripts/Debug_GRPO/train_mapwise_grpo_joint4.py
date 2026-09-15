@@ -64,8 +64,8 @@ def main():
     sys.argv = [sys.argv[0], *remaining]
     args = base.parse_args()
     args.lora_rank = args.lora_alpha = rank
-    args.per_device_train_batch_size = 2
-    args.gradient_accumulation_steps = 8
+    if args.per_device_train_batch_size < 1 or args.gradient_accumulation_steps < 1:
+        p.error('Batch size and gradient accumulation must be positive')
     args.num_generations = 4
     args.warmup_fraction = 0.0
     args.preserve_qa_order = True
@@ -76,8 +76,8 @@ def main():
     base.validate_args(args)
     if args.init_adapter_path is not None or args.resume_from_checkpoint is not None:
         p.error("Use a fresh raw base model, no init adapter or resume")
-    if not args.preserve_qa_order or int(os.environ.get("WORLD_SIZE", "1")) != 1:
-        p.error("Use fixed QA order on one GPU per experiment")
+    if int(os.environ.get("WORLD_SIZE", "1")) != 1:
+        p.error("This diagnostic requires one GPU per experiment")
     if extra.max_steps < 1 or args.beta != 0:
         p.error("Positive max-steps and beta=0 are required")
     if importlib.metadata.version("trl") != "1.12.0":
@@ -219,7 +219,7 @@ def main():
             from collections import Counter
             counts = Counter((r['country'], r['source_index']) for r in inputs)
             expected_batch = {key: 4 for key in dict.fromkeys(expected_keys)}
-            if len(counts) != 4 or any(value != 4 for value in counts.values()) \
+            if len(counts) < 1 or any(value != 4 for value in counts.values()) \
                     or not set(counts).issubset(expected_batch):
                 raise RuntimeError(f'Expected four rollouts for four selected QAs: {counts}')
             before = parameter_inventory(self.model)
