@@ -198,12 +198,47 @@ def generate_once(
 
 
 def pattern_label(rewards: List[int]) -> str:
+    if not rewards:
+        return "no_generations"
     total = sum(rewards)
     if total == 0:
         return "all_wrong"
     if total == len(rewards):
         return "all_correct"
     return "mixed"
+
+
+def get_row_id(row: Dict[str, Any]) -> str:
+    """
+    Return a stable sample ID for either:
+      - curated diagnostic CSVs using selection_id
+      - full-screening CSVs using screening_id
+      - fallback CSVs using source_row
+    """
+    for key in ("selection_id", "screening_id", "source_row"):
+        value = row.get(key)
+        if value is not None and str(value).strip() != "":
+            return str(value)
+    raise KeyError(
+        "No usable ID column found. Expected one of: "
+        "selection_id, screening_id, source_row"
+    )
+
+
+def get_result_id(item: Dict[str, Any]) -> str | None:
+    """
+    Recover the stable sample ID from either new or historical result JSON.
+    """
+    value = item.get("sample_id")
+    if value is not None and str(value).strip() != "":
+        return str(value)
+
+    for key in ("selection_id", "screening_id", "source_row"):
+        value = item.get(key)
+        if value is not None and str(value).strip() != "":
+            return str(value)
+
+    return None
 
 
 def save_outputs(results: List[Dict[str, Any]], output_dir: Path) -> None:
@@ -217,36 +252,46 @@ def save_outputs(results: List[Dict[str, Any]], output_dir: Path) -> None:
     summary_rows = []
 
     for item in results:
-        rewards = [int(g["evaluation"]["reward"]) for g in item["generations"]]
+        rewards = [int(g["evaluation"]["reward"]) for g in item.get("generations", [])]
         reward_pattern = ",".join(str(x) for x in rewards)
 
+        status = item.get("status", "completed")
+        diagnostic_class = (
+            "oom_skipped"
+            if status == "oom_skipped"
+            else pattern_label(rewards)
+        )
+        mean_reward = (sum(rewards) / len(rewards)) if rewards else ""
+
+        common = {
+            "sample_id": item.get("sample_id", get_result_id(item) or ""),
+            "selection_id": item.get("selection_id", ""),
+            "screening_id": item.get("screening_id", ""),
+            "source_row": item.get("source_row", ""),
+            "image_name": item.get("image_name", ""),
+            "question": item.get("question", ""),
+            "correct_answer": item.get("correct_answer", ""),
+            "answer_type": item.get("answer_type", ""),
+            "question_type": item.get("question_type", ""),
+            "map_type": item.get("map_type", ""),
+            "geographic_level": item.get("geographic_level", ""),
+        }
+
         summary_rows.append({
-            "selection_id": item["selection_id"],
-            "source_row": item["source_row"],
-            "image_name": item["image_name"],
-            "question": item["question"],
-            "correct_answer": item["correct_answer"],
-            "answer_type": item["answer_type"],
-            "question_type": item["question_type"],
-            "map_type": item["map_type"],
-            "geographic_level": item["geographic_level"],
+            **common,
             "reward_pattern": reward_pattern,
             "correct_generations": sum(rewards),
             "num_generations": len(rewards),
-            "mean_reward": sum(rewards) / len(rewards),
-            "diagnostic_class": pattern_label(rewards),
+            "mean_reward": mean_reward,
+            "diagnostic_class": diagnostic_class,
+            "status": status,
+            "error": item.get("error", ""),
         })
 
-        for g in item["generations"]:
+        for g in item.get("generations", []):
             ev = g["evaluation"]
             flat_rows.append({
-                "selection_id": item["selection_id"],
-                "source_row": item["source_row"],
-                "image_name": item["image_name"],
-                "question": item["question"],
-                "correct_answer": item["correct_answer"],
-                "answer_type": item["answer_type"],
-                "question_type": item["question_type"],
+                **common,
                 "generation_id": g["generation_id"],
                 "completion": g["completion"],
                 "prediction_canonical": ev["prediction_canonical"],
@@ -264,7 +309,6 @@ def save_outputs(results: List[Dict[str, Any]], output_dir: Path) -> None:
 
     write_csv(output_dir / "mapverse_rollout_generations.csv", flat_rows)
     write_csv(output_dir / "mapverse_rollout_summary.csv", summary_rows)
-
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -357,11 +401,17 @@ def main() -> None:
     if args.resume and output_json.exists():
         with output_json.open("r", encoding="utf-8") as f:
             results = json.load(f)
-        completed_ids = {str(x["selection_id"]) for x in results}
+
+        completed_ids = {
+            rid
+            for item in results
+            if (rid := get_result_id(item)) is not None
+        }
+
         print(f"Resuming: {len(completed_ids)} questions already completed.")
 
     for pos, row in enumerate(rows, start=1):
-        sid = str(row["selection_id"])
+        sid = get_row_id(row)
         if sid in completed_ids:
             continue
 
@@ -377,13 +427,15 @@ def main() -> None:
         print("\n" + "=" * 100)
         print(
             f"[{pos}/{len(rows)}] ID={sid} | {answer_type} | "
-            f"{row['question_type']} | image={row['image_name']}"
+            f"{row.get('question_type', '')} | image={row['image_name']}"
         )
         print(f"Q:  {question}")
         print(f"GT: {ground_truth}")
 
         generations = []
         reward_vector = []
+
+        oom_error = None
 
         for g in range(1, args.num_generations + 1):
             try:
@@ -416,30 +468,42 @@ def main() -> None:
                     f"  GEN {g:02d} | reward={reward} | "
                     f"pred={ev['prediction_canonical']!r}"
                 )
+
+            except torch.OutOfMemoryError as e:
+                oom_error = str(e)
+                print(f"  GEN {g:02d} | CUDA OOM -> skipping entire QA")
+                break
+
             finally:
                 gc.collect()
                 if torch.cuda.is_available():
                     torch.cuda.empty_cache()
 
-        label = pattern_label(reward_vector)
-        pattern = ",".join(str(x) for x in reward_vector)
-
-        print(
-            f"  => rewards=[{pattern}] | class={label} | "
-            f"mean={sum(reward_vector)/len(reward_vector):.2f}"
-        )
+        if oom_error is not None:
+            print("  => class=oom_skipped")
+        else:
+            label = pattern_label(reward_vector)
+            pattern = ",".join(str(x) for x in reward_vector)
+            print(
+                f"  => rewards=[{pattern}] | class={label} | "
+                f"mean={sum(reward_vector)/len(reward_vector):.2f}"
+            )
 
         results.append({
-            "selection_id": row["selection_id"],
-            "source_row": row["source_row"],
+            "sample_id": sid,
+            "selection_id": row.get("selection_id", ""),
+            "screening_id": row.get("screening_id", ""),
+            "source_row": row.get("source_row", ""),
             "image_name": row["image_name"],
             "question": question,
             "correct_answer": ground_truth,
             "answer_type": answer_type,
-            "question_type": row["question_type"],
-            "map_type": row["map_type"],
-            "geographic_level": row["geographic_level"],
+            "question_type": row.get("question_type", ""),
+            "map_type": row.get("map_type", ""),
+            "geographic_level": row.get("geographic_level", ""),
             "generations": generations,
+            "status": "oom_skipped" if oom_error is not None else "completed",
+            "error": oom_error or "",
         })
 
         # Save after every QA so long runs are interruption-safe.
@@ -465,10 +529,24 @@ def main() -> None:
             f"{sum(all_rewards)/len(all_rewards):.4f}"
         )
 
-    classes = {"all_wrong": 0, "mixed": 0, "all_correct": 0}
+    classes = {
+        "all_wrong": 0,
+        "mixed": 0,
+        "all_correct": 0,
+        "oom_skipped": 0,
+    }
     for item in results:
-        rs = [int(g["evaluation"]["reward"]) for g in item["generations"]]
-        classes[pattern_label(rs)] += 1
+        if item.get("status") == "oom_skipped":
+            classes["oom_skipped"] += 1
+            continue
+
+        rs = [
+            int(g["evaluation"]["reward"])
+            for g in item.get("generations", [])
+        ]
+        label = pattern_label(rs)
+        if label in classes:
+            classes[label] += 1
 
     print(f"Question-level classes: {classes}")
     print(
