@@ -1,0 +1,8 @@
+﻿selection_id,source_row,image_name,question,correct_answer,answer_type,question_type,map_type,geographic_level,reward_pattern,correct_generations,num_generations,mean_reward,diagnostic_class
+1,2983,308.webp,What color is used to represent the language spoken in Andaman & Nicobar Islands?,Light brown,Single Entity,['Visual'],_choropleth,_country,"0,1,0,0",1,4,0.25,mixed
+2,6814,471.jpg,What time is shown on the map in Iceland?Give me time not timezone,12:00,Single Entity,['Visual'],_divisional,_continent,"1,1,1,1",4,4,1.0,all_correct
+3,263,28.jpg,Which continent appears to have a thin red line extending southward from it?,Africa,Single Entity,['Visual'],_cartogram,_world,"0,1,0,0",1,4,0.25,mixed
+4,5304,539.jpg,Which station is common between the JR Chuo Line and the JR Yamanote Line on the west side of map?,Yoyogi,Single Entity,['Positional'],_network,_city,"0,0,0,0",0,4,0.0,all_wrong
+5,7908,563.jpg,Through which French city did the 94th Infantry Division pass after landing in Europe?,Cherbourg,Single Entity,['Positional'],_conflict,_subcontinent,"0,0,0,0",0,4,0.0,all_wrong
+6,6174,587.jpg,Which direction should you travel from Weis Markets to reach the new Rodney stoplight?,West,Single Entity,['Positional'],_layout,_campus,"1,1,1,1",4,4,1.0,all_correct
+7,3343,345.jpg,Which U.S. coastal state shows the first incoming bands of precipitation in the image?,Texas,Single Entity,['Comparative'],_isopleth,_region,"0,0,0,0",0,4,0.0,all_wrong

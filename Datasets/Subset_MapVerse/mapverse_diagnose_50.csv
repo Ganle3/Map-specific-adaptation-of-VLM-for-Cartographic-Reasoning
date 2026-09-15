@@ -1,0 +1,51 @@
+selection_id,source_row,image_name,question,correct_answer,answer_type,question_type,map_type,image_size_bucket,geographic_level
+1,2983,308.webp,What color is used to represent the language spoken in Andaman & Nicobar Islands?,Light brown,Single Entity,['Visual'],_choropleth,0.1–0.5MP,_country
+2,6814,471.jpg,What time is shown on the map in Iceland?Give me time not timezone,12:00,Single Entity,['Visual'],_divisional,0.1–0.5MP,_continent
+3,263,28.jpg,Which continent appears to have a thin red line extending southward from it?,Africa,Single Entity,['Visual'],_cartogram,0.1–0.5MP,_world
+4,5304,539.jpg,Which station is common between the JR Chuo Line and the JR Yamanote Line on the west side of map?,Yoyogi,Single Entity,['Positional'],_network,0.5–2MP,_city
+5,7908,563.jpg,Through which French city did the 94th Infantry Division pass after landing in Europe?,Cherbourg,Single Entity,['Positional'],_conflict,0.1–0.5MP,_subcontinent
+6,6174,587.jpg,Which direction should you travel from Weis Markets to reach the new Rodney stoplight?,West,Single Entity,['Positional'],_layout,0.1–0.5MP,_campus
+7,3343,345.jpg,Which U.S. coastal state shows the first incoming bands of precipitation in the image?,Texas,Single Entity,['Comparative'],_isopleth,0.5–2MP,_region
+8,4832,492.png,Juniper elementary is closest to which street on the given map,NE 12th St,Single Entity,['Comparative'],_network,>8MP,_neighborhood
+9,202,21.jpeg,Which Clinic according to the map is closest to henry coe state park?,De Paul Health Center.,Single Entity,['Comparative'],_marker,2–8MP,_county
+10,3547,365.jpg,What color is used to shade the location of The Equipment Room on the stadium map?,yellow,Single Entity,"['Visual', 'Positional']",_multiple,0.5–2MP,_building
+11,4469,226.jpg,Which bright yellow county in southern Tennessee shares a name with a U.S. President?,Lincoln County,Single Entity,"['Visual', 'Positional']",_divisional,0.1–0.5MP,_state
+12,6170,586.jpg,"Based on the map, Ashfield appears to be located on which green station line?",A22,Single Entity,"['Visual', 'Positional']",_choropleth,0.1–0.5MP,_region
+13,8539,693.jpg,"Which color band (yellow, orange, or red) is most prevalent overall on the map?",Orange,Single Entity,"['Visual', 'Comparative']",_isopleth,0.5–2MP,_state
+14,7362,617.jpg,What is the closest rue to the small dark green square in the map?,Rue de Paradis,Single Entity,"['Visual', 'Comparative']",_mixed,2–8MP,_city
+15,5976,577.png,What is the name of the suite level located above the Lower Suite West?,Upper Suite West,Single Entity,"['Positional', 'Comparative']",_layout,2–8MP,_building
+16,5134,522.png,"Based on the country map, which south western state has least number of beds?",Nevada,Single Entity,"['Positional', 'Comparative']",_marker,0.5–2MP,_country
+17,7650,542.png,Which color region shows the least amount of visible growth between 1800 and 2100?,pink,Single Entity,"['Visual', 'Positional', 'Comparative']",_multiple,0.5–2MP,_world
+18,2133,220.jpg,Which country is partially visible in the bottom left corner of the North Africa map?,Morocco,Single Entity,"['Visual', 'Positional', 'Comparative']",_conflict,0.5–2MP,_subcontinent
+19,700,73.jpg,Which ferry route is represented by the cyan circular path in the harbor?,New Jersey ferry,Single Entity,['Other'],_network,0.5–2MP,_neighborhood
+20,7943,629.png,Which city includes both Kenmore ES and O Sorenson ES?,Bothell,Single Entity,['Other'],_divisional,0.5–2MP,_district
+21,189,20.png,Count the labelled countries whose density value ends in the digit “9”.,2,Counting,['Visual'],_cartogram,2–8MP,_continent
+22,10753,893.png,"How many parking lots are explicitly marked on the map with a P"" symbol?""",12,Counting,['Visual'],_layout,0.5–2MP,_campus
+23,90,10.jpeg,How many hospital and clinic names are obscured by the legend on the map?,3,Counting,['Visual'],_marker,2–8MP,_county
+24,6937,481.jpg,"In the figure, how many states have a mean temperature between 26 and 28?",8,Counting,['Positional'],_choropleth,0.5–2MP,_country
+25,8070,642.png,how many stops are there between paramatta and sydney olympic park according to the image?,1,Counting,['Positional'],_network,>8MP,_city
+26,3267,337.jpg,How many U.S. states does the elongated cloud band cross on the northern Gulf Coast?,4,Counting,['Positional'],_isopleth,0.5–2MP,_region
+27,5397,548.jpg,How many countries neighboring india have more than 70% decrease in groundwater resources according,2,Counting,['Comparative'],_multiple,0.5–2MP,_world
+28,10644,864.jpg,How many labeled sections are there in the southernmost part of the map's boundary?,6,Counting,"['Visual', 'Positional']",_mixed,0.5–2MP,_county
+29,11228,1015.gif,"How many different color regions are present in along the Syria-Iraq border, according to this map?",5,Counting,"['Visual', 'Positional']",_conflict,0.5–2MP,_subcontinent
+30,295,31.png,"In the population cartogram, how many red states share a border with Florida?",0,Counting,"['Visual', 'Positional']",_cartogram,0.5–2MP,_country
+31,8016,637.jpg,How many junior high schools are shown on the map?,4,Counting,"['Visual', 'Comparative']",_divisional,0.5–2MP,_district
+32,10729,887.png,"How many sections are there in the 200 level, that are numbered less than 210?",9,Counting,"['Visual', 'Comparative']",_layout,2–8MP,_building
+33,10557,840.png,"In the northern half of California, how many locations are represented by circles showing less than 50 professionals?",15,Counting,"['Positional', 'Comparative']",_marker,0.1–0.5MP,_state
+34,4411,451.jpg,Look at the top of the map. How many numbered rows are in the map?,11,Counting,"['Visual', 'Positional', 'Comparative']",_mixed,0.5–2MP,_city
+35,10596,850.png,How many different street names are mentioned that end with the letter 'e'?,4,Counting,['Other'],_network,0.1–0.5MP,_neighborhood
+36,10420,993.png,Are the regions with similar population densities represented with the same color shade?,Yes,Boolean,['Visual'],_cartogram,>8MP,_continent
+37,10283,958.jpeg,Is there a helipad shown in any of the provided floor plans?,No,Boolean,['Visual'],_multiple,0.5–2MP,_campus
+38,3338,344.jpg,Are the Florida Keys entirely south of every red-coloured pixel? (yes / no),Yes,Boolean,['Positional'],_isopleth,2–8MP,_region
+39,10032,897.jpg,Does the map show a completely uniform spread of COVID-19 across all continents?,No,Boolean,['Positional'],_choropleth,0.5–2MP,_world
+40,8013,636.png,Are New Manchester High School and Elementary School in the same district?,No,Boolean,['Comparative'],_divisional,0.5–2MP,_district
+41,10357,977.jpeg,Does the map depict the entirety of historical Palestine as being under Israeli control in 1967?,Yes,Boolean,['Comparative'],_conflict,2–8MP,_country
+42,10364,979.jpg,Is section 222 located closer to the East Club Entrance than section 101?,Yes,Boolean,"['Visual', 'Positional']",_layout,0.5–2MP,_building
+43,9982,884.png,Are there more than 10 major crosswalks shown on the entire map?,No,Boolean,"['Visual', 'Comparative']",_network,>8MP,_neighborhood
+44,9630,804.jpg,Does John F. Kennedy High School share a boundary with any pink zone?,Yes,Boolean,"['Visual', 'Comparative']",_mixed,2–8MP,_county
+45,2442,252.jpg,Is the death toll in Africa in 2022 lower then the Middle East?,No,Boolean,"['Positional', 'Comparative']",_multiple,>8MP,_subcontinent
+46,2610,269.png,Does the southeastern U.S. show a high Indigenous population?,No,Boolean,"['Positional', 'Comparative']",_choropleth,2–8MP,_continent
+47,10070,906.jpg,Is the Ringling Art Museum located further south than Cypress Gardens?,Yes,Boolean,"['Positional', 'Comparative']",_marker,0.5–2MP,_state
+48,7658,622.jpg,Are most of the yellow zones (Ukrainian advance) located north of Donetsk?,yes,Boolean,"['Visual', 'Positional', 'Comparative']",_conflict,0.1–0.5MP,_region
+49,6608,448.png,Does the bottom part of the map look larger than the top?,No,Boolean,"['Visual', 'Positional', 'Comparative']",_cartogram,0.1–0.5MP,_continent
+50,7878,560.webp,Does the map indicate that Thuraya service is possible in the Philippines?,Yes,Boolean,['Other'],_isopleth,0.5–2MP,_world

@@ -68,7 +68,8 @@ def main():
         p.error('Batch size and gradient accumulation must be positive')
     args.num_generations = 4
     args.warmup_fraction = 0.0
-    args.preserve_qa_order = True
+    # Preserve the caller's ordering choice.  The fixed-order experiment
+    # passes --preserve-qa-order explicitly; random-order runs leave it off.
     args.save_steps = 20
     args.save_total_limit = extra.max_steps // 20 + 1
     if extra.max_steps < 1 or args.learning_rate != 5e-6 or args.max_completion_length != 1536:
