@@ -71,8 +71,8 @@ def main():
     args.preserve_qa_order = True
     args.save_steps = 20
     args.save_total_limit = extra.max_steps // 20 + 1
-    if extra.max_steps != 120 or args.learning_rate != 5e-6 or args.max_completion_length != 1536:
-        p.error('Use 120 updates, LR 5e-6 and completion limit 1536')
+    if extra.max_steps < 1 or args.learning_rate != 5e-6 or args.max_completion_length != 1536:
+        p.error('Use positive updates, LR 5e-6 and completion limit 1536')
     base.validate_args(args)
     if args.init_adapter_path is not None or args.resume_from_checkpoint is not None:
         p.error("Use a fresh raw base model, no init adapter or resume")
@@ -82,8 +82,13 @@ def main():
         p.error("Positive max-steps and beta=0 are required")
     if importlib.metadata.version("trl") != "1.12.0":
         raise RuntimeError("This entry point requires TRL 1.12.0")
-    from validate_joint4 import validate_dataset
-    validate_dataset(args.qa_json)
+    from validate_joint4 import validate_dataset as validate4
+    rows = validate4(args.qa_json) if Path(args.qa_json).name == 'mapwise_grpo_joint_debug4_src2051.json' else json.loads(Path(args.qa_json).read_text(encoding='utf-8-sig'))
+    if len(rows) not in (4, 20) or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
+        raise ValueError('Expected exactly 4 or 20 unique QAs')
+    expected_keys = [(r['country'], r['source_index']) for r in rows]
+    if len(rows) == 20 and Path(args.qa_json).name != 'mapwise_grpo_joint44_improved_20.json':
+        raise ValueError('20-QA run requires the selected improved_20 dataset')
     output = Path(args.output_dir).expanduser().resolve()
     if (output / "run_config.json").exists() or list(output.glob("checkpoint-*")):
         p.error("Use a new output directory")
@@ -119,8 +124,8 @@ def main():
     base.GRPOConfig = config
     save = base.save_run_config
     def save_config(output_dir, args, dataset_size, **unused):
-        if dataset_size != 4:
-            raise ValueError(f"Expected the fixed 4-QA set, got {dataset_size}")
+        if dataset_size != len(rows):
+            raise ValueError(f"Expected {len(rows)} QAs, got {dataset_size}")
         save(output_dir, args, dataset_size, extra.max_steps, math.ceil(extra.max_steps * args.warmup_fraction))
         path = output_dir / "run_config.json"
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -128,7 +133,7 @@ def main():
             payload.pop(key, None)
         payload.update(lora_target_modules=len(targets), lora_trainable_tensors=2*len(targets),
                        step_counts_are_estimates=False, budget_unit="optimizer_updates",
-                       replay=False, num_iterations=1, lr_scheduler_type='constant', qa_groups_per_update=4, exposures_per_qa=120,
+                       replay=False, num_iterations=1, lr_scheduler_type='constant', qa_groups_per_update=len(rows), exposures_per_qa=extra.max_steps,
                        sha256={str(f): hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in
                                (args.qa_json, args.evaluation_script, Path(__file__), Path(base.__file__))},
                        versions={v: importlib.metadata.version(v) for v in
@@ -213,9 +218,8 @@ def main():
         def _generate_and_score_completions(self, inputs):
             from collections import Counter
             counts = Counter((r['country'], r['source_index']) for r in inputs)
-            from validate_joint4 import EXPECTED
-            if counts != Counter({key: 4 for key in EXPECTED}):
-                raise RuntimeError(f'Expected four rollouts for each of four QAs: {counts}')
+            if counts != Counter({key: 4 for key in expected_keys}):
+                raise RuntimeError(f'Expected four rollouts for each selected QA: {counts}')
             before = parameter_inventory(self.model)
             try:
                 result = super()._generate_and_score_completions(inputs)
