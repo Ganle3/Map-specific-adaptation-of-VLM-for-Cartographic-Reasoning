@@ -1,0 +1,1241 @@
+image_name,question,correct_answer,question_type,answer_type,map_type,image_size_bucket,geographic_level,source_row,screening_id
+682.jpg,Which time span (kya) is associated with expansions marked by green shading around Central Asia?,35–25 kya,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_continent,8439,7441
+682.jpg,Does the thick black route passing through North Africa curve into the Levant or bypass it entirely?,curve into the Levant,"['Visual', 'Positional']",Boolean,_isopleth,0.1–0.5MP,_continent,8440,7442
+683.gif,Which color on the legend corresponds to a 70% chance of exceeding median rainfall?,Green,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8441,7443
+683.gif,Which northern state shows a large area of 30% (lowest) probability?,Northern Queensland,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8442,7444
+683.gif,"In the southwestern region of Western Australia,do we generally see probabilities above or below 50?",Above,"['Visual', 'Positional']",Boolean,_isopleth,0.1–0.5MP,_country,8443,7445
+683.gif,Which part of the Northern Territory is mapped with about 45% probability?,Central to southern NT,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8444,7446
+683.gif,Which color on the legend indicates a 30% chance of exceeding median rainfall?,Orange or red band,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8445,7447
+683.gif,Which region in New South Wales has probabilities around 55–60%?,Northern or central inland,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8446,7448
+683.gif,"Along coastal Western Australia near Perth, what approximate probability color range do we see?",65–70% or green,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_country,8447,7449
+683.gif,Which color on the map typically represents a 50% chance of exceeding median rainfall?,Neutral or gray,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8448,7450
+683.gif,"In the Gulf of Carpentaria region, do we see more 30–35% or 50–60% chance?",30–35%,"['Visual', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_country,8450,7451
+684.jpg,Which region has a labeled “H” near 1016 mb?,southern border or Gulf,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_continent,8451,7452
+684.jpg,Does 1020 mb appear west or east of the Rockies?,Eastern U.S.,"['Visual', 'Positional']",Boolean,_isopleth,0.1–0.5MP,_continent,8452,7453
+684.jpg,Where is the southwestern “L” centered?,Arizona or New Mexico,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_continent,8453,7454
+684.jpg,Is 1004 mb near the Midwest or the Northeast?,Midwest,['Positional'],Boolean,_isopleth,0.1–0.5MP,_continent,8454,7455
+684.jpg,Is 1016 mb closer to the Gulf or Canadian border?,Gulf Coast,['Positional'],Boolean,_isopleth,0.1–0.5MP,_continent,8455,7456
+684.jpg,Is 1008 mb near the central Plains or Appalachians?,Central Plains,['Positional'],Boolean,_isopleth,0.1–0.5MP,_continent,8456,7457
+684.jpg,Which region near the West Coast shows an “H” or “L”?,Southwest,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_continent,8457,7458
+684.jpg,Is 1020 mb near the Mid-Atlantic or Northern Plains?,Mid-Atlantic,['Positional'],Boolean,_isopleth,0.1–0.5MP,_continent,8458,7459
+684.jpg,Are isobars spaced more widely near the southwestern “L” or the Gulf “H”?,Gulf “H”,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_continent,8459,7460
+684.jpg,Does the 1006 mb isobar extend over the Northeast or the central Plains?,Central Plains,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_continent,8460,7461
+684.jpg,Does the 1012 mb isobar cross the Mississippi River or the Appalachian Mountains?,Mississippi,['Positional'],Boolean,_isopleth,0.1–0.5MP,_continent,8461,7462
+685.jpg,Which region in Alaska shows both IFR and MVFR conditions?,Aleutian Islands,['Other'],Single Entity,_isopleth,0.1–0.5MP,_region,8462,7463
+685.jpg,Which region is experiencing IFR conditions furthest from the Alaska mainland?,South-central Gulf of Alaska,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_region,8463,7464
+685.jpg,How many separate IFR zones are outlined on this map?,3,['Other'],Counting,_isopleth,0.1–0.5MP,_region,8464,7465
+685.jpg,Which IFR zone appears to cover the largest geographic area?,central Aleutians,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,8465,7466
+685.jpg,What weather classification applies to the area near the Bering Sea coast of western Alaska?,MVFR,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_region,8466,7467
+685.jpg,Does the IFR zone in southern Alaska extend into MVFR areas?,Yes,['Positional'],Boolean,_isopleth,0.1–0.5MP,_region,8467,7468
+685.jpg,What is the longitude range of the westernmost MVFR area?,165°W–170°W,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,8468,7469
+685.jpg,What do the red shaded areas represent?,IFR conditions or Instrument Flight Rules conditions,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_region,8469,7470
+685.jpg,What organization produced this weather map?,NOAA–NWS,['Other'],Single Entity,_isopleth,0.1–0.5MP,_region,8470,7471
+685.jpg,What date is this weather chart valid for?,April 20 2007,['Other'],Single Entity,_isopleth,0.1–0.5MP,_region,8471,7472
+686.jpg,Which city is closest to the 1000 mb line?,Nagpur,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,8472,7473
+686.jpg,Which southern city lies on the 1004 mb line?,Thiruvananthapuram,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8473,7474
+686.jpg,Which pressure line passes through Bangalore?,1007 mb,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8474,7475
+686.jpg,Which city lies between the 1000 and 1002 mb lines?,Vishakhapatnam,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8475,7476
+686.jpg,Which northeastern city is near the 28Â°C temperature line?,Guwahati,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8476,7477
+686.jpg,Which city has both 1000 mb pressure and around 28Â°C temperature?,Bhubaneshwar,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,8477,7478
+686.jpg,Which direction does the 1000 mb line curve in eastern India?,Northeast,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8478,7479
+686.jpg,Which region of India has the lowest pressure during July?,Western Rajasthan,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,8479,7480
+686.jpg,Which pressure line exits into the Arabian Sea?,1000 mb,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,8480,7481
+686.jpg,Which island group lies within the 1008 mb contour?,Andaman and Nicobar Islands,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8481,7482
+687.jpg,Which region experiences 'hot desert (summer drought)'?,Western Australia,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,8482,7483
+687.jpg,Which climate type is least common across Australia?,Rainforest (persistently wet),"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8483,7484
+687.jpg,What color indicates 'savanna' climate under tropical classification?,Light yellow,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8484,7485
+687.jpg,Which zone lies between tropical and desert climate regions?,Savanna,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8485,7486
+687.jpg,What coastal zone in Western Australia is mostly desert?,Northwest coast,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8486,7487
+687.jpg,Which classification has the smallest coverage?,Rainforest (persistently wet),['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,8487,7488
+687.jpg,"Which region lies in a 'no dry season, mild summer' zone?",Canberra region,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8488,7489
+687.jpg,What is the southernmost temperate zone on the map?,No dry season (cool summer),['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8489,7490
+687.jpg,What color represents 'no dry season (hot summer)' under temperate climate?,Dark purple,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8490,7491
+687.jpg,Which coastal region has 'distinctly dry summer' climate?,Southern coast near Adelaide,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,8491,7492
+688.gif,Which region shows the largest pie chart on the map?,Prague,['Comparative'],Single Entity,_mixed,0.1–0.5MP,_country,8492,7493
+688.gif,Which party (by color) had the highest vote share in Prague?,Blue,"['Visual', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_country,8493,7494
+688.gif,What is the dominant religion-affiliation pattern in the southeast of the country?,High,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_country,8494,7495
+688.gif,Which region shows a large black slice in its pie chart (KDU-ČSL support)?,South Moravia,"['Visual', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_country,8495,7496
+688.gif,Is the yellow party (ČSSD) stronger in eastern or western regions?,Eastern regions,"['Visual', 'Positional']",Boolean,_mixed,0.1–0.5MP,_country,8496,7497
+688.gif,Which region combines high religious population and high KSČM (red) vote share?,South Bohemia,"['Visual', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_country,8497,7498
+688.gif,Is there a noticeable relationship between high religious affiliation and black pie slices?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_mixed,0.1–0.5MP,_country,8498,7499
+688.gif,What election year does this map represent?,1996,['Other'],Single Entity,_mixed,0.1–0.5MP,_country,8499,7500
+688.gif,What type of chart is used to show party vote shares?,Pie,['Visual'],Single Entity,_mixed,0.1–0.5MP,_country,8500,7501
+688.gif,What does the color shading of regions represent?,Proportion of population with religious affiliation,['Visual'],Single Entity,_mixed,0.1–0.5MP,_country,8501,7502
+689.gif,What is the date range of last light frost in the Kamchatka peninsula?,June 9 - June 24,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8502,7503
+689.gif,Which is the southernmost country which has a place with the last light frost date to be at June 24?,Tajikistan,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_country,8504,7504
+689.gif,What is the last light frost date for Estonia?,May 26,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8505,7505
+689.gif,"If a region in the map is colored light orange, then what would be its last frost date?",May 5,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8506,7506
+689.gif,"If a region in the map is colored black, then what would be its last frost date?",July 8,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8507,7507
+689.gif,Do we have violet colored region below 40 degree North latitude? Say yes or no.,Yes,"['Visual', 'Positional']",Boolean,_isopleth,0.1–0.5MP,_country,8508,7508
+689.gif,Do we have green colored region in Russia bordering Mongolia?,No,"['Visual', 'Positional']",Boolean,_isopleth,0.1–0.5MP,_country,8509,7509
+689.gif,Do we have places along the Arctic sea coast which have last frost date before May 12?,No,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8510,7510
+689.gif,Do we have places along the Pacific coast which have last frost date before April 13?,No,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8511,7511
+690.jpg,Which state shows large areas of >10 increased invaders?,Ohio,['Comparative'],Single Entity,_multiple,2–8MP,_region,8512,7512
+690.jpg,Which state shows most decreased invaders?,Tennessee,['Comparative'],Single Entity,_multiple,2–8MP,_region,8513,7513
+690.jpg,What does the yellow star represent?,Reference points or scenarios,['Visual'],Single Entity,_multiple,2–8MP,_region,8514,7514
+690.jpg,Which state has the most 'Maintained' suitability in panel e?,Tennessee,['Comparative'],Single Entity,_multiple,2–8MP,_region,8515,7515
+690.jpg,Which state shows heavy 'Decreased' invader areas in panel c?,Kentucky,['Other'],Single Entity,_multiple,2–8MP,_region,8516,7516
+690.jpg,What does a value >30 in panel b represent?,maintained invaders,['Other'],Single Entity,_multiple,2–8MP,_region,8517,7517
+690.jpg,Which state consistently shows maintained invader regions across all top maps?,Indiana,"['Positional', 'Comparative']",Single Entity,_multiple,2–8MP,_region,8518,7518
+690.jpg,Which state shows consistently red future suitability across all panels?,Virginia,"['Visual', 'Positional']",Single Entity,_multiple,2–8MP,_region,8519,7519
+690.jpg,Which panel shows the fewest black dots?,Panel f,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_region,8520,7520
+690.jpg,Which state has a strong increase in panel a but is unsuitable in panel f?,Illinois,['Comparative'],Single Entity,_multiple,2–8MP,_region,8521,7521
+691.jpg,In what US states we see decrease of shrubs but increase in trees?,Missouri,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_region,8524,7522
+691.jpg,What is change expected in the Herbs in the state of florida?,Decrease in density,['Other'],Single Entity,_multiple,2–8MP,_region,8525,7523
+692.jpg,The coldest color on the mainland map (deep blue) is found primarily in how many U.S. states?,3,['Visual'],Counting,_isopleth,0.5–2MP,_state,8532,7524
+692.jpg,"Which mainland U.S. state shows the highest internal temperature gradient, meaning the widest range",Texas,['Comparative'],Single Entity,_isopleth,0.5–2MP,_state,8533,7525
+692.jpg,How many contiguous U.S. states do not have any region below 30°F?,8,['Positional'],Counting,_isopleth,0.5–2MP,_state,8534,7526
+693.jpg,Which color on the scale corresponds to the highest values (near 50)?,Deep red,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_state,8535,7527
+693.jpg,"Which northeastern county (Steuben, LaGrange, or DeKalb) displays the lowest (coolest) color?",Steuben,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_state,8536,7528
+693.jpg,"Which region—north, central, or south—shows the broadest band of red?",Southern region,['Visual'],Single Entity,_isopleth,0.5–2MP,_state,8537,7529
+693.jpg,"Around Indianapolis (Marion County), which approximate color range is visible?",Orange or red,['Visual'],Single Entity,_isopleth,0.5–2MP,_state,8538,7530
+693.jpg,"Which color band (yellow, orange, or red) is most prevalent overall on the map?",Orange,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_state,8539,7531
+693.jpg,Which color on the legend corresponds to the lower end of the scale (near 0)?,Blue,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_state,8540,7532
+693.jpg,"Which area—far north, mid-state, or far south—shows the widest gradient range from yellow to red?",Mid-state,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_state,8542,7533
+693.jpg,Which southwestern county (Posey or Gibson) is notably a shade lighter than others nearby?,Gibson,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_state,8543,7534
+693.jpg,Which region around the Ohio border (eastern edge) tends toward light orange rather than bright red?,Far east,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_state,8544,7535
+694.png,Which region has the most large warehouses built between 1998 and 2000?,Midlands or Central England,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_continent,8545,7536
+694.png,Are the largest warehouses generally near motorways or away from them?,Near,"['Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_continent,8546,7537
+694.png,Which time period produced the fewest visible new warehouses?,1995–1997,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_continent,8547,7538
+694.png,Are warehouse clusters denser in the west or east of England?,East,['Positional'],Boolean,_isopleth,0.5–2MP,_continent,8548,7539
+694.png,Which region has both high density and high rateable value warehouses?,Birmingham,['Comparative'],Single Entity,_isopleth,0.5–2MP,_continent,8549,7540
+694.png,Is there a clear difference in warehouse density between north and south England?,Yes,['Positional'],Boolean,_isopleth,0.5–2MP,_continent,8550,7541
+694.png,Do larger warehouses tend to cluster in census districts with multiple motorway lines?,Yes,['Comparative'],Boolean,_isopleth,0.5–2MP,_continent,8551,7542
+694.png,What does the size of each warehouse circle represent?,Rateable value (£ thousands),['Visual'],Single Entity,_isopleth,0.5–2MP,_continent,8552,7543
+694.png,What color represents warehouses built between 2001 and 2003?,Light peach or beige,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_continent,8553,7544
+694.png,What does the blue line represent on the map?,Motorway,['Visual'],Single Entity,_isopleth,0.5–2MP,_continent,8554,7545
+695.png,In left map which country does that color primarily appear in 0.7 range?,Italy,"['Visual', 'Positional']",Single Entity,_multiple,0.5–2MP,_continent,8555,7546
+695.png,In left map which country does that color primarily appear in 0.9 to 1 range?,Baltic Sea,"['Visual', 'Positional']",Single Entity,_multiple,0.5–2MP,_continent,8557,7547
+695.png,"On the right map, which coastal region in northern Europe is depicted with a temperature near -5?",southern Sweden,['Positional'],Single Entity,_multiple,0.5–2MP,_continent,8559,7548
+695.png,What country shows the highest EF index (value near 1) on the left image?,Italy,"['Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_continent,8560,7549
+695.png,Which country is fully covered in green on the right panel?,UK,"['Visual', 'Positional']",Single Entity,_multiple,0.5–2MP,_continent,8561,7550
+695.png,Does the southern coast of Norway have –5 °C temperatures on the right map?,No,['Positional'],Boolean,_multiple,0.5–2MP,_continent,8562,7551
+695.png,"Which country has EF values near +0.8 on the left panel, Sicily or France?",Sicily or Italy,['Positional'],Single Entity,_multiple,0.5–2MP,_continent,8564,7552
+696.png,Which region (west or east) generally shows the highest numeric values on the map?,East,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8565,7553
+696.png,Which color on the scale corresponds to the largest values (around 1.5–1.6)?,Light yellow,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8566,7554
+696.png,"Which numeric value appears in some areas along the southwestern coast (e.g., near 0.1)?",0.1,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_country,8567,7555
+696.png,Which part of the peninsula shows mostly mid-range values (around 0.8–1.2)?,Central,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,8568,7556
+696.png,Which color range seems dominant along the northwestern regions?,Darker green,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_country,8569,7557
+696.png,Which portion of the east coast displays values around 1.2 to 1.6?,Northeastern coastline,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8570,7558
+696.png,Which approximate value is most common in the central interior portion (green to light green)?,0.8,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8571,7559
+696.png,Which color in the legend represents values around 1.0?,Medium green,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,8573,7560
+696.png,Which end of the color scale indicates the lower numeric range (0–0.3)?,Dark green,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8574,7561
+697.gif,What state is at the center of the tightest geopotential height contours?,Ontario,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8575,7562
+697.gif,What is the dominant color over Nevada?,Dark Blue,"['Visual', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8576,7563
+697.gif,What is the dominant wind direction over Ohio?,West to east,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8577,7564
+697.gif,What contour pattern is observed near Nebraska?,Slight curvature,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_country,8578,7565
+697.gif,Which region has nearly parallel contour lines stretching eastward?,Mid-South,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,8579,7566
+697.gif,Where does the color gradient change most rapidly?,Across the Midwest,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8580,7567
+697.gif,Which state lies just on the transition between blue and cyan colors?,Texas,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_country,8581,7568
+697.gif,Which southeastern state is fully under light cyan shading?,Florida,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8582,7569
+697.gif,Which state's northern region intersects multiple tightly packed lines?,Minnesota,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,8583,7570
+697.gif,Which western state has the most closed contour segments?,Colorado,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,8584,7571
+608.jpg,Which color on the map covers the largest area?,second lightest shade,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,8585,7572
+608.jpg,"Which region (top, middle, or bottom portion of the map) is depicted as receiving the lowest range o",top,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,8586,7573
+608.jpg,How many distinct rainfall ranges (isopleth zones) are shown in the legend?,5,['Visual'],Counting,_isopleth,0.5–2MP,_region,8587,7574
+608.jpg,Is there any area within Gujarat (the lower region of the map) that falls under the lightest shade,No,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,8588,7575
+608.jpg,Which rainfall band immediately borders the lightest shade region in the northwestern area?,20–40 cm,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,8589,7576
+608.jpg,Which portion of the map is illustrated with the darkest shade (80 cm and above)?,Southern or lower,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,8590,7577
+608.jpg,Which color is used to represent the 60–80 cm rainfall category?,Second darkest shade,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,8591,7578
+608.jpg,"Along the western coastline (on the map’s left edge), does the rainfall exceed 80 cm anywhere?",No,['Positional'],Boolean,_isopleth,0.5–2MP,_region,8592,7579
+608.jpg,Which rainfall band covers the smallest area on the map?,80+ cm,['Comparative'],Single Entity,_isopleth,0.5–2MP,_region,8593,7580
+608.jpg,Which zone is immediately east of the <20 cm area?,20–40 cm,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,8594,7581
+698.png,How many panels are in Set 1 (1A-1E),5,['Other'],Counting,_multiple,>8MP,_subcontinent,8595,7582
+698.png,How many total panels are displayed?,10,['Visual'],Counting,_multiple,>8MP,_subcontinent,8597,7583
+698.png,In which set is the population growing faster?,It is same,['Other'],Single Entity,_multiple,>8MP,_subcontinent,8598,7584
+698.png,What is the difference between the highest density value in 1A and 1B?,5.68,"['Positional', 'Comparative']",Single Entity,_multiple,>8MP,_subcontinent,8600,7585
+698.png,"In Set 1, which panel has the highest density value?",1 E,['Comparative'],Single Entity,_multiple,>8MP,_subcontinent,8601,7586
+698.png,"Which panel has more ""No Data"" entries: 2D or 2E?",2 E,['Comparative'],Single Entity,_multiple,>8MP,_subcontinent,8602,7587
+698.png,How many legends (color keys with density values) are in each panel?,9,['Visual'],Counting,_multiple,>8MP,_subcontinent,8603,7588
+698.png,"In Panels 2B (1980) and 2C (1990), does the density value for the northeast area increase?",2 C,"['Positional', 'Comparative']",Boolean,_multiple,>8MP,_subcontinent,8604,7589
+699.png,"Comparing the three maps, which one shows the smoothest changes in stall rates across the area?",Isoline map,['Positional'],Single Entity,_multiple,>8MP,_region,8606,7590
+699.png,"In the graduated symbols map, are smaller circles more scattered or clustered together?",Scattered,['Comparative'],Boolean,_multiple,>8MP,_region,8607,7591
+699.png,"Does the isoline map show isolated pockets of high stall rates, or a continuous belt?",Isolated pockets,['Comparative'],Boolean,_multiple,>8MP,_region,8608,7592
+699.png,"In the isoline map, do darker areas have smaller or larger numerical values for stalls?",Larger,"['Visual', 'Comparative']",Boolean,_multiple,>8MP,_region,8609,7593
+699.png,"In the graduated symbols map, do the largest circles appear mostly in the center or at the edges?",Center,"['Visual', 'Positional', 'Comparative']",Boolean,_multiple,>8MP,_region,8610,7594
+699.png,"Based on all maps, is there more variation in stall rates in the east or west side of the region?",West,"['Positional', 'Comparative']",Boolean,_multiple,>8MP,_region,8611,7595
+699.png,Which map provides the clearest boundary between regions with different stall rates?,Choropleth map,['Positional'],Single Entity,_multiple,>8MP,_region,8612,7596
+699.png,"In the graduated symbols map, do larger circles represent higher or lower stall rates?",Higher,['Comparative'],Boolean,_multiple,>8MP,_region,8613,7597
+699.png,"In the choropleth map, are darker shaded regions representing higher or lower stall rates?",Higher,"['Visual', 'Comparative']",Boolean,_multiple,>8MP,_region,8614,7598
+700.jpg,Which color zone indicates the highest rainfall levels around the Bay of Bengal and eastern India?,Dark pink or red,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_continent,8615,7599
+700.jpg,"Which isopleth range (e.g., 150 cm, 200 cm) appears closest to the Bay of Bengal coastline?",200+ cm,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_continent,8616,7600
+700.jpg,"The Indus Valley region, running through Pakistan, is shown in which general color band?",Yellow-green,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_continent,8617,7601
+700.jpg,Does Bangladesh show among the highest or the lowest rainfall colors on the map?,Highest,"['Visual', 'Comparative']",Boolean,_isopleth,0.5–2MP,_continent,8618,7602
+700.jpg,Which color on the map suggests moderate precipitation across parts of central Iran?,Light yellow-green,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_continent,8619,7603
+700.jpg,"Are the northeastern Indian states near the Himalayas (e.g., Assam) mapped with pink or green shadin",Pink,"['Visual', 'Positional']",Boolean,_isopleth,0.5–2MP,_continent,8620,7604
+700.jpg,Do the mountainous areas of Afghanistan appear in deeper pink or lighter greens/yellows?,Lighter greens/yellows,"['Visual', 'Comparative']",Boolean,_isopleth,0.5–2MP,_continent,8622,7605
+700.jpg,"Which region in southern India sees very high rainfall, especially along the coast?",Western Ghats or Kerala coast,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_continent,8623,7606
+701.jpg,"Based on the map, Which highways overlap with route 71?",US 42 Hwy,['Other'],Single Entity,_divisional,0.1–0.5MP,_district,8625,7607
+701.jpg,"Based on the map, Which Route is overlapped by the Burlington Rd?",71,['Other'],Single Entity,_divisional,0.1–0.5MP,_district,8627,7608
+701.jpg,"Based on the map, where should we turn from Houston Rd in order to get on the Turfway Rd?",left,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,8628,7609
+701.jpg,"Based on the map, where should we turn from Donaldson Hwy in order to get on the Burlington Pike?",right,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,8629,7610
+701.jpg,How many routes are on the map?,3,['Other'],Counting,_divisional,0.1–0.5MP,_district,8633,7611
+702.jpg,How many board member buildings are on the map?,4,['Other'],Counting,_mixed,0.5–2MP,_county,8634,7612
+702.jpg,How many Elemantary School Buildings are on the map?,6,['Other'],Counting,_mixed,0.5–2MP,_county,8635,7613
+702.jpg,How many Middle School Buildings are on the map?,2,['Positional'],Counting,_mixed,0.5–2MP,_county,8636,7614
+702.jpg,What color is Trustee area 4 (2022) on the map?,Blue,['Visual'],Single Entity,_mixed,0.5–2MP,_county,8643,7615
+704.jpeg,What does the displayed map represent?,All Ages (state/country),['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8653,7616
+704.jpeg,"Of the data points shown, what is the average number in poverty?",4745531.667,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8655,7617
+704.jpeg,"Of the data points shown, what is the average poverty universe?",36038378.11,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8656,7618
+704.jpeg,"Of the data points shown, what is the highest ID?",01013,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8657,7619
+704.jpeg,How many counties of Alabama are shown within the data rows shown?,7,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_country,8658,7620
+704.jpeg,How many data rows are shown in the image?,9,['Visual'],Counting,_choropleth,0.5–2MP,_country,8659,7621
+704.jpeg,How many rows that contain data are shown in the image?,9,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_country,8660,7622
+704.jpeg,Are the counties on the left generally larger than the right?,Yes.,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8662,7623
+705.png,What does the brown region represent?,NorthEast Washington ESD 101,['Visual'],Single Entity,_divisional,0.1–0.5MP,_state,8663,7624
+705.png,What does the green region represent?,Olympic Educational Service District 114,['Visual'],Single Entity,_divisional,0.1–0.5MP,_state,8664,7625
+705.png,What region is west of the blue one?,ESD 171,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_state,8665,7626
+705.png,Which region is north of ESD 105?,ESD 171,['Positional'],Single Entity,_divisional,0.1–0.5MP,_state,8666,7627
+705.png,Which region is surrounded by 5 other regions?,ESD 105,['Positional'],Single Entity,_divisional,0.1–0.5MP,_state,8668,7628
+705.png,Which region is the west most region?,ESD 114,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_state,8669,7629
+705.png,Which region is the southmost region?,ESD 112,['Other'],Single Entity,_divisional,0.1–0.5MP,_state,8670,7630
+706.png,Which K–5 area appears in the top-left corner of the map?,Maplewood K–5,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_county,8672,7631
+706.png,Which attendance zone covers the largest section in the southern half of the map?,Greenfield K–8,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_county,8673,7632
+706.png,"Which 6–8 school occupies the slim, vertical region along the eastern edge?",Riverside 6–8,['Positional'],Single Entity,_mixed,0.1–0.5MP,_county,8674,7633
+706.png,Name the K–6 school colored light blue near the center of the map.,Oak Grove K–6,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_county,8675,7634
+706.png,Which zone covers a small triangular region just north of the downtown label?,Sunrise 6–8,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_county,8676,7635
+706.png,Which K–5 school zone is the smallest area on the map’s far western side?,Meadowlark K–5,"['Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_county,8677,7636
+706.png,Which 6–8 zone is directly adjacent to three K–5 zones in the southern region?,Edgewood 6–8,['Positional'],Single Entity,_mixed,0.1–0.5MP,_county,8678,7637
+706.png,"Which K–5 school lies east of North High School, as indicated by the map labels?",Elmwood K–5,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_county,8679,7638
+706.png,Which K–6 zone completely encircles a small lake in its interior?,Lakeshore K–6,['Other'],Single Entity,_mixed,0.1–0.5MP,_county,8680,7639
+706.png,Which K–8 attendance area is bisected by the railway line in the southeastern section?,Woodland K–8,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_county,8681,7640
+707.jpg,Which cluster is positioned directly south of Maplewood Cluster?,Stratford Cluster,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,8682,7641
+707.jpg,Does the Pearl-Cohn Cluster border more than two other clusters?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.1–0.5MP,_district,8684,7642
+707.jpg,Which cluster is located furthest southwest on the map?,Hillwood Cluster,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,8685,7643
+707.jpg,Is Antioch Cluster closer to Glencliff Cluster or Cane Ridge Cluster?,Glencliff Cluster,['Positional'],Boolean,_divisional,0.1–0.5MP,_district,8686,7644
+707.jpg,Does the Antioch Cluster border more clusters on its west or east side?,West,"['Positional', 'Comparative']",Boolean,_divisional,0.1–0.5MP,_district,8687,7645
+707.jpg,"Comparing the Hillwood and Hunters Lane clusters, which is farther north?",Hunters Lane Cluster,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,8688,7646
+707.jpg,Are larger clusters mostly located toward the edges or the center of the map?,Edges,"['Positional', 'Comparative']",Boolean,_divisional,0.1–0.5MP,_district,8689,7647
+707.jpg,Which cluster is most likely to touch Cane Ridge Cluster: Glencliff or Overton?,Glencliff Cluster,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_district,8690,7648
+707.jpg,"Judging from the map, do Maplewood and Whites Creek clusters directly border each other?",No,['Positional'],Boolean,_divisional,0.1–0.5MP,_district,8691,7649
+708.jpg,"Name the west most state with 45,000-49,000.",Idaho,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8693,7650
+708.jpg,"Which is the closest state to New York with less than 45,000?",West Virginia,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8694,7651
+708.jpg,"Which state is the most north state with less than 45,000?",West Virginia,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8696,7652
+708.jpg,"Name the south most state with 60,000 or more.",California,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8697,7653
+708.jpg,"Name the state with 60,000 or more closest to Texas.",Colorado,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8698,7654
+708.jpg,What color is West Virginia?,Light Blue,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8700,7655
+708.jpg,What color is Wyoming?,Dark Purple,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8701,7656
+709.png,Which citye on the west coast has the lowest food security percentage?,Portland,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8703,7657
+709.png,"Between Arkansas and Mississippi, which state has a higher food insecurity?",neither,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8704,7658
+709.png,Which state near canada has the lowest food insecurity?,New Hampshire,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8705,7659
+709.png,wWhich state on the east is surrounded by states with lesser food insecurity on all sides than itsel,West Virgina,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,8706,7660
+709.png,Which coastal state has the highest food insecurity?,Louisiana,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8708,7661
+710.png,Name a state that has a value closest to 99.4,Connecticut,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8710,7662
+710.png,Name a state with a value closest to 87.2,Alaska,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8711,7663
+710.png,Approximately what is the value of Virginia given the scale?,87-90,['Other'],Single Entity,_choropleth,0.5–2MP,_country,8712,7664
+710.png,Which state has the lowest value according to the scale?,Alaska,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8713,7665
+710.png,Which state has the highest value according to the scale?,Connecticut,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8714,7666
+710.png,Which is the closest yellow state from California?,Arizona,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8716,7667
+710.png,Which is the closest purple state from North Carolina?,Virginia,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8717,7668
+710.png,What color is Alaska?,Purple,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8718,7669
+710.png,"From Montana, which state with the same color is closest?",South Dakota,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8719,7670
+711.png,Which country is Rome located in?,Italy,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_world,8720,7671
+711.png,Which continent has Mediterranean climate in both hemispheres?,Africa,['Other'],Single Entity,_isopleth,0.1–0.5MP,_world,8721,7672
+711.png,Which region on the map lies closest to the equator?,Cape Town,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_world,8723,7673
+711.png,Which continent is shown to have a narrow Mediterranean strip?,Australia,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_world,8724,7674
+711.png,Which country has a Mediterranean climate zone despite being far south?,Australia,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_world,8725,7675
+711.png,Which part of the Mediterranean is most influenced by the Sirocco?,Eastern,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_world,8726,7676
+712.jpg,Are coastal areas more likely to show warming or cooling trends based on shading?,Warming,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,8728,7677
+712.jpg,Is the central belt of the U.S. mostly shaded darker blue or light blue?,Darker,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8729,7678
+712.jpg,"Judging by the map, are warmer anomalies more common west of the Rocky Mountains or east of them?",West,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8730,7679
+712.jpg,"Do states bordering the Gulf of Mexico (like Texas, Louisiana) show mostly cooling or warming?",Cooling,['Positional'],Boolean,_choropleth,0.5–2MP,_country,8731,7680
+712.jpg,"Based on the map, are large solid patches of color more noticeable in the western or eastern U.S.?",Eastern,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8732,7681
+712.jpg,"According to the shading, do temperature changes appear more extreme in Alaska or Hawaii?",Alaska,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8733,7682
+712.jpg,"Is the state of Nevada mostly shaded blue, white, or orange?",Orange,['Visual'],Boolean,_choropleth,0.5–2MP,_country,8734,7683
+712.jpg,Are most southeastern states (like Florida and Georgia) shaded dark blue or light blue?,Light,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8735,7684
+712.jpg,Does the Midwest region show cooling or warming compared to the 20th century average?,Cooling,['Other'],Boolean,_choropleth,0.5–2MP,_country,8736,7685
+712.jpg,"Based on shading, is Texas overall cooler or warmer than the 20th century average?",Cooler,['Other'],Boolean,_choropleth,0.5–2MP,_country,8737,7686
+713.png,What is the 2nd most noninstitutionalized state on the Mexican border?,Arizona,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8739,7687
+713.png,Which south eastern state is most noninstitutionalized?,Florida,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8740,7688
+713.png,Which state on the Canadian border is most noninstitutionalized?,New York,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8741,7689
+713.png,"Based on the index, what might be a good guess of the number of noninstitutionalized people in the s",~7 Million,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8742,7690
+714.jpg,How many states on this map have a poverty rate of 19% or higher?,4,['Comparative'],Counting,_choropleth,0.5–2MP,_country,8743,7691
+714.jpg,What is the only state or region to not have reported any data?,District of Columbia or DC,['Other'],Single Entity,_choropleth,0.5–2MP,_country,8744,7692
+714.jpg,"Based on the states around it, which state is the largest outlier in its surrounding area?",Wyoming,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8745,7693
+714.jpg,How many states that border each other have the same level of rural poverty?,37,['Positional'],Counting,_choropleth,0.5–2MP,_country,8746,7694
+714.jpg,How many states have a rural poverty level of 9% or higher?,39,['Comparative'],Counting,_choropleth,0.5–2MP,_country,8747,7695
+714.jpg,How many States and Districts are shown on this map?,51,['Visual'],Counting,_choropleth,0.5–2MP,_country,8748,7696
+714.jpg,What is the size (in number of states) of the largest cluster of the map with the same rural poverty,8,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8749,7697
+714.jpg,"Of the states beginning with the letter A, which has the most rural poverty?",AZ,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8751,7698
+714.jpg,"In terms of the states around it, which state's rural poverty appears unusually high?",KY,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8752,7699
+715.png,Which region of the U.S. shows the highest concentration of darkest-shaded counties?,Southeastern U.S.,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,8753,7700
+715.png,Which state has the most dark brown counties in the Midwest?,Missouri,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8754,7701
+715.png,Does northern New York appear darker or lighter than central Pennsylvania?,Lighter,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,8755,7702
+715.png,Which coastal state shows mostly light-colored counties?,Florida,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,8756,7703
+715.png,Which region in Texas has darker shading: East or West?,East,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8757,7704
+715.png,Which part of Mississippi shows the darkest shading?,Western Mississippi,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8759,7705
+715.png,"Which area of California has darker counties, north or south?",North,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8760,7706
+715.png,Are there more dark-shaded counties in the eastern or western U.S.?,Eastern U.S.,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,8761,7707
+716.jpg,Which state has the most divisions experiencing extremely moist conditions (+4.0 and above)?,Illinois,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8763,7708
+716.jpg,What is the drought condition in Arizona?,Moderate Drought,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8764,7709
+716.jpg,Which state shows both drought and moist conditions?,Utah,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8765,7710
+716.jpg,"What is the most common moisture condition in the central Midwest region (Iowa, Illinois, Indiana)?",Very Moist Spell,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,8766,7711
+716.jpg,What is drought condition in California?,Moderate to severe drought,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8767,7712
+716.jpg,What condition is shown for most of Florida?,Near Normal,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8768,7713
+716.jpg,Which state in the Southwest shows the most widespread moderate drought?,Arizona,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8769,7714
+716.jpg,"In which state do we find a mix of near normal and unusual moist conditions, especially in the east",Nevada,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,8770,7715
+716.jpg,Which state has extreme drought and very moist spell?,Wyoming,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8771,7716
+716.jpg,What color represents moderate drought on the map?,Light Yellow,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,8772,7717
+717.png,"On the left map, which numeric range contour appears along much of the southeastern coast?",75–85,"['Visual', 'Positional']",Single Entity,_multiple,>8MP,_country,8773,7718
+717.png,"Which land use type (Forest, or Urban) dominates the central interior according to the right map?",Forest,['Positional'],Single Entity,_multiple,>8MP,_country,8774,7719
+717.png,Which color on the left map indicates the earliest DoY for AGDD 159?,Light blue ,"['Visual', 'Positional']",Single Entity,_multiple,>8MP,_country,8775,7720
+717.png,"In the right map, which color covers the majority of Jeju Island (off the southern coast)?",Green,"['Visual', 'Positional']",Single Entity,_multiple,>8MP,_country,8776,7721
+717.png,"In the right map, which land use classification is least common overall?",Urban,"['Positional', 'Comparative']",Single Entity,_multiple,>8MP,_country,8777,7722
+717.png,"On the left map, which isopleth range generally lies along the southern coastal strip?",75–85,['Positional'],Single Entity,_multiple,>8MP,_country,8778,7723
+717.png,"In the left isopleth map, which color range is most prevalent in northwestern areas?",Blue-green,"['Visual', 'Positional', 'Comparative']",Single Entity,_multiple,>8MP,_country,8779,7724
+717.png,"According to the right map, which color dominates the eastern mountainous interior?",Green,"['Visual', 'Positional']",Single Entity,_multiple,>8MP,_country,8780,7725
+717.png,Which map symbol (star) is labeled “Verification point” in both figures?,A black star,['Visual'],Single Entity,_multiple,>8MP,_country,8781,7726
+717.png,Which color zone on the left suggests the latest onset of AGDD 159 (day of year above 115)?,Dark orange,"['Visual', 'Positional']",Single Entity,_multiple,>8MP,_country,8782,7727
+718.png,What country will get the hottest based on the information suggested on the map?,Algeria or Tunisia,['Other'],Single Entity,_multiple,2–8MP,_continent,8783,7728
+718.png,Which country will remain the coolest?,Norway,['Other'],Single Entity,_multiple,2–8MP,_continent,8784,7729
+718.png,Which South West European country will stay mostly the same temperature-wise?,Spain,['Positional'],Single Entity,_multiple,2–8MP,_continent,8785,7730
+718.png,Which mid-European country will see the most temperature change?,Germany,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_continent,8786,7731
+718.png,Which southeastern country will see a change in temperature along a banana-type strip?,Turkey,"['Visual', 'Positional']",Single Entity,_multiple,2–8MP,_continent,8787,7732
+718.png,On average how much temperature will rise in the UK?,2,['Other'],Counting,_multiple,2–8MP,_continent,8788,7733
+718.png,Which coldest country sees about 2 degrees rise?,Ireland,['Other'],Single Entity,_multiple,2–8MP,_continent,8789,7734
+718.png,How much temperature change can we expect in Southern France?,1.5-2,['Positional'],Counting,_multiple,2–8MP,_continent,8790,7735
+718.png,How much temperature change can we expect in North Finland?,0,['Positional'],Counting,_multiple,2–8MP,_continent,8791,7736
+718.png,How much temperature change can we expect in North Sweden?,0,['Positional'],Counting,_multiple,2–8MP,_continent,8792,7737
+719.png,How many states are in very light colors?,2,['Visual'],Counting,_choropleth,2–8MP,_country,8793,7738
+719.png,How many states neighboring washington are in very dark green?,1,['Visual'],Counting,_choropleth,2–8MP,_country,8794,7739
+719.png,How many states neighboring washington are not in very dark green?,1,['Visual'],Counting,_choropleth,2–8MP,_country,8795,7740
+719.png,How many states on the west coast are in very light green?,2,"['Visual', 'Positional']",Counting,_choropleth,2–8MP,_country,8796,7741
+719.png,How many states neighboring florida are almost not green?,1,['Visual'],Counting,_choropleth,2–8MP,_country,8797,7742
+719.png,what is the color most closet to the color of washington state?,Beige,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,8798,7743
+719.png,which state sharing border with California has lightest shade?,Nevada,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,8799,7744
+719.png,What is the number of of states sharing border with arizona having darker shade than az?,0,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,8800,7745
+719.png,How many state sharing border with idaho has darker shade of green than idaho?,0,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,2–8MP,_country,8801,7746
+719.png,"Based on the map, which state has darker shade of green, arizona or California?",Arizona,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,8802,7747
+720.png,What percentage of the map is between 32 - 50 degrees Fahrenheit?,4%,['Positional'],Single Entity,_isopleth,0.5–2MP,_country,8803,7748
+720.png,What percentage of the map is between 50-60 degrees Fahrenheit?,20.8%,['Positional'],Single Entity,_isopleth,0.5–2MP,_country,8804,7749
+720.png,What percentage of the map is between 80-90 degrees Fahrenheit?,4.1%,['Positional'],Single Entity,_isopleth,0.5–2MP,_country,8805,7750
+720.png,What color represents the minimum temperature?,Red.,['Visual'],Single Entity,_isopleth,0.5–2MP,_country,8806,7751
+720.png,What color represents the maximum temperature?,Brownish purple.,['Visual'],Single Entity,_isopleth,0.5–2MP,_country,8807,7752
+720.png,Does the southern border exceed 100 degrees?,No.,['Positional'],Boolean,_isopleth,0.5–2MP,_country,8808,7753
+720.png,Does the northern border go below 0 degrees?,No.,['Positional'],Boolean,_isopleth,0.5–2MP,_country,8809,7754
+720.png,Is there any part of the map over 100 degrees?,No.,['Comparative'],Boolean,_isopleth,0.5–2MP,_country,8810,7755
+720.png,Is there any part of the map under 0 degrees?,No.,['Comparative'],Boolean,_isopleth,0.5–2MP,_country,8811,7756
+720.png,Is there any part of the map under -10 degrees?,No.,['Comparative'],Boolean,_isopleth,0.5–2MP,_country,8812,7757
+721.png,Which is the whitest county in a northern state on the Canadian border?,Williams,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,8813,7758
+721.png,Which seems to be the lightest state?,Wyoming,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8815,7759
+721.png,Which seems to be the darkest and largest state?,California,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8816,7760
+721.png,Is virginia lighter compared to texas?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,8817,7761
+722.jpg,"Which area of Montana (western, central, or eastern) shows the highest population density shading?",Western,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_state,8818,7762
+722.jpg,Which large city in south-central Montana appears to have a dense population cluster?,Billings,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_state,8819,7763
+722.jpg,Which river valley in the western region hosts a notable density around Missoula?,Clark Fork,['Positional'],Single Entity,_isopleth,<0.1MP,_state,8820,7764
+722.jpg,Is Helena (the state capital) depicted with a moderate or high population density on the map?,Moderate,['Comparative'],Boolean,_isopleth,<0.1MP,_state,8821,7765
+722.jpg,Which color or shade typically represents the highest population density in the legend?,Darkest red or brown,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_state,8822,7766
+722.jpg,Which city in northeastern Montana appears with only a slight increase in density on the map?,Wolf Point,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_state,8823,7767
+722.jpg,Which city in north-central Montana has a population cluster near the Missouri River?,Great Falls,['Positional'],Single Entity,_isopleth,<0.1MP,_state,8824,7768
+722.jpg,Along which interstate or major highway does Missoula’s higher population density cluster extend?,Along Interstate 90,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_state,8825,7769
+722.jpg,Which color or shading in the legend typically indicates the lowest population density?,Lightest shade,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_state,8826,7770
+722.jpg,"Which city in the northwest region, near Flathead Lake, indicates a distinct density cluster?",Kalispell,['Positional'],Single Entity,_isopleth,<0.1MP,_state,8827,7771
+723.png,Which western U.S. state shows large dark blue counties near its southeastern border?,Arizona,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,>8MP,_country,8829,7772
+723.png,Which state in the Midwest shows low COVID case rates across most counties?,Iowa,"['Positional', 'Comparative']",Single Entity,_choropleth,>8MP,_country,8830,7773
+723.png,Is there a dense cluster of high case rates in the Appalachian region?,Yes,['Comparative'],Boolean,_choropleth,>8MP,_country,8831,7774
+723.png,How many distinct counties are in the darkest blue in Texas?,3,"['Visual', 'Comparative']",Counting,_choropleth,>8MP,_country,8832,7775
+723.png,Which coastal region of the U.S. has fewer dark blue counties—east or west?,West,"['Visual', 'Positional']",Single Entity,_choropleth,>8MP,_country,8833,7776
+723.png,Which southern state shows a wide distribution of counties in the 50–100 cases range?,Georgia,['Positional'],Single Entity,_choropleth,>8MP,_country,8834,7777
+723.png,What type of COVID-19 data is visualized on this map?,Confirmed cases,['Other'],Single Entity,_choropleth,>8MP,_country,8837,7778
+724.jpg,Count the numbers of cities in Dawson County based on the map.,7,['Other'],Counting,_isopleth,<0.1MP,_state,8839,7779
+724.jpg,Count the cities near the southern border within 20km based on the map.,17,['Positional'],Counting,_isopleth,<0.1MP,_state,8840,7780
+724.jpg,Count the cities near the eastern border within 20km based on the map.,17,['Positional'],Counting,_isopleth,<0.1MP,_state,8841,7781
+724.jpg,Which county seat is closest to the Flathead Lake?,Polson,['Comparative'],Single Entity,_isopleth,<0.1MP,_state,8845,7782
+725.png,"According to the map, are states with the darkest shading clustered or spread randomly?",Clustered,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8846,7783
+725.png,"On the East Coast, does New York appear darker or lighter than Florida?",Darker,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8847,7784
+725.png,Are the darkest states mostly along the coasts or more inland?,Coasts,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8848,7785
+725.png,Are the darkest shaded states generally larger or smaller in geographic size?,Larger,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8849,7786
+725.png,"Based on shading, does the Midwest region show mostly lighter or darker tones?",Lighter,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8850,7787
+725.png,"Judging by the map, are more coastal states shaded darker or lighter than interior states?",Darker,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8851,7788
+725.png,"Among the Great Lakes states, which shows noticeably darker shading: Michigan or Ohio?",Michigan,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8852,7789
+725.png,Does the map suggest that southern states overall lean toward higher or lower values?,Lower,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8853,7790
+725.png,"Comparing Texas and California, which state appears darker overall?",California,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8854,7791
+725.png,Does Hawaii appear lighter or darker compared to the majority of U.S. states?,Lighter,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8855,7792
+726.png,WHich color is dominant and let me know its corresponding percentage,Orange,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,8857,7793
+726.png,Count the number of states that are isolated / stand seperate in map,5,['Other'],Counting,_choropleth,0.1–0.5MP,_country,8858,7794
+726.png,Which colour is dominant on the West side of map ?,Yellow,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,8859,7795
+726.png,What is the colour of the state south to GA purely based on map,Yellow,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,8860,7796
+726.png,what is the color of the state straight north of IA?,Yellow,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,8861,7797
+726.png,Based on the map Tx has what percentage ?,30 % - <35%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8862,7798
+726.png,Count How many states have 35% and grater ?,7,['Other'],Counting,_choropleth,0.1–0.5MP,_country,8863,7799
+726.png,Which state has 25% - <30% on its nearest left and 30% - <35% on its nearest right?,CO,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8864,7800
+726.png,WHich state has 35% grater and surrounding states have 30% -<35% percentage?,WV,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8865,7801
+727.png,Which type of map is used to show underground transportation routes?,Subway,['Visual'],Single Entity,_multiple,0.5–2MP,_world,8866,7802
+727.png,Which map type uses icons or dots to represent topics?,Icon or Marker Maps,['Other'],Single Entity,_multiple,0.5–2MP,_world,8867,7803
+727.png,Which map type displays elevation and landscapes?,Topographic,['Other'],Single Entity,_multiple,0.5–2MP,_world,8868,7804
+727.png,What kind of map distorts region sizes to show statistics?,Cartograms,['Visual'],Single Entity,_multiple,0.5–2MP,_world,8869,7805
+727.png,Which type of map uses colors and patterns to show population density?,Choropleth or Heat,['Visual'],Single Entity,_multiple,0.5–2MP,_world,8870,7806
+727.png,Which map type would best show rainfall and temperature patterns?,Climate,['Comparative'],Single Entity,_multiple,0.5–2MP,_world,8871,7807
+727.png,Which map type description mentions contour lines?,Topographic,['Other'],Single Entity,_multiple,0.5–2MP,_world,8872,7808
+727.png,Which map type is least likely to use icons or symbols for data representation?,Topographic,['Comparative'],Single Entity,_multiple,0.5–2MP,_world,8873,7809
+727.png,"Based on the descriptions, which map type would show mountains more clearly?",Topographic,['Comparative'],Single Entity,_multiple,0.5–2MP,_world,8874,7810
+728.png,Which is the darkest state?,Utah,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8876,7811
+728.png,Which is the lightest state?,Maine,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8877,7812
+728.png,"Which state has a higher estimate value, Alaska or Puerto Rico?",Puerto Rico,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8878,7813
+728.png,Name the lightest colored state adjacent to Colorado.,New Mexico,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8879,7814
+728.png,"There are four states that are adjacent to Arizona, which one has the lowest estimate value?",Utah,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8880,7815
+728.png,Name the state closest to Virginia with the highest estimate value.,West Virginia,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8881,7816
+728.png,Approximately what estimate value does Utah have?,30,['Other'],Single Entity,_choropleth,0.5–2MP,_country,8883,7817
+728.png,Name the state with the highest estimate value along the west coast.,Oregon,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8884,7818
+728.png,Name the state with the highest estimate value along the east coast.,Maine,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8885,7819
+729.jpg,Which icon represents “Tulips Blooming”?,Red symbols,['Other'],Single Entity,_marker,0.5–2MP,_continent,8886,7820
+729.jpg,Which marker (shape/color) indicates “Tulips Emerged”?,Green triangles,['Other'],Single Entity,_marker,0.5–2MP,_continent,8887,7821
+729.jpg,Which symbol in the legend stands for “Tulips Planted”?,Brown squares,['Other'],Single Entity,_marker,0.5–2MP,_continent,8888,7822
+729.jpg,"Which region shows the earliest signs of blooming, based on the red markers?",Southeastern U.S.,['Visual'],Single Entity,_marker,0.5–2MP,_continent,8889,7823
+729.jpg,Do any “Tulips Blooming” icons appear in Mexico?,No,['Visual'],Boolean,_marker,0.5–2MP,_continent,8890,7824
+729.jpg,Which country on the map has the densest cluster of tulip observations?,The United States,['Other'],Single Entity,_marker,0.5–2MP,_continent,8891,7825
+729.jpg,Which color on the map indicates the final stage of tulip growth (fully bloomed)?,Red,['Visual'],Single Entity,_marker,0.5–2MP,_continent,8892,7826
+729.jpg,Which large U.S. coastal region seems to have fewer markers overall: East or West?,West,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_continent,8893,7827
+729.jpg,Which symbol on the legend is shaped like a triangle?,Tulips Emerged,['Visual'],Single Entity,_marker,0.5–2MP,_continent,8894,7828
+730.png,The map above shows votes for which year?,2024,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,8896,7829
+730.png,Does the map show votes by state or by county?,State,['Other'],Boolean,_choropleth,0.5–2MP,_country,8897,7830
+730.png,"Based on the map, how many votes were counted in New Jersey?",14,['Other'],Counting,_choropleth,0.5–2MP,_country,8898,7831
+730.png,"Based on the map above, how many votes were declared in Nebraska (NE)?",5,['Positional'],Counting,_choropleth,0.5–2MP,_country,8900,7832
+730.png,"How many red party votes were received in Maine (ME), according to the given map?",1,['Visual'],Counting,_choropleth,0.5–2MP,_country,8901,7833
+730.png,"In total, how many red party votes did Nebraska (NE) receive, as shown on the map?",4,['Visual'],Counting,_choropleth,0.5–2MP,_country,8902,7834
+730.png,"How many votes were declared in the state of Arizona, according to the given map?",0,['Other'],Counting,_choropleth,0.5–2MP,_country,8903,7835
+730.png,"Calculate the red party votes, and give me the total with calculation steps based on the map?",5,['Visual'],Counting,_choropleth,0.5–2MP,_country,8904,7836
+730.png,The votes shown in the map above represent which country?,USA,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8905,7837
+731.png,"Which metro station connects all three lines: orange, green, and yellow?",Berri-UQAM,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,8906,7838
+731.png,Which color line is Longueuil station located on?,Yellow,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,8907,7839
+731.png,Which station is the southern terminus of the green line?,Angrignon,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,8908,7840
+731.png,Does Place-des-Arts station lie on the green or orange line?,Green,['Visual'],Boolean,_network,2–8MP,_city,8909,7841
+731.png,"According to the map, does the yellow line have more or fewer stations than the blue line?",Fewer,"['Visual', 'Comparative']",Boolean,_network,2–8MP,_city,8911,7842
+731.png,Which terminus station is closer to the center of the map: Côte-Vertu or Montmorency?,Côte-Vertu,['Positional'],Single Entity,_network,2–8MP,_city,8912,7843
+731.png,"From Berri-UQAM, which direction (north or south) would you travel to reach Longueuil?",South,['Positional'],Single Entity,_network,2–8MP,_city,8913,7844
+731.png,"Based on the map, which station is located further east: Radisson or Snowdon?",Radisson,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,8914,7845
+731.png,Which station is positioned closer to the water (bottom of the map): Charlevoix or Beaudry?,Charlevoix,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,8915,7846
+732.png,Which region (East or West) appears to have more counties with higher obesity rates?,East,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8916,7847
+732.png,Which color in the legend corresponds to lower obesity rates (around 20%)?,Green,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8917,7848
+732.png,Which general area of Texas displays more dark purple counties?,Eastern Texas,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8918,7849
+732.png,"In the map, which coast shows primarily lower obesity percentages: Atlantic or Pacific?",Pacific,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8919,7850
+732.png,Which color typically represents obesity rates closer to 40% or above?,Dark purple,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8920,7851
+732.png,In which region do we see a clustering of the darkest purple counties (above 40%)?,The Deep South,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8921,7852
+732.png,"Along the U.S.–Mexico border, do counties generally show more green or purple?",green,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8922,7853
+732.png,Which color indicates approximately 30% obesity rates in the map’s gradient?,Teal to light purple,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8923,7854
+732.png,Where on the map do we see a significant cluster of mid-level (around 30%) obesity counties?,Central Midwest,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8924,7855
+732.png,Is the purple color more prevalent in rural southeastern counties or in urban northeastern counties?,Rural,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8925,7856
+733.png,How many stations does all four metro lines cover in common?,9,['Other'],Counting,_network,0.5–2MP,_city,8926,7857
+733.png,Which direction a person have to go if he wants to travel from Ashby to Balboa Park?,Millbrae,['Positional'],Single Entity,_network,0.5–2MP,_city,8927,7858
+733.png,How many stations have access to parking on the yellow line?,15,['Visual'],Counting,_network,0.5–2MP,_city,8928,7859
+733.png,Which line a person can take if he want to go to San Francisco Airport from Glen Park?,Red or Yellow,['Other'],Single Entity,_network,0.5–2MP,_city,8929,7860
+733.png,how can a person go from North Berkeley to Lafayette?,via MacArthur,['Positional'],Boolean,_network,0.5–2MP,_city,8930,7861
+733.png,how many lines operate in San Francisco?,4,['Other'],Counting,_network,0.5–2MP,_city,8931,7862
+733.png,How many stations are there between  Bay fair and Lake Merritt?,3,['Positional'],Counting,_network,0.5–2MP,_city,8932,7863
+733.png,How many stations have access to Light Rail?,6,['Visual'],Counting,_network,0.5–2MP,_city,8933,7864
+733.png,How many stations have access to Rail connection?,3,['Other'],Counting,_network,0.5–2MP,_city,8934,7865
+734.jpg,How many stations does Aqua line have?,23,['Other'],Counting,_network,0.5–2MP,_city,8935,7866
+734.jpg,How many stations have access to Railway station,8,['Other'],Counting,_network,0.5–2MP,_city,8936,7867
+734.jpg,How many intersection stations are there in total?,25,['Positional'],Counting,_network,0.5–2MP,_city,8938,7868
+734.jpg,how many tourist attractions are there on the yellow line?,5,['Visual'],Counting,_network,0.5–2MP,_city,8941,7869
+734.jpg,how many lines one can access if he goes in pink line?,4,['Visual'],Counting,_network,0.5–2MP,_city,8942,7870
+735.png,Which of the States have darkest shade of blue.,New York,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8945,7871
+735.png,How many states are lighter than Colorado?,45,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,8946,7872
+735.png,Name a state that shares a border with at least two darker-shaded states.,Idaho,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8947,7873
+735.png,How many darkest shaded states on the west coast can you identify?,3,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,8948,7874
+735.png,Is Florida darker or lighter than Georgia on this map?,neither,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8950,7875
+735.png,Name a darkest shaded east coast state?,New York,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8951,7876
+735.png,Are any of the non-contiguous states (Alaska or Hawaii) among the top 5 darkest-shaded?,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,8952,7877
+735.png,"Which of the Four Corners states (AZ, NM, CO, UT) is the darkest?",Colorado,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8953,7878
+735.png,Which is lighter: Wyoming or Colorado?,Wyoming,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8954,7879
+736.png,Which state has the value range 36–48 and is located in the Pacific Northwest?,Oregon,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,8956,7880
+736.png,Which mid-Atlantic state falls in the 36–48 range?,Virginia,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,8957,7881
+736.png,Which southern state is in the 30–36 range?,Georgia,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,8958,7882
+736.png,Which state in the Mid-Atlantic is among the darkest?,New York,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,8959,7883
+736.png,Which coastal state in the south has a medium-dark shade (30–36)?,Georgia,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,8960,7884
+736.png,Which state borders Canada and falls in the 1–6 range?,Montana,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,8961,7885
+736.png,Which state is shaded similarly to Arizona and lies in the southeast?,Georgia,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,8962,7886
+737.jpg,How many stations have access to Railway stations?,5,['Other'],Counting,_network,2–8MP,_city,8963,7887
+737.jpg,How many interchange station are there in total?,36,['Other'],Counting,_network,2–8MP,_city,8966,7888
+737.jpg,If a person wants to go from Kuqi Rd to Hujiyang which direction train he should take?,Lijiao,['Positional'],Single Entity,_network,2–8MP,_city,8967,7889
+737.jpg,How many stations a person has to travel to get from Jiangxia to Feixiang,3,['Other'],Counting,_network,2–8MP,_city,8969,7890
+737.jpg,How can a person go from Guangzhou East Railway Station to Airport,Line 3,['Positional'],Boolean,_network,2–8MP,_city,8971,7891
+737.jpg,How many metro lines a person has to access to go from Jiaokou to Wenchong?,1,['Other'],Counting,_network,2–8MP,_city,8972,7892
+738.png,What rail connects Box Hill to the Stony Point rail?,Suburban Rail Loop,['Positional'],Single Entity,_network,>8MP,_city,8973,7893
+738.png,Which color line is Middle Footscray on?,Yellow,"['Visual', 'Positional']",Single Entity,_network,>8MP,_city,8974,7894
+738.png,Name the station 3 stations from State library away from Town Hall.,Kensington,['Other'],Single Entity,_network,>8MP,_city,8975,7895
+738.png,"Name the transfer station that connects pink, green, purple, and the periwinkle line.",South Yarra,"['Visual', 'Positional']",Single Entity,_network,>8MP,_city,8976,7896
+738.png,"Name the transfer station that connects purple, yellow, and the green line.",Footscray,"['Visual', 'Positional']",Single Entity,_network,>8MP,_city,8977,7897
+738.png,How many stations from Flinders Street is it to Tottenham?,5,['Other'],Counting,_network,>8MP,_city,8978,7898
+738.png,How many stations from South Yarra is it to West Richmond?,4,['Positional'],Counting,_network,>8MP,_city,8979,7899
+738.png,Which colored line is Diggers Rest on?,Yellow,['Visual'],Single Entity,_network,>8MP,_city,8980,7900
+738.png,What colored line is South Kenington on?,Green,"['Visual', 'Positional']",Single Entity,_network,>8MP,_city,8981,7901
+738.png,Which station do you transfer to get from Balaclava to Carnegie?,South Yarra,['Other'],Single Entity,_network,>8MP,_city,8982,7902
+739.png,what is the color on the right side of the scale after yellow?,green,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8983,7903
+739.png,what is the color on the least life expectency side?,red,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8984,7904
+739.png,what is the color on the high life expectency side?,purple,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8985,7905
+739.png,which side of the map has most of the yellow regions?,right,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,8986,7906
+739.png,what is the color when life expectancy is between 78-81 and not 66-69?,Green,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8987,7907
+739.png,what is the color when life expectancy is between 69-72?,Red or light red,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8988,7908
+739.png,hOW MANY COUNTIES TOUCHING THE WEST COAST WITH LIFE expectancy BETWEEN 66-69?,0,['Positional'],Counting,_choropleth,0.5–2MP,_country,8989,7909
+739.png,which color/life expectancy range is more dominant in the life expectancy map?,Yellow to green,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,8990,7910
+739.png,Which color is almost never observed on the west side of the map?,red,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,8991,7911
+739.png,Which color indicates better than yellow life expectancy?,Green,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,8993,7912
+740.jpg,How many stations are there between Snowdon and Berri-UQAM ?,13,['Positional'],Counting,_network,2–8MP,_city,8994,7913
+740.jpg,What is the third station after Angrignon on the Green Line?,Jolicoeur,"['Visual', 'Comparative']",Single Entity,_network,2–8MP,_city,8995,7914
+740.jpg,Which direction does the Orange Line curve near Jean-Talon?,Northwest,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,8996,7915
+740.jpg,Which station is directly north of Place-d’Armes on the Orange Line?,Champ-de-Mars,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,8997,7916
+740.jpg,"On the map, which direction does Line 1 (Green) go from Lionel-Groulx to Honoré-Beaugrand?",Northeast,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,8998,7917
+740.jpg,How many AMT commuter rail connections are displayed on the map?,6,['Visual'],Counting,_network,2–8MP,_city,8999,7918
+740.jpg,Which station is marked with both AMT and Métro interchange icons?,Bonaventure,['Visual'],Single Entity,_network,2–8MP,_city,9000,7919
+740.jpg,Which Orange Line station is just before a transfer to the Blue Line?,Jean-Talon,['Visual'],Single Entity,_network,2–8MP,_city,9001,7920
+740.jpg,What is the last Blue Line station before entering the Orange Line zone at Jean-Talon?,De Castelnau,['Visual'],Single Entity,_network,2–8MP,_city,9002,7921
+740.jpg,Which Orange Line station lies directly below McGill visually?,Bonaventure,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,9003,7922
+741.jpg,How many  color‐coded lines converge in the downtown tunnel area between Van Ness and Embarcadero?,5,['Positional'],Counting,_network,0.5–2MP,_city,9005,7923
+741.jpg,Count How many stations have the Bart Station and Line symbol based on legend given in the image ?,10,['Other'],Counting,_network,0.5–2MP,_city,9008,7924
+741.jpg,Count the nymber of stations that T line has based on the map ?,22,['Other'],Counting,_network,0.5–2MP,_city,9011,7925
+741.jpg,"Traveling inbound on the M line from SF State, which station is just before arriving at Van Ness ?",Church & Market,['Other'],Single Entity,_network,0.5–2MP,_city,9013,7926
+742.jpg,How many states according to the map are relaxed and creative?,10,['Other'],Counting,_choropleth,0.1–0.5MP,_country,9014,7927
+742.jpg,Which relaxed and creative state is the closest to North Carolina?,Virginia,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,9016,7928
+742.jpg,Which category has the least number of states according to the map?,Relaxed & Creative,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9018,7929
+742.jpg,What is the easternmost friendly and conventional state?,Florida,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,9019,7930
+742.jpg,What is the largest friendly & conventional state by area?,Montana,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9020,7931
+742.jpg,"According to the map, in which state would I be closest to every category of personality?",Texas or TX or Arizona or AZ or Colorado or CO,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9022,7932
+742.jpg,"According to the map, which state has no neighboring states that are the same category as it?",Texas,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,9023,7933
+743.jpg,Which station lies directly between Myeongil and Gil-dong?,Gubeundari,['Positional'],Single Entity,_network,2–8MP,_city,9024,7934
+743.jpg,Which station connects Olympic Park and Bangi?,Mongchon-toseong,['Positional'],Single Entity,_network,2–8MP,_city,9025,7935
+743.jpg,Which station lies at the intersection of two lines?,Bokjeong,['Positional'],Single Entity,_network,2–8MP,_city,9026,7936
+743.jpg,Which station lies between Olympic Park and Gaerong?,Munjeong,['Positional'],Single Entity,_network,2–8MP,_city,9027,7937
+743.jpg,Which station borders both curved and straight segments?,Munjeong,['Positional'],Single Entity,_network,2–8MP,_city,9028,7938
+743.jpg,Which station name appears partially hidden under a box?,Bangi,"['Visual', 'Comparative']",Single Entity,_network,2–8MP,_city,9029,7939
+743.jpg,Which station connects to a visible label 'cubeundari'?,Beomgye,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,9030,7940
+743.jpg,Which station is west of Gaerong on the same line?,Munjeong,['Positional'],Single Entity,_network,2–8MP,_city,9031,7941
+743.jpg,Which station appears south of Munjeong?,Gaerong,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,9032,7942
+744.png,"Looking at the map, which state in the northwest has mostly light-colored counties?",Montana,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9033,7943
+744.png,Which southern state shows a narrow dark belt cutting across it horizontally?,Texas,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9034,7944
+744.png,Is Alaska more densely populated than Hawaii according to the map?,No,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,9035,7945
+744.png,"In the Midwest, do states like Iowa and Nebraska show mostly dark or light counties?",Light,['Visual'],Boolean,_choropleth,0.5–2MP,_country,9036,7946
+744.png,"On this map, are the coastal counties generally darker or lighter than inland counties?",Darker,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9037,7947
+744.png,Is Florida mostly light or dark on the population density map?,Dark,['Visual'],Boolean,_choropleth,0.5–2MP,_country,9038,7948
+744.png,Which state near Alaska is shown on the map as well?,Hawaii,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9039,7949
+744.png,In which part of California do we see the highest population density?,Coast,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9040,7950
+744.png,Which coast (east or west) generally has darker counties?,East,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9041,7951
+744.png,Do most states show a uniform shade of color or a patchy mix of different shades?,Patchy mix,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9042,7952
+745.jpg,How many ways a person have to reach Musarambhag from Bharatnagar?,2,['Other'],Counting,_network,>8MP,_city,9045,7953
+745.jpg,From how many stations a person can access airport shuttle services?,9,['Other'],Counting,_network,>8MP,_city,9047,7954
+745.jpg,from how many stations a person can access more than one type of transportation?,2,['Comparative'],Counting,_network,>8MP,_city,9048,7955
+745.jpg,what is the station number that comes after prakash nagar when going towards nagole?,11,['Other'],Single Entity,_network,>8MP,_city,9049,7956
+745.jpg,what is the name of the station that comes after Prakash Nagar when going towards Nagole?,Rasoolpura,['Other'],Single Entity,_network,>8MP,_city,9050,7957
+745.jpg,how many stations are there between malakpet to Kukatpally,16,['Positional'],Counting,_network,>8MP,_city,9051,7958
+745.jpg,what is the fastest way to reach MG Bus Station from Ameerpet? Give me a direct answer,red line,['Other'],Single Entity,_network,>8MP,_city,9052,7959
+746.jpg,Which color on the legend represents Q1 (p > 0.75)?,Purple,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9053,7960
+746.jpg,"Which quartile (Q1, Q2, Q3, Q4) is shown in blue on the map?",Q2,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9054,7961
+746.jpg,Which quartile is labeled as Q4 (p < 0.25)?,Red,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9055,7962
+746.jpg,Which color appears most extensively across the Southeast region?,Red,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9056,7963
+746.jpg,Are the higher probability ranks (p > 0.75) more concentrated in the West or the East?,West,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9057,7964
+746.jpg,Which quartile color suggests probabilities around or below 25%?,Red,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9058,7965
+746.jpg,Which quartile hue covers many counties in the Deep South?,Red,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9059,7966
+746.jpg,What quartile do you see dominating the Northern Rockies region?,Purple,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9060,7967
+746.jpg,"Which color is the least common overall, based on a quick glance?",Purple,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9061,7968
+746.jpg,Which quartile rank indicates a mid-to-low probability range (0.25 ≤ p < 0.5)?,Q3,['Other'],Single Entity,_choropleth,0.5–2MP,_country,9062,7969
+747.png,Which state is shown with the brightest yellow color?,California,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9063,7970
+747.png,"Which state is colored orange, indicating the second-highest milk production?",Wisconsin,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9064,7971
+747.png,Most states are shown in which general color shade?,Dark blue,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9065,7972
+747.png,States with very low milk production are mostly in which color?,Dark blue,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9066,7973
+747.png,Is Texas colored darker or lighter than New York?,Darker,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9067,7974
+747.png,"Which region (east, west, north, south) has the largest milk-producing state by color?",West,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9068,7975
+747.png,How many states show a yellowish or orange color?,2,['Visual'],Counting,_choropleth,0.5–2MP,_country,9069,7976
+747.png,What is the color gradient direction for increasing milk production?,Dark blue to yellow,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9070,7977
+747.png,Are most southern states colored dark or bright?,Dark,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9071,7978
+747.png,Which side of the country shows higher milk production visually?,West,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9072,7979
+748.png,What is the closest red state to Indiana?,Ohio,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9076,7980
+748.png,What is the closest blue state to Louisiana?,Arkansas,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9077,7981
+748.png,How many red states are there?,13,['Visual'],Counting,_choropleth,0.5–2MP,_country,9078,7982
+748.png,How many states along the great lakes are red?,1,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_country,9079,7983
+748.png,"According to the map, how many states along the Mexican American border are red?",1,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_country,9080,7984
+748.png,"Between Arizona, Colorado, Utah, and New Mexico, which state is the darkest blue?",New Mexico,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9081,7985
+749.png,How many points have 5 routes intersecting there?,3,['Other'],Counting,_network,0.5–2MP,_city,9082,7986
+749.png,What is the color of route 12?,Orange,['Visual'],Single Entity,_network,0.5–2MP,_city,9087,7987
+749.png,How many points are there on the shortest path from Gallieni to Telegraphe?,6,['Comparative'],Counting,_network,0.5–2MP,_city,9088,7988
+750.jpg,Which line could one remove and still ensure coverage between all the stations?,none,['Positional'],Single Entity,_network,2–8MP,_city,9090,7989
+750.jpg,Which station is at the intersection of where one line ends and another line starts?,Tehran,['Positional'],Single Entity,_network,2–8MP,_city,9091,7990
+750.jpg,Which line covers the most number of regions on the map?,Pink,['Comparative'],Single Entity,_network,2–8MP,_city,9092,7991
+750.jpg,How many different ways can one go from Meydan e ketab to Haram e Hazrat e Abdolazim?,10,['Other'],Counting,_network,2–8MP,_city,9094,7992
+750.jpg,What is the best connected university on the map?,Tehran University or Daneshgah-e Tehran,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,9095,7993
+750.jpg,Is there a direct route(no transfers) from Haram e Hazrat e Abdolazim to Shahid Settari?,Yes,['Other'],Boolean,_network,2–8MP,_city,9096,7994
+750.jpg,How would go from the Takhti sports complex to Goftegou park using the fastest path?,purple line,['Other'],Boolean,_network,2–8MP,_city,9097,7995
+750.jpg,What is the most centrally located station in the map?,Imam Khomemi,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,9098,7996
+751.png,Which U.S. state has the largest number of counties in the darkest teal color?,California,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9100,7997
+751.png,Which region shows the highest population density in Florida?,Southern Florida,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9101,7998
+751.png,Are there any counties in the Mountain West with populations over 1 million?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9102,7999
+751.png,"Which part of Texas has more high-population counties—north, south, east, or west?",East Texas,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9103,8000
+751.png,"In which Great Plains state are most counties under 20,000 in population?",Nebraska,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9104,8001
+751.png,Which part of the U.S. shows the highest concentration of low-population counties?,Central Plains or Northern Plains,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9105,8002
+751.png,"Do more western or eastern counties fall below 20,000 in population?",Western,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9106,8003
+751.png,What does the darkest teal color on this map represent?,Counties with over 5 million people,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9107,8004
+751.png,What population does the color brown represent?,Fewer than 20000,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9108,8005
+751.png,What year is the population data from?,2022,['Other'],Single Entity,_choropleth,0.5–2MP,_country,9109,8006
+752.png,Which state has mostly blue-colored counties (lowest commute times)?,North Dakota,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9110,8007
+752.png,Which state has a red urban cluster surrounded by mostly blue counties?,Colorado,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9111,8008
+752.png,Which area in the Midwest has a red commute hotspot?,Chicago metro,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9112,8009
+752.png,Which state shows very little red but has a few yellow counties?,Oregon,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9113,8010
+752.png,Which state’s panhandle shows shorter commutes than its rest?,Texas,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9114,8011
+752.png,Which area in the western U.S. has surprisingly high commute times?,Salt Lake City suburbs,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9115,8012
+752.png,Which state’s eastern half has higher commute times than its western half?,Pennsylvania,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9116,8013
+752.png,Identify a cluster of red counties outside the East Coast.,Northeastern Colorado,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,9117,8014
+752.png,Name a state with both red and blue counties.,Texas,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9118,8015
+752.png,Which part of Florida shows longer commute times?,Northern Florida,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9119,8016
+753.png,What map technique is used on the left side of the image?,Choropleth,"['Visual', 'Positional']",Single Entity,_multiple,2–8MP,_region,9120,8017
+753.png,Which city is labeled closer to the center of the maps?,Oakland,"['Visual', 'Positional']",Single Entity,_multiple,2–8MP,_region,9121,8018
+753.png,What color on the choropleth map indicates areas with the lowest percentage of people under 18?,Dark blue,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_region,9122,8019
+753.png,How many population size categories are shown in the symbol legend?,3,['Visual'],Counting,_multiple,2–8MP,_region,9123,8020
+753.png,"In the bivariate map, which city region shows the darkest and largest circles clustered together?",Oakland,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_region,9124,8021
+753.png,What general geographic direction is San Jose located from San Francisco?,Southeast,['Positional'],Single Entity,_multiple,2–8MP,_region,9125,8022
+753.png,What feature is absent in the bivariate symbol map but present in the choropleth map?,Census tract boundaries,['Other'],Single Entity,_multiple,2–8MP,_region,9126,8023
+753.png,Which map style uses varying circle sizes to show differences in population?,Bivariate proportional symbols,['Visual'],Single Entity,_multiple,2–8MP,_region,9127,8024
+753.png,Which side of the map shows more distinct variation between adjacent areas?,Left,"['Positional', 'Comparative']",Single Entity,_multiple,2–8MP,_region,9128,8025
+753.png,"In the choropleth map, which region shows several patches of brown color?",East Bay,['Visual'],Single Entity,_multiple,2–8MP,_region,9129,8026
+754.png,Which U.S. region has the highest concentration of counties with >50% Black population?,The Deep South or Mississippi River region,"['Visual', 'Comparative']",Single Entity,_choropleth,>8MP,_country,9130,8027
+754.png,Is the percent Black population higher in eastern or western Texas counties?,Eastern Texas,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9131,8028
+754.png,Which state has the most counties with a 25–50% Black population?,Mississippi,"['Visual', 'Comparative']",Single Entity,_choropleth,>8MP,_country,9132,8029
+754.png,Is the percent Black population in most California counties above or below 10%?,Below,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9134,8030
+754.png,Which state west of the Mississippi River has several counties in the 10–15% range?,Missouri,['Positional'],Single Entity,_choropleth,>8MP,_country,9136,8031
+754.png,What year does the data on the map represent?,2013,['Other'],Single Entity,_choropleth,>8MP,_country,9137,8032
+754.png,What does the darkest color on the map represent?,Counties with >50% Black population,"['Visual', 'Comparative']",Single Entity,_choropleth,>8MP,_country,9138,8033
+754.png,Are most counties in the western U.S. light-colored on this map?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9139,8034
+755.png,Are the counties along the Pacific Coast generally darker or lighter than inland western counties?,Darker,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9140,8035
+755.png,"Based on the map, are most western counties lightly or darkly shaded?",Lightly,"['Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9141,8036
+755.png,Do areas with the darkest blue typically appear near coastlines or far inland?,Coastlines,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9142,8037
+755.png,"Are counties with densities over 10,000 mostly clustered together or scattered across the U.S.?",Clustered,"['Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9143,8038
+755.png,Is the area of highest continuous dark blue more along the East Coast or the West Coast?,East,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9144,8039
+755.png,"In the western half of the U.S., are dark blue counties more often isolated or grouped?",Isolated,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,>8MP,_country,9145,8040
+755.png,Is population density in the Midwest mostly uniform (same shade) or varied (different shades)?,Varied,['Visual'],Boolean,_choropleth,>8MP,_country,9146,8041
+755.png,"In California, do the highest density counties appear more toward the coast or inland?",Coast,"['Visual', 'Comparative']",Boolean,_choropleth,>8MP,_country,9147,8042
+755.png,"Between the Southeast and Southwest, which region appears more consistently medium-to-dark blue?",Southeast,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,>8MP,_country,9148,8043
+755.png,"Looking at Alaska, are there any counties shaded with the darkest blue?",No,"['Visual', 'Comparative']",Boolean,_choropleth,>8MP,_country,9149,8044
+756.jpg,Which countries have Islamic state territorial gains in 2016?,Syria,['Other'],Single Entity,_conflict,2–8MP,_subcontinent,9150,8045
+757.png,"Which state is more republican leaning, Texas or Mississippi?",Neither,['Comparative'],Single Entity,_choropleth,2–8MP,_country,9161,8046
+757.png,"Which state is more republican leaning, California or Mississippi?",California,['Comparative'],Single Entity,_choropleth,2–8MP,_country,9162,8047
+757.png,Name the most democratic leaning state along the west coast.,Oregon,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,9164,8048
+757.png,Name the green state east of the yellow states that include Vermont.,Maine,"['Visual', 'Positional']",Single Entity,_choropleth,2–8MP,_country,9166,8049
+757.png,Name the east most state that is mostly republican percentage.,New Hampshire,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,9168,8050
+758.png,Which state has the largest interior population symbol?,Illinois,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9169,8051
+758.png,Which state has a very small non-zero costline population but a large interior population?,Texas,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9170,8052
+758.png,What is the value of the largest coastline symbol in California?,10000000,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9171,8053
+758.png,What is the numeric value of the largest coastline population symbol in Texas?,5000000,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9172,8054
+758.png,"Which is bigger, the largest coastline population symbol in Florida or Texas?",Texas,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9173,8055
+758.png,Does Hawaii or Alaska have more coastline population?,Hawaii,['Comparative'],Boolean,_marker,0.5–2MP,_country,9174,8056
+758.png,Is the largest interior symbol in Arizona bigger or smaller than the largest interior symbol in Cali,Bigger,['Comparative'],Boolean,_marker,0.5–2MP,_country,9175,8057
+759.jpg,How many regions have been gained by Ukraine since January 1st?,6,['Other'],Counting,_conflict,2–8MP,_region,9176,8058
+759.jpg,How many distinct areas have been gained by Russia since January 1st?,15+,['Other'],Counting,_conflict,2–8MP,_region,9177,8059
+759.jpg,What is the approximate distance between the northernmost and southernmost points of the regions gai,300 to 350 kilometers or 185 to 215 miles,"['Positional', 'Comparative']",Single Entity,_conflict,2–8MP,_region,9178,8060
+759.jpg,How many regions gained by Ukraine are adjacent to regions held by Russia?,All,['Positional'],Counting,_conflict,2–8MP,_region,9179,8061
+759.jpg,Are there any regions gained by Russia that are completely surrounded by regions controlled by Ukrai,No,['Positional'],Boolean,_conflict,2–8MP,_region,9180,8062
+759.jpg,Are there any regions that have remained unchanged in control since January 1st?,not possible,['Other'],Boolean,_conflict,2–8MP,_region,9181,8063
+759.jpg,Are there any regions gained by Ukraine that are completely surrounded by regions controlled by Rus,No,['Positional'],Boolean,_conflict,2–8MP,_region,9182,8064
+759.jpg,Which country controls the northernmost region gained since January 1st?,Russia,"['Positional', 'Comparative']",Single Entity,_conflict,2–8MP,_region,9183,8065
+759.jpg,Which country controls the smallest distinct region gained since January 1st?,Ukraine,['Comparative'],Single Entity,_conflict,2–8MP,_region,9184,8066
+759.jpg,Are there any blue regions that are not adjacent to any red regions?,No,"['Visual', 'Positional']",Boolean,_conflict,2–8MP,_region,9185,8067
+760.png,Which sea is located south of Ukraine according to the map?,Black,['Positional'],Single Entity,_conflict,0.5–2MP,_country,9186,8068
+760.png,Which major Ukrainian city is shown closest to the Chernobyl plant?,Kyiv,"['Visual', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,9187,8069
+760.png,"According to the map legend, what color represents areas controlled by Russia before 2022?",Dark green,['Visual'],Single Entity,_conflict,0.5–2MP,_country,9188,8070
+760.png,Which city is shown closest to the Sea of Azov?,Mariupol,"['Visual', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,9189,8071
+760.png,What body of water is located between Crimea and mainland Ukraine?,Sea of Azov,['Positional'],Single Entity,_conflict,0.5–2MP,_country,9190,8072
+760.png,Which country borders Ukraine directly to the west on this map?,Poland,['Positional'],Single Entity,_conflict,0.5–2MP,_country,9191,8073
+760.png,Is Lviv located closer to Poland or Russia according to the map?,Poland,['Positional'],Boolean,_conflict,0.5–2MP,_country,9192,8074
+760.png,What is the symbol used to mark the city of Kyiv on this map?,Star inside circle,['Visual'],Single Entity,_conflict,0.5–2MP,_country,9193,8075
+760.png,Which Ukrainian city is shown near the unrecognized region of Transnistria?,Vinnytsia,"['Visual', 'Positional']",Single Entity,_conflict,0.5–2MP,_country,9194,8076
+760.png,What type of control status is shown with beige/cream color?,Ukraine government,['Visual'],Single Entity,_conflict,0.5–2MP,_country,9195,8077
+761.jpg,Give me the count of the cities with low potential abundance in July.,17,['Other'],Counting,_marker,0.5–2MP,_country,9196,8078
+761.jpg,FL has only red circles. True of False?,True,['Visual'],Boolean,_marker,0.5–2MP,_country,9197,8079
+761.jpg,Right side of map has more cities compared to left. True or False?,True,"['Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9198,8080
+761.jpg,How much of potential abundance is shown for Houston?,Moderate,['Visual'],Counting,_marker,0.5–2MP,_country,9199,8081
+761.jpg,How many different sizes of circles are present?,4,['Visual'],Counting,_marker,0.5–2MP,_country,9200,8082
+761.jpg,Any state with only smallest circles?,OK,['Comparative'],Boolean,_marker,0.5–2MP,_country,9201,8083
+761.jpg,Which among the cities with moderate potential abundance has highest monthly average arrivals?,New York City,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9202,8084
+761.jpg,What is the exact range of number of people for biggest circles?,500000 - 1300000,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9204,8085
+761.jpg,"Between Dallas and Las Vegas, which city shows a higher monthly arrival average?",Dallas,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9205,8086
+762.jpg,Which state has large patches of high vulnerability and low stay-at-home behavior?,Texas,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9206,8087
+762.jpg,Which region of the U.S. appears with the most light purple shading?,Northeast,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9207,8088
+762.jpg,Which U.S. region generally shows high stay-at-home behavior regardless of vulnerability?,West Coast,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9208,8089
+762.jpg,What color dominates most of South Carolina?,Beige,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9209,8090
+762.jpg,What color is Alaska predominantly shaded in?,Light Beige,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9210,8091
+762.jpg,Which state in the Southeast has most counties shaded beige?,Mississippi,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9211,8092
+762.jpg,Which state in the Midwest has mostly light colors and low SVI?,Iowa,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9212,8093
+762.jpg,Which U.S. coast shows the greatest variation in vulnerability and behavior?,West,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9213,8094
+762.jpg,Which state in the Plains has low vulnerability and moderate behavior in most counties?,Nebraska,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9214,8095
+762.jpg,Which state shows high SVI and high behavior in its southern counties?,Arizona,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9215,8096
+763.png,"Which region, based on the map, shows some of the highest Average ED (far right of the legend)?",Southern Africa,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9216,8097
+763.png,Which color typically represents high Average ED and high Variance of ED (top-right on the legend)?,Deep purple,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9217,8098
+763.png,"Which general area in North America appears mostly blue, indicating lower Average ED?",Northern Canada or Alaska,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9218,8099
+763.png,Which color range on the legend suggests low Variance of ED (bottom part of the vertical axis)?,Yellow,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9219,8100
+763.png,"Which sub-Saharan area is marked by purple, indicating both high Average ED and high Variance?",Southwestern Africa or Namibia or Angola,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9220,8101
+763.png,Which color on the legend corresponds to very low Average ED (left side) and very high Variance?,Blue shifting toward green,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9221,8102
+763.png,"Which broad region in Eurasia exhibits mostly cooler hues (blue/green), signifying lower Average ED?",Northern Russia or Siberia,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,9222,8103
+763.png,Which color indicates a midpoint for both Average ED and Variance (around center of the legend)?,Olive or greenish tones,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_world,9223,8104
+763.png,Which hemisphere shows a more extensive spread of the highest Average ED values?,Southern Hemisphere,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,9224,8105
+763.png,Which global region is least associated with bright purple squares on the map?,Europe,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9225,8106
+763.png,"Which portion of Australia shows scattered patches of purple, suggesting high Variance?",Western or northern,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,9226,8107
+764.png,Which Anti Assad rebel is closest to the river?,Jarabulus,['Comparative'],Single Entity,_conflict,2–8MP,_country,9228,8108
+764.png,Which HTS controlled city is closest to Homs?,Rastan,['Comparative'],Single Entity,_conflict,2–8MP,_country,9229,8109
+764.png,Which Anti Assad rebel controlled city is located in the US Declared deconfliction zone?,Tanf,['Positional'],Single Entity,_conflict,2–8MP,_country,9230,8110
+764.png,Which Anti Assad rebel controlled city is closest to Israel?,Nawa,['Comparative'],Single Entity,_conflict,2–8MP,_country,9231,8111
+764.png,Which Assad government controlled city is closest to Al-Baghuz?,Abu Kamal,['Comparative'],Single Entity,_conflict,2–8MP,_country,9232,8112
+764.png,What territorial control does Qamishli have?,Mixed,['Other'],Single Entity,_conflict,2–8MP,_country,9233,8113
+764.png,How many cities south of Damascus are Assad government controlled?,1,['Positional'],Counting,_conflict,2–8MP,_country,9234,8114
+764.png,Is Mansurah on the north or south side of the river?,South,['Positional'],Boolean,_conflict,2–8MP,_country,9235,8115
+764.png,Which mixed territorial controlled city is south of Tel Abyad?,Ayn Issa,['Positional'],Single Entity,_conflict,2–8MP,_country,9236,8116
+765.jpg,Which color on the map represents SDF-controlled areas?,Yellow,['Visual'],Single Entity,_conflict,>8MP,_country,9237,8117
+765.jpg,Which territory is labeled as “Syrian regime controlled areas”?,red region or central and western Syria,['Visual'],Single Entity,_conflict,>8MP,_country,9238,8118
+765.jpg,Which area is designated for “Syrian Opposition controlled areas” on the map?,green region,['Other'],Single Entity,_conflict,>8MP,_country,9239,8119
+765.jpg,How many total military sites of the Global Coalition are indicated in the map’s info box?,32,['Other'],Counting,_conflict,>8MP,_country,9240,8120
+765.jpg,How many training points are listed for Coalition forces?,15,['Other'],Counting,_conflict,>8MP,_country,9241,8121
+765.jpg,How many “military bases” does the map highlight?,17,['Other'],Counting,_conflict,>8MP,_country,9242,8122
+765.jpg,Which neighboring country is shown immediately to Syria’s north?,Türkiye,"['Visual', 'Positional']",Single Entity,_conflict,>8MP,_country,9243,8123
+765.jpg,Which color zone occupies the largest continuous area within Syria?,Red,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,>8MP,_country,9244,8124
+765.jpg,Near which international border do most Opposition-held zones (green) appear?,Türkiye,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,>8MP,_country,9245,8125
+765.jpg,Which part of Syria has the densest cluster of Coalition military sites?,northeast or SDF territory,['Other'],Single Entity,_conflict,>8MP,_country,9246,8126
+765.jpg,Which color covers most of Syria’s coastal region along the Mediterranean?,Red,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,>8MP,_country,9247,8127
+765.jpg,Which region on the map has minimal Coalition presence icons (bases or training sites)?,southern border or adjacent to Jordan or next to Jordan or near Jordan,['Other'],Single Entity,_conflict,>8MP,_country,9248,8128
+766.png,"According to the image, how many locations have experienced significant fighting in the past 24 hour",10,['Other'],Counting,_conflict,>8MP,_region,9249,8129
+766.png,"According to the image, in which state did Ukraine claim its most significant counteroffensives?",Zaporizhzhia,['Comparative'],Single Entity,_conflict,>8MP,_region,9250,8130
+766.png,How many oblasts appear in the image description?,4,['Visual'],Counting,_conflict,>8MP,_region,9251,8131
+766.png,"According to the image, How many area of reported Ukrainian partisan warfare are there?",3,['Other'],Counting,_conflict,>8MP,_region,9252,8132
+766.png,Which Ukrainian oblast appears in the image but is not associated with any mentioned conflict?,Kharkiv,['Visual'],Single Entity,_conflict,>8MP,_region,9253,8133
+766.png,Geolocated footage posted on June 19 indicates that Russian forces advanced in how many locations?,3,['Other'],Counting,_conflict,>8MP,_region,9254,8134
+766.png,How many locations does Russian sources claim Russian forces have advanced?,2,['Other'],Counting,_conflict,>8MP,_region,9255,8135
+766.png,In which oblast has the largest Ukrainian partisan warfare occurred?,Donetsk,['Comparative'],Single Entity,_conflict,>8MP,_region,9256,8136
+766.png,Geolocated footage posted on June 21 indicates that Russian forces advanced in how many locations?,2,['Other'],Counting,_conflict,>8MP,_region,9257,8137
+766.png,According to the image How many significant fights have occurred in the past 24 hours around Spirne?,3,['Other'],Counting,_conflict,>8MP,_region,9258,8138
+767.png,Region with high rates of both low birthweight and obesity?,Southeastern US,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9260,8139
+767.png,Give name of states where many counties are white or have no data available,Missouri,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9261,8140
+767.png,Name a state in the Southwest where counties show a mix of blue and orange colors?,New Mexico,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9262,8141
+767.png,Which Northern state shows predominantly blue-colored counties?,North Dakota,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,9264,8142
+767.png,Identify a Great Plains state where counties show a mostly checkerboard mix of orange and blue?,Nebraska,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9265,8143
+767.png,Name a state where many counties are white or have no data available?,Nevada,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9266,8144
+767.png,Which state in the Midwest shows a high concentration of orange-colored counties?,Missouri,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9267,8145
+767.png,"What is the predominant color in Louisiana, and what does it indicate",Dark brown,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,9268,8146
+768.png,Which regions were reclaimed by Eritrea?,Badme Triangle,['Other'],Single Entity,_conflict,2–8MP,_region,9269,8147
+768.png,How many cities shown on the map are currently mostly under control of Amhara State?,13,"['Visual', 'Comparative']",Counting,_conflict,2–8MP,_region,9270,8148
+768.png,Which city closest to Mohoni is under control of Tigray caretaker govt.?,Hiwane,['Comparative'],Single Entity,_conflict,2–8MP,_region,9271,8149
+768.png,The pre-1991 border of Tigray passes through which place?,Tekeze Dam,['Positional'],Single Entity,_conflict,2–8MP,_region,9272,8150
+768.png,Which is the northern most city inside the de facto borders of Tigray State?,Badme,"['Positional', 'Comparative']",Single Entity,_conflict,2–8MP,_region,9273,8151
+768.png,Which city is closest to Mai Aini and Adi Harush?,Mai Tsebri,['Comparative'],Single Entity,_conflict,2–8MP,_region,9274,8152
+768.png,Which region is located to the south of Hiwane?,Raya,['Positional'],Single Entity,_conflict,2–8MP,_region,9276,8153
+769.png,Which state in the southeast has mostly blue counties?,Florida,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9277,8154
+769.png,What region in Illinois is mostly orange?,Central Illinois,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,9278,8155
+769.png,Which state has blue counties spread throughout from east to west?,North Carolina,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9279,8156
+769.png,Which state is almost entirely white (not colored)?,California,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,9280,8157
+769.png,Which northeastern state shows a mix of gray and brown?,New York,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9281,8158
+769.png,Which state shows all four color types?,Texas,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,9282,8159
+769.png,Which state in the Midwest has mostly orange and brown?,Minnesota,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,9283,8160
+769.png,Which color represents the most balanced health counties?,Blue,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,9284,8161
+769.png,Which state in the central US shows both extreme ends of the health spectrum?,Texas,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,9285,8162
+769.png,Which area shows the least colored counties?,Pacific Northwest,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,9286,8163
+770.png,What is the percentage change fatalities for middle east and north africa?,315,['Positional'],Single Entity,_multiple,>8MP,_world,9287,8164
+770.png,Which region experienced the largest absolute in fatalities?,MIDDLE EAST NORTH AFRICA or MENA,['Comparative'],Single Entity,_multiple,>8MP,_world,9288,8165
+770.png,What was the intensity of conflict change (%) for Europe and Eurasia during July 2023 to june 2024?,7.4,['Other'],Single Entity,_multiple,>8MP,_world,9290,8166
+770.png,What was the intensity of conflict change (%) for Americas during July 2023 to june 2024?,2.1%,['Other'],Single Entity,_multiple,>8MP,_world,9291,8167
+770.png,What was the intensity of conflict change (%) for Asia during July 2023 to june 2024?,7.4%,['Other'],Single Entity,_multiple,>8MP,_world,9292,8168
+770.png,What was the intensity of conflict change (%) for Sub Saharanafrica during July 2023 to june 2024?,0.3%,['Other'],Single Entity,_multiple,>8MP,_world,9293,8169
+770.png,What was the intensity of conflict change (%) for Middle east north africa from 2023 to 2024?,124.5%,['Positional'],Single Entity,_multiple,>8MP,_world,9294,8170
+770.png,How many countries are in americas in the map?,6,['Other'],Counting,_multiple,>8MP,_world,9295,8171
+770.png,How many countries are in asia with the data present in the map?,7,['Other'],Counting,_multiple,>8MP,_world,9296,8172
+771.jpg,In which panel does the green land first become non-contiguous (split into separate parts)?,Second,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_country,9297,8173
+771.jpg,How many distinct green land areas are shown in the final panel?,Over 20,['Visual'],Counting,_multiple,2–8MP,_country,9298,8174
+771.jpg,Which panel first introduces red boundary lines around the green areas?,Third or 3rd,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_country,9299,8175
+771.jpg,Which map panel shows the largest single continuous green area?,First or 1st,"['Visual', 'Comparative']",Single Entity,_multiple,2–8MP,_country,9300,8176
+771.jpg,"In the final panel, are any of the green areas connected directly to the Mediterranean coast?",Yes,"['Visual', 'Positional']",Boolean,_multiple,2–8MP,_country,9302,8177
+771.jpg,How many map panels depict a green area near the central part of the territory?,4,"['Visual', 'Positional']",Counting,_multiple,2–8MP,_country,9303,8178
+771.jpg,How many maps are shown in this series?,4,['Visual'],Counting,_multiple,2–8MP,_country,9304,8179
+771.jpg,What color is consistently used for areas of focus in the map?,Green,['Visual'],Single Entity,_multiple,2–8MP,_country,9305,8180
+772.png,Which region has the highest concentration of counties with high insurance rates and low donations?,Northeastern,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9307,8181
+772.png,Identify a state with a noticeable gradient from high to low insurance rates from east to west,Texas,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,9308,8182
+772.png,Which state shows a mix of high donations and low insurance rates in its counties?,Florida,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9309,8183
+772.png,What is the dominant color in the central part of the United States regarding insurance rates?,light green to medium green.,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,9310,8184
+772.png,What is the approximate percentage of counties in the western U.S. with low insurance rates?,Around 20%-30%,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,9311,8185
+772.png,Which state has the most counties with both low insurance rates and low donations?,Texas,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9312,8186
+772.png,Which region has the most counties with high insurance rates and high donations?,North-eastern region,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9313,8187
+772.png,What is the dominant color in the southern part of the United States regarding donations?,Pink or Purple,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_country,9314,8188
+772.png,Which state has a mix of high and low insurance rates with predominantly low donations?,Oregon,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9315,8189
+772.png,What is the approximate percentage of counties in the Midwest with high donations?,Ariund 20%-30%,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9316,8190
+772.png,Identify a state with a majority of counties showing high donations but low insurance rates.,South Dakota,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,9317,8191
+772.png,Identify a state with a majority of counties showing low donations but varied insurance rates.,Iowa,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,9318,8192
+773.png,Does Texas have any counties with unemployment rates > 20% as of June 2010.,Yes,['Other'],Boolean,_choropleth,0.1–0.5MP,_country,9320,8193
+773.png,Does the east coast have higher unemployment rates than west coast?,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9322,8194
+773.png,Which of these states had counties where unemployment rates < 5%. Utah and Colorado.,Colorado,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,9323,8195
+773.png,Does Arizona or Nevada have higher average unemployment rates?,Arizona,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,9324,8196
+773.png,What is the range of Hawaii's unemployment rate? > 5%? > 10%? > 15%? >20%?,> 10%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,9325,8197
+773.png,How many counties in California had unemployment rates > 20%? Specific numbers.,18,['Other'],Counting,_choropleth,0.1–0.5MP,_country,9326,8198
+773.png,Does the western counties of Alaska have higher unemployment rates or the eastern counties?,Western,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9327,8199
+773.png,Whats the unemployment rate of USA as of June 2010? Give specific %.,9.7%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,9328,8200
+774.jpg,Tell me how many countries suffer from Political Instability and name them?,5,['Other'],Single Entity,_conflict,2–8MP,_world,9330,8201
+774.jpg,What is common between Venezuela and Ethiopia?,Both have political instability,['Positional'],Single Entity,_conflict,2–8MP,_world,9333,8202
+774.jpg,The conflicts are categorized by definition laid out by?,council of foreign relationships,['Other'],Single Entity,_conflict,2–8MP,_world,9338,8203
+775.jpg,Are darker green (high rainfall) regions generally closer to the coast or farther inland?,Closer,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,9340,8204
+775.jpg,Are most irrigated districts (red boundaries) found in lighter or darker green zones?,Lighter,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,9341,8205
+775.jpg,"Comparing central and southern India, which shows more rainfed regions (black boundaries)?",South,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,9342,8206
+775.jpg,"Judging by the map, does the northeastern tip of India show mostly irrigated or rainfed districts?",Rainfed,['Positional'],Boolean,_choropleth,2–8MP,_country,9343,8207
+775.jpg,Are the northern hill areas near Nepal mostly shaded dark green or light green?,Light green,"['Visual', 'Positional']",Boolean,_choropleth,2–8MP,_country,9344,8208
+775.jpg,"Based on shading, does western Rajasthan receive more or less rainfall than Gujarat?",Less,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,9345,8209
+775.jpg,Are lighter green areas more common in northern India or southern India?,Northern,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,9346,8210
+775.jpg,Do the irrigated regions (red boundaries) dominate the eastern half of India or the western half?,Eastern,"['Visual', 'Positional']",Boolean,_choropleth,2–8MP,_country,9347,8211
+775.jpg,"Comparing Tamil Nadu and Kerala, which state appears to have darker shaded districts?",Kerala,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,9348,8212
+775.jpg,"Based on district boundary colors, is Punjab mainly irrigated or rainfed?",Irrigated,['Visual'],Boolean,_choropleth,2–8MP,_country,9349,8213
+776.jpg,Which part of England shows the densest cluster of high-value warehouses?,Central England or around Birmingham,['Other'],Single Entity,_marker,0.5–2MP,_country,9350,8214
+776.jpg,Do warehouses tend to cluster closer to census district centers or motorway intersections?,Motorway intersections,['Positional'],Boolean,_marker,0.5–2MP,_country,9351,8215
+776.jpg,"Which time period shows the most large, high-value warehouse developments?",1998–2000,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9352,8216
+776.jpg,"In the northeast region, which warehouse type is more common: built 1995–1997 or 2001–2003?",2001–2003,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9353,8217
+776.jpg,Which region in the south has a major warehouse concentration not along the coast?,North of Bristol,['Positional'],Single Entity,_marker,0.5–2MP,_country,9354,8218
+776.jpg,Are larger warehouses more common in the north or south of England?,South,"['Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9355,8219
+776.jpg,Is there a strong correlation between warehouse clustering and motorway locations?,Yes,['Positional'],Boolean,_marker,0.5–2MP,_country,9356,8220
+776.jpg,What do the circle sizes represent on the map?,Rateable value in thousands (£),['Visual'],Single Entity,_marker,0.5–2MP,_country,9357,8221
+776.jpg,Which color represents warehouses built between 1998 and 2000?,Orange,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,9358,8222
+776.jpg,What geographic area does this map cover?,England,['Other'],Single Entity,_marker,0.5–2MP,_country,9359,8223
+777.jpg,Which color on the left map represents the departments in the southeastern region of France?,Pink,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,9360,8224
+777.jpg,In which general region do we see the largest Suicides segment in the star plots?,Northern departments,"['Visual', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9361,8225
+777.jpg,Which variable appears to have the smallest segment for most coastal departments in the west?,Infants,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9362,8226
+777.jpg,Which color corresponds to departments in north-central France on the left map?,Green,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,9363,8227
+777.jpg,"On the right map, which highlighted region shows large Crime_prop (property crime) segments?",The central region,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9364,8228
+777.jpg,"In the star plots, which segment is typically located to the lower-left?",Suicides,['Positional'],Single Entity,_marker,0.5–2MP,_country,9365,8229
+777.jpg,Which variable occupies the lower-right segment in each star?,Donations,['Positional'],Single Entity,_marker,0.5–2MP,_country,9366,8230
+777.jpg,Corsica (bottom of the map) shows which color in the left figure’s region shading?,Yellow or Orange,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9367,8231
+777.jpg,Which region overall seems to have higher Literacy and lower Suicides in its star plots?,Southwest,['Comparative'],Single Entity,_marker,0.5–2MP,_country,9368,8232
+777.jpg,Which color typically indicates the northeastern departments on the left map?,Purple,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,9369,8233
+778.jpg,What do red dots represent on the map?,Imperial/Catholic Defeats,['Visual'],Single Entity,_conflict,2–8MP,_subcontinent,9370,8234
+778.jpg,Which river separates Buda and Pest?,Danube,['Other'],Single Entity,_conflict,2–8MP,_subcontinent,9371,8235
+778.jpg,In which region did the battle of the Downs take place and when?,East coast in Southern England,['Other'],Single Entity,_conflict,2–8MP,_subcontinent,9372,8236
+778.jpg,How many imperial/catholic victories?,11,['Other'],Counting,_conflict,2–8MP,_subcontinent,9373,8237
+778.jpg,Which city does the Seine river pass through?,Paris,['Positional'],Single Entity,_conflict,2–8MP,_subcontinent,9374,8238
+778.jpg,How many and in what years did the Battles of Breitenfeld occur?,2,['Other'],Counting,_conflict,2–8MP,_subcontinent,9375,8239
+778.jpg,In which region did Gustavus's 1648 campaign start?,Western Pomerania,['Other'],Single Entity,_conflict,2–8MP,_subcontinent,9378,8240
+778.jpg,In which region did Gustavus's 1648 campaign end?,Electoral Saxony,['Other'],Single Entity,_conflict,2–8MP,_subcontinent,9379,8241
+778.jpg,Which city is located north of the Po River?,Milan,['Positional'],Single Entity,_conflict,2–8MP,_subcontinent,9380,8242
+779.png,"In the White Catholics panel, which income bracket shows the largest number of orange states?",$40k–$75k,"['Visual', 'Comparative']",Single Entity,_multiple,0.5–2MP,_country,9382,8243
+779.png,"For White Evangelicals, does the under $20k bracket tilt orange or green overall?",green,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9383,8244
+779.png,Do Blacks in the $75k–$150k bracket display more green or orange states?,orange,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9384,8245
+779.png,"In the Hispanics rows, is the $40k–$75k bracket largely green or orange?",green.,['Visual'],Boolean,_multiple,0.5–2MP,_country,9385,8246
+779.png,"For All Voters at $75k–$150k, do more states fall in orange or green bands?",orange.,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9386,8247
+779.png,Which row shows a noticeable jump to orange for the over $150k bracket—Blacks or Hispanics?,Blacks,"['Visual', 'Comparative']",Single Entity,_multiple,0.5–2MP,_country,9387,8248
+779.png,"For White other/no religion at $20k–$40k, do most states surpass 45% (orange) or not?",no,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9388,8249
+779.png,"For Blacks under $20k, do most states align with or diverge from the national average?",Align,['Comparative'],Boolean,_multiple,0.5–2MP,_country,9389,8250
+779.png,"Among White non-evangelical Protestants in the $75k–$150k, is the map typically orange or green?",orange.,['Visual'],Boolean,_multiple,0.5–2MP,_country,9390,8251
+779.png,Which group shows more consistently orange maps in middle incomes: Hispanics or White Evangelicals?,Hispanics,"['Visual', 'Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_country,9391,8252
+781.png,Which state has a similar color to Texas but is in the northeastern U.S.?,Pennsylvania,"['Visual', 'Positional']",Single Entity,_choropleth,2–8MP,_country,9402,8253
+781.png,"How many states are shaded bright yellow, indicating high Republican and low Democrat percentages?",7,"['Visual', 'Comparative']",Counting,_choropleth,2–8MP,_country,9403,8254
+781.png,What general color trend is visible across the Midwest?,Mix of orange and pink,"['Visual', 'Positional']",Single Entity,_choropleth,2–8MP,_country,9404,8255
+781.png,"Based on the map, which region of the U.S. has the most red-tinted states?",Southeast,['Comparative'],Single Entity,_choropleth,2–8MP,_country,9406,8256
+781.png,Which state near Montreal has a more Republican majority?,Vermont or New Hampshire,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,9407,8257
+782.png,"Based on the image, how many Battle-Non-state actor overtakes territory occurred in South West Syria",15,['Positional'],Counting,_marker,0.5–2MP,_subcontinent,9408,8258
+782.png,What is the date range for that the map examines?,August 1-31 2018,['Other'],Single Entity,_marker,0.5–2MP,_subcontinent,9409,8259
+782.png,Which portion of Syria has the highest concentration of events that occur based on the map?,Western portion,['Comparative'],Single Entity,_marker,0.5–2MP,_subcontinent,9411,8260
+782.png,How many Riot/Protests events occured on the North East corner of Syria based on the map?,3,['Positional'],Counting,_marker,0.5–2MP,_subcontinent,9413,8261
+782.png,How many 26 event circles occurred in Syria based on the map?,1,['Other'],Counting,_marker,0.5–2MP,_subcontinent,9414,8262
+782.png,Which of the listed events occurred the most based on the map?,Remote violence,['Comparative'],Single Entity,_marker,0.5–2MP,_subcontinent,9415,8263
+782.png,How many Violence against civilians circles show up on the map?,46,['Other'],Counting,_marker,0.5–2MP,_subcontinent,9416,8264
+782.png,What color represents Battle-No change of territory on the map?,Dark blue,['Visual'],Single Entity,_marker,0.5–2MP,_subcontinent,9417,8265
+783.jpg,What is the color of low physical activity-low obesity category?,Beige,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9418,8266
+783.jpg,What category is colored in purple?,High physical activity-moderate obesity,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9419,8267
+783.jpg,Which type is colored in light pink?,Moderate physical activity-low obesity,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,9421,8268
+783.jpg,Which type is more present on the top right side of the map?,Low physical activity-low obesity,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,9422,8269
+783.jpg,What category is assigned to the county directly left ‘A1’?,Low physical activity-low obesity,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,9423,8270
+783.jpg,Which part of map has high concentration of type moderate physical activity-moderate obesity?,Centre bottom,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9424,8271
+783.jpg,What category is assigned to the county directly under ‘A3’?,Low physical activity-low obesity,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,9425,8272
+783.jpg,A2 is written on how many counties?,3,['Other'],Counting,_choropleth,0.5–2MP,_country,9426,8273
+783.jpg,How many different categories are listed in the map?,9,['Other'],Counting,_choropleth,0.5–2MP,_country,9427,8274
+784.png,How many reported instances of Ukrainian partisan warfare are shown in the figure?,3,['Visual'],Counting,_conflict,>8MP,_region,9429,8275
+784.png,How many disjoint areas are claimed as Ukrainian counteroffensives?,4,['Positional'],Counting,_conflict,>8MP,_region,9430,8276
+784.png,Did Russia claimed control over territory north of Shcherbaky?,No,"['Positional', 'Comparative']",Boolean,_conflict,>8MP,_region,9434,8277
+784.png,Did Russia claimed control over territory west of Kamianske?,No,"['Positional', 'Comparative']",Boolean,_conflict,>8MP,_region,9435,8278
+784.png,Did Russia claimed control over territory east of levadne?,No,"['Positional', 'Comparative']",Boolean,_conflict,>8MP,_region,9436,8279
+784.png,Name the city located on the border between Zaporizhzhia and Dnipropetrovsk Oblast.,Liubymivka,['Positional'],Single Entity,_conflict,>8MP,_region,9437,8280
+785.jpg,How many districts are shown on the map above?,7,"['Visual', 'Positional']",Counting,_divisional,>8MP,_district,9438,8281
+785.jpg,Which district is split in the map?,5,['Other'],Single Entity,_divisional,>8MP,_district,9439,8282
+785.jpg,"Based on the map above, which highway passes along the border of Districts 5 and 7?",35,['Positional'],Single Entity,_divisional,>8MP,_district,9440,8283
+785.jpg,In which city is District 3 located on the map?,Oklahoma,['Positional'],Single Entity,_divisional,>8MP,_district,9441,8284
+785.jpg,Which park is located between the two parts of District 5?,Forest,['Positional'],Single Entity,_divisional,>8MP,_district,9442,8285
+785.jpg,"According to the map, which district contains the largest water body?",2,"['Positional', 'Comparative']",Single Entity,_divisional,>8MP,_district,9443,8286
+785.jpg,"From the map, which highway passes through two borders of District 4?",44,['Positional'],Single Entity,_divisional,>8MP,_district,9444,8287
+785.jpg,"How many elementary schools (ES) are located in District 5, based on the map?",5,['Positional'],Counting,_divisional,>8MP,_district,9445,8288
+785.jpg,When was the map above created?,November 2022,['Positional'],Single Entity,_divisional,>8MP,_district,9446,8289
+785.jpg,"On the map, how many middle schools (MS) can be found in District 2?",1,['Positional'],Counting,_divisional,>8MP,_district,9447,8290
+786.jpg,Does the purple area border more differently colored regions than the yellow area?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_divisional,>8MP,_district,9448,8291
+786.jpg,Are larger color regions mostly located near the center or toward the edges of the district?,Edges,"['Visual', 'Positional', 'Comparative']",Boolean,_divisional,>8MP,_district,9449,8292
+786.jpg,"Comparing the blue and orange areas, which has more complex (jagged) boundaries?",Orange,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,>8MP,_district,9450,8293
+786.jpg,"Based on the road density shown, is the southeastern part of the district more urban or rural?",Urban,"['Visual', 'Positional', 'Comparative']",Boolean,_divisional,>8MP,_district,9451,8294
+786.jpg,Do any colored regions fully cover the Ridge Reservoir?,No,['Visual'],Boolean,_divisional,>8MP,_district,9452,8295
+786.jpg,Is the overall district boundary closer to a square shape or a stretched rectangle shape?,Stretched rectangle,"['Visual', 'Positional']",Boolean,_divisional,>8MP,_district,9453,8296
+786.jpg,Are school markers (black dots) spread evenly across the district or concentrated in specific areas?,Concentrated,"['Visual', 'Positional']",Boolean,_divisional,>8MP,_district,9454,8297
+786.jpg,Which section of the map has the most mixed small colored regions: northwest or southeast?,Southeast,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,>8MP,_district,9455,8298
+786.jpg,Is the Ridge Reservoir located inside or outside the school district boundary?,Outside,['Positional'],Boolean,_divisional,>8MP,_district,9456,8299
+786.jpg,"Based on the map, is the purple area mostly located west or east of the black highway line?",West,"['Visual', 'Positional']",Boolean,_divisional,>8MP,_district,9457,8300
+787.png,Name the east most state highway?,A Airport Hwy,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,9458,8301
+787.png,NAme the LArgest Rail road spanning from east to west?,Burlington Northen Santa FE Rlwy,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,9465,8302
+787.png,NAme the state highway that marks the border of county of 3 and 4?,245,"['Visual', 'Positional']",Single Entity,_divisional,0.5–2MP,_district,9467,8303
+788.png,How many unique school numbers are listed in this image?,27,['Other'],Counting,_divisional,2–8MP,_district,9468,8304
+788.png,"Which school number is geographically closest to ""Robert Morris""?",Joseph Battin Annex,['Comparative'],Single Entity,_divisional,2–8MP,_district,9469,8305
+788.png,Which school number is located at the center of the map?,2,['Positional'],Single Entity,_divisional,2–8MP,_district,9471,8306
+788.png,What is the highest school ID number shown?,28,"['Visual', 'Comparative']",Single Entity,_divisional,2–8MP,_district,9472,8307
+788.png,"What color is assigned to ""Almora School"" on the map?",Pink,['Visual'],Single Entity,_divisional,2–8MP,_district,9473,8308
+788.png,What is the physical address of school ID #9?,125 Third street or 125 3rd street,['Other'],Single Entity,_divisional,2–8MP,_district,9474,8309
+788.png,Are there any duplicate school numbers in the list?,no,['Other'],Boolean,_divisional,2–8MP,_district,9475,8310
+788.png,What is the lowest school ID number shown?,3,"['Visual', 'Comparative']",Single Entity,_divisional,2–8MP,_district,9476,8311
+788.png,Address of Robert morris school,860 cross avenue,['Other'],Single Entity,_divisional,2–8MP,_district,9477,8312
+789.png,Which capital is located the farthest west according to the map?,Dien Bien Phu,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,9480,8313
+789.png,Which capital is surrounded by rainfall regions of different intensities?,Quang Ngai,['Positional'],Single Entity,_divisional,0.5–2MP,_district,9481,8314
+789.png,Name the capital directly south of Hanoi.,Ninh Binh,['Positional'],Single Entity,_divisional,0.5–2MP,_district,9482,8315
+789.png,Which capital is farthest from both the sea and any national border?,Dak Lak,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,9483,8316
+789.png,Count the capitals with high rainfall based on the map.,14,['Comparative'],Counting,_divisional,0.5–2MP,_district,9484,8317
+789.png,Which capital in the northeast is closest to the China border?,Cao Bang,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,9485,8318
+789.png,Name a capital that lies in the Mekong Delta but is not on the coast.,Can Tho,['Positional'],Single Entity,_divisional,0.5–2MP,_district,9486,8319
+789.png,Which capital is closest to a cluster of three rivers as shown on the map?,Vinh,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,9487,8320
+789.png,Which capital is located between Da Nang and Hue?,Dong Ha,"['Visual', 'Positional']",Single Entity,_divisional,0.5–2MP,_district,9488,8321
+790.jpg,The westhorough blvd locate in which area,C,['Positional'],Single Entity,_divisional,0.5–2MP,_district,9489,8322
+790.jpg,Count the number of schools(red flag) in area C,5,['Visual'],Counting,_divisional,0.5–2MP,_district,9493,8323
+790.jpg,Count the number of schools(red flag) in area D,5,['Visual'],Counting,_divisional,0.5–2MP,_district,9494,8324
+790.jpg,Count the number of schools(red flag) in area E,6,['Visual'],Counting,_divisional,0.5–2MP,_district,9495,8325
+791.jpg,How many other regions are adjacent to the Golden Valley attendance region?,4,['Positional'],Counting,_divisional,0.5–2MP,_district,9501,8326
+791.jpg,How many other regions are adjacent to the west attendance region?,6,['Positional'],Counting,_divisional,0.5–2MP,_district,9502,8327
+791.jpg,How many other regions are adjacent to the east attendance region?,5,['Positional'],Counting,_divisional,0.5–2MP,_district,9503,8328
+791.jpg,How many different school regions are there on the banks of the river?,6,['Other'],Counting,_divisional,0.5–2MP,_district,9507,8329
+791.jpg,How many other regions are adjacent to the Deloro attendance region?,5,['Positional'],Counting,_divisional,0.5–2MP,_district,9508,8330
+792.png,Which region shows more red-circled segregating borders: Midwest or West Coast?,Midwest,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9509,8331
+792.png,Are there more highly segregating borders (red circles) east or west of the Mississippi River?,East,"['Visual', 'Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9510,8332
+792.png,Does the state of California have more light or dark shaded counties overall?,Light,"['Visual', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9511,8333
+792.png,"Comparing the Deep South and the Mountain West, which shows more high-poverty counties?",Deep South,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,9512,8334
+792.png,Is there a larger number of light-colored counties in the western half or eastern half of the U.S.?,Western,"['Visual', 'Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9513,8335
+792.png,Are segregating borders more densely packed in the Northeast or the Southeast?,Northeast,"['Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9514,8336
+792.png,"Based on shading, are counties in the Midwest generally more similar to the South or the West?",South,"['Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9515,8337
+792.png,"Judging from the map, do most segregating borders occur near urban areas or rural areas?",Urban areas,"['Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9516,8338
+792.png,Are darker counties more common near coastlines or more inland?,Inland,"['Visual', 'Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_country,9517,8339
+792.png,Is there a noticeable concentration of highly segregating borders around the Great Lakes region?,Yes,['Positional'],Boolean,_marker,0.5–2MP,_country,9518,8340
+793.png,How many states are mentioned in the figure?,7,['Other'],Counting,_mixed,<0.1MP,_region,9519,8341
+793.png,What is the state in the bottom right corner of the figure that isn't labeled with a name?,Florida,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,<0.1MP,_region,9520,8342
+793.png,which sate has most circle.,Arkansas,['Comparative'],Single Entity,_mixed,<0.1MP,_region,9521,8343
+793.png,which state has least circle?,Tennessee,['Comparative'],Single Entity,_mixed,<0.1MP,_region,9522,8344
+793.png,Count the number of red circles in Mississippi.,5,['Visual'],Counting,_mixed,<0.1MP,_region,9524,8345
+793.png,Count the number of red circles in Arkansas.,9,['Visual'],Counting,_mixed,<0.1MP,_region,9525,8346
+793.png,which state has largest area with blue color?,Mississippi,"['Visual', 'Comparative']",Single Entity,_mixed,<0.1MP,_region,9526,8347
+794.jpg,Which trustee area spans most of the northern waterfront region?,1,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,9527,8348
+794.jpg,Which trustee area covers the largest landmass south of Lone Tree Way?,5,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,9528,8349
+794.jpg,Which color represents Trustee Area 3 on the map?,Yellow,['Visual'],Single Entity,_divisional,0.1–0.5MP,_district,9529,8350
+794.jpg,Which colored section near the center extends slightly north of Highway 4?,Blue,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_district,9530,8351
+794.jpg,Which trustee area borders every other area on at least one side?,2,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,9531,8352
+794.jpg,Which area’s boundary closely follows Highway 4 in the map’s central corridor?,2,['Other'],Single Entity,_divisional,0.1–0.5MP,_district,9532,8353
+794.jpg,Which area in the legend shows the smallest overall population?,3,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_district,9533,8354
+794.jpg,Which trustee area is situated roughly between the two bright yellow and green zones?,2,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_district,9534,8355
+794.jpg,Which area forms a band across the central part of the district from west to east?,2,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9535,8356
+794.jpg,Which trustee area encloses neighborhoods in the southeastern foothills?,5,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9536,8357
+795.jpg,How many Interstate Highways are referenced in the given image?,4,['Other'],Counting,_divisional,0.1–0.5MP,_district,9537,8358
+795.jpg,What is the northernmost school district?,Northwoord,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,9538,8359
+795.jpg,What the name of the school district situated directly north of Bowling Green City School District?,Otsego,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_district,9539,8360
+795.jpg,On what date was the map published?,April 5th 2017.,['Other'],Single Entity,_divisional,0.1–0.5MP,_district,9540,8361
+795.jpg,How many school districts are there in the map?,15,['Other'],Counting,_divisional,0.1–0.5MP,_district,9541,8362
+795.jpg,Which school district is the smallest?,Anthony Wayne,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_district,9542,8363
+795.jpg,What is the name of the school district situated directly west of Perrysburg School District?,Anthony Wayne,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9543,8364
+795.jpg,What is the name of the school district situated directly west of North Baltimore School District?,McComb,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9544,8365
+795.jpg,What is the name of the school district situated directly North of North Baltimore School District?,Bowling Green City,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9545,8366
+795.jpg,How many school districts does the I-80 Interstate Highway pass through?,3,['Positional'],Counting,_divisional,0.1–0.5MP,_district,9546,8367
+796.jpg,Count the number of districts that have schools on a 4-day week.,14,['Other'],Counting,_divisional,>8MP,_state,9547,8368
+796.jpg,Name most southeast school district of Colorado.,WALBH RE-1,"['Positional', 'Comparative']",Single Entity,_divisional,>8MP,_state,9549,8369
+796.jpg,Which district in southeast has all schools on a 5day week surrounded by districts with a 4day week.,Fowler R-4J,['Positional'],Single Entity,_divisional,>8MP,_state,9551,8370
+796.jpg,Name the southeastern most district with all schools on a 5-day week.,Fowler R-4J,"['Positional', 'Comparative']",Single Entity,_divisional,>8MP,_state,9552,8371
+796.jpg,Name the south most district with all schools on a 4-day week.,Moffat 2,"['Positional', 'Comparative']",Single Entity,_divisional,>8MP,_state,9553,8372
+796.jpg,How many districts neighboring Park County RE-2 have all schools on a 5-day week?,5,['Other'],Counting,_divisional,>8MP,_state,9554,8373
+796.jpg,How many districts neighboring Park County RE-2 have all schools on a 4-day week?,3,['Other'],Counting,_divisional,>8MP,_state,9555,8374
+797.jpg,How many in total total categories of 4-day week implementation are shown and by which color?,3,['Visual'],Counting,_divisional,2–8MP,_state,9556,8375
+797.jpg,which district is marked green and is a neighboring ditrict of mesa county valley?,Plateau County 50,['Visual'],Single Entity,_divisional,2–8MP,_state,9557,8376
+797.jpg,which district is marked green and is a neighboring ditrict of Plateau county valley?,mesa county valley,['Visual'],Single Entity,_divisional,2–8MP,_state,9558,8377
+797.jpg,What 2 district share boundry with west grande and have multiple school in 4 day week but not all?,EAST GRAND SOUTH ROUTT,['Positional'],Single Entity,_divisional,2–8MP,_state,9559,8378
+797.jpg,HOW MANY DISTRICTS SHARE BORDER WITH MOFFAT 2 AND HAVE ALL SCHOOL IN 4 DAY WEEK?,4,['Positional'],Counting,_divisional,2–8MP,_state,9560,8379
+797.jpg,HOW MANY DISTRICTS SHARE BORDER WITH POUDRE R1 AND HAVE ALL SCHOOLS IN 4 DAY WEEK?,1,['Positional'],Counting,_divisional,2–8MP,_state,9561,8380
+797.jpg,HOW MANY DISTRICTS SHARE BORDER WITH EAST GRANDE 2 AND HAVE ALL SCHOOLS IN 4 DAY WEEK?,2,['Positional'],Counting,_divisional,2–8MP,_state,9562,8381
+797.jpg,WHICH DISTRICTS SHARE BORDER WITH MOUNTAIN VALLEY RE 1 AND HAS 1 SCHOOL IN 4 DAY WEEK?,MOFFAT 2,['Positional'],Single Entity,_divisional,2–8MP,_state,9563,8382
+797.jpg,WHICH DISTRICT SHARE BORDER WITH GLOREST RE 1 AND HAS 1 SCHOOL IN 4 DAY WEEK?,GREBLEY AND KLEENESBURG,['Positional'],Single Entity,_divisional,2–8MP,_state,9564,8383
+797.jpg,WHICH DISTRICT SHARE BORDER WITH denver county 1 AND HAS 1 SCHOOL IN 4 DAY WEEK?,Jefferson county r1,['Positional'],Single Entity,_divisional,2–8MP,_state,9565,8384
+798.png,What is the color of the point on Aurora Highlands?,Navy,['Visual'],Single Entity,_marker,0.5–2MP,_city,9566,8385
+798.png,How many points are north of Toll Gate Overlook?,4,['Positional'],Counting,_marker,0.5–2MP,_city,9567,8386
+798.png,How many points are between the 70 and the 30?,8,['Positional'],Counting,_marker,0.5–2MP,_city,9568,8387
+798.png,How many points are located at or south of Sable Ridge?,2,['Positional'],Counting,_marker,0.5–2MP,_city,9569,8388
+798.png,How many schools are located west of the 225 but between the 70 and the 30?,5,['Positional'],Counting,_marker,0.5–2MP,_city,9570,8389
+798.png,How many schools are located near Morris Heights?,1,['Positional'],Counting,_marker,0.5–2MP,_city,9571,8390
+798.png,There are 2 orange schools located next to each other. Name the main highway its near.,30,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_city,9572,8391
+798.png,Name the location of the north most orange school.,Sable Altura Chambers,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_city,9573,8392
+798.png,Name the number of schools located west of Centretech.,4,['Positional'],Single Entity,_marker,0.5–2MP,_city,9574,8393
+798.png,Name the color of the point closest to the 70.,Navy,"['Visual', 'Comparative']",Single Entity,_marker,0.5–2MP,_city,9575,8394
+799.jpg,Count the number of school in education districts B,12,['Other'],Counting,_mixed,0.5–2MP,_county,9576,8395
+799.jpg,Count the number of school in education districts D,14,['Other'],Counting,_mixed,0.5–2MP,_county,9577,8396
+799.jpg,Count the number of school in education districts F,10,['Other'],Counting,_mixed,0.5–2MP,_county,9578,8397
+799.jpg,Count the number of school in education districts E,10,['Other'],Counting,_mixed,0.5–2MP,_county,9579,8398
+799.jpg,Education districts B have how many high school?,1,['Comparative'],Counting,_mixed,0.5–2MP,_county,9580,8399
+799.jpg,Education districts D have how many high school?,2,['Comparative'],Counting,_mixed,0.5–2MP,_county,9581,8400
+799.jpg,Education districts B have how many middle school?,1,['Positional'],Counting,_mixed,0.5–2MP,_county,9582,8401
+799.jpg,Education districts D have how many middle school?,2,['Positional'],Counting,_mixed,0.5–2MP,_county,9583,8402
+799.jpg,Education districts E have how many high school?,0,['Comparative'],Counting,_mixed,0.5–2MP,_county,9584,8403
+799.jpg,Education District E  have how many adjacent districts?,5,['Positional'],Counting,_mixed,0.5–2MP,_county,9585,8404
+800.jpg,Which school district is represented in red?,Bruce Drysdale,['Visual'],Single Entity,_divisional,2–8MP,_district,9586,8405
+800.jpg,Which school district is represented in yellow?,Fletcher,['Visual'],Single Entity,_divisional,2–8MP,_district,9587,8406
+800.jpg,Which school is located at the southern tip of the map?,Hillandale,['Positional'],Single Entity,_divisional,2–8MP,_district,9588,8407
+800.jpg,Which school is located just east of the Central Offices (23)?,Clear Creek,['Positional'],Single Entity,_divisional,2–8MP,_district,9589,8408
+800.jpg,Which district is shown in light teal?,Hillandale,['Visual'],Single Entity,_divisional,2–8MP,_district,9590,8409
+800.jpg,Which district borders both district 1 and district 10?,Sugarloaf,['Positional'],Single Entity,_divisional,2–8MP,_district,9591,8410
+800.jpg,Which district is completely surrounded by others?,Hendersonville,['Positional'],Single Entity,_divisional,2–8MP,_district,9592,8411
+800.jpg,What color represents Sugarloaf?,Teal,['Visual'],Single Entity,_divisional,2–8MP,_district,9593,8412
+800.jpg,Which district is closest to the intersection of roads 225 and 64?,Etowah,"['Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_district,9594,8413
+800.jpg,Which elementary school is located in the district marked gray?,Atkinson,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_district,9595,8414
+802.jpg,Which district is located along the shore of Lake Tahoe?,3,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9606,8415
+802.jpg,what the east most district?,6,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,9607,8416
+802.jpg,How many different districts surround District 1?,2,['Positional'],Counting,_divisional,0.1–0.5MP,_district,9608,8417
+802.jpg,what the west most district?,3,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_district,9609,8418
+802.jpg,How many different districts surround District 5?,4,['Positional'],Counting,_divisional,0.1–0.5MP,_district,9610,8419
+802.jpg,Which district is located on the west side of District 2?,3,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9611,8420
+802.jpg,Which district is located on the east side of District 1?,6,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9612,8421
+802.jpg,Clerk Voting Precinct 32 is located within which district?,6,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9613,8422
+802.jpg,Clerk Voting Precinct 35 is located within which district?,3,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9614,8423
+802.jpg,Clerk Voting Precinct 16 is located within which district?,2,['Positional'],Single Entity,_divisional,0.1–0.5MP,_district,9615,8424
+803.jpg,Which board district contains the greatest number of charter schools?,4,"['Positional', 'Comparative']",Single Entity,_mixed,0.5–2MP,_county,9616,8425
+803.jpg,What color represents Board District 2?,Yellow,['Visual'],Single Entity,_mixed,0.5–2MP,_county,9617,8426
+803.jpg,In which district is the school “Johnson” located?,2,['Positional'],Single Entity,_mixed,0.5–2MP,_county,9618,8427
+803.jpg,In which district is the school “Johnson” located?,High School,['Positional'],Single Entity,_mixed,0.5–2MP,_county,9619,8428
+803.jpg,Which district has the fewest elementary schools?,3,['Comparative'],Single Entity,_mixed,0.5–2MP,_county,9620,8429
+803.jpg,“Smith High School” is located in which board district?,4,"['Positional', 'Comparative']",Single Entity,_mixed,0.5–2MP,_county,9621,8430
+803.jpg,Which type of school does the yellow circle icon represent?,K-8 School,['Visual'],Single Entity,_mixed,0.5–2MP,_county,9622,8431
+803.jpg,Which district is directly south of District 3?,1,['Positional'],Single Entity,_mixed,0.5–2MP,_county,9623,8432
+803.jpg,How many districts does district 5 borders with?,4,['Positional'],Counting,_mixed,0.5–2MP,_county,9624,8433
+803.jpg,What does blue triangle icon represent in the legend?,6-12 Schools,['Visual'],Single Entity,_mixed,0.5–2MP,_county,9625,8434
+804.jpg,Which zone is the southernmost on the map?,Thomas Jefferson,['Positional'],Single Entity,_mixed,2–8MP,_county,9627,8435
+804.jpg,Which high school boundary is located farthest northwest?,North,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_county,9628,8436
+804.jpg,Which high school is surrounded by the Far Northeast High School Zone?,Montbello HS,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_county,9629,8437
+804.jpg,Does John F. Kennedy High School share a boundary with any pink zone?,Yes,"['Visual', 'Comparative']",Boolean,_mixed,2–8MP,_county,9630,8438
+804.jpg,Which school zone includes DSST: GVR HS?,Far Northeast High School Zone,['Other'],Single Entity,_mixed,2–8MP,_county,9631,8439
+804.jpg,Which boundary school lies at the intersection of the West and North zones?,West HS,['Positional'],Single Entity,_mixed,2–8MP,_county,9632,8440
+804.jpg,What year is this high school boundary map valid for?,2022–23,['Comparative'],Single Entity,_mixed,2–8MP,_county,9633,8441
+804.jpg,What symbol represents a non-boundary school?,Hollow dot,['Other'],Single Entity,_mixed,2–8MP,_county,9634,8442
+804.jpg,Which high school has the largest geographic boundary on this map?,Thomas Jefferson,['Comparative'],Single Entity,_mixed,2–8MP,_county,9635,8443
+805.jpeg,What is the attendance area on the north west side of Clearview North attendance area ?,Oakdale North 2,['Positional'],Single Entity,_divisional,0.5–2MP,_district,9637,8444
+805.jpeg,"How many different attendance areas does Grand Ave cross, including those on the edge?",6,['Positional'],Counting,_divisional,0.5–2MP,_district,9640,8445
+805.jpeg,How many different attendance areas are adjacent to Whittier attendance areas?,6,['Positional'],Counting,_divisional,0.5–2MP,_district,9641,8446
+805.jpeg,"In the city, How many different attendance areas are located on the north side of Grand Avenue?",11,['Positional'],Counting,_divisional,0.5–2MP,_district,9642,8447
+805.jpeg,How many attendance areas are there in all the regions south of Grand Avenue?,10,['Positional'],Counting,_divisional,0.5–2MP,_district,9643,8448
+837.png,"In the 2010 map, is there a state represented by more than 12 individual squares of the same color?",Yes,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9792,8449
+837.png,"In the 1950 map, are there more than 10 individual states represented by the color teal?",No,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9793,8450
+837.png,"In the 1890 map, is there a single contiguous block of purple squares larger than five squares?",Yes,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9794,8451
+837.png,"Does the number of squares representing the Northeast"" region increase from 1890 to 1950?""",Yes,"['Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,9795,8452
+838.png,Is there at least one state colored predominantly in light yellow?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9796,8453
+838.png,Are there more than 10 states colored predominantly in dark teal?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9797,8454
+838.png,Do more states show high population growth than high housing unit growth?,No,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,9798,8455
+838.png,Are there more than 2 states that are predominantly pale yellow?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,9799,8456
+839.jpg,Is the White House situated north of the National World War II Memorial?,Yes,"['Visual', 'Positional']",Boolean,_mixed,0.5–2MP,_city,9800,8457
+839.jpg,Is the Jefferson Memorial located to the east of the Tidal Basin?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,9801,8458
+839.jpg,Is the Washington Monument located directly west of the National Museum of Natural History?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,9802,8459
+839.jpg,Is there a museum shown on the map that is dedicated to spies?,Yes,['Visual'],Boolean,_mixed,0.5–2MP,_city,9803,8460
+840.png,"If we count only locations with at least 100 dentists, are there more than 15 such locations?",Yes,['Comparative'],Boolean,_marker,0.1–0.5MP,_state,9804,8461
+840.png,Are there more locations with less than 50 doctors than locations with more than 1000 doctors?,Yes,['Comparative'],Boolean,_marker,0.1–0.5MP,_state,9805,8462
+840.png,Are there at least 10 locations with over 1000 veterinarians?,No,['Comparative'],Boolean,_marker,0.1–0.5MP,_state,9806,8463
+840.png,"Considering only locations with less than 50 doctors and locations with more than 1000 nurses, are there more locations with less than 50 doctors?",Yes,['Comparative'],Boolean,_marker,0.1–0.5MP,_state,9807,8464
+841.png,Does every state on the mainland have data shown on the map?,No,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,9808,8465
+841.png,Are there more states with unemployment rates above 4% than below 4%?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9809,8466
+841.png,Are there more than five states with unemployment rates in the 3.0-3.9% range?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,9810,8467
+841.png,Is the unemployment rate in Nevada higher than the unemployment rate in California?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,9811,8468
+842.png,"Based on this map, did Homo erectus migrate to Europe?",No,['Other'],Boolean,_mixed,0.5–2MP,_world,9812,8469
+842.png,Is there evidence of Homo neanderthalensis presence in Africa according to this map?,No,['Other'],Boolean,_mixed,0.5–2MP,_world,9813,8470
+842.png,"According to the map, did Homo neanderthalensis reach Australia?",No,['Other'],Boolean,_mixed,0.5–2MP,_world,9814,8471
+842.png,"Did Homo sapiens migrate to Australia earlier than 30,000 years ago?",Yes,['Other'],Boolean,_mixed,0.5–2MP,_world,9815,8472
+843.jpg,"Does the map indicate that human migration routes opened along the western coast of North America prior to 12,600 years ago?",Yes,['Positional'],Boolean,_network,2–8MP,_continent,9816,8473
+843.jpg,"Does the map show migration routes older than 15,000 years ago?",No,['Other'],Boolean,_network,2–8MP,_continent,9817,8474
+843.jpg,Does the map include a scale indicating distance?,Yes,['Positional'],Boolean,_network,2–8MP,_continent,9818,8475
+843.jpg,Is the Bering Land Bridge depicted on the map?,Yes,['Other'],Boolean,_network,2–8MP,_continent,9819,8476
+844.png,Is there any country colored in white?,No,['Visual'],Boolean,_choropleth,0.5–2MP,_world,9820,8477
+844.png,Are there more countries colored in dark red in Asia than in Europe?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,9821,8478
+844.png,Is there a country colored in dark red that is completely surrounded by countries colored in lighter shades of red and orange?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,9822,8479
+844.png,Do any two adjacent countries have the same exact color intensity?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_world,9823,8480
+845.png,"Is there a single, unbroken time zone that spans the entire length of the African continent from west to east?",No,['Positional'],Boolean,_divisional,0.5–2MP,_world,9824,8481
+845.png,Do all of the countries in Europe fall within the same time zone according to the map?,No,['Positional'],Boolean,_divisional,0.5–2MP,_world,9825,8482
+845.png,Does the map show more than five time zones in the continental United States?,No,['Comparative'],Boolean,_divisional,0.5–2MP,_world,9826,8483
+845.png,"Does Australia observe only one time zone, according to the map?",No,['Other'],Boolean,_divisional,0.5–2MP,_world,9827,8484
+846.jpg,"Did more than 6 migration routes occur after 10,000 years ago?",No,['Comparative'],Boolean,_network,0.5–2MP,_world,9828,8485
+846.jpg,Did the migration to North America happen before the migration to South America?,Yes,['Positional'],Boolean,_network,0.5–2MP,_world,9829,8486
+846.jpg,"Is it true that migration routes 7 and 9 both started after 10,000 years ago?",No,['Other'],Boolean,_network,0.5–2MP,_world,9830,8487
+846.jpg,Did human migration from Africa to Australia occur before the migration from Africa to Europe?,Yes,['Other'],Boolean,_network,0.5–2MP,_world,9831,8488
+847.jpg,Is the number of labelled buildings in the map more than 10?,Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_campus,9832,8489
+847.jpg,Is the Abel Hanger Medical Pavilion located closer to the main entrance of the hospital than the parking garage?,Yes,['Positional'],Boolean,_layout,2–8MP,_campus,9833,8490
+847.jpg,Is there a direct path connecting the Emergency Department to the Jenna Welch Women's Center using only the purple pathway?,Yes,"['Visual', 'Positional']",Boolean,_layout,2–8MP,_campus,9834,8491
+847.jpg,Does the map indicate that the Testing Center and Radiology departments are located on the same colored pathway?,No,"['Visual', 'Positional']",Boolean,_layout,2–8MP,_campus,9835,8492
+848.png,Is California colored darker than Texas?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9836,8493
+848.png,Are there less than 5 states colored differently from the majority?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9837,8494
+848.png,Is the color of New York a shade of yellow?,Yes,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,9838,8495
+848.png,Does the color scale indicate values between 1 and 3?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_country,9839,8496
+849.jpg,Does the map show more than two bodies of water?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_region,9840,8497
+849.jpg,Are there more than ten labeled roads depicted on the map?,No,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_region,9841,8498
+849.jpg,Does the ferry route pass directly through Port Orchard?,No,['Positional'],Boolean,_network,0.5–2MP,_region,9842,8499
+849.jpg,Is there a highway numbered 303 visible on the map?,Yes,['Visual'],Boolean,_network,0.5–2MP,_region,9843,8500
+850.png,Does the green route start at Hedge Rd?,Yes,['Visual'],Boolean,_network,0.1–0.5MP,_neighborhood,9844,8501
+850.png,Is Encinial School located on Laurel St?,No,['Positional'],Boolean,_network,0.1–0.5MP,_neighborhood,9845,8502
+850.png,Are there fewer than 10 stars shown on the map?,Yes,['Visual'],Boolean,_network,0.1–0.5MP,_neighborhood,9846,8503
+850.png,Does the green route pass through Burgess Park?,Yes,"['Visual', 'Positional']",Boolean,_network,0.1–0.5MP,_neighborhood,9847,8504
+851.jpg,Is the number 11 located in the same bus loop as number 26?,Yes,['Positional'],Boolean,_network,2–8MP,_campus,9848,8505
+851.jpg,Is the number 42 located in Bus Loop 3?,No,['Positional'],Boolean,_network,2–8MP,_campus,9849,8506
+851.jpg,Is Bus stop number 37 located in Bus Loop 3?,Yes,['Positional'],Boolean,_network,2–8MP,_campus,9850,8507
+851.jpg,Is the number 1 located in Bus Loop 1?,Yes,['Positional'],Boolean,_network,2–8MP,_campus,9851,8508
+852.png,Is the total number of labeled towns and cities in the provided map less than 10?,Yes,"['Visual', 'Comparative']",Boolean,_conflict,0.5–2MP,_region,9852,8509
+852.png,Does the map indicate that Russia gained territory in October near Pokrovsk?,No,['Positional'],Boolean,_conflict,0.5–2MP,_region,9853,8510
+852.png,"Does the map show any territory labeled Marinka"" as being part of the territory gained by Russia in October?""",No,['Visual'],Boolean,_conflict,0.5–2MP,_region,9854,8511
+852.png,"Is there a territory labelled Vuhledar"" shown on the map?""",Yes,['Visual'],Boolean,_conflict,0.5–2MP,_region,9855,8512
+853.jpg,Is there an entry point labeled exclusively for suites?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,9856,8513
+853.jpg,Is the stage located in the center of the venue?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_building,9857,8514
+853.jpg,"Is there a Ticket Office"" shown on the map?""",Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,9858,8515
+853.jpg,"Is there a gate labeled Meijer Gate""?""",Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,9859,8516
+854.jpg,Is there a section labeled “Press Box”?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,9860,8517
+854.jpg,Is the number of sections in the 400 Level Suites (418-435) an even number?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,9861,8518
+854.jpg,Are there more than 10 sections in the 200 Level Suites (201-235)?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,9862,8519
+854.jpg,Does the section number 517 exist on the map?,No,['Visual'],Boolean,_layout,0.5–2MP,_building,9863,8520
+855.png,Does the Airport Express Line share any station with the Magenta Line?,No,['Other'],Boolean,_network,2–8MP,_city,9864,8521
+855.png,"Is there a station called Central Secretariat"" on the Violet Line?""",No,['Visual'],Boolean,_network,2–8MP,_city,9865,8522
+855.png,"Is there a metro station named Palam"" on the Yellow Line?""",No,['Visual'],Boolean,_network,2–8MP,_city,9866,8523
+855.png,Is there an interchange station between the Red Line and the Yellow Line at Rajiv Chowk?,No,"['Visual', 'Positional']",Boolean,_network,2–8MP,_city,9867,8524
+856.jpg,Is the number of states in the Mountain Time Zone an even number?,Yes,['Other'],Boolean,_divisional,0.1–0.5MP,_country,9868,8525
+856.jpg,Does the Eastern Time Zone include more states than the Pacific Time Zone?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.1–0.5MP,_country,9869,8526
+856.jpg,Are there fewer than 15 states in the Pacific Time Zone?,Yes,['Other'],Boolean,_divisional,0.1–0.5MP,_country,9870,8527
+856.jpg,Is the number of states in the Mountain Time Zone less than 10?,No,['Comparative'],Boolean,_divisional,0.1–0.5MP,_country,9871,8528
+857.png,Is there a marked bus stop labelled as 'G' on the map?,No,['Visual'],Boolean,_network,0.5–2MP,_neighborhood,9872,8529
+857.png,Is there a bus stop at Corte Madera School?,Yes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,9873,8530
+857.png,Is Menlo-Atherton High School a stop on Route 286?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_neighborhood,9874,8531
+857.png,Does the Route 286 bus connect to Route 80?,Yes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,9875,8532
+858.jpg,Is there a loading dock shown in the map?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_campus,9876,8533
+858.jpg,Is the main entrance located on the north side of the building?,No,['Positional'],Boolean,_layout,0.5–2MP,_campus,9877,8534
+858.jpg,Are there any paths leading directly from the Employee/Student parking to the Women's Center shown on the map?,Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_campus,9878,8535
+858.jpg,Is there a parking garage depicted on the map?,Yes,['Other'],Boolean,_layout,0.5–2MP,_campus,9879,8536
+859.jpg,Is the Staff Lounge directly connected to both the Outpatient and Inpatient areas?,Yes,['Positional'],Boolean,_layout,>8MP,_building,9880,8537
+859.jpg,Are there more than five restrooms depicted on the map?,Yes,['Comparative'],Boolean,_layout,>8MP,_building,9881,8538
+859.jpg,Is the Pharmacy located closer to the Main Entrance than the Administration department?,No,['Positional'],Boolean,_layout,>8MP,_building,9882,8539
+859.jpg,Does the map show more than two entrances to the hospital?,Yes,['Comparative'],Boolean,_layout,>8MP,_building,9883,8540
+860.jpg,"Does the area labeled Northern area claimed by Bolivia and Paraguay"" lie entirely within the current borders of Paraguay?""",No,"['Visual', 'Positional']",Boolean,_conflict,2–8MP,_country,9884,8541
+860.jpg,"Does the map show any battles fought in the area labeled as 'Southern area up to the Rio Verde claimed by Argentina, Bolivia, Paraguay'?",No,['Visual'],Boolean,_conflict,2–8MP,_country,9885,8542
+860.jpg,"Is the entirety of the area labeled Gran Chaco"" considered Paraguayan territory after the war according to the map's legend?""",No,['Visual'],Boolean,_conflict,2–8MP,_country,9886,8543
+860.jpg,Does the map show any battles marked within the area claimed by both Argentina and Paraguay?,No,"['Visual', 'Positional']",Boolean,_conflict,2–8MP,_country,9887,8544
+861.jpg,Does the bus route 621 travel along Alvarado-Niles Road for more than 500 meters in total?,No,"['Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_neighborhood,9888,8545
+861.jpg,Does the bus route 621 intersect with Paseo Padre Parkway at more than one point?,Yes,"['Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_neighborhood,9889,8546
+861.jpg,Does the bus route 621 cross Alameda Creek more than twice?,No,"['Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_neighborhood,9890,8547
+861.jpg,Does the bus route 621 pass through the Centerville District?,No,['Positional'],Boolean,_network,0.1–0.5MP,_neighborhood,9891,8548
+862.jpg,Does the purple line pass through Roosevelt Island?,Yes,"['Visual', 'Positional']",Boolean,_network,0.1–0.5MP,_region,9892,8549
+862.jpg,Does the map indicate any tunnels that the purple line passes through?,No,"['Visual', 'Positional']",Boolean,_network,0.1–0.5MP,_region,9893,8550
+862.jpg,Does the purple line cross over any bridges?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_region,9894,8551
+862.jpg,Does the purple line start and end at a water body?,Yes,['Visual'],Boolean,_network,0.1–0.5MP,_region,9895,8552
+863.jpeg,Are there any isolated pockets of very light-colored counties surrounded by darker red counties in the southeastern states?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9896,8553
+863.jpeg,Is there a single county in the map that is completely white?,Yes,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,9897,8554
+863.jpeg,Are there more than five counties outlined in black in the central US?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9898,8555
+863.jpeg,"Is there a clear north-south gradient in the color intensity, with the north generally lighter and the south darker?",No,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9899,8556
+864.jpg,Does the river run through the region marked 'C'?,No,"['Visual', 'Positional']",Boolean,_mixed,0.5–2MP,_county,9900,8557
+864.jpg,Is there a road directly connecting points 'A' and 'B'?,Yes,['Other'],Boolean,_mixed,0.5–2MP,_county,9901,8558
+864.jpg,Is point 'Z' located north of point 'AA'?,No,['Positional'],Boolean,_mixed,0.5–2MP,_county,9902,8559
+864.jpg,Is point 'W' located north of '30th St SE'?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_county,9903,8560
+865.jpg,Is there a ferry route shown that connects Berkeley to any other location on the map?,Yes,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_city,9904,8561
+865.jpg,Is there a ferry route that connects Vallejo to Richmond?,Yes,['Positional'],Boolean,_network,0.5–2MP,_city,9905,8562
+865.jpg,Is there more than one ferry route that starts from the Ferry Building?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_city,9906,8563
+865.jpg,Does a ferry route connect Sausalito directly to Alameda?,No,['Other'],Boolean,_network,0.5–2MP,_city,9907,8564
+866.jpg,Is the New England Aquarium (Y) situated on the northern bank of the harbor?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,9908,8565
+866.jpg,Is there a direct road connection between the John Hancock Tower (A) and the Massachusetts State House (H) without crossing any significant body of water?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,9909,8566
+866.jpg,Is there a bridge directly connecting the area around the Boston Navy Yard (U) to the mainland?,No,['Other'],Boolean,_mixed,0.5–2MP,_city,9910,8567
+866.jpg,Is the Museum of Science (C) located closer to the Charles River than the Boston Common (F)?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,9911,8568
+867.png,Is there a ferry route directly connecting Coll and Muck?,No,['Other'],Boolean,_network,0.5–2MP,_country,9912,8569
+867.png,Is there a ferry route directly connecting  Port Ellen to Islay?,No,['Other'],Boolean,_network,0.5–2MP,_country,9913,8570
+867.png,Does the Caledonian MacBrayne route serve the island of Tiree?,Yes,['Other'],Boolean,_network,0.5–2MP,_country,9914,8571
+867.png,Does a Discontinued route connect the ports of Oban and Largs?,No,['Other'],Boolean,_network,0.5–2MP,_country,9915,8572
+868.png,Are there any islands colored orange located east of the Philippines?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_subcontinent,9916,8573
+868.png,Does the country colored orange completely surround any country colored blue?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_subcontinent,9917,8574
+868.png,Are there more than 10 separate land areas shown on the map in gray?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_subcontinent,9918,8575
+868.png,Is there a single contiguous area colored orange that is larger than the area colored blue?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_subcontinent,9919,8576
+869.png,Is there a migration route that exclusively travels through only one country?,No,['Positional'],Boolean,_network,0.5–2MP,_world,9920,8577
+869.png,Does a migration route pass through the continent of Antarctica?,No,['Positional'],Boolean,_network,0.5–2MP,_world,9921,8578
+869.png,Is there a migration route shown that goes from Asia to Europe?,Yes,['Visual'],Boolean,_network,0.5–2MP,_world,9922,8579
+869.png,Is there a migration route shown that goes through the country of Brazil?,No,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_world,9923,8580
+870.jpeg,"If we count only the dots inside California, is the number of red dots more than the number of purple dots?",Yes,"['Visual', 'Positional', 'Comparative']",Counting,_marker,0.5–2MP,_region,9924,8581
+870.jpeg,Is the number of red dots in California more than the number of purple dots in Utah?,Yes,"['Visual', 'Comparative']",Boolean,_marker,0.5–2MP,_region,9925,8582
+870.jpeg,Are there any purple dots located in the state of Arizona as shown in the map?,Yes,"['Visual', 'Positional']",Boolean,_marker,0.5–2MP,_region,9926,8583
+870.jpeg,Are there more red dots than purple dots in the map?,Yes,"['Visual', 'Comparative']",Boolean,_marker,0.5–2MP,_region,9927,8584
+871.jpeg,Are there any purple markers (clinics) located within 20 miles of San Diego?,Yes,"['Visual', 'Positional']",Boolean,_marker,2–8MP,_region,9928,8585
+871.jpeg,Are there more than 10 clinics represented near Los Angeles?,Yes,"['Positional', 'Comparative']",Boolean,_marker,2–8MP,_region,9929,8586
+871.jpeg,Is there at least one hospital represented in every major city shown on the map?,Yes,"['Visual', 'Comparative']",Boolean,_marker,2–8MP,_region,9930,8587
+871.jpeg,Is the number of hospitals in the map greater than the number of clinics?,Yes,['Comparative'],Boolean,_marker,2–8MP,_region,9931,8588
+872.jpg,Does the map display a single continuous railway line across the entire United States?,No,"['Visual', 'Positional']",Boolean,_divisional,2–8MP,_country,9932,8589
+872.jpg,Does the map show any railway lines extending into Mexico?,Yes,['Other'],Boolean,_divisional,2–8MP,_country,9933,8590
+872.jpg,Is there any indication of elevation on the map using contour lines?,No,['Other'],Boolean,_divisional,2–8MP,_country,9934,8591
+872.jpg,Is the entirety of the state of California depicted in a single color on the map?,Yes,['Visual'],Boolean,_divisional,2–8MP,_country,9935,8592
+873.jpg,Is there any station that is only served by one line?,Yes,['Other'],Boolean,_network,2–8MP,_city,9936,8593
+873.jpg,Does Line 2 share any stations with Line 5?,Yes,['Other'],Boolean,_network,2–8MP,_city,9937,8594
+873.jpg,Does Line 4 connect directly to Line 5 without an intermediary line?,No,['Other'],Boolean,_network,2–8MP,_city,9938,8595
+873.jpg,Does Line 1 intersect with Line 4 at more than one station?,No,"['Positional', 'Comparative']",Boolean,_network,2–8MP,_city,9939,8596
+874.jpg,Does the map indicate more than 15 individual parking spaces in total (considering all the parking areas)?,Yes,['Comparative'],Boolean,_layout,0.5–2MP,_campus,9940,8597
+874.jpg,Is the Patty & Bo Pilgrim Cancer Center located on West 19th Street?,No,['Positional'],Boolean,_layout,0.5–2MP,_campus,9941,8598
+874.jpg,Are there more than 5 physician offices shown on the entire map?,No,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_campus,9942,8599
+874.jpg,Is there a connection between Titus Medical Plaza and the main parking area via a road shown on the map?,Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_campus,9943,8600
+875.jpg,Does the map show at least two states with different legal statuses for cannabis?,Yes,['Comparative'],Boolean,_cartogram,2–8MP,_country,9944,8601
+875.jpg,Are there more states where cannabis is legal for some medical uses and/or low THC than states where it is completely illegal?,Yes,"['Positional', 'Comparative']",Boolean,_cartogram,2–8MP,_country,9945,8602
+875.jpg,Is the legal status of cannabis uniform across all states represented on the map?,No,['Positional'],Boolean,_cartogram,2–8MP,_country,9946,8603
+875.jpg,Is cannabis legal in at least one state shown on the map in January 2024?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,2–8MP,_country,9947,8604
+876.jpg,Are there more cities marked in the United States than in Costa Rica?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.1–0.5MP,_subcontinent,9948,8605
+876.jpg,Is Brownsville located on the Pacific Ocean?,No,['Positional'],Boolean,_network,0.1–0.5MP,_subcontinent,9949,8606
+876.jpg,Is Tegucigalpa located in El Salvador?,No,['Positional'],Boolean,_network,0.1–0.5MP,_subcontinent,9950,8607
+876.jpg,Does the main migration route pass through Mexico City?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_subcontinent,9951,8608
+877.jpg,Is there a single county in Wyoming with a Black population exceeding 10%?,No,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,9952,8609
+877.jpg,Is there at least one county in South Dakota where the Black population is above 20%?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9953,8610
+877.jpg,Are there more than 5 counties in California where the Hispanic population is above 50%?,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9954,8611
+877.jpg,"In New York, are there more than 5 counties where the Black population is greater than 20%?",Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,9955,8612
+878.png,Does the map show more than 10 parks?,No,['Comparative'],Boolean,_network,2–8MP,_city,9956,8613
+878.png,Does the Burlingame/Hwy 82 route go through the Aspen Airport?,Yes,['Positional'],Boolean,_network,2–8MP,_city,9957,8614
+878.png,Does the Castle/Maroon route serve the Aspen Valley Hospital?,Yes,['Other'],Boolean,_network,2–8MP,_city,9958,8615
+878.png,Does the Cross Town route operate only during winter?,Yes,['Positional'],Boolean,_network,2–8MP,_city,9959,8616
+879.png,Is the mean commute time in Texas lower than the mean commute time in New Jersey?,Yes,['Comparative'],Boolean,_multiple,2–8MP,_country,9960,8617
+879.png,Is the range of mean commute times in the western states greater than the range in the eastern states?,No,"['Positional', 'Comparative']",Boolean,_multiple,2–8MP,_country,9961,8618
+879.png,Is the mean commute time in New York higher than that of California?,Yes,['Comparative'],Boolean,_multiple,2–8MP,_country,9962,8619
+879.png,"Considering the last map, are there more states where commute time data is available than states where it is not available?",Yes,"['Positional', 'Comparative']",Boolean,_multiple,2–8MP,_country,9963,8620
+880.jpeg,Are there more than 10 time zones shown on the map?,Yes,"['Visual', 'Comparative']",Boolean,_divisional,2–8MP,_world,9964,8621
+880.jpeg,Does the map show any country that observes two different time zones?,Yes,['Other'],Boolean,_divisional,2–8MP,_world,9965,8622
+880.jpeg,Does the map include Antarctica?,Yes,['Other'],Boolean,_divisional,2–8MP,_world,9966,8623
+880.jpeg,Is there a time zone in the map with a time difference of +13?,Yes,['Other'],Boolean,_divisional,2–8MP,_world,9967,8624
+881.png,Is there more than one bike valet station indicated?,No,['Comparative'],Boolean,_layout,>8MP,_building,9968,8625
+881.png,Is the number of concessions stands on the map less than 15?,Yes,['Comparative'],Boolean,_layout,>8MP,_building,9969,8626
+881.png,Does the map show more than 6 water fountains?,No,['Comparative'],Boolean,_layout,>8MP,_building,9970,8627
+881.png,Are there more than 10 restrooms designated for men in the stadium?,No,['Comparative'],Boolean,_layout,>8MP,_building,9971,8628
+882.jpeg,Does the map use different colours to represent different data availability ranges?,Yes,['Other'],Boolean,_choropleth,2–8MP,_world,9972,8629
+882.jpeg,Does the legend show a category for countries with 0-49% data availability?,Yes,['Other'],Boolean,_choropleth,2–8MP,_world,9973,8630
+882.jpeg,Is the number represented for Greenland greater than 80%?,No,['Comparative'],Boolean,_choropleth,2–8MP,_world,9974,8631
+882.jpeg,Is there a country represented on the map with a percentage value above 98%?,Yes,['Positional'],Boolean,_choropleth,2–8MP,_world,9975,8632
+883.jpg,Does the Eastern Mediterranean route include the city of Cairo?,No,['Positional'],Boolean,_network,0.1–0.5MP,_continent,9976,8633
+883.jpg,Does the East African route pass through Syria?,No,['Positional'],Boolean,_network,0.1–0.5MP,_continent,9977,8634
+883.jpg,Is there a direct migration route from Lebanon to Iran shown on the map?,No,['Visual'],Boolean,_network,0.1–0.5MP,_continent,9978,8635
+883.jpg,Does the Eastern Mediterranean route pass through Italy?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_continent,9979,8636
+884.png,Does the suggested route pass through Stover Park?,No,['Positional'],Boolean,_network,>8MP,_neighborhood,9980,8637
+884.png,Is the distance between NE Sheridan Ave and NE Red Rock less than 0.1 miles?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_network,>8MP,_neighborhood,9981,8638
+884.png,Are there more than 10 major crosswalks shown on the entire map?,No,"['Visual', 'Comparative']",Boolean,_network,>8MP,_neighborhood,9982,8639
+884.png,Is there a major crosswalk shown on NE Daggett Ln?,Yes,['Visual'],Boolean,_network,>8MP,_neighborhood,9983,8640
+885.jpg,Is there a ferry route shown that directly connects Krabi and Koh Lanta?,No,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_country,9984,8641
+885.jpg,Is there a ferry route that goes directly from Phuket to Koh Lanta without passing through any other islands?,No,['Positional'],Boolean,_network,0.5–2MP,_country,9985,8642
+885.jpg,Does the map indicate any ferry routes to or from Phang Nga?,No,['Other'],Boolean,_network,0.5–2MP,_country,9986,8643
+885.jpg,Does the ferry route connect Ao Nang and Koh Yao Noi directly without any intermediate stops?,No,['Other'],Boolean,_network,0.5–2MP,_country,9987,8644
+886.png,"Are there any states that are colored dark blue, labeled as 'Solid Dem', located in the south-eastern quadrant of the map?",No,"['Visual', 'Positional']",Boolean,_cartogram,0.5–2MP,_country,9988,8645
+886.png,"Are there more states categorized as Solid Dem"" than ""Solid GOP""?""",No,['Comparative'],Boolean,_cartogram,0.5–2MP,_country,9989,8646
+886.png,"Is there at least one state classified as a Toss-up"" in the New England region?""",No,"['Visual', 'Comparative']",Boolean,_cartogram,0.5–2MP,_country,9990,8647
+886.png,Does the map show more states leaning towards Clinton than Trump?,No,['Comparative'],Boolean,_cartogram,0.5–2MP,_country,9991,8648
+887.png,Are there more than 5 sections labeled with numbers and letters in the 100 level?,Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,9992,8649
+887.png,Does the map show more than 15 sections in the 200 level?,Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,9993,8650
+887.png,Is the number of sections in the 100 level more than the number of sections in the 200 level?,No,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,9994,8651
+887.png,Are there fewer than 10 sections in the 100 level labeled with a letter after a number?,Yes,['Visual'],Boolean,_layout,2–8MP,_building,9995,8652
+888.png,Is the total population of Africa more than 1 billion?,Yes,['Comparative'],Boolean,_cartogram,>8MP,_world,9996,8653
+888.png,Does the map show more than 10 countries in South America?,Yes,"['Positional', 'Comparative']",Boolean,_cartogram,>8MP,_world,9997,8654
+888.png,Does the combined population of Pakistan and Bangladesh exceed 400 million?,No,['Other'],Boolean,_cartogram,>8MP,_world,9998,8655
+888.png,Is the population of Canada greater than the population of the United Kingdom?,No,['Comparative'],Boolean,_cartogram,>8MP,_world,9999,8656
+889.jpg,Does any part of Antarctica fall into a time zone with a positive offset from UTC?,No,['Other'],Boolean,_divisional,2–8MP,_world,10000,8657
+889.jpg,Is the entire country of Brazil located within a single time zone?,No,['Positional'],Boolean,_divisional,2–8MP,_world,10001,8658
+889.jpg,Are there more than five countries that occupy the +1 time zone?,Yes,['Comparative'],Boolean,_divisional,2–8MP,_world,10002,8659
+889.jpg,"Does the map show a single, continuous International Date Line?",Yes,['Other'],Boolean,_divisional,2–8MP,_world,10003,8660
+890.jpg,Does the map indicate that Indiana produces sheep?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10004,8661
+890.jpg,Does the map show the production of automobiles in Indiana?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10005,8662
+890.jpg,Is the state bird of Indiana shown as a cardinal?,Yes,['Visual'],Boolean,_marker,0.5–2MP,_state,10006,8663
+890.jpg,Is there a depiction of a covered bridge in the map?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10007,8664
+891.png,Does the bus route intersect with highway 465 more than five times?,No,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_neighborhood,10008,8665
+891.png,"Is there a Sam's Club"" located along the bus route?""",No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10009,8666
+891.png,Does the bus route travel along interstate highway 65?,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10010,8667
+891.png,"Does the bus route pass through a place called Castleton Square""?""",No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10011,8668
+892.jpg,Is there a Ferry Station for Üsküdar located on the map?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10012,8669
+892.jpg,Is there a Mosque situated directly south of the Süleymaniye Mosque?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10013,8670
+892.jpg,Is the Topkapi Palace situated on the west side of the Hagia Sophia?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10014,8671
+892.jpg,Is the Spice Bazaar located closer to the Eminönü Tram Stop than the Grand Bazaar?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10015,8672
+893.png,Is the Emergency Department located closer to Columbia street than Long Beach Boulevard?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_campus,10016,8673
+893.png,Is building number 12 located on Columbia Street?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_campus,10017,8674
+893.png,Is the Todd Cancer Pavilion located on Long Beach Boulevard?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_campus,10018,8675
+893.png,Is there a parking lot specifically designated for ER patients?,Yes,['Other'],Boolean,_layout,0.5–2MP,_campus,10019,8676
+894.jpg,"On floor 2, are the 'D Center Elevators (LL to 2)' closer to the patient rooms D2 (242-257) than to D2 (225-241)?",No,['Positional'],Boolean,_layout,2–8MP,_building,10020,8677
+894.jpg,Does floor 3 have a Family Lounge located next to the D South elevators?,No,['Positional'],Boolean,_layout,2–8MP,_building,10021,8678
+894.jpg,"On floor 3, is the number of rooms in D3 (314-323) equal to the number of rooms in D3 (302-310)?",No,['Other'],Boolean,_layout,2–8MP,_building,10022,8679
+894.jpg,"On floor 2, are there more than 10 patient rooms in the D2 (114-224) section?",Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,10023,8680

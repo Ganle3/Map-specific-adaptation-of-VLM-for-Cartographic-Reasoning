@@ -1,0 +1,9 @@
+shard_id,start_screening_id,end_screening_id,num_rows,csv
+0,1,1240,1240,mapverse_screening_shard_00.csv
+1,1241,2480,1240,mapverse_screening_shard_01.csv
+2,2481,3720,1240,mapverse_screening_shard_02.csv
+3,3721,4960,1240,mapverse_screening_shard_03.csv
+4,4961,6200,1240,mapverse_screening_shard_04.csv
+5,6201,7440,1240,mapverse_screening_shard_05.csv
+6,7441,8680,1240,mapverse_screening_shard_06.csv
+7,8681,9915,1235,mapverse_screening_shard_07.csv

@@ -6,3 +6,18 @@
 5,7908,563.jpg,Through which French city did the 94th Infantry Division pass after landing in Europe?,Cherbourg,Single Entity,['Positional'],_conflict,_subcontinent,"0,0,0,0",0,4,0.0,all_wrong
 6,6174,587.jpg,Which direction should you travel from Weis Markets to reach the new Rodney stoplight?,West,Single Entity,['Positional'],_layout,_campus,"1,1,1,1",4,4,1.0,all_correct
 7,3343,345.jpg,Which U.S. coastal state shows the first incoming bands of precipitation in the image?,Texas,Single Entity,['Comparative'],_isopleth,_region,"0,0,0,0",0,4,0.0,all_wrong
+8,4832,492.png,Juniper elementary is closest to which street on the given map,NE 12th St,Single Entity,['Comparative'],_network,_neighborhood,"1,1,1,1",4,4,1.0,all_correct
+9,202,21.jpeg,Which Clinic according to the map is closest to henry coe state park?,De Paul Health Center.,Single Entity,['Comparative'],_marker,_county,"1,1,1,1",4,4,1.0,all_correct
+10,3547,365.jpg,What color is used to shade the location of The Equipment Room on the stadium map?,yellow,Single Entity,"['Visual', 'Positional']",_multiple,_building,"0,1,1,0",2,4,0.5,mixed
+11,4469,226.jpg,Which bright yellow county in southern Tennessee shares a name with a U.S. President?,Lincoln County,Single Entity,"['Visual', 'Positional']",_divisional,_state,"0,0,0,0",0,4,0.0,all_wrong
+12,6170,586.jpg,"Based on the map, Ashfield appears to be located on which green station line?",A22,Single Entity,"['Visual', 'Positional']",_choropleth,_region,"0,0,0,0",0,4,0.0,all_wrong
+13,8539,693.jpg,"Which color band (yellow, orange, or red) is most prevalent overall on the map?",Orange,Single Entity,"['Visual', 'Comparative']",_isopleth,_state,"1,1,1,1",4,4,1.0,all_correct
+14,7362,617.jpg,What is the closest rue to the small dark green square in the map?,Rue de Paradis,Single Entity,"['Visual', 'Comparative']",_mixed,_city,"0,0,0,0",0,4,0.0,all_wrong
+15,5976,577.png,What is the name of the suite level located above the Lower Suite West?,Upper Suite West,Single Entity,"['Positional', 'Comparative']",_layout,_building,"1,1,1,1",4,4,1.0,all_correct
+16,5134,522.png,"Based on the country map, which south western state has least number of beds?",Nevada,Single Entity,"['Positional', 'Comparative']",_marker,_country,"0,0,0,0",0,4,0.0,all_wrong
+17,7650,542.png,Which color region shows the least amount of visible growth between 1800 and 2100?,pink,Single Entity,"['Visual', 'Positional', 'Comparative']",_multiple,_world,"0,0,0,0",0,4,0.0,all_wrong
+18,2133,220.jpg,Which country is partially visible in the bottom left corner of the North Africa map?,Morocco,Single Entity,"['Visual', 'Positional', 'Comparative']",_conflict,_subcontinent,"1,1,1,1",4,4,1.0,all_correct
+19,700,73.jpg,Which ferry route is represented by the cyan circular path in the harbor?,New Jersey ferry,Single Entity,['Other'],_network,_neighborhood,"1,1,1,1",4,4,1.0,all_correct
+20,7943,629.png,Which city includes both Kenmore ES and O Sorenson ES?,Bothell,Single Entity,['Other'],_divisional,_district,"0,0,0,0",0,4,0.0,all_wrong
+21,189,20.png,Count the labelled countries whose density value ends in the digit “9”.,2,Counting,['Visual'],_cartogram,_continent,"1,1,1,1",4,4,1.0,all_correct
+22,10753,893.png,"How many parking lots are explicitly marked on the map with a P"" symbol?""",12,Counting,['Visual'],_layout,_campus,"0,0,0,0",0,4,0.0,all_wrong

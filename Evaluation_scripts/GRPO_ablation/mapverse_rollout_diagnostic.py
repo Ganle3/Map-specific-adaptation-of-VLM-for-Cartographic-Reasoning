@@ -26,6 +26,7 @@ every question, so an interrupted run can be resumed with --resume.
 from __future__ import annotations
 
 import argparse
+import gc
 import csv
 import json
 import os
@@ -34,7 +35,7 @@ from typing import Any, Dict, List
 
 import torch
 from PIL import Image
-from transformers import AutoModelForImageTextToText, AutoProcessor
+from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
 
 
 from mapverse_evaluation_exact import evaluate_exact
@@ -186,7 +187,14 @@ def generate_once(
         skip_special_tokens=True,
         clean_up_tokenization_spaces=False,
     )
-    return decoded[0].strip()
+    output_text = decoded[0].strip()
+
+    del inputs, generated_ids, generated_token_ids, decoded
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    return output_text
 
 
 def pattern_label(rewards: List[int]) -> str:
@@ -310,12 +318,35 @@ def main() -> None:
         args.model,
         trust_remote_code=True,
     )
+    if hasattr(processor, "tokenizer"):
+        processor.tokenizer.padding_side = "left"
+        if processor.tokenizer.pad_token_id is None:
+            processor.tokenizer.pad_token = processor.tokenizer.eos_token
 
-    print("Loading model...")
+    if not torch.cuda.is_available():
+        raise RuntimeError(
+            "CUDA GPU is required for this diagnostic. "
+            f"torch={torch.__version__}, cuda_build={torch.version.cuda}"
+        )
+
+    props = torch.cuda.get_device_properties(0)
+    print(f"GPU: {torch.cuda.get_device_name(0)}")
+    print(f"GPU VRAM: {props.total_memory / 1024**3:.2f} GB")
+
+    print("Loading model in 4-bit NF4...")
+    quantization_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16,
+        bnb_4bit_use_double_quant=True,
+    )
+
     model = AutoModelForImageTextToText.from_pretrained(
         args.model,
-        torch_dtype="auto",
-        device_map="auto",
+        quantization_config=quantization_config,
+        dtype=torch.bfloat16,
+        device_map={"": 0},
+        low_cpu_mem_usage=True,
         trust_remote_code=True,
     )
     model.eval()
@@ -355,35 +386,40 @@ def main() -> None:
         reward_vector = []
 
         for g in range(1, args.num_generations + 1):
-            completion = generate_once(
-                model=model,
-                processor=processor,
-                image=image,
-                question=question,
-                max_new_tokens=args.max_new_tokens,
-                temperature=args.temperature,
-                top_p=args.top_p,
-            )
+            try:
+                completion = generate_once(
+                    model=model,
+                    processor=processor,
+                    image=image,
+                    question=question,
+                    max_new_tokens=args.max_new_tokens,
+                    temperature=args.temperature,
+                    top_p=args.top_p,
+                )
 
-            ev = evaluate_exact(
-                prediction=completion,
-                ground_truth=ground_truth,
-                answer_type=answer_type,
-            )
+                ev = evaluate_exact(
+                    prediction=completion,
+                    ground_truth=ground_truth,
+                    answer_type=answer_type,
+                )
 
-            reward = int(ev["reward"])
-            reward_vector.append(reward)
+                reward = int(ev["reward"])
+                reward_vector.append(reward)
 
-            generations.append({
-                "generation_id": g,
-                "completion": completion,
-                "evaluation": ev,
-            })
+                generations.append({
+                    "generation_id": g,
+                    "completion": completion,
+                    "evaluation": ev,
+                })
 
-            print(
-                f"  GEN {g:02d} | reward={reward} | "
-                f"pred={ev['prediction_canonical']!r}"
-            )
+                print(
+                    f"  GEN {g:02d} | reward={reward} | "
+                    f"pred={ev['prediction_canonical']!r}"
+                )
+            finally:
+                gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
 
         label = pattern_label(reward_vector)
         pattern = ",".join(str(x) for x in reward_vector)
@@ -408,6 +444,11 @@ def main() -> None:
 
         # Save after every QA so long runs are interruption-safe.
         save_outputs(results, output_dir)
+
+        del image
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     print("\nFinished.")
     save_outputs(results, output_dir)

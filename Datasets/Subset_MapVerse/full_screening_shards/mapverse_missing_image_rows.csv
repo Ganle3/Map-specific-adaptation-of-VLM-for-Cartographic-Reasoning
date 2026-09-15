@@ -1,0 +1,10 @@
+image_name,question,correct_answer,question_type,answer_type,map_type,image_size_bucket,geographic_level,source_row
+22.png,how many countries are OECD in South America?,1,['Positional'],Counting,_choropleth,0.1–0.5MP,_world,206
+22.png,how many areas are upper middle income in South America?,9,['Positional'],Counting,_choropleth,0.1–0.5MP,_world,207
+22.png,how many countries in Africa are visibly nonOECD?,0,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,208
+22.png,what is Mexico classified as?,nonOECD,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,209
+22.png,what is Chile classified as?,nonOECD,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,210
+22.png,which countries with OECD classification border the United States?,Canada,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,211
+22.png,which continent has the most countries with High Income OECD?,Europe,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_world,212
+22.png,how many different colors or shades are used for the countries?,5,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,213
+22.png,what is French Guiana classified as?,OECD,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,214

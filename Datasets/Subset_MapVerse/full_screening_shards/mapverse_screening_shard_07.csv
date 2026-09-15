@@ -1,0 +1,1236 @@
+image_name,question,correct_answer,question_type,answer_type,map_type,image_size_bucket,geographic_level,source_row,screening_id
+895.png,Does the map show more than 5 parking areas?,Yes,['Comparative'],Boolean,_layout,0.1–0.5MP,_campus,10024,8681
+895.png,Are there more than two buildings labelled on the map?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.1–0.5MP,_campus,10025,8682
+895.png,Is there a parking area indicated near the Childcare Center?,Yes,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10026,8683
+895.png,Is the MCV Cancer Center located on Atlee Rd?,No,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10027,8684
+896.jpg,Is there a dedicated ambulance entrance shown on the map?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,10028,8685
+896.jpg,Is the Cafeteria located closer to the East Entrance than the North Entrance?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_building,10029,8686
+896.jpg,Is there a vending machine located near the Conference Room C?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_building,10030,8687
+896.jpg,Is there a direct path from the North Entrance to the Emergency Department without passing through any other department?,No,['Positional'],Boolean,_layout,0.5–2MP,_building,10031,8688
+897.jpg,Does the map show a completely uniform spread of COVID-19 across all continents?,No,['Positional'],Boolean,_choropleth,0.5–2MP,_world,10032,8689
+897.jpg,"Is Australia depicted in a single, uniformly dark red color?",Yes,['Visual'],Boolean,_choropleth,0.5–2MP,_world,10033,8690
+897.jpg,Is the darkest shade of red used to represent the highest number of COVID-19 cases on the map?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10034,8691
+897.jpg,Does the map suggest a higher concentration of COVID-19 cases in the Northern Hemisphere compared to the Southern Hemisphere?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10035,8692
+898.jpg,"Does the Administration"" area occupy the largest space on the map?""",No,['Comparative'],Boolean,_layout,0.5–2MP,_building,10036,8693
+898.jpg,"Are there more than two Acctg Specialist"" areas on the map?""",No,['Comparative'],Boolean,_layout,0.5–2MP,_building,10037,8694
+898.jpg,Are there more than three elevators shown on this floor plan?,No,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10038,8695
+898.jpg,"Is the Waiting"" area directly connected to the ""Exec Assist"" area?""",Yes,['Positional'],Boolean,_layout,0.5–2MP,_building,10039,8696
+899.png,Do all the states bordering Canada show shades of blue or purple?,No,"['Visual', 'Positional']",Boolean,_cartogram,0.1–0.5MP,_country,10040,8697
+899.png,Is there at least one state entirely shaded in dark red?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,10041,8698
+899.png,Are all the states on the West Coast predominantly blue?,Yes,"['Visual', 'Positional']",Boolean,_cartogram,0.1–0.5MP,_country,10042,8699
+899.png,Are there more states shaded in shades of pink than shades of blue?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,10043,8700
+900.jpg,"In the Worldmapper population cartogram, is the area representing  the USA larger than the area representing Russia?",Yes,['Comparative'],Boolean,_multiple,0.5–2MP,_world,10044,8701
+900.jpg,"In the Worldmapper population cartogram, does India have a larger area representation than Greenland?",Yes,['Comparative'],Boolean,_multiple,0.5–2MP,_world,10045,8702
+900.jpg,"Comparing the Conventional map and the Worldmapper population cartogram, does Indonesia occupy a similar geographical location?",Yes,['Positional'],Boolean,_multiple,0.5–2MP,_world,10046,8703
+900.jpg,"In the Conventional map, is the color representing Australia the same color as the color representing Brazil?",No,['Visual'],Boolean,_multiple,0.5–2MP,_world,10047,8704
+901.jpg,Are there more than 12 LEDGE BOXES?,No,['Comparative'],Boolean,_layout,2–8MP,_building,10048,8705
+901.jpg,Is there a water fountain located in the East Lot/Ride Share Drop Off area?,No,['Positional'],Boolean,_layout,2–8MP,_building,10049,8706
+901.jpg,Is the Mini Pitch located within the North Parking Lot?,No,['Positional'],Boolean,_layout,2–8MP,_building,10050,8707
+901.jpg,Are there more than 5 ADA seating sections in the stadium?,Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,10051,8708
+902.jpg,Is Yakutat located south of Juneau?,No,['Positional'],Boolean,_network,0.1–0.5MP,_state,10052,8709
+902.jpg,Is Juneau located on the Alaskan mainland?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_state,10053,8710
+902.jpg,Does the Alaska Marine Highway route pass through more than 15 locations?,Yes,"['Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_state,10054,8711
+902.jpg,Is there at least one stop in the Aleutian Islands?,Yes,['Comparative'],Boolean,_network,0.1–0.5MP,_state,10055,8712
+903.jpg,Is Gosnold located on an island?,Yes,['Positional'],Boolean,_network,0.5–2MP,_region,10056,8713
+903.jpg,Does the map depict more than one island in Buzzards Bay?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_region,10057,8714
+903.jpg,Is there a land route depicted on the map connecting Naushon Island to the mainland?,No,['Other'],Boolean,_network,0.5–2MP,_region,10058,8715
+903.jpg,Is there a ferry route shown on the map that connects Woods Hole to Oak Bluffs?,Yes,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_region,10059,8716
+904.jpg,Does the map indicate more than 15 wine appellations within the Bordeaux region?,Yes,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_city,10060,8717
+904.jpg,"Does the map show a wine region called Champagne"" situated north-east of Paris?""",Yes,['Other'],Boolean,_network,0.5–2MP,_city,10061,8718
+904.jpg,"Is the Alsace & Lorraine"" wine region located to the east of Paris on the map?""",Yes,['Positional'],Boolean,_network,0.5–2MP,_city,10062,8719
+904.jpg,"Is there a wine region labeled Beaujolais"" located near Lyon on the map?""",No,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_city,10063,8720
+905.jpg,Is there a drawing of a flamingo on the map?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10064,8721
+905.jpg,"Is the state bird of Florida, according to this map, a mockingbird?",Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10065,8722
+905.jpg,Is there a depiction of the Florida State University on the map?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10066,8723
+905.jpg,Is there a drawing of a pelican on the map?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10067,8724
+906.jpg,Is the location of Highlands Hammock shown closer to Sebring than to Lake Okeechobee?,Yes,"['Visual', 'Positional']",Boolean,_marker,0.5–2MP,_state,10068,8725
+906.jpg,Is the Singing Tower located in St. Augustine?,No,['Positional'],Boolean,_marker,0.5–2MP,_state,10069,8726
+906.jpg,Is the Ringling Art Museum located further south than Cypress Gardens?,Yes,"['Positional', 'Comparative']",Boolean,_marker,0.5–2MP,_state,10070,8727
+906.jpg,"Is the number of locations listed in Colorful Florida's Most Colorful Spots"" more than 5?""",Yes,['Comparative'],Boolean,_marker,0.5–2MP,_state,10071,8728
+907.jpg,Is the Eiffel Tower located North of the Seine River?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10072,8729
+907.jpg,Is the Arc de Triomphe situated to the west of the Champs-Élysées?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10073,8730
+907.jpg,Is the Louvre Museum located closer to the Seine River than the Eiffel Tower?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10074,8731
+907.jpg,Is the number of marked landmarks on the map less than 15?,No,"['Visual', 'Comparative']",Boolean,_mixed,2–8MP,_city,10075,8732
+908.png,Is section 115 located in the same level as section 215?,No,"['Visual', 'Positional']",Boolean,_layout,2–8MP,_building,10076,8733
+908.png,Is section 20 located in the Penthouse Suites?,Yes,"['Visual', 'Positional']",Boolean,_layout,2–8MP,_building,10077,8734
+908.png,Are sections 201 and 202 located in the same level?,Yes,"['Visual', 'Positional']",Boolean,_layout,2–8MP,_building,10078,8735
+908.png,Are there more than 10 sections in the Terrace level?,No,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,10079,8736
+909.jpg,"Does the map include a location for Srah Srang""?""",Yes,['Positional'],Boolean,_marker,2–8MP,_region,10080,8737
+909.jpg,Is the number of tourist attractions listed on the map more than 10?,No,['Comparative'],Boolean,_marker,2–8MP,_region,10081,8738
+909.jpg,Are there less than 15 numbered locations shown on this map?,Yes,"['Visual', 'Comparative']",Boolean,_marker,2–8MP,_region,10082,8739
+909.jpg,Is there a Butterfly Paradise located West of Krong Siem Reap?,Yes,['Positional'],Boolean,_marker,2–8MP,_region,10083,8740
+910.png,Is the representation of Sub-Saharan Africa predominantly red colored based on the legend provided?,Yes,['Visual'],Boolean,_cartogram,0.5–2MP,_world,10084,8741
+910.png,Does Latin America have a higher percentage of adults with AIDS than Oceania in 2008?,Yes,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,10085,8742
+910.png,Is the percentage of adults with AIDS in the Middle East and North Africa lower than that in East Asia in 2008?,Yes,"['Positional', 'Comparative']",Boolean,_cartogram,0.5–2MP,_world,10086,8743
+910.png,Is the percentage of adults with AIDS in North America higher than that in the Caribbean in 2008?,No,"['Positional', 'Comparative']",Boolean,_cartogram,0.5–2MP,_world,10087,8744
+911.jpg,Is the number of suites in the Sycuan Founders Club less than 5?,No,['Comparative'],Boolean,_layout,>8MP,_building,10088,8745
+911.jpg,Is the number of sections in the West Club less than 10?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_layout,>8MP,_building,10089,8746
+911.jpg,Are there more Loge Boxes in the Loge Boxes L01-L22 than in the Loge Boxes LB125-LB131?,Yes,['Comparative'],Boolean,_layout,>8MP,_building,10090,8747
+911.jpg,Are there fewer than 15 sections in the Toyota Terrace?,Yes,['Visual'],Boolean,_layout,>8MP,_building,10091,8748
+912.jpg,Are sections 120 and 121 adjacent to each other?,Yes,"['Visual', 'Positional']",Boolean,_layout,>8MP,_building,10092,8749
+912.jpg,Is section 238 located closer to the Northwest Entry than section 202?,Yes,"['Visual', 'Positional']",Boolean,_layout,>8MP,_building,10093,8750
+912.jpg,Are there any sections in the 300s that are located in the Northeast quadrant?,No,"['Visual', 'Positional']",Boolean,_layout,>8MP,_building,10094,8751
+912.jpg,Are there more sections in the Upper Concourse Level than in the Main Concourse Level?,No,"['Visual', 'Comparative']",Boolean,_layout,>8MP,_building,10095,8752
+913.png,Does the map show that any part of South America observes time zone 'K'?,No,['Positional'],Boolean,_divisional,0.5–2MP,_world,10096,8753
+913.png,Is the time zone 'U' located in a region that is entirely within North America?,Yes,['Positional'],Boolean,_divisional,0.5–2MP,_world,10097,8754
+913.png,Is the time zone denoted by 'Z' the same as Universal Time?,Yes,['Other'],Boolean,_divisional,0.5–2MP,_world,10098,8755
+913.png,Are there fewer than 15 different time zones shown in total on the map?,No,['Visual'],Boolean,_divisional,0.5–2MP,_world,10099,8756
+914.png,Are there any states that cover more than two different time zones?,Yes,['Comparative'],Boolean,_divisional,0.1–0.5MP,_country,10100,8757
+914.png,Are all the time zones represented in a single color on the map?,No,['Visual'],Boolean,_divisional,0.1–0.5MP,_country,10101,8758
+914.png,Does the map show more than 10 lines of longitude?,No,['Comparative'],Boolean,_divisional,0.1–0.5MP,_country,10102,8759
+914.png,Is the time difference between the Pacific and Eastern Time Zones shown as 2 hours?,No,"['Visual', 'Positional']",Boolean,_divisional,0.1–0.5MP,_country,10103,8760
+915.jpg,Does at least one country in South America have more than two time zones?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,2–8MP,_world,10104,8761
+915.jpg,Is there a country on the map that spans more than three time zones?,Yes,['Comparative'],Boolean,_divisional,2–8MP,_world,10105,8762
+915.jpg,Does Australia observe more than four different time zones according to the map?,No,['Comparative'],Boolean,_divisional,2–8MP,_world,10106,8763
+915.jpg,Does the map show more than 10 countries in Africa that observe a single time zone?,Yes,['Comparative'],Boolean,_divisional,2–8MP,_world,10107,8764
+916.png,Is there at least one country from North America in the top 25 deadliest countries according to the map?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_world,10108,8765
+916.png,Is Canada included in the top 25 deadliest countries as per the map?,No,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_world,10109,8766
+916.png,Is there more than one country from South America in the top 25?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_world,10110,8767
+916.png,Is Mexico among the top 25 deadliest countries according to the ACLED Conflict Index?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_world,10111,8768
+917.jpg,Are there fewer than 15 states that observe Central Time?,No,['Other'],Boolean,_divisional,2–8MP,_country,10112,8769
+917.jpg,Is Denver located in the Mountain Time Zone?,Yes,['Positional'],Boolean,_divisional,2–8MP,_country,10113,8770
+917.jpg,Are there more than 5 states that partially observe Mountain Time?,Yes,['Comparative'],Boolean,_divisional,2–8MP,_country,10114,8771
+917.jpg,Does the map show that the entire state of California observes Pacific Standard Time?,Yes,['Other'],Boolean,_divisional,2–8MP,_country,10115,8772
+918.jpg,"Is Bakhmut located closer to the area marked as a Russian advance"" than to the area marked ""Ukrainian recapture 2/24-8/29""?""",Yes,"['Visual', 'Positional']",Boolean,_conflict,0.1–0.5MP,_region,10116,8773
+918.jpg,Does the legend indicate that the yellow areas represent Russian advances since February 2022?,No,['Visual'],Boolean,_conflict,0.1–0.5MP,_region,10117,8774
+918.jpg,Is the Dnipro river entirely within the boundaries of the mapped area?,No,['Positional'],Boolean,_conflict,0.1–0.5MP,_region,10118,8775
+918.jpg,Is there more area shown in red than yellow on the map?,Yes,"['Visual', 'Comparative']",Boolean,_conflict,0.1–0.5MP,_region,10119,8776
+919.jpg,Is there a ferry service operating from Port Melbourne to Southbank that operates daily during summer?,No,['Other'],Boolean,_network,2–8MP,_city,10120,8777
+919.jpg,Is there a ferry service connecting Spotswood and Fisherman's Bend that operates only on weekends?,No,['Other'],Boolean,_network,2–8MP,_city,10121,8778
+919.jpg,Is there more than one ferry terminal located in Stony Point?,No,"['Positional', 'Comparative']",Boolean,_network,2–8MP,_city,10122,8779
+919.jpg,Does the map show a ferry service operating between Queenscliff and Sorrento?,Yes,['Positional'],Boolean,_network,2–8MP,_city,10123,8780
+920.jpg,Is there a ferry route shown that passes through Dorchester Bay?,No,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_city,10124,8781
+920.jpg,Is there a ferry route directly connecting the Logan Airport to Hingham?,No,['Other'],Boolean,_network,0.5–2MP,_city,10125,8782
+920.jpg,Does the ferry route map show a ferry stop at Long Island?,Yes,['Other'],Boolean,_network,0.5–2MP,_city,10126,8783
+920.jpg,Does the map show a ferry stop at the JFK Library?,No,['Other'],Boolean,_network,0.5–2MP,_city,10127,8784
+921.png,Is there a designated parking area for OBEE's on Saturday?,Yes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,10128,8785
+921.png,Is there a parking area designated for VIPs?,Yes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,10129,8786
+921.png,Is parking available at Elk's Lodge?,Yes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,10130,8787
+921.png,Does the map show more than five parking locations?,No,['Comparative'],Boolean,_network,0.5–2MP,_neighborhood,10131,8788
+922.jpg,Are there more than five parks shown on this map?,Yes,"['Visual', 'Comparative']",Boolean,_network,2–8MP,_neighborhood,10132,8789
+922.jpg,Is there a direct route from Valley Oak Park to Heron School using only the Flyer Shuttle?,No,['Other'],Boolean,_network,2–8MP,_neighborhood,10133,8790
+922.jpg,Is there an off-street bike path that connects Kokomo Park and Valley Oak Park?,No,['Positional'],Boolean,_network,2–8MP,_neighborhood,10134,8791
+922.jpg,Is Natomas Middle School located closer to the highway (Route 5) than H. Allen Hight Elementary?,No,['Positional'],Boolean,_network,2–8MP,_neighborhood,10135,8792
+923.png,Does the map show any bodies of water within the borders of the Soviet-era Nagorno-Karabakh Autonomous Oblast?,No,['Positional'],Boolean,_conflict,0.5–2MP,_region,10136,8793
+923.png,Does Azerbaijan completely surround the Soviet-era Nagorno-Karabakh Autonomous Oblast?,Yes,['Positional'],Boolean,_conflict,0.5–2MP,_region,10137,8794
+923.png,Does the map depict more than 10 separate landmasses?,No,['Comparative'],Boolean,_conflict,0.5–2MP,_region,10138,8795
+923.png,Is Khankendi/Stepanakert located inside the Soviet-era Nagorno-Karabakh Autonomous Oblast?,Yes,['Positional'],Boolean,_conflict,0.5–2MP,_region,10139,8796
+924.webp,"Does the map show any areas identified as Held or regained by Ukraine"" completely encircled by areas under Russian control?""",No,['Comparative'],Boolean,_conflict,0.5–2MP,_region,10140,8797
+924.webp,Is Avdiivka situated in a region shown as being under limited Russian military control?,No,"['Visual', 'Comparative']",Boolean,_conflict,0.5–2MP,_region,10141,8798
+924.webp,Does the map indicate that Selidove is within an area where Ukraine has regained control?,No,['Positional'],Boolean,_conflict,0.5–2MP,_region,10142,8799
+924.webp,Is Kurakhove located within an area designated as under Russian military control?,No,"['Positional', 'Comparative']",Boolean,_conflict,0.5–2MP,_region,10143,8800
+925.jpg,Are there fewer than four ferries shown traveling from Naples to Sorrento?,No,['Visual'],Boolean,_network,0.5–2MP,_region,10144,8801
+925.jpg,Is there a direct route from Ischia to Capri?,Yes,['Other'],Boolean,_network,0.5–2MP,_region,10145,8802
+925.jpg,Is there a depicted route that connects Ponza to Ischia?,Yes,['Positional'],Boolean,_network,0.5–2MP,_region,10146,8803
+925.jpg,Is the island of Capri closer to Amalfi than Sorrento?,No,['Positional'],Boolean,_network,0.5–2MP,_region,10147,8804
+926.jpg,Does line number 8 go to any of the Princes' Islands?,No,['Other'],Boolean,_network,0.5–2MP,_city,10148,8805
+926.jpg,Does line number 1 service Eminönü?,Yes,['Other'],Boolean,_network,0.5–2MP,_city,10149,8806
+926.jpg,Does line number 5 pass through Ortaköy?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10150,8807
+926.jpg,Does line number 10 stop at Bebek?,Yes,['Other'],Boolean,_network,0.5–2MP,_city,10151,8808
+927.webp,Are there more than 10 stations on the Orange Line?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10152,8809
+927.webp,Does the Orange Line have more stations than the Silver Line?,No,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10153,8810
+927.webp,"Is there a station called Friendship Heights"" on the Red Line?""",Yes,['Visual'],Boolean,_network,0.5–2MP,_city,10154,8811
+927.webp,Does the map show any stations under construction?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_city,10155,8812
+928.webp,Are there more sections in the 300s than in the 100s?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10156,8813
+928.webp,Is the total number of sections in the stadium less than 350?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10157,8814
+928.webp,Is the number of sections in the 100s greater than the number of sections in the 200s?,No,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10158,8815
+928.webp,Is the number of sections in the 200's that are on the east side greater than the number of sections in the 200's on the west side?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10159,8816
+929.jpg,Are there less than 15 direct ferry routes shown from Italy to other locations on the map?,No,"['Visual', 'Comparative']",Boolean,_network,0.1–0.5MP,_subcontinent,10160,8817
+929.jpg,Is there a ferry route that connects Genoa to Ancona without passing through Civitavecchia?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_subcontinent,10161,8818
+929.jpg,Does any ferry route directly connect a Canary Island to mainland Spain?,Yes,['Other'],Boolean,_network,0.1–0.5MP,_subcontinent,10162,8819
+929.jpg,Does a ferry route connect Cadiz directly to any of the Balearic Islands?,No,['Other'],Boolean,_network,0.1–0.5MP,_subcontinent,10163,8820
+930.png,Were there more than 10 countries in South America where the forest area was greater than 40% of land area in 2012?,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10164,8821
+930.png,Does any country in Europe have more than 70% forest cover as a percentage of its land area in 2012?,Yes,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,10165,8822
+930.png,"Is there any country shown in grey, indicating a lack of data, in North America in 2012?",No,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_world,10166,8823
+930.png,Is there a country in South America where more than 80% of the land area is covered by forests in 2012?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10167,8824
+931.png,"Considering only the provinces where one candidate received more than 5% of the votes, are there more provinces where Bato got the majority than Chel?",Yes,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,10168,8825
+931.png,Is there any province where both candidates received more than 5% of the votes?,No,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,10169,8826
+931.png,Is the majority of provinces colored in shades representing less than 5% votes for both candidates?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,2–8MP,_country,10170,8827
+931.png,Are there more provinces where Bato received between 0-5% of the votes than where Chel received between 0-5% of the votes?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,2–8MP,_country,10171,8828
+932.jpg,Is there a number 27 located on a street named Groveland St?,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10172,8829
+932.jpg,Is number 1 located on University Ave?,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10173,8830
+932.jpg,Is the number 16 located on a street named Barrington?,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10174,8831
+932.jpg,Is the number 30 positioned at the intersection of Alden St and E Famum Ave?,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10175,8832
+933.png,Did more people in England vote to remain than leave the European Union?,No,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,10176,8833
+933.png,Did the largest city in Wales vote to remain in the European Union?,Yes,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,10177,8834
+933.png,Did more than half of Northern Ireland vote to remain in the European Union?,Yes,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10178,8835
+933.png,Did the majority of Wales vote to leave the European Union?,Yes,['Other'],Boolean,_choropleth,0.5–2MP,_country,10179,8836
+934.jpg,Is the suicide rate of single men in Thurgau higher than the suicide rate of married women in the same canton?,No,['Comparative'],Boolean,_mixed,0.5–2MP,_country,10180,8837
+934.jpg,Is the suicide rate in Valais for widowed women higher than that of divorced women?,No,['Comparative'],Boolean,_mixed,0.5–2MP,_country,10181,8838
+934.jpg,Is the suicide rate for single women lower than that for married women in the canton of Schwyz?,Yes,['Comparative'],Boolean,_mixed,0.5–2MP,_country,10182,8839
+934.jpg,Is there at least one canton where the suicide rate for widowed women is lower than for divorced women?,Yes,"['Positional', 'Comparative']",Boolean,_mixed,0.5–2MP,_country,10183,8840
+935.jpg,"Is there a location marked Presidential Park"" on the map that is served by the bus routes?""",Yes,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_neighborhood,10184,8841
+935.jpg,Does the bus route R2 stop at High Point High School?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_neighborhood,10185,8842
+935.jpg,Is there more than one bus stop along University Boulevard for route R1?,No,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_neighborhood,10186,8843
+935.jpg,Does the bus route R1 pass through Langley Park?,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10187,8844
+936.jpg,Does the map show any labeled cities located within the Arctic Circle?,No,"['Visual', 'Positional']",Boolean,_cartogram,0.1–0.5MP,_world,10188,8845
+936.jpg,Are all the labeled cities located on coastlines?,No,"['Visual', 'Positional']",Boolean,_cartogram,0.1–0.5MP,_world,10189,8846
+936.jpg,Is there a city labeled on the map that starts with the letter 'Z'?,No,['Visual'],Boolean,_cartogram,0.1–0.5MP,_world,10190,8847
+936.jpg,Are there more than 10 cities labeled in South America?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_world,10191,8848
+687.jpg,Is the area in Australia that has a distinctly dry winter climate bigger than 10 climate regions?,No,['Comparative'],Boolean,_isopleth,0.1–0.5MP,_country,10192,8849
+687.jpg,"Does the map show any area classified as rainforest (monsoonal)"" in the southernmost part of Australia?""",No,"['Visual', 'Positional']",Boolean,_isopleth,0.1–0.5MP,_country,10193,8850
+687.jpg,"Is there at least one region in the map that shows both Tropical Rainforest"" and ""Subtropical"" climate side by side?""",Yes,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_country,10194,8851
+687.jpg,"Is there a region in Australia classified as hot (persistently dry) desert climate that is larger than 100,000 sq km?",Yes,"['Visual', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_country,10195,8852
+937.png,Are there more countries colored in shades of green than shades of red on the left-hand map?,Yes,"['Visual', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,10196,8853
+937.png,"On the left map, is there a country colored in a shade of purple that is completely surrounded by a country colored in a shade of yellow?",No,"['Visual', 'Positional']",Boolean,_multiple,0.5–2MP,_country,10197,8854
+937.png,Does the map on the left show more countries colored in shades of blue than shades of orange?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,10198,8855
+937.png,"On the left map, is the area of land colored with the darkest red (25+) larger than the combined area of lands colored in shades of purple and light blue (0-2)?",No,"['Visual', 'Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_country,10199,8856
+938.png,Are there fewer than five countries in North America colored in the darkest shade of red?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10200,8857
+938.png,Are there more countries colored in the darkest red shade in the Americas than in Africa?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10201,8858
+938.png,Is there any country in South America coloured in grey?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_world,10202,8859
+938.png,Are all the countries in Central America colored the same shade of red?,No,['Visual'],Boolean,_choropleth,0.1–0.5MP,_world,10203,8860
+939.png,Are there any squares representing an average income of $0 in the contiguous United States?,No,['Other'],Boolean,_choropleth,0.1–0.5MP,_country,10204,8861
+939.png,Is the average income in the darkest shaded region greater than $70k?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10205,8862
+939.png,Is the average income represented in at least one square in Florida darker than the average income in at least one square in New Mexico?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10206,8863
+939.png,"Are there more than 10 squares in North Dakota depicting an average income below $25,000?",No,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10207,8864
+940.jpg,Is the National Rail Museum located to the west of the Safdarjung Tomb?,Yes,['Positional'],Boolean,_mixed,0.1–0.5MP,_city,10208,8865
+940.jpg,Is there a tourist centre located within the area of the 'Green Park'?,Yes,['Positional'],Boolean,_mixed,0.1–0.5MP,_city,10209,8866
+940.jpg,Are there more than 10 tourist centers shown on the map?,No,"['Visual', 'Comparative']",Boolean,_mixed,0.1–0.5MP,_city,10210,8867
+940.jpg,Is there a railway line that passes through both the Connaught Place and the India Gate?,No,['Positional'],Boolean,_mixed,0.1–0.5MP,_city,10211,8868
+941.png,Is the shade of blue in New York darker than the shade of blue in Florida?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10212,8869
+941.png,Are there more states with a lighter shade of blue than states with a darker shade of blue?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10213,8870
+941.png,Is there a state colored in a shade of blue darker than the shade of blue in Texas?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10214,8871
+941.png,Is California the only state colored in the darkest shade of blue?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10215,8872
+942.jpg,Does the map show more than 15 numbered locations related to Dan Gilbert’s Downtown Buildings and More Places to Live sections combined?,No,"['Visual', 'Comparative']",Boolean,_mixed,2–8MP,_city,10216,8873
+942.jpg,"Is the Motor City Casino"" located to the west of the ""MGM Grand Casino""?""",Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10217,8874
+942.jpg,"Is there a numbered location on the map that represents The M@dison""?""",Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10218,8875
+942.jpg,"Is the number of numbered landmarks shown in the Dan Gilbert's Downtown Buildings"" section less than 6?""",Yes,"['Visual', 'Comparative']",Boolean,_mixed,2–8MP,_city,10219,8876
+943.jpg,Does the map show more than five distinct colors?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.5–2MP,_world,10220,8877
+943.jpg,Are there any regions completely enclosed by water?,Yes,['Other'],Boolean,_cartogram,0.5–2MP,_world,10221,8878
+943.jpg,Is there a region colored dark blue in the western hemisphere?,Yes,"['Visual', 'Positional']",Boolean,_cartogram,0.5–2MP,_world,10222,8879
+943.jpg,Does the map use a continuous scale of colors?,No,['Visual'],Boolean,_cartogram,0.5–2MP,_world,10223,8880
+944.jpg,Does the map show more than 15 distinct migration routes?,No,['Comparative'],Boolean,_network,0.1–0.5MP,_world,10224,8881
+944.jpg,Is there evidence suggesting that Polynesians reached South America before the Spanish?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_world,10225,8882
+944.jpg,Does the genetic testing of European Roma populations suggest a single migration wave from Northwest India?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_world,10226,8883
+944.jpg,Did the migration of humans to Australia precede the migration to Europe?,Yes,['Other'],Boolean,_network,0.1–0.5MP,_world,10227,8884
+945.jpg,Does the River Thames flow through London?,Yes,['Positional'],Boolean,_network,0.5–2MP,_subcontinent,10228,8885
+945.jpg,Does the River Seine flow into the English Channel?,Yes,['Other'],Boolean,_network,0.5–2MP,_subcontinent,10229,8886
+945.jpg,Is the distance between London and Harwich less than 100 miles?,Yes,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_subcontinent,10230,8887
+945.jpg,Is Rotterdam located closer to London than to Brussels?,No,['Positional'],Boolean,_network,0.5–2MP,_subcontinent,10231,8888
+946.jpeg,"Is there more than one First Aid"" location marked on the map?""",Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_marker,2–8MP,_country,10232,8889
+946.jpeg,Is the number of hospitals shown on the map greater than the number of clinics?,No,"['Visual', 'Comparative']",Boolean,_marker,2–8MP,_country,10233,8890
+946.jpeg,"Is there any medical facility labeled with the name Sharp"" in the southwestern region of the map?""",Yes,"['Visual', 'Positional']",Boolean,_marker,2–8MP,_country,10234,8891
+946.jpeg,"Is there at least one medical facility located west of Solana Beach""?""",Yes,"['Positional', 'Comparative']",Boolean,_marker,2–8MP,_country,10235,8892
+947.jpg,Is the total number of ferry terminals in the map less than 30?,No,['Comparative'],Boolean,_network,0.5–2MP,_region,10236,8893
+947.jpg,Are there more than 15 ferry terminals shown on the map within the Long Island Sound?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_network,0.5–2MP,_region,10237,8894
+947.jpg,Is the number of ferry routes shown in the Gulf of Maine less than 10?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_region,10238,8895
+947.jpg,Is there a ferry route that connects directly to New York City from Long Island Sound?,Yes,['Positional'],Boolean,_network,0.5–2MP,_region,10239,8896
+948.jpg,Is there a depiction of a cactus in the Palm Springs area on the map?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10240,8897
+948.jpg,Is Sacramento located to the south of San Francisco on this map?,No,['Positional'],Boolean,_marker,0.5–2MP,_state,10241,8898
+948.jpg,Is the Hollywood sign depicted on the map west of Los Angeles?,No,['Positional'],Boolean,_marker,0.5–2MP,_state,10242,8899
+948.jpg,Is there a depiction of the Golden Gate Bridge on the map?,Yes,['Other'],Boolean,_marker,0.5–2MP,_state,10243,8900
+949.png,"Are all the encircled areas on the main map located within the boundaries of the larger, lighter-red shaded area?",No,"['Positional', 'Comparative']",Boolean,_conflict,0.5–2MP,_region,10244,8901
+949.png,Are all the encircled areas on the map of the same color?,No,['Visual'],Boolean,_conflict,0.5–2MP,_region,10245,8902
+949.png,Is there at least one encircled area that appears to be entirely within the larger red shaded region?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_conflict,0.5–2MP,_region,10246,8903
+949.png,Is there more than one encircled area in red on the map?,Yes,"['Visual', 'Comparative']",Boolean,_conflict,0.5–2MP,_region,10247,8904
+950.jpeg,Is the new surgery expansion situated to the south of the Critical Care Tower?,Yes,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10248,8905
+950.jpeg,Is the Retter Tower located to the west of the East Tower?,Yes,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10249,8906
+950.jpeg,Is the new central energy plant located to the north of the Waldemere Parking Garage?,No,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10250,8907
+950.jpeg,Is S. Tamiami Trail located to the east of the hospital complex?,Yes,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10251,8908
+951.jpg,Is there any evidence of a perfectly symmetrical pattern of colors across the entire map?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_country,10252,8909
+951.jpg,Is there at least one light peach colored square present in the map?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10253,8910
+951.jpg,Is the westernmost part of the map predominantly composed of red squares?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10254,8911
+951.jpg,Are there more red squares than blue squares in the map?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10255,8912
+952.jpg,Does the map include at least 10 counties shaded in dark gray?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10256,8913
+952.jpg,Is there at least one county shaded in blue?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10257,8914
+952.jpg,Are there any counties entirely white on the map?,Yes,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,10258,8915
+952.jpg,Are there more counties shaded dark gray than light gray?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10259,8916
+953.jpg,Does the migration route from Africa to Asia pass through Europe?,No,['Positional'],Boolean,_network,0.5–2MP,_world,10260,8917
+953.jpg,Does a migration route originate from South America?,No,['Positional'],Boolean,_network,0.5–2MP,_world,10261,8918
+953.jpg,Is there a migration route that starts in Europe and ends in South America?,No,['Positional'],Boolean,_network,0.5–2MP,_world,10262,8919
+953.jpg,Does any migration route originate from North America?,No,['Positional'],Boolean,_network,0.5–2MP,_world,10263,8920
+954.png,Are there more countries colored shades of yellow than shades of red?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10264,8921
+954.png,Are all the Scandinavian countries depicted in the darkest shade of green?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10265,8922
+954.png,Is there at least one country in central Africa colored a shade of orange?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10266,8923
+954.png,Is there a country colored red in South America?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_world,10267,8924
+955.png,Is the shape of the overall map area roughly rectangular?,No,['Visual'],Boolean,_cartogram,0.5–2MP,_country,10268,8925
+955.png,"Are there more than ten distinct, bordered blue regions visible on the map?",Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.5–2MP,_country,10269,8926
+955.png,Is there a noticeable concentration of smaller blue regions in any one part of the map?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.5–2MP,_country,10270,8927
+955.png,"Is there a single, unbroken blue region encompassing the entire area depicted on the map?",No,['Visual'],Boolean,_cartogram,0.5–2MP,_country,10271,8928
+956.jpg,Is there a ferry route shown connecting Kodiak to Port Lions?,No,['Visual'],Boolean,_network,0.5–2MP,_state,10272,8929
+956.jpg,Is there a ferry service operating year-round between Valdez and Cordova?,No,['Positional'],Boolean,_network,0.5–2MP,_state,10273,8930
+956.jpg,Does the map show any ferry services operating solely during the day between ports in Southeast Alaska?,Yes,['Positional'],Boolean,_network,0.5–2MP,_state,10274,8931
+956.jpg,Does the map show a direct ferry route between Cold Bay and Sand Point?,No,['Positional'],Boolean,_network,0.5–2MP,_state,10275,8932
+957.png,Is the total number of depicted events less than 15?,No,['Comparative'],Boolean,_marker,2–8MP,_region,10276,8933
+957.png,Does the map show more than five instances of SLM/A seizing of territory?,Yes,['Comparative'],Boolean,_marker,2–8MP,_region,10277,8934
+957.png,Does the map indicate any armed interactions in South Darfur?,Yes,['Positional'],Boolean,_marker,2–8MP,_region,10278,8935
+957.png,Is there a single instance of SAF vs. RSF fighting depicted on the map?,No,['Other'],Boolean,_marker,2–8MP,_region,10279,8936
+958.jpeg,"Is the Community Health Centre"" located on the first floor?""",No,"['Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_campus,10280,8937
+958.jpeg,Does the 2nd floor map show more than five distinct departments or units?,Yes,['Comparative'],Boolean,_multiple,0.5–2MP,_campus,10281,8938
+958.jpeg,Does the 3rd floor contain more than one labelled location?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_campus,10282,8939
+958.jpeg,Is there a helipad shown in any of the provided floor plans?,No,['Visual'],Boolean,_multiple,0.5–2MP,_campus,10283,8940
+959.png,Does the route shown in green pass through more than 12 intersections?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_network,0.5–2MP,_neighborhood,10284,8941
+959.png,Does NW Janet St. intersect with NW State St.?,Yes,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,10285,8942
+959.png,Is the number of streets intersecting NW Clifford St. less than 10?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_neighborhood,10286,8943
+959.png,Is the green route entirely contained within the area shown on the map?,Yes,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_neighborhood,10287,8944
+960.jpg,Is Ritsumeikan University located closer to Ryoan-ji than to Kinkaku-ji?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,10288,8945
+960.jpg,Is Kiyomizu-dera Temple located in the Northern Suburbs?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,10289,8946
+960.jpg,Is the Kyoto Sangyo University located south of the Northern Kyoto Gardens?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,10290,8947
+960.jpg,Is there a Starbucks located in the Arashiyama District?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,10291,8948
+961.jpg,Is the Statue of Liberty located in Manhattan?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10292,8949
+961.jpg,Is there a museum located directly south of Times Square?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10293,8950
+961.jpg,Is there a park located directly north of the Metropolitan Museum of Art?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10294,8951
+961.jpg,Is there a body of water located to the east of Roosevelt Island?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10295,8952
+962.jpg,Is the Potsdamer Platz located further south than the Brandenburg Gate on this map?,Yes,"['Positional', 'Comparative']",Boolean,_mixed,2–8MP,_city,10296,8953
+962.jpg,"Is there a direct road connection between the Brandenburg Gate and the Reichstag Building, without needing to use other modes of transportation?",Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10297,8954
+962.jpg,Is there a body of water fully enclosed within the boundaries of Tiergarten?,No,['Positional'],Boolean,_mixed,2–8MP,_city,10298,8955
+962.jpg,Does the map show more than 15 U-Bahn stations?,Yes,['Comparative'],Boolean,_mixed,2–8MP,_city,10299,8956
+963.jpg,Do Ferry lines 1 and 2 share any common stops besides Strömkajen?,Yes,['Other'],Boolean,_network,2–8MP,_country,10300,8957
+963.jpg,Does ferry line number 17 connect Strömkajen to Sandhamn?,No,['Other'],Boolean,_network,2–8MP,_country,10301,8958
+963.jpg,"Is there a ferry line that connects Ljusterö"" to ""Sandhamn"" directly without any change?""",No,['Positional'],Boolean,_network,2–8MP,_country,10302,8959
+963.jpg,Does ferry line 28 stop at the island of Rödlöga?,Yes,['Other'],Boolean,_network,2–8MP,_country,10303,8960
+964.png,Are there more than 15 sections in row 500?,Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,10304,8961
+964.png,Are there more than 10 sections in row 200?,Yes,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,10305,8962
+964.png,Is there an accessibility ramp located near the Northwest corner of the stadium?,Yes,['Positional'],Boolean,_layout,2–8MP,_building,10306,8963
+964.png,Are there more than 5 access ramps shown on this map?,No,"['Visual', 'Comparative']",Boolean,_layout,2–8MP,_building,10307,8964
+965.jpg,Is there a ferry terminal symbol located to the West of the Financial District?,Yes,['Positional'],Boolean,_network,0.5–2MP,_city,10308,8965
+965.jpg,Does the map show more than fifteen ferry terminals in total?,No,['Comparative'],Boolean,_network,0.5–2MP,_city,10309,8966
+965.jpg,Does the map show any part of Central Park?,No,['Other'],Boolean,_network,0.5–2MP,_city,10310,8967
+965.jpg,Is there a ferry terminal located in Brooklyn Heights?,Yes,['Positional'],Boolean,_network,0.5–2MP,_city,10311,8968
+966.jpg,Are all numbered locations clearly labeled with text?,Yes,['Visual'],Boolean,_marker,0.5–2MP,_city,10312,8969
+966.jpg,Does the map show more than 15 numbered points of interest in total?,Yes,['Comparative'],Boolean,_marker,0.5–2MP,_city,10313,8970
+966.jpg,Is the number of parking areas (P) on the map less than 10?,Yes,['Comparative'],Boolean,_marker,0.5–2MP,_city,10314,8971
+966.jpg,Is the Casa di Romeo located closer to the Arena than to Porta Nuova?,Yes,['Positional'],Boolean,_marker,0.5–2MP,_city,10315,8972
+967.jpg,Are there fewer than 15 stations on the blue line?,No,['Visual'],Boolean,_network,0.5–2MP,_city,10316,8973
+967.jpg,"Does the red line intersect with the green line at the Gallery Pl-Chinatown"" station?""",Yes,"['Visual', 'Positional']",Boolean,_network,0.5–2MP,_city,10317,8974
+967.jpg,Are there more than 10 stations on the orange line?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10318,8975
+967.jpg,"Is there a metro station named Shady Grove"" on this map?""",No,['Other'],Boolean,_network,0.5–2MP,_city,10319,8976
+968.jpg,Does the Uptown Treasures & Harlem Tour route pass through Central Park?,Yes,['Positional'],Boolean,_network,0.5–2MP,_city,10320,8977
+968.jpg,Are there more than 10 stops shown on the Downtown Tour route?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10321,8978
+968.jpg,Does the Downtown Tour start at stop number 22?,No,['Other'],Boolean,_network,0.5–2MP,_city,10322,8979
+968.jpg,Is the Grand Central Terminal located closer to stop #17 than Stop #25?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10323,8980
+969.png,Do more countries in Africa have a population density of less than 10 people per km² than those with a population density of more than 500 people per km²?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,10324,8981
+969.png,Are there fewer than ten countries in Asia with a population density of more than 500 people per km²?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,10325,8982
+969.png,Is there any country colored dark blue in Africa that has a population density of more than 500 people per km²?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10326,8983
+969.png,Does Canada have a higher population density than Mexico based on the color coding on the map?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10327,8984
+970.png,Are there any regions that are entirely surrounded by water?,Yes,['Positional'],Boolean,_choropleth,0.1–0.5MP,_world,10328,8985
+970.png,Is Australia part of the same colored region as any part of Asia?,Yes,['Visual'],Boolean,_choropleth,0.1–0.5MP,_world,10329,8986
+970.png,Is there a region colored light blue that is entirely surrounded by land?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_world,10330,8987
+970.png,Is there a region on the map that is primarily located south of the equator?,Yes,['Positional'],Boolean,_choropleth,0.1–0.5MP,_world,10331,8988
+971.jpg,Does at least one migration route pass through the Arabian Sea?,No,"['Positional', 'Comparative']",Boolean,_mixed,0.5–2MP,_world,10332,8989
+971.jpg,Does the migration route from Uganda pass through Somalia?,No,['Positional'],Boolean,_mixed,0.5–2MP,_world,10333,8990
+971.jpg,Does a migration route directly connect Kenya to Australia?,No,['Other'],Boolean,_mixed,0.5–2MP,_world,10334,8991
+971.jpg,Is there a direct migration route from South Africa to Australia?,No,['Positional'],Boolean,_mixed,0.5–2MP,_world,10335,8992
+972.jpg,Is the number of yellow colored counties more than 10?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10336,8993
+972.jpg,"If we consider only the states bordering the Pacific Ocean, is the number of counties exhibiting a big increase in diversity greater than the number of counties showing a little change in diversity?",Yes,"['Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10337,8994
+972.jpg,Are there more dark-blue colored counties than light-green colored counties in the map?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10338,8995
+972.jpg,"Focusing only on the states of California, Oregon, and Washington, are there more counties with a big increase in diversity than counties with little change in diversity?",No,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,10339,8996
+973.jpg,Does the state of New York share a border with the state of West Virginia?,No,['Positional'],Boolean,_divisional,0.5–2MP,_country,10340,8997
+973.jpg,Does more than one state have area codes that start with 40?,Yes,['Comparative'],Boolean,_divisional,0.5–2MP,_country,10341,8998
+973.jpg,Is the area code 907 associated with a state located on the mainland U.S.?,No,['Positional'],Boolean,_divisional,0.5–2MP,_country,10342,8999
+973.jpg,Does the area code 212 cover a region that is fully contained within a single state?,Yes,['Positional'],Boolean,_divisional,0.5–2MP,_country,10343,9000
+974.jpg,Are there more than 10 stations on the orange line?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10344,9001
+974.jpg,Is there a station on the map that is directly connected to exactly seven other stations?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10345,9002
+974.jpg,Does any single line connect to more than three other lines at a central station?,Yes,['Comparative'],Boolean,_network,0.5–2MP,_city,10346,9003
+974.jpg,Are there any two stations that are connected by more than one route on the map?,No,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_city,10347,9004
+975.jpeg,"According to this model, was the migration to Europe earlier than the migration to Australia?",No,['Other'],Boolean,_mixed,0.1–0.5MP,_world,10348,9005
+975.jpeg,"According to this map, did the migration to Australia occur less than 100,000 years ago?",Yes,['Comparative'],Boolean,_mixed,0.1–0.5MP,_world,10349,9006
+975.jpeg,Does the map indicate that the earliest human migration shown originated in Africa?,Yes,['Visual'],Boolean,_mixed,0.1–0.5MP,_world,10350,9007
+975.jpeg,"Based on this map, did modern humans originate in Asia?",No,['Other'],Boolean,_mixed,0.1–0.5MP,_world,10351,9008
+976.png,"Is the number of sections in the MLS Supporters Entrance"" less than 10?""",Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10352,9009
+976.png,"Does the Platinum Access"" have more sections than the ""Silver Club Entrance""?""",Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10353,9010
+976.png,"Are there fewer than 15 sections in the Red Zone Lounge""?""",Yes,['Visual'],Boolean,_layout,0.5–2MP,_building,10354,9011
+976.png,"Is the total number of sections in 400 South Club Lounge"" and ""300 South Club Lounge"" equal to 20?""",No,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_building,10355,9012
+977.jpeg,Is the West Bank depicted as completely within Israeli-controlled territory in 1967 according to the map?,Yes,['Positional'],Boolean,_conflict,2–8MP,_country,10356,9013
+977.jpeg,Does the map depict the entirety of historical Palestine as being under Israeli control in 1967?,Yes,['Comparative'],Boolean,_conflict,2–8MP,_country,10357,9014
+977.jpeg,"Is there a visually distinct difference on the map between the areas identified as Palestinian (under Israeli occupation)"" and ""Israeli""?""",Yes,"['Positional', 'Comparative']",Boolean,_conflict,2–8MP,_country,10358,9015
+977.jpeg,"Based on this map, did Israel control any Egyptian territory in 1967?",Yes,['Other'],Boolean,_conflict,2–8MP,_country,10359,9016
+978.jpg,Does the map include a legend explaining the different seating categories and areas?,Yes,['Other'],Boolean,_layout,0.5–2MP,_building,10360,9017
+978.jpg,Does the stadium plan show more than 15 sections in the East Stand?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10361,9018
+978.jpg,"Does the Young Persons Area"" appear to be larger than the ""Family Area"" based on the visual representation?""",No,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10362,9019
+978.jpg,"Is there a seating category labeled Seating Category 4"" in the stadium plan?""",No,['Visual'],Boolean,_layout,0.5–2MP,_building,10363,9020
+979.jpg,Is section 222 located closer to the East Club Entrance than section 101?,Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_building,10364,9021
+979.jpg,Are there more than 10 sections in the lower level?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10365,9022
+979.jpg,Is section 330 located to the west of section 339?,No,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_building,10366,9023
+979.jpg,Is there an elevator located in section 10?,Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_building,10367,9024
+980.jpg,Are there fewer than ten buildings shown in the Historic Civic District?,Yes,['Visual'],Boolean,_network,0.5–2MP,_city,10368,9025
+980.jpg,Is there a direct road connection between the Esplanade and the Singapore Flyer?,Yes,['Positional'],Boolean,_network,0.5–2MP,_city,10369,9026
+980.jpg,Does the map show more than five trees near the Asian Civilisations Museum?,No,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_city,10370,9027
+980.jpg,Is there a bridge connecting the Marina Bay Sands to the mainland?,Yes,['Other'],Boolean,_network,0.5–2MP,_city,10371,9028
+981.jpg,Is there at least one interchange station between the Blue Line and the Purple Line?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_network,2–8MP,_city,10372,9029
+981.jpg,Does the Yellow Line have more stations than the Pink Line?,No,"['Visual', 'Comparative']",Boolean,_network,2–8MP,_city,10373,9030
+981.jpg,Does the Pink Line intersect with the Yellow Line at more than one point?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_network,2–8MP,_city,10374,9031
+981.jpg,"Is there a metro station named Silk Institute"" on the Green Line?""",Yes,['Visual'],Boolean,_network,2–8MP,_city,10375,9032
+982.jpg,Is the total number of electoral votes for Biden greater than 250?,Yes,['Comparative'],Boolean,_cartogram,2–8MP,_country,10376,9033
+982.jpg,Did Trump win more states than Biden?,No,['Comparative'],Boolean,_cartogram,2–8MP,_country,10377,9034
+982.jpg,Is the number of states that Biden won more than the number of states that Trump won?,No,['Comparative'],Boolean,_cartogram,2–8MP,_country,10378,9035
+982.jpg,Did Biden win more electoral votes in California than Trump won in Texas?,Yes,['Comparative'],Boolean,_cartogram,2–8MP,_country,10379,9036
+983.png,Are there more than 5 entrances shown for the SMH?,No,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_campus,10380,9037
+983.png,Is there a patient drop off area shown on the map?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_campus,10381,9038
+983.png,Is there a bus stop located on 137th Street?,No,['Positional'],Boolean,_layout,0.5–2MP,_campus,10382,9039
+983.png,Is there a crosswalk depicted connecting 96th Avenue to the hospital?,Yes,['Other'],Boolean,_layout,0.5–2MP,_campus,10383,9040
+984.png,Is at least one country in Central America colored in a lighter shade of blue compared to the majority of countries in South America?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10384,9041
+984.png,Are all the countries in South America colored in shades of blue?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_world,10385,9042
+984.png,Is there at least one country in Africa colored in the darkest shade of blue?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10386,9043
+984.png,Are all the countries bordering the Mediterranean Sea colored darker than the light blue shade?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,10387,9044
+985.jpg,Are Alaska (AK) and Hawaii (HI) in the same time zone?,No,['Other'],Boolean,_divisional,0.5–2MP,_country,10388,9045
+985.jpg,Is the state of California (CA) in the Pacific Daylight Time (PDT) zone?,Yes,['Other'],Boolean,_divisional,0.5–2MP,_country,10389,9046
+985.jpg,Are there more states in the CDT than in the PDT?,Yes,['Comparative'],Boolean,_divisional,0.5–2MP,_country,10390,9047
+985.jpg,Does Florida (FL) share a time zone border with Alabama (AL)?,Yes,['Positional'],Boolean,_divisional,0.5–2MP,_country,10391,9048
+986.jpg,Does the entire orange route stay within the same general body of water?,Yes,"['Visual', 'Positional']",Boolean,_network,0.1–0.5MP,_state,10392,9049
+986.jpg,Does the green route intersect the orange route?,Yes,"['Visual', 'Positional']",Boolean,_network,0.1–0.5MP,_state,10393,9050
+986.jpg,Does the orange route end closer to the bottom of the map than the green route?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_state,10394,9051
+986.jpg,Is the total number of blue ferry icons along the orange route less than 15?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_state,10395,9052
+987.png,Are there any states completely uncolored?,No,['Other'],Boolean,_choropleth,0.5–2MP,_country,10396,9053
+987.png,Are there less than ten states colored in dark red?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10397,9054
+987.png,Is there at least one state colored in yellow?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_country,10398,9055
+987.png,Do all states bordering the Pacific Ocean have the same color?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_country,10399,9056
+988.webp,Is there a ferry route shown that goes from Alcatraz to Tiburon?,Yes,['Visual'],Boolean,_network,0.5–2MP,_city,10400,9057
+988.webp,Is Angel Island directly connected by a ferry route to South San Francisco?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10401,9058
+988.webp,Are there more than five ferry stops shown on the map for San Francisco?,No,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10402,9059
+988.webp,Does the ferry route from San Francisco to Vallejo pass through Richmond?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10403,9060
+989.jpg,Are there fewer than ten building entrances indicated on the map?,Yes,['Other'],Boolean,_layout,0.1–0.5MP,_campus,10404,9061
+989.jpg,"Is there a building labeled Dining Room"" on the map?""",Yes,['Visual'],Boolean,_layout,0.1–0.5MP,_campus,10405,9062
+989.jpg,Is there a helipad located on the map?,Yes,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10406,9063
+989.jpg,"Is there a road connecting the To North Parking"" and ""To South Parking"" areas?""",Yes,['Positional'],Boolean,_layout,0.1–0.5MP,_campus,10407,9064
+990.jpg,Is there a parking garage shown on the map?,Yes,['Visual'],Boolean,_layout,0.5–2MP,_campus,10408,9065
+990.jpg,Is the Golisano Children's Hospital building located within the Strong Memorial Hospital boundary?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_campus,10409,9066
+990.jpg,Does the map indicate more than two designated smoking areas?,No,['Comparative'],Boolean,_layout,0.5–2MP,_campus,10410,9067
+990.jpg,"Is there a building labeled College Town Garage"" shown on the map outside the SMH property boundary?""",Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_campus,10411,9068
+991.jpg,Does the Rocks Market operate on Mondays?,No,['Other'],Boolean,_mixed,2–8MP,_city,10412,9069
+991.jpg,Is the National Maritime Museum open on Christmas Day?,Yes,['Other'],Boolean,_mixed,2–8MP,_city,10413,9070
+991.jpg,Is there a ferry service from Circular Quay to Manly?,Yes,['Other'],Boolean,_mixed,2–8MP,_city,10414,9071
+991.jpg,Is the Sydney Opera House located in The Rocks?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10415,9072
+992.jpg,Does Russia have more internet users than India according to the map?,No,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,10416,9073
+992.jpg,Does Brazil have more internet users than Russia according to this map?,No,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,10417,9074
+992.jpg,Is the number of internet users in the United States greater than the number of internet users in Canada?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,10418,9075
+992.jpg,Is Australia depicted as having more internet users than Canada?,No,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,10419,9076
+993.png,Are the regions with similar population densities represented with the same color shade?,Yes,['Visual'],Boolean,_cartogram,>8MP,_continent,10420,9077
+993.png,Does the lightest colored region on the map appear to be located in the central-western part of Africa?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_cartogram,>8MP,_continent,10421,9078
+993.png,Is there a region in the map that is significantly lighter in color than the others?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,>8MP,_continent,10422,9079
+993.png,"Is it true that the darkest shaded areas represent populations over 50 million people, considering the legend?",No,"['Visual', 'Comparative']",Boolean,_cartogram,>8MP,_continent,10423,9080
+994.png,Is the state of Texas entirely within the purple colored time zone?,Yes,"['Visual', 'Positional']",Boolean,_divisional,0.1–0.5MP,_country,10424,9081
+994.png,Does the map indicate that Denver and Dodge City are in the same Standard Time Belt?,Yes,['Other'],Boolean,_divisional,0.1–0.5MP,_country,10425,9082
+994.png,"Does the state of Montana lie completely within a single Standard Time Belt, according to the map?",Yes,['Positional'],Boolean,_divisional,0.1–0.5MP,_country,10426,9083
+994.png,Does  the map display less than 15 cities in the red coloured time zone?,Yes,"['Visual', 'Comparative']",Boolean,_divisional,0.1–0.5MP,_country,10427,9084
+995.png,Is the number of states sharing a border with the state of Nebraska (NE) less than 6?,No,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_country,10428,9085
+995.png,"Is the state of Nevada (NV) located entirely within a single time zone, according to the map?",Yes,['Positional'],Boolean,_divisional,0.5–2MP,_country,10429,9086
+995.png,Is there a state that is entirely within the UTC-5 (Standard) time zone according to this map?,No,['Positional'],Boolean,_divisional,0.5–2MP,_country,10430,9087
+995.png,Does Alaska (AK) have more than 10 cities marked on this map?,No,"['Visual', 'Comparative']",Boolean,_divisional,0.5–2MP,_country,10431,9088
+996.jpeg,Does the 7 train have any stops in Queens?,Yes,['Other'],Boolean,_network,>8MP,_city,10432,9089
+996.jpeg,Do any subway lines run above ground in Manhattan?,Yes,['Positional'],Boolean,_network,>8MP,_city,10433,9090
+996.jpeg,"Is there a subway station named Times Square"" on the map?""",Yes,['Other'],Boolean,_network,>8MP,_city,10434,9091
+996.jpeg,Does the L train serve any stations in the Bronx?,No,['Other'],Boolean,_network,>8MP,_city,10435,9092
+997.jpg,Is the number of stations shown on the map less than 15?,No,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_city,10436,9093
+997.jpg,Is there a direct train connection between Harajuku and Odaiba?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10437,9094
+997.jpg,Is the Tokyo Tower located east of the Imperial Palace?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10438,9095
+997.jpg,Is the Tokyo Disneyland located closer to the Chiba prefecture than to the Tokyo Station?,No,['Positional'],Boolean,_network,0.5–2MP,_city,10439,9096
+998.jpg,Is the Hall of Fame located within the Tokyo Dome complex?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,10440,9097
+998.jpg,Is there a McDonald's located near Korakuen Station?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,10441,9098
+998.jpg,Are there more than five conveniences stores (Conv) indicated on the map?,No,['Comparative'],Boolean,_mixed,0.5–2MP,_city,10442,9099
+998.jpg,Is there a direct JR line connection between Shimbashi and Suidobashi Stations?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,10443,9100
+999.png,"Is there a direct metro connection between Passeig de Gràcia"" and ""Estació de França""?""",Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10444,9101
+999.png,Is there a direct metro line connection between the Airport T2 and the Sagrada Familia?,Yes,['Positional'],Boolean,_mixed,2–8MP,_city,10445,9102
+999.png,Are there more than 15 stations on line L4?,No,['Comparative'],Boolean,_mixed,2–8MP,_city,10446,9103
+999.png,Does line L10 connect to any other lines at the Collblanc station?,No,['Other'],Boolean,_mixed,2–8MP,_city,10447,9104
+1000.jpg,Does the map indicate at least one daily steamer service from Bergen to any location on the fjord?,Yes,"['Positional', 'Comparative']",Boolean,_network,0.5–2MP,_region,10448,9105
+1000.jpg,Does the map show any steamer routes operating daily between Bergen and Balholm?,No,['Positional'],Boolean,_network,0.5–2MP,_region,10449,9106
+1000.jpg,Is there a single steamer route that connects both Balholm and Skjolden?,Yes,['Positional'],Boolean,_network,0.5–2MP,_region,10450,9107
+1000.jpg,Did the steamer make a stop at Aardalstangen every Monday in 1907?,Yes,['Other'],Boolean,_network,0.5–2MP,_region,10451,9108
+1001.png,Are all the regions colored purple located in the same hemisphere?,No,"['Visual', 'Positional']",Boolean,_divisional,0.5–2MP,_world,10452,9109
+1001.png,Are there more than five regions colored in shades of orange/red?,Yes,"['Visual', 'Comparative']",Boolean,_divisional,0.5–2MP,_world,10453,9110
+1001.png,Are there fewer than ten regions colored in shades of yellow/light orange?,Yes,['Visual'],Boolean,_divisional,0.5–2MP,_world,10454,9111
+1001.png,Does any single color occupy a continuous landmass stretching across an entire continent?,No,"['Visual', 'Positional']",Boolean,_divisional,0.5–2MP,_world,10455,9112
+1002.png,Does Belarus share the same time zone with Poland during summer?,No,['Other'],Boolean,_choropleth,0.5–2MP,_continent,10456,9113
+1002.png,Is the time zone in the majority of the United Kingdom UTC+1 during winter?,No,['Other'],Boolean,_choropleth,0.5–2MP,_continent,10457,9114
+1002.png,Is there any country fully colored in light green?,No,['Visual'],Boolean,_choropleth,0.5–2MP,_continent,10458,9115
+1002.png,Does Iceland observe Daylight Saving Time (DST)?,Yes,['Other'],Boolean,_choropleth,0.5–2MP,_continent,10459,9116
+1003.jpg,Does the map show any part of present-day Canada?,Yes,['Other'],Boolean,_conflict,0.5–2MP,_country,10460,9117
+1003.jpg,Is the number of states more than the number of territories shown on the map?,Yes,"['Visual', 'Comparative']",Boolean,_conflict,0.5–2MP,_country,10461,9118
+1003.jpg,Does the map include any territory claimed by the United Kingdom?,Yes,['Other'],Boolean,_conflict,0.5–2MP,_country,10462,9119
+1003.jpg,Are there more disputed areas in the eastern part of the map than in the western part?,Yes,"['Positional', 'Comparative']",Boolean,_conflict,0.5–2MP,_country,10463,9120
+1004.jpg,Are there any countries that use time zone +12 and are fully located in the southern hemisphere?,Yes,['Positional'],Boolean,_divisional,0.5–2MP,_world,10464,9121
+1004.jpg,Is there a country depicted on the map that spans across more than three time zones?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_world,10465,9122
+1004.jpg,Is there at least one country completely within the time zone -5?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_world,10466,9123
+1004.jpg,Is there more than one country spanning across two time zones in North America?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_world,10467,9124
+1005.jpg,Does the trolley route pass directly through the White House?,Yes,"['Visual', 'Positional']",Boolean,_mixed,>8MP,_city,10468,9125
+1005.jpg,Are there more than 10 trolley stops on the National Mall & Downtown Loop?,Yes,['Comparative'],Boolean,_mixed,>8MP,_city,10469,9126
+1005.jpg,Is the National Air and Space Museum located near the L'Enfant Plaza Metro station?,No,['Positional'],Boolean,_mixed,>8MP,_city,10470,9127
+1005.jpg,Is the Pentagon located within the area covered by this map?,Yes,['Positional'],Boolean,_mixed,>8MP,_city,10471,9128
+1006.png,Does the total number of blue and red squares in Nevada equal to 7?,No,['Visual'],Boolean,_cartogram,0.5–2MP,_country,10472,9129
+1006.png,Does Texas have more than 10 red squares?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.5–2MP,_country,10473,9130
+1006.png,Are there more red squares in Alabama than blue squares in Mississippi?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.5–2MP,_country,10474,9131
+1006.png,Does Florida have fewer than 15 red squares?,Yes,['Visual'],Boolean,_cartogram,0.5–2MP,_country,10475,9132
+1007.jpg,Are there more than 15 sections in the 200s?,No,"['Visual', 'Comparative']",Boolean,_layout,0.1–0.5MP,_building,10476,9133
+1007.jpg,Is the total number of sections in the bleachers on the East side more than the number of sections in the bleachers on the West side?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_layout,0.1–0.5MP,_building,10477,9134
+1007.jpg,Is the total number of sections in the stadium less than 50?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.1–0.5MP,_building,10478,9135
+1007.jpg,Is the Canyon Club located on the West side of the stadium?,No,['Positional'],Boolean,_layout,0.1–0.5MP,_building,10479,9136
+1008.png,Are there more than 2 staircases indicated on this map?,No,['Comparative'],Boolean,_layout,0.5–2MP,_building,10480,9137
+1008.png,Is there a restroom located within the Administration area?,No,['Positional'],Boolean,_layout,0.5–2MP,_building,10481,9138
+1008.png,Is the number of Med Surg departments on the map less than 6?,Yes,['Comparative'],Boolean,_layout,0.5–2MP,_building,10482,9139
+1008.png,Is the number of  doctors' offices shown on the map greater than 4?,Yes,"['Visual', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10483,9140
+1009.jpg,Is the combined population of Germany and France larger than that of Brazil?,No,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,10484,9141
+1009.jpg,Does the map visually represent any countries with populations less than 1 million people?,Yes,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,10485,9142
+1009.jpg,Is the population of Russia represented by a larger area than that of Japan?,Yes,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,10486,9143
+1009.jpg,Is the combined area representing the populations of Brazil and Argentina larger than the area for China?,No,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,10487,9144
+1010.jpg,"Is the city of Tokyo"" located east of ""Beijing""?""",Yes,['Positional'],Boolean,_divisional,0.5–2MP,_world,10488,9145
+1010.jpg,Is Brasília located east of Bogota?,Yes,['Positional'],Boolean,_divisional,0.5–2MP,_world,10489,9146
+1010.jpg,Are there more time zones shown that are ahead of Greenwich Mean Time (GMT) than behind it?,Yes,"['Visual', 'Comparative']",Boolean,_divisional,0.5–2MP,_world,10490,9147
+1010.jpg,"Is the time zone of  Mexico City"" ahead of the time zone of ""London""?""",No,['Other'],Boolean,_divisional,0.5–2MP,_world,10491,9148
+1011.png,Are there less than 15 countries in lightest shade of green in Africa?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10492,9149
+1011.png,Is the number of countries depicted in darkest shade of green in Africa greater than the number of countries depicted in lightest shade of green?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10493,9150
+1011.png,Is there at least one country depicted in a darkest shade of green in Oceania?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10494,9151
+1011.png,"Are there more countries with darkest shade of green than lightest shade of green, considering only North America and South America?",No,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,10495,9152
+1012.jpg,Do sections 110-116 have the same color coding?,No,['Visual'],Boolean,_layout,0.5–2MP,_building,10496,9153
+1012.jpg,Are there more than 10 sections in the South Patio?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_layout,0.5–2MP,_building,10497,9154
+1012.jpg,Are there any sections with three-digit numbers in the South Patio that end with a 0?,Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_building,10498,9155
+1012.jpg,Are sections 201 and 202 adjacent to each other?,Yes,"['Visual', 'Positional']",Boolean,_layout,0.5–2MP,_building,10499,9156
+1013.gif,Are there more hexagons representing states in the West Coast than in the East Coast?,No,"['Positional', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,10500,9157
+1013.gif,Is the number of hexagons representing states in the New England region less than 10?,No,['Comparative'],Boolean,_cartogram,0.1–0.5MP,_country,10501,9158
+1013.gif,Does the state of Texas have more hexagons than the state of California?,Yes,['Comparative'],Boolean,_cartogram,0.1–0.5MP,_country,10502,9159
+1013.gif,Are there more states represented by hexagons in the color light orange than dark orange?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,10503,9160
+1014.gif,Does the map show any portion of the Danube River flowing through Germany according to the 1933 boundary?,Yes,['Positional'],Boolean,_conflict,0.1–0.5MP,_country,10504,9161
+1014.gif,Did Lithuania gain any territory from Germany in the changes following World War I as shown on the map?,Yes,['Visual'],Boolean,_conflict,0.1–0.5MP,_country,10505,9162
+1014.gif,"Is the Saar region, as depicted on the map, larger than East Prussia?",No,"['Positional', 'Comparative']",Boolean,_conflict,0.1–0.5MP,_country,10506,9163
+1014.gif,Is the city of Prague located in Germany according to the 1933 boundary shown on the map?,No,"['Visual', 'Positional']",Boolean,_conflict,0.1–0.5MP,_country,10507,9164
+1015.gif,Is the largest continuous area of light green in the northern part of the country colored in pale pink?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_conflict,0.5–2MP,_subcontinent,10508,9165
+1015.gif,Does the area controlled by the group depicted in pink completely surround the area controlled by the group depicted in light green?,No,"['Visual', 'Positional']",Boolean,_conflict,0.5–2MP,_subcontinent,10509,9166
+1015.gif,Are there more than five labeled cities in the area controlled by the group depicted in light green?,No,"['Visual', 'Comparative']",Boolean,_conflict,0.5–2MP,_subcontinent,10510,9167
+1015.gif,Is there a single continuous area controlled by the group depicted in light green in October 2014?,Yes,['Visual'],Boolean,_conflict,0.5–2MP,_subcontinent,10511,9168
+1016.gif,Are there more than 15 hexagons representing states in the New England region?,Yes,['Comparative'],Boolean,_cartogram,0.1–0.5MP,_country,10512,9169
+1016.gif,Is the state of California (CA) represented as a single hexagon on the map?,No,['Other'],Boolean,_cartogram,0.1–0.5MP,_country,10513,9170
+1016.gif,Does the map include all 50 U.S. states?,Yes,['Other'],Boolean,_cartogram,0.1–0.5MP,_country,10514,9171
+1016.gif,Does Wyoming (WY) share a border with more than four other states in this hexagonal map representation?,Yes,"['Positional', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,10515,9172
+1017.gif,Is there a marina located within Colonial Lake?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,10516,9173
+1017.gif,Are there more than five points of interest marked within a one-block radius of Marion Square?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_mixed,0.5–2MP,_city,10517,9174
+1017.gif,Is there a church located directly on the waterfront?,No,['Positional'],Boolean,_mixed,0.5–2MP,_city,10518,9175
+1017.gif,Does the map show more than fifteen government buildings?,No,['Comparative'],Boolean,_mixed,0.5–2MP,_city,10519,9176
+1018.gif,Is Port Angeles located on Vancouver Island?,No,['Positional'],Boolean,_network,0.1–0.5MP,_city,10520,9177
+1018.gif,Does the map show a ferry route directly connecting Nanaimo and Tsawwassen?,Yes,['Other'],Boolean,_network,0.1–0.5MP,_city,10521,9178
+1018.gif,Are there more than 10 ferry terminals shown on this map?,No,"['Visual', 'Comparative']",Boolean,_network,0.1–0.5MP,_city,10522,9179
+1018.gif,Is there a ferry terminal located in Qualicum Beach?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_city,10523,9180
+1019.gif,"Is there a station called Huangpu New Port which is located at the end of a line, meaning it is a terminal station?",Yes,['Positional'],Boolean,_network,>8MP,_city,10524,9181
+1019.gif,"Is there a station named Baiyun Park"" on Line 3?""",No,['Other'],Boolean,_network,>8MP,_city,10525,9182
+1019.gif,"Does Line 21 start or end at a station called Zengcheng Square""?""",Yes,['Other'],Boolean,_network,>8MP,_city,10526,9183
+1019.gif,Does Line 1 intersect with Line 3 at Guangzhou East Railway Station?,Yes,['Positional'],Boolean,_network,>8MP,_city,10527,9184
+1020.gif,Does any state in the New England region have a dark red color signifying high Hispanic population density?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,10528,9185
+1020.gif,Does Florida have a higher Hispanic population density than Montana?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,10529,9186
+1020.gif,Do more than five states show a Hispanic population density of 3-5 persons per square kilometer?,No,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,10530,9187
+1020.gif,Does New Mexico have a higher Hispanic population density than Wyoming?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,10531,9188
+1021.gif,Is there a ferry route directly connecting Rovinj and Trieste?,No,['Other'],Boolean,_network,0.5–2MP,_country,10532,9189
+1021.gif,Is there a ferry route directly connecting Trieste and Pula?,No,['Other'],Boolean,_network,0.5–2MP,_country,10533,9190
+1021.gif,Does Poreč have a direct ferry connection to Trieste?,No,['Other'],Boolean,_network,0.5–2MP,_country,10534,9191
+1021.gif,Is the total number of locations shown on the map (including Venice and Zadar) less than 15?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.5–2MP,_country,10535,9192
+1022.gif,Is there a region colored yellow ($0bn-$5bn) completely surrounded by regions colored orange ($15bn-$40bn)?,No,"['Visual', 'Positional']",Boolean,_cartogram,0.1–0.5MP,_country,10536,9193
+1022.gif,Is there at least one region depicted on the map with a total housing value exceeding $40 billion?,Yes,['Comparative'],Boolean,_cartogram,0.1–0.5MP,_country,10537,9194
+1022.gif,Are there fewer than 5 regions with a housing value between $40bn and $1tr?,No,['Positional'],Boolean,_cartogram,0.1–0.5MP,_country,10538,9195
+1022.gif,Are there more than 15 regions colored red ($40bn-$1tr) in the map?,Yes,"['Visual', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,10539,9196
+1023.gif,Does the map show the entire state of Alaska?,No,['Other'],Boolean,_network,0.1–0.5MP,_state,10540,9197
+1023.gif,Does the Alaska Marine Highway pass through more than 10 towns?,Yes,"['Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_state,10541,9198
+1023.gif,Is the number of labeled National Forests on the map greater than 2?,No,"['Visual', 'Comparative']",Boolean,_network,0.1–0.5MP,_state,10542,9199
+1023.gif,Is the number of National Parks and Preserves shown on the map less than 5?,Yes,"['Visual', 'Comparative']",Boolean,_network,0.1–0.5MP,_state,10543,9200
+1024.gif,Is the entire state of California in the same time zone?,Yes,['Other'],Boolean,_divisional,0.1–0.5MP,_country,10544,9201
+1024.gif,Does Texas share a time zone with any state that borders Canada?,Yes,['Positional'],Boolean,_divisional,0.1–0.5MP,_country,10545,9202
+1024.gif,Does Arizona observe daylight saving time?,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,10546,9203
+1024.gif,Does more than half of the states shown observe daylight savings time?,Yes,"['Visual', 'Comparative']",Boolean,_divisional,0.1–0.5MP,_country,10547,9204
+838.png,How many states contain any regions in the darkest shade of purple?,28,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10548,9205
+838.png,How many states contain at least one region shaded in the lightest yellow color?,24,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10549,9206
+838.png,How many states have a mix of at least three different shades (excluding Alaska and Hawaii)?,47,['Comparative'],Counting,_choropleth,0.5–2MP,_country,10550,9207
+838.png,"Considering only the contiguous US, how many states have at least one region colored in the light yellow?",23,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10551,9208
+839.jpg,"How many sites are listed in the Must See Things in Washington D.C. A-Z"" legend?""",26,['Visual'],Counting,_mixed,0.5–2MP,_city,10552,9209
+839.jpg,How many bridges cross the Potomac River on the map's visible section?,3,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_city,10553,9210
+839.jpg,"How many lettered markers (A-Z) are visible on the map, indicating points of interest?",26,['Visual'],Counting,_mixed,0.5–2MP,_city,10554,9211
+839.jpg,How many buildings are shown in the photographic representation of the U.S. Capitol (W)?,1,['Visual'],Counting,_mixed,0.5–2MP,_city,10555,9212
+840.png,How many circles representing locations with 50-99 professionals are shown in the northernmost part of California?,0,"['Visual', 'Positional', 'Comparative']",Counting,_marker,0.1–0.5MP,_state,10556,9213
+840.png,"In the northern half of California, how many locations are represented by circles showing less than 50 professionals?",15,"['Positional', 'Comparative']",Counting,_marker,0.1–0.5MP,_state,10557,9214
+841.png,"Considering the main map only, how many states have unemployment rates shown in lighter shades of red than the darkest red?",29,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_country,10558,9215
+841.png,"Considering only the main map (excluding Alaska and Hawaii), how many states are shaded in the darkest red color?",1,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_country,10559,9216
+841.png,How many states are shown in the inset map representing Alaska and Hawaii?,2,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,10560,9217
+841.png,How many states are depicted in the main map of the contiguous United States?,48,['Other'],Counting,_choropleth,0.1–0.5MP,_country,10561,9218
+842.png,How many total numerical values are associated with *Homo sapiens* migration routes?,12,['Other'],Counting,_mixed,0.5–2MP,_world,10562,9219
+842.png,"How many numerical values greater than 10,000 are shown on the map?",9,"['Visual', 'Comparative']",Counting,_mixed,0.5–2MP,_world,10563,9220
+842.png,How many total numerical values are displayed on the map?,12,['Visual'],Counting,_mixed,0.5–2MP,_world,10564,9221
+842.png,How many migration routes are shown for *Homo neanderthalensis*?,3,['Visual'],Counting,_mixed,0.5–2MP,_world,10565,9222
+843.jpg,How many times does the number 0 appear in the years marked on the map?,4,['Visual'],Counting,_network,2–8MP,_continent,10566,9223
+843.jpg,How many labeled arrows are there showing the migration routes?,2,['Visual'],Counting,_network,2–8MP,_continent,10567,9224
+843.jpg,"How many letters are there in the label Bering Land Bridge""?""",16,['Visual'],Counting,_network,2–8MP,_continent,10568,9225
+843.jpg,"How many letters are present in the words Continental Ice""?""",14,['Other'],Counting,_network,2–8MP,_continent,10569,9226
+844.png,How many countries in the Western Hemisphere (excluding Antarctica) are in the darkest brown category (+1M)?,1,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,10570,9227
+844.png,"How many countries in Europe have a population between 199,000 and 100,000, based on the map's color-coding?",4,['Positional'],Counting,_choropleth,0.5–2MP,_world,10571,9228
+844.png,How many countries in Oceania are colored in the medium orange shade (499k-200k)?,0,['Visual'],Counting,_choropleth,0.5–2MP,_world,10572,9229
+844.png,How many countries in South America are colored in the darkest shade of brown?,0,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,10573,9230
+845.png,How many time zones are there in total across the map? (Including irregular zones),35,['Positional'],Counting,_divisional,0.5–2MP,_world,10574,9231
+845.png,How many different colors are used to represent the time zones on the map?,5,['Visual'],Counting,_divisional,0.5–2MP,_world,10575,9232
+845.png,"Considering only fully colored sections, how many time zones are in Europe?",4,['Visual'],Counting,_divisional,0.5–2MP,_world,10576,9233
+845.png,How many time zones are represented on the map that are labelled with a positive number?,23,['Visual'],Counting,_divisional,0.5–2MP,_world,10577,9234
+846.jpg,"How many migration routes show a timeframe between 20,000 and 50,000 years ago?",2,['Positional'],Counting,_network,0.5–2MP,_world,10578,9235
+846.jpg,"How many migration routes show a timeframe of less than 40,000 years ago?",4,['Comparative'],Counting,_network,0.5–2MP,_world,10579,9236
+846.jpg,How many migration routes are depicted on this map of human migration?,10,['Other'],Counting,_network,0.5–2MP,_world,10580,9237
+846.jpg,"Excluding migrations starting from Africa, how many migration routes are depicted on the map?",8,['Other'],Counting,_network,0.5–2MP,_world,10581,9238
+847.jpg,How many Testing centers are shown in the map?,1,['Visual'],Counting,_layout,2–8MP,_campus,10582,9239
+847.jpg,How many entrances are marked in purple on this map?,2,['Visual'],Counting,_layout,2–8MP,_campus,10583,9240
+847.jpg,How many elevators are shown on this map?,5,['Visual'],Counting,_layout,2–8MP,_campus,10584,9241
+847.jpg,"How many Suites"" (as mentioned in the map) are present in Texas Oncology?""",2,['Other'],Counting,_layout,2–8MP,_campus,10585,9242
+848.png,"Considering only the colored states, how many more states are colored dark blue compared to yellow?",0,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_country,10586,9243
+848.png,How many states are colored dark blue?,1,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,10587,9244
+848.png,What is the total number of states colored either dark blue or pink/purple?,2,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,10588,9245
+848.png,How many states are colored in the map?,3,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,10589,9246
+849.jpg,How many total numbers are visible on the map?,5,['Visual'],Counting,_network,0.5–2MP,_region,10590,9247
+849.jpg,How many numbered highways are shown on the map that are less than 310?,5,"['Visual', 'Comparative']",Counting,_network,0.5–2MP,_region,10591,9248
+849.jpg,How many dashed lines are there representing the ferry route from Bremerton to Seattle?,0,['Other'],Counting,_network,0.5–2MP,_region,10592,9249
+849.jpg,"How many letters are there in the words Kitsap Transit""?""",13,['Other'],Counting,_network,0.5–2MP,_region,10593,9250
+850.png,How many locations are marked with a star?,5,['Visual'],Counting,_network,0.1–0.5MP,_neighborhood,10594,9251
+850.png,How many roads are labelled on the map that start with the letter 'L'?,2,['Visual'],Counting,_network,0.1–0.5MP,_neighborhood,10595,9252
+850.png,How many different street names are mentioned that end with the letter 'e'?,4,['Other'],Counting,_network,0.1–0.5MP,_neighborhood,10596,9253
+850.png,How many stars are marked on the map?,5,['Visual'],Counting,_network,0.1–0.5MP,_neighborhood,10597,9254
+851.jpg,"In Bus Loop 1, how many numbers are there that are greater than 10 and less than 20?",3,['Comparative'],Counting,_network,2–8MP,_campus,10598,9255
+851.jpg,How many bus numbers are there in Bus Loop 2?,17,['Other'],Counting,_network,2–8MP,_campus,10599,9256
+851.jpg,How many bus numbers are less than 10 in Bus Loop 1?,4,['Comparative'],Counting,_network,2–8MP,_campus,10600,9257
+852.png,How many labeled towns or cities are located in the pink shaded area *and* directly adjacent to the red shaded area?,3,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_region,10602,9258
+852.png,How many arrows are shown indicating the direction of Russian territorial gains in October?,10,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_region,10603,9259
+852.png,"Including both red and pink areas, how many labeled towns or cities are shown on the map in total?",6,['Visual'],Counting,_conflict,0.5–2MP,_region,10604,9260
+852.png,How many labeled towns or cities are entirely within the areas shown as gained by Russia in October (red shaded regions)?,0,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_region,10605,9261
+853.jpg,How many escalators are depicted on the map that lead towards the seating areas?,4,['Other'],Counting,_layout,0.5–2MP,_building,10606,9262
+853.jpg,How many sections are in the 'B' area of the seating arrangement?,5,['Visual'],Counting,_layout,0.5–2MP,_building,10607,9263
+853.jpg,"How many sections are there in total in the seating arrangement shown in the map, considering both A and B sections?",10,['Visual'],Counting,_layout,0.5–2MP,_building,10608,9264
+853.jpg,"In the upper level concourse, how many entry/exit points with triangular markings are visible on the map?",6,['Visual'],Counting,_layout,0.5–2MP,_building,10609,9265
+854.jpg,How many sections are there in the 400 Level Suites (418-435)?,18,['Visual'],Counting,_layout,0.5–2MP,_building,10610,9266
+854.jpg,How many sections are there in total at the Meijer Gate Ramp level?,5,['Visual'],Counting,_layout,0.5–2MP,_building,10611,9267
+854.jpg,How many sections are there in the 200 Level Suites (201-235)?,35,['Visual'],Counting,_layout,0.5–2MP,_building,10612,9268
+854.jpg,How many sections are there in the West Scoreboard side of the stadium at the 300 level?,9,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,10613,9269
+855.png,How many total stations are present on the Rapid Metro Gurgaon?,10,['Other'],Counting,_network,2–8MP,_city,10614,9270
+855.png,How many stations are there on the Magenta Line?,24,['Other'],Counting,_network,2–8MP,_city,10615,9271
+855.png,How many stations are present in total on the Red line?,29,['Visual'],Counting,_network,2–8MP,_city,10616,9272
+855.png,How many total stations are there on the Noida Metro Aqua Line?,22,['Other'],Counting,_network,2–8MP,_city,10617,9273
+856.jpg,How many states are fully in the Pacific and Mountain Time Zones?,11,['Other'],Counting,_divisional,0.1–0.5MP,_country,10618,9274
+856.jpg,How many states are entirely within the Central Time Zone?,8,['Positional'],Counting,_divisional,0.1–0.5MP,_country,10619,9275
+856.jpg,How many states in the map provided are partially in the Central and partially in the Eastern Time Zones?,4,['Positional'],Counting,_divisional,0.1–0.5MP,_country,10620,9276
+856.jpg,How many states are completely surrounded by other states and do not have a coastline?,14,['Positional'],Counting,_divisional,0.1–0.5MP,_country,10621,9277
+857.png,How many letters are used to label the stops along Route 286?,6,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_neighborhood,10622,9278
+857.png,How many numbered roads does Route 286 connect to?,7,['Other'],Counting,_network,0.5–2MP,_neighborhood,10623,9279
+857.png,"Counting only the labeled stops, how many stops are there in total on Route 286?",6,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10624,9280
+857.png,How many stops are there on Route 286 between the Corte Madera School and Menlo-Atherton High School?,4,"['Positional', 'Comparative']",Counting,_network,0.5–2MP,_neighborhood,10625,9281
+858.jpg,How many cars are shown parked along North State Street?,4,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_campus,10626,9282
+858.jpg,"How many designated areas are shaded red indicating Do Not Park""?""",9,['Visual'],Counting,_layout,0.5–2MP,_campus,10627,9283
+858.jpg,How many parking areas are designated for employees/students on the map?,3,['Other'],Counting,_layout,0.5–2MP,_campus,10628,9284
+858.jpg,How many entrances are shown on the map?,2,['Visual'],Counting,_layout,0.5–2MP,_campus,10629,9285
+859.jpg,"In the Outpatient section, how many rooms are designated as Private""?""",2,['Visual'],Counting,_layout,>8MP,_building,10630,9286
+859.jpg,How many nurse stations are shown on this map of the hospital?,2,['Visual'],Counting,_layout,>8MP,_building,10631,9287
+859.jpg,How many private rooms are there in the outpatient specialty clinics section of the hospital?,2,['Visual'],Counting,_layout,>8MP,_building,10632,9288
+859.jpg,How many entrances are explicitly labeled on the map?,3,['Visual'],Counting,_layout,>8MP,_building,10633,9289
+860.jpg,How many years did the Paraguayan War last according to the title of the map?,6,['Other'],Counting,_conflict,2–8MP,_country,10634,9290
+860.jpg,How many rivers are named on the map that form part of the border of Paraguay?,4,['Positional'],Counting,_conflict,2–8MP,_country,10635,9291
+860.jpg,How many battles are marked on the map within the current borders of Paraguay?,9,"['Visual', 'Positional']",Counting,_conflict,2–8MP,_country,10636,9292
+860.jpg,How many battles are shown on the map that were fought outside the current borders of Paraguay?,5,"['Visual', 'Positional']",Counting,_conflict,2–8MP,_country,10637,9293
+861.jpg,How many roads are labeled on the map that the bus route runs along or directly crosses?,3,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_neighborhood,10638,9294
+861.jpg,How many times does the bus route cross Alameda Creek?,0,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,10639,9295
+861.jpg,How many bus stops are there on the route shown in the map?,18,['Visual'],Counting,_network,0.1–0.5MP,_neighborhood,10640,9296
+861.jpg,How many creeks are crossed by the bus route?,0,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,10641,9297
+862.jpg,How many smaller bodies of water (besides the main body) are visibly crossed by the purple line?,1,"['Visual', 'Positional', 'Comparative']",Counting,_network,0.1–0.5MP,_region,10642,9298
+864.jpg,How many labeled sections are there in total on the map?,36,['Visual'],Counting,_mixed,0.5–2MP,_county,10643,9299
+864.jpg,How many labeled sections are there in the southernmost part of the map's boundary?,6,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_county,10644,9300
+864.jpg,"Considering only the labeled sections, how many are situated along the eastern boundary of the mapped area?",4,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_county,10645,9301
+865.jpg,How many locations are directly connected to the Larkspur Ferry Building by ferry routes?,1,['Positional'],Counting,_network,0.5–2MP,_city,10646,9302
+865.jpg,How many routes are there from Sausalito Ferry Building to other locations?,1,['Other'],Counting,_network,0.5–2MP,_city,10647,9303
+865.jpg,How many proposed routes are depicted on the map?,10,['Other'],Counting,_network,0.5–2MP,_city,10648,9304
+865.jpg,How many locations are connected directly to the Ferry Building via a ferry route (excluding proposed routes)?,6,['Positional'],Counting,_network,0.5–2MP,_city,10649,9305
+866.jpg,How many locations are shown in the legend that are situated on the north bank of the Charles River?,4,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_city,10650,9306
+866.jpg,"How many locations from the legend are present within or immediately adjacent to the North End area, as depicted on the map?",4,['Positional'],Counting,_mixed,0.5–2MP,_city,10651,9307
+867.png,"How many locations in total are shown on the map in the provided image, which has ferry services indicated?",64,['Visual'],Counting,_network,0.5–2MP,_country,10652,9308
+867.png,How many locations are served by independent ferry routes?,15,['Other'],Counting,_network,0.5–2MP,_country,10653,9309
+867.png,How many locations are part of the Caledonian MacBrayne route?,49,['Other'],Counting,_network,0.5–2MP,_country,10654,9310
+867.png,How many ferry routes are shown on the map that are part of the independent route?,10,['Visual'],Counting,_network,0.5–2MP,_country,10655,9311
+868.png,How many landmasses are colored either orange or light blue?,0,['Visual'],Counting,_choropleth,0.5–2MP,_subcontinent,10656,9312
+868.png,How many  distinct landmasses are colored light blue in the provided map?,0,['Visual'],Counting,_choropleth,0.5–2MP,_subcontinent,10657,9313
+868.png,How many distinct landmasses are colored orange in the provided map?,8,['Visual'],Counting,_choropleth,0.5–2MP,_subcontinent,10658,9314
+868.png,How many orange colored landmasses share a border with a light blue colored landmass?,3,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_subcontinent,10659,9315
+869.png,How many continents are shown on the map?,6,['Visual'],Counting,_network,0.5–2MP,_world,10660,9316
+869.png,How many major migration routes are shown entering Europe from the Middle East and Africa?,7,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_world,10661,9317
+869.png,How many major migration routes are depicted on the map that end in Europe?,9,['Other'],Counting,_network,0.5–2MP,_world,10662,9318
+869.png,How many major migration routes are depicted on the map originating from the Horn of Africa?,4,['Other'],Counting,_network,0.5–2MP,_world,10663,9319
+870.jpeg,"Around Fresno, California, how many red dots can one count?",4,['Visual'],Counting,_marker,0.5–2MP,_region,10664,9320
+870.jpeg,"Focusing on the area near Sacramento, how many red dots are visible?",8,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_region,10665,9321
+870.jpeg,"Considering only the red dots, how many are located in the vicinity of Reno, Nevada?",3,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_region,10666,9322
+870.jpeg,"How many total dots (red and purple combined) are visible around Bakersfield, California?",3,['Visual'],Counting,_marker,0.5–2MP,_region,10667,9323
+871.jpeg,How many hospitals are there in the region of Nevada marked on the map?,29,['Visual'],Counting,_marker,2–8MP,_region,10668,9324
+871.jpeg,How many hospitals and clinics are marked together in the Sacramento area?,13,['Visual'],Counting,_marker,2–8MP,_region,10669,9325
+871.jpeg,How many hospitals and clinics are marked together in the Las Vegas area?,15,['Visual'],Counting,_marker,2–8MP,_region,10670,9326
+871.jpeg,How many hospitals and clinics are marked together in the Bakersfield area?,1,['Visual'],Counting,_marker,2–8MP,_region,10671,9327
+872.jpg,How many states have at least a portion colored in light red on the map?,25,"['Visual', 'Comparative']",Counting,_divisional,2–8MP,_country,10672,9328
+872.jpg,"Counting only the large, bold letters in 'CHICAGO & ALTON R.R.', how many letters are in the name?",14,['Comparative'],Single Entity,_divisional,2–8MP,_country,10673,9329
+872.jpg,How many states are entirely colored in light green on this map?,0,['Visual'],Counting,_divisional,2–8MP,_country,10674,9330
+872.jpg,How many distinctly labeled time zones are indicated on the map's header?,5,['Visual'],Counting,_divisional,2–8MP,_country,10675,9331
+873.jpg,How many stations are common to Line 3 and Line 5?,1,['Other'],Counting,_network,2–8MP,_city,10676,9332
+873.jpg,How many stations are there in total on Line 1?,15,['Other'],Counting,_network,2–8MP,_city,10677,9333
+873.jpg,How many stations are common to Line 3 and Line 4?,1,['Other'],Counting,_network,2–8MP,_city,10678,9334
+873.jpg,How many stations are there in total on Line 3?,12,['Other'],Counting,_network,2–8MP,_city,10679,9335
+874.jpg,How many entrances are there to the Titus Regional Medical Center?,5,['Positional'],Counting,_layout,0.5–2MP,_campus,10680,9336
+874.jpg,How many Physician Offices are depicted in the entire map?,4,['Other'],Counting,_layout,0.5–2MP,_campus,10681,9337
+875.jpg,How many contiguous states are colored dark blue (fully legalized)?,23,['Visual'],Counting,_cartogram,2–8MP,_country,10682,9338
+875.jpg,"How many states allow cannabis for some medical uses and/or low THC as of January 2024, according to this map?",22,['Other'],Counting,_cartogram,2–8MP,_country,10683,9339
+875.jpg,"In the northeast region (roughly the New England area and New York), how many states have legalized cannabis completely?",7,['Positional'],Counting,_cartogram,2–8MP,_country,10684,9340
+875.jpg,"How many states have legalized cannabis completely as of January 2024, according to this map?",23,['Other'],Counting,_cartogram,2–8MP,_country,10685,9341
+876.jpg,How many capital cities are explicitly marked along the main migration route in the map?,8,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_subcontinent,10686,9342
+876.jpg,How many countries are shown in the map that the main migration route passes through?,8,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_subcontinent,10687,9343
+876.jpg,How many cities are marked along the main migration route in Mexico?,15,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_subcontinent,10688,9344
+876.jpg,"Considering only the main migration route, how many countries does it pass through in North America?",8,['Positional'],Counting,_network,0.1–0.5MP,_subcontinent,10689,9345
+878.png,"How many words are in the description for Galena Street""?""",22,['Other'],Counting,_network,2–8MP,_city,10690,9346
+878.png,"How many streets are listed in the Cross Town"" route description?""",2,['Positional'],Counting,_network,2–8MP,_city,10691,9347
+878.png,How many total routes are described in the map's key?,8,['Other'],Counting,_network,2–8MP,_city,10692,9348
+878.png,How many parking areas are marked on the map?,1,['Visual'],Counting,_network,2–8MP,_city,10693,9349
+879.png,How many states appear to have a mean commute time below 15 minutes?,0,"['Visual', 'Positional']",Counting,_multiple,2–8MP,_country,10694,9350
+879.png,How many states are shown in the hexagonal map representing minimum mean commute time?,8,['Visual'],Counting,_multiple,2–8MP,_country,10695,9351
+879.png,"In the hexagonal map, how many states have a mean commute time represented by the darkest shade of purple?",3,"['Visual', 'Comparative']",Counting,_multiple,2–8MP,_country,10696,9352
+879.png,How many states appear to have a mean commute time in the range of 20-30 minutes?,39,['Visual'],Counting,_multiple,2–8MP,_country,10697,9353
+880.jpeg,How many time zones are represented in the map by countries located entirely in North America?,6,['Positional'],Counting,_divisional,2–8MP,_world,10698,9354
+880.jpeg,"In the +5 time zone, how many countries are completely surrounded by land (excluding any coastline)?",3,['Positional'],Counting,_divisional,2–8MP,_world,10699,9355
+880.jpeg,How many countries have a portion of their landmass located within the +8 time zone?,9,['Positional'],Counting,_divisional,2–8MP,_world,10700,9356
+880.jpeg,How many countries are shown in South America in the -3 time zone?,5,"['Visual', 'Positional']",Counting,_divisional,2–8MP,_world,10701,9357
+881.png,How many exits are shown on the map?,5,['Visual'],Counting,_layout,>8MP,_building,10702,9358
+881.png,How many sections are there in total on the 2nd floor?,9,['Visual'],Counting,_layout,>8MP,_building,10703,9359
+881.png,How many restrooms are there in total on the left side of the stadium (Gate A side)?,6,['Positional'],Counting,_layout,>8MP,_building,10704,9360
+881.png,How many accessible seating sections are there in total?,14,['Visual'],Counting,_layout,>8MP,_building,10705,9361
+882.jpeg,"How many of the Micro-states"" have less than 50% appearance in the map?""",6,"['Visual', 'Comparative']",Counting,_choropleth,2–8MP,_world,10706,9362
+882.jpeg,How many countries listed as appearing in less than 100% of the maps have an appearance percentage of exactly 50%?,3,"['Visual', 'Comparative']",Counting,_choropleth,2–8MP,_world,10707,9363
+882.jpeg,"In the legend, how many color bands represent countries with data availability of less than 80%?",4,"['Visual', 'Comparative']",Counting,_choropleth,2–8MP,_world,10708,9364
+882.jpeg,"Considering only the countries listed as appearing less than 100% of the time, how many have an appearance percentage between 50-59%?",21,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,2–8MP,_world,10709,9365
+883.jpg,How many countries are entirely located in Europe and are part of the Eastern Mediterranean migration route?,11,['Positional'],Counting,_network,0.1–0.5MP,_continent,10710,9366
+883.jpg,How many arrows are shown on the Eastern Mediterranean route?,7,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_continent,10711,9367
+883.jpg,How many countries are shown in the map that are part of the Eastern Mediterranean migration route?,20,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_continent,10712,9368
+883.jpg,How many capital cities are explicitly marked on the map for countries that are part of the Eastern Mediterranean route?,5,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_continent,10713,9369
+884.png,How many suggested walking and rolling routes are depicted on this map?,3,['Other'],Counting,_network,>8MP,_neighborhood,10714,9370
+884.png,How many starting locations are shown on the map?,3,['Visual'],Counting,_network,>8MP,_neighborhood,10715,9371
+884.png,How many major crosswalks are shown on the map?,2,['Visual'],Counting,_network,>8MP,_neighborhood,10716,9372
+884.png,"How many roads are labeled with NE"" at the beginning of their names?""",11,['Visual'],Counting,_network,>8MP,_neighborhood,10717,9373
+885.jpg,"How many other locations are shown within the province having Krabi as capital city, according to the map?",4,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_country,10718,9374
+885.jpg,How many piers are shown on the map in Phuket?,2,['Visual'],Counting,_network,0.5–2MP,_country,10719,9375
+885.jpg,How many piers are shown in the Trang province?,1,['Visual'],Counting,_network,0.5–2MP,_country,10720,9376
+885.jpg,"How many piers are located in the Satun province, according to the map?",1,['Positional'],Counting,_network,0.5–2MP,_country,10721,9377
+886.png,"How many states are there in total that have either Solid Dem"" or ""Solid GOP"" status?""",30,['Other'],Counting,_cartogram,0.5–2MP,_country,10722,9378
+886.png,"How many states are categorized as Leans Dem""?""",6,['Other'],Counting,_cartogram,0.5–2MP,_country,10723,9379
+886.png,"How many states are categorized as Solid Dem""?""",14,['Other'],Counting,_cartogram,0.5–2MP,_country,10724,9380
+886.png,"How many electoral votes are needed to win the election, as indicated on the map?",270,['Other'],Counting,_cartogram,0.5–2MP,_country,10725,9381
+887.png,"Considering only sections with numbers, how many sections are there in the 100-level which have a number greater than 150?",0,"['Visual', 'Comparative']",Single Entity,_layout,2–8MP,_building,10726,9382
+887.png,"How many sections are there in the 100 level, excluding those that are part of the Lexus Club Level?",27,['Visual'],Counting,_layout,2–8MP,_building,10727,9383
+887.png,How many numbered sections are there in the 100 level and have a number less than 20?,8,"['Visual', 'Comparative']",Counting,_layout,2–8MP,_building,10728,9384
+887.png,"How many sections are there in the 200 level, that are numbered less than 210?",9,"['Visual', 'Comparative']",Counting,_layout,2–8MP,_building,10729,9385
+888.png,How many squares represent the population of Oceania?,82,['Other'],Counting,_cartogram,>8MP,_world,10730,9386
+888.png,How many squares represent the population of India?,2708,['Other'],Counting,_cartogram,>8MP,_world,10731,9387
+888.png,How many squares represent the combined population of Pakistan and Bangladesh?,734,['Other'],Counting,_cartogram,>8MP,_world,10732,9388
+888.png,How many squares represent the population of the United States?,654,['Other'],Counting,_cartogram,>8MP,_world,10733,9389
+889.jpg,How many time zones are shown with a positive value?,12,['Visual'],Counting,_divisional,2–8MP,_world,10734,9390
+889.jpg,How many time zones are shown on the map that have a negative value?,11,['Visual'],Counting,_divisional,2–8MP,_world,10735,9391
+889.jpg,"Considering only the continents, how many separate land areas are wholly or partially in the 0 time zone?",2,['Other'],Counting,_divisional,2–8MP,_world,10736,9392
+889.jpg,How many time zones are completely within the western hemisphere?,11,['Positional'],Counting,_divisional,2–8MP,_world,10737,9393
+890.jpg,"How many items are illustrated in the section dedicated to Evansville, Indiana?",1,['Visual'],Counting,_marker,0.5–2MP,_state,10738,9394
+890.jpg,How many different types of agricultural products are depicted on the map?,3,['Other'],Counting,_marker,0.5–2MP,_state,10739,9395
+890.jpg,How many people are depicted in the Beach at Dunes State Park illustration?,4,['Other'],Counting,_marker,0.5–2MP,_state,10740,9396
+890.jpg,How many cities are marked on this map of Indiana?,25,['Visual'],Counting,_marker,0.5–2MP,_state,10741,9397
+891.png,"How many instances of the number 70"" appear on the map as a highway number?""",4,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10742,9398
+891.png,How many numbered stops are there on the Indianapolis Bus Route shown?,5,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10743,9399
+891.png,How many times does the number 465 appear on the map as a highway number?,9,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10744,9400
+891.png,"How many instances of the name Walmart Supercenter"" appear on the map?""",4,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10745,9401
+892.jpg,How many Mosques are shown on the map?,8,['Visual'],Counting,_mixed,2–8MP,_city,10746,9402
+892.jpg,How many Tram lines are visible in the map?,1,['Visual'],Counting,_mixed,2–8MP,_city,10747,9403
+892.jpg,How many Tram Stops are marked on the map?,8,['Visual'],Counting,_mixed,2–8MP,_city,10748,9404
+892.jpg,How many Churches are marked on the map?,1,['Visual'],Counting,_mixed,2–8MP,_city,10749,9405
+893.png,How many numbered street entrances are shown in the map legend?,5,['Visual'],Counting,_layout,0.5–2MP,_campus,10750,9406
+893.png,How many numbered building entrances are shown on the map's legend?,17,['Visual'],Counting,_layout,0.5–2MP,_campus,10751,9407
+893.png,How many parking pay stations ($) are marked on the map?,6,['Visual'],Counting,_layout,0.5–2MP,_campus,10752,9408
+893.png,"How many parking lots are explicitly marked on the map with a P"" symbol?""",12,['Visual'],Counting,_layout,0.5–2MP,_campus,10753,9409
+894.jpg,How many total rooms are there across MOC1 and MOC2 on floor 3?,6,['Positional'],Counting,_layout,2–8MP,_building,10754,9410
+894.jpg,"How many rooms are there in total on floor 2, considering patient rooms and other rooms?",190,['Other'],Counting,_layout,2–8MP,_building,10755,9411
+894.jpg,How many rooms are there in MOC 1 on floor 2?,2,['Other'],Counting,_layout,2–8MP,_building,10756,9412
+894.jpg,How many patient rooms are there on floor 2 in total?,183,['Other'],Counting,_layout,2–8MP,_building,10757,9413
+895.png,How many buildings are shown in the Daycare center complex?,2,"['Visual', 'Positional']",Counting,_layout,0.1–0.5MP,_campus,10758,9414
+895.png,How many parking areas (represented by 'P') are shown on the map?,5,['Visual'],Counting,_layout,0.1–0.5MP,_campus,10759,9415
+895.png,How many buildings make up the 'Bon Secours Memorial Regional Medical Center' complex?,1,['Positional'],Counting,_layout,0.1–0.5MP,_campus,10760,9416
+895.png,How many buildings are there in total on the map excluding the parking areas?,14,['Other'],Counting,_layout,0.1–0.5MP,_campus,10761,9417
+896.jpg,How many conference rooms are depicted in the map?,3,['Other'],Counting,_layout,0.5–2MP,_building,10762,9418
+896.jpg,How many waiting rooms are explicitly marked in the map?,4,['Visual'],Counting,_layout,0.5–2MP,_building,10763,9419
+896.jpg,How many entrances are there to the Memorial Hospital as indicated on the map?,4,['Other'],Counting,_layout,0.5–2MP,_building,10764,9420
+896.jpg,"How many rooms are there labeled as Rest rooms"" in the ER Family waiting area?""",0,['Visual'],Counting,_layout,0.5–2MP,_building,10765,9421
+897.jpg,How many countries in Oceania appear to be colored predominantly red?,1,['Visual'],Counting,_choropleth,0.5–2MP,_world,10766,9422
+897.jpg,How many continents are colored predominantly red?,4,['Visual'],Counting,_choropleth,0.5–2MP,_world,10767,9423
+897.jpg,How many virus icons are there surrounding the world map?,9,['Other'],Counting,_choropleth,0.5–2MP,_world,10768,9424
+897.jpg,"Focusing only on North America, how many countries are colored in a lighter shade of red?",3,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,10769,9425
+898.jpg,How many elevators are depicted in the map of the 2nd floor?,2,['Other'],Counting,_layout,0.5–2MP,_building,10770,9426
+898.jpg,How many rooms are labeled in the top half of the map?,7,"['Visual', 'Positional', 'Comparative']",Counting,_layout,0.5–2MP,_building,10771,9427
+898.jpg,"How many rooms are there on the 2nd floor that are dedicated to Administration""?""",2,['Other'],Counting,_layout,0.5–2MP,_building,10772,9428
+898.jpg,"How many rooms are dedicated to Comprehensive Pain Solutions""?""",1,['Other'],Counting,_layout,0.5–2MP,_building,10773,9429
+899.png,"If we combine the number of states that are predominantly Republican and predominantly Democrat, how many states does this include?",48,['Other'],Counting,_cartogram,0.1–0.5MP,_country,10774,9430
+899.png,How many states are predominantly Democrat (blue)?,19,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,10775,9431
+899.png,How many states are predominantly Republican (red)?,29,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,10776,9432
+899.png,How many states are colored in shades ranging from dark pink to light pink?,26,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,10777,9433
+900.jpg,"How many distinct colors are used in the Gridded population cartogram"" to represent the different regions? (counting shades as distinct colors)""",12,['Visual'],Counting,_multiple,0.5–2MP,_world,10778,9434
+900.jpg,"In the Worldmapper population cartogram, how many countries are depicted in shades of red?",15,['Visual'],Counting,_multiple,0.5–2MP,_world,10779,9435
+900.jpg,"In the Conventional map, how many countries appear in a dark-blue shade?",3,['Visual'],Counting,_multiple,0.5–2MP,_world,10780,9436
+900.jpg,"In the Gridded population cartogram, count the number of distinctly colored landmasses in the Americas.",2,['Visual'],Counting,_multiple,0.5–2MP,_world,10781,9437
+901.jpg,How many parking lots are mentioned in the map?,4,['Other'],Counting,_layout,2–8MP,_building,10782,9438
+901.jpg,How many sections are there in total in the stadium?,37,['Visual'],Counting,_layout,2–8MP,_building,10783,9439
+901.jpg,How many water fountains are shown on the map in the stadium?,3,['Visual'],Counting,_layout,2–8MP,_building,10784,9440
+901.jpg,How many sections are there in the stadium's ADA seating section?,11,['Visual'],Counting,_layout,2–8MP,_building,10785,9441
+902.jpg,"Counting only the locations named along the Alaska Marine Highway route itself, how many locations are listed in the map's legend for the entire route?",33,['Positional'],Counting,_network,0.1–0.5MP,_state,10786,9442
+902.jpg,How many towns are there between Akutan and Port Lions along the Alaska Marine Highway Routes?,5,['Positional'],Counting,_network,0.1–0.5MP,_state,10787,9443
+902.jpg,How many minimum number stops are there between Kodiak and Whittier along the Alaska Marine Highway Routes?,0,['Positional'],Counting,_network,0.1–0.5MP,_state,10788,9444
+902.jpg,How many minimum number stops are there between Valdez and Yakutat along the Alaska Marine Highway Routes?,1,['Positional'],Counting,_network,0.1–0.5MP,_state,10789,9445
+903.jpg,How many towns are explicitly named on Martha's Vineyard?,3,['Other'],Counting,_network,0.5–2MP,_region,10790,9446
+903.jpg,How many dashed lines are there on this map?,2,['Other'],Counting,_network,0.5–2MP,_region,10791,9447
+903.jpg,How many explicitly named state forests are visible on this map?,1,['Visual'],Counting,_network,0.5–2MP,_region,10792,9448
+903.jpg,How many labels are there for bodies of water on the map?,2,['Visual'],Counting,_network,0.5–2MP,_region,10793,9449
+904.jpg,How many appellations are shown in the Provence & Corsica region?,9,['Visual'],Counting,_network,0.5–2MP,_city,10794,9450
+904.jpg,How many appellations are listed in the Côtes du Rhône region?,18,['Other'],Counting,_network,0.5–2MP,_city,10795,9451
+904.jpg,How many appellations are shown in the Alsace & Lorraine region?,2,['Visual'],Counting,_network,0.5–2MP,_city,10796,9452
+904.jpg,How many wine regions are shown on the map with a colored key?,10,['Visual'],Counting,_network,0.5–2MP,_city,10797,9453
+905.jpg,How many birds are depicted on the map?,4,['Other'],Counting,_marker,0.5–2MP,_state,10798,9454
+905.jpg,"How many instances of the word Beach"" appear in the map's place names?""",6,['Visual'],Counting,_marker,0.5–2MP,_state,10799,9455
+905.jpg,How many people are shown engaging in leisure activities on the map?,15,['Visual'],Counting,_marker,0.5–2MP,_state,10800,9456
+905.jpg,How many palm trees are illustrated on the map?,4,['Other'],Counting,_marker,0.5–2MP,_state,10801,9457
+906.jpg,"How many locations are listed in Colorful Florida's Most Colorful Spots""?""",7,['Comparative'],Counting,_marker,0.5–2MP,_state,10802,9458
+906.jpg,How many birds are illustrated near the marine studios in Daytona Beach?,1,['Positional'],Counting,_marker,0.5–2MP,_state,10803,9459
+906.jpg,How many people are depicted fishing in Lake Okeechobee?,1,['Other'],Counting,_marker,0.5–2MP,_state,10804,9460
+906.jpg,How many alligators are visible on the map near St. Augustine?,1,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_state,10805,9461
+907.jpg,"Considering only landmarks marked with the letter, how many landmarks are shown to the south of Seine River?",6,"['Visual', 'Positional']",Counting,_mixed,2–8MP,_city,10806,9462
+907.jpg,How many landmarks are shown on the map in total?,26,['Visual'],Counting,_mixed,2–8MP,_city,10807,9463
+907.jpg,How many landmarks are there to the east of the Seine and south of Rue de Rivoli?,6,['Positional'],Counting,_mixed,2–8MP,_city,10808,9464
+907.jpg,How many landmarks are displayed on the map within the Champ de Mars area?,2,"['Visual', 'Positional']",Counting,_mixed,2–8MP,_city,10809,9465
+908.png,How many sections are there in total in the Seat Section?,28,['Visual'],Counting,_layout,2–8MP,_building,10810,9466
+908.png,How many sections are there in total in the Penthouse Lounge section?,9,['Visual'],Counting,_layout,2–8MP,_building,10811,9467
+908.png,How many sections are there in total in the Penthouse Suites section?,43,['Visual'],Counting,_layout,2–8MP,_building,10812,9468
+908.png,How many wheelchair accessible sections are there in total in the SAP center?,15,"['Visual', 'Positional']",Counting,_layout,2–8MP,_building,10813,9469
+909.jpg,How many roads (major roads only; ignore small paths) cross the large red boundary surrounding the numbered locations?,3,"['Visual', 'Positional', 'Comparative']",Counting,_marker,2–8MP,_region,10814,9470
+909.jpg,How many numbered locations are depicted within the larger red boundary on the map?,6,"['Visual', 'Positional', 'Comparative']",Counting,_marker,2–8MP,_region,10815,9471
+909.jpg,How many labeled locations (numbers 1-10) are situated to the west of the Siem Reap International Airport?,0,"['Visual', 'Positional']",Counting,_marker,2–8MP,_region,10816,9472
+910.png,How many squares depict the Caribbean region in the given map?,24,['Other'],Counting,_cartogram,0.5–2MP,_world,10818,9473
+910.png,How many squares represent East Asia on the map?,85,['Positional'],Counting,_cartogram,0.5–2MP,_world,10819,9474
+910.png,How many squares represent North America on this map?,140,['Positional'],Counting,_cartogram,0.5–2MP,_world,10820,9475
+910.png,How many squares represent Oceania in the provided map?,6,['Other'],Counting,_cartogram,0.5–2MP,_world,10821,9476
+911.jpg,How many sections are there in the Cox Business Club?,9,['Visual'],Counting,_layout,>8MP,_building,10822,9477
+911.jpg,How many suites are there in the Upper Suite Level?,11,['Other'],Counting,_layout,>8MP,_building,10823,9478
+911.jpg,How many Loge Boxes are there in the Dos Equis Club?,3,['Other'],Counting,_layout,>8MP,_building,10824,9479
+911.jpg,How many sections are there in the Upper Concourse Level?,12,['Visual'],Counting,_layout,>8MP,_building,10825,9480
+912.jpg,How many sections are there from 116 to 123 inclusive?,8,['Visual'],Counting,_layout,>8MP,_building,10826,9481
+912.jpg,How many sections are there in total in the Main Concourse Level?,47,['Visual'],Counting,_layout,>8MP,_building,10827,9482
+912.jpg,"Considering only the sections from 101-115 and 202-212, how many total sections are there?",26,['Visual'],Counting,_layout,>8MP,_building,10828,9483
+912.jpg,How many sections are there in the Upper Concourse Level?,12,['Visual'],Counting,_layout,>8MP,_building,10829,9484
+1025.png,"How many sections are there in the The Nine"" section?""",9,['Visual'],Counting,_layout,0.5–2MP,_building,10830,9485
+1025.png,How many boxes are there in the 240s section?,7,['Visual'],Counting,_layout,0.5–2MP,_building,10831,9486
+1025.png,How many accessible seating symbols (&) are visible in the entire map?,10,['Visual'],Counting,_layout,0.5–2MP,_building,10832,9487
+1025.png,"Considering only the numbered sections, how many sections are there in total in the entire stadium (excluding the lettered sections)?",34,['Visual'],Counting,_layout,0.5–2MP,_building,10833,9488
+913.png,"Counting only the time zones represented by single letters, how many more time zones are located within the Eastern Hemisphere than the Western Hemisphere?",0,"['Positional', 'Comparative']",Counting,_divisional,0.5–2MP,_world,10834,9489
+913.png,How many time zones are shown in total on the map that are represented by a single letter?,25,['Visual'],Counting,_divisional,0.5–2MP,_world,10835,9490
+913.png,How many time zones are shown entirely within the South American continent?,2,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_world,10836,9491
+913.png,How many time zones are represented by the letter 'M' on the map?,4,['Other'],Counting,_divisional,0.5–2MP,_world,10837,9492
+914.png,"How many states are shown in total in the map, counting both partially and completely colored states?",48,['Visual'],Counting,_divisional,0.1–0.5MP,_country,10838,9493
+914.png,How many lines of longitude are depicted on the map that separate the time zones?,6,['Other'],Counting,_divisional,0.1–0.5MP,_country,10839,9494
+914.png,How many states are entirely covered by the Central Time Zone in the provided map?,9,['Other'],Counting,_divisional,0.1–0.5MP,_country,10840,9495
+914.png,How many time zones are shown on the map?,4,['Visual'],Counting,_divisional,0.1–0.5MP,_country,10841,9496
+915.jpg,How many countries in the map are located in the UTC+5 time zone?,7,['Positional'],Counting,_divisional,2–8MP,_world,10842,9497
+915.jpg,How many countries are shown in the map that are partially within the UTC+1 time zone?,1,"['Visual', 'Positional']",Counting,_divisional,2–8MP,_world,10843,9498
+915.jpg,How many countries are shown in the map that are completely within the UTC-8 time zone?,6,"['Visual', 'Positional']",Counting,_divisional,2–8MP,_world,10844,9499
+915.jpg,How many countries are shown in the map that are located in the UTC+0 time zone?,16,"['Visual', 'Positional']",Counting,_divisional,2–8MP,_world,10845,9500
+916.png,How many highlighted countries are there that start with the letter “S”?,4,['Other'],Counting,_choropleth,2–8MP,_world,10846,9501
+916.png,How many countries highlighted in orange are located in the Asian continent?,8,"['Visual', 'Positional']",Counting,_choropleth,2–8MP,_world,10847,9502
+916.png,How many countries in the map are colored in orange located in the African continent?,11,"['Visual', 'Positional']",Counting,_choropleth,2–8MP,_world,10848,9503
+916.png,What is the total number of countries highlighted in orange in the map?,25,['Visual'],Single Entity,_choropleth,2–8MP,_world,10849,9504
+917.jpg,How many states are entirely within the Central Time Zone?,10,['Positional'],Counting,_divisional,2–8MP,_country,10850,9505
+917.jpg,How many states have parts that do not observe daylight savings according to the map?,2,['Other'],Counting,_divisional,2–8MP,_country,10851,9506
+917.jpg,How many Great Lakes are shown wholly or partially in a region that observes Daylight Saving Time?,5,['Visual'],Counting,_divisional,2–8MP,_country,10852,9507
+917.jpg,How many states partially observe Mountain Standard Time?,7,['Other'],Counting,_divisional,2–8MP,_country,10853,9508
+918.jpg,"How many separate areas are shown as being under Russian advance since Feb. 2022""?""",2,"['Visual', 'Comparative']",Counting,_conflict,0.1–0.5MP,_region,10854,9509
+918.jpg,How many distinct geographical locations are explicitly labeled on the map?,4,['Visual'],Counting,_conflict,0.1–0.5MP,_region,10855,9510
+918.jpg,"How many labeled towns are located within the regions designated as Russian advance since Feb 2022""?""",2,"['Visual', 'Positional']",Counting,_conflict,0.1–0.5MP,_region,10856,9511
+919.jpg,How many locations serve as customer information offices as indicated by the ‘i’ symbol?,6,['Other'],Counting,_network,2–8MP,_city,10857,9512
+919.jpg,How many different ferry services operate between St Kilda and other locations?,1,['Positional'],Counting,_network,2–8MP,_city,10858,9513
+919.jpg,How many ferry terminals are shown on the map in the Port Phillip Bay and Western Port Bay areas?,10,"['Visual', 'Positional']",Counting,_network,2–8MP,_city,10859,9514
+919.jpg,How many locations are explicitly shown as having a bus or train connection on the map's inset?,9,['Visual'],Counting,_network,2–8MP,_city,10860,9515
+920.jpg,How many numbers are shown on the map that represent highway numbers?,2,['Visual'],Counting,_network,0.5–2MP,_city,10861,9516
+920.jpg,How many ferry stops are shown on the map?,7,['Visual'],Counting,_network,0.5–2MP,_city,10862,9517
+920.jpg,How many different transportation methods are explicitly mentioned in the map's legend?,4,['Other'],Counting,_network,0.5–2MP,_city,10863,9518
+921.png,How many arrows are there in the Green Route on the map?,10,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10864,9519
+921.png,How many total parking symbols (P) are there on this map?,4,['Other'],Counting,_network,0.5–2MP,_neighborhood,10865,9520
+921.png,How many arrows are there in the Red Route on the map?,10,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10866,9521
+921.png,"How many times does SR 776"" appear on the map?""",2,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10867,9522
+922.jpg,"How many buildings (schools, etc.) are shown on the map?",4,['Visual'],Counting,_network,2–8MP,_neighborhood,10868,9523
+922.jpg,How many schools are depicted on the map?,3,['Other'],Counting,_network,2–8MP,_neighborhood,10869,9524
+922.jpg,How many parks are shown on this map?,6,['Visual'],Counting,_network,2–8MP,_neighborhood,10870,9525
+922.jpg,How many different types of transportation routes are shown in the legend?,3,['Visual'],Counting,_network,2–8MP,_neighborhood,10871,9526
+923.png,How many different countries' names are written in full (not abbreviations) within the map's frame?,3,['Positional'],Counting,_conflict,0.5–2MP,_region,10872,9527
+923.png,"How many alphabets are there in the label Soviet-era Nagorno-Karabakh Autonomous Oblast""?""",40,['Visual'],Counting,_conflict,0.5–2MP,_region,10873,9528
+924.webp,"How many dots representing towns or cities are there within the area marked as Limited Russian military control""?""",2,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_region,10874,9529
+924.webp,How many dots are shown in the map in total?,7,['Visual'],Counting,_conflict,0.5–2MP,_region,10875,9530
+924.webp,How many labeled towns or cities are shown within the area of claimed Russian control?,0,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_region,10876,9531
+924.webp,How many labelled towns or cities are shown entirely within the area of Russian military control?,3,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_region,10877,9532
+925.jpg,How many different colored lines are used to depict the routes on the map?,4,['Visual'],Counting,_network,0.5–2MP,_region,10878,9533
+925.jpg,How many islands are depicted on this map that are connected to the main route?,3,['Positional'],Counting,_network,0.5–2MP,_region,10879,9534
+925.jpg,How many boats are shown sailing between Naples and Sorrento?,1,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_region,10880,9535
+925.jpg,How many red circles are there on the map indicating locations?,8,['Visual'],Counting,_network,0.5–2MP,_region,10881,9536
+926.jpg,How many lines stop at Kabataş?,7,['Other'],Counting,_network,0.5–2MP,_city,10882,9537
+926.jpg,How many lines connect to Beşiktaş?,11,['Other'],Counting,_network,0.5–2MP,_city,10883,9538
+926.jpg,How many stops are there on the Kadıköy-Karaköy-Eminönü line (Line 1)?,3,['Other'],Counting,_network,0.5–2MP,_city,10884,9539
+926.jpg,How many lines start from Kadıköy?,10,['Other'],Counting,_network,0.5–2MP,_city,10885,9540
+927.webp,"Counting only the stations that are in service, how many stations are there in total on the Blue Line?",27,['Visual'],Counting,_network,0.5–2MP,_city,10886,9541
+927.webp,How many stations are there on the Orange Line?,26,['Visual'],Counting,_network,0.5–2MP,_city,10887,9542
+927.webp,"How many stations are there between the stations Shady Grove"" and ""Medical Center"" on the Red Line?""",4,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,10888,9543
+927.webp,How many stations are there on the Red Line?,27,['Visual'],Counting,_network,0.5–2MP,_city,10889,9544
+928.webp,How many sections are there in total in the 100s?,45,['Visual'],Counting,_layout,0.5–2MP,_building,10890,9545
+928.webp,How many sections are there in the 200s section numbers in the West Endzone?,0,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,10891,9546
+928.webp,How many sections are there with numbers in the 100s located on the East side of the stadium?,7,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,10892,9547
+928.webp,How many sections are there in the 100s section numbers in the West Endzone?,7,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,10893,9548
+929.jpg,How many dots representing ports are there in total on the map?,47,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,10894,9549
+929.jpg,How many ferry routes connect to Ancona?,3,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,10895,9550
+929.jpg,How many ferry routes originate from Cadiz?,5,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,10896,9551
+929.jpg,How many islands are shown in the Balearic Islands group?,3,['Visual'],Counting,_network,0.1–0.5MP,_subcontinent,10897,9552
+930.png,How many countries in South America have between 35.5% and 47.3% of their land area covered by forests?,2,['Positional'],Counting,_choropleth,0.5–2MP,_world,10898,9553
+930.png,How many countries in Africa have less than 11.8% forest cover?,16,['Comparative'],Counting,_choropleth,0.5–2MP,_world,10899,9554
+930.png,How many countries in North America show forest cover between 23.6% and 35.5%?,7,['Positional'],Counting,_choropleth,0.5–2MP,_world,10900,9555
+930.png,How many countries in Asia have more than 70.9% forest cover?,1,['Comparative'],Counting,_choropleth,0.5–2MP,_world,10901,9556
+931.png,How many provinces show  less than 5% vote for Bato and greater than 5% vote for Chel?,0,['Comparative'],Counting,_choropleth,2–8MP,_country,10902,9557
+931.png,How many provinces show a greater than 5% vote for Chel Diokno?,0,['Comparative'],Counting,_choropleth,2–8MP,_country,10903,9558
+931.png,How many provinces have equal representation of votes for both candidates (within the 0-5% range)?,4,['Positional'],Counting,_choropleth,2–8MP,_country,10904,9559
+932.jpg,How many locations in the blue route are assigned an odd number?,15,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10905,9560
+932.jpg,How many numbered locations are there in the blue highlighted route on the map?,30,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10906,9561
+932.jpg,How many numbered locations are there in the blue highlighted area that are multiples of 5?,6,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10907,9562
+932.jpg,How many roads are there within the blue highlighted route whose names have only one word?,0,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_neighborhood,10908,9563
+933.png,"Considering only England, Scotland, Wales and Northern Ireland, how many regions voted to remain in the European Union with less than 50% of the votes?",2,"['Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10909,9564
+933.png,"Considering the data for Britain, England, Scotland, Wales, and Northern Ireland, how many regions voted to remain with more than 47% of the vote?",3,"['Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10910,9565
+933.png,How many regions in the map are shown with a population less than 4 million people?,2,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10911,9566
+933.png,"How many regions have a population of between 3 and 7 million people, according to the data provided in the map?",2,['Positional'],Counting,_choropleth,0.5–2MP,_country,10912,9567
+934.jpg,How many cantons show a higher suicide rate for single men than for widowed men?,0,['Comparative'],Counting,_mixed,0.5–2MP,_country,10913,9568
+934.jpg,How many cantons show a higher suicide rate for single women than married women?,2,['Comparative'],Counting,_mixed,0.5–2MP,_country,10914,9569
+934.jpg,How many cantons in Switzerland show a higher suicide rate for divorced men than for widowed men?,7,['Comparative'],Counting,_mixed,0.5–2MP,_country,10915,9570
+934.jpg,How many cantons have a higher suicide rate for divorced women compared to single women?,26,['Comparative'],Counting,_mixed,0.5–2MP,_country,10916,9571
+935.jpg,"How many instances of the letter R"" appear in the bus route numbers shown on the map?""",2,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10917,9572
+935.jpg,How many bus routes are shown on the map?,5,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10918,9573
+935.jpg,"How many times does the number 212"" appear in relation to road names or route numbers on this map?""",2,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10919,9574
+935.jpg,How many times does the bus route R1 appear on the map?,5,['Visual'],Counting,_network,0.5–2MP,_neighborhood,10920,9575
+936.jpg,How many labelled cities are there in Africa?,3,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,10921,9576
+936.jpg,How many labelled cities are there in South America?,5,"['Visual', 'Positional']",Counting,_cartogram,0.1–0.5MP,_world,10922,9577
+936.jpg,How many labelled cities are there in Europe?,5,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,10923,9578
+936.jpg,How many distinctly colored regions are visible on the map?,11,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,10924,9579
+687.jpg,"How many climate types are categorized under Subtropical"" in the legend?""",4,['Comparative'],Counting,_isopleth,0.1–0.5MP,_country,10925,9580
+687.jpg,"How many types of Desert"" climates are shown on the map?""",4,['Visual'],Counting,_isopleth,0.1–0.5MP,_country,10926,9581
+687.jpg,"How many types of climate zones have hot"" as part of their description in the ""Desert"" category?""",3,['Other'],Counting,_isopleth,0.1–0.5MP,_country,10927,9582
+687.jpg,How many distinct climate zones are depicted in the legend of the provided map of Australian Climate Classification?,27,['Other'],Counting,_isopleth,0.1–0.5MP,_country,10928,9583
+937.png,How many countries shown in the map are colored light blue (0-2%)?,4,['Visual'],Counting,_multiple,0.5–2MP,_country,10929,9584
+937.png,How many countries are shown in the map that have the color code of 5-10% in South America?,8,"['Visual', 'Positional']",Counting,_multiple,0.5–2MP,_country,10930,9585
+937.png,How many countries in the map are colored in the darkest shade of red (25+%)?,8,"['Visual', 'Comparative']",Counting,_multiple,0.5–2MP,_country,10931,9586
+937.png,How many countries shown in the map are colored in the orange shade (15-25%)?,20,['Visual'],Counting,_multiple,0.5–2MP,_country,10932,9587
+938.png,How many countries in Central America are colored light red?,4,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,10933,9588
+938.png,How many countries are colored completely dark red in the map?,14,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,10934,9589
+938.png,How many countries in South America are colored darkest red?,2,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,10935,9590
+938.png,How many countries in North America are colored in darkest red?,1,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,10936,9591
+939.png,How many light-green colored squares are present in the state of New Hampshire?,0,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,10937,9592
+939.png,Count the number of squares representing the highest income bracket in the state of Connecticut.,1,['Comparative'],Counting,_choropleth,0.1–0.5MP,_country,10938,9593
+939.png,How many dark-teal colored squares are there in the state of Vermont?,7,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,10939,9594
+939.png,Count the number of squares representing the highest income bracket in the state of Wyoming.,1,['Comparative'],Counting,_choropleth,0.1–0.5MP,_country,10940,9595
+940.jpg,"How many places are shown on the map that are labelled as Mandir""?""",1,['Visual'],Counting,_mixed,0.1–0.5MP,_city,10941,9596
+940.jpg,How many major roads (thick black lines) pass through the area encompassing  South Campus and Delhi University?,2,"['Visual', 'Positional']",Counting,_mixed,0.1–0.5MP,_city,10942,9597
+940.jpg,How many areas are labelled  'Vihar' on the map?,8,['Visual'],Counting,_mixed,0.1–0.5MP,_city,10943,9598
+940.jpg,How many tourist centres (represented by orange circles) are marked within the boundaries of Delhi city limits as shown on the map?,11,"['Visual', 'Positional']",Counting,_mixed,0.1–0.5MP,_city,10944,9599
+941.png,How many states share a border with the state that is the darkest shade of blue?,3,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10945,9600
+941.png,How many states are colored in the darkest shade of blue?,1,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10946,9601
+941.png,How many states are completely or partially colored in the second darkest shade of blue?,3,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10947,9602
+941.png,"Counting only the contiguous states, how many states are colored in the two darkest shades of blue?",4,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,10948,9603
+942.jpg,"How many numbered locations are listed under More Places to Live""?""",4,['Comparative'],Counting,_mixed,2–8MP,_city,10949,9604
+942.jpg,How many numbered locations representing Dan Gilbert's Downtown Buildings are shown on the map?,5,['Visual'],Counting,_mixed,2–8MP,_city,10950,9605
+942.jpg,How many parks are labeled and numbered on the map?,5,['Visual'],Counting,_mixed,2–8MP,_city,10951,9606
+942.jpg,"Counting only the numbered locations, how many total locations are marked on the map?",24,['Visual'],Counting,_mixed,2–8MP,_city,10952,9607
+943.jpg,How many distinct color regions are there in Africa?,2,['Visual'],Counting,_cartogram,0.5–2MP,_world,10953,9608
+943.jpg,How many distinct color regions share a border with the ocean in Asia?,5,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_world,10954,9609
+943.jpg,How many distinct color regions are there in South America?,1,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_world,10955,9610
+943.jpg,"Considering only the darkest shade of green, how many regions are colored with that shade in North America?",2,"['Visual', 'Positional', 'Comparative']",Counting,_cartogram,0.5–2MP,_world,10956,9611
+944.jpg,How many migration routes are depicted on the map that lead to the Americas?,5,['Other'],Counting,_network,0.1–0.5MP,_world,10957,9612
+944.jpg,How many distinct migration routes are depicted on the map originating from the Arabian Peninsula?,6,['Other'],Counting,_network,0.1–0.5MP,_world,10959,9613
+944.jpg,"Based on the map's timeline, how many thousand years ago did humans first leave Africa (approximately)?",100,['Comparative'],Counting,_network,0.1–0.5MP,_world,10960,9614
+945.jpg,"How many nautical miles is the distance between Flushing and Harwich, according to the map?",92,['Positional'],Counting,_network,0.5–2MP,_subcontinent,10961,9615
+945.jpg,How many cities are marked on the map within France?,14,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_subcontinent,10962,9616
+945.jpg,How many total cities are shown on the map?,29,['Visual'],Counting,_network,0.5–2MP,_subcontinent,10963,9617
+945.jpg,How many cities are marked on the map within England?,6,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_subcontinent,10964,9618
+946.jpeg,How many medical facilities are there in the vicinity of San Diego Medical Center (including San Diego Medical Center)?,3,['Positional'],Counting,_marker,2–8MP,_country,10965,9619
+946.jpeg,How many clinics are shown in Rancho Bernardo?,3,['Visual'],Counting,_marker,2–8MP,_country,10966,9620
+946.jpeg,How many medical facilities (hospitals and clinics) are located in La Jolla?,12,['Positional'],Counting,_marker,2–8MP,_country,10967,9621
+946.jpeg,"How many medical facilities are located within the city limits of Poway, based on the map?",1,['Positional'],Counting,_marker,2–8MP,_country,10968,9622
+947.jpg,How many ferry terminals are there in total on the map within the state of Maine?,29,['Positional'],Counting,_network,0.5–2MP,_region,10969,9623
+947.jpg,How many ferry terminals are shown in the area around Lake Champlain?,7,['Visual'],Counting,_network,0.5–2MP,_region,10970,9624
+947.jpg,How many ferry routes are shown connecting the ferry terminals in Cape Cod Bay?,1,['Visual'],Counting,_network,0.5–2MP,_region,10971,9625
+947.jpg,"Focusing only on the ferry routes in the Gulf of Maine, how many individual line segments are there?",7,['Other'],Counting,_network,0.5–2MP,_region,10972,9626
+948.jpg,How many types of animals are depicted in this map?,4,['Other'],Counting,_marker,0.5–2MP,_state,10973,9627
+948.jpg,How many palm trees are there in the Los Angeles area of the map?,3,['Other'],Counting,_marker,0.5–2MP,_state,10974,9628
+948.jpg,How many trees are depicted in the northern part of the map representing the Redwood National Park?,4,['Positional'],Counting,_marker,0.5–2MP,_state,10975,9629
+948.jpg,How many yellow flowers are depicted near Bishop?,4,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_state,10976,9630
+949.png,How many blue circles are there on the map?,1,['Visual'],Counting,_conflict,0.5–2MP,_region,10977,9631
+949.png,"In total, how many landmasses are circled in either blue or red?",7,['Visual'],Counting,_conflict,0.5–2MP,_region,10978,9632
+949.png,How many red circles are there on the map?,6,['Visual'],Counting,_conflict,0.5–2MP,_region,10979,9633
+950.jpeg,How many parking garages are shown on the map?,2,['Visual'],Counting,_layout,0.1–0.5MP,_campus,10980,9634
+950.jpeg,How many buildings are marked in red color on the map?,3,['Visual'],Counting,_layout,0.1–0.5MP,_campus,10981,9635
+950.jpeg,How many towers are labeled on the map?,6,['Visual'],Counting,_layout,0.1–0.5MP,_campus,10982,9636
+950.jpeg,How many towers are shown in the complex besides the newly added ones?,5,['Visual'],Counting,_layout,0.1–0.5MP,_campus,10983,9637
+953.jpg,How many unique continents are the origins or destinations of the shown migration routes?,6,['Visual'],Counting,_network,0.5–2MP,_world,10984,9638
+953.jpg,How many numerical values representing population migrations are shown on the map?,7,['Visual'],Counting,_network,0.5–2MP,_world,10985,9639
+953.jpg,"How many migrations are depicted that happened later than 100,000 years ago?",2,['Other'],Counting,_network,0.5–2MP,_world,10986,9640
+953.jpg,"How many routes have a population migrations have taken place between 100,000 and 10,000 years ago (inclusive)?",6,['Positional'],Counting,_network,0.5–2MP,_world,10987,9641
+954.png,"How many countries in Africa are shown in the Less Peaceful"" (red) category?""",5,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,10988,9642
+954.png,"How many countries in Oceania are represented as More Peaceful"" (dark teal)?""",2,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,10989,9643
+954.png,How many countries are shown in total in the map in shades of red and orange?,26,['Visual'],Counting,_choropleth,0.5–2MP,_world,10990,9644
+954.png,"How many countries in Asia are depicted in the Less Peaceful"" category (red)?""",5,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,10991,9645
+955.png,"If each region represents a state, how many states border Michigan (the large white area)?",3,"['Visual', 'Positional', 'Comparative']",Counting,_cartogram,0.5–2MP,_country,10992,9646
+955.png,"How many distinct, bordered regions are shown in the map?",22,['Visual'],Counting,_cartogram,0.5–2MP,_country,10993,9647
+955.png,"How many regions are completely surrounded by other regions (i.e., have no border touching the outer edge)?",14,['Positional'],Counting,_cartogram,0.5–2MP,_country,10994,9648
+955.png,How many regions are there that touch the large body of water on the left?,3,"['Positional', 'Comparative']",Counting,_cartogram,0.5–2MP,_country,10995,9649
+956.jpg,"How many locations are shown on the map served by the Southeast - Day Boat"" route?""",3,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_state,10996,9650
+956.jpg,"How many locations are shown on the map served by the Cross-Gulf"" route?""",8,['Visual'],Counting,_network,0.5–2MP,_state,10997,9651
+956.jpg,"How many locations are shown that are served by at least one of the Southeast - Mainline"" and ""Southeast - Day Boat"" routes?""",13,"['Visual', 'Positional', 'Comparative']",Counting,_network,0.5–2MP,_state,10998,9652
+956.jpg,"How many locations are shown on the map that are served by both the Southeast - Mainline"" and ""Southeast - Day Boat"" routes?""",3,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_state,10999,9653
+957.png,How many locations with any type of circles are there in Central Darfur?,7,['Other'],Counting,_marker,2–8MP,_region,11000,9654
+957.png,How many locations are marked with a light-blue circle on the map?,4,['Visual'],Counting,_marker,2–8MP,_region,11001,9655
+957.png,"How many instances of Fighting between militias"" are depicted on the map using circles?""",3,['Positional'],Counting,_marker,2–8MP,_region,11002,9656
+957.png,"How many instances of SAF vs. RSF fighting"" are depicted on the map?""",5,['Other'],Counting,_marker,2–8MP,_region,11003,9657
+958.jpeg,"On the second floor, how many distinct rooms or areas are explicitly labeled?",11,"['Visual', 'Comparative']",Counting,_multiple,0.5–2MP,_campus,11004,9658
+958.jpeg,How many entrances are shown on the second floor?,1,"['Visual', 'Comparative']",Counting,_multiple,0.5–2MP,_campus,11005,9659
+958.jpeg,How many elevators are depicted across all three floors on the map?,2,['Positional'],Counting,_multiple,0.5–2MP,_campus,11006,9660
+959.png,How many locations are marked with a pin on the map provided?,16,['Visual'],Counting,_network,0.5–2MP,_neighborhood,11007,9661
+959.png,"How many streets are labeled with NW"" in the area enclosed by the green route?""",12,['Visual'],Counting,_network,0.5–2MP,_neighborhood,11008,9662
+960.jpg,How many markers (both triangular and circular) are present in the Arashiyama District?,6,['Other'],Counting,_mixed,0.5–2MP,_city,11009,9663
+960.jpg,How many circular markers are present in the map representing Kyoto Station?,1,['Other'],Counting,_mixed,0.5–2MP,_city,11010,9664
+960.jpg,How many temples are marked on the map within the Higashiyama District?,4,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_city,11011,9665
+960.jpg,How many triangular markers representing attractions are there in the Northern Suburbs area?,4,['Positional'],Counting,_mixed,0.5–2MP,_city,11012,9666
+961.jpg,How many museums are shown on the map in total?,8,['Visual'],Counting,_mixed,2–8MP,_city,11013,9667
+961.jpg,How many places to buy food or sweets are indicated on the map?,7,['Other'],Counting,_mixed,2–8MP,_city,11014,9668
+961.jpg,How many bridges are explicitly named on the map?,3,['Other'],Counting,_mixed,2–8MP,_city,11015,9669
+961.jpg,How many buildings are illustrated in the Wall Street area of the map?,11,['Other'],Counting,_mixed,2–8MP,_city,11016,9670
+962.jpg,How many numbered locations are shown in the Tiergarten area of the map?,4,['Visual'],Counting,_mixed,2–8MP,_city,11017,9671
+962.jpg,How many 'S' symbols (indicating S-Bahn stations) are visible in the map?,12,['Visual'],Counting,_mixed,2–8MP,_city,11018,9672
+962.jpg,How many 'U' symbols (indicating U-Bahn stations) are visible in the map?,28,['Visual'],Counting,_mixed,2–8MP,_city,11019,9673
+963.jpg,How many ferry lines serve Ornö?,3,['Other'],Counting,_network,2–8MP,_country,11020,9674
+963.jpg,How many stops are there on ferry line 12?,21,['Other'],Counting,_network,2–8MP,_country,11021,9675
+963.jpg,How many ferry lines are included in the white line between Strömkajen and Vaxholm?,11,"['Visual', 'Positional']",Counting,_network,2–8MP,_country,11022,9676
+963.jpg,How many stops are there on ferry line number 7?,36,['Other'],Counting,_network,2–8MP,_country,11023,9677
+964.png,How many elevators are there in total in the Lucas Oil Stadium at the Terrace level?,4,['Other'],Counting,_layout,2–8MP,_building,11024,9678
+964.png,How many sections are there in the Bud Light Party Zone on the Terrace Level?,7,['Visual'],Counting,_layout,2–8MP,_building,11025,9679
+964.png,How many ramps are present in total in the Lucas Oil Stadium at the Terrace level?,2,['Other'],Counting,_layout,2–8MP,_building,11026,9680
+964.png,How many ramps family restrooms are shown on the map?,4,['Visual'],Counting,_layout,2–8MP,_building,11027,9681
+965.jpg,How many different coloured lines are shown representing transportation routes?,4,['Visual'],Counting,_network,0.5–2MP,_city,11028,9682
+965.jpg,How many numbered roads are visible on the map?,3,['Visual'],Counting,_network,0.5–2MP,_city,11029,9683
+965.jpg,Count the number of ferry icons on the map located in the water.,4,['Positional'],Counting,_network,0.5–2MP,_city,11030,9684
+965.jpg,How many ports does the purple ferry line connect that is visible on the map?,2,['Visual'],Counting,_network,0.5–2MP,_city,11031,9685
+966.jpg,"How many instances of the letter P"" representing parking areas are there on the map?""",7,['Other'],Counting,_marker,0.5–2MP,_city,11032,9686
+966.jpg,Count the total number of numbered locations on the entire map.,20,['Other'],Counting,_marker,0.5–2MP,_city,11033,9687
+966.jpg,How many numbered locations are there outside the city walls?,5,['Positional'],Counting,_marker,0.5–2MP,_city,11034,9688
+966.jpg,How many bridges are shown crossing the river?,8,['Visual'],Counting,_marker,0.5–2MP,_city,11035,9689
+967.jpg,How many stations are there on the orange line between Stadium-Armory and New Carrollton?,4,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,11036,9690
+967.jpg,How many stations are there on the Blue Line section that runs between Stadium Armory and Federal Triangle?,6,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,11037,9691
+967.jpg,How many stations are on the red line between Grosvenor-Strathmore and Union Station?,12,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,11038,9692
+967.jpg,How many stations are on the green line between Columbia Heights and Greenbelt?,5,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,11039,9693
+968.jpg,How many numbered stops are there for the Downtown Tour?,26,['Other'],Counting,_network,0.5–2MP,_city,11040,9694
+968.jpg,How many distinct tour routes (excluding the shuttle) are advertised on the map?,2,['Other'],Counting,_network,0.5–2MP,_city,11041,9695
+968.jpg,Count the number of bus icons representing the Uptown Treasures & Harlem tour.,2,['Other'],Counting,_network,0.5–2MP,_city,11042,9696
+968.jpg,How many icons representing the Circle Line are there in the map?,1,['Other'],Counting,_network,0.5–2MP,_city,11043,9697
+969.png,"Considering South America and North America, how many countries have population density above 300?",0,['Positional'],Counting,_choropleth,0.1–0.5MP,_world,11044,9698
+969.png,How many countries in total are shown on the map with population density of more than 1000 people per square kilometer?,1,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,11045,9699
+969.png,How many countries in South America are shown with a population density of more than 100 people per square kilometer?,2,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,11046,9700
+969.png,How many countries are there in North America with population density less than 10 people per square kilometer?,1,"['Positional', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,11047,9701
+970.png,How many regions are colored in shades of orange/peach?,1,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,11048,9702
+970.png,How many regions are colored in shades of green?,1,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,11049,9703
+970.png,How many distinct colored regions are there on this world map?,6,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,11050,9704
+970.png,"If we were to add up all the regions coloured in shades of red and orange/peach, how many regions would that be?",2,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,11051,9705
+971.jpg,What is the total sum of the numbers representing the migration path out of Africa in the regions of China and Japan?,80,['Other'],Single Entity,_mixed,0.5–2MP,_world,11052,9706
+971.jpg,How many regions on this map have a migration number that is a multiple of 5?,14,['Other'],Counting,_mixed,0.5–2MP,_world,11053,9707
+971.jpg,How many countries are completely or partially inside the circled number 200 representing the migration path out of Africa?,9,['Positional'],Counting,_mixed,0.5–2MP,_world,11054,9708
+971.jpg,How many circled regions show migration numbers between 40 and 70 (inclusive)?,7,['Positional'],Counting,_mixed,0.5–2MP,_world,11055,9709
+972.jpg,"In the states of Washington, Oregon and Idaho, how many counties indicate a 'Low diversity, Little change'?",2,['Other'],Counting,_choropleth,0.5–2MP,_country,11056,9710
+972.jpg,How many states have at least one county colored darkest shade of blue?,18,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,11057,9711
+972.jpg,How many states border the state of Ohio that show any increase in diversity since 2000?,5,"['Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,11058,9712
+972.jpg,"How many states show at least one county indicating 'High diversity, Big increase'?",18,['Comparative'],Counting,_choropleth,0.5–2MP,_country,11059,9713
+973.jpg,How many states have area codes starting with the digit '4' in Pacific Time?,2,['Other'],Counting,_divisional,0.5–2MP,_country,11060,9714
+973.jpg,How many states share area codes starting with '8' in Mountain Time?,0,['Other'],Counting,_divisional,0.5–2MP,_country,11061,9715
+973.jpg,How many states have area codes starting with the number '9' in Central Time?,7,['Other'],Counting,_divisional,0.5–2MP,_country,11062,9716
+973.jpg,How many states have area codes starting with the digit '3' in Eastern Time?,11,['Positional'],Counting,_divisional,0.5–2MP,_country,11063,9717
+974.jpg,How many stations are located at the intersections of multiple lines?,16,['Positional'],Counting,_network,0.5–2MP,_city,11064,9718
+974.jpg,How many stations are there on the purple line?,17,['Visual'],Counting,_network,0.5–2MP,_city,11065,9719
+974.jpg,"How many stations are marked as STATION"" in capital letters?""",16,['Visual'],Counting,_network,0.5–2MP,_city,11066,9720
+974.jpg,How many stations are there on the orange line?,22,['Visual'],Counting,_network,0.5–2MP,_city,11067,9721
+975.jpeg,How many continents received human migrants directly from Africa according to the map's depiction?,1,['Other'],Counting,_mixed,0.1–0.5MP,_world,11068,9722
+975.jpeg,"How many migration routes are depicted on the map, starting from Africa?",3,['Other'],Counting,_mixed,0.1–0.5MP,_world,11069,9723
+975.jpeg,How many total migration routes are shown on the map?,6,['Visual'],Counting,_mixed,0.1–0.5MP,_world,11070,9724
+975.jpeg,How many continents received human migrants from Asia according to the map?,3,['Other'],Counting,_mixed,0.1–0.5MP,_world,11071,9725
+976.png,"How many seats are there in the The Gallery Suites"" section?""",6,['Visual'],Counting,_layout,0.5–2MP,_building,11072,9726
+976.png,How many seats are there in sections 336-338?,3,['Visual'],Counting,_layout,0.5–2MP,_building,11073,9727
+976.png,How many seats are there in the section 300 South Club Lounge?,16,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,11074,9728
+976.png,How many seats numbered eats are there in the map that is colored green?,10,['Visual'],Counting,_layout,0.5–2MP,_building,11075,9729
+977.jpeg,How many areas are shown as being under Israeli occupation in 1967?,4,"['Visual', 'Comparative']",Counting,_conflict,2–8MP,_country,11076,9730
+977.jpeg,How many distinct geographical areas are labeled on the map?,5,['Visual'],Counting,_conflict,2–8MP,_country,11077,9731
+977.jpeg,How many distinct Palestinian areas that are under Israeli occupation are labeled on the map?,2,"['Visual', 'Comparative']",Counting,_conflict,2–8MP,_country,11078,9732
+977.jpeg,How many dots representing cities are shown on the map?,1,['Visual'],Counting,_conflict,2–8MP,_country,11079,9733
+978.jpg,"How many sections are there in the stadium plan that are part of the Family Area""?""",26,['Visual'],Counting,_layout,0.5–2MP,_building,11080,9734
+978.jpg,"How many sections are there in the Milburn Stand, labelled with numbers 1 to 7, excluding the sections with double letters?",7,['Visual'],Counting,_layout,0.5–2MP,_building,11081,9735
+978.jpg,"How many sections are there in total that are designated as Seating Category 1"" in the stadium plan?""",18,['Visual'],Counting,_layout,0.5–2MP,_building,11082,9736
+978.jpg,How many distinct sections are labelled with double letters in the Leazes West Stand?,14,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,11083,9737
+979.jpg,How many accessible seating sections are there in the Loge Level?,0,['Visual'],Counting,_layout,0.5–2MP,_building,11084,9738
+979.jpg,How many sections are there in the Lower Level of the stadium?,46,"['Visual', 'Comparative']",Counting,_layout,0.5–2MP,_building,11085,9739
+979.jpg,"Considering only the sections with numbers between 100 and 200, how many accessible seating sections are there in total?",20,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,11086,9740
+979.jpg,How many sections are there in total on the Club Level?,38,['Visual'],Counting,_layout,0.5–2MP,_building,11087,9741
+980.jpg,How many labelled places does the Marina Bay Sands have?,5,['Visual'],Counting,_network,0.5–2MP,_city,11088,9742
+980.jpg,"How many labelled buildings are there in the Historic Civic District""?""",5,['Visual'],Counting,_network,0.5–2MP,_city,11089,9743
+980.jpg,"How many buildings are present in the Suntec City""?""",5,['Other'],Counting,_network,0.5–2MP,_city,11090,9744
+980.jpg,How many trees are shown in the map on the top left corner?,11,"['Visual', 'Positional', 'Comparative']",Counting,_network,0.5–2MP,_city,11091,9745
+981.jpg,"How many stations are there between  Silk Institute and  Rajarajeshwari Nagar on the Purple line, excluding both stations?",23,"['Visual', 'Positional']",Counting,_network,2–8MP,_city,11092,9746
+981.jpg,How many stations are there on the Purple Line?,37,['Visual'],Counting,_network,2–8MP,_city,11093,9747
+981.jpg,"Counting only the stations on the Yellow line, how many stations are there between Bommasandra and HSR Layout?",11,"['Visual', 'Positional']",Counting,_network,2–8MP,_city,11094,9748
+981.jpg,How many stations are there on the Green Line?,32,['Visual'],Counting,_network,2–8MP,_city,11095,9749
+982.jpg,How many states gave Trump only 1 electoral vote?,1,['Other'],Counting,_cartogram,2–8MP,_country,11096,9750
+982.jpg,How many states gave a majority of electoral votes to Biden?,25,['Other'],Counting,_cartogram,2–8MP,_country,11097,9751
+982.jpg,"How many states are colored completely in red, representing Trump votes only?",24,['Visual'],Counting,_cartogram,2–8MP,_country,11098,9752
+982.jpg,How many states have 10 or more electoral votes in the map?,21,['Comparative'],Counting,_cartogram,2–8MP,_country,11099,9753
+983.png,"How many parking lots are marked with a P"" symbol in the entire map?""",16,['Visual'],Counting,_layout,0.5–2MP,_campus,11100,9754
+983.png,How many entrances are there to the SMH (Surrey Memorial Hospital) complex as shown on the map?,3,['Visual'],Counting,_layout,0.5–2MP,_campus,11101,9755
+983.png,How many bus stops are shown on the map around Fraser Valley Centre?,6,['Visual'],Counting,_layout,0.5–2MP,_campus,11102,9756
+983.png,"Considering both sides of the road, how many bus stops are shown along 96th Avenue?",3,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_campus,11103,9757
+984.png,How many countries in total are depicted on the map with populations between 25 and 49.9 million?,24,['Positional'],Counting,_choropleth,0.1–0.5MP,_world,11104,9758
+984.png,How many countries in Oceania have populations of 5-9.9 million?,1,['Other'],Counting,_choropleth,0.1–0.5MP,_world,11105,9759
+984.png,How many countries in South America are depicted as having a population of 50+ million?,3,['Positional'],Counting,_choropleth,0.1–0.5MP,_world,11106,9760
+984.png,How many countries in the world (as depicted) are shown as having a population greater than 50 million?,40,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,11107,9761
+985.jpg,How many states share the exact same time zone as California through out the state (exclude California)?,2,['Positional'],Counting,_divisional,0.5–2MP,_country,11108,9762
+985.jpg,How many states are included in the Alaska Daylight Time (AKDT) zone?,1,['Other'],Counting,_divisional,0.5–2MP,_country,11109,9763
+985.jpg,"How many states observe the Pacific Daylight Time (PDT) in total, either completely or partially?",5,['Other'],Counting,_divisional,0.5–2MP,_country,11110,9764
+985.jpg,How many states are located in the contiguous United States that share the same time zone with Hawaii?,0,['Positional'],Counting,_divisional,0.5–2MP,_country,11111,9765
+986.jpg,How many blue ferry icons are present on the green colored route?,8,['Visual'],Counting,_network,0.1–0.5MP,_state,11112,9766
+986.jpg,How many blue ferry icons are there along the entire route shown on the map?,25,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_state,11113,9767
+986.jpg,How many ferry icons are on the green route plus the purple section of the route?,0,['Visual'],Counting,_network,0.1–0.5MP,_state,11114,9768
+987.png,How many states border the Pacific Ocean?,3,['Positional'],Counting,_choropleth,0.5–2MP,_country,11115,9769
+987.png,How many states in the map are colored in shades of red?,13,['Visual'],Counting,_choropleth,0.5–2MP,_country,11116,9770
+987.png,How many states are completely or mostly yellow colored?,9,['Visual'],Counting,_choropleth,0.5–2MP,_country,11117,9771
+987.png,How many states are colored in lighter shades of orange?,10,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,11118,9772
+988.webp,How many bridges are explicitly named on the map?,2,['Other'],Counting,_network,0.5–2MP,_city,11119,9773
+988.webp,How many locations are shown along the ferry route to Vallejo?,0,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,11120,9774
+988.webp,How many piers are explicitly listed in San Francisco on the map?,4,['Other'],Counting,_network,0.5–2MP,_city,11121,9775
+988.webp,How many ferry routes are shown originating from San Francisco?,7,['Visual'],Counting,_network,0.5–2MP,_city,11122,9776
+989.jpg,How many labeled entrances lead directly to the Emergency area?,1,['Visual'],Counting,_layout,0.1–0.5MP,_campus,11123,9777
+989.jpg,How many entrances to the Sheridan Memorial Hospital are shown on the map?,4,['Visual'],Counting,_layout,0.1–0.5MP,_campus,11124,9778
+989.jpg,How many arrows indicating building entrances are there on the map?,7,['Other'],Counting,_layout,0.1–0.5MP,_campus,11125,9779
+989.jpg,"Counting only the labeled sections, how many entrances are there to the Outpatient Center?",2,"['Visual', 'Positional']",Counting,_layout,0.1–0.5MP,_campus,11126,9780
+990.jpg,How many parking spaces are explicitly shown in the parking symbol?,7,['Visual'],Counting,_layout,0.5–2MP,_campus,11127,9781
+990.jpg,How many patient discharge sections shown in the map?,1,['Visual'],Counting,_layout,0.5–2MP,_campus,11128,9782
+990.jpg,"Including both the buildings fully inside and partly inside the SMH boundary, how many buildings are shown with names that contain the word “Center”?",2,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_campus,11129,9783
+990.jpg,"Counting only those fully inside the SMH boundary, how many buildings are shown with names that contain the word “Hospital”?",2,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_campus,11130,9784
+991.jpg,How many  Opal card fares are listed on the Harbour Map?,8,['Other'],Counting,_mixed,2–8MP,_city,11131,9785
+991.jpg,"How many museums are listed in the Museums"" section of the map?""",7,['Visual'],Counting,_mixed,2–8MP,_city,11132,9786
+991.jpg,"How many Useful Bus Stops"" symbols are there on ""The Rocks Map""?""",0,['Other'],Counting,_mixed,2–8MP,_city,11133,9787
+991.jpg,How many ferry lines and stations are marked on The Rocks Map?,3,['Visual'],Counting,_mixed,2–8MP,_city,11134,9788
+992.jpg,How many countries in Asia are shown with internet users in the range of 90 million to 120 million?,1,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,11135,9789
+992.jpg,How many countries are shown in the map with internet users between 90 million and 120 million?,1,"['Visual', 'Positional']",Counting,_choropleth,0.1–0.5MP,_world,11136,9790
+992.jpg,How many countries in the map have more than 150 million internet users?,1,['Comparative'],Counting,_choropleth,0.1–0.5MP,_world,11137,9791
+992.jpg,"Considering only North America, how many countries have more than 120 million internet users?",1,"['Positional', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,11138,9792
+993.png,Approximately how many regions in the map are colored in the lightest shade of blue?,1,"['Visual', 'Comparative']",Counting,_cartogram,>8MP,_continent,11139,9793
+993.png,"Considering only the regions with the two darkest shades of blue, how many regions are there in total?",21,"['Visual', 'Comparative']",Counting,_cartogram,>8MP,_continent,11140,9794
+994.png,How many states have a portion in both the Mountain and Central Standard Time zones?,7,['Other'],Counting,_divisional,0.1–0.5MP,_country,11141,9795
+994.png,How many states have a portion in the Pacific Standard Time zone?,7,['Other'],Counting,_divisional,0.1–0.5MP,_country,11142,9796
+994.png,How many states are fully located in the Mountain Standard Time zone?,3,['Positional'],Counting,_divisional,0.1–0.5MP,_country,11143,9797
+994.png,How many states are fully located in the Central Standard Time zone?,17,['Positional'],Counting,_divisional,0.1–0.5MP,_country,11144,9798
+995.png,How many states share a border with the state of California?,3,['Positional'],Counting,_divisional,0.5–2MP,_country,11145,9799
+995.png,How many states are colored in light orange on the map?,13,['Visual'],Counting,_divisional,0.5–2MP,_country,11146,9800
+995.png,How many states are colored in light green?,1,['Visual'],Counting,_divisional,0.5–2MP,_country,11147,9801
+995.png,How many states are colored in the darkest shade of orange?,2,"['Visual', 'Comparative']",Counting,_divisional,0.5–2MP,_country,11148,9802
+996.jpeg,Count the number of stations on the 42nd street shuttle between Grand Central – 42 St and Times Square – 42 St.,2,['Positional'],Counting,_network,>8MP,_city,11149,9803
+996.jpeg,How many stations are there on the D line between Norwood Av and Bay Ridge Av?,10,['Positional'],Counting,_network,>8MP,_city,11150,9804
+996.jpeg,How many stations are there on the Lexington Avenue Line between Grand Central – 42 St and 167 St?,14,['Positional'],Counting,_network,>8MP,_city,11151,9805
+996.jpeg,How many stations are on the L train between 8 Av and Canarsie – Rockaway Pkwy?,18,['Positional'],Counting,_network,>8MP,_city,11152,9806
+997.jpg,How many landmarks are depicted in the Asakusa area?,2,['Other'],Counting,_network,0.5–2MP,_city,11153,9807
+997.jpg,How many stations are located on the line running from Shinbashi to Tokyo Station?,3,['Positional'],Counting,_network,0.5–2MP,_city,11154,9808
+997.jpg,How many stations are shown on the map along the line that goes from Shinjuku to Shibuya?,4,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_city,11155,9809
+997.jpg,How many numbered landmarks are there listed on the bottom of the map?,14,"['Positional', 'Comparative']",Counting,_network,0.5–2MP,_city,11156,9810
+998.jpg,How many government or public service facilities are labelled around the Korakuen area?,4,['Visual'],Counting,_mixed,0.5–2MP,_city,11157,9811
+998.jpg,How many gates are there to enter the Tokyo Dome?,10,['Other'],Counting,_mixed,0.5–2MP,_city,11158,9812
+998.jpg,How many exits are there from the JR Suidobashi Station as shown on the map?,2,['Visual'],Counting,_mixed,0.5–2MP,_city,11159,9813
+998.jpg,How many different lines are mentioned that pass through or near the Tokyo Dome area?,3,['Positional'],Counting,_mixed,0.5–2MP,_city,11160,9814
+999.png,How many different lines are represented on the map (excluding the Funicular)?,11,['Other'],Counting,_mixed,2–8MP,_city,11161,9815
+999.png,How many stations are there on the L9 Sud line?,14,['Other'],Counting,_mixed,2–8MP,_city,11162,9816
+999.png,How many stations are there on the L4 line?,22,['Other'],Counting,_mixed,2–8MP,_city,11163,9817
+999.png,How many stations are there on the L1 line?,30,['Other'],Counting,_mixed,2–8MP,_city,11164,9818
+1000.jpg,How many total steamer routes are shown on the map departing from Skjolden?,4,['Visual'],Counting,_network,0.5–2MP,_region,11165,9819
+1000.jpg,How many days of the week show at least one steamer route leaving Bergen?,5,['Comparative'],Counting,_network,0.5–2MP,_region,11166,9820
+1000.jpg,How many steamer routes are shown departing from Bergen on a Wednesday?,1,['Visual'],Counting,_network,0.5–2MP,_region,11167,9821
+1000.jpg,How many days of the week show at least one steamer routes arriving at Skjolden?,4,['Comparative'],Counting,_network,0.5–2MP,_region,11168,9822
+1001.png,How many time zones in this map are colored in shades of orange?,5,['Visual'],Counting,_divisional,0.5–2MP,_world,11169,9823
+1001.png,How many time zones are fully or partially in the continent of Africa?,6,['Other'],Counting,_divisional,0.5–2MP,_world,11170,9824
+1001.png,How many time zones are there across the whole of Australia?,5,['Positional'],Counting,_divisional,0.5–2MP,_world,11171,9825
+1001.png,How many time zones are represented in North America according to this map?,6,['Positional'],Counting,_divisional,0.5–2MP,_world,11172,9826
+1002.png,How many countries use UTC+4 (No DST)?,1,['Other'],Counting,_choropleth,0.5–2MP,_continent,11173,9827
+1002.png,How many countries observe UTC+1 (DST)?,3,['Other'],Counting,_choropleth,0.5–2MP,_continent,11174,9828
+1002.png,How many countries shown in the map use UTC+2 (Winter) time zone?,9,['Visual'],Counting,_choropleth,0.5–2MP,_continent,11175,9829
+1002.png,How many countries use UTC+3 (No DST) time?,2,['Other'],Counting,_choropleth,0.5–2MP,_continent,11176,9830
+1003.jpg,"How many distinct political entities (states, territories, other countries) are present in the map, including the disputed areas?",4,['Other'],Counting,_conflict,0.5–2MP,_country,11177,9831
+1003.jpg,How many present-day states are shown on the map in the current form?,17,['Visual'],Counting,_conflict,0.5–2MP,_country,11178,9832
+1003.jpg,"Including the disputed areas, how many pink colored regions are there on the map?",22,['Visual'],Counting,_conflict,0.5–2MP,_country,11179,9833
+1003.jpg,How many disputed areas are there in the map?,4,['Other'],Counting,_conflict,0.5–2MP,_country,11180,9834
+1004.jpg,"How many countries are shown completely within the -8"" time zone in North America?""",5,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_world,11181,9835
+1004.jpg,"How many countries on this map have a time zone of +8""?""",6,['Other'],Counting,_divisional,0.5–2MP,_world,11182,9836
+1004.jpg,How many countries are entirely located in the +10 time zone?,2,['Positional'],Counting,_divisional,0.5–2MP,_world,11183,9837
+1004.jpg,"How many countries shown have a time zone of +7""?""",7,['Visual'],Counting,_divisional,0.5–2MP,_world,11184,9838
+1005.jpg,How many total points of interest are marked on the entire map?,42,['Visual'],Counting,_mixed,>8MP,_city,11185,9839
+1005.jpg,How many Metrorail stations are there near the trolley stops on the National Cathedral and Uptown Loop?,7,['Positional'],Counting,_mixed,>8MP,_city,11186,9840
+1005.jpg,How many trolley stops are there on the National Mall & Downtown Loop?,13,['Other'],Counting,_mixed,>8MP,_city,11187,9841
+1005.jpg,How many stops are there in the Arlington National Cemetery shuttle loop?,2,['Other'],Counting,_mixed,>8MP,_city,11188,9842
+1006.png,How many squares in total are colored either fully or partially in red?,276,['Visual'],Counting,_cartogram,0.5–2MP,_country,11189,9843
+1006.png,How many total squares represent the states of Washington and Oregon combined?,20,['Other'],Counting,_cartogram,0.5–2MP,_country,11190,9844
+1006.png,How many squares represent states that are fully colored in blue?,245,['Visual'],Counting,_cartogram,0.5–2MP,_country,11191,9845
+1006.png,How many squares represent the state of California?,54,['Other'],Counting,_cartogram,0.5–2MP,_country,11192,9846
+1007.jpg,"How many sections are there in total on the South side of the stadium, excluding the Grizz Vision?",5,"['Visual', 'Positional']",Counting,_layout,0.1–0.5MP,_building,11193,9847
+1007.jpg,"How many sections are there in total on the East side of the stadium, excluding the Canyon Club?",18,"['Visual', 'Positional']",Counting,_layout,0.1–0.5MP,_building,11194,9848
+1007.jpg,How many sections are there in the HLGT Terrace?,1,['Visual'],Counting,_layout,0.1–0.5MP,_building,11195,9849
+1007.jpg,How many total sections are in the bleachers in this map?,3,['Visual'],Counting,_layout,0.1–0.5MP,_building,11196,9850
+1008.png,How many elevators are depicted on the map?,3,['Other'],Counting,_layout,0.5–2MP,_building,11197,9851
+1008.png,How many stairwells are shown?,3,['Visual'],Counting,_layout,0.5–2MP,_building,11198,9852
+1008.png,How many individual doctor's offices are shown on this map?,5,['Visual'],Counting,_layout,0.5–2MP,_building,11199,9853
+1008.png,How many restrooms are indicated on the map?,3,['Other'],Counting,_layout,0.5–2MP,_building,11200,9854
+1009.jpg,How many countries are depicted in shades of orange or gold?,26,['Visual'],Counting,_cartogram,0.5–2MP,_world,11201,9855
+1009.jpg,How many countries in the map are depicted in shades of purple?,24,['Visual'],Counting,_cartogram,0.5–2MP,_world,11202,9856
+1009.jpg,"Considering only North America, how many countries are shown as having landmass across more than 4 grid squares?",11,"['Visual', 'Positional', 'Comparative']",Counting,_cartogram,0.5–2MP,_world,11203,9857
+1009.jpg,How many countries in South America are represented by more than 4 grid squares?,9,"['Positional', 'Comparative']",Counting,_cartogram,0.5–2MP,_world,11204,9858
+1010.jpg,"How many time zones have a -"" sign indicating their offset from UTC?""",12,['Other'],Counting,_divisional,0.5–2MP,_world,11205,9859
+1010.jpg,"How many cities are listed in the  Islamabad Tashkent\Karachi"" time zone column?""",3,['Other'],Counting,_divisional,0.5–2MP,_world,11206,9860
+1010.jpg,"How many cities are listed in the Mid-Atlantic"" time zone?""",0,['Other'],Counting,_divisional,0.5–2MP,_world,11207,9861
+1010.jpg,"How many cities are listed under the London"" time zone vertical column?""",4,['Comparative'],Counting,_divisional,0.5–2MP,_world,11208,9862
+1011.png,How many countries in Oceania are colored darker green?,0,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,11209,9863
+1011.png,How many countries in South America are colored darker green?,3,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,11210,9864
+1011.png,How many countries are colored lighter green in South America?,4,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,11211,9865
+1011.png,How many countries in Africa are colored darker green?,10,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_world,11212,9866
+1012.jpg,How many numbered sections are there in total in the South Patio and the Field Boxes?,12,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,11213,9867
+1012.jpg,How many numbered sections are there in the South Patio?,6,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,11214,9868
+1012.jpg,How many numbered sections are there in the Block 2?,2,['Visual'],Counting,_layout,0.5–2MP,_building,11215,9869
+1012.jpg,How many numbered sections are there in total on the East side of the stadium?,11,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,11216,9870
+1013.gif,How many hexagons are used to represent the state of Wyoming?,20,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,11217,9871
+1013.gif,How many hexagons are in Colorado do not touch any other state's hexagon?,10,['Other'],Counting,_cartogram,0.1–0.5MP,_country,11218,9872
+1013.gif,How many states in the Midwest are colored dark green?,5,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,11219,9873
+1013.gif,How many states colored in light blue have a coastline?,4,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,11220,9874
+1014.gif,How many countries did Germany cede its land to as shown on the map?,5,['Visual'],Counting,_conflict,0.1–0.5MP,_country,11221,9875
+1014.gif,How many named cities are shown in East Prussia?,1,"['Visual', 'Positional']",Counting,_conflict,0.1–0.5MP,_country,11222,9876
+1014.gif,How many major rivers are depicted on the map?,10,['Other'],Counting,_conflict,0.1–0.5MP,_country,11223,9877
+1014.gif,"How many countries border Germany in 1933, according to this map?",10,['Positional'],Counting,_conflict,0.1–0.5MP,_country,11224,9878
+1015.gif,"How many different color regions are present in Iraq, according to this map?",3,['Visual'],Counting,_conflict,0.5–2MP,_subcontinent,11225,9879
+1015.gif,"How many different color regions are present in Syria, according to this map?",5,['Visual'],Counting,_conflict,0.5–2MP,_subcontinent,11226,9880
+1015.gif,"How many different color regions are present in Iraq but not in Syria, according to this map?",2,['Visual'],Counting,_conflict,0.5–2MP,_subcontinent,11227,9881
+1015.gif,"How many different color regions are present in along the Syria-Iraq border, according to this map?",5,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_subcontinent,11228,9882
+1016.gif,How many states are represented in the map with only one hexagonal shape?,0,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,11229,9883
+1016.gif,How many hexagons did Idaho have?,4,['Other'],Counting,_cartogram,0.1–0.5MP,_country,11230,9884
+1016.gif,Count the minimum number of hexagons used to represent a state.,3,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,11231,9885
+1016.gif,How many states start with the letter ‘M’?,7,['Other'],Counting,_cartogram,0.1–0.5MP,_country,11232,9886
+1017.gif,How many bridges are explicitly shown crossing the Ashley River on the map?,3,['Visual'],Counting,_mixed,0.5–2MP,_city,11233,9887
+1017.gif,How many rivers are indicated on the map?,2,['Other'],Counting,_mixed,0.5–2MP,_city,11234,9888
+1017.gif,How many points of interest are depicted along the river fronts?,4,['Positional'],Counting,_mixed,0.5–2MP,_city,11235,9889
+1017.gif,Count the number of colleges or universities represented by symbols on the map.,3,['Other'],Counting,_mixed,0.5–2MP,_city,11236,9890
+1018.gif,"How many islands are named in the Gulf Islands"" area of the map?""",5,['Other'],Counting,_network,0.1–0.5MP,_city,11237,9891
+1018.gif,How many ferry terminals are located on Vancouver Island?,4,['Positional'],Counting,_network,0.1–0.5MP,_city,11238,9892
+1018.gif,How many numbered highways are shown crossing the Fraser Mainland Valley?,1,['Visual'],Counting,_network,0.1–0.5MP,_city,11239,9893
+1018.gif,How many “Ferry Terminals” are shown in the entire map?,9,['Visual'],Counting,_network,0.1–0.5MP,_city,11240,9894
+1019.gif,How many stations are there on Line 8?,28,['Other'],Counting,_network,>8MP,_city,11241,9895
+1019.gif,How many stations are there on Line 7?,28,['Other'],Counting,_network,>8MP,_city,11242,9896
+1019.gif,"Considering only the main lines (excluding branch lines), how many lines are there in the Guangzhou Metro Map?",14,['Other'],Counting,_network,>8MP,_city,11243,9897
+1019.gif,How many stations are there on Line 1 that are located to the west of Guangzhou East Railway Station?,13,['Positional'],Counting,_network,>8MP,_city,11244,9898
+1020.gif,"In total, how many states are shown with some level of Hispanic population density (any color other than off-white)?",29,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,11245,9899
+1020.gif,How many states show a Hispanic population density of 1-2 persons per square kilometer?,6,['Other'],Counting,_choropleth,0.1–0.5MP,_country,11246,9900
+1020.gif,How many states have a Hispanic population density between 2 and 3 persons per square kilometer?,7,['Positional'],Counting,_choropleth,0.1–0.5MP,_country,11247,9901
+1020.gif,"Considering only the contiguous 48 states, how many states have a Hispanic population density less than 1 person per square kilometer?",20,['Comparative'],Counting,_choropleth,0.1–0.5MP,_country,11248,9902
+1021.gif,How many ferry routes terminate at Trieste?,1,['Other'],Counting,_network,0.5–2MP,_country,11249,9903
+1021.gif,How many ferry routes end at Pula?,4,['Other'],Counting,_network,0.5–2MP,_country,11250,9904
+1021.gif,How many ferry routes originate from Venice?,6,['Other'],Counting,_network,0.5–2MP,_country,11251,9905
+1021.gif,How many ferry routes go through Piran?,4,['Positional'],Counting,_network,0.5–2MP,_country,11252,9906
+1023.gif,How many National Monuments are shown on the map?,2,['Visual'],Counting,_network,0.1–0.5MP,_state,11253,9907
+1023.gif,"How many times does the word Forest"" appear on the map?""",2,['Visual'],Counting,_network,0.1–0.5MP,_state,11254,9908
+1023.gif,How many towns or cities are marked along the Alaska Marine Highway?,16,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_state,11255,9909
+1023.gif,How many circles representing towns/cities are there on the map in total?,16,['Other'],Counting,_network,0.1–0.5MP,_state,11256,9910
+1024.gif,"How many states are completely colored in either light green, light orange, or light yellow?",43,['Visual'],Counting,_divisional,0.1–0.5MP,_country,11257,9911
+1024.gif,How many states are partially colored in light green?,7,['Visual'],Counting,_divisional,0.1–0.5MP,_country,11258,9912
+1024.gif,How many states are partially colored in light yellow?,10,['Visual'],Counting,_divisional,0.1–0.5MP,_country,11259,9913
+1024.gif,How many states are completely colored in light green in the map?,6,['Visual'],Counting,_divisional,0.1–0.5MP,_country,11260,9914
+860.jpg,"Rank these battles based on the number of casualties, starting with the battle having the highest estimated casualties:  Tuyutí, Curupaití, Riachuelo. (Note: This question requires external knowledge not directly available on the map, but the map provides context that a human with historical knowledge could answer.)",This question cannot be definitively answered from the provided map alone.,['Comparative'],Counting,_conflict,2–8MP,_country,11506,9915

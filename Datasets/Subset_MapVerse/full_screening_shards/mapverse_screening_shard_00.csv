@@ -1,0 +1,1241 @@
+image_name,question,correct_answer,question_type,answer_type,map_type,image_size_bucket,geographic_level,source_row,screening_id
+1.webp,Which territory occupied in 1967 appears furthest south on this image?,Sinai,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,0,1
+1.webp,How many bodies of water are visible on this map?,3,['Visual'],Counting,_conflict,0.5–2MP,_country,1,2
+1.webp,What type of line marks the borders of territories occupied by Israel in 1967?,Dashed grey lines,"['Visual', 'Positional']",Single Entity,_conflict,0.5–2MP,_country,2,3
+1.webp,Which occupied territory shares borders with both Syria and Lebanon?,Golan Heights,['Positional'],Single Entity,_conflict,0.5–2MP,_country,3,4
+1.webp,What is the color used to represent land occupied by Israel in 1967?,Light beige or tan,['Visual'],Single Entity,_conflict,0.5–2MP,_country,4,5
+1.webp,Which news organization's logo appears on this map?,BBC,['Visual'],Single Entity,_conflict,0.5–2MP,_country,5,6
+1.webp,Which occupied territory appears largest by area on this specific image?,Sinai,"['Visual', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,7,7
+1.webp,Which country appears at the northeastern corner of this map?,Syria,"['Visual', 'Positional']",Single Entity,_conflict,0.5–2MP,_country,8,8
+1.webp,What geographical feature appears as light blue areas within Israel's territory?,Lakes/water bodies,"['Visual', 'Positional']",Single Entity,_conflict,0.5–2MP,_country,9,9
+2.webp,which city is the most west?,Zaporizhzhia,"['Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_region,10,10
+2.webp,which city is Pokrovsk farthest from?,Melitipol,['Comparative'],Single Entity,_conflict,0.5–2MP,_region,11,11
+2.webp,which classification is Zaporizhzhia under?,none,['Comparative'],Single Entity,_conflict,0.5–2MP,_region,12,12
+2.webp,how many of the cities are in Russian military control?,5,['Other'],Counting,_conflict,0.5–2MP,_region,13,13
+2.webp,how many of the cities are in Held or regained by Ukraine?,0,['Other'],Counting,_conflict,0.5–2MP,_region,14,14
+2.webp,how many of the cities are in Limited Russian Military control?,0,['Other'],Counting,_conflict,0.5–2MP,_region,15,15
+2.webp,what category is Kharkiv under?,none,['Comparative'],Single Entity,_conflict,0.5–2MP,_region,16,16
+2.webp,how many different categories are there?,4,['Other'],Counting,_conflict,0.5–2MP,_region,18,17
+2.webp,which city is the most north?,Kharkiv,"['Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_region,19,18
+3.png,Which U.S. state shows a high density of both red and blue dots in its southern region,Texas,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_country,20,19
+3.png,In which region of the U.S. are red dots most concentrated?,Southwest,"['Visual', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_country,21,20
+3.png,Which U.S. state has a large cluster of red dots along its western edge?,California,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_country,22,21
+3.png,Are there more red or blue dots in Florida?,Blue,"['Visual', 'Comparative']",Boolean,_marker,0.1–0.5MP,_country,23,22
+3.png,Which Midwestern city shows a high density of blue dots near a large lake?,Chicago,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_country,24,23
+3.png,Which state has the least visible red and blue dots across its entire area?,Wyoming,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_country,25,24
+3.png,Is New York City more densely populated by blue or red dots?,Blue,"['Visual', 'Comparative']",Boolean,_marker,0.1–0.5MP,_country,26,25
+3.png,What color dominates along the southern border of Arizona?,Red,"['Visual', 'Positional']",Single Entity,_marker,0.1–0.5MP,_country,27,26
+3.png,Which color appears more frequently in Georgia?,Blue,"['Visual', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_country,28,27
+3.png,Which major city in Texas shows a dense concentration of both red and blue dots?,Houston,['Visual'],Single Entity,_marker,0.1–0.5MP,_country,29,28
+4.jpg,Which major river borders the western side of Lower Manhattan?,Hudson River,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,30,29
+4.jpg,What is the name of the bridge that connects Lower Manhattan to Brooklyn?,Brooklyn Bridge,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,33,30
+4.jpg,Which street appears to form the approximate northern border between Tribeca and Civic Center area?,Chambers Street,"['Visual', 'Positional']",Single Entity,_mixed,2–8MP,_city,34,31
+4.jpg,Name one street that runs through both the Financial District and Lower Manhattan.,Broadway,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,35,32
+4.jpg,What is the name of the park located directly west of the World Trade Center area?,Rockefeller Park,['Positional'],Single Entity,_mixed,2–8MP,_city,36,33
+4.jpg,What is the name of the street that forms the southern boundary of the Financial District,Battery Place,['Positional'],Single Entity,_mixed,2–8MP,_city,37,34
+4.jpg,What is the name of the street that runs directly south of City Hall?,Park Row,['Positional'],Single Entity,_mixed,2–8MP,_city,38,35
+4.jpg,Name one street that appears to run east-west through a significant portion of Tribeca.,Duane Street,"['Visual', 'Positional']",Single Entity,_mixed,2–8MP,_city,39,36
+5.png,Which state has the highest GDP?,Oklahama,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,40,37
+5.png,Which state has the lowest GDP?,Mississipi,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,41,38
+5.png,Which Midwestern state has the highest GDP?,Ohio,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,42,39
+5.png,Which Gulf Coast state has the lowest GDP?,North Carolina,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,43,40
+5.png,Which state bordering Mexico appears green?,Arizona,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,44,41
+5.png,Which state bordering Canada appears orange?,Ohio,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,45,42
+5.png,Which state south of Ohio appears orange?,Tennessee,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,46,43
+6.png,"Based on the image, which state has the lowest median housing price?",Ohio,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,48,44
+6.png,"Based on the image, is Idaho more expensive than Oregon?",no,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,49,45
+6.png,"Based on the image, does Arizona have a higher median home price than New Mexico?",no,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,50,46
+6.png,"Based on the image, can you tell if Washington more expensive than Montana?",no,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,51,47
+6.png,"Based on the image, which Great Lakes state is cheapest?",ohio,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,52,48
+6.png,"Based on the image, is Maine more expensive than New Hampshire?",no,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,53,49
+6.png,"Based on the image, is North Dakota data available?",no,['Positional'],Boolean,_choropleth,0.5–2MP,_country,54,50
+6.png,"Based on the image, can you tell if Montana's housing price in the 300k or 400k range?",no,['Other'],Boolean,_choropleth,0.5–2MP,_country,55,51
+6.png,"Based on the image, does South Dakota have a housing price shown?",no,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_country,56,52
+6.png,"Based on the image, how many states lack color data (are grayed out)?",4,['Visual'],Counting,_choropleth,0.5–2MP,_country,57,53
+7.png,Which Metro line runs through both Pentagon and Rosslyn stations?,Blue Line,['Positional'],Single Entity,_network,0.5–2MP,_city,58,54
+7.png,"Which station is a shared transfer point for the Red, Green, and Yellow lines?",Gallery Place-Chinatown,['Visual'],Single Entity,_network,0.5–2MP,_city,59,55
+7.png,Which Metro line connects Greenbelt to Gallery Place-Chinatown?,Green Line,['Positional'],Single Entity,_network,0.5–2MP,_city,60,56
+7.png,What station is directly between Smithsonian and Archives on the Blue and Orange lines?,Federal Triangle,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,61,57
+7.png,Which Metro line passes through both U Street and Shaw-Howard U stations?,Green Line,['Positional'],Single Entity,_network,0.5–2MP,_city,62,58
+7.png,What is the southern terminal station of the Yellow Line?,Huntington,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,63,59
+7.png,Which line connects Fort Totten and West Hyattsville?,Green Line,['Positional'],Single Entity,_network,0.5–2MP,_city,64,60
+7.png,"Which station is a transfer point for the Blue, Orange, and Silver lines?",Rosslyn,['Visual'],Single Entity,_network,0.5–2MP,_city,65,61
+7.png,Which Metro station is closest to the National Mall?,Smithsonian,['Comparative'],Single Entity,_network,0.5–2MP,_city,66,62
+7.png,Which line has Anacostia and Navy Yard-Ballpark stations?,Green Line,['Other'],Single Entity,_network,0.5–2MP,_city,67,63
+8.png,Which country in north america has the least democratic index,United States Of America,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,68,64
+8.png,"Is the democratic index for Nepal greater than india, answer from the map",Yes,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,69,65
+8.png,"Is the democratic index for South Africa greater than india, answer from the map",Yes,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,70,66
+8.png,Does Mauritius have more democracy index than South Africa,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,71,67
+8.png,Name one country in South America on has the lowest democracy index according to the map?,French Guiana,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,73,68
+8.png,Is Russia shaded a darker or lighter red than China?,Lighter Red,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,74,69
+8.png,Which African country appears to have the highest democracy index based on shading?,Malawi,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,75,70
+8.png,Which regions in the world has the most countries with very low democracy index ?,Middle East and Central Africa,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,76,71
+8.png,Does India have a higher or lower democracy index than madagaskar? answer from map,Lower,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,77,72
+9.jpeg,What color represents the highest life expectancy on the map?,Yellow,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,78,73
+9.jpeg,Which country in Southeast Asia has the lightest life expectancy color?,Philippines,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,79,74
+9.jpeg,Which country is directly south of China with a large population size?,India,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,80,75
+9.jpeg,Which country in the Middle East has the smallest population size?,Qatar,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,81,76
+9.jpeg,"Which country has a larger population size, Pakistan or Iran?",Pakistan,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,82,77
+9.jpeg,Which country in the Middle East has a medium brown life expectancy shade?,Iran,"['Visual', 'Positional']",Single Entity,_cartogram,0.1–0.5MP,_continent,83,78
+9.jpeg,What is the life expectancy color of Bangladesh?,Brown,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_continent,84,79
+9.jpeg,Which country in the Middle East has a life expectancy color closest to yellow?,Oman,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,85,80
+9.jpeg,"Which country in Africa has a larger population size, Somalia or Eritrea?",Somalia,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,86,81
+9.jpeg,Which country in Africa has a life expectancy color closest to yellow?,Egypt,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_continent,87,82
+10.jpeg,What is the southern most hospital that is also at least 2 miles away from the coast on the map?,Mission Hospital,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_county,88,83
+10.jpeg,What is the third eastern most named clinic on the map?,Nellie Gail Urgent Care,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_county,89,84
+10.jpeg,How many hospital and clinic names are obscured by the legend on the map?,3,['Visual'],Counting,_marker,2–8MP,_county,90,85
+10.jpeg,What park is north of Irvine on the map?,Chino Hills State Park,['Positional'],Single Entity,_marker,2–8MP,_county,91,86
+10.jpeg,What valley is east of Irvine on the map?,Temescal Valley,['Positional'],Single Entity,_marker,2–8MP,_county,92,87
+10.jpeg,What clinic is south of the beach that is south of Irvine on the map?,Capistrano Beach Care Center,['Positional'],Single Entity,_marker,2–8MP,_county,93,88
+10.jpeg,What park is north of the beach that is south of Irvine on the map?,Chino Hills State Park,['Positional'],Single Entity,_marker,2–8MP,_county,94,89
+10.jpeg,What park is on the map?,Chino Hills State Park,['Other'],Single Entity,_marker,2–8MP,_county,95,90
+10.jpeg,What valley is on the map?,Temescal Valley,['Other'],Single Entity,_marker,2–8MP,_county,96,91
+10.jpeg,What park is north of the valley on the map?,Chino Hills State Park,['Positional'],Single Entity,_marker,2–8MP,_county,97,92
+11.jpg,How many parking structures or lots are clearly labeled on this map?,17,['Visual'],Counting,_layout,0.1–0.5MP,_campus,99,93
+11.jpg,How many bus stops are there in the close proximity to the medical centre?,4,['Positional'],Counting,_layout,0.1–0.5MP,_campus,100,94
+11.jpg,What street runs along the south side of the hospital campus?,Memorial Medical Center Drive,['Positional'],Single Entity,_layout,0.1–0.5MP,_campus,102,95
+11.jpg,How many parking areas are designated for patients and visitors?,5,['Other'],Counting,_layout,0.1–0.5MP,_campus,103,96
+11.jpg,Where is the Radiation Oncology Entrance located?,Memorial Medical Center Dr,['Positional'],Single Entity,_layout,0.1–0.5MP,_campus,104,97
+11.jpg,"Suppose you need to go to Emergency Department. Which entrance should you look for, and which street",Columbia Street,['Visual'],Single Entity,_layout,0.1–0.5MP,_campus,105,98
+11.jpg,Name one medical buildings located on Long Beach Boulevard.,Columbia Medical Building,['Positional'],Single Entity,_layout,0.1–0.5MP,_campus,106,99
+12.jpg,Which direction did Paraguay’s border move the least after the war?,South western,"['Positional', 'Comparative']",Single Entity,_conflict,0.1–0.5MP,_country,108,100
+12.jpg,Is the territory gained from Bolivia visually larger than any one of the areas lost to Argentina or,Yes,['Comparative'],Boolean,_conflict,0.1–0.5MP,_country,109,101
+12.jpg,Is the territory lost to Brazil wider east-to-west or longer north-to-south?,east to west,['Comparative'],Boolean,_conflict,0.1–0.5MP,_country,110,102
+12.jpg,Which country has a border with Paraguay but no arrow indicating territorial change?,none,['Positional'],Single Entity,_conflict,0.1–0.5MP,_country,111,103
+12.jpg,Does the red pre-war border ever fully re-enter the post-war border on the map?,No,"['Visual', 'Positional']",Boolean,_conflict,0.1–0.5MP,_country,112,104
+12.jpg,Is any territory lost to Argentina located west of Paraguay’s modern border(post war)?,Yes,['Positional'],Boolean,_conflict,0.1–0.5MP,_country,113,105
+12.jpg,How many dams are present inside pre war line ?,2,['Positional'],Counting,_conflict,0.1–0.5MP,_country,114,106
+12.jpg,What is distance between Yacyreta and Itaipu dam?,240 km,['Positional'],Single Entity,_conflict,0.1–0.5MP,_country,115,107
+12.jpg,Which dam label appears closest to the southeastern edge of Paraguay’s border?,Itaipu Dam,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,0.1–0.5MP,_country,116,108
+12.jpg,Does the territory lost to Argentina connect directly to any Brazilian territory?,Yes,['Other'],Boolean,_conflict,0.1–0.5MP,_country,117,109
+13.png,How many possible colors can be seen?,15,['Visual'],Counting,_choropleth,0.5–2MP,_country,118,110
+13.png,How many states area grey?,13,['Visual'],Counting,_choropleth,0.5–2MP,_country,119,111
+13.png,How many purple states are there?,13,['Visual'],Counting,_choropleth,0.5–2MP,_country,120,112
+13.png,How many category options are there?,32,['Other'],Counting,_choropleth,0.5–2MP,_country,121,113
+13.png,How many gray states are touching california?,3,['Visual'],Counting,_choropleth,0.5–2MP,_country,122,114
+13.png,How many gray states are touching maine?,0,['Visual'],Counting,_choropleth,0.5–2MP,_country,123,115
+13.png,How many gray states are touching florida?,0,['Visual'],Counting,_choropleth,0.5–2MP,_country,124,116
+14.png,How many continents are colored on the map?,6,['Visual'],Counting,_choropleth,2–8MP,_world,125,117
+14.png,Which continent on the map is colored the least?,Antarctica,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,126,118
+14.png,Is Hawaii displayed on the map?,Yes,['Visual'],Boolean,_choropleth,2–8MP,_world,127,119
+14.png,What label is on this map?,No label is shown,['Visual'],Single Entity,_choropleth,2–8MP,_world,128,120
+14.png,How many countries are darker than Niger on this map?,0,"['Visual', 'Comparative']",Counting,_choropleth,2–8MP,_world,130,121
+14.png,How many countries are darker than the country that is the darkest to the left of Chad on this map?,0,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,2–8MP,_world,131,122
+14.png,What is the name of the country that is darker than the country immediately North of Nigeria on this,None.,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,132,123
+14.png,What is the name of the country that is darkest on this map?,Niger,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,133,124
+14.png,What is the name of the country that is darker than Niger on this map?,None.,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,134,125
+15.jpg,How many sections begin with the letter W?,23,['Visual'],Counting,_layout,2–8MP,_building,135,126
+15.jpg,How many restrooms can a woman use here?,8,['Other'],Counting,_layout,2–8MP,_building,136,127
+15.jpg,How many times does the guest experience icon show up in the image?,1,['Other'],Counting,_layout,2–8MP,_building,137,128
+15.jpg,How many times does the Ford Sensory Nooks icon show up in the image?,1,['Other'],Counting,_layout,2–8MP,_building,138,129
+15.jpg,Where is first-aid located?,Not marked,['Positional'],Single Entity,_layout,2–8MP,_building,139,130
+15.jpg,How many MGM clubs are in this stadium?,1,['Other'],Counting,_layout,2–8MP,_building,140,131
+15.jpg,How many of the restrooms can men use?,8,['Other'],Counting,_layout,2–8MP,_building,141,132
+15.jpg,How many bars and pubs do you see?,2,['Visual'],Counting,_layout,2–8MP,_building,142,133
+15.jpg,Is there a ramp on the side of the stadium that has the Aristocrat Club?,No,['Positional'],Boolean,_layout,2–8MP,_building,143,134
+15.jpg,How many sections begin with the letter E?,27,['Visual'],Counting,_layout,2–8MP,_building,144,135
+16.jpg,Which line has most construction phases?,Blue,['Comparative'],Single Entity,_network,0.5–2MP,_city,147,136
+16.jpg,What is color of proposed metro line ?,pink,['Visual'],Single Entity,_network,0.5–2MP,_city,148,137
+16.jpg,What is the line with the most stations?,Blue,['Comparative'],Single Entity,_network,0.5–2MP,_city,149,138
+16.jpg,Which station appears at the intersection of three different color lines,Lajpat Nagar or New Delhi Station,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,150,139
+16.jpg,Which is the shortest metro line?,Green,['Comparative'],Single Entity,_network,0.5–2MP,_city,151,140
+16.jpg,Which interchange station lies between two branch endpoints (Noida & Vaishali) on the Blue Line?,Yamuna Bank,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,152,141
+16.jpg,Which station lies at the extreme south western edge of the map?,Huda City Center station,['Positional'],Single Entity,_network,0.5–2MP,_city,153,142
+16.jpg,Can we go from Jama masjid to IGI?,No,['Other'],Boolean,_network,0.5–2MP,_city,154,143
+17.jpg,What is the western terminus of the Blue Line (Line 3)?,Dwarka Sector 9,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,155,144
+17.jpg,Which line connects Yamuna Bank and Anand Vihar ISBT?,Pink Line or Line 4,['Positional'],Single Entity,_network,0.5–2MP,_city,156,145
+17.jpg,On which line would you travel between Inderlok and Mundka?,Green Line or Line 5,['Positional'],Single Entity,_network,0.5–2MP,_city,157,146
+17.jpg,Which station connects the Blue and Violet lines?,Mandi House,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,158,147
+17.jpg,Which station connects the Yellow and Violet lines?,Central Secretariat,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,159,148
+17.jpg,Which line would you board to go directly to New Delhi station?,Airport Express Line,['Other'],Single Entity,_network,0.5–2MP,_city,160,149
+17.jpg,What color on the map represents the line from Inderlok to Mundka?,Green or Line 5,['Visual'],Single Entity,_network,0.5–2MP,_city,161,150
+17.jpg,Which station is the northern terminus of the Yellow Line (Line 2)?,Jahangirpuri,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,162,151
+17.jpg,At which station do the Yellow and Pink lines intersect?,Azadpur,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,163,152
+17.jpg,At which station do the Blue and Green lines intersect?,Kirti Nagar,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,164,153
+18.jpg,What is the time difference between London and New York?,5 hours,['Positional'],Single Entity,_divisional,0.5–2MP,_world,165,154
+18.jpg,What time zone is Brazil primarily located in?,-3,['Positional'],Single Entity,_divisional,0.5–2MP,_world,167,155
+18.jpg,What is the time difference between Greenwich Mean Time (GMT) and the time zone labeled +10?,10 hours,"['Visual', 'Positional']",Single Entity,_divisional,0.5–2MP,_world,172,156
+18.jpg,What time zone is most of India located in?,+5:30,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_world,173,157
+18.jpg,What is the time difference between Moscow and Beijing?,5 hours,['Positional'],Single Entity,_divisional,0.5–2MP,_world,174,158
+19.jpg,Which country spans the most time zones on this map?,Russia,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_world,175,159
+19.jpg,What is the time zone offset of India (approximate)?,+5:30,['Other'],Single Entity,_divisional,0.1–0.5MP,_world,176,160
+19.jpg,Which ocean has the most time zone lines crossing it?,Pacific,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_world,177,161
+19.jpg,Which large country is entirely in the same time zone despite spanning several?,China,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_world,178,162
+19.jpg,What is the time zone offset of New Zealand (mainland)?,+12,['Other'],Single Entity,_divisional,0.1–0.5MP,_world,179,163
+19.jpg,What is the westernmost country within the +3 time zone?,Turkey,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_world,180,164
+19.jpg,Which country lies mostly in the -3 time zone?,Brazil,['Positional'],Single Entity,_divisional,0.1–0.5MP,_world,181,165
+19.jpg,What is the time zone of eastern Australia (Sydney region)?,+10,['Positional'],Single Entity,_divisional,0.1–0.5MP,_world,182,166
+19.jpg,Which African country is almost entirely in the +1 time zone?,Algeria,['Other'],Single Entity,_divisional,0.1–0.5MP,_world,183,167
+19.jpg,What is the only country entirely in the -9 time zone?,USA,['Other'],Single Entity,_divisional,0.1–0.5MP,_world,184,168
+20.png,What is the exact density figure printed for China?,149,['Other'],Single Entity,_cartogram,2–8MP,_continent,186,169
+20.png,How many labelled countries have density greater than 300?,4,"['Visual', 'Comparative']",Counting,_cartogram,2–8MP,_continent,187,170
+20.png,"According to labels, does Turkey have a density over or under 120?",under,"['Visual', 'Comparative']",Boolean,_cartogram,2–8MP,_continent,188,171
+20.png,Count the labelled countries whose density value ends in the digit “9”.,2,['Visual'],Counting,_cartogram,2–8MP,_continent,189,172
+20.png,Count the number of countries that uses black text (not white) for its labelled name?,9,['Visual'],Counting,_cartogram,2–8MP,_continent,190,173
+20.png,Count the number of countries that uses white text for its labelled name?,1,['Visual'],Counting,_cartogram,2–8MP,_continent,191,174
+20.png,How many labelled countries have density numbers that are three digits long?,6,['Visual'],Counting,_cartogram,2–8MP,_continent,192,175
+20.png,What exact digit does the density value for Iran end with?,1,['Other'],Single Entity,_cartogram,2–8MP,_continent,193,176
+20.png,"Of the countries shown, which one has its name printed the smallest (fewest letters)?",Iran,"['Visual', 'Comparative']",Single Entity,_cartogram,2–8MP,_continent,194,177
+21.jpeg,What country is represented in the map?,United States of America,['Other'],Single Entity,_marker,2–8MP,_county,195,178
+21.jpeg,Which clinic is the southernmost clinic in this map?,Focus Sports,['Positional'],Single Entity,_marker,2–8MP,_county,196,179
+21.jpeg,Which clinic is in between Saint Louise Regional Hospital and Kaiser Permanente hospital?,De Paul Health Clinic,['Positional'],Single Entity,_marker,2–8MP,_county,197,180
+21.jpeg,Which clinic is nearest to Saint Louise Regional Hospital,Bay Area Community Health,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_county,198,181
+21.jpeg,In the map are there more hospitals or clinics in south western part of map?,clinics,"['Positional', 'Comparative']",Boolean,_marker,2–8MP,_county,199,182
+21.jpeg,Is Action Urgent Care a clinic or hospital?,clinic,['Other'],Boolean,_marker,2–8MP,_county,200,183
+21.jpeg,Which Clinic according to the map is closest to henry coe state park?,De Paul Health Center.,['Comparative'],Single Entity,_marker,2–8MP,_county,202,184
+21.jpeg,Which other hospital is closer to Dominican Hospital?,Santa Cruz Post Acute Rehab,['Positional'],Single Entity,_marker,2–8MP,_county,203,185
+21.jpeg,Is scotts valley centre a hospital or clinic?,clinic,['Other'],Boolean,_marker,2–8MP,_county,204,186
+23.jpg,how many structures are visibly on the map?,21,['Visual'],Counting,_marker,0.5–2MP,_city,215,187
+23.jpg,which monument is closest to La Villette?,Sacre Coeur,['Comparative'],Single Entity,_marker,0.5–2MP,_city,216,188
+23.jpg,which monument or structure is closest to Parc Des Princes?,Parc Des Expositions,['Comparative'],Single Entity,_marker,0.5–2MP,_city,217,189
+23.jpg,how many of the structures or monuments images are below the river?,6,['Positional'],Counting,_marker,0.5–2MP,_city,218,190
+23.jpg,how many of the structures or monuments images are above the river?,15,['Positional'],Counting,_marker,0.5–2MP,_city,219,191
+23.jpg,which structure or monument image is most south?,Montparnasse Tower,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_city,220,192
+23.jpg,which structure or monument image is most west?,Parc Des Princes,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_city,221,193
+23.jpg,how many green areas are there?,9,['Visual'],Counting,_marker,0.5–2MP,_city,222,194
+23.jpg,which monument or structure is closest to La Defense?,Arc de Triomphe,['Comparative'],Single Entity,_marker,0.5–2MP,_city,223,195
+23.jpg,is there a cemetery?,Yes,['Other'],Boolean,_marker,0.5–2MP,_city,224,196
+24.jpg,How many color roads are there?,4,['Visual'],Counting,_mixed,0.5–2MP,_city,225,197
+24.jpg,How many highway loops are there?,4,['Other'],Counting,_mixed,0.5–2MP,_city,226,198
+24.jpg,How many stadiums do you see?,3,['Visual'],Counting,_mixed,0.5–2MP,_city,227,199
+24.jpg,How many water bodies do you see?,3,['Visual'],Counting,_mixed,0.5–2MP,_city,228,200
+24.jpg,How many roads intersect the highway?,9,['Positional'],Counting,_mixed,0.5–2MP,_city,229,201
+24.jpg,How many must see locations are at a park?,4,['Visual'],Counting,_mixed,0.5–2MP,_city,230,202
+24.jpg,How many must see locations are at the river?,1,['Visual'],Counting,_mixed,0.5–2MP,_city,231,203
+24.jpg,Is more city above or below the highway shown?,Above,"['Visual', 'Positional', 'Comparative']",Boolean,_mixed,0.5–2MP,_city,232,204
+25.png,"Looking at the map, which country is colored white?",United States.,['Visual'],Single Entity,_choropleth,>8MP,_world,233,205
+25.png,What color is South Africa colored in?,Orange.,"['Visual', 'Positional']",Single Entity,_choropleth,>8MP,_world,235,206
+25.png,What color is India colored in?,Orange.,['Visual'],Single Entity,_choropleth,>8MP,_world,236,207
+25.png,Are there are orange countries in North America?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,>8MP,_world,237,208
+25.png,Which color is Mongolia colored in?,orange,['Visual'],Single Entity,_choropleth,>8MP,_world,238,209
+25.png,"Looking at the map, which country that borders India shares the same color?",Pakistan.,"['Visual', 'Positional']",Single Entity,_choropleth,>8MP,_world,239,210
+25.png,"Looking at the map, what color is Mauritania?",yellow,['Visual'],Single Entity,_choropleth,>8MP,_world,241,211
+25.png,"Looking at the map, which country bordering Libya is given the same color?",Egypt,"['Visual', 'Positional']",Single Entity,_choropleth,>8MP,_world,242,212
+26.png,Which state has the lightest (highest-value) color on the map?,Nebraska,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,243,213
+26.png,Which southeastern state has the lowest-value (darkest purple) shade?,Mississippi,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,244,214
+26.png,Which Midwestern state is darkest in color?,Illinois,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,245,215
+26.png,Which state shows a value closest to the national minimum (deep blue)?,Alaska,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,246,216
+26.png,Which northeastern state has the highest (yellowest) rank?,Maine,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,247,217
+26.png,Which state directly west of Illinois has a much higher value (lighter shade)?,Lowa,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,248,218
+27.jpg,What is the total price of the gray zone?,743,['Visual'],Single Entity,_layout,2–8MP,_building,249,219
+27.jpg,Which zone is nearest to the video board?,E,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,250,220
+27.jpg,What is the entry point of the student section?,Southeast Gate B,['Visual'],Single Entity,_layout,2–8MP,_building,252,221
+27.jpg,What is the difference between the 2024 premium price of the yellow zone and the purple zone?,500,"['Visual', 'Positional']",Single Entity,_layout,2–8MP,_building,253,222
+27.jpg,How many total gates are there on the map?,11,['Other'],Counting,_layout,2–8MP,_building,254,223
+27.jpg,Which color is used to represent the touchdown club?,Red,['Visual'],Single Entity,_layout,2–8MP,_building,255,224
+27.jpg,How many wheelchair sections are there in the map?,6,['Visual'],Counting,_layout,2–8MP,_building,256,225
+27.jpg,Which section has been represented with white?,No Seat Premium Zone,['Visual'],Single Entity,_layout,2–8MP,_building,257,226
+28.jpg,What color represents North America on this stylized world map?,Purple,"['Visual', 'Positional']",Single Entity,_cartogram,0.1–0.5MP,_world,259,227
+28.jpg,Which continent is depicted in bright yellow in the bottom right portion?,Australia,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_world,260,228
+28.jpg,How many distinct color regions are visible in the representation of Asia?,5,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,261,229
+28.jpg,What color is used to represent South America on this map?,Green,"['Visual', 'Positional']",Single Entity,_cartogram,0.1–0.5MP,_world,262,230
+28.jpg,Which continent appears to have a thin red line extending southward from it?,Africa,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_world,263,231
+28.jpg,What unusual feature connects Southeast Asia to Australia on this stylized map?,Yellow streaks or bridges,['Positional'],Single Entity,_cartogram,0.1–0.5MP,_world,264,232
+28.jpg,What color is Antarctica on this map?,Not visible or not colored,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_world,265,233
+28.jpg,Which continent appears in the brightest neon green color?,Asia,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_world,266,234
+28.jpg,What is the dominant background color of the oceans on this world map?,Light blue or cyan,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_world,267,235
+28.jpg,Which continent is represented with the most varied color palette?,Asia,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_world,268,236
+29.png,How many connection points are there on the map?,0,['Other'],Counting,_network,0.5–2MP,_neighborhood,269,237
+29.png,The only point of interest in the map is near which time point?,F,['Positional'],Single Entity,_network,0.5–2MP,_neighborhood,270,238
+29.png,Which school is closest to San Carlos?,Heather School,['Comparative'],Single Entity,_network,0.5–2MP,_neighborhood,271,239
+29.png,Which street has been mentioned twice in the map?,Club,['Other'],Single Entity,_network,0.5–2MP,_neighborhood,272,240
+29.png,What color is used to represent the bus route?,Orange,['Visual'],Single Entity,_network,0.5–2MP,_neighborhood,273,241
+29.png,How many AM bus stops are there on the map?,23,['Other'],Counting,_network,0.5–2MP,_neighborhood,275,242
+29.png,What color is used to represent the schools?,Blue,['Visual'],Single Entity,_network,0.5–2MP,_neighborhood,276,243
+29.png,How many street names start with 'C'?,6,['Other'],Counting,_network,0.5–2MP,_neighborhood,277,244
+30.jpg,"What color arrow marks migration 50,000–35,000 years ago?",Purple,['Visual'],Single Entity,_network,0.1–0.5MP,_world,279,245
+30.jpg,Which ocean did humans cross to enter North America?,Pacific,['Positional'],Single Entity,_network,0.1–0.5MP,_world,280,246
+30.jpg,What time period does the green arrow indicate?,at least 30000 years ago,['Visual'],Single Entity,_network,0.1–0.5MP,_world,281,247
+30.jpg,How many migration waves reach Australia?,2,['Other'],Counting,_network,0.1–0.5MP,_world,282,248
+30.jpg,How many oceans are labeled on the map?,4,['Visual'],Counting,_network,0.1–0.5MP,_world,283,249
+30.jpg,Which continent label appears at the top-center of the map?,Asia,['Visual'],Single Entity,_network,0.1–0.5MP,_world,284,250
+30.jpg,Which label is printed as the largest font?,MIGRATION OF EARLY HUMANS,"['Visual', 'Comparative']",Single Entity,_network,0.1–0.5MP,_world,285,251
+30.jpg,Which arrow color represents migration 1.9 million years ago?,Pink,['Visual'],Single Entity,_network,0.1–0.5MP,_world,286,252
+30.jpg,Which is the westernmost continent on the map,Africa,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_world,287,253
+30.jpg,Where is Atlantic Ocean on the map?,Left and Right.,['Positional'],Single Entity,_network,0.1–0.5MP,_world,288,254
+31.png,"In the population cartogram (larger map), which candidate's territory appears larger in total area?",Obama,"['Visual', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_country,289,255
+31.png,How many blue states completely border only other blue states in the population cartogram?,8,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_country,290,256
+31.png,"On the conventional map, which Romney state is positioned furthest north?",Alaska,"['Positional', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_country,291,257
+31.png,Which state appears larger in the population cartogram compared to the conventional map?,New York,"['Visual', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_country,292,258
+31.png,Which candidate won the cartogram’s most distorted states?,Obama,['Comparative'],Single Entity,_cartogram,0.5–2MP,_country,293,259
+31.png,Which coastal Romney state is nearly surrounded by blue on the cartogram?,South Carolina,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_country,294,260
+31.png,"In the population cartogram, how many red states share a border with Florida?",0,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_country,295,261
+31.png,Which state in the Northeast region appears smallest in the population cartogram?,Vermont,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_country,296,262
+31.png,Which candidate won more recognizably shaped states on the cartogram?,Romney,"['Visual', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_country,297,263
+31.png,How many red states gain extra blue neighbors on the cartogram?,4,['Visual'],Counting,_cartogram,0.5–2MP,_country,298,264
+32.jpg, How many stops are there along the entire route?,31,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,299,265
+32.jpg,how many right turns are there if you start from great america,5,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,300,266
+32.jpg,how many left turns are there if you start from great america,10,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,301,267
+32.jpg,does the route go through hollenbeck Avenue,No,['Positional'],Boolean,_network,0.1–0.5MP,_neighborhood,302,268
+32.jpg,does the route go through Calabazas Creek,No,['Positional'],Boolean,_network,0.1–0.5MP,_neighborhood,303,269
+32.jpg,Are there any loops in the route,No,['Other'],Boolean,_network,0.1–0.5MP,_neighborhood,304,270
+32.jpg,is there a freeway that crosses the bus route,yes,['Positional'],Boolean,_network,0.1–0.5MP,_neighborhood,306,271
+32.jpg,How many right turn if you start from El camino real,11,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,307,272
+32.jpg,How many left turn if you start from El camino real,7,['Positional'],Counting,_network,0.1–0.5MP,_neighborhood,308,273
+33.jpg,how many countries has 1-10 billion barrels of oil?,23,['Other'],Counting,_cartogram,0.1–0.5MP,_subcontinent,309,274
+33.jpg,what is the barrels of oil range for the United States?,10-40 billion barrels,['Other'],Single Entity,_cartogram,0.1–0.5MP,_subcontinent,310,275
+33.jpg,how many countries has 100+ billion barrels of oil?,2,['Other'],Counting,_cartogram,0.1–0.5MP,_subcontinent,311,276
+33.jpg,how many countries has 10-40 billion barrels of oil?,5,['Other'],Counting,_cartogram,0.1–0.5MP,_subcontinent,312,277
+33.jpg,is there a country in North or South America that has 100+ billion barrels of oil?,No,['Positional'],Boolean,_cartogram,0.1–0.5MP,_subcontinent,315,278
+33.jpg,what symbolizes 1-10 barrels of oil?,The color yellow,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_subcontinent,316,279
+33.jpg,what symbolizes 1 billion barrels?,Each square,['Visual'],Single Entity,_cartogram,0.1–0.5MP,_subcontinent,317,280
+33.jpg,is there a country in Africa that has 100+ barrels of oil?,No,['Other'],Boolean,_cartogram,0.1–0.5MP,_subcontinent,318,281
+34.jpg,How many times does the ferry route cross its own path on this map?,0,['Positional'],Counting,_network,0.1–0.5MP,_region,319,282
+34.jpg,What is the name of the small island visible between Long Island and Peaks Island?,Overset Island,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_region,320,283
+34.jpg,What is the easternmost island shown on this map?,Rogues Island,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_region,321,284
+34.jpg,Which mapping service is credited at the bottom right of this map?,OpenStreetMap or OpenMapiles,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_region,322,285
+34.jpg,"How many islands with ""Island"" in their name are shown on the western half of this map?",1,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_region,323,286
+34.jpg,What is the smallest named island visible on this map?,Junk of Pork,"['Visual', 'Comparative']",Single Entity,_network,0.1–0.5MP,_region,324,287
+34.jpg,Which labeled island appears to be connected to the mainland by a bridge or causeway?,Mackworth Island,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_region,325,288
+34.jpg,What is the name of the island located directly east of Long Island?,Cow Island,['Positional'],Single Entity,_network,0.1–0.5MP,_region,326,289
+34.jpg,How many different islands does the ferry route actually stop at (excluding mainland)?,4,['Other'],Counting,_network,0.1–0.5MP,_region,327,290
+34.jpg,Which bay or body of water contains all these islands?,Casco Bay,['Positional'],Single Entity,_network,0.1–0.5MP,_region,328,291
+35.jpg,What is the eastern endpoint of the ferry route?,Provincetown,['Positional'],Single Entity,_network,0.1–0.5MP,_region,329,292
+35.jpg,What city is at the western end of the ferry line?,Boston,['Positional'],Single Entity,_network,0.1–0.5MP,_region,330,293
+35.jpg,Does the ferry route pass through Quincy?,No,['Positional'],Boolean,_network,0.1–0.5MP,_region,331,294
+35.jpg,Which direction does the ferry travel from Boston to Provincetown?,Southeast,['Positional'],Single Entity,_network,0.1–0.5MP,_region,332,295
+35.jpg,What large body of water does the ferry route cross?,Massachusetts Bay,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_region,333,296
+35.jpg,Is Brockton directly along the ferry line?,No,['Positional'],Boolean,_network,0.1–0.5MP,_region,334,297
+35.jpg,"Which town is closer to the midpoint of the ferry route, Quincy or Revere?",Quincy,['Positional'],Single Entity,_network,0.1–0.5MP,_region,335,298
+35.jpg,Does the ferry route touch land between Boston and Provincetown?,No,['Positional'],Boolean,_network,0.1–0.5MP,_region,336,299
+35.jpg,What is the closest labeled city to the midpoint of the ferry route?,Quincy,"['Visual', 'Comparative']",Single Entity,_network,0.1–0.5MP,_region,337,300
+35.jpg,What is the only named city on the outer cape near the ferry's end?,Provincetown,['Positional'],Single Entity,_network,0.1–0.5MP,_region,338,301
+36.png,What is the name of the glacier claimed by both India and Pakistan on the map?,Siachen Glacier,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,339,302
+36.png,Which region on the map is largely claimed by China but administered by India?,Arunachal Pradesh,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,340,303
+36.png,What is the name of the disputed border line between India and China near Arunachal Pradesh?,McMahon Line,['Positional'],Single Entity,_conflict,0.5–2MP,_subcontinent,341,304
+36.png,Which country ceded territory to China that is still claimed by India?,Pakistan,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,342,305
+36.png,Which city shown on the map is the capital of Jammu & Kashmir (administered by India)?,Srinagar,['Visual'],Single Entity,_conflict,0.5–2MP,_subcontinent,343,306
+36.png,"According to the map, which line separates Pakistan from Afghanistan?",Durand Line,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,344,307
+36.png,Which disputed area is marked between India and China west of Arunachal Pradesh?,Aksai Chin,"['Visual', 'Positional']",Single Entity,_conflict,0.5–2MP,_subcontinent,345,308
+36.png,Which neighboring country on the map lies directly south of Arunachal Pradesh?,Bhutan,['Positional'],Single Entity,_conflict,0.5–2MP,_subcontinent,346,309
+36.png,Which body of water is shown south of Bangladesh on the map?,Bay of Bengal,"['Visual', 'Positional']",Single Entity,_conflict,0.5–2MP,_subcontinent,347,310
+36.png,"Which country’s capital, shown on the map, is Delhi?",India,['Visual'],Single Entity,_conflict,0.5–2MP,_subcontinent,348,311
+37.jpg,"what ""must see thing"" is J?",Tanjong beach,['Visual'],Single Entity,_mixed,0.5–2MP,_city,349,312
+37.jpg,"what ""must see thing"" is S?",Sakya Muni Buddha Gaya Temple,['Visual'],Single Entity,_mixed,0.5–2MP,_city,350,313
+37.jpg,"what ""must see thing"" is G?",Universal Studios Singapore,['Visual'],Single Entity,_mixed,0.5–2MP,_city,351,314
+37.jpg,"which ""must see thing"" is most east?",Z or Katong district,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,0.5–2MP,_city,352,315
+37.jpg,"which ""must see thing"" is most north?",Y or Geylang,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,0.5–2MP,_city,353,316
+37.jpg,"which ""must see thing"" is most south?",J or Tanjong Beach,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,0.5–2MP,_city,354,317
+37.jpg,"how many ""must see things"" are on the small island in the south?",4,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_city,355,318
+37.jpg,"what letter is associated with ""must see thing"" Clarke Quay",N,['Visual'],Single Entity,_mixed,0.5–2MP,_city,356,319
+37.jpg,"what letter is associated with ""must see thing"" Sentosa?",F,['Visual'],Single Entity,_mixed,0.5–2MP,_city,357,320
+37.jpg,"how many ""must see things"" are not on the island Sentosa?",22,['Visual'],Counting,_mixed,0.5–2MP,_city,358,321
+38.jpg,"Using the provided map of Syria, which group has the least control on the northern border.",Government,"['Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,359,322
+38.jpg,which group has control over Hasakah?,Government,['Comparative'],Single Entity,_conflict,0.5–2MP,_country,360,323
+38.jpg,which group has control over Idlib?,Government,['Comparative'],Single Entity,_conflict,0.5–2MP,_country,361,324
+38.jpg,which group has control over Azaz?,Isis,['Comparative'],Single Entity,_conflict,0.5–2MP,_country,362,325
+38.jpg,"Using the provided map of Syria, which group has the least control on the eastern border?",Government,"['Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,363,326
+38.jpg,"Using the provided map of Syria, which group has the least control on the southern border?",Kurds,"['Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,364,327
+38.jpg,which group has control over Mayadin?,Opposition,['Comparative'],Single Entity,_conflict,0.5–2MP,_country,365,328
+38.jpg,which group has the most control in Syria?,Government,['Comparative'],Single Entity,_conflict,0.5–2MP,_country,366,329
+38.jpg,which group has control over Homs?,Government,['Comparative'],Single Entity,_conflict,0.5–2MP,_country,367,330
+38.jpg,"Using the provided map of Syria, which group has the most control on the Lebanese border?",Government,"['Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,368,331
+39.gif,how many routes leave from Rafina?,2,['Other'],Counting,_network,0.5–2MP,_country,369,332
+39.gif,"Using the image above, how many ferry routes reach Heraklion?",3,['Positional'],Counting,_network,0.5–2MP,_country,370,333
+39.gif,how many routes reach Chania?,1,['Other'],Counting,_network,0.5–2MP,_country,371,334
+39.gif,what color is the route between Chios and Samos (Vathi)?,red,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_country,372,335
+39.gif,what color is the route between Ikaria and Paros?,green,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_country,373,336
+39.gif,how often does the route from Naxos to Donoussa occur?,2-3 times a week,['Other'],Boolean,_network,0.5–2MP,_country,374,337
+39.gif,how often does the route from Ios to Sikinos occur?,4-5 times a week,['Other'],Boolean,_network,0.5–2MP,_country,375,338
+39.gif,how often does the route from Chalki to Karpathos (Diafani) occur?,Once a week,['Other'],Boolean,_network,0.5–2MP,_country,376,339
+39.gif,how many destinations are in or on the Crete rectangular area?,8,['Other'],Counting,_network,0.5–2MP,_country,377,340
+39.gif,what is the first location reached after leaving Psara?,Chios,"['Positional', 'Comparative']",Single Entity,_network,0.5–2MP,_country,378,341
+40.jpg,What color are the information bubbles for the Cincinnati Bengals?,Red,['Visual'],Single Entity,_layout,2–8MP,_building,379,342
+40.jpg,Which NFL team is located furthest northwest on this Football Fan's Map?,Seattle Seahawks,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,380,343
+40.jpg,How many NFL teams have blue information bubbles on this map?,16,['Visual'],Counting,_layout,2–8MP,_building,381,344
+40.jpg,What phrase is shown for the Green Bay Packers in their information bubble?,Lambeau Leap,['Visual'],Single Entity,_layout,2–8MP,_building,382,345
+40.jpg,Which team's information appears directly east of the Denver Broncos?,Kansas City Chiefs,"['Visual', 'Positional']",Single Entity,_layout,2–8MP,_building,383,346
+40.jpg,What decorative elements appear in the four corners of the map?,Football goalposts,['Visual'],Single Entity,_layout,2–8MP,_building,384,347
+40.jpg,Which team appears in Wyoming on this Football Fan's Map?,Denver Broncos,['Visual'],Single Entity,_layout,2–8MP,_building,385,348
+40.jpg,What is written on the banner across the top of the map?,FOOTBALL FAN'S MAP,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,386,349
+40.jpg,How many cartoon football players are shown on the map?,7,['Visual'],Counting,_layout,2–8MP,_building,387,350
+40.jpg,"Which team's information bubble appears directly above the ""Facts and Trivia"" section?",Miami Dolphins,"['Visual', 'Positional']",Single Entity,_layout,2–8MP,_building,388,351
+41.gif,Which U.S. location is closest to the Peace River shown on the map?,Petersburg,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_subcontinent,389,352
+41.gif,Which island city is the red route’s easternmost stop before reaching Cold Bay?,Seward,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_subcontinent,390,353
+41.gif,Which red-route town is positioned directly east of the Katmai National Park and Preserve?,Kodiak,['Positional'],Single Entity,_network,0.1–0.5MP,_subcontinent,391,354
+41.gif,"Among Petersburg, Haines, and Yakutat — which one is directly on the red coastal route?",Haines,['Visual'],Single Entity,_network,0.1–0.5MP,_subcontinent,392,355
+41.gif,Which city lies geographically closest to the intersection of both red and purple routes?,Whittier,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_subcontinent,393,356
+41.gif,What’s the southernmost labeled U.S. location on the red route before entering Canadian waters?,Ketchikan,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_subcontinent,394,357
+41.gif,Which town lies at the end of a red route spur that does not connect back to the main coastal loop?,Seldovia,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_subcontinent,396,358
+41.gif,"Which labeled place along the red route is geographically isolated, connected by a red segment with",Sitka,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_subcontinent,397,359
+41.gif,Which town is neither on an island nor clearly along the coast but still part of the red route?,Seward,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_subcontinent,398,360
+41.gif,Which location appears equidistant between Juneau and Sitka when following the red route visually?,Petersburg,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_subcontinent,399,361
+42.png,"According to the legend, how many ethnic groups are shown on this map?",9,['Visual'],Counting,_isopleth,0.5–2MP,_subcontinent,400,362
+42.png,What color represents the Hungarians on this map?,Light green,['Visual'],Single Entity,_isopleth,0.5–2MP,_subcontinent,401,363
+42.png,Which river flows through Budapest according to the map?,Tisza,['Positional'],Single Entity,_isopleth,0.5–2MP,_subcontinent,402,364
+42.png,What is the scale of this map as shown in the top left?,0-100 km,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_subcontinent,403,365
+42.png,How many major empires are labeled on the borders of Austria-Hungary?,4,"['Visual', 'Positional']",Counting,_isopleth,0.5–2MP,_subcontinent,405,366
+42.png,What year is specified in the title at the bottom of the map?,1910,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_subcontinent,406,367
+42.png,"Which ethnic group occupies the region labeled ""BUKOVINA""?",Ukrainians,['Visual'],Single Entity,_isopleth,0.5–2MP,_subcontinent,407,368
+42.png,Count the number of cities marked in Bohemia.,2,['Visual'],Counting,_isopleth,0.5–2MP,_subcontinent,408,369
+42.png,What color represents the Poles on this map?,Purple,['Visual'],Single Entity,_isopleth,0.5–2MP,_subcontinent,409,370
+43.png,Is Tasmania south of Australia,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,410,371
+43.png,Is Hawaii west of the United States.,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,411,372
+43.png,Is Alaska east of Canada,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,412,373
+43.png,Is Japan closer to Australia than to Russia,False,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,413,374
+43.png,Which country is closest to Brazil? United States or South Africa,United States,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_world,414,375
+43.png,Is New Zealand west of Australia,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,415,376
+43.png,Is China west of India.,False,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,416,377
+43.png,Is France south of the UK,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,417,378
+43.png,Is Canada entirely west of Russia.,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,418,379
+43.png,Is Brazil west of South Africa.,True,['Positional'],Boolean,_divisional,0.1–0.5MP,_world,419,380
+44.jpg,Which labeled landmark is located closest to the water near the southeast?,Z,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,420,381
+44.jpg,Which point (letter) marks the National Aquarium?,I,['Visual'],Single Entity,_mixed,2–8MP,_city,421,382
+44.jpg,Which landmark lies directly north of the USS Constellation (M)?,K,['Positional'],Single Entity,_mixed,2–8MP,_city,422,383
+44.jpg,What landmark is represented by letter C?,Edgar Allan Poe’s Grave Site,['Other'],Single Entity,_mixed,2–8MP,_city,423,384
+44.jpg,Which letter corresponds to the National Aquarium?,J,['Visual'],Single Entity,_mixed,2–8MP,_city,424,385
+44.jpg,Which labeled attraction is closest to the water’s edge?,Urban Pirates,"['Visual', 'Comparative']",Single Entity,_mixed,2–8MP,_city,425,386
+44.jpg,Which attraction is directly north of Camden Yards (F)?,The Baltimore Basilica,['Positional'],Single Entity,_mixed,2–8MP,_city,426,387
+44.jpg,Which museum lies closest to the cluster of museums around Mt. Vernon?,The Walters Art Museum,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,427,388
+44.jpg,What attraction is marked with letter E?,Babe Ruth Birthplace and Museum,['Visual'],Single Entity,_mixed,2–8MP,_city,428,389
+44.jpg,Which point (A–Z) is furthest to the east?,Z,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,429,390
+45.jpg,Is The scale of the right map in miles is 0-150 miles.,False,['Positional'],Boolean,_multiple,0.5–2MP,_region,430,391
+45.jpg,Are There are 3 battle sites dated in 1854 on the right map,False,['Positional'],Boolean,_multiple,0.5–2MP,_region,431,392
+45.jpg,Is Sevastopol  closest to the Sea of Azov on the left map.,False,"['Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_region,432,393
+45.jpg,Is The Ottoman Empire is directly west of the Russian Empire on the left map.,False,['Positional'],Boolean,_multiple,0.5–2MP,_region,433,394
+45.jpg,Is Sinope is north of Constantinople on the left map.,False,['Positional'],Boolean,_multiple,0.5–2MP,_region,434,395
+45.jpg,Is Inkerman is located between Sevastopol and Alma on the right map.,False,['Positional'],Boolean,_multiple,0.5–2MP,_region,435,396
+45.jpg,Is Inkerman is closest to the Alma battle site on the right map.,False,"['Positional', 'Comparative']",Boolean,_multiple,0.5–2MP,_region,436,397
+45.jpg,Is Balaklava is the battle site with the earliest date on the right map.,False,['Positional'],Boolean,_multiple,0.5–2MP,_region,437,398
+45.jpg,Is Constantinople is marked on the southwestern coast of the Black Sea on the left map.,True,"['Visual', 'Positional']",Boolean,_multiple,0.5–2MP,_region,438,399
+45.jpg,Are There are 3 battle sites marked on the right map of Crimea.,False,"['Visual', 'Positional']",Boolean,_multiple,0.5–2MP,_region,439,400
+46.png,Is the color for rare sightings in high-population areas bright green?,Yes,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,440,401
+46.png,Is the population density axis logarithmic?,No,['Other'],Boolean,_choropleth,0.1–0.5MP,_country,441,402
+46.png,Is the color for high sightings in low-population areas dark purple?,Yes,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,442,403
+46.png,Are there more purple counties in the West than the East?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_country,443,404
+46.png,Is the color for low sightings in high-population areas blue?,No,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,444,405
+46.png,Does the map suggest Sasquatches avoid urban areas?,Yes,['Other'],Boolean,_choropleth,0.1–0.5MP,_country,445,406
+46.png,Is the color gradient continuous or discrete?,Discrete,['Visual'],Boolean,_choropleth,0.1–0.5MP,_country,446,407
+46.png,Are there any bright green counties in the Southwest?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_country,447,408
+46.png,Are there any purple counties in the Northeast?,Yes,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_country,448,409
+46.png,Do high-population counties in Texas show high sightings?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_country,449,410
+47.jpg,On which road Willis/Sears Tower located ?,West Adams Street,['Positional'],Single Entity,_mixed,0.5–2MP,_city,450,411
+47.jpg,Are West Adams Street and West Ohio Street parallel to each other ?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,451,412
+47.jpg,How many tourists attraction centers are pinned in the map ?,10,['Other'],Counting,_mixed,0.5–2MP,_city,452,413
+47.jpg,What is the direct route between attraction 7 and attraction 8 ?,North Michigan Avenue,['Positional'],Single Entity,_mixed,0.5–2MP,_city,453,414
+47.jpg,Does West Harrison Street intersects with North Wells Street ?,Yes,['Positional'],Boolean,_mixed,0.5–2MP,_city,454,415
+47.jpg,On which cross-section The Art Institute of Chicago located ?,West Adams Street and North Michigan Avenue,['Positional'],Single Entity,_mixed,0.5–2MP,_city,455,416
+48.jpg,What is the population burden percentile number for Davis?,75 -100,['Other'],Single Entity,_choropleth,2–8MP,_state,456,417
+49.jpg,which street leads to the main entrance?,Third Street,['Other'],Single Entity,_layout,>8MP,_campus,468,418
+49.jpg,is the parking garage on the north or south side?,South,['Positional'],Boolean,_layout,>8MP,_campus,469,419
+49.jpg,"Using the map, how many entrances are attached to the white roofed building?",2,['Visual'],Counting,_layout,>8MP,_campus,470,420
+49.jpg,"Using the map, how many entrances are attached to the brown/tan roofed building?",3,['Other'],Counting,_layout,>8MP,_campus,471,421
+49.jpg,which street is closest to the skilled nursing entrance?,Fourth Street,['Comparative'],Single Entity,_layout,>8MP,_campus,472,422
+49.jpg,how many building entrances are there?,5,['Other'],Counting,_layout,>8MP,_campus,473,423
+49.jpg,how many entrances are attached to the parking garage?,1,['Other'],Counting,_layout,>8MP,_campus,474,424
+49.jpg,how many total entrances are on the campus?,6,['Other'],Counting,_layout,>8MP,_campus,475,425
+50.jpg,"which ""must see thing"" is most to the west?",A or Queensland Gallery of Modern Art,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,476,426
+50.jpg,"what is ""must see thing"" R?",City Botanic Gardens,['Visual'],Single Entity,_mixed,2–8MP,_city,477,427
+50.jpg,"what is ""must see thing"" J?",Old Treasury Building Brisbane,['Visual'],Single Entity,_mixed,2–8MP,_city,478,428
+50.jpg,"what is the ""must see thing"" H?",Old Windmill,['Visual'],Single Entity,_mixed,2–8MP,_city,479,429
+50.jpg,which must see thing is closest to Adelaide Street?,R or City botanic gardens,"['Visual', 'Comparative']",Single Entity,_mixed,2–8MP,_city,480,430
+50.jpg,which must see thing is closest to Roma Street Parkland?,Q or St John's Cathedral,"['Visual', 'Comparative']",Single Entity,_mixed,2–8MP,_city,481,431
+50.jpg,which must see thing is closest to Gipps Street?,T or Chinatown,"['Visual', 'Comparative']",Single Entity,_mixed,2–8MP,_city,482,432
+50.jpg,how many must see locations are there?,26,['Visual'],Counting,_mixed,2–8MP,_city,483,433
+50.jpg,"which ""must see thing"" is most to the east?",Z,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,484,434
+50.jpg,"which ""must see thing"" is most to the south?",L,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,485,435
+51.svg,how many points are there?,10,['Other'],Counting,_network,,_subcontinent,486,436
+51.svg,how many port cities only have one route?,6,['Other'],Counting,_network,,_subcontinent,487,437
+51.svg,which port city is the most east?,Caen,"['Positional', 'Comparative']",Single Entity,_network,,_subcontinent,489,438
+51.svg,which port city is the most north?,Cork,"['Positional', 'Comparative']",Single Entity,_network,,_subcontinent,490,439
+51.svg,which route is the shortest?,Between Poole and Cherbourg,['Comparative'],Single Entity,_network,,_subcontinent,493,440
+51.svg,which port cities has three or more routes?,Portsmouth,['Comparative'],Single Entity,_network,,_subcontinent,494,441
+51.svg,which port city is the most south?,Bilbao,"['Positional', 'Comparative']",Single Entity,_network,,_subcontinent,495,442
+52.jpg,Which restaurant is found in grid C4?,Chef's Table,['Other'],Single Entity,_mixed,2–8MP,_city,497,443
+52.jpg,Is PS Bookshop in the same grid as Chef's Table?,No,['Other'],Boolean,_mixed,2–8MP,_city,498,444
+52.jpg,"Only base on the image i provided, What street is the New York Transit Museum located on?",Boerum Pl,['Positional'],Single Entity,_mixed,2–8MP,_city,499,445
+52.jpg,"Which of the following is not a restaurant located in area C: AlMar, River Café, or Chef's Table?",River Café,['Positional'],Single Entity,_mixed,2–8MP,_city,500,446
+52.jpg,"Only baseed on the image i provided, Which eating location is closest to Brooklyn Bridge Park?",Grimaldi's,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,501,447
+52.jpg,"Only baseed on the image i provided, Which cafe is nearest to Main Street in B1?",River Café,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,502,448
+52.jpg,"Only baseed on the image i provided, Which shopping is located on Gold Street?",DeKalb Market,['Positional'],Single Entity,_mixed,2–8MP,_city,503,449
+52.jpg,"Only baseed on the image i provided, which Sleeping is nearest to Jay St- Borough Hall?",Aloft New York Brooklyn,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,504,450
+52.jpg,"Only baseed on the image i provided, Is AlMar north or south of Tillary Street?",North,['Positional'],Boolean,_mixed,2–8MP,_city,505,451
+53.jpg,Which route color reaches the area labeled “Gum Club Rd”?,Dark Blue,['Visual'],Single Entity,_network,2–8MP,_neighborhood,506,452
+53.jpg,Who is responsible for the red colored route?,Sheila Emily,['Visual'],Single Entity,_network,2–8MP,_neighborhood,507,453
+53.jpg,Which route passes through Turkey Rd?,Pink,['Positional'],Single Entity,_network,2–8MP,_neighborhood,508,454
+53.jpg,What is the number assigned to Brook Clayton?,11,['Other'],Single Entity,_network,2–8MP,_neighborhood,509,455
+53.jpg,Which color route covers the southeastern area of Lanesville?,Green,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,510,456
+53.jpg,What is the color of the route that crosses both sides of I-64 on the left?,Purple,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,511,457
+53.jpg,Which route covers the most southern part of the map?,Pink,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_neighborhood,512,458
+53.jpg,What route color represents Heather Baker?,Pink,['Visual'],Single Entity,_network,2–8MP,_neighborhood,513,459
+53.jpg,Which route is mostly contained between State Street and St. John’s Church Road?,Light Blue,['Positional'],Single Entity,_network,2–8MP,_neighborhood,514,460
+53.jpg,Which driver manages the orange route?,Mike Emily,['Visual'],Single Entity,_network,2–8MP,_neighborhood,515,461
+54.png,Which clinic is located furthest east on the hospital map?,Orthopedic Clinic,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_campus,516,462
+54.png,Which entrance is closest to the bru coffee shop?,Front Lobby or Main Entrance,['Comparative'],Single Entity,_layout,2–8MP,_campus,517,463
+54.png,Which facility is directly south of the Medical Clinic?,Education,['Positional'],Single Entity,_layout,2–8MP,_campus,518,464
+54.png,Which street borders the hospital on its southern edge?,Maple Street,['Positional'],Single Entity,_layout,2–8MP,_campus,519,465
+54.png,Which service is located directly north of the Emergency Entrance?,Outpatient Rehabilitation Services,['Positional'],Single Entity,_layout,2–8MP,_campus,520,466
+54.png,Which department is positioned west of the Front Lobby/Main Entrance?,bru coffee shop,['Positional'],Single Entity,_layout,2–8MP,_campus,521,467
+54.png,Which labeled building is closest to Walnut Street?,Cancer Centers of Southwest Oklahoma,"['Visual', 'Comparative']",Single Entity,_layout,2–8MP,_campus,522,468
+54.png,Which area is south of the Human Resources building?,Sleep Lab,['Positional'],Single Entity,_layout,2–8MP,_campus,523,469
+54.png,Which street runs along the eastern side of the hospital grounds?,Park Lane,['Positional'],Single Entity,_layout,2–8MP,_campus,525,470
+55.jpg,How many colors are there not including shades of the same color?,8,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,526,471
+55.jpg,What is the biggest continent based on the scale of this map?,China or India,['Comparative'],Single Entity,_cartogram,0.1–0.5MP,_world,527,472
+55.jpg,Is Italy purple?,No,['Visual'],Boolean,_cartogram,0.1–0.5MP,_world,528,473
+55.jpg,Is India yellow?,Yes,['Visual'],Boolean,_cartogram,0.1–0.5MP,_world,529,474
+55.jpg,Is Taiwan orange?,No,['Visual'],Boolean,_cartogram,0.1–0.5MP,_world,530,475
+55.jpg,How many shades of red are there?,6,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,531,476
+55.jpg,How many shades of pink are there?,3,['Visual'],Counting,_cartogram,0.1–0.5MP,_world,532,477
+56.png,Which country appears as the largest brown region in the top-right corner of the map?,Japan,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_world,534,478
+56.png,Is there a country in the map colored dark red that borders a peach-colored country?,Yes,"['Visual', 'Positional']",Boolean,_cartogram,0.5–2MP,_world,535,479
+56.png,Are there any countries shaped like a circle or oval in this map?,No,['Visual'],Boolean,_cartogram,0.5–2MP,_world,536,480
+56.png,Which region in the bottom right of the map is the darkest in color?,Australia,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_world,537,481
+56.png,Which part of the map has the highest variation in color within a small space?, central-left region,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_world,538,482
+56.png,What color covers major part of countries in map ?,teal or light blue,['Visual'],Single Entity,_cartogram,0.5–2MP,_world,539,483
+56.png,Which color is used in both the top-right and bottom-left corners of the map?,Brown,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_world,540,484
+56.png,Are there more countries located near the center or near the edges of the map?,center,"['Positional', 'Comparative']",Boolean,_cartogram,0.5–2MP,_world,541,485
+56.png,Can you identify a region that is mostly surrounded by countries but has a visible internal empty sp,No,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_world,542,486
+57.png,Which state has the darkest color on the map?,Mississippi,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,543,487
+57.png,"Among the states that border Texas, which one has the darkest shade?",Louisiana,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,545,488
+57.png,Which state has a darker shade: Missouri or Kansas?,Missouri,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,546,489
+57.png,Which state immediately north of Mississippi falls in a lighter color bracket?,Tennessee,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,547,490
+57.png,"Between North and South Carolina, which state is visually darker?",South Carolina,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,548,491
+57.png,Which state west of the Mississippi River is in the darkest shade visible on the map?,Arkansas,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,549,492
+57.png,Which state is in the 30–39% range and touches both the Gulf of Mexico and the Atlantic Ocean?,Georgia,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,550,493
+57.png,What is the westernmost state in the second-lightest color category (10–19%)?,Washington,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,551,494
+57.png,How many states bordering Mississippi fall into a lighter color range than Mississippi itself?,5,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_country,552,495
+57.png,Which Midwestern state is noticeably darker than its northern neighbor?,Missouri,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,553,496
+58.png,Which country is directly west of the darkest blue area in Asia?,India,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,555,497
+58.png,Is the blue shade in South America darker than in Europe?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,556,498
+58.png,Which country is directly south of the darkest blue area in North America?,Mexico,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,558,499
+58.png,Does Australia have a blue shade darker than Europe?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,559,500
+58.png,Which continent has the most countries with no blue shade at all?,Africa,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,560,501
+58.png,Is the blue shade in Australia darker than in Africa?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,561,502
+58.png,Which continent has only one country with a dark blue shade?,Asia,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,562,503
+58.png,Does the blue shade in South America reach the 10k mark on the scale?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.1–0.5MP,_world,563,504
+59.png,Data is not available for how many states?,4,['Other'],Counting,_choropleth,0.5–2MP,_country,564,505
+59.png,"Among the states for which data is not available, how many share a border?",2,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,565,506
+59.png,How many states almost have 0 percent of video submissions?,18,['Other'],Counting,_choropleth,0.5–2MP,_country,566,507
+59.png,Which state has the highest percentage of video submissions?,California,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,567,508
+59.png,Which hue represents 0 percent of video submissions?,Light green,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,568,509
+59.png,Does Arizona have higher percent of video submissions than California?,No,['Comparative'],Boolean,_choropleth,0.5–2MP,_country,569,510
+59.png,How many states on the northern border have percent less than 6?,4,"['Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,570,511
+60.jpg,Which parking area is directly south of Borden Staff & Patients (300 Hanover St.)?,Borden Patients,['Positional'],Single Entity,_layout,0.5–2MP,_campus,572,512
+60.jpg,What type of parking is located at the intersection of Hanover Street and New Boston Road?,Staff Parking,['Positional'],Single Entity,_layout,0.5–2MP,_campus,573,513
+60.jpg,What type of parking is immediately west of the Patient Parking (B) area?,No Parking,['Positional'],Single Entity,_layout,0.5–2MP,_campus,574,514
+60.jpg,Which parking is the only odd one put than the other parkings on the map ?,Physician Parking not colored in hues of blue,['Other'],Single Entity,_layout,0.5–2MP,_campus,576,515
+60.jpg,which parking spot is the smallest among all on the map,Near Atwood and Main Lobby,['Comparative'],Single Entity,_layout,0.5–2MP,_campus,578,516
+60.jpg,How many lots of Parking are reserved for Surgery Center,2,['Positional'],Counting,_layout,0.5–2MP,_campus,580,517
+61.jpg,Is there a direct ferry between Lewis Mall and Lovejoy Wharf ?,No,['Positional'],Boolean,_network,0.1–0.5MP,_neighborhood,581,518
+61.jpg,Near which freeway South Station is located ?,93,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,582,519
+61.jpg,Is there an airport terminal visible on the map ?,Yes,['Visual'],Boolean,_network,0.1–0.5MP,_neighborhood,583,520
+61.jpg,Are Seaport Blvd and Compress St parallel to each other ? Answer based on the shared map only.,Yes,['Other'],Boolean,_network,0.1–0.5MP,_neighborhood,584,521
+61.jpg,From where this image of the map is captured ?,Google Maps,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,585,522
+61.jpg,Is Baas river annotated in the given map ?,Yes,['Other'],Boolean,_network,0.1–0.5MP,_neighborhood,586,523
+62.jpg,What color represents the southern states on this historical map?,Orange,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_country,587,524
+62.jpg,Which territory is labeled between Kansas and Texas?,Indian Territory,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_country,588,525
+62.jpg,How many Great Lakes are visible on this map?,5,['Visual'],Counting,_divisional,0.1–0.5MP,_country,589,526
+62.jpg,What two regions are labeled north of the United States border?,Upper Canada,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_country,590,527
+62.jpg,Which body of water is labeled at the bottom right of the map?,Gulf of Mexico,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_country,591,528
+62.jpg,"Count the number of states shown with abbreviated names (like ARK., TENN., etc.).",12,['Visual'],Counting,_divisional,0.1–0.5MP,_country,592,529
+62.jpg,What is the westernmost territory labeled on this map?,Utah,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_country,593,530
+62.jpg,Which territory/state is directly west of Missouri?,Kansas,['Positional'],Single Entity,_divisional,0.1–0.5MP,_country,594,531
+62.jpg,What area is labeled at the top left corner of the map?,British Possessions,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_country,595,532
+62.jpg,Which state appears to be divided into North and South on this historical map?,Carolina,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_country,596,533
+63.jpg,Which section is located directly between sections 131 and 233?,232,"['Visual', 'Positional']",Single Entity,_layout,2–8MP,_building,597,534
+63.jpg,How many sections are there in the S-series (S1-S25)?,25,['Visual'],Counting,_layout,2–8MP,_building,598,535
+63.jpg,What is the section number at the southeast corner of the field nearest to the SOUTHEAST FIELD CLUB,101TB,"['Visual', 'Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,599,536
+63.jpg,"How many sections are labeled with an ""S"" prefix?",25,['Visual'],Counting,_layout,2–8MP,_building,600,537
+63.jpg,"Which facility is located adjacent to the ""RIVER CLUB"" area?",Heineken,['Positional'],Single Entity,_layout,2–8MP,_building,601,538
+63.jpg,"Which section is labeled as ""EASE BOX"" on the map?",131,['Visual'],Single Entity,_layout,2–8MP,_building,602,539
+63.jpg,How many different club or specialty areas are labeled on the west side of the stadium?,3,"['Visual', 'Positional']",Counting,_layout,2–8MP,_building,603,540
+63.jpg,"Which section numbers are visible in the ""MEZZANINE"" area?",none,['Visual'],Single Entity,_layout,2–8MP,_building,604,541
+63.jpg,"Which numbered section is closest to the ""PRESS LEVEL"" label?",S9,"['Visual', 'Comparative']",Single Entity,_layout,2–8MP,_building,605,542
+63.jpg,"How many separate ""SOUTHEAST FIELD SEATS"" sections are labeled on the map?",4,"['Visual', 'Positional']",Counting,_layout,2–8MP,_building,606,543
+64.jpg,Which direction doesn't have a Market 96?,West,['Positional'],Single Entity,_layout,2–8MP,_building,607,544
+64.jpg,What concession is near the tipico sportsbook biergarten?,Schmidt's,['Positional'],Single Entity,_layout,2–8MP,_building,608,545
+64.jpg,What is the closest stand to the columbus craves on the west side?,S25,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,609,546
+64.jpg,Which color is used to represent the different stands in the stadium?,Gray,['Visual'],Single Entity,_layout,2–8MP,_building,611,547
+64.jpg,What concession stand is nearest to the ease box?,Donatos,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,612,548
+64.jpg,How many gates are there in the map?,3,['Other'],Counting,_layout,2–8MP,_building,613,549
+64.jpg,How many unique concession stands are there in the map?,14,['Other'],Counting,_layout,2–8MP,_building,614,550
+64.jpg,What color is used to represent the concession stands?,Green,['Visual'],Single Entity,_layout,2–8MP,_building,615,551
+64.jpg,How many 100 level stands are there in the map?,44,['Other'],Counting,_layout,2–8MP,_building,616,552
+65.jpg,What is the northern endpoint of the Staten Island Ferry?,Manhattan,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,617,553
+65.jpg,What is the southern endpoint of the Staten Island Ferry?,Saint George,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,618,554
+65.jpg,Which island does the ferry pass west of on its route?,Governors Island,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,619,555
+65.jpg,Which direction does the ferry travel from Manhattan to Staten Island?,Southwest,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,620,556
+65.jpg,Which borough lies directly southeast of the Manhattan ferry terminal?,Brooklyn,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,621,557
+65.jpg,Which island lies closer to Staten Island: Ellis or Liberty?,Liberty Island,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,622,558
+65.jpg,Which area lies just west of the Staten Island ferry terminal?,New Brighton,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,623,559
+65.jpg,Which direction is Jersey City from the ferry route?,Northwest,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,624,560
+65.jpg,What is the water body crossed by the Staten Island Ferry?,Upper New York Bay,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,625,561
+65.jpg,Which borough lies northeast of the ferry route?,Manhattan,['Positional'],Single Entity,_network,0.1–0.5MP,_neighborhood,626,562
+66.webp,"What does ""pop"" stand for in the legend?",Population,['Other'],Single Entity,_choropleth,0.5–2MP,_world,627,563
+66.webp,How many distinct color shades are used in the legend scale?,6,['Visual'],Counting,_choropleth,0.5–2MP,_world,628,564
+66.webp,What is the maximum population value shown in the legend?,1.25e+09,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,629,565
+66.webp,What is the minimum population value shown in the legend?,2.50e+08,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,630,566
+66.webp,How many grid lines divide the map horizontally?,6,['Other'],Counting,_choropleth,0.5–2MP,_world,631,567
+66.webp,What color represents the highest population value on this map?,Light blue,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,633,568
+66.webp,How many population value increments are shown in the legend?,5,['Visual'],Counting,_choropleth,0.5–2MP,_world,634,569
+66.webp,What scientific notation is used to represent population on this map?,e+09,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,635,570
+66.webp,What is the population range difference between each consecutive color in the legend?,2.50e+08,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_world,636,571
+67.jpg,"Based only on the image, is the United States in the red category?",no,['Visual'],Boolean,_cartogram,0.5–2MP,_world,637,572
+67.jpg,"Based only on the image, is China’s debt-to-GDP ratio above 60%?",no,['Positional'],Boolean,_cartogram,0.5–2MP,_world,638,573
+67.jpg,"Based only on the image, what is the green country surrounded by red countries?",Luxembourg,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_world,639,574
+67.jpg,"Based only on the image, what is the yellow country totally surrounded by red countries?",Switzerland,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_world,640,575
+67.jpg,"Based only on the image, is Russia in the red debt category?",no,['Visual'],Boolean,_cartogram,0.5–2MP,_world,641,576
+67.jpg,"Based only on the image, how many red country in south america?",0,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_world,642,577
+67.jpg,"Based only on the image, is China’s debt/GDP ratio moderate or low?",low,['Other'],Boolean,_cartogram,0.5–2MP,_world,643,578
+67.jpg,"Based only on the image, what is South Korea's color?",green,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_world,644,579
+67.jpg,"Based only on the image, is Mexico’s debt-to-GDP ratio lower than the U.S.?",no,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,645,580
+67.jpg,"Based only on the image, what is the color of Switzerland?",yellow,['Visual'],Single Entity,_cartogram,0.5–2MP,_world,646,581
+68.jpg,"Which continent had 200,000 people migrating from it?",Africa,['Other'],Single Entity,_network,0.5–2MP,_world,647,582
+68.jpg,What is the number shown on the arrow pointing to Europe?,40000,['Visual'],Single Entity,_network,0.5–2MP,_world,648,583
+68.jpg,"Which continent has a red arrow labeled 50,000 pointing into it?",Australia,['Visual'],Single Entity,_network,0.5–2MP,_world,649,584
+68.jpg,What is the number on the arrow that ends in South America?,12000,['Positional'],Single Entity,_network,0.5–2MP,_world,650,585
+68.jpg,"Which region is shown with 70,000 people moving toward the southeast?",South Asia,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_world,651,586
+68.jpg,What number is associated with migration into North America?,15000,['Positional'],Single Entity,_network,0.5–2MP,_world,652,587
+68.jpg,What is the largest number shown on any red arrow in the map?,200000,"['Visual', 'Comparative']",Single Entity,_network,0.5–2MP,_world,653,588
+68.jpg,Which region appears to be the origin of most migration flows?,Africa,"['Visual', 'Comparative']",Single Entity,_network,0.5–2MP,_world,654,589
+68.jpg,What is the number associated with migration from the Middle East?,100000,['Positional'],Single Entity,_network,0.5–2MP,_world,655,590
+68.jpg,Which arrow points across the Pacific Ocean?,15000,['Positional'],Single Entity,_network,0.5–2MP,_world,656,591
+69.png,Which continent appears most distorted compared to its true geographical size,Asia,"['Visual', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_world,657,592
+69.png,What does the extreme size of India and China suggest about the variable being mapped?,population,['Visual'],Single Entity,_cartogram,0.5–2MP,_world,659,593
+69.png,Does the cartogram indicate any small island nations as significantly large?,No,['Comparative'],Boolean,_cartogram,0.5–2MP,_world,660,594
+69.png,Which country in Southeast Asia is highly enlarged?,Indonesia,['Positional'],Single Entity,_cartogram,0.5–2MP,_world,662,595
+69.png,Which region shows an east-west widening relative to its north-south dimension?,Southeast Asia,['Other'],Single Entity,_cartogram,0.5–2MP,_world,663,596
+69.png,"In the Americas, which subregion shows less distortion overall?",Central America.,['Comparative'],Single Entity,_cartogram,0.5–2MP,_world,664,597
+69.png,Which region shows that high land area doesn’t equate to larger cartogram size apart from russia?,Oceania,"['Visual', 'Comparative']",Single Entity,_cartogram,0.5–2MP,_world,665,598
+69.png,Which European country appears disproportionately small compared to its European neighbors?,Poland,['Visual'],Single Entity,_cartogram,0.5–2MP,_world,667,599
+70.png,"Based only on the image, what section is directly opposite Section 106?",126,['Visual'],Single Entity,_layout,0.1–0.5MP,_building,668,600
+70.png,"Based only on the image, where is the family suite located?",near space city gate,['Positional'],Single Entity,_layout,0.1–0.5MP,_building,669,601
+70.png,"Based only on the image, which gate is closest to Section 114?",shell energy gate,"['Visual', 'Comparative']",Single Entity,_layout,0.1–0.5MP,_building,670,602
+70.png,"Based only on the image, how many concession stands areshown?",17,['Other'],Counting,_layout,0.1–0.5MP,_building,672,603
+70.png,"Based only on the image, which side of the field has the ticket office?",north,['Positional'],Single Entity,_layout,0.1–0.5MP,_building,673,604
+70.png,"Based only on the image, which color represents general admission sections?",Orange,['Visual'],Single Entity,_layout,0.1–0.5MP,_building,674,605
+70.png,"Based only on the image, is there a atm near the elevator?",no,['Positional'],Boolean,_layout,0.1–0.5MP,_building,675,606
+70.png,"Based only on the image, which gate is opposite Shell Energy Gate?",Bayou City gate,['Other'],Single Entity,_layout,0.1–0.5MP,_building,676,607
+70.png,"Based only on the image, which side is the metro station located?",North,['Positional'],Single Entity,_layout,0.1–0.5MP,_building,677,608
+71.jpg,How many colors is idaho shaded,2,['Visual'],Counting,_divisional,0.1–0.5MP,_country,678,609
+71.jpg,Which state is El-pase in which color in map ? Only use the map,Blue,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,679,610
+71.jpg,Texas is shaded in only one color? Is this correct?,No,['Visual'],Boolean,_divisional,0.1–0.5MP,_country,680,611
+71.jpg,Are Rapid city and Sioux falls in the same timezone,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,682,612
+71.jpg,Is Alaska in two different zones. answer based on the map,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,684,613
+71.jpg,Is Albama split into two different regions,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,685,614
+71.jpg,Which state is Crowley shown in. Answer based on the map,Oregon,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,686,615
+71.jpg,Is Montana divided into two zones?,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,687,616
+72.jpg,Which street is furthest northeast?,E. 15th St.,"['Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_city,688,617
+72.jpg,How many bridges go into Brooklyn?,2,['Other'],Counting,_mixed,0.1–0.5MP,_city,689,618
+72.jpg,Which pier is lowest on the map?,Pier 6,['Comparative'],Single Entity,_mixed,0.1–0.5MP,_city,690,619
+72.jpg,Which interest point is on the Brooklyn Bridge?,33 or Pier 17,['Other'],Single Entity,_mixed,0.1–0.5MP,_city,691,620
+72.jpg,Which region is located furthest northeast?,East Village,"['Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_city,692,621
+72.jpg,What park does FDR Dr. pass through?,East River Park,['Positional'],Single Entity,_mixed,0.1–0.5MP,_city,693,622
+72.jpg,What park is in East Village?,Tompkins Square Park,['Positional'],Single Entity,_mixed,0.1–0.5MP,_city,694,623
+72.jpg,What point of interest is in the South Gardens?,16 or Museum of Jewish Heritage,['Positional'],Single Entity,_mixed,0.1–0.5MP,_city,695,624
+72.jpg,Which landmark is directly north of W. 4th St.?,2 or Washington Square Park,['Positional'],Single Entity,_mixed,0.1–0.5MP,_city,696,625
+72.jpg,What point of interest is furthest south on the map?,19 or Staten Island Ferry,"['Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_city,697,626
+73.jpg,What style of line represents the New York ferry route on this harbor map?,Dashed black line,['Other'],Single Entity,_network,0.5–2MP,_neighborhood,698,627
+73.jpg,How many ferry ticket locations are marked in the New York Harbor area?,2,['Visual'],Counting,_network,0.5–2MP,_neighborhood,699,628
+73.jpg,Which ferry route is represented by the cyan circular path in the harbor?,New Jersey ferry,['Other'],Single Entity,_network,0.5–2MP,_neighborhood,700,629
+73.jpg,What is the smallest island depicted in this New York Harbor map?,Liberty Island,['Comparative'],Single Entity,_network,0.5–2MP,_neighborhood,701,630
+73.jpg,How many national monuments are specifically labeled in this harbor area?,3,['Visual'],Counting,_network,0.5–2MP,_neighborhood,702,631
+73.jpg,What maximum distance appears on both scale measurements at the bottom left?,0.5,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.5–2MP,_neighborhood,703,632
+73.jpg,Which location has a ferry ticket symbol represented by a black circle?,Castle Clinton National Monument,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_neighborhood,704,633
+73.jpg,What is shown directly east of Governors Island?,East River,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_neighborhood,705,634
+73.jpg,How many distinct ferry routes are marked between New Jersey and the islands?,2,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_neighborhood,706,635
+73.jpg,What direction does the north indicator arrow point?,Upward/toward top of page,['Positional'],Single Entity,_network,0.5–2MP,_neighborhood,707,636
+74.gif,"Based only on the image, is there a direct line between Napoli and Cagliari?",no,['Positional'],Boolean,_network,0.1–0.5MP,_country,708,637
+74.gif,"Based only on the image, how many lines are connected to Palermo?",4,['Positional'],Counting,_network,0.1–0.5MP,_country,709,638
+74.gif,"Based only on the image, is spain show on the map?",no,['Other'],Boolean,_network,0.1–0.5MP,_country,710,639
+74.gif,"Based only on the image, how many Italy 'I' labels on the map?",3,['Visual'],Counting,_network,0.1–0.5MP,_country,711,640
+74.gif,"Based only on the image, Italy (represented by the label 'I') has direct line connections to 4 other",7,['Visual'],Boolean,_network,0.1–0.5MP,_country,712,641
+74.gif,"Based only on the image, yes or no, is the border same as now?",no,['Positional'],Boolean,_network,0.1–0.5MP,_country,713,642
+74.gif,"Based only on the image, is Igoumenitsa connected to Venice?",yes,['Positional'],Boolean,_network,0.1–0.5MP,_country,714,643
+74.gif,"Based only on the image, how many orange dot from France are shown?",7,['Visual'],Counting,_network,0.1–0.5MP,_country,715,644
+74.gif,"Based only on the image, how many lines are connected to Ancona?",4,['Positional'],Counting,_network,0.1–0.5MP,_country,716,645
+74.gif,"Based only on the image, which side of Italy have more lines?",western,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_country,717,646
+75.jpg,How many restrooms are shown on the map?,0,['Visual'],Counting,_layout,2–8MP,_building,718,647
+75.jpg,How many elevators are shown on the map?,4,['Visual'],Counting,_layout,2–8MP,_building,719,648
+75.jpg,How many patient rooms sections are in the map?,6,['Visual'],Counting,_layout,2–8MP,_building,720,649
+75.jpg,How many unlabeled patient rooms sections are in the map?,1,['Visual'],Counting,_layout,2–8MP,_building,721,650
+75.jpg,How many labeled patient rooms sections are in the map?,5,['Visual'],Counting,_layout,2–8MP,_building,722,651
+75.jpg,How many waiting areas are above elevator 6 in the map?,0,['Positional'],Counting,_layout,2–8MP,_building,723,652
+75.jpg,How many waiting areas are left of elevator 6 in the map?,0,['Positional'],Counting,_layout,2–8MP,_building,724,653
+75.jpg,How many elevators are to the right of elevator 2 in the map?,0,['Positional'],Counting,_layout,2–8MP,_building,725,654
+75.jpg,How many restrooms are next to an elevator on the map?,0,['Other'],Counting,_layout,2–8MP,_building,726,655
+75.jpg,How many restrooms are next to a room on the map?,0,['Other'],Counting,_layout,2–8MP,_building,727,656
+76.png,Which country appears to have the highest number of airports?,United States,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,728,657
+76.png,Does South America have more countries with a high number of airports (above 200) than Europe?,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,729,658
+76.png,"According to the map, does Australia have fewer than 100 airports?",Yes,['Other'],Boolean,_choropleth,0.1–0.5MP,_world,730,659
+76.png,Does Africa have any countries with more than 300 airports?,no,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,731,660
+76.png,Which continent seems to have the fewest countries with a significant number of airports (above 150),Antarctica,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,732,661
+76.png,Does Canada have more airports than Russia?,no,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,733,662
+76.png,Does India have more than 250 airports?,yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,734,663
+76.png,Is the number of airports in Greenland greater than 50?,Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_world,735,664
+76.png,Does China have fewer airports than the United States?,yes,['Other'],Boolean,_choropleth,0.1–0.5MP,_world,736,665
+76.png,Do most European countries have between 50 and 200 airports?,No,"['Positional', 'Comparative']",Boolean,_choropleth,0.1–0.5MP,_world,737,666
+77.png,"Using the image above, how many states are blue?",21,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_country,738,667
+77.png,"Using the image above, how many states are red?",30,"['Visual', 'Positional']",Counting,_cartogram,0.5–2MP,_country,739,668
+77.png,"Using the image above, how many hexagons are in New Mexico?",4,['Positional'],Counting,_cartogram,0.5–2MP,_country,740,669
+77.png,"Using the image about, how many hexagons are in Maryland?",10,['Other'],Counting,_cartogram,0.5–2MP,_country,741,670
+77.png,"Using the image above, how many hexagons are in Utah?",6,['Positional'],Counting,_cartogram,0.5–2MP,_country,742,671
+77.png,"Using the image above, what color represents the state Nevada?",Blue,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_country,745,672
+77.png,"Using the image above, what color represents the state Idaho?",Red,"['Visual', 'Positional']",Single Entity,_cartogram,0.5–2MP,_country,746,673
+78.jpg,how many countries are shown?,6,['Visual'],Counting,_conflict,2–8MP,_country,748,674
+78.jpg,Is there movement in Odessa shown?,No,['Visual'],Boolean,_conflict,2–8MP,_country,749,675
+78.jpg,How many arrows of movement are displayed?,15,['Visual'],Counting,_conflict,2–8MP,_country,750,676
+78.jpg,You said: Did Crimean forces chang their advance to Odessa to push north toward northwestern Ukraine,No,['Positional'],Boolean,_conflict,2–8MP,_country,751,677
+78.jpg,How many dashed black lines are there?,2,['Visual'],Counting,_conflict,2–8MP,_country,752,678
+78.jpg,"How many times does ""Russia"" show up on this map?",6,['Other'],Counting,_conflict,2–8MP,_country,753,679
+78.jpg,How many words are in pink?,3,['Visual'],Counting,_conflict,2–8MP,_country,754,680
+78.jpg,How many cities are shown in Ukraine?,5,['Visual'],Counting,_conflict,2–8MP,_country,755,681
+78.jpg,How many rivers are shown in Russia?,0,['Visual'],Counting,_conflict,2–8MP,_country,756,682
+78.jpg,How many areas on the map are shown with pink and white?,2,['Visual'],Counting,_conflict,2–8MP,_country,757,683
+79.jpg,Which city is located furthest south on the New Jersey map?,Cape May,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_state,758,684
+79.jpg,How many cities are shown on the eastern coast of New Jersey?,4,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_state,759,685
+79.jpg,Which city is represented by a cathedral or church with twin spires?,Newark,['Other'],Single Entity,_marker,0.5–2MP,_state,760,686
+79.jpg,What fruit is depicted near the northern part of the state?,Blueberries,['Positional'],Single Entity,_marker,0.5–2MP,_state,761,687
+79.jpg,What recreational activity is depicted near Toms River?,Sunbathing,['Positional'],Single Entity,_marker,0.5–2MP,_state,763,688
+79.jpg,What nautical element is shown near Atlantic City?,Lighthouse,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_state,764,689
+79.jpg,Which two cities are located closest to each other on this map?,Jersey City & Newark,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_state,765,690
+79.jpg,Which city is represented by a government building with a dome?,Trenton,['Other'],Single Entity,_marker,0.5–2MP,_state,766,691
+79.jpg,What bird species is illustrated in the top left corner?,Yellow/Gold Finch,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_state,767,692
+80.jpg,How many pictures are in this image?,19,['Other'],Counting,_marker,0.5–2MP,_state,768,693
+80.jpg,How many cities are shown?,13,['Visual'],Counting,_marker,0.5–2MP,_state,769,694
+80.jpg,How many flowers are there?,10,['Other'],Counting,_marker,0.5–2MP,_state,770,695
+80.jpg,How many individual fruits are there?,6,['Other'],Counting,_marker,0.5–2MP,_state,771,696
+80.jpg,how many moving vehicles are there?,3,['Other'],Counting,_marker,0.5–2MP,_state,772,697
+80.jpg,"How many bodies of water are displayed, including the background?",4,['Visual'],Counting,_marker,0.5–2MP,_state,773,698
+80.jpg,How many animals are there?,2,['Other'],Counting,_marker,0.5–2MP,_state,774,699
+81.jpg,Is there a direct opening between the Admin and Dining areas?,No,['Positional'],Boolean,_layout,0.5–2MP,_building,775,700
+81.jpg,What color is the Pharm area?,Light purple,['Visual'],Single Entity,_layout,0.5–2MP,_building,776,701
+81.jpg,Can the I.T. area be directly accessed through the Admin. area?,No,['Positional'],Boolean,_layout,0.5–2MP,_building,777,702
+81.jpg,What color is the Obstetrics area?,Pink,['Visual'],Single Entity,_layout,0.5–2MP,_building,778,703
+81.jpg,What area is directly east of the Educ. area?,Surgery,['Positional'],Single Entity,_layout,0.5–2MP,_building,779,704
+81.jpg,What color is the Regist. area?,Pale/light green,['Visual'],Single Entity,_layout,0.5–2MP,_building,780,705
+81.jpg,Can the Pharm area be directly accessed through Acuity Adaptable?,No,['Positional'],Boolean,_layout,0.5–2MP,_building,781,706
+81.jpg,Which entry point is the quickest way to get to E.V.S.?,Service,['Other'],Single Entity,_layout,0.5–2MP,_building,782,707
+81.jpg,What area is the Chapel located in?,Surgery,['Positional'],Single Entity,_layout,0.5–2MP,_building,783,708
+81.jpg,Which area can you most quickly enter after going through the staff entry?,Surgery,"['Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,784,709
+82.jpg,What is the southern most city labeled on the map?,Damascus,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,785,710
+82.jpg,What is the second southern most city labeled on the map?,Homs,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,786,711
+82.jpg,What is the third southern most city labeled on the map?,Hama,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_country,787,712
+82.jpg,How many yellow M4 boxes that are in the Regime forces area are on the map?,0,['Visual'],Counting,_conflict,0.5–2MP,_country,788,713
+82.jpg,How many yellow M5 boxes that are in the Regime forces area are on the map?,0,['Visual'],Counting,_conflict,0.5–2MP,_country,789,714
+82.jpg,Is Mardin on the map?,Yes,['Other'],Boolean,_conflict,0.5–2MP,_country,790,715
+82.jpg,Is Manbij on the map?,Yes,['Other'],Boolean,_conflict,0.5–2MP,_country,791,716
+82.jpg,Is Raqqa on the map?,Yes,['Other'],Boolean,_conflict,0.5–2MP,_country,792,717
+82.jpg,How many labeled cities are in the area labeled as Regime forces on the map?,3,['Visual'],Counting,_conflict,0.5–2MP,_country,793,718
+82.jpg,How many labeled cities are in the area labeled as US-backed Syrian Free Army on the map?,0,['Visual'],Counting,_conflict,0.5–2MP,_country,794,719
+83.jpg,Which region is significantly larger in the COâ‚‚ emissions 2010 map than in the population map?,United States,['Comparative'],Single Entity,_multiple,0.5–2MP,_world,795,720
+83.jpg,Which country dominates the GDP 2010 map by area?,United States,['Other'],Single Entity,_multiple,0.5–2MP,_world,796,721
+83.jpg,In which map does Africa appear relatively largest?,Population 2010,"['Visual', 'Comparative']",Single Entity,_multiple,0.5–2MP,_world,797,722
+83.jpg,Which country is greatly enlarged in the cumulative COâ‚‚ emissions map but not in the population ma,United Kingdom,['Other'],Single Entity,_multiple,0.5–2MP,_world,798,723
+83.jpg,Which region swells disproportionately in the GDP 2010 map compared to the population map?,Western Europe,['Other'],Single Entity,_multiple,0.5–2MP,_world,799,724
+83.jpg,Which country appears consistently large across all maps?,United States,"['Visual', 'Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_world,800,725
+83.jpg,"In the CO2 emissions 2010 map, which country in Asia appears almost as large as the U.S.?",China,"['Visual', 'Comparative']",Single Entity,_multiple,0.5–2MP,_world,801,726
+83.jpg,Which country appears thin in the GDP map but large in the population map?,India,"['Visual', 'Comparative']",Single Entity,_multiple,0.5–2MP,_world,802,727
+83.jpg,"In the population 2010 map, which South American country is largest?",Brazil,"['Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_world,803,728
+83.jpg,Which map shows the Middle East as relatively larger than in the population map?,CO2 emissions 2010,"['Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_world,804,729
+84.jpg,"On Colorado’s Front Range, which county shows the deepest maroon?",Denver,['Other'],Single Entity,_choropleth,0.5–2MP,_country,805,730
+84.jpg,Which Midwestern state’s counties are almost all pale yellow?,Nebraska,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,806,731
+84.jpg,"In the legend, what color denotes counties with 33,144-55,795 people?",Bright red,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,807,732
+84.jpg,"Which county at the very tip of Nebraska’s panhandle is the palest shade (68-6,913)?",Sioux,['Visual'],Single Entity,_choropleth,0.5–2MP,_country,808,733
+84.jpg,"Between Bay and Franklin counties on Florida’s Gulf Coast, which county is mid-orange 12,952-20,819?",Gulf,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,809,734
+84.jpg,Which Great Plains state shows only yellow and orange counties has no reds or darker?,Wyoming,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,810,735
+84.jpg,Which southeastern state is yellow in its northern counties and dark red in its southern counties?,Georgia,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,811,736
+84.jpg,Which Western state is almost entirely pale yellow except for one dark red county?,Nevada,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_country,812,737
+84.jpg,Which southern state has dark-colored coastal counties but lighter-colored counties inland?,Florida,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,813,738
+84.jpg,Which Great Lakes state shows a belt of adjacent bright-red counties along its southern shore?,Ohio,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,814,739
+85.jpg,Which building is located directly north of MOB 325?,The Greer Memory Hospital,['Positional'],Single Entity,_layout,0.5–2MP,_campus,815,740
+85.jpg,Which entrance is closest to the Central Energy Plant?,The entrance on Village Green Circle,['Comparative'],Single Entity,_layout,0.5–2MP,_campus,816,741
+85.jpg,Identify the area designated for emergency services.,The area marked with a red cross symbol near Medical Parkway,['Other'],Single Entity,_layout,0.5–2MP,_campus,817,742
+85.jpg,Which building is located farthest east on the map?,The Cottages at Brushy Creek,"['Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_campus,818,743
+85.jpg,How many cottages are in the Cottages at Bushy creek?,13,['Other'],Counting,_layout,0.5–2MP,_campus,819,744
+85.jpg,How many parking areas in the cottages at bushy creek?,3,['Other'],Counting,_layout,0.5–2MP,_campus,820,745
+85.jpg,How many unnamed buildings are in the map excluding the cottages at bushy creek?,1,['Other'],Counting,_layout,0.5–2MP,_campus,821,746
+86.png,How far does it say Pengu Tao is from the mainland?,No distance can be inferred,['Positional'],Boolean,_cartogram,0.1–0.5MP,_country,822,747
+86.png,Which region is the smallest location on the mainland?,T'ainan,"['Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_country,823,748
+86.png,How many island clusters are to the right of the mainland?,2,['Positional'],Counting,_cartogram,0.1–0.5MP,_country,824,749
+86.png,Which section has the most dense green grid?,T'ai Chung,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_country,825,750
+86.png,Which section has the least dense green grid?,Taipei,"['Visual', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_country,826,751
+86.png,How many times do you see the letter p in this image?,8,['Visual'],Counting,_cartogram,0.1–0.5MP,_country,827,752
+86.png,What is the word count of this image?,13,['Other'],Counting,_cartogram,0.1–0.5MP,_country,828,753
+87.png,Which island features the Honolulu Skyline rail system?,Oʻahu,['Other'],Single Entity,_network,>8MP,_state,829,754
+87.png,Which ferry route connects Honolulu (Oʻahu) to Hilo (Hawaiʻi)?,F21,['Positional'],Single Entity,_network,>8MP,_state,830,755
+87.png,Which railroad line operates between Līhuʻe and Kōloa on Kauaʻi?,Kauaʻi Railroad or K2,['Positional'],Single Entity,_network,>8MP,_state,831,756
+87.png,Which island shows the most rail lines on the map?,Oʻahu,['Comparative'],Single Entity,_network,>8MP,_state,832,757
+87.png,Which Maui ferry connects Lahaina to Mānele (Lānaʻi)?,F31,['Positional'],Single Entity,_network,>8MP,_state,833,758
+87.png,What is the code for the ferry from Honolulu (Oʻahu) to Kāneʻohe (Oʻahu)?,F24,['Other'],Single Entity,_network,>8MP,_state,834,759
+87.png,"Which rail system runs between Wailuku, Kahului, and Kīhei?",Maui Railroad or M1,['Positional'],Single Entity,_network,>8MP,_state,835,760
+87.png,Which island hosts the Hawaiʻi Railroad system?,Hawaiʻi  or Big Island,['Other'],Single Entity,_network,>8MP,_state,836,761
+87.png,Which ferry route connects Honolulu (Oʻahu) to Nāwiliwili (Kauaʻi)?,F28,['Positional'],Single Entity,_network,>8MP,_state,837,762
+87.png,"Which rail system operates between Huakaʻiʻole, Hilo, and Pāhoa?",Hawaiʻi Railroad or H1,['Positional'],Single Entity,_network,>8MP,_state,838,763
+88.png,"Focusing on the UK, do the areas with higher population density also show a trend of higher covid",No,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_subcontinent,839,764
+88.png,"Conversely, are there regions with a higher number of COVID-19 cases but lower population density?",Yes,['Comparative'],Boolean,_choropleth,0.1–0.5MP,_subcontinent,840,765
+88.png,From the map get data for serbia,No data available,['Other'],Boolean,_choropleth,0.1–0.5MP,_subcontinent,841,766
+88.png,"Based on the map, what can you infer about the situation in Eastern European countries?",No data available,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_subcontinent,842,767
+88.png,Are there any island regions depicted that show notable combinations of population density and COVID,yes,['Other'],Boolean,_choropleth,0.1–0.5MP,_subcontinent,843,768
+88.png,Which specific variant of the COVID-19 virus was most prevalent in the regions?,No data available,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_subcontinent,844,769
+88.png,What was the average age of individuals in the regions with the highest COVID-19 mortality rates?,No data available,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_subcontinent,845,770
+88.png,What geographical area is primarily depicted in this map?,Europe,['Other'],Single Entity,_choropleth,0.1–0.5MP,_subcontinent,846,771
+88.png,"According to the legend, what color intensity indicates a higher population density?",darker shades of blue,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_subcontinent,847,772
+88.png,"According to the legend, what color intensity suggests a higher number of COVID-19 cases?",darker shades of red,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_subcontinent,848,773
+89.jpg,Which port does the red ferry line originate from?,Alexandroupoli,['Visual'],Single Entity,_network,0.1–0.5MP,_country,849,774
+89.jpg,"According to the legend, what color represents the ferry route from Piraeus to Paros, Naxos etc",Brown,['Visual'],Single Entity,_network,0.1–0.5MP,_country,850,775
+89.jpg,Does a ferry route directly connect Igoumenitsa and Alexandroupoli according to this map?,No,['Other'],Boolean,_network,0.1–0.5MP,_country,851,776
+89.jpg,Which of the following islands is directly served by a ferry from Lavrio shown on the map?,Kea,['Visual'],Single Entity,_network,0.1–0.5MP,_country,852,777
+89.jpg,What is the origin port for the blue ferry line?,Volos,['Visual'],Single Entity,_network,0.1–0.5MP,_country,853,778
+89.jpg,Does the green ferry line serve the island of Chios (Mytilene)?,Yes,['Visual'],Boolean,_network,0.1–0.5MP,_country,854,779
+89.jpg,Which port serves as a starting point for ferries going to Hydra?,Piraeus,['Other'],Single Entity,_network,0.1–0.5MP,_country,855,780
+89.jpg,Is there a direct ferry route shown between Thessaloniki and any of the Cycladic islands,No,"['Visual', 'Positional']",Boolean,_network,0.1–0.5MP,_country,856,781
+89.jpg,"According to the legend, what color represents the ferry route from Volos to Skiathos, Skopelos etc",Blue,['Visual'],Single Entity,_network,0.1–0.5MP,_country,857,782
+89.jpg,Does a ferry route from Rafina directly go to Alexandroupoli?,No,['Other'],Boolean,_network,0.1–0.5MP,_country,858,783
+90.png,Which State has the highest population?,California,['Comparative'],Single Entity,_cartogram,0.1–0.5MP,_country,859,784
+90.png,How many states here have a population of over 15 million?,7,['Comparative'],Counting,_cartogram,0.1–0.5MP,_country,862,785
+90.png,What is the only state in the bottom row with a population below 15 million but above 10 million?,Florida,"['Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_country,863,786
+90.png,Name the northernmost state in the map that has a population below 10 million.,Alaska,"['Positional', 'Comparative']",Single Entity,_cartogram,0.1–0.5MP,_country,865,787
+90.png,How many states are colored more darkly than Florida but lighter than California?,Texas,"['Visual', 'Comparative']",Counting,_cartogram,0.1–0.5MP,_country,866,788
+90.png,Is the state between Pennsylvania and North Carolina more or less populous than Georgia?,Yes,"['Positional', 'Comparative']",Boolean,_cartogram,0.1–0.5MP,_country,868,789
+91.jpg,Which North American country is light blue (1000-5000 deaths)?,Canada,"['Visual', 'Positional']",Single Entity,_choropleth,2–8MP,_world,869,790
+91.jpg,Which Caribbean island is orange (50000-500000 deaths)?,Dominican Republic,['Visual'],Single Entity,_choropleth,2–8MP,_world,870,791
+91.jpg,Which small Indian-Ocean nation is dark blue (<1000 deaths)?,Seychelles,['Visual'],Single Entity,_choropleth,2–8MP,_world,871,792
+91.jpg,Which European country is dark blue (<1000 deaths) while its neighbors are lighter?,Norway,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,872,793
+91.jpg,Which Balkan Peninsula country is dark blue while all its neighbors are lighter shades?,Croatia,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,873,794
+91.jpg,Which South American country is the only dark blue one surrounded by light-blue or yellow neighbors?,Uruguay,"['Visual', 'Positional']",Single Entity,_choropleth,2–8MP,_world,874,795
+91.jpg,"In the Persian Gulf inset, which country is pale yellow while most others are orange or dark blue?",Kuwait,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,875,796
+91.jpg,How many Balkan Peninsula countries are dark blue?,4,['Visual'],Counting,_choropleth,2–8MP,_world,876,797
+91.jpg,What death-range does pale yellow represent?,5000 – 50000,['Visual'],Single Entity,_choropleth,2–8MP,_world,877,798
+91.jpg,"In the Caribbean inset, which isle is dark blue?",Grenada,['Visual'],Single Entity,_choropleth,2–8MP,_world,878,799
+92.jpg,Which strait do the ferry routes shown cross between Europe and Asia?,Bosporus,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_city,879,800
+92.jpg,Which area on the map is marked as “Old Istanbul”?,Eminonu and Sirkeci,['Visual'],Single Entity,_network,0.1–0.5MP,_city,880,801
+92.jpg,"Which ferry destination lies farthest south, reaching into the Sea of Marmara?",Princes Islands or Adala),"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_city,881,802
+92.jpg,"Which area on the Asian side has two ferry docks close to each other, marked as Kanlıca and Cubuklu?",Near Beykoz,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_city,882,803
+92.jpg,Which European-side dock lies directly across from Uskudar on the Asian side?,Besiktas,['Positional'],Single Entity,_network,0.1–0.5MP,_city,883,804
+92.jpg,Which Asian dock is positioned furthest north along the Bosporus?,Anadolu Kavagi,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_city,884,805
+92.jpg,Which ferry line connects Karakoy on the European side to Kadikoy on the Asian side?,Purple line,['Positional'],Single Entity,_network,0.1–0.5MP,_city,885,806
+92.jpg,What is the main ferry hub shown on the European side near Old Istanbul?,Eminonu,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_city,886,807
+92.jpg,Which dock on the Asian side is closest to the Princes’ Islands route?,Bostanci,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_city,887,808
+92.jpg,Which ferry dock is located between Besiktas and Kasimpasa on the European side?,Kabatas,['Positional'],Single Entity,_network,0.1–0.5MP,_city,888,809
+93.jpg,How many subway lines are there?,5,['Other'],Counting,_network,>8MP,_city,889,810
+93.jpg,There are 5 green and white shaded areas on the map.,2,['Visual'],Boolean,_network,>8MP,_city,891,811
+93.jpg,How many lines does the yellow line intersect,3,"['Visual', 'Positional']",Counting,_network,>8MP,_city,892,812
+93.jpg,How many bodies of water are there?,2,['Other'],Counting,_network,>8MP,_city,893,813
+93.jpg,How many options does someone have to go to Rosslyn?,2,['Other'],Counting,_network,>8MP,_city,894,814
+93.jpg,How many options does someone have to go to the Pentagon?,2,['Other'],Counting,_network,>8MP,_city,895,815
+93.jpg,How many options does someone have to go to the Friendship Heights?,1,['Other'],Counting,_network,>8MP,_city,896,816
+94.png,Which hospital is closest to the Starbucks?,The Cancer Hospital,['Comparative'],Single Entity,_layout,0.5–2MP,_campus,897,817
+94.png,The Emergency room is next to which hospital?,The Neuro Science hospital,['Other'],Single Entity,_layout,0.5–2MP,_campus,898,818
+94.png,Is Children's hospital between Memorial Hospital and Women's hospital?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_campus,900,819
+94.png,Which route seems like it has the least walking distance to the Emergency Room?,emergency drive.,"['Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_campus,901,820
+94.png,How many different routes/drives are there in this map?,4,['Other'],Counting,_layout,0.5–2MP,_campus,902,821
+94.png,How many sky walks are there?,3,['Other'],Counting,_layout,0.5–2MP,_campus,903,822
+94.png,Is the starbucks coffee close to memorial hospital or cancer hospital?,No,['Other'],Boolean,_layout,0.5–2MP,_campus,904,823
+94.png,I am at Dogwood Deck how many drives are there which could take me to the women's hospital?,3,['Other'],Single Entity,_layout,0.5–2MP,_campus,905,824
+94.png,Is emergency room and Manning Deck connected with any drive?,Yes,['Positional'],Boolean,_layout,0.5–2MP,_campus,906,825
+94.png,How many hospitals are there?,5,['Other'],Counting,_layout,0.5–2MP,_campus,907,826
+95.jpg,What landmark does stop 1 serve on the Chester Tour Route?,Chester Station & Queen’s Hotel,['Other'],Single Entity,_mixed,0.5–2MP,_city,908,827
+95.jpg,Which bus stop number corresponds to the Visitor Information Centre & Café?,Stop 4,['Visual'],Single Entity,_mixed,0.5–2MP,_city,909,828
+95.jpg,At which stop can you see the Roman Amphitheatre and Gardens?,5,['Visual'],Single Entity,_mixed,0.5–2MP,_city,910,829
+95.jpg,Which stop provides the Chester Boat connection on the River Dee?,6,['Other'],Single Entity,_mixed,0.5–2MP,_city,911,830
+95.jpg,What feature is located at stop 7?,Pepper Street Bridge,['Positional'],Single Entity,_mixed,0.5–2MP,_city,912,831
+95.jpg,On which road is stop 8 situated?,Bridgegate Road,['Other'],Single Entity,_mixed,0.5–2MP,_city,913,832
+95.jpg,Which stop number appears on Grosvenor Road just beyond Grosvenor Park?,9,['Visual'],Single Entity,_mixed,0.5–2MP,_city,914,833
+95.jpg,Which stop is directly in front of the Grosvenor Museum?,12,['Other'],Single Entity,_mixed,0.5–2MP,_city,915,834
+95.jpg,What number marks the bus stop at the Forum Shopping Centre?,14,['Visual'],Single Entity,_mixed,0.5–2MP,_city,916,835
+95.jpg,Which stop lies at the junction of St Martin’s Way and Delamere Street?,15,['Positional'],Single Entity,_mixed,0.5–2MP,_city,917,836
+96.png,"Based only on the image, which country in South America has >100% inflation?",Venezuela,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,919,837
+96.png,"Based only on the image, what is the inflation range of Turkey?",50–100%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,920,838
+96.png,"Based only on the image, which south east asia country has inflation in the 20–50% range?",Laos,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,921,839
+96.png,"Based only on the image,  give me a number, how many countries don't have data?",4,['Other'],Counting,_choropleth,0.1–0.5MP,_world,922,840
+96.png,"Based only on the image, what is the inflation range for South Korea?",5-10%,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,923,841
+96.png,"Based only on the image, which country in the Caucasus region has >100% inflation?",none,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,924,842
+96.png,"Based only on the image, which country in the south asia region has 50-100% inflation?",Sri Lanka,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,925,843
+96.png,"Based only on the image, which two South American countries have inflation between 50–100%?",Argentina and Suriname,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,926,844
+96.png,"Based only on the image, what is the inflation range for Ukraine?",10-20%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,927,845
+96.png,"Based only on the image, give me a number, how many countries have over 100% inflation?",4,['Comparative'],Counting,_choropleth,0.1–0.5MP,_world,928,846
+97.png,How many continents are white?,2,['Visual'],Counting,_choropleth,0.5–2MP,_world,929,847
+97.png,How many regions in south america are red?,4,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_world,930,848
+97.png,How many colors represent USA?,1,['Visual'],Counting,_choropleth,0.5–2MP,_world,931,849
+97.png,Does russia or india have a better rate?,Russia,['Other'],Boolean,_choropleth,0.5–2MP,_world,932,850
+97.png,Does AUS or CAN have a better rate?,No,['Other'],Boolean,_choropleth,0.5–2MP,_world,933,851
+97.png,Does italy or canada have a lower rate?,No,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,934,852
+97.png,How many red and orange country borders are there?,4,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_world,935,853
+97.png,What is the color of the largest south american region?,Yellow,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,936,854
+97.png,Does China and Mexico have different colors?,No,['Visual'],Boolean,_choropleth,0.5–2MP,_world,937,855
+97.png,What country represents 100 years life expectancy?,Japan or South Korea,['Other'],Single Entity,_choropleth,0.5–2MP,_world,938,856
+98.jpg,how many separate metro lines are there?,11,['Other'],Counting,_network,0.1–0.5MP,_city,939,857
+98.jpg,"Using the maps above, how many red circles are there?",10,"['Visual', 'Positional']",Counting,_network,0.1–0.5MP,_city,940,858
+98.jpg,count the number of stops the orange line makes?,10,['Visual'],Counting,_network,0.1–0.5MP,_city,941,859
+98.jpg,count the number of stops the dark blue line makes?,31,['Visual'],Counting,_network,0.1–0.5MP,_city,942,860
+98.jpg,count the number of stops the green line makes?,6,['Visual'],Counting,_network,0.1–0.5MP,_city,943,861
+98.jpg,name the stops that are made in the light blue metro line,Yenimahalle and Kirazli,['Visual'],Single Entity,_network,0.1–0.5MP,_city,944,862
+98.jpg,how many times do three metro lines intersect,5,['Positional'],Counting,_network,0.1–0.5MP,_city,945,863
+98.jpg,which color line is the airport near?,Red,"['Visual', 'Positional']",Single Entity,_network,0.1–0.5MP,_city,946,864
+99.jpg,How many distinct bridge illustrations are shown spanning the Bosphorus strait?,1,['Visual'],Counting,_marker,>8MP,_city,949,865
+99.jpg,How many individual ferry or large boat illustrations are shown on the water bodies,1,"['Visual', 'Comparative']",Counting,_marker,>8MP,_city,950,866
+99.jpg,What is the name of the structure illustrated directly north of the Hippodrome Square label?,Obelisk of Theodesius,"['Visual', 'Positional']",Single Entity,_marker,>8MP,_city,951,867
+99.jpg,How many illustrations featuring the Turkish Airlines logo are present including everything.,3,['Other'],Counting,_marker,>8MP,_city,952,868
+99.jpg,What specific color is the roof of the main tower structure in the Dolmabahce Palace illustration?,Blue,['Visual'],Single Entity,_marker,>8MP,_city,953,869
+99.jpg,What landmark is depicted immediately south of the Galata Bridge?,New Mosque,['Positional'],Single Entity,_marker,>8MP,_city,954,870
+99.jpg,Which mosque is across Galata Tower,New Mosque,['Positional'],Single Entity,_marker,>8MP,_city,955,871
+99.jpg,What type of historic industrial building is labeled near Yildiz Palace Chalet?,Imperial Factory,"['Visual', 'Positional']",Single Entity,_marker,>8MP,_city,956,872
+100.png,Which country in Europe has the largest population?,Germany,['Comparative'],Single Entity,_cartogram,>8MP,_world,957,873
+100.png,What is the population of Indonesia as per this cartogram?,255.4 Million,['Other'],Single Entity,_cartogram,>8MP,_world,958,874
+100.png,Which African country appears the largest in area on this map?,Nigeria,"['Visual', 'Comparative']",Single Entity,_cartogram,>8MP,_world,959,875
+100.png,Which North American country has the smallest population on this map?,Belize,"['Positional', 'Comparative']",Single Entity,_cartogram,>8MP,_world,960,876
+100.png,Which European country appears black in color?,Italy,['Visual'],Single Entity,_cartogram,>8MP,_world,961,877
+100.png,Which country lies directly south of China on this map?,India,['Positional'],Single Entity,_cartogram,>8MP,_world,962,878
+100.png,Is Australia larger in population than Taiwan?,No,['Comparative'],Boolean,_cartogram,>8MP,_world,963,879
+100.png,What country appears west of Iran and east of Saudi Arabia?,Iraq,"['Visual', 'Positional']",Single Entity,_cartogram,>8MP,_world,964,880
+100.png,What is the population of the U.K. according to the map?,64.1 million,['Other'],Single Entity,_cartogram,>8MP,_world,965,881
+100.png,Which Southeast Asian country is shown in red and has a large population?,Indonesia,"['Visual', 'Positional', 'Comparative']",Single Entity,_cartogram,>8MP,_world,966,882
+101.jpg,Count number of right turns when going from A to B,2,['Positional'],Counting,_network,0.5–2MP,_neighborhood,967,883
+101.jpg,Is the distance travelled from E to F same and F to E,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,973,884
+101.jpg,Is the distance travelled from A to C same and C to A,No,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,974,885
+102.jpg,Which color line serves Lincoln Center on the West Side?,Purple,"['Visual', 'Positional']",Single Entity,_mixed,0.5–2MP,_city,977,886
+102.jpg,Which colored loop runs along 5th Avenue past the Empire State Building area?,Gray,"['Visual', 'Positional']",Single Entity,_mixed,0.5–2MP,_city,978,887
+102.jpg,Which loop stops at South Street Seaport on the East River?,Green,['Positional'],Single Entity,_mixed,0.5–2MP,_city,979,888
+102.jpg,Which stop number is St. Patrick’s Cathedral on the Uptown Loop?,17,['Other'],Single Entity,_mixed,0.5–2MP,_city,981,889
+102.jpg,"On the Downtown Loop, which stop number marks the Staten Island Ferry?",3,['Visual'],Single Entity,_mixed,0.5–2MP,_city,982,890
+102.jpg,Which tour never stops at Times Square?,Downtown Loop,['Other'],Single Entity,_mixed,0.5–2MP,_city,983,891
+102.jpg,How many Uptown-Loop stops lie north of 96th Street?,6,['Positional'],Counting,_mixed,0.5–2MP,_city,984,892
+102.jpg,"On the Gray Line,what stop number is the Empire State Building?",7,['Visual'],Single Entity,_mixed,0.5–2MP,_city,985,893
+103.png,Which attraction lies directly north of the Coaches Museum?,Jerónimos Monastery,['Positional'],Single Entity,_marker,0.5–2MP,_city,987,894
+103.png,What is the only attraction located south of the 25 de Abril Bridge on the opposite side of the rive,Cristo Rei,['Positional'],Single Entity,_marker,0.5–2MP,_city,988,895
+103.png,Which museum lies farthest to the northwest on the map?,Calouste Gulbenkian Museum,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_city,990,896
+103.png,Which landmark lies almost directly between Santa Justa Elevator and National Pantheon?,Castle,['Positional'],Single Entity,_marker,0.5–2MP,_city,991,897
+103.png,Which attraction is near the water and west of the Discoveries Monument?,Belém Tower,['Positional'],Single Entity,_marker,0.5–2MP,_city,992,898
+103.png,Which attraction lies in the same horizontal line as Praça do Comércio but further west?,Ancient Art Museum,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_city,993,899
+103.png,Which attraction lies east of the Castle and south of the National Pantheon?,Cathedral,['Positional'],Single Entity,_marker,0.5–2MP,_city,994,900
+103.png,What attraction lies directly north of the Ancient Art Museum and directly south of the Basilica da,Estrela Garden,['Positional'],Single Entity,_marker,0.5–2MP,_city,995,901
+103.png,Which attraction is situated west of the Santa Justa Elevator and east of the Ancient Art Museum?,São Bento Palace,['Positional'],Single Entity,_marker,0.5–2MP,_city,996,902
+104.jpg,"Based on the image I provided, which attraction is nearest to Governors Island Ferry?",Battery Maritime Building,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,997,903
+104.jpg,"Based on the image I provided, Is Nat'l Museum located inside Battery Park or outside it?",Outside,['Positional'],Boolean,_mixed,2–8MP,_city,998,904
+104.jpg,"Based on the image I provided,  Is Federal Hall closer to Trinity Church or to the NY Stock Exchange",NY Stock Exchange,['Positional'],Boolean,_mixed,2–8MP,_city,999,905
+104.jpg,"Based on the image I provided, Is the Vietnam Veterans Memorial closer to which Ferry",Governors Island Ferry,['Positional'],Single Entity,_mixed,2–8MP,_city,1001,906
+104.jpg,"Based on the image I provided, Whcich attraction is near pumphouse park?",World Financial Center,['Positional'],Single Entity,_mixed,2–8MP,_city,1002,907
+104.jpg,Which history walk pass through the Museum of Jewish Heritage?,Orange dotted history walk,['Positional'],Single Entity,_mixed,2–8MP,_city,1003,908
+104.jpg,"Based on the image I provided, which hotel nearest to Skyscraper Museum?",Ritz-Carlton,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1004,909
+104.jpg,"Based on the image I provided, which attraction is nearest to city hall?",Brooklyn Bridge,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1005,910
+104.jpg,"Based on the image I provided, What is the label number of 9/11 Memorial & Museum?",67,['Visual'],Single Entity,_mixed,2–8MP,_city,1006,911
+105.png,"Identify the only landmark located directly on the ""Gran Vía.""",Metropolis Building (27),['Positional'],Single Entity,_mixed,2–8MP,_city,1008,912
+105.png,Which landmark is farthest north on the map?,Plaza de Castilla (42),"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1009,913
+105.png,What is the only landmark located on the banks of the Manzanares River?,Puente de Toledo (40),['Positional'],Single Entity,_mixed,2–8MP,_city,1010,914
+105.png,Identify the landmark that is both a museum and located in the Retiro district.,Prado Museum,['Positional'],Single Entity,_mixed,2–8MP,_city,1011,915
+105.png,Which landmark is located at the intersection of Calle Mayor and Calle Bailén?,Plaza de la Armería (12),['Positional'],Single Entity,_mixed,2–8MP,_city,1012,916
+105.png,Which landmark is directly south of the Royal Palace?,La Almudena Cathedral (2),['Positional'],Single Entity,_mixed,2–8MP,_city,1013,917
+106.png,"What section is directly west of ""LABORATORY""?",AMBULATORY CARE,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,1014,918
+106.png,"What section is north of ""PSYCHIATRY WEST""?",PSYCHIATRY EAST,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,1016,919
+106.png,Which section is positioned at the extreme top-left of the map?,EMERGENCY,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,1017,920
+106.png,"What area is east of ""SCREENING MAMMOGRAPHY""?",PSYCHIATRY EAST,['Positional'],Single Entity,_layout,0.5–2MP,_building,1019,921
+106.png,"Which section is directly north of ""CLINICAL ADMIN""?",CASHIER,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,1020,922
+106.png,"What color is used for the ""EMERGENCY"" area?",Red,['Visual'],Single Entity,_layout,0.5–2MP,_building,1021,923
+106.png,"If someone enters from the bottom-left stairwell, which section do they enter first?",LABORATORY,"['Visual', 'Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,1022,924
+106.png,"What is immediately west of ""SPIRITUAL CARE""?",ADMINISTRATION,['Positional'],Single Entity,_layout,0.5–2MP,_building,1023,925
+107.png,which room is the security room touching?,Laboratory,['Other'],Single Entity,_layout,0.5–2MP,_building,1024,926
+107.png,how many colors that are different from the emergency room are bordering the em,3,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,1025,927
+107.png,how many different colors is bordering the physiotherapy room?,2,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,1026,928
+107.png,how many different colors is bordering the pharmacy room?,1,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,1027,929
+107.png,which labeled area is the closest to the physiotherapy room?,Medicine Unit,"['Visual', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,1028,930
+107.png,which labeled area is the closest to the Diagnostic imaging area?,Emergency,"['Visual', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,1029,931
+107.png,which labeled area is the closest to the ambulatory daycare?,Laboratory,"['Visual', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,1030,932
+107.png,"Using the picture above, how many different exact colors are used to categorize the different rooms?",8,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_building,1031,933
+107.png,how many rooms are purple?,2,['Visual'],Counting,_layout,0.5–2MP,_building,1032,934
+107.png,how many separate rooms are light blue?,3,['Visual'],Counting,_layout,0.5–2MP,_building,1033,935
+108.png,How many labelled dark blue rooms are there in this image?,5,['Visual'],Counting,_layout,0.5–2MP,_building,1034,936
+108.png,"Given i am at the center of the map, which direction do i go to reach Fraser Valley Cancer Clinic?",North-east,['Positional'],Single Entity,_layout,0.5–2MP,_building,1035,937
+108.png,Which department (name) lies immediately east of the green Emergency block and shares a doorway with,Diagnostic Imaging,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,1036,938
+108.png,What colour is used for Occupational & Physiotherapy?,Orange,['Visual'],Single Entity,_layout,0.5–2MP,_building,1037,939
+108.png,Does the main yellow corridor ever enter the green Emergency block?,No,['Visual'],Boolean,_layout,0.5–2MP,_building,1038,940
+108.png,How many separate purple‑labelled departments are printed on the plan?,4,['Other'],Counting,_layout,0.5–2MP,_building,1039,941
+108.png,How many yellow corridors feed directly into that circular hub?,4,['Visual'],Counting,_layout,0.5–2MP,_building,1041,942
+108.png,Which department lies directly north of Diagnostic Imaging?,North 1 Medical In‑patient Unit,['Positional'],Single Entity,_layout,0.5–2MP,_building,1042,943
+108.png,"Counting only blocks labelled orange, how many are there?",8,['Visual'],Counting,_layout,0.5–2MP,_building,1043,944
+109.png,What is the densest country in Asia?,Bangladesh,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,1044,945
+109.png,Name the country that has two density plots.,ukraine,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,1047,946
+109.png,Answer True or False: Do France and Italy have the same range?,False,['Other'],Boolean,_choropleth,0.1–0.5MP,_world,1050,947
+109.png,What is the densest country in North America?,Haiti,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,1052,948
+109.png,Which country in Asia has one of the lowest densities when compared to all its neighbor?,Laos,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_world,1053,949
+110.png,"Based only on the image, what color represents the Medical Office Building?",gold,['Visual'],Single Entity,_layout,0.5–2MP,_campus,1054,950
+110.png,"Based only on the image, which tower is closest to 13th Street?",Main Tower,['Comparative'],Single Entity,_layout,0.5–2MP,_campus,1055,951
+110.png,"Based only on the image, where is the Atrium located?",Between Medical Office Building Medical Office Building parking garages,['Positional'],Single Entity,_layout,0.5–2MP,_campus,1056,952
+110.png,"Based only on the image, which building contains Oncology and Infusion Clinic?",Medical Office Building,['Positional'],Single Entity,_layout,0.5–2MP,_campus,1057,953
+110.png,"Based only on the image, what does the purple area represent?",parking garages,['Visual'],Single Entity,_layout,0.5–2MP,_campus,1058,954
+110.png,"Based only on the image, can you see the levels of the building?",no,['Visual'],Boolean,_layout,0.5–2MP,_campus,1059,955
+110.png,"Based only on the image, which area contains the Social Services office?",East Tower,['Positional'],Single Entity,_layout,0.5–2MP,_campus,1060,956
+110.png,"Based only on the image, where is Security located?",Near East Tower and Employee Health.,['Positional'],Single Entity,_layout,0.5–2MP,_campus,1061,957
+110.png,"Based only on the image, how many parking areas are shown, including garages?",7,['Visual'],Counting,_layout,0.5–2MP,_campus,1062,958
+110.png,"Based only on the image, which tower includes a labeled PFT Lab?",Main Tower,['Visual'],Single Entity,_layout,0.5–2MP,_campus,1063,959
+111.jpg,how many team parking areas are there?,4,['Other'],Counting,_layout,2–8MP,_campus,1064,960
+111.jpg,how many bus stops are there?,6,['Other'],Counting,_layout,2–8MP,_campus,1065,961
+111.jpg,how many entrances are there?,8,['Other'],Counting,_layout,2–8MP,_campus,1066,962
+111.jpg,what center is closest to the Kurrus Funeral Home?,Orthopedic and Neurosciences Center,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_campus,1067,963
+111.jpg,which street is closest to the Memorial Care Center?,Memorial Drive,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_campus,1068,964
+111.jpg,is there handicap accessibility in the Covered Parking Lower Level?,No,['Comparative'],Boolean,_layout,2–8MP,_campus,1070,965
+111.jpg,is there an emergency entrance in the Memorial Care Center?,No,['Positional'],Boolean,_layout,2–8MP,_campus,1071,966
+111.jpg,where is the main entrance?,Near the main entrance parking lot,['Positional'],Single Entity,_layout,2–8MP,_campus,1072,967
+111.jpg,what business is this map representing,Memorial Hospital Belleville,['Other'],Single Entity,_layout,2–8MP,_campus,1073,968
+112.jpg,"Based only on the image, what department is directly next to the Gift Shop?",Administration,['Other'],Single Entity,_layout,2–8MP,_building,1074,969
+112.jpg,"Based only on the image, what direction is the Emergency Entrance relative to the Main Entrance?",southwest,['Positional'],Single Entity,_layout,2–8MP,_building,1075,970
+112.jpg,"Based only on the image, what is the closest elevator to the Chapel?",D Center Elevators,['Comparative'],Single Entity,_layout,2–8MP,_building,1076,971
+112.jpg,"Based only on the image, which department is immediately east of the Emergency Entrance?",Gift shop,['Positional'],Single Entity,_layout,2–8MP,_building,1077,972
+112.jpg,"Based only on the image, how many elevators icon has shown?",11,['Visual'],Counting,_layout,2–8MP,_building,1078,973
+112.jpg,"Based only on the image, where is the Chapel situated relative to the D Visitors Lounge?",southwest,['Positional'],Single Entity,_layout,2–8MP,_building,1079,974
+112.jpg,"Based only on the image, which patient room range is closest to the Chapel?",D1 (142-160),['Comparative'],Single Entity,_layout,2–8MP,_building,1080,975
+112.jpg,"Based only on the image, how many patient pickup/drop off label are shown?",4,['Visual'],Counting,_layout,2–8MP,_building,1081,976
+112.jpg,"Based only on the image, what is the main street on the north side of the building?",Memorial drive,['Positional'],Single Entity,_layout,2–8MP,_building,1082,977
+112.jpg,"Based only on the image, how many vending are there in the building?",2,['Other'],Counting,_layout,2–8MP,_building,1083,978
+113.png,How many states are there close to 3k Median Monthly Payment from the map?,4,['Other'],Counting,_choropleth,0.1–0.5MP,_country,1084,979
+113.png,how many states are in white that is least Median Monthly Payment from the map? Just guve count,2,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_country,1085,980
+113.png,Count the number of states in the map. Just the count,50,['Other'],Counting,_choropleth,0.1–0.5MP,_country,1086,981
+113.png,Among California and Washington which has highest mortgage payment. answer from the map,California,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,1087,982
+113.png,Among Washington and New Mexico which is higher mortgage payment. answer from the map,New Mexico,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,1088,983
+113.png,Among Texas and New York which is higher mortgage payment. answer from the map,Texas,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,1089,984
+113.png,Is the difference between New York and arizona same as california and arizona?,No,['Positional'],Boolean,_choropleth,0.1–0.5MP,_country,1091,985
+113.png,Is the difference between washington and arizona same as california and arizona?,No,['Positional'],Boolean,_choropleth,0.1–0.5MP,_country,1092,986
+113.png,which is the ideal state to be in to have least motgage,Arizona,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,1093,987
+113.png,Which state has least mortage repayment among the states in southern border,Arizona,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,1094,988
+114.png,Which region on the map shows the darkest anomaly color (highest temperature anomaly) in 2010?,Eastern Europe,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1095,989
+114.png,Which continent shows mostly mid-range temperature anomalies with moderate orange shading?,North America,['Visual'],Single Entity,_choropleth,2–8MP,_world,1096,990
+114.png,Which country in the Southern Hemisphere shows a strong temperature anomaly on the map?,Australia,['Positional'],Single Entity,_choropleth,2–8MP,_world,1097,991
+114.png,Which part of Africa shows a noticeably higher anomaly compared to its surrounding regions?,Horn of Africa,['Comparative'],Single Entity,_choropleth,2–8MP,_world,1098,992
+114.png,Which region in Europe shows the lightest (least intense) anomaly shading?,Scandinavia,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1099,993
+114.png,Which South American country shows lighter anomaly colors compared to the rest of the continent?,Brazil,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1100,994
+114.png,Which area in Asia shows darker anomaly shading compared to China and India?,Western Russia,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1101,995
+114.png,Which Central American region shows a similar anomaly shading as the southern U.S.?,Mexico,['Positional'],Single Entity,_choropleth,2–8MP,_world,1102,996
+114.png,Which part of Oceania shows a dark anomaly besides Australia?,Papua New Guinea,['Visual'],Single Entity,_choropleth,2–8MP,_world,1103,997
+114.png,Which continent shows the largest area with only light orange anomaly shading?,Africa,"['Visual', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1104,998
+115.jpeg,"How many distinct red ""Connecting Station"" markers are explicitly shown and labeled on the main map?",4,['Visual'],Counting,_mixed,>8MP,_city,1105,999
+115.jpeg,What is the highest numerical stop number depicted anywhere on the map routes?,70,['Comparative'],Single Entity,_mixed,>8MP,_city,1106,1000
+115.jpeg,"Counting the stops listed in the ""Marina Tour"" text panel, how many explicitly include the ""Marina""",5,['Other'],Counting,_mixed,>8MP,_city,1108,1001
+115.jpeg,"What is the stop number shown on the map for ""Atlantis The Palm"" on the Green Route (Beach Tour)?",34,['Visual'],Single Entity,_mixed,>8MP,_city,1109,1002
+115.jpeg,"Within the City, Beach, and Marina Tour panels, how many times does ""Souk"" appear",6,"['Visual', 'Positional']",Counting,_mixed,>8MP,_city,1110,1003
+115.jpeg,What is the total duration listed for the Marina Tour in its text panel?,1H 30M,['Other'],Single Entity,_mixed,>8MP,_city,1111,1004
+115.jpeg,"Which specific stop number represents the ""Connecting Station"" linking the Green Route and the Blue",21,['Visual'],Single Entity,_mixed,>8MP,_city,1112,1005
+115.jpeg,Stop 33 on the Green Route (Beach Tour) is located near which specific named landmark listed?,Burj Al Arab,"['Visual', 'Positional']",Single Entity,_mixed,>8MP,_city,1113,1006
+115.jpeg,Which coloured tour route travels along the trunk of the Palm Jumeirah illustration?,Green,['Positional'],Single Entity,_mixed,>8MP,_city,1114,1007
+116.jpg,Which attraction is located closest to the northern tip of Manhattan on the map?,Central Park,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_city,1115,1008
+116.jpg,Which attraction is the southernmost on the map?,Statue of Liberty,['Positional'],Single Entity,_marker,2–8MP,_city,1116,1009
+116.jpg,What type of attraction is the Brooklyn Bridge classified as on the map?,Kid-Family Friendly,['Visual'],Single Entity,_marker,2–8MP,_city,1117,1010
+116.jpg,What type of attraction is the Top of the Rock classified as on the map?,Observation Deck,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,2–8MP,_city,1119,1011
+116.jpg,How many Zoo-Aquarium attractions are shown on the map?,2,['Visual'],Counting,_marker,2–8MP,_city,1120,1012
+116.jpg,How many types of attractions are represented by the color blue on the map?,2,['Visual'],Counting,_marker,2–8MP,_city,1121,1013
+116.jpg,How many attractions are north of the Brooklyn Bridge but south of Central Park on the map?,6,['Positional'],Counting,_marker,2–8MP,_city,1123,1014
+116.jpg,How many attractions are classified as History on the map?,2,['Visual'],Counting,_marker,2–8MP,_city,1124,1015
+117.png,How many colored regions are seen?,7,['Visual'],Counting,_conflict,0.1–0.5MP,_continent,1125,1016
+117.png,How many rivers are there?,5,['Other'],Counting,_conflict,0.1–0.5MP,_continent,1126,1017
+117.png,How many sections are unexplored?,1,['Visual'],Counting,_conflict,0.1–0.5MP,_continent,1127,1018
+117.png,how many pink sections have brown lines going vertical?,1,['Visual'],Counting,_conflict,0.1–0.5MP,_continent,1128,1019
+117.png,how many pink sections have yellow lines going diagonal?,1,['Visual'],Counting,_conflict,0.1–0.5MP,_continent,1129,1020
+117.png,What state is the yellow and pink section in?,Louisiana,['Visual'],Single Entity,_conflict,0.1–0.5MP,_continent,1130,1021
+117.png,How many cities are in the red?,7,['Visual'],Counting,_conflict,0.1–0.5MP,_continent,1131,1022
+118.jpg,What is the total count of arrows shown on the map?,5,['Visual'],Counting,_network,0.5–2MP,_world,1133,1023
+118.jpg,What is the count of digits that appear on North America on the map?,5,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_world,1134,1024
+118.jpg,How many arrow heads are on North America on the map?,0,['Positional'],Counting,_network,0.5–2MP,_world,1135,1025
+118.jpg,How many arrow heads are on Asia on the map?,0,['Other'],Counting,_network,0.5–2MP,_world,1136,1026
+118.jpg,"How many instances of the letter ""a"" show up on South America on the map?",0,['Positional'],Counting,_network,0.5–2MP,_world,1138,1027
+118.jpg,How many continents are on the map?,6,['Other'],Counting,_network,0.5–2MP,_world,1139,1028
+118.jpg,How many continents are not on the map?,1,['Other'],Counting,_network,0.5–2MP,_world,1140,1029
+118.jpg,How many continents are labeled with their respective names on the map?,0,['Visual'],Counting,_network,0.5–2MP,_world,1141,1030
+119.png,Which line reaches the furthest southeast point on the map?,Purple,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,1142,1031
+119.png,Which line starts in the Kirkland area?,Yellow,['Other'],Single Entity,_network,2–8MP,_city,1143,1032
+119.png,Which line serves Tukwila?,Purple,['Other'],Single Entity,_network,2–8MP,_city,1144,1033
+119.png,Which line enters Bellevue from the west?,Yellow,['Positional'],Single Entity,_network,2–8MP,_city,1146,1034
+119.png,Which color line has the most stations before reaching the school?,Purple,"['Visual', 'Comparative']",Single Entity,_network,2–8MP,_city,1147,1035
+119.png,Which line terminates closest to Renton?,Purple,['Comparative'],Single Entity,_network,2–8MP,_city,1148,1036
+119.png,Which line loops furthest east beyond Mercer Island?,Yellow,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,1149,1037
+119.png,Which line intersects the most other lines near The Northwest School?,Purple,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_city,1150,1038
+119.png,Which line comes directly from the north into Seattle?,Teal,['Positional'],Single Entity,_network,2–8MP,_city,1151,1039
+120.jpg,Which Manhattan pier serves as the central hub for all routes?,34th St,['Other'],Single Entity,_network,2–8MP,_city,1152,1040
+120.jpg,Which stop includes a slash and references a Brooklyn neighborhood and a street?,Greenpoint/India Street,['Other'],Single Entity,_network,2–8MP,_city,1153,1041
+120.jpg,Which route extends to St. George?,Lower East Side,['Other'],Single Entity,_network,2–8MP,_city,1154,1042
+120.jpg,Which stop is served by five colored routes?,E 34th St,['Visual'],Single Entity,_network,2–8MP,_city,1155,1043
+120.jpg,Which route has only two stops?,Soundview,['Other'],Single Entity,_network,2–8MP,_city,1156,1044
+120.jpg,Which route uses a dotted line for its Staten Island connection?,Lower East Side,['Other'],Single Entity,_network,2–8MP,_city,1157,1045
+120.jpg,How many ferry routes serve the E 34th terminal?,4,['Other'],Counting,_network,2–8MP,_city,1158,1046
+120.jpg,Which route is shown in purple color,Rockaway,['Visual'],Single Entity,_network,2–8MP,_city,1159,1047
+120.jpg,Which Manhattan pier is served by every route on the map?,34th St,['Other'],Single Entity,_network,2–8MP,_city,1160,1048
+120.jpg,Which route uses a dashed (dotted) line for its Staten Island connection?,Lower East Side,['Other'],Single Entity,_network,2–8MP,_city,1161,1049
+120.jpg,Which route is the only one to stop at Roosevelt Island?,Astoria,['Other'],Single Entity,_network,2–8MP,_city,1162,1050
+121.jpg,How many total arrows in the whole image?,6,['Other'],Counting,_layout,0.5–2MP,_campus,1163,1051
+121.jpg,How many parking lots are there?,10,['Other'],Counting,_layout,0.5–2MP,_campus,1164,1052
+121.jpg,How many blood institutes are there?,2,['Other'],Counting,_layout,0.5–2MP,_campus,1165,1053
+121.jpg,How many parking lots are for visitors?,1,['Other'],Counting,_layout,0.5–2MP,_campus,1166,1054
+121.jpg,What highway intersects Sandifer Blvd?,Blue Ridge Blvd,['Other'],Single Entity,_layout,0.5–2MP,_campus,1167,1055
+121.jpg,What highway intersects Blue Ridge Blvd?,Sandifer Blvd,['Visual'],Single Entity,_layout,0.5–2MP,_campus,1168,1056
+121.jpg,What highway is furthest from State Rd S-37-248?,Blue Ridge Blvd  or 28,['Comparative'],Single Entity,_layout,0.5–2MP,_campus,1169,1057
+122.png,how many countries have 80-100% of people online?,21,['Other'],Counting,_cartogram,0.5–2MP,_world,1170,1058
+122.png,which countries in Africa have 80-100% of people online?,none,['Other'],Single Entity,_cartogram,0.5–2MP,_world,1171,1059
+122.png,how many people are online in India?,0-20%,['Other'],Counting,_cartogram,0.5–2MP,_world,1172,1060
+122.png,how many people are online in China?,40-60%,['Other'],Counting,_cartogram,0.5–2MP,_world,1173,1061
+122.png,how many people are online in Afghanistan?,20-40%,['Other'],Counting,_cartogram,0.5–2MP,_world,1174,1062
+122.png,what does each hex in the hex map represent?,470000 people online,['Other'],Single Entity,_cartogram,0.5–2MP,_world,1175,1063
+122.png,how many countries in South America have 60-80% of people online?,2,['Positional'],Counting,_cartogram,0.5–2MP,_world,1176,1064
+122.png,how many different categories is represented by the legend?,5,['Other'],Counting,_cartogram,0.5–2MP,_world,1177,1065
+122.png,how many countries in North America have 80-100% of people online?,3,['Positional'],Counting,_cartogram,0.5–2MP,_world,1178,1066
+122.png,"Using the map, which continent has the most amount of countries with 80-100% of people online?",Europe,['Comparative'],Single Entity,_cartogram,0.5–2MP,_world,1179,1067
+123.jpg,How many total stations are marked on the red line?,19,['Visual'],Counting,_network,0.5–2MP,_city,1180,1068
+123.jpg,"What symbol is used to mark the station labeled ""Civic Center""?",White circle with black outline,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,1181,1069
+123.jpg,"Which highway number appears closest to the ""Wellston"" station?",70,"['Visual', 'Comparative']",Single Entity,_network,0.5–2MP,_city,1182,1070
+123.jpg,How many interstate highways are labeled on this map?,3,['Visual'],Counting,_network,0.5–2MP,_city,1183,1071
+123.jpg,What color is the river shown on this map?,Light blue,['Visual'],Single Entity,_network,0.5–2MP,_city,1184,1072
+123.jpg,Which station has an orange dot next to its name?,Washington Park,['Visual'],Single Entity,_network,0.5–2MP,_city,1185,1073
+123.jpg,"Count the number of stations between ""Union Station"" and ""Stadium"" inclusive.",3,['Positional'],Counting,_network,0.5–2MP,_city,1186,1074
+123.jpg,Which two states are labeled on this transit map?,Missouri and Illinois,['Visual'],Single Entity,_network,0.5–2MP,_city,1187,1075
+123.jpg,What letter appears in the purple circle near Forest Park?,T,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_city,1188,1076
+123.jpg,Which station name is labeled furthest north on this map?,North Hanley,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.5–2MP,_city,1189,1077
+124.jpg,Which continent has the highest number of COVID-19 cases according to the map?,North America,['Comparative'],Single Entity,_choropleth,2–8MP,_world,1190,1078
+124.jpg,Identify the country with the highest number of cases in South America.,Brazil,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1191,1079
+124.jpg,Which region in Europe has the highest concentration of COVID-19 cases?,Western Europe,['Comparative'],Single Entity,_choropleth,2–8MP,_world,1192,1080
+124.jpg,"What is the only country in Africa with over 100,000 cases?",South Africa,['Comparative'],Single Entity,_choropleth,2–8MP,_world,1193,1081
+124.jpg,Which Asian country has the highest number of cases according to the map?,China,['Comparative'],Single Entity,_choropleth,2–8MP,_world,1194,1082
+124.jpg,Which country in the Middle East has the highest number of cases?,Iran,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1195,1083
+124.jpg,Identify the country with the highest number of cases in Southeast Asia.,Indonesia,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1196,1084
+124.jpg,Identify the country with the highest number of cases that borders the Mediterranean Sea.,Italy,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_world,1197,1085
+124.jpg,Identify the country with the highest number of cases that is an island nation.,Indonesia,['Comparative'],Single Entity,_choropleth,2–8MP,_world,1198,1086
+125.png,"how many states fully adopted common core, including DC?",43,['Other'],Counting,_choropleth,0.5–2MP,_country,1199,1087
+125.png,how many states fully rejected common core?,7,['Other'],Counting,_choropleth,0.5–2MP,_country,1200,1088
+125.png,does Arizona border a state that fully rejected common core?,No,['Positional'],Boolean,_choropleth,0.5–2MP,_country,1203,1089
+125.png,does Michigan border a state that partially adopted common core?,no,['Positional'],Boolean,_choropleth,0.5–2MP,_country,1204,1090
+125.png,does Nebraska border a state that partially adopted common core?,no,['Positional'],Boolean,_choropleth,0.5–2MP,_country,1205,1091
+125.png,how many states partially adopted common core?,1,['Other'],Counting,_choropleth,0.5–2MP,_country,1207,1092
+126.png,How many different name variations are shown in the legend?,9,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,1209,1093
+126.png,"Which color represents the name ""Alice"" according to the legend?",Green,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,1210,1094
+126.png,Which name variation is represented by the pink color on the map?,Alysa,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,1211,1095
+126.png,What is the last name listed in the legend?,Other form,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,1212,1096
+126.png,Which continent has the most countries colored in light blue?,South America,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,1213,1097
+126.png,How many continents have at least one country colored in dark blue?,3,"['Visual', 'Comparative']",Counting,_choropleth,0.1–0.5MP,_world,1214,1098
+126.png,What color represents the name variation shown in Australia?,Dark blue,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,1215,1099
+126.png,Which color appears in the fewest countries on this map?,Red,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,1216,1100
+126.png,Count the number of gray countries visible on the map.,114,['Visual'],Counting,_choropleth,0.1–0.5MP,_world,1217,1101
+126.png,Which name variation is shown in the largest continuous land area?A,Alice,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,1218,1102
+127.png,"Based only on the image, which African country has the highest population densit?",somaliland,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,1219,1103
+127.png,"Based only on the image, is Brazil in the 30–100 individuals/km² range?",no,['Other'],Boolean,_choropleth,0.5–2MP,_world,1220,1104
+127.png,"Based only on the image, can you tell which has higher population density - South Korea or North Kor",no,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,1221,1105
+127.png,"Based only on the image, can you tell Germany or France have denser population?",no,['Other'],Boolean,_choropleth,0.5–2MP,_world,1222,1106
+127.png,"Based only on the image, which coutnry has the densiest population in south america?",Chile,['Positional'],Single Entity,_choropleth,0.5–2MP,_world,1223,1107
+127.png,"Based only on the image, is New Zealand sparsely populated?",no,['Other'],Boolean,_choropleth,0.5–2MP,_world,1224,1108
+127.png,"Based only on the image, does Pakistan have more than 300 individuals/km²?",no,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,1225,1109
+127.png,"Based only on the image, is Paraguay in the 30–100 range?",no,['Other'],Boolean,_choropleth,0.5–2MP,_world,1226,1110
+127.png,"Based only on the image, does the US fall in the 10–30 range?",no,['Other'],Boolean,_choropleth,0.5–2MP,_world,1227,1111
+127.png,"Based only on the image, is Saudi Arabia densely populated?",yes,['Other'],Boolean,_choropleth,0.5–2MP,_world,1228,1112
+128.jpg,Which landmark is farthest southeast on the map?,Zizkov Television Tower,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1229,1113
+128.jpg,What letter corresponds to Charles Bridge?,K,['Visual'],Single Entity,_mixed,2–8MP,_city,1230,1114
+128.jpg,Which site is closest to the river's west bank at the bottom of the map?,Vrtba Garden or L,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1231,1115
+128.jpg,What is the letter for Prague Castle?,B,['Other'],Single Entity,_mixed,2–8MP,_city,1232,1116
+128.jpg,Which site is closest to the train tracks on the far right?,Z,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1234,1117
+128.jpg,What is the most central landmark on the map?,P or Astronomical Clock,['Comparative'],Single Entity,_mixed,2–8MP,_city,1236,1118
+128.jpg,Which landmark is directly north of National Museum?,W,['Positional'],Single Entity,_mixed,2–8MP,_city,1237,1119
+128.jpg,Which labeled point is at the northwesternmost corner of the map?,E,['Visual'],Single Entity,_mixed,2–8MP,_city,1238,1120
+129.png,What language is spoken in Australia?,Australian,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,1239,1121
+129.png,What language is spoken in Japan?,Japanese,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,1240,1122
+129.png,What language is spoken in India?,Hindi,['Other'],Single Entity,_choropleth,0.1–0.5MP,_world,1241,1123
+129.png,Which language is spoken in the country directly west of India?,Arabic,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,1242,1124
+129.png,Which language is spoken in the region colored yellow?,Mayan,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,1243,1125
+129.png,Which language is spoken in the country directly north of Spain?,French,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,1244,1126
+129.png,Which language is spoken in the country directly west of Japan?,Chinese,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,1245,1127
+129.png,Which language is spoken in the country directly north of India?,Chinese,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_world,1246,1128
+129.png,What color represents the Arabic language on the map?,Blue,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,1247,1129
+130.jpg,How many numbered zones are there in Stadium?,123,['Other'],Counting,_layout,2–8MP,_building,1248,1130
+130.jpg,Are any seating allotments subject to change ?,Yes,['Other'],Boolean,_layout,2–8MP,_building,1251,1131
+130.jpg,"What is the only element in the map that is not a seating section, gate, or label?",Ship image,['Visual'],Single Entity,_layout,2–8MP,_building,1254,1132
+130.jpg,What color section appears the most in stadium?,White,"['Visual', 'Comparative']",Single Entity,_layout,2–8MP,_building,1255,1133
+130.jpg,How many different color-coded seat categories are visible in the 200-level sections?,5,['Visual'],Counting,_layout,2–8MP,_building,1256,1134
+131.jpg,What is the southernmost stop on Route 255,Fremont & Hollenbeck,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1258,1135
+131.jpg,Which street does the stop “Lakebird” appear to be located near?,none,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1259,1136
+131.jpg,Does Route 255 cross Highway 101?,yes,['Positional'],Boolean,_network,2–8MP,_neighborhood,1260,1137
+131.jpg,What symbol is used to represent timepoints on the map?,A solid white circle with a black border,['Visual'],Single Entity,_network,2–8MP,_neighborhood,1262,1138
+131.jpg,"According to the map, is Route 255 a full-time service or limited to specific days?",School Days Only,['Other'],Boolean,_network,2–8MP,_neighborhood,1263,1139
+131.jpg,"After leaving the Fremont & Hollenbeck stop, how many turns does Route 255 make before reaching Duan",3,['Other'],Counting,_network,2–8MP,_neighborhood,1265,1140
+131.jpg,Which stop is located directly east of the Old San Francisco stop when following the route northboun,Fair Oaks,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1266,1141
+131.jpg,How many stops (excluding timepoints) are marked between the Remington stop and Duane stop?,3,"['Visual', 'Positional']",Counting,_network,2–8MP,_neighborhood,1267,1142
+132.png,Which street is labeled at the bottom of the map?,Paseo de Valencia,"['Visual', 'Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_campus,1268,1143
+132.png,"Based on the image, What letter marks the visitor-parking entrance?",V,['Visual'],Single Entity,_layout,0.5–2MP,_campus,1269,1144
+132.png,How many entrances to the Breast Center Pavilion are shown?,1,"['Visual', 'Positional']",Counting,_layout,0.5–2MP,_campus,1270,1145
+132.png,Which entrance sits on Health Center Drive?,Breast Center Women's Health Pavilion entrance,['Positional'],Single Entity,_layout,0.5–2MP,_campus,1271,1146
+132.png,Which facility lies directly west of the Post Office?,Cancer Institue,['Positional'],Single Entity,_layout,0.5–2MP,_campus,1272,1147
+132.png,How many green arrows appear?,8,['Visual'],Counting,_layout,0.5–2MP,_campus,1273,1148
+132.png,How many yellow arrows appear?,4,['Visual'],Counting,_layout,0.5–2MP,_campus,1274,1149
+132.png,How many “P” parking icons are shown?,4,['Visual'],Counting,_layout,0.5–2MP,_campus,1275,1150
+132.png,What color is the Post Office building?,Blue,['Visual'],Single Entity,_layout,0.5–2MP,_campus,1276,1151
+132.png,How many “No Hospital or MOT Parking” zones are there?,2,['Other'],Counting,_layout,0.5–2MP,_campus,1277,1152
+133.jpg,Which site at the waterfront hosts Major League Baseball games?,AT&T Park,['Other'],Single Entity,_mixed,2–8MP,_city,1278,1153
+133.jpg,Which attraction sits at the very end of the Embarcadero pier by the bay?,The Embarcadero,['Other'],Single Entity,_mixed,2–8MP,_city,1279,1154
+133.jpg,Which site lies directly at the fork where the two orange highway ramps split south of Nob Hill?,Market Street,"['Visual', 'Positional']",Single Entity,_mixed,2–8MP,_city,1280,1155
+133.jpg,Which landmark is just east of the Exploratorium along the waterfront docks?,Fisherman’s Wharf,['Positional'],Single Entity,_mixed,2–8MP,_city,1281,1156
+133.jpg,Which marker sits furthest south in the hilly area?,Glen Canyon Park,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1282,1157
+133.jpg,Which attraction is immediately north of the cable-cars icon but below Coit Tower?,The Beat Museum,['Positional'],Single Entity,_mixed,2–8MP,_city,1283,1158
+133.jpg,Which marker is the brewery just inland from Fisherman’s Wharf?,Gordon Biersch,['Other'],Single Entity,_mixed,2–8MP,_city,1284,1159
+133.jpg,"Which letter sits immediately west of Coit Tower, on the same small block?",Cable Cars,['Positional'],Single Entity,_mixed,2–8MP,_city,1285,1160
+133.jpg,Which site lies directly south of the southwest corner of Golden Gate Park?,Twin Peaks,['Positional'],Single Entity,_mixed,2–8MP,_city,1286,1161
+133.jpg,"Which marker is the easternmost point on the map, out on the bay?",AT&T Park,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1287,1162
+134.jpg,"where is the ""Must See Thing"" Y located?",Crawford Square,"['Visual', 'Positional']",Single Entity,_mixed,2–8MP,_city,1288,1163
+134.jpg,"which ""Must See Thing"" is closest to Chippewa Square?",N or K,"['Visual', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1289,1164
+134.jpg,"which ""Must See Thing"" is closest to Etis Square?",i,"['Visual', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1290,1165
+134.jpg,"which ""Must See Thing"" is directly at the Hyatt Regency Hotel next to the river",None of them,['Visual'],Single Entity,_mixed,2–8MP,_city,1291,1166
+134.jpg,"which ""Must See Thing"" is listed for G?",Mercer Williams House Museum,['Visual'],Single Entity,_mixed,2–8MP,_city,1292,1167
+134.jpg,"which ""Must See Thing"" is listed for H?",Green-Meldrim House,['Visual'],Single Entity,_mixed,2–8MP,_city,1293,1168
+134.jpg,"which ""Must See Thing"" is listed for Q?",Historic District,['Visual'],Single Entity,_mixed,2–8MP,_city,1294,1169
+134.jpg,"which ""Must See Thing"" is closest to Chatham County Courthouse Judicial Center?",D or Jepson Center for the Arts,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1295,1170
+134.jpg,how many pictures are shown?,26,['Visual'],Counting,_mixed,2–8MP,_city,1296,1171
+134.jpg,"what ""Must See Thing"" is the most east?",Z or the Pirates house,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,1297,1172
+135.jpg,Which bus would you take to go from Ramchandrapur Crossing to Sonarpur Station Road?,Route 9.,['Other'],Single Entity,_network,2–8MP,_neighborhood,1298,1173
+135.jpg,Tell me a stop that is in-between Tirupati Paradise CO-OP Housing Society and BDM International,Jagaddal Bandhab Bayam Samity,['Other'],Single Entity,_network,2–8MP,_neighborhood,1301,1174
+135.jpg,"Looking at the map, what is the name of the pink route?",Route 7: Rash Behari - Tollygunge - Garia - BDMI,['Visual'],Single Entity,_network,2–8MP,_neighborhood,1305,1175
+135.jpg,"Looking at the map, which route cross Route 1 in between Kasba Police Station and Vivanta Kolkata EM",Route 4.,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1306,1176
+135.jpg,"Looking at the map, which route is Kasba Police Station on?",Route 1: Ruby to BDMI.,['Other'],Single Entity,_network,2–8MP,_neighborhood,1307,1177
+136.png,how many total stops does the bus make?,26,['Other'],Counting,_network,0.5–2MP,_neighborhood,1308,1178
+136.png,How many times does the connecting bus triangle appear in the entire image?,2,['Visual'],Counting,_network,0.5–2MP,_neighborhood,1309,1179
+136.png,Where are all connecting bus stops?,Rockbank Station,['Positional'],Single Entity,_network,0.5–2MP,_neighborhood,1310,1180
+136.png,How long does it take to get from stop 8 to 9 in the AM?,2 minutes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,1312,1181
+136.png,How long does it take to get from stop 7 to 11 in the AM?,7 minutes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,1313,1182
+136.png,How long does it take to get from stop 1 to 6 in the AM?,26 minutes,['Other'],Boolean,_network,0.5–2MP,_neighborhood,1314,1183
+137.png,"Based on the map, does Rt. 23 go west of Rt. 21?",no,['Positional'],Boolean,_network,2–8MP,_neighborhood,1315,1184
+137.png,"Based on the map, what is the easternmost school?",Afton Elementary school,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_neighborhood,1316,1185
+137.png,"Based on the map, what route goes through 3100 WY-238?",Rt. 22,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1317,1186
+137.png,"Based on the map, which route includes both 160 Stump Creek and 1429 Stump Creek?",Rt. 22,['Other'],Single Entity,_network,2–8MP,_neighborhood,1319,1187
+137.png,"Based on the map, which route passes 466 Auburn-Tygee?",Rt.22,['Other'],Single Entity,_network,2–8MP,_neighborhood,1320,1188
+137.png,"Based on the map, which route goes near Tom’s Canyon & Wort?",Rt. 22,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1321,1189
+137.png,"Based on the map, what school is located at the top of Rt. 25?",Star Valley middle School.,"['Positional', 'Comparative']",Single Entity,_network,2–8MP,_neighborhood,1322,1190
+137.png,"Based on the map, which route includes a wait location marked “NO KIDS”?",Rt. 28,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1323,1191
+137.png,"Based on the map, does Rt. 21 run east-west or north-south?",east-west,['Other'],Boolean,_network,2–8MP,_neighborhood,1324,1192
+138.jpg,Which section is directly opposite the South Terrace?,The East seating area,"['Visual', 'Positional']",Single Entity,_layout,>8MP,_building,1325,1193
+138.jpg,Identify the section closest to the Jack Brabham Room.,Members Reserve seating section,"['Visual', 'Comparative']",Single Entity,_layout,>8MP,_building,1326,1194
+138.jpg,Which gate is nearest to the Premium Lounge North?,5,"['Positional', 'Comparative']",Single Entity,_layout,>8MP,_building,1327,1195
+138.jpg,What is the section number directly above the Media Lounge?,413,"['Visual', 'Positional']",Single Entity,_layout,>8MP,_building,1328,1196
+138.jpg,What is the section number directly below the North Terrace?,227 - 230,"['Visual', 'Positional']",Single Entity,_layout,>8MP,_building,1329,1197
+138.jpg,Identify the section closest to the Sapphire Club.,318,"['Visual', 'Comparative']",Single Entity,_layout,>8MP,_building,1330,1198
+138.jpg,What is the gate closest to the ticket office,5,['Comparative'],Single Entity,_layout,>8MP,_building,1331,1199
+138.jpg,Which gate is nearest to the Premium Lounge South?,5,"['Positional', 'Comparative']",Single Entity,_layout,>8MP,_building,1332,1200
+139.jpg,How many figures are shown wearing some form of headwear?,2,['Visual'],Counting,_marker,0.5–2MP,_city,1333,1201
+139.jpg,How many distinct musical instrument illustrations are shown?,1,['Visual'],Counting,_marker,0.5–2MP,_city,1334,1202
+139.jpg,Which named district on the map contains an illustration of a lighthouse?,Magnolia,['Positional'],Single Entity,_marker,0.5–2MP,_city,1335,1203
+139.jpg,How many figures are depicted actively engaged in a water sport,2,['Other'],Counting,_marker,0.5–2MP,_city,1336,1204
+139.jpg,How many individual building illustrations feature a primarily blue color?,6,['Visual'],Counting,_marker,0.5–2MP,_city,1337,1205
+139.jpg,How many distinctly illustrated coffee cups are shown?,1,['Visual'],Counting,_marker,0.5–2MP,_city,1338,1206
+139.jpg,How many illustrations depict animals,5,['Other'],Counting,_marker,0.5–2MP,_city,1339,1207
+140.png,How many stations are marked with an asterisk (*) on this map?,5,['Visual'],Counting,_network,2–8MP,_neighborhood,1340,1208
+140.png,What color is the line that connects to Battery Park City?,Pink,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1341,1209
+140.png,How many white rounded rectangles appear as transfer points on the map?,3,['Visual'],Counting,_network,2–8MP,_neighborhood,1342,1210
+140.png,"What is written in small text beneath ""Wall Street""?",Pier 11,['Other'],Single Entity,_network,2–8MP,_neighborhood,1343,1211
+140.png,Which colored line passes through Governors Island?,Yellow,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1344,1212
+140.png,"What landmark is mentioned under ""Atlantic Avenue*""?",Brooklyn Bridge Park-Pier 6,['Comparative'],Single Entity,_network,2–8MP,_neighborhood,1345,1213
+140.png,How many transit lines are shown on this map in total?,5,['Visual'],Counting,_network,2–8MP,_neighborhood,1346,1214
+140.png,What text appears in red vertically along the pink/magenta line?,ST. GEORGE,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1347,1215
+140.png,What area name is shown in all capital letters in the eastern part of the map?,BROOKLYN,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1348,1216
+140.png,"What is mentioned under ""Red Hook*""?",Atlantic Basin,"['Visual', 'Comparative']",Single Entity,_network,2–8MP,_neighborhood,1349,1217
+141.png,What neighborhood is directly south of DUMBO?,Brooklyn Heights,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1350,1218
+141.png,Which neighborhood is directly west of Brooklyn Heights?,Financial District,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1351,1219
+141.png,What neighborhood is located between Brooklyn Heights and the Financial District?,DUMBO,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1352,1220
+141.png,What is the only neighborhood on the left (west) side of the river?,Financial District,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1353,1221
+141.png,Which line connects the Financial District and Brooklyn Navy Yard directly?,Purple line,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1354,1222
+141.png,What landmark lies east of the Financial District and west of Brooklyn Navy Yard?,DUMBO,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1355,1223
+141.png,Which neighborhood is southeast of the Financial District?,Brooklyn Heights,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1356,1224
+141.png,What is the nearest anchor icon (dock) to the Brooklyn Heights label?,The dock between DUMBO and Brooklyn Heights,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,2–8MP,_neighborhood,1357,1225
+141.png,What colored line travels through all three docks near DUMBO?,Orange line,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_neighborhood,1358,1226
+141.png,What neighborhood is northeast of Brooklyn Heights?,Brooklyn Navy Yard,['Positional'],Single Entity,_network,2–8MP,_neighborhood,1359,1227
+142.jpg,Was Fort William Henry originally a British or French fort?,British fort,['Other'],Boolean,_conflict,0.5–2MP,_region,1360,1228
+142.jpg,Which side controlled Fort Duquesne at the beginning of the conflict?,French,['Positional'],Single Entity,_conflict,0.5–2MP,_region,1361,1229
+142.jpg,Where did British attack from to the Fort Duquesne?,Philadelphia,['Positional'],Single Entity,_conflict,0.5–2MP,_region,1362,1230
+142.jpg,Which fort is located at the western end of Lake Ontario?,Ft. Niagara,['Positional'],Single Entity,_conflict,0.5–2MP,_region,1363,1231
+142.jpg,Which state did British general suffered defeat?,Ohio,['Other'],Single Entity,_conflict,0.5–2MP,_region,1364,1232
+142.jpg,What does a green triangle symbol indicate?,No green triangle symbol,['Visual'],Single Entity,_conflict,0.5–2MP,_region,1365,1233
+142.jpg,Is Fort Niagara originally represented with a British or French fort symbol?,French fort,['Other'],Boolean,_conflict,0.5–2MP,_region,1366,1234
+142.jpg,What color indicates French territorial possession?,peach,['Visual'],Single Entity,_conflict,0.5–2MP,_region,1367,1235
+142.jpg,what body of water did British naval forces use to reach Ft. Beausejour?,Atlantic Ocean,['Other'],Single Entity,_conflict,0.5–2MP,_region,1368,1236
+142.jpg,How many war did British get victory on the map?,8,['Other'],Counting,_conflict,0.5–2MP,_region,1369,1237
+143.jpg,What is the name of the southernmost park in the UPPER WEST SIDE section of the map?,Bryant Park,"['Visual', 'Positional']",Single Entity,_multiple,0.5–2MP,_city,1370,1238
+143.jpg,"Of the three sections of the map, which sections correctly shows which part it is zooming in?",Hudson Heights and Harlem,['Visual'],Single Entity,_multiple,0.5–2MP,_city,1372,1239
+143.jpg,How may rectangle boxes are drawn onto the map?,6,['Other'],Counting,_multiple,0.5–2MP,_city,1373,1240

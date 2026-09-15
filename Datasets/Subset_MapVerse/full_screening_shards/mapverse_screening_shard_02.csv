@@ -1,0 +1,1241 @@
+image_name,question,correct_answer,question_type,answer_type,map_type,image_size_bucket,geographic_level,source_row,screening_id
+282.jpg,Which settlement or region is marked at the mouth of the river “Sagueanyd”?,Tadousac,['Visual'],Single Entity,_divisional,2–8MP,_region,2732,2481
+282.jpg,What bay appears at the far northeastern edge labeled near “Slayers Haven”?,Clay Harbour,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2733,2482
+282.jpg,What name is given to the territory west of the “Attiouan dorons” label?,Florida,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2734,2483
+282.jpg,Which island is shown just south of the word “Acadie” (juts out from the coast)?,Île de Sable  or Sable Island,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2735,2484
+282.jpg,Which lake is labelled “Lac des Pluans”?,Lake Huron,['Visual'],Single Entity,_divisional,2–8MP,_region,2737,2485
+282.jpg,Which bay is marked on the eastern coast of Nova Scotia as “Baye de Sable”?,Bay of Sable or Sable Bay,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2738,2486
+282.jpg,What longitude degree is marked at the far right of the top margin?,335,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_region,2739,2487
+283.png,How many major stations are marked in the Montreal - Quebec line in the map?,4,['Visual'],Counting,_network,2–8MP,_region,2740,2488
+283.png,How many rail lines run in Canada according to the map?,7,['Other'],Counting,_network,2–8MP,_region,2743,2489
+283.png,How many times in total do these lines run daily?,27,['Other'],Counting,_network,2–8MP,_region,2744,2490
+283.png,What is the only minor station in the orange line?,Casselman,['Visual'],Single Entity,_network,2–8MP,_region,2745,2491
+284.png,Which region does Ottawa lie in?,Ontario,['Other'],Single Entity,_isopleth,2–8MP,_state,2746,2492
+284.png,Which region does Gatineau lie in?,Quebec,['Other'],Single Entity,_isopleth,2–8MP,_state,2747,2493
+284.png,Which city's name is the same as the capital of a country other than Canada?,London,['Other'],Single Entity,_isopleth,2–8MP,_state,2748,2494
+284.png,Count the number of cities starting with the letter W in this map.,1,['Other'],Counting,_isopleth,2–8MP,_state,2749,2495
+284.png,Count the number of words starting with the letter O in this map.,3,['Other'],Counting,_isopleth,2–8MP,_state,2750,2496
+284.png,Count the number of words starting with the letter S in this map.,4,['Other'],Counting,_isopleth,2–8MP,_state,2751,2497
+284.png,"As per this map, which city lies farthest from the coast/water?",Gatineau,"['Positional', 'Comparative']",Single Entity,_isopleth,2–8MP,_state,2752,2498
+284.png,"As per this map, which is the southernmost city?",Windsor,['Positional'],Single Entity,_isopleth,2–8MP,_state,2753,2499
+284.png,Which city that does not have a circular symbol as an indicator is closest to USA?,Ottawa or Quebec City,['Comparative'],Single Entity,_isopleth,2–8MP,_state,2754,2500
+285.jpg,What region is highlighted in pink on the map?,Fezzan,['Visual'],Single Entity,_divisional,2–8MP,_region,2756,2501
+285.jpg,What region lies to the north of the Garamantes?,Tripoli,['Positional'],Single Entity,_divisional,2–8MP,_region,2757,2502
+285.jpg,What label is found near Tibo of Arna?,Arna,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2758,2503
+285.jpg,What lies south of Lybia Pentapolis?,Dessert of Barca,['Positional'],Single Entity,_divisional,2–8MP,_region,2759,2504
+285.jpg,What city lies near the coast labeled in yellow?,Tripoli,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2760,2505
+285.jpg,What is the terrain feature marked along the bottom central area of the pink zone?,Rocks of Tibbo,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_region,2761,2506
+285.jpg,What lies west of Lybian dessert?,Tibbo of Febabo,['Positional'],Single Entity,_divisional,2–8MP,_region,2762,2507
+285.jpg,What label is found near the cluster of oasis dots in the east?,Oasis of Ammon,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_region,2763,2508
+285.jpg,Which area is marked near the bottom under Nomadic?,Bournu,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_region,2764,2509
+285.jpg,What desert lies southwest of the Garamantes?,Nomad Tuarick,['Positional'],Single Entity,_divisional,2–8MP,_region,2765,2510
+286.jpg,"Which large country label clearly contains the black oval marked with ""O?""",Russia,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,<0.1MP,_continent,2766,2511
+286.jpg,Is the city label 'Beijing' located north or south of the red arrow's path?,South,"['Visual', 'Positional']",Boolean,_network,<0.1MP,_continent,2767,2512
+286.jpg,"Does the yellow oval visibly overlap with the country label ""MONGOLIA""?",No,['Visual'],Boolean,_network,<0.1MP,_continent,2768,2513
+286.jpg,"Which colored arrow passes geographically closer to the black ""O?"" oval?",Red,"['Visual', 'Positional']",Single Entity,_network,<0.1MP,_continent,2769,2514
+286.jpg,Which large labelled country bordering China/Russia (India/Mongolia) is least overlapped by oval?,India,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,<0.1MP,_continent,2770,2515
+286.jpg,The red arrow points generally towards which major region?,Southeast Asia,['Visual'],Single Entity,_network,<0.1MP,_continent,2771,2516
+286.jpg,Which region constitutes a wide part of Russia in the North?,Siberia,['Positional'],Single Entity,_network,<0.1MP,_continent,2772,2517
+286.jpg,Which mountains does the orange arrow pass through?,Ural,"['Visual', 'Positional']",Single Entity,_network,<0.1MP,_continent,2773,2518
+286.jpg,Is the yellow oval located primarily east or west of the main Ural Mountains range depicted on map?,East,"['Visual', 'Positional']",Boolean,_network,<0.1MP,_continent,2774,2519
+286.jpg,Identify a city label situated beneath the orange arrow's path within the borders of Kazakhstan,Astana,"['Visual', 'Positional']",Single Entity,_network,<0.1MP,_continent,2775,2520
+287.png,How many colors are used to represent this map?,4,['Visual'],Counting,_choropleth,2–8MP,_world,2776,2521
+287.png,What color is Mexico?,Black,['Visual'],Single Entity,_choropleth,2–8MP,_world,2777,2522
+287.png,What color is Greenland?,light gray,['Visual'],Single Entity,_choropleth,2–8MP,_world,2779,2523
+287.png,How many countries in south america are gray?,4,"['Visual', 'Positional']",Counting,_choropleth,2–8MP,_world,2780,2524
+287.png,What color is lake Victoria?,white,['Visual'],Single Entity,_choropleth,2–8MP,_world,2781,2525
+287.png,What color is Hawaii?,Dark Green,['Visual'],Single Entity,_choropleth,2–8MP,_world,2782,2526
+287.png,What color is prominent in Asia?,light gray,['Visual'],Single Entity,_choropleth,2–8MP,_world,2783,2527
+288.png,Is Socotra closer to the ETH or Saudi Arabia?,Saudi Arabia,['Positional'],Boolean,_marker,0.1–0.5MP,_country,2787,2528
+288.png,What is on immediate left of Sanaa?,Jabal an nabi Shurayb,['Positional'],Single Entity,_marker,0.1–0.5MP,_country,2788,2529
+288.png,What is present in Saudi Arabia?,none,['Other'],Single Entity,_marker,0.1–0.5MP,_country,2789,2530
+288.png,What comes in near/between Sanaa and Taizz if we go south from Sanaa?,Ibb,['Positional'],Single Entity,_marker,0.1–0.5MP,_country,2790,2531
+288.png,What is the distance between Somalia and Socotra?,150 - 160 miles,['Positional'],Single Entity,_marker,0.1–0.5MP,_country,2791,2532
+288.png,What is in north of ETH ?,DJI,['Positional'],Single Entity,_marker,0.1–0.5MP,_country,2792,2533
+288.png,Is Sayhut closer to Al Mukalla or Nishtun?,Nishtun,['Positional'],Boolean,_marker,0.1–0.5MP,_country,2793,2534
+289.png,What is the exact vote percentage received by the candidate represented by the orange color?,24.59%,['Visual'],Single Entity,_choropleth,2–8MP,_country,2794,2535
+289.png,How many provinces/regions are colored in light green on the electoral map?,3,['Visual'],Counting,_choropleth,2–8MP,_country,2795,2536
+289.png,What is the difference in vote percentage between the first and second-place candidates?,9.64%,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,2797,2537
+289.png,How many different colors are used to represent voting results?,4,['Visual'],Counting,_choropleth,2–8MP,_country,2798,2538
+289.png,"Which candidate's name contains exactly three parts (first name, middle initial, last name)?",Rómulo A. Roux M.,"['Positional', 'Comparative']",Single Entity,_choropleth,2–8MP,_country,2799,2539
+289.png,"What percentage of the map is colored in gray, and what does this gray area likely represent?",Approximately 10-15%,['Visual'],Single Entity,_choropleth,2–8MP,_country,2800,2540
+289.png,What is the combined vote percentage of the three lowest-performing candidates shown in the results?,33.99%,['Visual'],Single Entity,_choropleth,2–8MP,_country,2802,2541
+289.png,Which specific political party is José Raúl Mulino Q. affiliated with?,Realizing Goals - Alliance Party or Realizando Metas,['Other'],Single Entity,_choropleth,2–8MP,_country,2803,2542
+290.png,Which city shown on the map is located furthest north?,Dallas,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_state,2804,2543
+290.png,Which city shown on the map is located furthest south?,Monterrey,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_state,2805,2544
+290.png,Which Texas city is closest to the Gulf of Mexico?,Houston,['Comparative'],Single Entity,_marker,0.1–0.5MP,_state,2806,2545
+290.png,Which city shown is located furthest east?,Houston,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_state,2807,2546
+290.png,Which Texas city is located closest to the center of the state as shown on this map?,Austin,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_state,2808,2547
+290.png,"Based on the map, which body of water is visible on the eastern border of Texas?",Gulf of Mexico,"['Visual', 'Positional']",Single Entity,_marker,0.1–0.5MP,_state,2809,2548
+290.png,Which city appears to be in closest proximity to the largest concentration of inland water bodies?,Dallas,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_state,2810,2549
+290.png,How many cities are shown on the map in total?,5,['Visual'],Counting,_marker,0.1–0.5MP,_state,2811,2550
+290.png,What is the largest city in Texas shown on the map?,Houston,"['Visual', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_state,2813,2551
+291.jpg,The main escape routes shown on the map ended in Mexico.,false,['Visual'],Boolean,_network,2–8MP,_region,2814,2552
+291.jpg,Fugitive slaves used routes through Ohio and Indiana to reach Canada.,true,"['Visual', 'Positional']",Boolean,_network,2–8MP,_region,2815,2553
+291.jpg,Detroit was one of the major crossing points into Canada.,true,['Other'],Boolean,_network,2–8MP,_region,2816,2554
+291.jpg,"According to the map, some escape routes begin as far south as Mississippi.",false,['Positional'],Boolean,_network,2–8MP,_region,2817,2555
+291.jpg,Annotations in the upper left corner show specific conductors and safe houses in Pennsylvania.,true,['Positional'],Boolean,_network,2–8MP,_region,2818,2556
+291.jpg,"The inset map includes personal names, likely representing conductors or stationmasters.",true,['Other'],Boolean,_network,2–8MP,_region,2819,2557
+291.jpg,The scale of miles on the bottom right suggests the map was designed for detailed route planning.,true,"['Positional', 'Comparative']",Boolean,_network,2–8MP,_region,2820,2558
+291.jpg,Lake Michigan is used as a major escape crossing point into Canada.,false,['Visual'],Boolean,_network,2–8MP,_region,2821,2559
+291.jpg,The inset map provides detailed routes around the cities of Harrisburg and York.,true,['Other'],Boolean,_network,2–8MP,_region,2822,2560
+291.jpg,Does the map include a legend explaining the meaning of red lines and dots.,false,['Visual'],Boolean,_network,2–8MP,_region,2823,2561
+292.png,What's the average percentage of all regions that directly touch the Adriatic Sea (eastern coast)?,6.7%,['Positional'],Single Entity,_choropleth,0.5–2MP,_country,2824,2562
+292.png,How many regions with percentages below 3% share a border with regions above 9%?,2,['Positional'],Counting,_choropleth,0.5–2MP,_country,2825,2563
+292.png,What is the percentage difference between the northernmost and southernmost mainland regions?,4.5%,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2826,2564
+292.png,"Among regions that share a land border with the 9.7% region, which has the lowest percentage?",2.8%,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2827,2565
+292.png,What's the combined percentage of the three smallest regions visible in the northern part of country,26.2,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2828,2566
+292.png,What's the approximate ratio of the highest percentage to the lowest percentage shown?,5:1,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2829,2567
+292.png,How many regions form the complete perimeter of the 11% southern region?,4,['Positional'],Counting,_choropleth,0.5–2MP,_country,2830,2568
+292.png,How many regions with percentages above 9% are completely surrounded by other regions?,1,['Positional'],Counting,_choropleth,0.5–2MP,_country,2832,2569
+292.png,"If regions were grouped into ""above 7%"" and ""below 7%"", which group would contain more regions?",Below,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2833,2570
+293.png,How many colors/sections do you see?,4,['Visual'],Counting,_mixed,0.1–0.5MP,_continent,2834,2571
+293.png,Which color on the map represents countries located mostly in Northern Africa?,Red,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_continent,2835,2572
+293.png,How many countries in Europe are shaded in light green?,4,['Visual'],Counting,_mixed,0.1–0.5MP,_continent,2836,2573
+293.png,Are there more red-shaded countries north or south of the Mediterranean Sea?,South,"['Positional', 'Comparative']",Boolean,_mixed,0.1–0.5MP,_continent,2837,2574
+293.png,Which colored region includes both Spain and France?,Brown,['Visual'],Single Entity,_mixed,0.1–0.5MP,_continent,2838,2575
+293.png,Which large island in the northwest part of the map is completely grey?,United Kingdom,"['Visual', 'Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_continent,2839,2576
+293.png,Does the brown shaded area span both Europe and Africa?,Yes,['Visual'],Boolean,_mixed,0.1–0.5MP,_continent,2840,2577
+293.png,Are there any red-shaded countries south of the equator?,No,['Positional'],Boolean,_mixed,0.1–0.5MP,_continent,2841,2578
+293.png,Is Italy colored white or red on this map?,White,['Visual'],Boolean,_mixed,0.1–0.5MP,_continent,2842,2579
+293.png,Are there any light green countries in Africa?,Yes,['Visual'],Boolean,_mixed,0.1–0.5MP,_continent,2843,2580
+294.png,according to the map how many birds end their migration route in africa?,3,['Other'],Counting,_network,2–8MP,_world,2844,2581
+294.png,"according to the map, in which state does the migration of Northern Wheatear end?",Botswana,['Positional'],Single Entity,_network,2–8MP,_world,2845,2582
+294.png,"According to the map, how many species cross the Equator twice?",2,['Positional'],Counting,_network,2–8MP,_world,2847,2583
+294.png,"According to the map, how many species winter in the Northern Hemisphere?",1,['Positional'],Counting,_network,2–8MP,_world,2848,2584
+294.png,"According to the map, how many species’ routes pass through Eurasia?",3,['Positional'],Counting,_network,2–8MP,_world,2849,2585
+294.png,"According to the map, does Arctic tern pass through eurasia?",no,['Positional'],Boolean,_network,2–8MP,_world,2850,2586
+294.png,"According to the map, how many species follow predominantly overland (inland) routes?",4,['Other'],Counting,_network,2–8MP,_world,2851,2587
+294.png,"According to the map, how many species follow exclusively coastal routes?",1,['Other'],Counting,_network,2–8MP,_world,2852,2588
+294.png,"According to the map, how many species cross the Bering Strait?",2,['Positional'],Counting,_network,2–8MP,_world,2853,2589
+295.png,Which river forms part of the border between Poland and Belarus?,Bug,['Positional'],Single Entity,_network,0.5–2MP,_subcontinent,2854,2590
+295.png,What color marks the border crossing points for trucks only?,Green,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2855,2591
+295.png,Which numbered highway (M designation) connects Brest to Kobryn?,M1,['Positional'],Single Entity,_network,0.5–2MP,_subcontinent,2856,2592
+295.png,Which border crossing is designated specifically for trucks only?,Kazlovičy-Kukuryki,['Positional'],Single Entity,_network,0.5–2MP,_subcontinent,2857,2593
+295.png,Which city is located at the junction of highways M1 and E30?,Brest,['Positional'],Single Entity,_network,0.5–2MP,_subcontinent,2858,2594
+295.png,Which country is NOT labeled on this map but shares a border with Belarus?,Russia,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2859,2595
+295.png,Which country has the fewest labeled border crossing points on this map?,Ukraine,"['Visual', 'Positional', 'Comparative']",Single Entity,_network,0.5–2MP,_subcontinent,2860,2596
+295.png,What color indicates passenger car and bus border crossings on the map?,Green,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2861,2597
+295.png,What forest is labeled on the map near the Poland-Belarus border?,Białowieża forest,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2863,2598
+296.png,What is the route from Istanbul to Minsk as shown in image? Air route or ground route ?,Air route,['Visual'],Single Entity,_network,2–8MP,_subcontinent,2864,2599
+296.png,Which country does the route go through from Istanbul to Minsk as shown in image?,Russia,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_subcontinent,2866,2600
+296.png,Which country according to uploaded image has restricted air traffic ?,Ukraine,['Other'],Single Entity,_network,2–8MP,_subcontinent,2867,2601
+296.png,What is the route from Syria to Istanbul as shown in image? Air route or ground route ?,Ground,['Visual'],Single Entity,_network,2–8MP,_subcontinent,2869,2602
+296.png,Is there any flight connectivity to Germany in the uploaded image ?,No,['Other'],Boolean,_network,2–8MP,_subcontinent,2870,2603
+296.png,Which flight connects dubai to Minsk as shown in uploaded image ?,Flydubai,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_subcontinent,2871,2604
+296.png,Is there any flight connecting Beirut and Damascus shown in uploaded map ?,No,['Visual'],Boolean,_network,2–8MP,_subcontinent,2872,2605
+296.png,Is there any flight connecting Poland and Germany shown in uploaded map ?,No,['Visual'],Boolean,_network,2–8MP,_subcontinent,2873,2606
+297.png,Which island is located farthest east?,Linosa,"['Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_region,2874,2607
+297.png,Which island is located closest to Tunisia?,Lampione,"['Positional', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_region,2875,2608
+297.png,Which island is the largest by size?,Lampedusa,"['Visual', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_region,2876,2609
+297.png,Which country is located directly north of the Pelagie Islands?,Italy,['Positional'],Single Entity,_marker,0.1–0.5MP,_region,2877,2610
+297.png,Which direction is Malta located from the Pelagie Islands?,East,['Positional'],Single Entity,_marker,0.1–0.5MP,_region,2878,2611
+297.png,Which island is closest to the Adriatic Sea?,Linosa,['Comparative'],Single Entity,_marker,0.1–0.5MP,_region,2879,2612
+297.png,Which island appears the most isolated?,Linosa,"['Visual', 'Comparative']",Single Entity,_marker,0.1–0.5MP,_region,2881,2613
+297.png,What sea surrounds the Pelagie Islands?,Mediterranean,['Other'],Single Entity,_marker,0.1–0.5MP,_region,2882,2614
+297.png,Which country is farthest from the Adriatic Sea?,Libya,['Comparative'],Single Entity,_marker,0.1–0.5MP,_region,2883,2615
+298.png,Which country in Europe has the most refugees per month?,Germany,['Comparative'],Single Entity,_mixed,2–8MP,_continent,2884,2616
+298.png,From which direction is the highest illegal border crossing?,Eastern Mediterranean Route,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_continent,2885,2617
+298.png,Are there any repeated applications for the country UK?,No,['Other'],Boolean,_mixed,2–8MP,_continent,2886,2618
+298.png,What is the number of Asylum applicants applying to Ukraine?,No data,['Other'],Single Entity,_mixed,2–8MP,_continent,2888,2619
+298.png,Give the number of migrants going to Lithuania?,No data,['Other'],Counting,_mixed,2–8MP,_continent,2889,2620
+298.png,Are there routes from Albania to Greece?,Yes,['Other'],Boolean,_mixed,2–8MP,_continent,2890,2621
+298.png,Answer true or false: There are more people moving through Albania than the Apulia route,False,"['Positional', 'Comparative']",Boolean,_mixed,2–8MP,_continent,2891,2622
+298.png,Answer true or false: There are more people applying in Lithuanian than Cyprus,False,['Comparative'],Boolean,_mixed,2–8MP,_continent,2892,2623
+298.png,"nt ""The number of applicants applying for the country Estonia is greater than Lithuania"" is False. L",no,['Comparative'],Counting,_mixed,2–8MP,_continent,2893,2624
+299.png,Name the Nigerien town where five red routes converge.,Malte,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2894,2625
+299.png,Name the Nigerien town where seven red routes converge.,Agades,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2895,2626
+299.png,How many distinct red lines meet at Tamanrasset?,4,['Visual'],Counting,_network,0.5–2MP,_subcontinent,2896,2627
+299.png,Which labelled island group east of Cap-Vert is shown with no red route touching it?,Archipel de Madere,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_subcontinent,2897,2628
+299.png,How many European countries are explicitly named on the map?,3,['Other'],Counting,_network,0.5–2MP,_subcontinent,2898,2629
+299.png,The red coastal route that passes Dakar continues northward to reach which Spanish territory?,Cueta,['Visual'],Single Entity,_network,0.5–2MP,_subcontinent,2899,2630
+299.png,How many distinct red routes are in and out of Malte,5,['Visual'],Counting,_network,0.5–2MP,_subcontinent,2900,2631
+300.jpeg,What do the teal lines represent?,main migration routes,['Other'],Single Entity,_network,0.1–0.5MP,_subcontinent,2901,2632
+300.jpeg,Where does the route that leaves Bangladesh lead to?,Malaysia,['Positional'],Single Entity,_network,0.1–0.5MP,_subcontinent,2902,2633
+300.jpeg,How many lines lead to Malaysia?,3,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2903,2634
+300.jpeg,How many lines lead to Australia?,8,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2904,2635
+300.jpeg,what scale is used in this map?,800 mi,['Visual'],Single Entity,_network,0.1–0.5MP,_subcontinent,2905,2636
+300.jpeg,How many lines lead to Bangladesh?,0,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2906,2637
+300.jpeg,How many lines lead to Sri Lanka?,1,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2907,2638
+300.jpeg,How many lines lead to Bankok?,0,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2908,2639
+300.jpeg,How many lines lead to Christmas?,3,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2909,2640
+300.jpeg,How many routes go to Jakarta?,0,['Other'],Counting,_network,0.1–0.5MP,_subcontinent,2910,2641
+301.webp,What term does the red shading on the map represent?,no term or expression=,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,2911,2642
+301.webp,What term does the green shading on the map represent?,The devil is beating his wife,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_country,2912,2643
+301.webp,Which phrase do most residents of the Pacific Northwest use when rain falls while the sun is shining,hey mostly report having no term or expression (red),"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_country,2913,2644
+301.webp,Which expression predominates across the Great Plains states?,No term or expression,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_country,2914,2645
+301.webp,Which term is most common in New England?,Sunshower,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,2915,2646
+301.webp,Which phrase do Texans most frequently use for a sunshower?,No term or expression,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,2916,2647
+301.webp,"In Florida, which response is most commonly reported?",Sunshower,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,2917,2648
+301.webp,What do Californians predominantly call rain while the sun is shining?,No term or expression,['Other'],Single Entity,_isopleth,0.1–0.5MP,_country,2918,2649
+301.webp,Which phrase do New Yorkers most often use?,Sunshower,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,2919,2650
+301.webp,What term do residents of Illinois most commonly give?,No term or expression,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_country,2920,2651
+302.webp,"How many distinct red ""soda"" regions appear across the country?",2,"['Visual', 'Positional']",Counting,_isopleth,0.5–2MP,_country,2922,2652
+302.webp,Which term dominates in Texas and Louisiana?,Coke,['Other'],Single Entity,_isopleth,0.5–2MP,_country,2923,2653
+302.webp,"What color intensity indicates the strongest preference for ""soda"" terminology?",Dark red or crimson,['Visual'],Single Entity,_isopleth,0.5–2MP,_country,2924,2654
+302.webp,"Which dialect region uses ""coke"" despite being geographically distant from other ""coke"" areas?",Missouri or Southern Illinois,['Other'],Single Entity,_isopleth,0.5–2MP,_country,2926,2655
+302.webp,How many states show minimal color intensity for any term?,6,['Visual'],Counting,_isopleth,0.5–2MP,_country,2927,2656
+302.webp,Which coastal state shows the most mixed terminology pattern?,Florida,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_country,2928,2657
+302.webp,Which term dominates in the geographic center of the country?,pop,['Positional'],Single Entity,_isopleth,0.5–2MP,_country,2929,2658
+302.webp,"Where is the smallest isolated ""soda"" pocket located?",Southern Wisconsin or Northern Illinois,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_country,2930,2659
+303.webp,Which dialect region surrounds the Greater New York City dialect area?,North,['Comparative'],Single Entity,_isopleth,0.5–2MP,_continent,2931,2660
+303.webp,Which dialect region has a transitional or anomalous zone marked in red along its western border?,North,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_continent,2932,2661
+303.webp,What is the dialect region directly south of the North Central region?,North,['Positional'],Single Entity,_isopleth,0.5–2MP,_continent,2933,2662
+303.webp,Which dialect is spoken in San Francisco Bay area ?,Midland,['Other'],Single Entity,_isopleth,0.5–2MP,_continent,2934,2663
+303.webp,"Which dialect region is associated with the ""Cot - caught Merger"" according to the map?",Canada and The West,['Other'],Single Entity,_isopleth,0.5–2MP,_continent,2935,2664
+303.webp,What color is used to represent The South dialect region?,many,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_continent,2936,2665
+303.webp,Which dialect region is marked with a blue and white checkered pattern?,West Midland,['Visual'],Single Entity,_isopleth,0.5–2MP,_continent,2937,2666
+303.webp,"Which dialect region is associated with the ""Pin-Pen Merger"" according to the map?",South or West,['Other'],Single Entity,_isopleth,0.5–2MP,_continent,2938,2667
+303.webp,In which part of the Map people speaking indigenous languages are there?,South Western,['Other'],Single Entity,_isopleth,0.5–2MP,_continent,2939,2668
+304.webp,How many states have German as their second most commonly spoken language?,1,['Comparative'],Counting,_choropleth,0.5–2MP,_country,2941,2669
+304.webp,Which specific northeastern state bordering Canada does not have French as its dominant second langu,New York,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2943,2670
+304.webp,Which Gulf Coast state has French rather than Spanish as its second language?,Louisiana,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,2944,2671
+304.webp,How many total non-Spanish languages appear as dominant second languages across all states?,4,"['Visual', 'Positional', 'Comparative']",Counting,_choropleth,0.5–2MP,_country,2945,2672
+304.webp,What specific color represents Tagalog as the second most common language?,Light green,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2946,2673
+304.webp,How many landlocked states have Spanish as their second most common language?,22,['Comparative'],Counting,_choropleth,0.5–2MP,_country,2948,2674
+304.webp,Which media organization's logo appears in the bottom right corner?,Slate,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_country,2949,2675
+304.webp,What percentage of continental US states have Spanish as their second language?,90,['Comparative'],Single Entity,_choropleth,0.5–2MP,_country,2950,2676
+305.webp,How many countries speak a median of 2 languages?,6,['Other'],Counting,_choropleth,0.1–0.5MP,_continent,2951,2677
+305.webp,"As per the map, how many countries speak a median of 2.5 languages?",5,['Other'],Counting,_choropleth,0.1–0.5MP,_continent,2952,2678
+305.webp,"As per the map, how many countries speak a median of 4 languages?",1,['Other'],Counting,_choropleth,0.1–0.5MP,_continent,2953,2679
+305.webp,What is the highest median number of languages shown in this map?,4,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_continent,2954,2680
+305.webp,Which country closest to the UK speaks a median of 2 languages?,Germany,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_continent,2955,2681
+305.webp,Which country closest to the UK speaks a median of 3 languages?,Belgium,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_continent,2956,2682
+305.webp,Which country darthest from the UK speaks a median of 2 languages?,Cyprus,['Other'],Single Entity,_choropleth,0.1–0.5MP,_continent,2957,2683
+305.webp,Which continent is shown in this map?,Europe,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_continent,2958,2684
+305.webp,Which country to the west of UK?,Ireland,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_continent,2959,2685
+305.webp,Which country to the west of Spain?,Portugal,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_continent,2960,2686
+306.webp,What is the English-speaking percentage in the Netherlands?,90%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_continent,2961,2687
+306.webp,What is the percentage shown for Slovakia?,26%,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_continent,2962,2688
+306.webp,Which non-EU country appears with a value of 89%?,Serbia,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_continent,2963,2689
+306.webp,"Which country borders Germany, has percentage of 27%?",Czech Republic,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_continent,2964,2690
+306.webp,What country is marked with 59% in the Balkans?,Slovenia,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_continent,2965,2691
+306.webp,Which country near the Black Sea has an English-speaking percentage of 25%?,Bulgaria,"['Visual', 'Positional']",Single Entity,_choropleth,0.1–0.5MP,_continent,2966,2692
+306.webp,What is Greece’s English-speaking percentage?,51%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_continent,2967,2693
+306.webp,What is the English-speaking percentage in France?,39%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_continent,2968,2694
+306.webp,What percentage does Belgium show?,52%,['Other'],Single Entity,_choropleth,0.1–0.5MP,_continent,2969,2695
+306.webp,Which country has 22% English speaking rate?,Spain,['Other'],Single Entity,_choropleth,0.1–0.5MP,_continent,2970,2696
+307.webp,How many dots/endangered language indicators does Cuba have?,0,['Other'],Counting,_marker,0.5–2MP,_world,2971,2697
+307.webp,How many vitality unknown indicators does Tasmania have?,0,['Other'],Counting,_marker,0.5–2MP,_world,2972,2698
+307.webp,How many vitality unknown indicators does Puerto Rico have?,0,['Other'],Counting,_marker,0.5–2MP,_world,2973,2699
+307.webp,"As per this map, which category of indicators does New Zealand show?",Endangered,['Other'],Single Entity,_marker,0.5–2MP,_world,2974,2700
+307.webp,"As per this map, which of the indicators in the legend does Australia not have?",At Risk,['Other'],Single Entity,_marker,0.5–2MP,_world,2975,2701
+307.webp,What is the color of At risk in the legend?,Green,['Visual'],Single Entity,_marker,0.5–2MP,_world,2977,2702
+307.webp,Is Australia visible in this map?,Yes,['Visual'],Boolean,_marker,0.5–2MP,_world,2978,2703
+307.webp,Is New Zealand visible in this map?,Yes,['Visual'],Boolean,_marker,0.5–2MP,_world,2979,2704
+307.webp,Is Mexico visible in this map?,Yes,['Visual'],Boolean,_marker,0.5–2MP,_world,2980,2705
+308.webp,How many states in India speak Hindi?,11,['Other'],Counting,_choropleth,0.1–0.5MP,_country,2981,2706
+308.webp,"How many other countries, except India, are shown in the map?",8,['Visual'],Counting,_choropleth,0.1–0.5MP,_country,2982,2707
+308.webp,What color is used to represent the language spoken in Andaman & Nicobar Islands?,Light brown,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,2983,2708
+308.webp,How many languages are spoken in India according to the legend?,18,['Other'],Counting,_choropleth,0.1–0.5MP,_country,2985,2709
+308.webp,What color is used to write the names of the other countries surrounding India?,Pink,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_country,2987,2710
+308.webp,Which language is spoken in Arunachal Pradesh?,Nissi or Daffla,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,2988,2711
+309.webp,Which region is marked with the number 5 for language group Hakka?,Jiangxi,['Visual'],Single Entity,_isopleth,2–8MP,_country,2989,2712
+309.webp,Which region is mainly home to the Gan language?,Jiangxi,['Other'],Single Entity,_isopleth,2–8MP,_country,2990,2713
+309.webp,What language is shown in southwestern Guangxi?,Kam-Tai,"['Visual', 'Positional']",Single Entity,_isopleth,2–8MP,_country,2991,2714
+309.webp,What language group is shown in blue in Tibet?,Tibetan,['Visual'],Single Entity,_isopleth,2–8MP,_country,2992,2715
+309.webp,Which region speaks Yue?,Guangdong,['Other'],Single Entity,_isopleth,2–8MP,_country,2993,2716
+309.webp,What region has a concentration of the Tajik language?,Western Xinjiang,['Other'],Single Entity,_isopleth,2–8MP,_country,2994,2717
+309.webp,What language group is shown in small area of green in eastern Sichuan?,Hakka,"['Visual', 'Positional']",Single Entity,_isopleth,2–8MP,_country,2995,2718
+309.webp,What region shows Kazakh language presence?,Xinjiang,['Other'],Single Entity,_isopleth,2–8MP,_country,2996,2719
+309.webp,Which region shows Mon-Khmer languages?,Southern Yunnan,['Other'],Single Entity,_isopleth,2–8MP,_country,2997,2720
+309.webp,Which province is associated with the Min language?,Fujian,['Other'],Single Entity,_isopleth,2–8MP,_country,2998,2721
+310.webp,Which native-language percentage range is shown with dark brown in the legend?,75–90 %,['Visual'],Single Entity,_mixed,0.5–2MP,_world,2999,2722
+310.webp,Which country is credited with 297 spoken languages?,Mexico,['Other'],Single Entity,_mixed,0.5–2MP,_world,3001,2723
+310.webp,State the numeric difference between Indonesia’s and Nigeria’s language counts.,226,['Positional'],Counting,_mixed,0.5–2MP,_world,3002,2724
+310.webp,Which country’s language count equals exactly twice the legend’s mid-value?,Papua New Guinea,['Other'],Single Entity,_mixed,0.5–2MP,_world,3003,2725
+310.webp,By how many languages does the United States exceed Mexico?,14,['Other'],Counting,_mixed,0.5–2MP,_world,3006,2726
+310.webp,What is the numeric difference between Indonesia’s and India’s language counts?,315,['Positional'],Single Entity,_mixed,0.5–2MP,_world,3008,2727
+311.png,"What language family dominates both Australia and the southern island of New Guinea, using distinct",Pama-Nyungan,['Positional'],Single Entity,_isopleth,0.5–2MP,_world,3009,2728
+311.png,"Which landlocked Asian region has the most diverse set of language families, including Turkic, Mongo",central Asia,['Comparative'],Single Entity,_isopleth,0.5–2MP,_world,3010,2729
+311.png,"Which South American region has both green and purple zones, indicating two unrelated language famil",western Amazon,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_world,3011,2730
+311.png,Which subarctic region outside of Eurasia shows two indigenous families with no relation to Indo-Eur,northern Canada,['Positional'],Single Entity,_isopleth,0.5–2MP,_world,3012,2731
+311.png,"Which Pacific island nation is marked with more than two different language families, all with faint",Papua New Guinea,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_world,3013,2732
+311.png,What language family has a large patch in East Asia and a separate faint dot in the western U.S.?,Sino-Tibetan,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_world,3014,2733
+311.png,"Which region contains multiple language families of identical brightness but different hues, making",central Asia,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_world,3015,2734
+311.png,Which small island chain east of Papua has a language family not found anywhere else on the map?,Solomon Islands,['Positional'],Single Entity,_isopleth,0.5–2MP,_world,3016,2735
+311.png,Which landlocked country in Asia shows the presence of five or more language families in a tightly c,India,['Comparative'],Single Entity,_isopleth,0.5–2MP,_world,3017,2736
+311.png,Which region is colored entirely in blue despite covering multiple language families in the legend?,South America,['Visual'],Single Entity,_isopleth,0.5–2MP,_world,3018,2737
+312.webp,What is the language code shown for Brazil on the map?,PT,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3019,2738
+312.webp,Which African country is marked with the code DE for German?,Namibia,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3020,2739
+312.webp,Which language code represents the most dominant language in Canada?,EN,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,3021,2740
+312.webp,Which country in South America is marked with PT instead of ES?,Brazil,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_world,3022,2741
+312.webp,What language is represented by the cyan/light blue color in China?,ZH,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3023,2742
+312.webp,Which country in Europe is labeled with NL?,Netherlands,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3024,2743
+312.webp,Which Southeast Asian country is marked with VI for Vietnamese?,Vietnam,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_world,3026,2744
+312.webp,What country in Asia is labeled with the code JA?,Japan,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3027,2745
+312.webp,What is the language code for the dominant language in Ukraine on this map?,UK,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3028,2746
+313.jpg,Which flag is shown at the top right corner?,EU Flag,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3029,2747
+313.jpg,Which sea is labeled to the west of the Italian peninsula?,Mar Tirreno,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,3030,2748
+313.jpg,On which island is the city of Cagliari shown?,Sardegna,['Visual'],Single Entity,_marker,0.5–2MP,_country,3031,2749
+313.jpg,Which sea is labeled to the south of Sicily?,Mar Ionio,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,3032,2750
+313.jpg,Which landmark is depicted near the city of Taormina in Sicily?,Teatro Greco,['Positional'],Single Entity,_marker,0.5–2MP,_country,3033,2751
+313.jpg,Which ancient temple ruins are illustrated near Agrigento?,Tempio di Agrigento,['Positional'],Single Entity,_marker,0.5–2MP,_country,3034,2752
+313.jpg,Which region contains the city of Ancona?,Marche,['Positional'],Single Entity,_marker,0.5–2MP,_country,3035,2753
+313.jpg,In which region is the Colosseum located?,Lazio,['Positional'],Single Entity,_marker,0.5–2MP,_country,3036,2754
+313.jpg,Which region forms the “toe” of Italy’s boot?,Calabria,['Other'],Single Entity,_marker,0.5–2MP,_country,3037,2755
+313.jpg,Which mountain is labeled “M. Bianco” on the map?,Mont Blanc,['Visual'],Single Entity,_marker,0.5–2MP,_country,3038,2756
+314.webp,Are pipelines mostly coastal or inland?,coastal,['Other'],Boolean,_multiple,0.1–0.5MP,_continent,3040,2757
+314.webp,"Give me simple answer, Which region of Africa has dense pipeline networks?",West Africa,['Other'],Single Entity,_multiple,0.1–0.5MP,_continent,3041,2758
+314.webp,"Give me simple answer, Are tentative sites fewer or greater than confirmed World Heritage sites?",fewer,['Comparative'],Boolean,_multiple,0.1–0.5MP,_continent,3042,2759
+314.webp,"Give me simple answer, based on the map, are there world heritage site in ghana?",no,['Other'],Boolean,_multiple,0.1–0.5MP,_continent,3043,2760
+314.webp,"Give me simple answer, based on the map, are there tentative site in zambia?",no,['Other'],Boolean,_multiple,0.1–0.5MP,_continent,3044,2761
+314.webp,"Based on map (b), the eastern and southern sides of the continent appear to have denser clusters of",western,"['Visual', 'Positional']",Boolean,_multiple,0.1–0.5MP,_continent,3045,2762
+314.webp,"Give me simple answer, based on the map, which contry in the map doesn't have concession but have pi",Zambia,['Other'],Single Entity,_multiple,0.1–0.5MP,_continent,3046,2763
+314.webp,"Give me simple answer, based on the map, which contry has the largest world heritage site area in th",Niger,['Comparative'],Single Entity,_multiple,0.1–0.5MP,_continent,3047,2764
+314.webp,"Give me simple answer, based on the map, are there pipeline is somalia?",no,['Other'],Boolean,_multiple,0.1–0.5MP,_continent,3048,2765
+315.jpg,Which outpost is below Gvaot?,Kashuela Farm,['Positional'],Single Entity,_isopleth,2–8MP,_region,3049,2766
+315.jpg,Which outpost is closest to Eden Farm?,Sdeh Boaz,['Comparative'],Single Entity,_isopleth,2–8MP,_region,3051,2767
+315.jpg,Which settlement is part of the potential land swap in Jerusalem?,Gilo,['Other'],Single Entity,_isopleth,2–8MP,_region,3052,2768
+315.jpg,What is the only named location between Mahrour Outpost and Battir?,Battir Outpost,['Positional'],Single Entity,_isopleth,2–8MP,_region,3053,2769
+315.jpg,What lies directly east of Elazar?,Efrat,['Positional'],Single Entity,_isopleth,2–8MP,_region,3054,2770
+315.jpg,What is between Wadi Fukin and Nahhalin?,Beitar Illit,['Positional'],Single Entity,_isopleth,2–8MP,_region,3055,2771
+315.jpg,Which area is surrounded by potential land swap except to the northeast?,Nahhalin,['Positional'],Single Entity,_isopleth,2–8MP,_region,3056,2772
+315.jpg,What is the name of the outpost below Bethlehem?,Givat Eitam or E2,['Positional'],Single Entity,_isopleth,2–8MP,_region,3057,2773
+316.png,Which site is shown in Ethiopia near the Omo River?,Omo Valley Archaeological Sites,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_continent,3059,2774
+316.png,Which site appears on Madagascar?,Tsingy de Bemaraha,['Visual'],Single Entity,_choropleth,0.5–2MP,_continent,3060,2775
+316.png,Which site is labeled in Kenya near Lake Turkana?,Lake Turkana National Parks,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_continent,3061,2776
+316.png,What site is marked in Tunisia’s northernmost region?,Dougga,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_continent,3062,2777
+316.png,Which site is labeled in the Democratic Republic of the Congo near the Congo Basin?,Salonga National Park,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_continent,3063,2778
+316.png,Name the heritage site marked along the Nile in Egypt?,Ancient Thebes with its Necropolis,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_continent,3064,2779
+316.png,Which site appears in southern Botswana?,Tsodilo,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_continent,3065,2780
+316.png,Name the site marked in Rwanda?,Kigali Genocide Memorial,['Visual'],Single Entity,_choropleth,0.5–2MP,_continent,3066,2781
+316.png,Which site is marked in Uganda around a large freshwater lake?,Lake Victoria’s Ssese Islands or Lake Victoria Crescent,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_continent,3067,2782
+316.png,Which site appears in the historic city center of Timbuktu’s neighboring site “Djenné”?,The Great Mosque of Djenné,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_continent,3068,2783
+317.jpg,What landmark is to the west of Dorset and East Devon Coast?,Cornwall and West Devon Mining Landscape,['Positional'],Single Entity,_marker,2–8MP,_country,3069,2784
+317.jpg,How many mountain peaks are show in the map?,9,['Other'],Counting,_marker,2–8MP,_country,3070,2785
+317.jpg,How many boats on the map?,4,['Other'],Counting,_marker,2–8MP,_country,3071,2786
+317.jpg,What drawing is the right of Derwent Valley Mills?,Soldier,['Positional'],Single Entity,_marker,2–8MP,_country,3072,2787
+317.jpg,How many landmarks are indicated?,27,['Other'],Counting,_marker,2–8MP,_country,3074,2788
+317.jpg,Which location is the most north of all the others?,Heart of Neolithic Orkney,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_country,3075,2789
+318.webp,How many wonders are located in the Western Hemisphere?,3,['Positional'],Counting,_marker,0.5–2MP,_world,3076,2790
+318.webp,Which wonder is positioned at the highest latitude?,Great Wall of China,['Comparative'],Single Entity,_marker,0.5–2MP,_world,3077,2791
+318.webp,How many wonders are depicted with structures featuring distinct domes or rounded tops?,2,['Other'],Counting,_marker,0.5–2MP,_world,3078,2792
+318.webp,Which wonder's illustration shows reflective water in its design?,Taj Mahal,['Other'],Single Entity,_marker,0.5–2MP,_world,3080,2793
+318.webp,What is the total number of oceans labeled on this world map?,3,['Visual'],Single Entity,_marker,0.5–2MP,_world,3081,2794
+318.webp,Which wonder is positioned furthest south of the equator?,Machu Picchu,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_world,3082,2795
+318.webp,How many wonders are located on coastal or near-coastal areas?,3,['Positional'],Counting,_marker,0.5–2MP,_world,3083,2796
+318.webp,Which wonder's illustration shows the most mountainous background terrain?,Machu Picchu,['Comparative'],Single Entity,_marker,0.5–2MP,_world,3084,2797
+318.webp,Which wonder is depicted with a single human figure visible in its illustration?,Christ the Redeemer,['Visual'],Single Entity,_marker,0.5–2MP,_world,3085,2798
+319.jpeg,What region has the highest concentration of World Heritage sites?,Europe,['Comparative'],Single Entity,_mixed,0.1–0.5MP,_world,3086,2799
+319.jpeg,What country in South America shows the highest number of sites?,Brazil,"['Positional', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_world,3087,2800
+319.jpeg,Which European country is most densely filled with red dots?,Italy,"['Visual', 'Comparative']",Single Entity,_mixed,0.1–0.5MP,_world,3088,2801
+319.jpeg,What country in South Asia shows both red and purple sites heavily?,India,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_world,3089,2802
+319.jpeg,Which country in Central America has a notably high number of cultural sites?,Guatemala,['Comparative'],Single Entity,_mixed,0.1–0.5MP,_world,3090,2803
+319.jpeg,Which country near the Mediterranean has dense red clusters?,Greece,"['Visual', 'Positional']",Single Entity,_mixed,0.1–0.5MP,_world,3091,2804
+319.jpeg,Which European island country has both red and blue dots?,United Kingdom,['Visual'],Single Entity,_mixed,0.1–0.5MP,_world,3092,2805
+319.jpeg,What country in the Balkans shows few but mixed-type sites?,Croatia,['Other'],Single Entity,_mixed,0.1–0.5MP,_world,3093,2806
+319.jpeg,What does a red circle on the map signify?,Cultural heritage site,['Visual'],Single Entity,_mixed,0.1–0.5MP,_world,3094,2807
+319.jpeg,Which northern European country shows fewer sites?,Finland,['Positional'],Single Entity,_mixed,0.1–0.5MP,_world,3095,2808
+320.png,What ratio does this map illustrate regarding UNESCO sites per country?,Percentage of a country's UNESCO sites that are natural vs cultural.,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3096,2809
+320.png,"According to the legend, what does the red color indicate about a country's sites?",80% of that country's UNESCO sites are natural.,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3097,2810
+320.png,What percentage range does the darkest blue color represent on this map?,0% natural sites or 100% cultural.,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3098,2811
+320.png,Which continent shows several countries in red or orange (high % natural sites)?,Africa,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3099,2812
+320.png,Does Western Europe generally show a high or low % of natural UNESCO sites?,low,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,3100,2813
+320.png,Compare Australia & Greenland: which has a higher % of natural sites shown?,Australia,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3101,2814
+320.png,What approximate percentage range applies to Australia based on its color?,70-80,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3102,2815
+320.png,What percentage range seems most common in Western European countries shown?,0-40,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3103,2816
+320.png,What approximate percentage range of natural sites is shown for Brazil?,30-40,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3104,2817
+320.png,What approximate percentage range of natural sites is shown for Canada?,50-60,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3105,2818
+321.webp,What data does this choropleth map display per country?,Number of World Heritage Sites in each country,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3106,2819
+321.webp,What does the darkest purple color represent according to the legend?,more than 41 sites,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3107,2820
+321.webp,How many World Heritage Sites does the light grey color indicate?,0,['Visual'],Counting,_choropleth,0.5–2MP,_world,3108,2821
+321.webp,Which continent appears to have the most countries with >20 sites (darker purples)?,Europe,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3109,2822
+321.webp,Compare Australia & South America: which generally has more sites per country shown?,Australia,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3110,2823
+321.webp,Identify a large country shown in grey or very light blue (few/zero sites).,Greenland,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3111,2824
+321.webp,"Based on its color, what approximate site range likely applies to Italy?",more than 41,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3112,2825
+321.webp,What range of sites does the color for China likely indicate?,more than 41,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3113,2826
+321.webp,What site range seems most common for African countries depicted on this map?,0-8,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,3114,2827
+321.webp,What range applies to the northernmost large country in North America (Canada)?,9-13,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3115,2828
+322.jpg,What the the topmost label?,Jaffna,['Visual'],Single Entity,_marker,0.5–2MP,_country,3116,2829
+322.jpg,What animal is used for Pinnawala?,Elephant,['Visual'],Single Entity,_marker,0.5–2MP,_country,3117,2830
+322.jpg,What design is used for Yala?,Leapard,['Visual'],Single Entity,_marker,0.5–2MP,_country,3118,2831
+322.jpg,How many labels are located within the blue boundary?,10,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_country,3119,2832
+322.jpg,How many labels outside the blue boundary?,13,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_country,3120,2833
+322.jpg,What name is closest to Negombo?,Colombo,['Comparative'],Single Entity,_marker,0.5–2MP,_country,3121,2834
+322.jpg,What image is used to represent Wlingama,Temple,['Visual'],Single Entity,_marker,0.5–2MP,_country,3122,2835
+322.jpg,How many icons or images are used in the map to represent locations?,14,['Visual'],Counting,_marker,0.5–2MP,_country,3123,2836
+322.jpg,How many drawing surround Kandy?,3,['Positional'],Counting,_marker,0.5–2MP,_country,3125,2837
+323.webp,"based on the map, What is the country on the left side of the map with lighter background",Syria,"['Visual', 'Positional', 'Comparative']",Single Entity,_conflict,0.5–2MP,_subcontinent,3126,2838
+323.webp,"based on the map, how many sites are show inside Syria(including world heritage and other sites)",9,['Positional'],Counting,_conflict,0.5–2MP,_subcontinent,3128,2839
+323.webp,"Give me simple answer, based on the map, Is Palmyra marked as a damaged site?",yes,['Visual'],Boolean,_conflict,0.5–2MP,_subcontinent,3129,2840
+323.webp,"Give me simple answer, based on the map, What site lies near the border of Iraq and Iran?",Basra,['Positional'],Single Entity,_conflict,0.5–2MP,_subcontinent,3130,2841
+323.webp,"Give me simple answer, based on the map, What country lies south of Lebanon and have attached border",Isreal,['Positional'],Single Entity,_conflict,0.5–2MP,_subcontinent,3131,2842
+323.webp,"Give me simple answer, based on the map, which country only show a small part in mediterranean sea?",Cyprus,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,3132,2843
+323.webp,"based on the map, which country has ISIL/ISI presence but not in lighter background",Lebanon,"['Visual', 'Comparative']",Single Entity,_conflict,0.5–2MP,_subcontinent,3133,2844
+323.webp,"Give me simple answer, based on the map, Is Aleppo marked as damaged?",yes,['Visual'],Boolean,_conflict,0.5–2MP,_subcontinent,3134,2845
+323.webp,"Give me simple answer, based on the map, Which group created this map?",Encyclopaedia Britannica.,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,3135,2846
+324.jpg,Which site number is located on Yakushima island (south of Kyushu)?,3,['Positional'],Single Entity,_marker,0.5–2MP,_country,3136,2847
+324.jpg,Which site number is located on Okinawa main island?,11,['Positional'],Single Entity,_marker,0.5–2MP,_country,3137,2848
+324.jpg,Which site number is located on the Ogasawara Islands inset?,16,['Positional'],Single Entity,_marker,0.5–2MP,_country,3138,2849
+324.jpg,Which site shows the Itsukushima Shrine torii gate image?,8,['Other'],Single Entity,_marker,0.5–2MP,_country,3139,2850
+324.jpg,Which site number is the furthest north on Hokkaido?,25,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3140,2851
+324.jpg,Which site number has a blue‐framed forest photo in the Kii Peninsula region?,12,['Other'],Single Entity,_marker,0.5–2MP,_country,3141,2852
+324.jpg,Which site number is on Hashima island off Kyushu?,19,['Other'],Single Entity,_marker,0.5–2MP,_country,3142,2853
+324.jpg,Which site number is closest to Kyoto on the main map?,1,['Comparative'],Single Entity,_marker,0.5–2MP,_country,3143,2854
+324.jpg,Which site number corresponds to the Buddhist monuments near Nara?,9,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_country,3144,2855
+324.jpg,Which site number corresponds to the Himeji Castle photo?,2,['Visual'],Single Entity,_marker,0.5–2MP,_country,3145,2856
+325.gif,Which heritage site is closest to Kyrghystan according to the uploaded image ?,Chang'an-Tianshan,['Comparative'],Single Entity,_marker,0.5–2MP,_country,3146,2857
+325.gif,What heritage site is shown in Tibet in uploaded image ?,Historic Ensemble of the Potala Palace Lhasa,['Visual'],Single Entity,_marker,0.5–2MP,_country,3147,2858
+325.gif,What is closest heritage site closest to yumen according to uploaded image ?,Mogao Caves,['Comparative'],Single Entity,_marker,0.5–2MP,_country,3148,2859
+325.gif,What is the southern most point in India as shown in uploaded image ?,Vishakhapatman,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3149,2860
+325.gif,What is closest heritage site closest to Taiwan according to uploaded image ?,Fujian Tulou,['Comparative'],Single Entity,_marker,0.5–2MP,_country,3150,2861
+325.gif,What is closest heritage site closest to Fujian Tulou according to uploaded image ?,Mount Wuyi,['Comparative'],Single Entity,_marker,0.5–2MP,_country,3151,2862
+325.gif,What is the northern most heritage point according to uploaded image?,Site of Xanadu,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3152,2863
+325.gif,What is the northern most point mentioned in the uploaded image ?,Barnaul,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3153,2864
+325.gif,What is the southern most point in Japan in the uploaded image ?,Kagoshima,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3154,2865
+325.gif,What is the eastern most point in Japan in the uploaded image ?,Nagoya,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_country,3155,2866
+326.jpg,Which province is home to the Potala Palace?,Tibet,['Other'],Single Entity,_marker,2–8MP,_country,3156,2867
+326.jpg,In which region is the city of Xi'an located?,Shaanxi,['Positional'],Single Entity,_marker,2–8MP,_country,3157,2868
+326.jpg,What is the name of the pass shown that is frequently associated with the Great Wall of China?,Jiayuguan,['Visual'],Single Entity,_marker,2–8MP,_country,3158,2869
+326.jpg,What large body of water borders the Shandong province?,Bohai,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_country,3159,2870
+326.jpg,Which province features the Yangtze Three Gorges?,Hubei,['Other'],Single Entity,_marker,2–8MP,_country,3160,2871
+326.jpg,Which province is known for the Mogao Grottoes?,Gansu,['Other'],Single Entity,_marker,2–8MP,_country,3161,2872
+326.jpg,What is the name of the mountain range shown in the far west of the map?,Himalayas,"['Visual', 'Positional']",Single Entity,_marker,2–8MP,_country,3162,2873
+326.jpg,Which major city is in the Bohai Sea region?,Tianjin,['Other'],Single Entity,_marker,2–8MP,_country,3163,2874
+326.jpg,Which Province has a major city near the Yellow Sea?,Shandong,"['Visual', 'Positional']",Single Entity,_marker,2–8MP,_country,3164,2875
+326.jpg,Which province contains the largest water body of water ?,XinJaing,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_country,3165,2876
+327.png,How many UNESCO World Heritage Sites are labeled in Madagascar?,1,['Visual'],Counting,_marker,0.5–2MP,_continent,3166,2877
+327.png,Which UNESCO site category is most common in West Africa according to the map?,Cultural,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_continent,3167,2878
+327.png,What's the southernmost labeled UNESCO site on the African mainland?,Maloti-Drakensberg,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_continent,3168,2879
+327.png,How many labeled natural UNESCO sites are located along Africa's eastern coastline?,2,"['Visual', 'Positional']",Counting,_marker,0.5–2MP,_continent,3169,2880
+327.png,Which coastal UNESCO site is located furthest west on the African continent?,Gorée Island,"['Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_continent,3170,2881
+327.png,What is the ratio of cultural to natural UNESCO sites shown in South Africa?,1:1,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_continent,3171,2882
+327.png,Which labeled UNESCO site is located closest to the Mediterranean Sea?,Memphis Necropolis,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,0.5–2MP,_continent,3172,2883
+327.png,What does this map show the distribution of across Africa?,UNESCO World Heritage Sites,['Positional'],Single Entity,_marker,0.5–2MP,_continent,3173,2884
+327.png,"What natural landmark is identified as ""Mosi-oa-Tunya"" on the map?",Victoria Falls,['Other'],Single Entity,_marker,0.5–2MP,_continent,3175,2885
+328.jpg,How many different colors are used to represent this map?,8,['Visual'],Counting,_choropleth,0.5–2MP,_world,3176,2886
+328.jpg,What color is the USA,LIGHT PURPLE,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3178,2887
+328.jpg,Is USA. a 30+ country?,No,['Other'],Boolean,_choropleth,0.5–2MP,_world,3179,2888
+328.jpg,How many world heritage sites does greenland have?,less than 10,['Other'],Counting,_choropleth,0.5–2MP,_world,3180,2889
+328.jpg,What is the top cultural site?,Italy,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3181,2890
+328.jpg,How many heritage sites does Russia have?,30+,['Other'],Counting,_choropleth,0.5–2MP,_world,3183,2891
+328.jpg,What color is southern sahara?,white,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_world,3184,2892
+328.jpg,How many natural sites does russia have?,11,['Other'],Counting,_choropleth,0.5–2MP,_world,3185,2893
+328.jpg,which country in Africa has 10+ sites?,south africa,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3186,2894
+328.jpg,How many combined sites do mexico and USA have?,50+,['Other'],Counting,_choropleth,0.5–2MP,_world,3187,2895
+329.png,Which country has the most green squares?,China,"['Visual', 'Comparative']",Single Entity,_marker,2–8MP,_world,3188,2896
+329.png,does USA have a higher green:black ratio than canada?,No,"['Visual', 'Comparative']",Boolean,_marker,2–8MP,_world,3189,2897
+329.png,how many countries have a yellow dot,33,['Visual'],Counting,_marker,2–8MP,_world,3190,2898
+329.png,how many countries have more than 2 yellow dots in green squares?,0,"['Visual', 'Comparative']",Counting,_marker,2–8MP,_world,3191,2899
+329.png,how many countries have more than 2 yellow dots in black squares?,9,"['Visual', 'Comparative']",Counting,_marker,2–8MP,_world,3192,2900
+329.png,how many countries have danger in all their squares?,4,['Other'],Counting,_marker,2–8MP,_world,3193,2901
+329.png,how many countries have mixed sites?,25,['Other'],Counting,_marker,2–8MP,_world,3194,2902
+329.png,what is the ratio of i fares : cultural in usa,1:12,['Other'],Single Entity,_marker,2–8MP,_world,3195,2903
+329.png,"Does russia have more ""misto""s than canada?",No,['Comparative'],Boolean,_marker,2–8MP,_world,3196,2904
+329.png,Which country in Africa has the most natural sites?,South Africa,['Comparative'],Single Entity,_marker,2–8MP,_world,3197,2905
+330.jpg,"How many states on the map have regions shaded in multiple colors (red, green, yellow)?",2,['Visual'],Counting,_isopleth,0.5–2MP,_region,3198,2906
+330.jpg,"How many distinct areas are shaded in dark green, indicating moderate to strong storms?",2,['Visual'],Counting,_isopleth,0.5–2MP,_region,3199,2907
+330.jpg,"How many distinct areas are shaded in dark blue, indicating the lightest cloud cover?",3+,"['Visual', 'Comparative']",Counting,_isopleth,0.5–2MP,_region,3200,2908
+330.jpg,How many states on the map have regions shaded in purple?,0,['Visual'],Counting,_isopleth,0.5–2MP,_region,3201,2909
+330.jpg,"How many distinct areas are shaded in light green, indicating weaker storm activity?",5+,['Visual'],Counting,_isopleth,0.5–2MP,_region,3202,2910
+330.jpg,How many distinct areas are shaded in orange near the Florida coast?,1,"['Visual', 'Positional']",Counting,_isopleth,0.5–2MP,_region,3203,2911
+330.jpg,How many states on the map have regions shaded in blue but not green?,1,['Visual'],Counting,_isopleth,0.5–2MP,_region,3204,2912
+331.jpg,What date is shown on the satellite image?,08 Oct 2018,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3205,2913
+331.jpg,Which U.S. state is directly north of the storm’s core?,Florida,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3206,2914
+331.jpg,What color indicates the most intense storm areas?,Red,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3207,2915
+331.jpg,Is the storm currently over land?,No,['Comparative'],Boolean,_isopleth,0.5–2MP,_region,3208,2916
+331.jpg,Which U.S. state lies west of Florida in this image?,Albama,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3209,2917
+331.jpg,Is the storm affecting the Yucatán Peninsula?,No,['Other'],Boolean,_isopleth,0.5–2MP,_region,3210,2918
+331.jpg,What agency logo appears in the bottom left?,NOAA,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3211,2919
+331.jpg,Which country lies directly south of the storm center?,Cuba,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3212,2920
+331.jpg,Is this an RGB visible light image?,No,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3213,2921
+331.jpg,Are there visible bands of rain extending into Georgia?,Yes,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3214,2922
+332.jpeg,What general region of the world is the system located in?,Caribbean Sea or North Atlantic Ocean,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3215,2923
+332.jpeg,"Based on the imagery, is the system well-organized?",Yes,['Other'],Boolean,_isopleth,<0.1MP,_region,3216,2924
+332.jpeg,What is the most likely stage of development for this weather system?,Tropical Storm,['Comparative'],Single Entity,_isopleth,<0.1MP,_region,3217,2925
+332.jpeg,What does the color gradient in the image primarily represent?,Temperature,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3218,2926
+332.jpeg,Is there clear evidence of an eye in this system?,Partially,['Other'],Boolean,_isopleth,<0.1MP,_region,3219,2927
+332.jpeg,What type of clouds appear to dominate the storm's center?,Thunderstorm,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3220,2928
+332.jpeg,Does the image suggest strong updrafts and downdrafts within the storm?,Yes,['Positional'],Boolean,_isopleth,<0.1MP,_region,3221,2929
+332.jpeg,Which color in the image represents the warmest temperatures?,Red,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3222,2930
+332.jpeg,What is the significance of the purple/pink areas within the storm?,High cloud Tops,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3223,2931
+332.jpeg,Are the clouds exhibiting a symmetrical structure?,Yes,['Other'],Boolean,_isopleth,<0.1MP,_region,3224,2932
+333.JPG,Is the smaller storm system to the east touching any landmass?,No,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_region,3225,2933
+333.JPG,What color is the rainfall at the center of the large storm system?,Black,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3226,2934
+333.JPG,Does the smaller storm system have a clear eye like the large storm system?,No,['Comparative'],Boolean,_isopleth,0.1–0.5MP,_region,3227,2935
+333.JPG,Does the large storm system extend closer to Louisiana or South Carolina?,South Carolina,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_region,3228,2936
+333.JPG,Is the large storm system’s eye closer to the Florida panhandle or the southern tip of Florida,Southern,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_region,3229,2937
+333.JPG,Does the smaller storm system have more intense rainfall than the large storm system?,No,['Comparative'],Boolean,_isopleth,0.1–0.5MP,_region,3230,2938
+333.JPG,Does the large storm system extend over the entire state of Florida?,Yes,['Comparative'],Boolean,_isopleth,0.1–0.5MP,_region,3231,2939
+333.JPG,Is the closest edge of the smaller storm system to the large storm system on its northern or souther,Southern,"['Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_region,3232,2940
+333.JPG,Does the smaller storm system have higher density of yellow rainfall on its western side or eastern,Eastern,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_region,3233,2941
+333.JPG,Does the large storm system appear to be moving toward the Gulf of Mexico or away from it?,Away,"['Visual', 'Comparative']",Boolean,_isopleth,0.1–0.5MP,_region,3234,2942
+334.jpg,Where is the darkest cloud core located in the image?,Bottom center,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3235,2943
+334.jpg,Is the storm center over land or water in this frame?,Land,"['Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3236,2944
+334.jpg,Which quadrant of the storm shows the highest density of red color?,Bottom center,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3237,2945
+334.jpg,Are the cloud bands more tightly packed on the left or right side?,Right,"['Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3238,2946
+334.jpg,Which side of the map shows more scattered cloud activity?,Top right,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3239,2947
+334.jpg,How many separate bright red regions are in the main storm body?,2,['Visual'],Counting,_isopleth,0.5–2MP,_region,3240,2948
+334.jpg,Which direction is the storm expanding more into?,NE,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3241,2949
+334.jpg,Is the curved cloud structure more prominent in the lower or upper half?,Lower half,['Comparative'],Boolean,_isopleth,0.5–2MP,_region,3242,2950
+334.jpg,Which area has the lightest (least dense) cloud coverage?,Top left,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3243,2951
+334.jpg,Is the dark red region closer to the coast or inland?,Inland,"['Visual', 'Positional']",Boolean,_isopleth,0.5–2MP,_region,3244,2952
+335.jpeg,Which side of the image contains the most scattered small clouds?,Bottom right,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3245,2953
+335.jpeg,Is the cloud system at the center touching the coastline?,Yes,['Positional'],Boolean,_isopleth,0.5–2MP,_region,3246,2954
+335.jpeg,How many distinct color zones are visible in the central storm?,4,['Visual'],Counting,_isopleth,0.5–2MP,_region,3247,2955
+335.jpeg,Which section shows more layered cloud bands: left or right?,Right,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3248,2956
+335.jpeg,Does the central red zone show a sharp or diffuse boundary?,Sharp,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3249,2957
+335.jpeg,Are the outer bands of the storm mostly green or blue?,Blue,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3250,2958
+335.jpeg,Which direction shows an isolated cluster with bright yellow centers?,Bottom right,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_region,3251,2959
+335.jpeg,Is the central spiral more circular or oval in shape?,Circular,"['Visual', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3252,2960
+335.jpeg,Which region shows a gap or break in cloud density?,Lower left,['Other'],Single Entity,_isopleth,0.5–2MP,_region,3253,2961
+335.jpeg,Are the densest clouds more symmetrical or unevenly distributed?,Unevenly distributed,['Comparative'],Boolean,_isopleth,0.5–2MP,_region,3254,2962
+336.jpeg,Does the storm appear more concentrated or fragmented overall?,Concentrated,"['Visual', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3255,2963
+336.jpeg,What is the dominant color immediately surrounding the black cloud core?,Red,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3256,2964
+336.jpeg,How many different color layers are visible in the spiral bands?,4,['Visual'],Counting,_isopleth,<0.1MP,_region,3257,2965
+336.jpeg,Which direction has the most outward-stretching cloud arms?,Northeast,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3258,2966
+336.jpeg,Is the spiral shape clockwise or counterclockwise?,Counterclockwise,"['Visual', 'Positional']",Boolean,_isopleth,<0.1MP,_region,3259,2967
+336.jpeg,Does the red cloud mass on the lower left touch the main spiral structure?,No,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3260,2968
+336.jpeg,Where is the color transition from green to yellow most noticeable?,Top right,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3261,2969
+336.jpeg,Is the dark red area near the storm center symmetrical?,No,"['Visual', 'Positional']",Boolean,_isopleth,<0.1MP,_region,3262,2970
+336.jpeg,Are there any straight-line boundaries visible in the cloud structures?,No,"['Visual', 'Positional']",Boolean,_isopleth,<0.1MP,_region,3263,2971
+336.jpeg,Which half of the image has more bright colors (yellow and green)?,Right,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3264,2972
+337.jpg,Which state does the elongated green cloud band first make landfall?,Louisiana,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3265,2973
+337.jpg,How many distinct red cloud cores are visible in the entire image?,3,['Visual'],Counting,_isopleth,0.5–2MP,_region,3266,2974
+337.jpg,How many U.S. states does the elongated cloud band cross on the northern Gulf Coast?,4,['Positional'],Counting,_isopleth,0.5–2MP,_region,3267,2975
+337.jpg,Which state contains the northernmost visible colored cloud patch?,Michigan,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3268,2976
+337.jpg,Which peninsular region in the lower-right appears mostly cloud-free?,Florida,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_region,3269,2977
+337.jpg,Which U.S. state’s coastline is closest to the central green cloud cluster?,Louisiana,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3270,2978
+337.jpg,Which U.S. state’s northern border lies just below the green cloud patch over the Great Lakes?,Michigan,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3271,2979
+337.jpg,Which state inland shows the green band extending farthest from the coast?,Alabama,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3272,2980
+337.jpg,Which U.S. state’s Gulf Coast shoreline shows no colored cloud shading?,Texas,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3273,2981
+337.jpg,What is the annotation time and date displayed on the map?,12 Oct 2022 18:11Z,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3274,2982
+338.jpg,Is the storm's eye clearly visible in the center of the red mass?,Yes,"['Visual', 'Positional']",Boolean,_isopleth,0.5–2MP,_region,3275,2983
+338.jpg,What shape best describes the dark core in the storm center?,Circular,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3276,2984
+338.jpg,Which side of the image has the largest uninterrupted dark region?,Left,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3277,2985
+338.jpg,How many cloud clusters are detached from the main storm body?,2,['Other'],Counting,_isopleth,0.5–2MP,_region,3278,2986
+338.jpg,Is the upper right corner more or less cloudy than the bottom left?,More,"['Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3279,2987
+338.jpg,Are the surrounding bands of the main storm thick or thin?,Thick,['Other'],Boolean,_isopleth,0.5–2MP,_region,3280,2988
+338.jpg,Which direction from the storm center shows the most color variation?,Norhteast,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3281,2989
+338.jpg,Is the darkest red region centered in the storm or offset to one side?,Centered,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3282,2990
+338.jpg,Which quadrant has a spiral pattern moving inward?,Bottom left,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3283,2991
+338.jpg,Are there any regions in the image with full color absence (pure gray)?,Yes,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3284,2992
+339.png,How many landmasses are currently covered by the central (dark red to black) core of the storm?,2,['Visual'],Counting,_isopleth,0.5–2MP,_region,3285,2993
+339.png,"According to the map, how many countries have at least part of their territory covered by red or bla",3,"['Visual', 'Comparative']",Counting,_isopleth,0.5–2MP,_region,3286,2994
+339.png,How many islands can be seen in or near the storm system (within red/yellow areas)?,2,"['Visual', 'Positional']",Counting,_isopleth,0.5–2MP,_region,3287,2995
+339.png,How many separate high-intensity storm clusters (red/black zones not connected directly to the core),2,['Positional'],Counting,_isopleth,0.5–2MP,_region,3288,2996
+339.png,Is there more storm activity on the western or eastern half of the storm system?,eastern,"['Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3289,2997
+339.png,Is the storm center located over land or water in the image?,land,"['Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3290,2998
+339.png,How many large storm clusters (red to black color) are positioned over open water?,2,"['Visual', 'Comparative']",Counting,_isopleth,0.5–2MP,_region,3291,2999
+339.png,How many countries have clear outlines visible on the map?,4+,['Visual'],Counting,_isopleth,0.5–2MP,_region,3292,3000
+339.png,"How many distinct areas in the image are shaded in black, indicating the coldest and tallest cloud t",4+,"['Visual', 'Comparative']",Counting,_isopleth,0.5–2MP,_region,3293,3001
+340.jpg,How many individual colors are used to indicate cloud intensity in the main cluster?,3,['Visual'],Counting,_isopleth,0.5–2MP,_region,3294,3002
+340.jpg,Which direction does the elongated tail of the main cloud extension point towards?,South,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3295,3003
+340.jpg,What shape best describes the main cloud formation?,Circular,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3296,3004
+340.jpg,How many coastal segments are outlined along the northern shore of the main body of water?,5,['Positional'],Counting,_isopleth,0.5–2MP,_region,3297,3005
+340.jpg,Which side of the main cloud cluster shows the brightest core colors?,Left,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_region,3298,3006
+340.jpg,Which side of the map(left or right) has more overall cloud coverage?,Left,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3299,3007
+340.jpg,True or False: The red and yellow core of the main cluster forms one contiguous area.,True,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3300,3008
+340.jpg,Is the land outline at the bottom‑center oriented more horizontally than vertically?,Yes,['Comparative'],Boolean,_isopleth,0.5–2MP,_region,3301,3009
+340.jpg,How many isolated green‐tinted blobs lie to the west of the main formation (not connected to it)?,1,['Positional'],Counting,_isopleth,0.5–2MP,_region,3302,3010
+340.jpg,Which direction from the exact center of the image shows the sparsest cloud coverage?,Northeast,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3303,3011
+341.jpeg,What specific color represents the most intense precipitation at the core of this tropical system as,Dark red or black,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3304,3012
+341.jpeg,"In which cardinal direction (N, S, E, W) is the heaviest precipitation band extending from the cente",Northwest or west-northwest,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3305,3013
+341.jpeg,How many distinct color bands are visible in the precipitation intensity scale moving from the cente,5,['Visual'],Counting,_isopleth,<0.1MP,_region,3306,3014
+341.jpeg,Which side of the storm system shows the most elongated precipitation pattern as indicated by the bl,Northern or northeastern,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3307,3015
+341.jpeg,What approximate shape does the eye or core of this storm system most closely resemble in this radar,Circular or oval,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3308,3016
+341.jpeg,"Based on the precipitation pattern, in which direction does this system appear to be moving?",Northwest or west-northwest  or towards the coastline,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3309,3017
+341.jpeg,Approximately what percentage of the visible radar image is covered by precipitation of any intensit,30-35%,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3310,3018
+341.jpeg,What is the approximate diameter of the most intense precipitation core (red/black area) relative to,1/5 or 20%,['Comparative'],Single Entity,_isopleth,<0.1MP,_region,3311,3019
+341.jpeg,How many separate smaller cells of intense precipitation (yellow or above) are visible outside the m,3-4,"['Visual', 'Positional', 'Comparative']",Counting,_isopleth,<0.1MP,_region,3312,3020
+341.jpeg,"Based on the coastline visible in the image, which geographic region is this storm system most likel",Gulf Coast or Southern US,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3313,3021
+342.png,In which direction does the green band of the storm extend furthest from the center?,Northeast,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3314,3022
+342.png,What color indicates the boundary areas between the land and storm system?,Gray,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3315,3023
+342.png,How many isolated small storm cells or precipitation areas are visible to the northeast of the main,3,"['Visual', 'Positional']",Counting,_isopleth,0.1–0.5MP,_region,3316,3024
+342.png,What color represents the transition zone between the most intense (red) and moderate areas?,Green,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3317,3025
+342.png,In which quadrant of the image is the eye of the storm located?,Southwest,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_region,3318,3026
+342.png,What is the approximate ratio of red area to green area in the visible storm system?,1:3,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_region,3319,3027
+342.png,How many thin yellow boundary lines (likely state borders) extend north from the Gulf coastline?,5,"['Visual', 'Positional']",Counting,_isopleth,0.1–0.5MP,_region,3320,3028
+342.png,What percentage of the storm's total area contains the darkest red coloration?,15%,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3321,3029
+342.png,How many distinct shades of green appear in the northern extension of the storm?,3,"['Visual', 'Positional']",Counting,_isopleth,0.1–0.5MP,_region,3322,3030
+342.png,What color represents the scattered precipitation areas furthest northeast from the main storm?,Blue,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3323,3031
+343.jpeg,Which storm system shows the clearest eye formation?,Western or left,['Other'],Single Entity,_isopleth,<0.1MP,_region,3324,3032
+343.jpeg,How many distinct cloud bands extend from the western storm's center?,3-4,['Positional'],Counting,_isopleth,<0.1MP,_region,3325,3033
+343.jpeg,What color represents the highest precipitation intensity in the eye wall?,Red or dark red,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3326,3034
+343.jpeg,Which direction is the eastern storm system likely moving?,Northwest or west-northwest,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3327,3035
+343.jpeg,What shape does the western storm's eye most resemble?,Oval or slightly elongated circle,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3328,3036
+343.jpeg,How many separate storm systems with red intensity appear?,2,['Visual'],Counting,_isopleth,<0.1MP,_region,3329,3037
+343.jpeg,What approximate diameter is the western storm's eye relative to its total size?,1/8 or 12%,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3330,3038
+343.jpeg,Which storm appears more symmetrically organized?,Western or left,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3331,3039
+343.jpeg,What weather agency logo appears in the image corner?,NOAA,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3332,3040
+343.jpeg,Which system shows greater spiral banding structure?,Western or left,['Comparative'],Single Entity,_isopleth,<0.1MP,_region,3333,3041
+344.jpg,Which Florida coastline (east or west) lies directly under the larger red core?,East,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,2–8MP,_region,3334,3042
+344.jpg,Are the Florida Keys mostly inside the colored cloud field or outside it?,Outside,"['Visual', 'Positional']",Boolean,_isopleth,2–8MP,_region,3335,3043
+344.jpg,Do any colored (green/yellow/red) clouds extend west of the Florida peninsula’s western shore?,No,"['Visual', 'Positional']",Boolean,_isopleth,2–8MP,_region,3336,3044
+344.jpg,Does any red colour extend north of the straight horizontal land boundary above Florida? (yes / no),no,"['Visual', 'Positional']",Boolean,_isopleth,2–8MP,_region,3337,3045
+344.jpg,Are the Florida Keys entirely south of every red-coloured pixel? (yes / no),Yes,['Positional'],Boolean,_isopleth,2–8MP,_region,3338,3046
+344.jpg,Which quadrant of the whole frame (NE / NW / SE / SW) contains the largest area of red?,SE,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,2–8MP,_region,3339,3047
+344.jpg,Does any coloured cloud (green/yellow/red) appear west of the peninsular Florida Gulf coastline? (ye,No,"['Visual', 'Positional']",Boolean,_isopleth,2–8MP,_region,3340,3048
+345.jpg,What is the dominant direction of storm movement suggested by the cloud trails in this image?,Northeast,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3341,3049
+345.jpg,How many major landmasses are partially or fully visible in the image?,6,['Visual'],Counting,_isopleth,0.5–2MP,_region,3342,3050
+345.jpg,Which U.S. coastal state shows the first incoming bands of precipitation in the image?,Texas,['Comparative'],Single Entity,_isopleth,0.5–2MP,_region,3343,3051
+345.jpg,What U.S. state is almost entirely free of cloud cover in the image?,Florida,['Other'],Single Entity,_isopleth,0.5–2MP,_region,3344,3052
+345.jpg,How many distinct spiral arms (cloud bands) can be visually counted around the core?,3,['Other'],Counting,_isopleth,0.5–2MP,_region,3345,3053
+345.jpg,What region over the ocean displays a sharp horizontal contrast between cold cloud mass and clear ai,Northern Gulf of mexico,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3346,3054
+345.jpg,"Which visible part of Mexico is getting multi-directional cloud bands, not just from the central sto",Eastern Yucatán,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3347,3055
+345.jpg,What state shows converging upper-level clouds but no red/yellow convection below it?,Alabama,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3348,3056
+345.jpg,Which part of the Gulf coastline is closest to the densest part of the red core without being undern,Southwestern Louisiana,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3349,3057
+345.jpg,Which country in the image has both storm inflow and outflow clouds touching its territory?,Mexic,['Other'],Single Entity,_isopleth,0.5–2MP,_region,3350,3058
+345.jpg,Which land area marks the furthest eastern reach of the storm’s high-altitude outflow visible in the,Florida,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3351,3059
+346.gif,In which direction from the storm center is the heaviest precipitation located?,Northeast,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3352,3060
+346.gif,"To reach area with the lowest precipitation, which direction should you travel from the storm?",southeast,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3353,3061
+346.gif,How many distinct color segments are present in the precipitation legend?,13,['Visual'],Counting,_isopleth,<0.1MP,_region,3354,3062
+346.gif,In which direction is the edge of the storm system primarily extending?,Northeast,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3355,3063
+346.gif,What is the predominant color of the outer bands of the storm system?,Blue,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3356,3064
+346.gif,Approximately what percentage of the visible storm area is colored red?,5-10%,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3357,3065
+346.gif,"Which side of the storm (north, south, east, or west) shows the least intense precipitation?",West,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3358,3066
+346.gif,How many distinct bands of precipitation can be counted extending outward from the storm center?,5,['Positional'],Counting,_isopleth,<0.1MP,_region,3359,3067
+346.gif,What is the approximate ratio of width to height of the entire visible storm system?,4:3,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3360,3068
+346.gif,Which side of the storm shows more fragmented precipitation patterns: the eastern or western edge?,Eastern edge,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3361,3069
+347.gif,How many distinct major storm cells with red centers are visible in the image?,2,['Visual'],Counting,_isopleth,0.1–0.5MP,_region,3362,3070
+347.gif,What color appears at the very center of the larger storm system?,Dark Red,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3363,3071
+347.gif,Which direction from the larger storm cell does the smaller storm cell appear?,Southwest,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3364,3072
+347.gif,How many small blue precipitation areas can be counted in the top right quadrant of the image?,4,"['Visual', 'Positional', 'Comparative']",Counting,_isopleth,0.1–0.5MP,_region,3365,3073
+347.gif,What color are the boundary lines representing country or state borders in this image?,White,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3366,3074
+347.gif,What pattern of small dark spots appears in the center of the largest storm cell?,Cluster of dots,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3367,3075
+347.gif,Which edge of the image shows the most detailed coastline boundary?,Bottom Edge,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_region,3368,3076
+347.gif,What's the approximate size ratio between the larger and smaller storm cells?,3:1,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3369,3077
+347.gif,What color represents the scattered light precipitation areas in the eastern portion of the image?,Light Blue,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3370,3078
+347.gif,What pattern of white lines appears in the bottom right portion of the image?,Island chain,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3371,3079
+348.png,How many distinct colors are used to show storm intensity in this radar image?,5,['Visual'],Counting,_isopleth,2–8MP,_region,3372,3080
+348.png,What color represents the edge or outer boundary of this storm system?,Light Blue,['Visual'],Single Entity,_isopleth,2–8MP,_region,3373,3081
+348.png,How many areas of maximum intensity (dark red/black centers) are visible in the storm?,2,['Visual'],Counting,_isopleth,2–8MP,_region,3374,3082
+348.png,What shape does the overall storm system most closely resemble?,Circular,"['Visual', 'Comparative']",Single Entity,_isopleth,2–8MP,_region,3375,3083
+348.png,"Which side of the image (north, south, east, or west) has the least storm activity?",West,"['Positional', 'Comparative']",Single Entity,_isopleth,2–8MP,_region,3376,3084
+348.png,What color appears immediately outside the green areas in the storm?,Blue,"['Visual', 'Positional']",Single Entity,_isopleth,2–8MP,_region,3377,3085
+348.png,Count the visible small blue storm cells separated from the main system.,3,['Visual'],Counting,_isopleth,2–8MP,_region,3378,3086
+348.png,In which direction does the spiral pattern of the storm appear to rotate?,counterclockwise,"['Visual', 'Positional']",Single Entity,_isopleth,2–8MP,_region,3379,3087
+348.png,What color is found at the very center of the largest intense area?,Dark red,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,2–8MP,_region,3380,3088
+348.png,How many thin white lines (borders) cross through the storm system?,4,"['Visual', 'Positional']",Counting,_isopleth,2–8MP,_region,3381,3089
+349.jpeg,How many separate black-colored cores are visible in the image?,3,['Visual'],Counting,_isopleth,<0.1MP,_region,3382,3090
+349.jpeg,Is the darkest area located at the edge or center of the main storm mass?,Center,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3383,3091
+349.jpeg,Which color surrounds the black regions most closely?,Red,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3384,3092
+349.jpeg,Is the spiral shape in the storm tightly wound or loosely spread?,Tightly wound,['Visual'],Boolean,_isopleth,<0.1MP,_region,3385,3093
+349.jpeg,Are the storm arms extending more toward the top or bottom of the image?,Top,"['Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3386,3094
+349.jpeg,Does the green band appear continuous or broken in structure?,Broken,['Visual'],Boolean,_isopleth,<0.1MP,_region,3387,3095
+349.jpeg,Which side shows the highest contrast between cloud bands?,Left,"['Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3388,3096
+349.jpeg,Are the red areas more concentrated near the center or evenly spread?,Near the center,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3389,3097
+349.jpeg,Are there any isolated red patches separated from the main cloud system?,Yes,['Visual'],Boolean,_isopleth,<0.1MP,_region,3390,3098
+349.jpeg,Which part of the storm appears more organized—top or bottom?,Top,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3391,3099
+350.jpg,How many distinct colors are used to show storm intensity in this radar image?,5,['Visual'],Counting,_isopleth,0.5–2MP,_region,3392,3100
+350.jpg,Which color represents the most intense storm activity in this weather system?,Red,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3393,3101
+350.jpg,What date is shown at the bottom of this weather map?,14 Sep 2021,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3394,3102
+350.jpg,Which organization's logo appears in the bottom left corner?,NOAA,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3395,3103
+350.jpg,What time (in UTC) is shown on this weather map?,0306Z,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3396,3104
+350.jpg,In which compass direction does the storm system appear to be primarily moving?,Northeast,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_region,3397,3105
+350.jpg,Count the visible isolated green storm cells in the southern portion of the map.,6,"['Visual', 'Positional']",Counting,_isopleth,0.5–2MP,_region,3398,3106
+350.jpg,What band number is specified in the image information at the bottom?,13,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3399,3107
+350.jpg,Which satellite captured this image according to the information at the bottom?,GOES-East,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3400,3108
+350.jpg,How many separate patches of blue storm activity can be counted in the image?,12,['Visual'],Counting,_isopleth,0.5–2MP,_region,3401,3109
+351.jpg,Which weather phenomenon is most likely being monitored here?,Tropical Cyclone,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_region,3402,3110
+351.jpg,Which region appears relatively cloud-free in this image?,Southeastern United States,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_region,3403,3111
+351.jpg,Which country is visible at the bottom-center of the image?,Mexico,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_region,3404,3112
+351.jpg,What direction is the storm system likely moving toward?,Northeast,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_region,3405,3113
+351.jpg,What part of the storm system shows the most symmetry and potential eye formation?,Central Core,['Comparative'],Single Entity,_isopleth,0.1–0.5MP,_region,3406,3114
+351.jpg,What ocean is primarily shown in this image?,Gulf of mexico,['Visual'],Single Entity,_isopleth,0.1–0.5MP,_region,3407,3115
+351.jpg,Which U.S. state lies west of the storm center?,texas,['Positional'],Single Entity,_isopleth,0.1–0.5MP,_region,3408,3116
+352.jpeg,What color in the image indicates the coldest cloud tops (highest intensity)?,Red,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3409,3117
+352.jpeg,What color represents the warmest areas (lowest clouds or ocean)?,Gray,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3410,3118
+352.jpeg,Are the most intense parts of the storm concentrated in the northwest quadrant?,No,"['Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3411,3119
+352.jpeg,Is there a distinct landfall point shown in the image?,No,['Visual'],Boolean,_isopleth,<0.1MP,_region,3412,3120
+352.jpeg,Is this image taken during daylight hours?,No,['Other'],Boolean,_isopleth,<0.1MP,_region,3413,3121
+352.jpeg,Is the landmass visible on the left side of the image part of North America?,Yes,"['Visual', 'Positional']",Boolean,_isopleth,<0.1MP,_region,3414,3122
+352.jpeg,Is the storm system rotating in a counter-clockwise direction?,Yes,['Positional'],Boolean,_isopleth,<0.1MP,_region,3415,3123
+352.jpeg,Which direction is the storm system primarily moving toward?,Northeast,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3416,3124
+352.jpeg,Is the eye of the storm clearly visible in this image?,No,['Visual'],Boolean,_isopleth,<0.1MP,_region,3417,3125
+352.jpeg,Is the storm affecting the northeast U.S. coast in this image?,Not Directly,['Positional'],Boolean,_isopleth,<0.1MP,_region,3418,3126
+353.jpeg,Which U.S. state appears to be directly north of the storm's densest (red/black) cloud mass?,Georgia,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3419,3127
+353.jpeg,Which part of the storm system shows the most symmetrical concentration of red and black pixels?,north-central core,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3420,3128
+353.jpeg,Which state’s coastline is the red storm mass closest to?,Florida,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3421,3129
+353.jpeg,Which color marks the coldest cloud tops in this infrared satellite image?,Black,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3422,3130
+353.jpeg,How many distinct dark red cores (highest intensity storm cells) are visible in the central mass?,2,"['Visual', 'Comparative']",Counting,_isopleth,<0.1MP,_region,3423,3131
+353.jpeg,What direction is the storm’s spiral suggesting movement toward?,North-northeast,['Positional'],Single Entity,_isopleth,<0.1MP,_region,3424,3132
+353.jpeg,Which U.S. state in the image is mostly cloud-free and appears in full visibility?,Mississippi,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3425,3133
+353.jpeg,Which state’s southern border is most engulfed by the outer purple cloud bands?,Alabama,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3426,3134
+353.jpeg,How many states are partially visible in the upper part of the image?,3,['Visual'],Counting,_isopleth,<0.1MP,_region,3427,3135
+353.jpeg,"Which storm quadrant (NW, NE, SW, SE) contains the brightest green-to-yellow streaks indicating pote",Southeast,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3428,3136
+354.JPG,Is the darkest red point in Florida on the east or west?,East,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,0.5–2MP,_region,3430,3137
+354.JPG,can whole state of Tennessee seen in the map?,Yes,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3432,3138
+354.JPG,Can a part of Illinois be seen in this map?,Yes,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3433,3139
+354.JPG,Which is the largest city by population that can be seen on this map,Charlotte,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3434,3140
+354.JPG,Can Nashville and Memphis both be seen in the map?,Yes,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3435,3141
+354.JPG,Does Cuba seem to be affected by cyclone?,Yes,['Other'],Boolean,_isopleth,0.5–2MP,_region,3436,3142
+354.JPG,Is any part of cyclone entering North Carolina?,Yes,['Positional'],Boolean,_isopleth,0.5–2MP,_region,3437,3143
+354.JPG,Which state has the western most point that this cyclone is touching,Florida,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3438,3144
+355.jpeg,How many green spots have red spots in them?,7,['Visual'],Counting,_isopleth,<0.1MP,_region,3439,3145
+355.jpeg,Is there any green spot that does not have yellow?,Yes,['Visual'],Boolean,_isopleth,<0.1MP,_region,3440,3146
+355.jpeg,How many regions are there in the top left subsection,6,"['Positional', 'Comparative']",Counting,_isopleth,<0.1MP,_region,3441,3147
+355.jpeg,What color is dominant in the extreme bottom left corner,Blue,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3442,3148
+355.jpeg,Is there any border in the top right section,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3443,3149
+355.jpeg,Is there any symbol or logo in this image,Yes,['Other'],Boolean,_isopleth,<0.1MP,_region,3444,3150
+355.jpeg,Which section of the map has most number of regions?,Bottom Left,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3445,3151
+355.jpeg,is there a red spot above any top right region?,Yes,"['Visual', 'Positional', 'Comparative']",Boolean,_isopleth,<0.1MP,_region,3446,3152
+355.jpeg,What is the name of the organization who's logo is present?,National Oceanic and Atmospheric Administration,['Other'],Single Entity,_isopleth,<0.1MP,_region,3447,3153
+355.jpeg,"Which side has more of blue parts visible, left or right",Right,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3448,3154
+356.jpg,The main red convective cluster sits over which large body of water?,Gulf of Mexico,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3449,3155
+356.jpg,Which U.S. state coastline is nearest the northern edge of the deepest reds?,Louisiana,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3450,3156
+356.jpg,A narrow tail of red clouds extends south‑south‑west toward which peninsula?,Yucatán,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3451,3157
+356.jpg,Does Florida appear largely cloud‑free or cloud‑covered in this frame?,Cloud‑free,['Visual'],Boolean,_isopleth,0.5–2MP,_region,3452,3158
+356.jpg,The cluster of bright‑blue clouds in the extreme upper‑centre of the image lies over which U.S state,Arkansas,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3453,3159
+356.jpg,A separate small red‑orange burst lies just off the coast of which state east of Louisiana?,Mississippi,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3454,3160
+356.jpg,The NOAA logo appears in which corner of the frame?,Bottom‑left,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3455,3161
+356.jpg,"Relative to the main storm, Cuba lies in which compass direction?",Southeast,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3456,3162
+356.jpg,How many distinct compact black “cores” (very cold tops) can be seen inside the main red mass?,2,"['Visual', 'Positional']",Counting,_isopleth,0.5–2MP,_region,3457,3163
+356.jpg,Which large island outline is visible in the lower‑right quadrant of the satellite image?,Cuba,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3458,3164
+357.jpg,What color is the eye of the hurricane in this image?,Gray,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3459,3165
+357.jpg,How many horizontal blue latitude lines are visible on the map?,3,['Visual'],Counting,_isopleth,0.5–2MP,_region,3460,3166
+357.jpg,What unique feature appears in the northern red band of the storm that's different from the main eye,Elongated/stretched shape,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_region,3461,3167
+357.jpg,What date and time stamp appears at the bottom of the image?,09 Oct 2024 10:54Z,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3462,3168
+357.jpg,What unusual pattern appears within the dark center of the hurricane's eye?,Small Red spot,"['Visual', 'Positional']",Single Entity,_isopleth,0.5–2MP,_region,3463,3169
+357.jpg,"Which side of the hurricane (north, south, east, or west) shows the weakest precipitation intensity?",Northwest,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3464,3170
+357.jpg,What color represents the outermost precipitation bands of the storm system?,Light Blue,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3465,3171
+357.jpg,What color indicates the transition zone between the moderate and most intense areas of the storm?,Yellow or orange,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3466,3172
+357.jpg,How many distinct spiral bands can be counted extending outward from the hurricane's eye?,4,['Other'],Counting,_isopleth,0.5–2MP,_region,3467,3173
+357.jpg,What is the band number indicated in the bottom text line of the image?,13,"['Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3468,3174
+358.jpg,What is the darkest color at the center of the storm system?,Black,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3469,3175
+358.jpg,How many distinct dark red or black cloud cores are visible?,2,['Visual'],Counting,_isopleth,0.5–2MP,_region,3470,3176
+358.jpg,Is the storm system more concentrated over land or water?,Water,['Comparative'],Boolean,_isopleth,0.5–2MP,_region,3471,3177
+358.jpg,The long tail-like cloud extension points toward which general corner?,Bottom left,['Other'],Single Entity,_isopleth,0.5–2MP,_region,3472,3178
+358.jpg,Which side of the storm system appears more dispersed: east or west?,East,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3473,3179
+358.jpg,Which section has the largest contiguous green cloud mass?,Top right,"['Visual', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3474,3180
+358.jpg,How many regions in the map show isolated yellow-red blobs?,3,['Other'],Counting,_isopleth,0.5–2MP,_region,3475,3181
+358.jpg,What direction is the densest cloud mass moving toward?,Northeast,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3476,3182
+358.jpg,Does the eye of the storm appear closer to the coastline or open sea?,open sea,"['Visual', 'Positional']",Boolean,_isopleth,0.5–2MP,_region,3477,3183
+358.jpg,Is the image timestamp closer to sunrise or sunset based on time?,sunrise,['Positional'],Boolean,_isopleth,0.5–2MP,_region,3478,3184
+359.png,What is the state immediately to the north of the state affected least by the weather on the map?,Tennessee,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3479,3185
+359.png,What is the state immediately to the west of the state affected least by the weather on the map?,Mississippi,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3480,3186
+359.png,What is the state immediately to the south of the state affected least by the weather on the map?,Florida,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3481,3187
+359.png,What is the state immediately to the east of the state affected second most by the weather on the ma,South Carolina,"['Positional', 'Comparative']",Single Entity,_isopleth,0.1–0.5MP,_region,3482,3188
+359.png,What is the state that does not contain any red or orange colors on the map?,Alabama,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3483,3189
+359.png,What is the total count of the states that contain only red colors on the map?,0,"['Visual', 'Positional']",Counting,_isopleth,0.1–0.5MP,_region,3484,3190
+359.png,What is the total count of the states that contain only green and red colors on the map?,0,"['Visual', 'Positional']",Counting,_isopleth,0.1–0.5MP,_region,3485,3191
+359.png,What state contains no colors on the map?,none,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3486,3192
+359.png,What state contains only red on the map?,none,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3487,3193
+359.png,What state contains only one color on the map?,none,"['Visual', 'Positional']",Single Entity,_isopleth,0.1–0.5MP,_region,3488,3194
+360.jpeg,How many distinct eye-like features appear within the central structure of this storm system?,2,"['Visual', 'Positional']",Counting,_isopleth,<0.1MP,_region,3489,3195
+360.jpeg,What color represents the most intense precipitation band surrounding the cyclone's center?,Red or orange,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3490,3196
+360.jpeg,In which direction relative to the eye is the most extensive area of blue precipitation?,Northwest or north,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3491,3197
+360.jpeg,How many complete spiral bands can be counted extending from the center outward?,3,['Positional'],Counting,_isopleth,<0.1MP,_region,3492,3198
+360.jpeg,What shape best describes the innermost eye structure of this cyclone?,Irregular oval or figure-eight,"['Visual', 'Comparative']",Single Entity,_isopleth,<0.1MP,_region,3493,3199
+360.jpeg,Which quadrant of the storm shows the least cloud coverage or precipitation?,Southwest,['Comparative'],Single Entity,_isopleth,<0.1MP,_region,3494,3200
+360.jpeg,What percentage of the total visible area shows red/orange intensity levels?,20-25%,['Visual'],Single Entity,_isopleth,<0.1MP,_region,3495,3201
+360.jpeg,What distinctive small-scale features appear within the eye itself?,Small clouds or mesovortices,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3496,3202
+360.jpeg,Which part of the storm shows the sharpest color gradient between intensity levels?,Northwestern eyewall,"['Visual', 'Positional']",Single Entity,_isopleth,<0.1MP,_region,3497,3203
+360.jpeg,How many distinct color categories are used to represent different precipitation intensities?,5,['Visual'],Counting,_isopleth,<0.1MP,_region,3498,3204
+361.jpg,Which continental shelf underlies the main convective cluster?,Mississippi-Alabama,['Other'],Single Entity,_isopleth,0.5–2MP,_region,3499,3205
+361.jpg,What color denotes the coldest cloud-top temperatures?,Black,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3500,3206
+361.jpg,What color represents the strongest convection?,Red,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3501,3207
+361.jpg,"What hue marks warmer, low-lying clouds?",Gray,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3502,3208
+361.jpg,What meteorological phenomenon does the black core signify?,Overshooting top,['Visual'],Single Entity,_isopleth,0.5–2MP,_region,3503,3209
+361.jpg,Which state lies directly north of that frontal band?,Arkansas,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3504,3210
+361.jpg,Which Cuban province is partially visible at the bottom?,Pinar del Río,"['Visual', 'Positional', 'Comparative']",Single Entity,_isopleth,0.5–2MP,_region,3505,3211
+361.jpg,Roughly what longitude is that core located at?,85-87,['Positional'],Single Entity,_isopleth,0.5–2MP,_region,3506,3212
+361.jpg,Which shading indicates the highest mid-tropospheric moisture?,Dark green,['Comparative'],Single Entity,_isopleth,0.5–2MP,_region,3507,3213
+362.jpg,"According to this map, what is the primary color used to denote major roadways?",yellow,['Visual'],Single Entity,_marker,0.1–0.5MP,_region,3508,3214
+362.jpg,How many distinct numbered roadways are fully visible within the map's frame?,5,"['Visual', 'Positional']",Counting,_marker,0.1–0.5MP,_region,3509,3215
+362.jpg,Is the highway labeled 'AH1' shown to pass directly through Darya Ganj?,Yes,"['Visual', 'Positional']",Boolean,_marker,0.1–0.5MP,_region,3510,3216
+362.jpg,What symbol is used on this map to specifically indicate the location of Darya Ganj?,Red Pin,"['Visual', 'Positional']",Single Entity,_marker,0.1–0.5MP,_region,3511,3217
+362.jpg,How many cities starting with the letter 'N' are visible on this map besides New Delhi and Noida?,0,['Visual'],Counting,_marker,0.1–0.5MP,_region,3512,3218
+362.jpg,How many cities are visible on the map?,10,['Visual'],Counting,_marker,0.1–0.5MP,_region,3513,3219
+362.jpg,Which city is at the intersection of 334B and 235?,Meerut,['Positional'],Single Entity,_marker,0.1–0.5MP,_region,3514,3220
+362.jpg,Which 2 cities does 235 connect?,Meerut and Bulandshahr,['Other'],Single Entity,_marker,0.1–0.5MP,_region,3516,3221
+362.jpg,How many cities are starting with letter B?,2,['Other'],Counting,_marker,0.1–0.5MP,_region,3517,3222
+362.jpg,Which city is near Darya Ganj?,Noida,['Positional'],Single Entity,_marker,0.1–0.5MP,_region,3518,3223
+363.jpg,Counties investigated is represented by which colour ?,Green,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3519,3224
+363.jpg,Does the capital of the country lie in any investigation region ?,Yes,['Other'],Boolean,_divisional,0.1–0.5MP,_country,3520,3225
+363.jpg,Is Kajiado present in investigation region ?,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,3521,3226
+363.jpg,Is Kitui present in investigation region on this map?,No,['Other'],Boolean,_divisional,0.1–0.5MP,_country,3522,3227
+363.jpg,what county lies in between kwale and kilifi ?,Mombasa,['Positional'],Single Entity,_divisional,0.1–0.5MP,_country,3523,3228
+363.jpg,Which part of the country has more counties under investigation ?,Western,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_country,3525,3229
+363.jpg,Name counties that lies west of Tana River ?,Kitui,['Positional'],Single Entity,_divisional,0.1–0.5MP,_country,3527,3230
+363.jpg,Name shortest travel route from Kajiado to Kitui through non-investigated county ?,Makueni,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_country,3528,3231
+364.jpg,Country from the image which is right of congo and left of uganda?,Democratic Republic of Congo,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3531,3232
+364.jpg,"From the image, how many countries share the border with central african republic ?",5,['Positional'],Counting,_divisional,0.5–2MP,_continent,3532,3233
+364.jpg,"Country from the image, which is directly south of Cameroon?",Gabon,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3533,3234
+364.jpg,Number of the countries from the image that borders the Sudan?,9,['Positional'],Counting,_divisional,0.5–2MP,_continent,3534,3235
+364.jpg,"From the image, how many countries are red in colour?",15,['Visual'],Counting,_divisional,0.5–2MP,_continent,3537,3236
+364.jpg,"From the image, how many countries are green in colour?",15,['Visual'],Counting,_divisional,0.5–2MP,_continent,3538,3237
+365.jpg,How many retail store locations are marked on Level 6 of the stadium map?,5,['Visual'],Counting,_multiple,0.5–2MP,_building,3539,3238
+365.jpg,Can you see the words ‘Los Angeles’ written inside the stadium on the map?,Yes,"['Visual', 'Positional']",Boolean,_multiple,0.5–2MP,_building,3540,3239
+365.jpg,Which retail location on Level 2 is farthest from the other two retail points on the same level?,SEC 125,"['Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_building,3541,3240
+365.jpg,On which level of the map is the color blue most densely used?,2,"['Visual', 'Comparative']",Single Entity,_multiple,0.5–2MP,_building,3542,3241
+365.jpg,How many retail locations are marked on Level 8 of the stadium map?,6,['Visual'],Counting,_multiple,0.5–2MP,_building,3543,3242
+365.jpg,Which level of the stadium map contains the highest number of retail locations?,8,"['Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_building,3544,3243
+365.jpg,Which level of the stadium map contains the least number of retail locations?,4,"['Positional', 'Comparative']",Single Entity,_multiple,0.5–2MP,_building,3545,3244
+365.jpg,How many shaded circles are present in the SoFi Stadium logo on the map,5,['Other'],Counting,_multiple,0.5–2MP,_building,3546,3245
+365.jpg,What color is used to shade the location of The Equipment Room on the stadium map?,yellow,"['Visual', 'Positional']",Single Entity,_multiple,0.5–2MP,_building,3547,3246
+365.jpg,Is the retail location near SEC 210 situated in the northern or southern part of the stadium map?,Northern,['Positional'],Boolean,_multiple,0.5–2MP,_building,3548,3247
+366.jpg,How many human figures are shown in the illustration panel at the bottom left?,5,"['Visual', 'Positional', 'Comparative']",Counting,_divisional,0.5–2MP,_continent,3549,3248
+366.jpg,Is there a scale or legend near the bottom?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_continent,3550,3249
+366.jpg,How many different animal species appear in the vignette scene?,5,['Visual'],Counting,_divisional,0.5–2MP,_continent,3551,3250
+366.jpg,Total palm trees in the illustration—two or three?,3,['Other'],Boolean,_divisional,0.5–2MP,_continent,3552,3251
+366.jpg,Is the leopard facing right (toward lion) or left?,Right,['Positional'],Boolean,_divisional,0.5–2MP,_continent,3553,3252
+366.jpg,Is Madagascar tinted the same color as central Africa or as North Africa?,central Africa,"['Visual', 'Positional']",Boolean,_divisional,0.5–2MP,_continent,3554,3253
+366.jpg,Does the Nile’s source lie in a region colored yellow or pink?,Yellow,['Visual'],Boolean,_divisional,0.5–2MP,_continent,3555,3254
+366.jpg,Is the bottom scale bar a plain line or a band with colored ticks?,Band with colored ticks,"['Visual', 'Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_continent,3556,3255
+366.jpg,Are several small birds perched on top of the cartouche?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_continent,3557,3256
+366.jpg,is longitude number along the top monotonous left → right?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_continent,3558,3257
+366.jpg,"Is the Cape of Good Hope shaded pink like central Africa, or green?",Green,['Visual'],Boolean,_divisional,0.5–2MP,_continent,3559,3258
+366.jpg,Does the equator line run above or through the cartouche?,Above,['Positional'],Boolean,_divisional,0.5–2MP,_continent,3560,3259
+367.jpg,how many provinces are present in purple colour?,9,['Visual'],Counting,_divisional,0.5–2MP,_country,3561,3260
+367.jpg,number of provinces in purple touching the Uganda border ?,2,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_country,3565,3261
+367.jpg,number of provinces in purple touching the costal region?,2,['Visual'],Counting,_divisional,0.5–2MP,_country,3566,3262
+367.jpg,can you find label for malindi in this map ? true or false,true,['Visual'],Boolean,_divisional,0.5–2MP,_country,3567,3263
+367.jpg,can you find label for `masai mara` in this map ? true or false,false,['Visual'],Boolean,_divisional,0.5–2MP,_country,3568,3264
+367.jpg,can you find label for `Kenya` in this map ? true or false,true,['Visual'],Boolean,_divisional,0.5–2MP,_country,3570,3265
+368.png,Count the number of red pointers in this image,15,['Visual'],Counting,_marker,>8MP,_region,3571,3266
+368.png,How many pointers are north of Pullur,8,['Positional'],Counting,_marker,>8MP,_region,3573,3267
+368.png,How many numbered locations are in Tamil Nadu,12,['Other'],Counting,_marker,>8MP,_region,3574,3268
+368.png,"How many distinct numbered locations have labels containing diacritics (accent marks, dots, macrons",14,['Visual'],Counting,_marker,>8MP,_region,3576,3269
+368.png,How many labelled points look are near coasts?,5,"['Visual', 'Positional']",Counting,_marker,>8MP,_region,3577,3270
+368.png,Which state in the map has the least numbered markers?,Goa,['Comparative'],Single Entity,_marker,>8MP,_region,3579,3271
+368.png,Which state is in the north west most part of the map?,Goa,"['Positional', 'Comparative']",Single Entity,_marker,>8MP,_region,3580,3272
+369.jpg,Which section Is diagonally opposite to B1?,D1,['Visual'],Single Entity,_layout,2–8MP,_building,3581,3273
+369.jpg,which section is diagonally opposite to A1?,C1,['Visual'],Single Entity,_layout,2–8MP,_building,3582,3274
+369.jpg,which stand is directly opposite to stand AWAY nearest to you are here mark?,AWAY - Top left,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,3585,3275
+369.jpg,how many sections is an AWAY stand divided in?,2,['Visual'],Counting,_layout,2–8MP,_building,3586,3276
+369.jpg,Identify the section that is located three sections counter-clockwise from section B1,B4,"['Visual', 'Positional']",Single Entity,_layout,2–8MP,_building,3587,3277
+369.jpg,"How many pairs of sections exist where the letter is the same and the numbers are consecutive (e.g.,",20,"['Visual', 'Positional']",Counting,_layout,2–8MP,_building,3588,3278
+369.jpg,"after entering the stadium, identify the start of 11 sections clockwise to your location.",D1,"['Visual', 'Positional']",Single Entity,_layout,2–8MP,_building,3589,3279
+369.jpg,Which is the closest seat to the closest home stand to the 'you are here' location?,A1,"['Positional', 'Comparative']",Single Entity,_layout,2–8MP,_building,3590,3280
+370.jpg,How many squared places with a halfmoon symbol to the left of its square can you find in the image ?,8,['Positional'],Counting,_mixed,2–8MP,_city,3591,3281
+370.jpg,How many ★ star‑icons are present on the map ?,14,['Other'],Counting,_mixed,2–8MP,_city,3592,3282
+370.jpg,Name the building to the Eastmost direction of map,John Adam Building,['Positional'],Single Entity,_mixed,2–8MP,_city,3594,3283
+370.jpg,How many different site‑names include the word “Memorial”?,9,['Other'],Counting,_mixed,2–8MP,_city,3595,3284
+370.jpg,BAsed on the map which site / monument is the pointing to in the north ?,National Cathedral,['Positional'],Single Entity,_mixed,2–8MP,_city,3596,3285
+370.jpg,Which memorial lies nearest the intersection of Ohio Drive and Independence Avenue?,Martin Luther King Jr. Memorial,"['Positional', 'Comparative']",Single Entity,_mixed,2–8MP,_city,3597,3286
+370.jpg,The memorial Dr at the west is pointing towards what site name ?,Arlington National Cemetery,['Positional'],Single Entity,_mixed,2–8MP,_city,3599,3287
+371.jpg,do you see a seagull in this map? true or false,true,['Visual'],Boolean,_conflict,0.5–2MP,_subcontinent,3601,3288
+371.jpg,how many man images are present in this map?,4,['Other'],Counting,_conflict,0.5–2MP,_subcontinent,3602,3289
+371.jpg,how many water bodies do you see in this map?,6,['Visual'],Counting,_conflict,0.5–2MP,_subcontinent,3603,3290
+371.jpg,how many rivers do you see in this map?,4,['Visual'],Counting,_conflict,0.5–2MP,_subcontinent,3604,3291
+371.jpg,this map depicts how many states ?,2,['Other'],Counting,_conflict,0.5–2MP,_subcontinent,3605,3292
+371.jpg,based on this map can we say `tribal people live in mountain areas` ? true or false,true,['Other'],Boolean,_conflict,0.5–2MP,_subcontinent,3606,3293
+371.jpg,count total red flags in this map?,17,['Visual'],Counting,_conflict,0.5–2MP,_subcontinent,3607,3294
+371.jpg,count red flags near the coastal region?,3,"['Visual', 'Positional']",Counting,_conflict,0.5–2MP,_subcontinent,3608,3295
+371.jpg,is there a river near tribal man? true or false,false,['Positional'],Boolean,_conflict,0.5–2MP,_subcontinent,3609,3296
+371.jpg,this map is reproduced in which year ?,1941,['Other'],Single Entity,_conflict,0.5–2MP,_subcontinent,3610,3297
+372.jpg,is there any line going through India?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_continent,3612,3298
+372.jpg,where has the maximum migration been done?,Africa,['Positional'],Single Entity,_network,0.1–0.5MP,_continent,3613,3299
+372.jpg,Where does the line end?,Europe,['Positional'],Single Entity,_network,0.1–0.5MP,_continent,3614,3300
+372.jpg,Name the country from where the migration start,Ethiopia,['Positional'],Single Entity,_network,0.1–0.5MP,_continent,3615,3301
+372.jpg,Which country has the northernmost point of migration,Russia,"['Positional', 'Comparative']",Single Entity,_network,0.1–0.5MP,_continent,3617,3302
+372.jpg,When was this map made?,no data,['Other'],Single Entity,_network,0.1–0.5MP,_continent,3619,3303
+373.png,How many country codes are there in this map?,54,['Other'],Counting,_divisional,0.5–2MP,_continent,3620,3304
+373.png,How many codes belong to more than 1 region?,2,['Comparative'],Counting,_divisional,0.5–2MP,_continent,3621,3305
+373.png,How many stand alone water bodies can you see?,6,['Visual'],Counting,_divisional,0.5–2MP,_continent,3622,3306
+373.png,In this map how many country codes immediately surround Central African Republic?,6,['Positional'],Counting,_divisional,0.5–2MP,_continent,3623,3307
+373.png,How many country codes immediately surround Ascension Island?,0,['Positional'],Counting,_divisional,0.5–2MP,_continent,3624,3308
+373.png,How many country codes surround Ascension Island in 100 km proximity?,0,['Positional'],Counting,_divisional,0.5–2MP,_continent,3625,3309
+373.png,How many country codes are there in this image that aren't in mainland Africa?,11,['Other'],Counting,_divisional,0.5–2MP,_continent,3626,3310
+373.png,"Starting from GQ, how many countries do I need to fly over to reach AO?",3,['Comparative'],Counting,_divisional,0.5–2MP,_continent,3627,3311
+373.png,"Starting from GQ, how many countries do I need to fly over to reach LS?",7,['Comparative'],Counting,_divisional,0.5–2MP,_continent,3628,3312
+373.png,which is the biggest island in this image after Madagascar?,TA,['Comparative'],Single Entity,_divisional,0.5–2MP,_continent,3629,3313
+374.png,Which country in South America had the highest CO₂ emissions per capita in 2020?,Brazil,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3630,3314
+374.png,"According to the map, what is the CO₂ emission range for Australia per person?",>10 tons,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3631,3315
+374.png,Which African country had emissions close to or above 2 tons per person?,Botswana,['Positional'],Single Entity,_choropleth,0.5–2MP,_world,3632,3316
+374.png,What is the approximate per capita emission for the United States based on the color intensity?,>10 tons,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3633,3317
+374.png,What color range is most commonly seen across Central Africa?,Light yellow,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3634,3318
+374.png,Is China darker or lighter than India in terms of emissions per capita on this map?,Darker,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,3635,3319
+374.png,What color range is most commonly seen in Canada?,>10 tons,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3636,3320
+374.png,Which Asian country shows emissions in the 5 to 10 tons range per capita?,China,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3637,3321
+374.png,"Which Middle Eastern country has the darkest brown shade, indicating the highest emissions?",Saudi Arabia,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3638,3322
+374.png,Which country in North America has lighter emissions than the USA?,Mexico,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3639,3323
+375.png,Which Asian country is represented with the second darkest blue?,Mangolia,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3641,3324
+375.png,How many African countries are shaded in any shade of blue?,3,['Visual'],Counting,_choropleth,0.5–2MP,_world,3642,3325
+375.png,Is Australia shaded in any color?,No,['Visual'],Boolean,_choropleth,0.5–2MP,_world,3643,3326
+375.png,Which European country is shaded with the lightest blue?,France,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3644,3327
+375.png,Does the map show any countries in the Middle East shaded in blue?,No,"['Visual', 'Positional']",Boolean,_choropleth,0.5–2MP,_world,3645,3328
+375.png,Is Greenland shaded in blue?,No,['Visual'],Boolean,_choropleth,0.5–2MP,_world,3646,3329
+375.png,Which country in North America is shaded with the darkest blue?,Canada,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3647,3330
+375.png,Are any countries in Scandinavia shaded in blue?,No,['Visual'],Boolean,_choropleth,0.5–2MP,_world,3648,3331
+375.png,Which continent has the most countries shaded in blue?,Africa,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3649,3332
+375.png,Is Argentina shaded with the darkest blue?,No,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,3650,3333
+376.jpg,Which Y-chromosome marker appears first on the map?,M91,"['Visual', 'Comparative']",Single Entity,_network,0.1–0.5MP,_world,3651,3334
+376.jpg,What color represents mtDNA migration paths,Orange,['Visual'],Single Entity,_network,0.1–0.5MP,_world,3654,3335
+376.jpg,Which continent did humans migrate to after leaving Africa?,Asia,['Other'],Single Entity,_network,0.1–0.5MP,_world,3655,3336
+376.jpg,"Which mtDNA marker is most ancient, based on the timeline?",L1,['Comparative'],Single Entity,_network,0.1–0.5MP,_world,3656,3337
+376.jpg,What is the approximate time (in thousand of years ago) when humans reached North America?,15-20,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3657,3338
+376.jpg,Where did humans originate from according to the map?,Africa,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3658,3339
+377.jpeg,How long is the one side of the grid?,70 miles,['Positional'],Boolean,_marker,0.5–2MP,_country,3661,3340
+377.jpeg,What is the latitude of the Trade Town?,5.5° North,['Other'],Single Entity,_marker,0.5–2MP,_country,3662,3341
+377.jpeg,What is the latitude of the Colonial Towns?,8° North,['Other'],Single Entity,_marker,0.5–2MP,_country,3663,3342
+377.jpeg,What is the latitude of the New Georgia?,6.5° North,['Other'],Single Entity,_marker,0.5–2MP,_country,3664,3343
+377.jpeg,How many rivers are there according to the map?,6,['Other'],Counting,_marker,0.5–2MP,_country,3665,3344
+377.jpeg,Where is the Colonial Towns located on the map?,North-east,['Positional'],Single Entity,_marker,0.5–2MP,_country,3666,3345
+377.jpeg,Where is the Sugaree located on the map?,North-west,['Positional'],Single Entity,_marker,0.5–2MP,_country,3667,3346
+377.jpeg,Where is the Trade Town located on the map?,Center,['Positional'],Single Entity,_marker,0.5–2MP,_country,3668,3347
+378.png,Which small island nation is labeled between Gabun and Äquatorialguinea?,São Tomé und Príncipe,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_continent,3669,3348
+378.png,Name the German-labeled country on the equator west of Uganda?,Demokratische Republik Kongo,['Positional'],Single Entity,_divisional,2–8MP,_continent,3670,3349
+378.png,Which island country appears closest to the “Straße von Mosambik” label?,Madagaskar,"['Visual', 'Comparative']",Single Entity,_divisional,2–8MP,_continent,3671,3350
+378.png,Which country lies directly west of Kamerun?,Nigeria,['Positional'],Single Entity,_divisional,2–8MP,_continent,3672,3351
+378.png,What is the German name of the country between Zambia and Mozambique?,Malawi,['Positional'],Single Entity,_divisional,2–8MP,_continent,3673,3352
+378.png,Which country lies directly south of Eritrea?,Dschibuti,['Positional'],Single Entity,_divisional,2–8MP,_continent,3674,3353
+378.png,Which German-labeled country is landlocked and shares a border with six others including Kenya?,Uganda,['Positional'],Single Entity,_divisional,2–8MP,_continent,3675,3354
+378.png,Name the only country with two island parts labeled in orange near the southeast?,Frankreich,"['Visual', 'Positional']",Single Entity,_divisional,2–8MP,_continent,3676,3355
+378.png,Which country borders both Liberia and Ghana?,Elfenbeinküste,['Positional'],Single Entity,_divisional,2–8MP,_continent,3677,3356
+378.png,Name the country east of Niger?,Tschad,['Positional'],Single Entity,_divisional,2–8MP,_continent,3678,3357
+379.jpeg,Which city has both a hospital and a clinic nearby?,Arcata,['Other'],Single Entity,_marker,2–8MP,_county,3679,3358
+379.jpeg,Which point is further north: the Arcata hospital or the inland purple clinic?,Inland purple clinic,"['Visual', 'Positional', 'Comparative']",Single Entity,_marker,2–8MP,_county,3680,3359
+379.jpeg,Which healthcare site is the furthest inland?,clinic,['Comparative'],Single Entity,_marker,2–8MP,_county,3681,3360
+379.jpeg,Is Eureka closer to the coast or to the mountains?,coast,['Positional'],Boolean,_marker,2–8MP,_county,3682,3361
+379.jpeg,How many total clinics (purple dots) are shown on this map?,3,['Visual'],Counting,_marker,2–8MP,_county,3683,3362
+379.jpeg,Which dot is located closest to Humboldt Redwoods State Park?,Hospital,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_county,3684,3363
+379.jpeg,What’s the only purple dot located directly east of Arcata?,The one just past Six Rivers Forest,"['Visual', 'Positional']",Single Entity,_marker,2–8MP,_county,3685,3364
+379.jpeg,Which is the most southern healthcare location?,Red hospital near King Range,"['Positional', 'Comparative']",Single Entity,_marker,2–8MP,_county,3686,3365
+379.jpeg,Are most hospitals on this map located along the coastline or inland?,Coastline,"['Positional', 'Comparative']",Boolean,_marker,2–8MP,_county,3687,3366
+379.jpeg,Which location has a hospital but no clinic nearby?,Eureka,['Positional'],Single Entity,_marker,2–8MP,_county,3688,3367
+380.jpg,"How many labels are in is 01 - The old Transvaal province (Gauteng, Mpumalanga, Limpopo & North West",9,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_country,3689,3368
+380.jpg,How many labels are in 02 - Western and Northern Cape?,5,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_country,3690,3369
+380.jpg,How many labels are in 05 - Free State and Northern Cape?,6,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_country,3691,3370
+380.jpg,what color part is Malmesbury under?,Blue,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_country,3692,3371
+380.jpg,what color part is Bhisho under?,Yellow,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_country,3693,3372
+380.jpg,What color part is Durban under?,Red,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_country,3694,3373
+380.jpg,what color is the Vaal Triangle under?,Green,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_country,3695,3374
+380.jpg,"are the values listed under Cellular & other services (non-regional), denoted in the map?",No,['Comparative'],Boolean,_divisional,0.5–2MP,_country,3696,3375
+380.jpg,how many labels are in 04 - Eastern Cape and eastern parts of the Western Cape?,10,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_country,3697,3376
+380.jpg,how many labels are in 03 - KwaZulu-Natal?,7,['Visual'],Counting,_divisional,0.5–2MP,_country,3698,3377
+381.png,How many transfer stations are on the light blue line?,6,['Visual'],Counting,_network,2–8MP,_city,3699,3378
+381.png,Name the closest transfer station to the airport.,FTI,['Comparative'],Single Entity,_network,2–8MP,_city,3700,3379
+381.png,What number is the pink line station at the Magallanes station?,27,['Visual'],Single Entity,_network,2–8MP,_city,3701,3380
+381.png,What number is the green line station at the North Triangle?,1,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,3702,3381
+381.png,What is the name of the station at R01,Ortigas,['Other'],Single Entity,_network,2–8MP,_city,3703,3382
+381.png,What is the name of the station at L21?,Tutuban,['Other'],Single Entity,_network,2–8MP,_city,3704,3383
+381.png,What is the station number at Libertad?,20,['Other'],Single Entity,_network,2–8MP,_city,3705,3384
+381.png,What is the number of the station at Shaw Boulevard?,7,['Other'],Single Entity,_network,2–8MP,_city,3706,3385
+381.png,Which station connects four lines?,North Triangle,['Positional'],Single Entity,_network,2–8MP,_city,3707,3386
+381.png,How many transfer stations are between L17 and L28?,3,['Positional'],Counting,_network,2–8MP,_city,3708,3387
+382.png,Which region has both high median income and high tree density?,bottom right green,['Comparative'],Single Entity,_choropleth,0.5–2MP,_city,3709,3388
+382.png,"How many regions are shaded dark green, indicating high tree cover but lower income?",3,"['Visual', 'Comparative']",Counting,_choropleth,0.5–2MP,_city,3710,3389
+382.png,What is the dominant color in the southern central region of the map?,dark blue,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_city,3711,3390
+382.png,Are there more regions with low income and low canopy or high income and low canopy?,low income and low canopy,['Comparative'],Boolean,_choropleth,0.5–2MP,_city,3712,3391
+382.png,Which corner of the map has the highest concentration of pink regions?,top right,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_city,3713,3392
+382.png,"Is there any area on the map with white shading, indicating missing data?",yes,['Visual'],Boolean,_choropleth,0.5–2MP,_city,3714,3393
+382.png,Do more areas in the center tend to have higher income or higher canopy?,higher income,"['Positional', 'Comparative']",Boolean,_choropleth,0.5–2MP,_city,3715,3394
+382.png,Which region of the city seems to have most balanced income and canopy (mid tones)?,west central,['Comparative'],Single Entity,_choropleth,0.5–2MP,_city,3716,3395
+382.png,Are high income areas generally correlated with high canopy in this map?,no,['Comparative'],Boolean,_choropleth,0.5–2MP,_city,3717,3396
+382.png,Which side of the map has the greatest color variety?,western,"['Visual', 'Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_city,3718,3397
+383.jpg,Name the labeled sub-area inside the purple region,Mamboleo,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_city,3719,3398
+383.jpg,Name the text label found outside the purple-shaded boundary.,Tandika,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_city,3720,3399
+383.jpg,"Which word is in uppercase: ""NAME"" or ""Area""?",NAME,['Other'],Single Entity,_divisional,0.1–0.5MP,_city,3721,3400
+383.jpg,How many corners does the purple-shaded polygon approximately have?,7,['Other'],Counting,_divisional,0.1–0.5MP,_city,3722,3401
+383.jpg,"Which direction is the label ""Tandika"" compared to the label ""Sandali Mamboleo-A""?",South,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_city,3723,3402
+383.jpg,Is the purple border smooth or jagged?,Jagged,"['Visual', 'Positional']",Boolean,_divisional,0.1–0.5MP,_city,3724,3403
+383.jpg,"Which word appears below ""Sandali Mamboleo-A""?",Unknown,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_city,3725,3404
+383.jpg,Is the boundary line colored blue or red?,Blue,['Visual'],Boolean,_divisional,0.1–0.5MP,_city,3726,3405
+383.jpg,What is the map provider name in the bottom left corner?,Google,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_city,3727,3406
+383.jpg,Is the map area measured in meters or kilometers?,meters,['Other'],Boolean,_divisional,0.1–0.5MP,_city,3728,3407
+384.jpeg,Which city name is printed just north of the UCI Medical Center label?,Fullerton,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_county,3729,3408
+384.jpeg,Which wilderness area is named south‑east of Lake Elsinore?,San Mateo Canyon Wilderness,['Other'],Single Entity,_marker,0.5–2MP,_county,3730,3409
+384.jpeg,Which university health‑system label includes the word “Recovery”?,Riverside University Health System – Arlington Recovery Community,['Visual'],Single Entity,_marker,0.5–2MP,_county,3731,3410
+384.jpeg,Which valley name is printed just north‑east of KP‑Irvine?,Temescal Valley,['Other'],Single Entity,_marker,0.5–2MP,_county,3732,3411
+384.jpeg,What single word completes “San Mateo ___ Wilderness”?,Canyon,['Other'],Single Entity,_marker,0.5–2MP,_county,3733,3412
+384.jpeg,What color dot marks Mission Hospital Laguna Beach?,Red,['Visual'],Single Entity,_marker,0.5–2MP,_county,3734,3413
+384.jpeg,Which treatment‑center label begins with “Tarzana”?,Tarzana Treatment Centers Long Beach,['Visual'],Single Entity,_marker,0.5–2MP,_county,3735,3414
+384.jpeg,What color dot is beside “Saint Francis Medical Center”?,Red,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_county,3736,3415
+384.jpeg,Which medical center appears directly east of the “Fullerton” label?,Kaiser Permanente Orange County – Anaheim Medical Center,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_county,3737,3416
+384.jpeg,Which facility label in purple sits just south of the Kaiser Permanente Anaheim center?,First Aid,"['Visual', 'Positional']",Single Entity,_marker,0.5–2MP,_county,3738,3417
+385.svg,Which prefecture is directly east of Bangui?,Ombella-M'Poko,['Positional'],Single Entity,_divisional,,_country,3739,3418
+385.svg,Which prefecture has exactly 4 distinct prefectures bordering it?,Kémo,['Positional'],Single Entity,_divisional,,_country,3742,3419
+385.svg,Which country borders the Central African Republic to the north?,Tschad,['Positional'],Single Entity,_divisional,,_country,3743,3420
+385.svg,Which prefecture is located in the northeastern corner of the country?,Vakaga,['Positional'],Single Entity,_divisional,,_country,3744,3421
+385.svg,Name one prefecture that borders Sudan.,Haute-Kotto,['Positional'],Single Entity,_divisional,,_country,3745,3422
+385.svg,Which prefecture is landlocked by five others and borders no country?,Nana-Grébizi,['Positional'],Single Entity,_divisional,,_country,3747,3423
+385.svg,How many prefectures border Democratic Republic of Congo?,7,['Positional'],Counting,_divisional,,_country,3748,3424
+386.jpg,number of unique color present in south america continent ?,5,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_world,3749,3425
+386.jpg,number of unique color present in north america continent ?,5,"['Visual', 'Positional']",Counting,_choropleth,0.5–2MP,_world,3750,3426
+386.jpg,number of unique color present in asia continent ?,4,['Visual'],Counting,_choropleth,0.5–2MP,_world,3751,3427
+386.jpg,number of countries with wikipedia article length between 16819 - 22000?,11,['Positional'],Counting,_choropleth,0.5–2MP,_world,3752,3428
+386.jpg,number of countries with wikipedia article length between 4028 - 7317?,9,['Positional'],Counting,_choropleth,0.5–2MP,_world,3753,3429
+386.jpg,number of countries with wikipedia article length between 7317-10052?,25,['Positional'],Counting,_choropleth,0.5–2MP,_world,3754,3430
+386.jpg,can we say article length of India is less than 13041? true or false,true,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,3755,3431
+386.jpg,can we say article length of USA is less than 16819? true or false,true,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,3756,3432
+386.jpg,can we say article length of Australia is less than 10052? true or false,true,['Comparative'],Boolean,_choropleth,0.5–2MP,_world,3757,3433
+386.jpg,which country has greater article length India or USA?,USA,['Comparative'],Single Entity,_choropleth,0.5–2MP,_world,3758,3434
+387.jpg,How many labs (microscope) icons appear on the map?,0,['Visual'],Counting,_divisional,0.5–2MP,_world,3759,3435
+387.jpg,Are any labs icons placed in Asia?,No,['Other'],Boolean,_divisional,0.5–2MP,_world,3760,3436
+387.jpg,How many manufacture (factory) icons are in the Americas?,2,['Other'],Counting,_divisional,0.5–2MP,_world,3761,3437
+387.jpg,"Which head‑office icon lies farther west, New Jersey or Poland?",New Jersey,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_world,3762,3438
+387.jpg,Does any head‑office icon appear in Europe?,No,['Visual'],Boolean,_divisional,0.5–2MP,_world,3763,3439
+387.jpg,"Which icon type appears most frequently: offices, head office, factories, or labs?",Offices,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_world,3764,3440
+387.jpg,How many office‑pin markers appear in Europe?,5,['Visual'],Counting,_divisional,0.5–2MP,_world,3765,3441
+387.jpg,"Which office pin lies closest to the equator, Panama or Ecuador?",Ecuador,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_world,3766,3442
+387.jpg,How many office‑pin markers are placed in Africa?,2,['Other'],Counting,_divisional,0.5–2MP,_world,3767,3443
+387.jpg,Does Europe display any head‑office icons?,No,['Visual'],Boolean,_divisional,0.5–2MP,_world,3768,3444
+387.jpg,How many total icons appear on South America?,5,"['Visual', 'Positional']",Counting,_divisional,0.5–2MP,_world,3769,3445
+388.png,Which South American country received more than 87 clicks?,none,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,3772,3446
+388.png,"Which is the only country with more than 87,000 clicks but less than 116000 clicks?",Spain,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_world,3773,3447
+388.png,"Which populous Asian country appears grey, indicating no user clicks at all?",China,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,3774,3448
+388.png,"Which country in Oceania is shaded red, indicating moderate user interest?",Australia,['Visual'],Single Entity,_choropleth,0.1–0.5MP,_world,3775,3449
+388.png,Which continent has the highest number of countries with zero clicks?,Africa,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_world,3776,3450
+388.png,Compare Russia and China — which one appears to have received more clicks?,Russia,"['Visual', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_world,3777,3451
+388.png,Which Scandinavian country received more clicks: Sweden or Norway?,Sweden,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_world,3779,3452
+389.png,Which country is highlighted in red on this map?,Democratic Republic of Congo,['Visual'],Single Entity,_divisional,0.5–2MP,_district,3781,3453
+389.png,What is the name of the large body of water visible in the northeast corner of the map?,Lake Albert,"['Visual', 'Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_district,3782,3454
+389.png,Which country borders the highlighted country to the east and has a coastline on the Indian Ocean?,Tanzania,['Positional'],Single Entity,_divisional,0.5–2MP,_district,3783,3455
+389.png,Identify the country directly south of the highlighted country.,Zambia,['Positional'],Single Entity,_divisional,0.5–2MP,_district,3784,3456
+389.png,Which country is located to the west of the highlighted country and has a coastline on the Atlantic,Zambia,['Positional'],Single Entity,_divisional,0.5–2MP,_district,3785,3457
+389.png,What is the name of the country that borders the highlighted country to the north and has a coastlin,Central African Republic,['Positional'],Single Entity,_divisional,0.5–2MP,_district,3786,3458
+389.png,Which country is located to the northeast of the highlighted country and borders Lake Victoria?  Cor,Uganda,['Positional'],Single Entity,_divisional,0.5–2MP,_district,3787,3459
+389.png,Identify the country that borders the highlighted country to the southeast and is landlocked.,Zambia,['Positional'],Single Entity,_divisional,0.5–2MP,_district,3788,3460
+390.jpg,How many water bodies (Small or big) are represented in the map ?,7,['Other'],Counting,_mixed,0.5–2MP,_city,3791,3461
+390.jpg,Which site number is furthest east on the map?,5,"['Positional', 'Comparative']",Single Entity,_mixed,0.5–2MP,_city,3793,3462
+390.jpg,Which site number is the southernmost point on this map?,1,['Positional'],Single Entity,_mixed,0.5–2MP,_city,3794,3463
+390.jpg,How many numbered landmarks are within Central Park ?,2,['Positional'],Counting,_mixed,0.5–2MP,_city,3795,3464
+390.jpg,WHats the street that will help you travel from #2 to #4 landmark quickest based on map ?,79th street Traverse Road,['Other'],Single Entity,_mixed,0.5–2MP,_city,3796,3465
+390.jpg,How many “M” subway station icons appear on this map?,23,['Visual'],Counting,_mixed,0.5–2MP,_city,3797,3466
+390.jpg,How many distinct water bodies are labeled inside Central Park based on map ?,6,"['Visual', 'Positional']",Counting,_mixed,0.5–2MP,_city,3798,3467
+391.jpg,How many european rules did africa have?,5,['Other'],Counting,_choropleth,2–8MP,_continent,3800,3468
+391.jpg,Portugal territory with no sea or ocean access,none,['Other'],Boolean,_choropleth,2–8MP,_continent,3802,3469
+391.jpg,How many landlocked colonies of United kingdom are there,2,['Other'],Counting,_choropleth,2–8MP,_continent,3803,3470
+391.jpg,Republic of the congo borders how many european ruled countries?,6,['Positional'],Counting,_choropleth,2–8MP,_continent,3804,3471
+391.jpg,Cameroun borders how many countries,6,['Positional'],Counting,_choropleth,2–8MP,_continent,3805,3472
+391.jpg,How many countries projected independence,5,['Other'],Counting,_choropleth,2–8MP,_continent,3806,3473
+391.jpg,Largest independent country,Sudan,['Comparative'],Boolean,_choropleth,2–8MP,_continent,3807,3474
+392.jpg,How many different icons are present in this map?,15,['Other'],Counting,_layout,>8MP,_building,3809,3475
+392.jpg,How many bar/pub are present in this stadium?,2,['Other'],Counting,_layout,>8MP,_building,3810,3476
+392.jpg,are there any icons to the south side of the stadium?,No,['Positional'],Boolean,_layout,>8MP,_building,3811,3477
+392.jpg,How many concessions are present in this stadium?,4,['Other'],Counting,_layout,>8MP,_building,3812,3478
+392.jpg,There are first aid icons on the south side of stadium. True or False?,False,"['Positional', 'Comparative']",Boolean,_layout,>8MP,_building,3813,3479
+392.jpg,The raider's image is in the west side of the stadium. True or False?,False,['Positional'],Boolean,_layout,>8MP,_building,3814,3480
+392.jpg,There is one Ford Sensory Nooks. True or False?,False,['Other'],Boolean,_layout,>8MP,_building,3815,3481
+392.jpg,Is there anywhere CLUB written in this map?,yes,['Other'],Boolean,_layout,>8MP,_building,3816,3482
+392.jpg,are C112 and C123 written on the either sides of the stadium?,No,['Other'],Boolean,_layout,>8MP,_building,3817,3483
+392.jpg,What is the name of the bank mentioned in the bank?,Capital One,['Other'],Single Entity,_layout,>8MP,_building,3818,3484
+393.png,how many rivers are connected to the ocean?,5,['Positional'],Counting,_divisional,<0.1MP,_state,3819,3485
+393.png,How many lakes are present in the map?,9,['Other'],Counting,_divisional,<0.1MP,_state,3820,3486
+393.png,How many islands are there in the biggest lake in the map?,4,['Comparative'],Counting,_divisional,<0.1MP,_state,3821,3487
+393.png,How many subregions are there in the northeasternmost administrative division?,6,['Comparative'],Counting,_divisional,<0.1MP,_state,3822,3488
+393.png,How many subregions are there in the southeasternmost administrative division?,6,['Other'],Counting,_divisional,<0.1MP,_state,3823,3489
+393.png,How many subregions are there in the southwesternmost administrative division?,5,['Other'],Counting,_divisional,<0.1MP,_state,3824,3490
+393.png,How many lakes are there in the northeasternmost administrative division?,4,['Comparative'],Counting,_divisional,<0.1MP,_state,3825,3491
+393.png,How many rivers are there in the southeasternmost administrative division?,2,['Other'],Counting,_divisional,<0.1MP,_state,3826,3492
+393.png,How many rivers are there in the southwesternmost administrative division?,2,['Other'],Counting,_divisional,<0.1MP,_state,3827,3493
+393.png,How many rivers are there in the northwesternmost administrative division?,1,['Other'],Counting,_divisional,<0.1MP,_state,3828,3494
+394.jpg,Which site in Israel is dated at 1 million years ago?,Ubeidiya,['Other'],Single Entity,_network,0.1–0.5MP,_world,3829,3495
+394.jpg,"Which European site is dated to 33,000 years ago?",Mladeč,['Other'],Single Entity,_network,0.1–0.5MP,_world,3830,3496
+394.jpg,"Where in Southeast Asia is a fossil site dated 30,000 years ago?",Tabon Cave,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3831,3497
+394.jpg,"Which site in Australia is shown to have human presence 38,000 years ago?",Lake Mungo,['Visual'],Single Entity,_network,0.1–0.5MP,_world,3832,3498
+394.jpg,Which migration route crossed from Asia into North America?,Bering Land Bridge,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3833,3499
+394.jpg,Which region is shown as the area of human origin?,Africa,['Visual'],Single Entity,_network,0.1–0.5MP,_world,3834,3500
+394.jpg,"Where in South America are human remains dated between 12,000–33,000 years ago?",Monte Verde,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3835,3501
+394.jpg,"Which fossil site is marked in the U.S. as being 12,000 years old?",Meadowcroft,['Visual'],Single Entity,_network,0.1–0.5MP,_world,3836,3502
+394.jpg,"Which location in China shows Homo erectus presence 700,000 years ago?",Lantian,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3837,3503
+394.jpg,Where is the oldest known Homo erectus fossil site on this map?,Lake Turkana,['Positional'],Single Entity,_network,0.1–0.5MP,_world,3838,3504
+395.png,Which country in South America shows the highest CO2 emissions per capita?,Suriname,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3839,3505
+395.png,Which continent has the most countries in the lowest emission range (light blue)?,Africa,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3840,3506
+395.png,Which North American country has the highest CO2 emissions per capita?,Canada,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3841,3507
+395.png,What is the approximate emission level for India according to the map’s color scale?,0.5-1.0,['Visual'],Single Entity,_choropleth,0.5–2MP,_world,3842,3508
+395.png,Which Oceania country falls in the >20 tons CO2 per capita category?,Australia,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3843,3509
+395.png,Which african country appears to have one of the highest emissions per capita globally?,Libya,"['Visual', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3844,3510
+395.png,Is China in a darker or lighter shade than India on the map?,Darker,"['Visual', 'Comparative']",Boolean,_choropleth,0.5–2MP,_world,3845,3511
+395.png,"Based on the color gradient, what is the approximate CO2 per capita for South Africa?",6 to 9 tonss,"['Visual', 'Positional']",Single Entity,_choropleth,0.5–2MP,_world,3846,3512
+395.png,Which European country shows CO2 per capita emissions in the >9 ton range?,Czech,['Other'],Single Entity,_choropleth,0.5–2MP,_world,3847,3513
+395.png,Which Southeast Asian country emits more per capita: Malaysia or Indonesia,Malaysia,"['Positional', 'Comparative']",Single Entity,_choropleth,0.5–2MP,_world,3848,3514
+396.jpg,what color is the part the coffee bay is in?,Pink,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3849,3515
+396.jpg,what color is the part durban is in?,Purple,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3850,3516
+396.jpg,what does the red around lesotho represent?,International Boundary,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3851,3517
+396.jpg,what place is in between paarl and kuilsrivier?,Cape Town,['Positional'],Single Entity,_divisional,0.1–0.5MP,_country,3852,3518
+396.jpg,what does a red star represent?,Province Capitals,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3853,3519
+396.jpg,what place is in between pot fontein and colesburg?,De Aar,['Positional'],Single Entity,_divisional,0.1–0.5MP,_country,3854,3520
+396.jpg,what place is in between kirkwood and jeffrey's bay?,Uitenhage,['Positional'],Single Entity,_divisional,0.1–0.5MP,_country,3855,3521
+396.jpg,what color is the part vryburg is in?,Green,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3856,3522
+396.jpg,what color is the northern cape?,Yellow,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_country,3857,3523
+396.jpg,what do white lines represent in the map?,Province boundaries,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3858,3524
+397.jpeg,Which country is circled in the map?,India,['Other'],Single Entity,_divisional,0.5–2MP,_world,3859,3525
+397.jpeg,Which country is above YEMEN?,Saudi,['Positional'],Single Entity,_divisional,0.5–2MP,_world,3860,3526
+397.jpeg,"Sudan is in which bar, e.g., +1, +2, -1, -2?",+2,['Other'],Single Entity,_divisional,0.5–2MP,_world,3861,3527
+397.jpeg,How many numbers are there in the bar below in the map?,25,['Positional'],Counting,_divisional,0.5–2MP,_world,3862,3528
+397.jpeg,Australia is part of how many bars?,3,['Other'],Counting,_divisional,0.5–2MP,_world,3863,3529
+397.jpeg,How many time zones are there in China according to the map?,1,['Other'],Counting,_divisional,0.5–2MP,_world,3864,3530
+397.jpeg,Are all the bars in the map straight or not?,No,['Other'],Boolean,_divisional,0.5–2MP,_world,3865,3531
+397.jpeg,What is the time zone abbreviation shown for India?,UTC+5:30,['Visual'],Single Entity,_divisional,0.5–2MP,_world,3866,3532
+397.jpeg,"Which country is listed as ""United State of America"" on the map?",CANADA,['Other'],Single Entity,_divisional,0.5–2MP,_world,3867,3533
+397.jpeg,Is there a internatinol date line in tha map?,Yes,['Other'],Boolean,_divisional,0.5–2MP,_world,3868,3534
+398.png,Which province has the shortest coastline among all coastal provinces?,Nordkap,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_country,3869,3535
+398.png,How many provinces of the main country share a border with Botswana?,3,['Positional'],Counting,_divisional,0.1–0.5MP,_country,3870,3536
+398.png,How many different colors are used to represent the provinces within the main country on the map?,5,"['Visual', 'Positional']",Counting,_divisional,0.1–0.5MP,_country,3871,3537
+398.png,What colors are used to represent the neighboring countries surrounding the main country on the map?,Grey,['Visual'],Single Entity,_divisional,0.1–0.5MP,_country,3872,3538
+398.png,"Including neighboring countries, how many regions shown on the map have a coastline?",6,['Visual'],Counting,_divisional,0.1–0.5MP,_country,3873,3539
+398.png,How many provinces are shown in a unique color on the map?,2,['Visual'],Counting,_divisional,0.1–0.5MP,_country,3876,3540
+398.png,How many provinces on the map are landlocked?,5,['Other'],Counting,_divisional,0.1–0.5MP,_country,3877,3541
+398.png,"Purely according to the map, which coastal region—including neighboring countries—has the shortest c",Namibia,['Comparative'],Single Entity,_divisional,0.1–0.5MP,_country,3878,3542
+399.jpg,what is the total population of korea,77,['Other'],Single Entity,_divisional,2–8MP,_world,3879,3543
+399.jpg,What is the total population of the smallest continent,44,['Comparative'],Single Entity,_divisional,2–8MP,_world,3880,3544
+399.jpg,What is the smallest country in terms of population in the north America region,caribbean,"['Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_world,3881,3545
+399.jpg,What is the population of the African continent excluding south Africa,1.396 Billion or 1.396B,['Positional'],Single Entity,_divisional,2–8MP,_world,3882,3546
+399.jpg,"What is the total population of Central Asia, excluding Saudi Arabia?",77M,['Other'],Single Entity,_divisional,2–8MP,_world,3883,3547
+399.jpg,"What is the total population of East Asia, excluding China?",250M,['Positional'],Single Entity,_divisional,2–8MP,_world,3884,3548
+399.jpg,What is the population of D.R.C,96M,['Other'],Single Entity,_divisional,2–8MP,_world,3885,3549
+399.jpg,What is the population of rest of south Asia,23M,['Positional'],Single Entity,_divisional,2–8MP,_world,3886,3550
+399.jpg,What is the population of rest of North Europe,38,['Positional'],Single Entity,_divisional,2–8MP,_world,3887,3551
+399.jpg,What is the population of rest of west Europe,18M,['Positional'],Single Entity,_divisional,2–8MP,_world,3888,3552
+399.jpg,What is the population of rest of South East Asia,33M,['Positional'],Single Entity,_divisional,2–8MP,_world,3889,3553
+399.jpg,What is the population of Afghanistan and Nepal combined,71M,['Other'],Single Entity,_divisional,2–8MP,_world,3890,3554
+400.jpg,How many orca's can you see in the map?,8,['Visual'],Counting,_network,0.5–2MP,_region,3891,3555
+400.jpg,How many park and rides are there in the map?,6 park and rides,['Other'],Counting,_network,0.5–2MP,_region,3892,3556
+400.jpg,"Subtract Bainbridge Island's transit number with Silverdale, what is it equal to?",2,['Other'],Single Entity,_network,0.5–2MP,_region,3893,3557
+400.jpg,Are there two orange lines or three orange lines visually in the map?,yes,['Visual'],Boolean,_network,0.5–2MP,_region,3894,3558
+400.jpg,Take the number of Transit centers. Is it exactly to the the square root of 25?,no,['Other'],Counting,_network,0.5–2MP,_region,3895,3559
+400.jpg,"Bainbridge Island has 1 Transit Center, true or false?",False,['Positional'],Boolean,_network,0.5–2MP,_region,3896,3560
+400.jpg,"Silverdale has no transit centers, true or false?",False,['Other'],Boolean,_network,0.5–2MP,_region,3897,3561
+400.jpg,What does the text in the legend say?,Please refer to individual route schedules for coordinating transfer information.,['Other'],Single Entity,_network,0.5–2MP,_region,3898,3562
+400.jpg,Are the local foot ferries connected to Silverdale Transit?,No,['Positional'],Boolean,_network,0.5–2MP,_region,3899,3563
+401.jpg,Which country borders the most other countries in Africa?,The Democratic Republic of the Congo,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_continent,3901,3564
+401.jpg,Which country shares borders with both Nigeria and Ethiopia?,Cameroon,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3903,3565
+401.jpg,Which African country has the longest east-to-west span across the continent?,Algeria,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3904,3566
+401.jpg,Which small island country lies off the west coast near Gabon?,São Tomé and Príncipe,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3906,3567
+401.jpg,Which country lies directly south of Egypt?,Sudan,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3907,3568
+401.jpg,Which landlocked country is entirely surrounded by one other country?,Lesotho,['Positional'],Single Entity,_divisional,0.5–2MP,_continent,3908,3569
+401.jpg,Which African country has coastlines on both the Red Sea and the Gulf of Aden?,Djibouti,['Visual'],Single Entity,_divisional,0.5–2MP,_continent,3910,3570
+402.png,Which section is directly behind the north goal?,135,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,3911,3571
+402.png,"What section is exactly at midfield, right across from the stage?",116,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,3912,3572
+402.png,Which side of the stadium is closest to the Entry Plaza?,South,"['Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,3915,3573
+402.png,What’s the section directly across from 222?,106,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,3916,3574
+402.png,Which section is adjacent to the team benches?,125,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,3917,3575
+402.png,What’s the farthest possible section from the stage in terms of walking distance?,210,"['Visual', 'Positional', 'Comparative']",Single Entity,_layout,0.5–2MP,_building,3918,3576
+402.png,Which section is between 104 and 106?,105,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,3919,3577
+402.png,Which section has a better view of the center circle: 204 or 124?,124,"['Visual', 'Positional']",Single Entity,_layout,0.5–2MP,_building,3920,3578
+403.png,How many stops has the user added on the map above?,10,['Positional'],Counting,_network,0.5–2MP,_neighborhood,3921,3579
+403.png,What is the final destination of the user on the map?,Willard Elementary School,['Other'],Single Entity,_network,0.5–2MP,_neighborhood,3922,3580
+403.png,"How many hours does the complete trip take, according to the map?",0.57,['Other'],Counting,_network,0.5–2MP,_neighborhood,3923,3581
+403.png,"What is the total distance of the trip in kilometers, as shown on the map?",20.12,"['Visual', 'Positional']",Single Entity,_network,0.5–2MP,_neighborhood,3924,3582
+403.png,How many stop names are not listed on the map?,1,['Other'],Counting,_network,0.5–2MP,_neighborhood,3925,3583
+403.png,How many times during the trip we need to choose between two directions to reach different stops?,2,['Positional'],Counting,_network,0.5–2MP,_neighborhood,3926,3584
+403.png,"On which avenue is the final destination located, according to the map?",Dean Avenue,['Positional'],Single Entity,_network,0.5–2MP,_neighborhood,3927,3585
+403.png,"At which stop does the user need to make a U-turn, as shown on the map?",Pleasant Hill Elementary School,['Visual'],Single Entity,_network,0.5–2MP,_neighborhood,3928,3586
+403.png,How many dead ends will the user encounter during the complete trip?,4,['Other'],Counting,_network,0.5–2MP,_neighborhood,3929,3587
+403.png,Which application was used to generate this trip?,Google Maps,['Visual'],Single Entity,_network,0.5–2MP,_neighborhood,3930,3588
+404.jpg,how many animals do we see on the map?,8,['Visual'],Counting,_marker,0.1–0.5MP,_world,3931,3589
+404.jpg,which animal as shown in the image can live both on land and in water?,Green Sea Turtle,['Visual'],Single Entity,_marker,0.1–0.5MP,_world,3932,3590
+404.jpg,which animal is found at the extreme north region?,Polar Bear,['Positional'],Single Entity,_marker,0.1–0.5MP,_world,3934,3591
+404.jpg,which animal has a very different habitat as compared to the others?,Humpback Whale,['Other'],Single Entity,_marker,0.1–0.5MP,_world,3935,3592
+404.jpg,which animal can survive in an extremely cold region?,Polar Bear,['Other'],Single Entity,_marker,0.1–0.5MP,_world,3937,3593
+404.jpg,which animal is facing towards east as shown in the image,Rhinoceros,"['Visual', 'Positional']",Single Entity,_marker,0.1–0.5MP,_world,3939,3594
+405.jpg,How many countries are shown on the map?,54,['Visual'],Counting,_divisional,2–8MP,_continent,3941,3595
+405.jpg,Based on the map what is the population on Egypt?,107M,['Other'],Single Entity,_divisional,2–8MP,_continent,3942,3596
+405.jpg,"Based on the map, which side is Mauritania located?",West,['Positional'],Single Entity,_divisional,2–8MP,_continent,3943,3597
+405.jpg,"Based on the map, which country has the second largest population at the north of the map?",Sudan or Algeria,"['Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_continent,3944,3598
+405.jpg,"Based on the map, which country has the fourth largest population at the north of the map?",Tunisia,"['Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_continent,3945,3599
+405.jpg,"Based on the map, which country has the sixsth largest population at the north of the map?",W. Sahara,"['Positional', 'Comparative']",Single Entity,_divisional,2–8MP,_continent,3946,3600
+405.jpg,"Based on the map, which country has the population of 20M?",Malawi,['Other'],Single Entity,_divisional,2–8MP,_continent,3947,3601
+405.jpg,"Based on the map I gave,which country is in between Madagascar and D.R.C?",Cameroon,['Positional'],Single Entity,_divisional,2–8MP,_continent,3950,3602
+406.jpg,How many transfer stations are there between Riverdale and Logan Circle?,4,['Positional'],Counting,_network,2–8MP,_city,3952,3603
+406.jpg,How many transfer stations are there on the yellow line?,10,['Visual'],Counting,_network,2–8MP,_city,3953,3604
+406.jpg,Which line goes in a loop?,Gold line,['Other'],Single Entity,_network,2–8MP,_city,3954,3605
+406.jpg,How many stations are between Georgetown and Carver-Langston?,7,['Positional'],Counting,_network,2–8MP,_city,3956,3606
+406.jpg,"Which transfer station connects the grey, blue and red line?",Metro Center,"['Visual', 'Positional']",Single Entity,_network,2–8MP,_city,3957,3607
+406.jpg,Which transfer station connects the gold and silver line?,Eastern Market,['Positional'],Single Entity,_network,2–8MP,_city,3958,3608
+406.jpg,Name the transfer station closest to the Anacostia River.,Mayfair,['Comparative'],Single Entity,_network,2–8MP,_city,3959,3609
+406.jpg,Name the station south of Foundry Branch GU on the gold line.,Washington Harbor,['Positional'],Single Entity,_network,2–8MP,_city,3960,3610
+407.svg,Which Namibian region borders four other countries?,Caprivi,['Positional'],Single Entity,_divisional,,_country,3961,3611
+407.svg,What region is directly south of Oshana?,Khomas,['Positional'],Single Entity,_divisional,,_country,3962,3612
+407.svg,Which region touches both Angola and Botswana?,Kavango-Ost,['Positional'],Single Entity,_divisional,,_country,3964,3613
+407.svg,Is Hardap closer to South Africa or Angola?,South Africa,['Positional'],Boolean,_divisional,,_country,3965,3614
+407.svg,What region is entirely landlocked and surrounded by 4+ regions?,Otjozondjupa,['Positional'],Single Entity,_divisional,,_country,3966,3615
+407.svg,Which region borders Karas and Erongo?,Hardap,['Positional'],Single Entity,_divisional,,_country,3967,3616
+407.svg,Which Namibian region has no international borders?,Khomas,['Positional'],Single Entity,_divisional,,_country,3968,3617
+407.svg,What’s the northeasternmost region in Namibia?,Caprivi,['Comparative'],Single Entity,_divisional,,_country,3969,3618
+407.svg,What color is the region that borders both the Atlantic Ocean and Angola?,Light green (Kunene),"['Visual', 'Positional']",Single Entity,_divisional,,_country,3970,3619
+408.jpg,Which state in the Midwest has the lowest temperature?,North Dakota,['Comparative'],Single Entity,_choropleth,0.1–0.5MP,_country,3971,3620
+408.jpg,Which state in the Northeast has the highest temperature?,New Jersey,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,3972,3621
+408.jpg,What is the temperature in the coldest state on this map?,Below 40°F,['Other'],Single Entity,_choropleth,0.1–0.5MP,_country,3973,3622
+408.jpg,Which Southern state has the lowest temperature?,West Virginia,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,3974,3623
+408.jpg,What is the average temperature of the states bordering Canada?,40°F-50°F,['Positional'],Single Entity,_choropleth,0.1–0.5MP,_country,3976,3624
+408.jpg,Which state has the lowest temperature among those bordering the Pacific Ocean?,Washington,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,3977,3625
+408.jpg,Which state has the highest temperature among those that border the Atlantic Ocean?,Florida,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,3978,3626
+408.jpg,Identify the state with the lowest temperature that is not in the Northern United States.,Colorado,"['Positional', 'Comparative']",Single Entity,_choropleth,0.1–0.5MP,_country,3979,3627
+409.jpg,"Based on the map image that I gave, In what division is Hasanpur located?",Dwarka,['Positional'],Single Entity,_divisional,2–8MP,_city,3980,3628
+409.jpg,"Based on the map image that I gave, which division does mahipalpur fall under?",Vasant Kunj,['Comparative'],Single Entity,_divisional,2–8MP,_city,3981,3629
+409.jpg,"Based on the map image that I gave, which tax division is the largest?",Dwarka,['Comparative'],Single Entity,_divisional,2–8MP,_city,3982,3630
+409.jpg,"Based on the map image that I gave, in which division the Office Of Commissioner GST - Delhi South?",Naraina,['Positional'],Single Entity,_divisional,2–8MP,_city,3983,3631
+409.jpg,"Based on the map image that I gave, in which division Indira Gandhi International Airport is located",Vasant Kunj,['Positional'],Single Entity,_divisional,2–8MP,_city,3984,3632
+409.jpg,"Based on the map image that I gave, the blue line represents river, which division(s) has river?",Dwarka,['Visual'],Single Entity,_divisional,2–8MP,_city,3985,3633
+409.jpg,"Based on the map image that I gave, which divisions is divided?",Palam and Okhla,['Other'],Single Entity,_divisional,2–8MP,_city,3986,3634
+409.jpg,"Based on the map image that I gave, which divison(s) touch the C.P. Division?",Naraina,['Other'],Single Entity,_divisional,2–8MP,_city,3987,3635
+410.png,1. How many store are there on the left side of highway?,8,['Positional'],Counting,_network,0.5–2MP,_neighborhood,3990,3636
+410.png,2. How many schools are visible within the blue routes boundary?,6,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_neighborhood,3991,3637
+410.png,3. Which food chain is located on the highway?,Dennys',['Positional'],Single Entity,_network,0.5–2MP,_neighborhood,3992,3638
+410.png,4. Does blue route complete a loop?,yes,['Visual'],Boolean,_network,0.5–2MP,_neighborhood,3993,3639
+410.png,5. How many times does the blue route cross itself?,2,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_neighborhood,3994,3640
+410.png,6. which park is in triangle shape?,Planz park,['Visual'],Single Entity,_network,0.5–2MP,_neighborhood,3995,3641
+410.png,7. Is Planz Park located north or south of Planz Road?,south,['Positional'],Boolean,_network,0.5–2MP,_neighborhood,3996,3642
+410.png,8. Does the blue route pass by Starbucks?,yes,['Visual'],Boolean,_network,0.5–2MP,_neighborhood,3997,3643
+410.png,9. How many parks are inside the blue route?,2,"['Visual', 'Positional']",Counting,_network,0.5–2MP,_neighborhood,3998,3644
+410.png,10. What type of business is Frosty King shown on the map?,ice cream shop,['Visual'],Single Entity,_network,0.5–2MP,_neighborhood,3999,3645
+411.jpg,How many stops are there? They are denoted in empty circles,4,['Other'],Counting,_network,0.1–0.5MP,_region,4000,3646
+411.jpg,Is the second and third stop the longest journey? Yes or no?,Yes,['Comparative'],Boolean,_network,0.1–0.5MP,_region,4001,3647
+411.jpg,Is there a watermark across the page?,Yes,['Positional'],Boolean,_network,0.1–0.5MP,_region,4003,3648
+411.jpg,How many stops are between Hazlet and Middletown,0,['Positional'],Counting,_network,0.1–0.5MP,_region,4004,3649
+411.jpg,I can see the empire state building in the map. How many stops to get there?,not possible,['Visual'],Counting,_network,0.1–0.5MP,_region,4005,3650
+411.jpg,Can I take a car between the second and third stop (stop = empty white circle),No,"['Visual', 'Positional', 'Comparative']",Boolean,_network,0.1–0.5MP,_region,4006,3651
+411.jpg,Is there a stop at Staten Island? Stops are indicated by empty white circles,No,['Visual'],Boolean,_network,0.1–0.5MP,_region,4007,3652
+411.jpg,Is there any line going towards Woodbridge?,No,['Other'],Boolean,_network,0.1–0.5MP,_region,4008,3653
+412.png,What bay is closest to toronto?,Cary Bay,['Comparative'],Single Entity,_divisional,0.5–2MP,_region,4010,3654
+412.png,Which inset is displayed clearly?,Inset 9. Tweed Heads,['Visual'],Single Entity,_divisional,0.5–2MP,_region,4011,3655
+412.png,what number is closest to hawks nest?,2324,['Comparative'],Single Entity,_divisional,0.5–2MP,_region,4012,3656
+412.png,what number is closest to nelson bay?,2315,['Comparative'],Single Entity,_divisional,0.5–2MP,_region,4013,3657
+412.png,what number is right on top of sugarloaf hill?,487,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_region,4014,3658
+412.png,what is in between redhead point and nine mile beach?,sand mining,['Positional'],Single Entity,_divisional,0.5–2MP,_region,4015,3659
+412.png,what is the number between mount seaview and yarras?,34,['Positional'],Single Entity,_divisional,0.5–2MP,_region,4016,3660
+412.png,What range is sugarloaf hill right next to?,Hunter range,['Positional'],Single Entity,_divisional,0.5–2MP,_region,4017,3661
+412.png,What is above the seal rocks on the map?,sugarloaf point,['Positional'],Single Entity,_divisional,0.5–2MP,_region,4018,3662
+412.png,what is above bonny Hills?,Lake Cathie,['Positional'],Single Entity,_divisional,0.5–2MP,_region,4019,3663
+412.png,what point is under nelson bay?,Point Stephens,['Comparative'],Single Entity,_divisional,0.5–2MP,_region,4020,3664
+413.jpg,when were the glaciers?,18000 years ago,['Other'],Single Entity,_network,0.1–0.5MP,_world,4021,3665
+413.jpg,When did people move to greenland?,4500,['Other'],Single Entity,_network,0.1–0.5MP,_world,4022,3666
+413.jpg,"What strait was crossed by people moving from Asia to North America between 12 to 15,000 years ago?",Beiring Strait,['Positional'],Single Entity,_network,0.1–0.5MP,_world,4023,3667
+413.jpg,where did people move fifty thousand years ago?,Asia,['Positional'],Single Entity,_network,0.1–0.5MP,_world,4025,3668
+413.jpg,When did people move from asia to europe?,43000 years ago,['Other'],Single Entity,_network,0.1–0.5MP,_world,4026,3669
+413.jpg,which continent is missing from the continents in the image?,Antartica,['Other'],Single Entity,_network,0.1–0.5MP,_world,4027,3670
+413.jpg,What was the earliest place to have people?,Africa,['Other'],Single Entity,_network,0.1–0.5MP,_world,4028,3671
+414.jpg,How many USA states are present in the map?,11,['Other'],Counting,_network,0.1–0.5MP,_region,4031,3672
+414.jpg,How many ferry lines are there in the Lake Michigan?,8,['Other'],Counting,_network,0.1–0.5MP,_region,4032,3673
+414.jpg,How many ferry lines are there in the Lake Erie?,4,['Other'],Counting,_network,0.1–0.5MP,_region,4033,3674
+414.jpg,How many ferry lines are there in the Lake Ontario?,1,['Other'],Counting,_network,0.1–0.5MP,_region,4034,3675
+414.jpg,How many rail lines are present in the Indiana State?,2,['Other'],Counting,_network,0.1–0.5MP,_region,4035,3676
+414.jpg,How many rail lines are present above the Lake Huron?,1,['Positional'],Counting,_network,0.1–0.5MP,_region,4036,3677
+414.jpg,How many rail lines are crossing the Illinois state?,0,['Other'],Counting,_network,0.1–0.5MP,_region,4037,3678
+415.gif,what is the color of area with postcode as 0839?,light pink,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4041,3679
+415.gif,what is the color of area with postcode as 0870?,yellow,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4042,3680
+415.gif,what is the color of area with postcode as 2008?,brown,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4043,3681
+415.gif,what is the color of Tiwi islands in postcode map?,green,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4044,3682
+415.gif,what is the postcode connected to 0872 and have same color?,6440,"['Visual', 'Positional']",Single Entity,_divisional,0.5–2MP,_country,4045,3683
+415.gif,what is the postcode connected to 0872 and have orange color?,0852,"['Visual', 'Positional']",Single Entity,_divisional,0.5–2MP,_country,4046,3684
+415.gif,what is the color of Aberfoyle Park Suburb ?,blue,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4047,3685
+415.gif,what is the color of Abington (Qld) Suburb ?,yellow,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4048,3686
+415.gif,what is the color of Aberfoyle Suburb ?,light brown,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4049,3687
+415.gif,number of suburbs names present on the right side of the map?,40,['Positional'],Counting,_divisional,0.5–2MP,_country,4050,3688
+416.png,what is located in the most north-east side of the map,seema puri,"['Positional', 'Comparative']",Single Entity,_divisional,0.1–0.5MP,_city,4051,3689
+416.png,name the place which is labelled in the south region as well as in the south-east region?,hauj Khas,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_city,4053,3690
+416.png,which place has the word garden in it?,Rajouri Garden,['Other'],Single Entity,_divisional,0.1–0.5MP,_city,4054,3691
+416.png,a place which is related to military,Delhi Cantonment,['Other'],Single Entity,_divisional,0.1–0.5MP,_city,4055,3692
+416.png,name one street,Parliament Street,['Other'],Single Entity,_divisional,0.1–0.5MP,_city,4059,3693
+416.png,what is labelled adjacent to parliament street?,Connaught Place,"['Visual', 'Positional']",Single Entity,_divisional,0.1–0.5MP,_city,4060,3694
+417.jpg,how many valets are shown in the photo?,2,['Visual'],Counting,_layout,0.1–0.5MP,_campus,4061,3695
+417.jpg,what street is closest to the part labelled as UT Medical school?,Ross Sterling Ave.,"['Visual', 'Comparative']",Single Entity,_layout,0.1–0.5MP,_campus,4062,3696
+417.jpg,"in the photo, what icon is depicted on the UT professional building?",food,['Other'],Single Entity,_layout,0.1–0.5MP,_campus,4063,3697
+417.jpg,What is the green part of the image?,Children's Memorial Hermann,['Visual'],Single Entity,_layout,0.1–0.5MP,_campus,4064,3698
+417.jpg,What is the purple part of the image?,Heart & Vascular Institute,['Visual'],Single Entity,_layout,0.1–0.5MP,_campus,4065,3699
+417.jpg,What is the orange part?,Cullen,['Visual'],Single Entity,_layout,0.1–0.5MP,_campus,4066,3700
+417.jpg,what street is on the leftmost side of the image?,Main St.,['Positional'],Single Entity,_layout,0.1–0.5MP,_campus,4068,3701
+417.jpg,What color is the sarofim?,Red,['Visual'],Single Entity,_layout,0.1–0.5MP,_campus,4069,3702
+417.jpg,What color is Jones section?,Blue,['Visual'],Single Entity,_layout,0.1–0.5MP,_campus,4070,3703
+418.jpg,How many distinct countries are partially visible at the top of the map?,2,"['Visual', 'Positional', 'Comparative']",Counting,_divisional,0.5–2MP,_country,4071,3704
+418.jpg,How many countries/islands are labeled on the map?,6,['Visual'],Counting,_divisional,0.5–2MP,_country,4072,3705
+418.jpg,Does the map show postcode regions on the large island located to the southeast of the Australia?,Yes,"['Positional', 'Comparative']",Boolean,_divisional,0.5–2MP,_country,4074,3706
+418.jpg,"What is the color of the text used for the title ""Australian Postcodes""?",White,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4075,3707
+418.jpg,What is predominantly used on the map to represent individual postcode regions?,darker boundaries,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4076,3708
+418.jpg,How many dropdown menus are visible at the top of the map interface?,5,"['Visual', 'Positional', 'Comparative']",Counting,_divisional,0.5–2MP,_country,4077,3709
+418.jpg,Where is the map data from?,OpenStreetMap,['Positional'],Single Entity,_divisional,0.5–2MP,_country,4078,3710
+418.jpg,What is written on the bottom right of the map?,1 null,"['Positional', 'Comparative']",Single Entity,_divisional,0.5–2MP,_country,4079,3711
+418.jpg,what is the dominant background color representing the ocean?,Blue,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4080,3712
+419.png,Which state covers the largest area on this map?,Western Australia,['Comparative'],Single Entity,_divisional,0.5–2MP,_country,4081,3713
+419.png,Which state is labeled as “NT”?,Northern Territory,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4082,3714
+419.png,Which city is marked in the southeast corner of the map?,Hobart,"['Visual', 'Positional']",Single Entity,_divisional,0.5–2MP,_country,4083,3715
+419.png,Which state lies directly south of Queensland (QLD)?,New South Wales,['Positional'],Single Entity,_divisional,0.5–2MP,_country,4084,3716
+419.png,What do the red lines represent in this map?,Postal zones,['Visual'],Single Entity,_divisional,0.5–2MP,_country,4085,3717
+419.png,Which state appears to have the highest number of postal zones?,New South Wales,"['Visual', 'Comparative']",Single Entity,_divisional,0.5–2MP,_country,4086,3718
+419.png,Is the capital city of Western Australia labeled on the map?,Yes,"['Visual', 'Positional']",Boolean,_divisional,0.5–2MP,_country,4087,3719
+419.png,Which state surrounds the city of Melbourne?,Victoria,['Other'],Single Entity,_divisional,0.5–2MP,_country,4089,3720
