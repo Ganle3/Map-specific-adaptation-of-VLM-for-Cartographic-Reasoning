@@ -21,3 +21,4 @@
 20,7943,629.png,Which city includes both Kenmore ES and O Sorenson ES?,Bothell,Single Entity,['Other'],_divisional,_district,"0,0,0,0",0,4,0.0,all_wrong
 21,189,20.png,Count the labelled countries whose density value ends in the digit “9”.,2,Counting,['Visual'],_cartogram,_continent,"1,1,1,1",4,4,1.0,all_correct
 22,10753,893.png,"How many parking lots are explicitly marked on the map with a P"" symbol?""",12,Counting,['Visual'],_layout,_campus,"0,0,0,0",0,4,0.0,all_wrong
+23,90,10.jpeg,How many hospital and clinic names are obscured by the legend on the map?,3,Counting,['Visual'],_marker,_county,"0,0,0,0",0,4,0.0,all_wrong
