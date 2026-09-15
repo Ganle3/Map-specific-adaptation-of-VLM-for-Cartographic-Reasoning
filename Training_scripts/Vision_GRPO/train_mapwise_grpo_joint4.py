@@ -84,8 +84,8 @@ def main():
         raise RuntimeError("This entry point requires TRL 1.12.0")
     from validate_joint4 import validate_dataset as validate4
     rows = validate4(args.qa_json) if Path(args.qa_json).name == 'mapwise_grpo_joint_debug4_src2051.json' else json.loads(Path(args.qa_json).read_text(encoding='utf-8-sig'))
-    if len(rows) not in (4, 20) or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
-        raise ValueError('Expected exactly 4 or 20 unique QAs')
+    if len(rows) not in (4, 20, 44) or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
+        raise ValueError('Expected exactly 4, 20 or 44 unique QAs')
     expected_keys = [(r['country'], r['source_index']) for r in rows]
     if len(rows) == 20 and Path(args.qa_json).name != 'mapwise_grpo_joint44_improved_20.json':
         raise ValueError('20-QA run requires the selected improved_20 dataset')
