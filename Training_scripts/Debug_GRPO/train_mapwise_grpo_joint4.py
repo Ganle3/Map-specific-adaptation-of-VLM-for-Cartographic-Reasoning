@@ -36,17 +36,31 @@ def expected_bias_cast(change, allowed_names, already_cast):
 
 
 def preset(name):
+    # Canonical scope names are rank-independent.  The suffixed aliases are
+    # retained only so older job files remain runnable.
     if name == "joint_r16":
-        return 16, preset("vision_merger_r16")[1] | preset("language_r16")[1]
+        return 16, preset("joint")[1]
+    if name == "vision_r16":
+        return 16, preset("vision")[1]
+    if name == "language_r16":
+        return 16, preset("language")[1]
+    if name == "vision_r64":
+        return 64, preset("vision")[1]
+    if name == "vision_merger_r16":
+        return 16, preset("vision_merger")[1]
+    if name == "joint":
+        return 16, preset("vision_merger")[1] | preset("language")[1]
     blocks = {f"model.visual.blocks.{i}.{suffix}" for i in range(27)
               for suffix in ("attn.qkv", "attn.proj", "mlp.linear_fc1", "mlp.linear_fc2")}
-    if name == "vision_r64":
-        return 64, blocks
-    if name == "vision_merger_r16":
+    if name == "vision_r16":
+        return 16, blocks
+    if name == "vision":
+        return 16, blocks
+    if name == "vision_merger":
         mergers = {f"model.visual.{module}.linear_fc{j}" for module in
                    ["merger", *[f"deepstack_merger_list.{i}" for i in range(3)]] for j in (1, 2)}
         return 16, blocks | mergers
-    if name == "language_r16":
+    if name == "language":
         return 16, {f"model.language_model.layers.{i}.{suffix}" for i in range(36)
                     for suffix in ("self_attn.q_proj", "self_attn.k_proj", "self_attn.v_proj",
                                    "self_attn.o_proj", "mlp.gate_proj", "mlp.up_proj", "mlp.down_proj")}
@@ -56,10 +70,17 @@ def preset(name):
 def main():
     p = argparse.ArgumentParser(add_help=False)
     p.add_argument("--scope-experiment", required=True,
-                   choices=("joint_r16", "vision_r16"))
+                   choices=("joint", "vision", "language", "vision_merger",
+                            "joint_r16", "vision_r16", "language_r16",
+                            "vision_r64", "vision_merger_r16"))
+    p.add_argument("--rank", type=int, default=None,
+                   help="LoRA rank; independent of the scope preset")
     p.add_argument("--max-steps", type=int, default=120)
     extra, remaining = p.parse_known_args()
-    rank, targets = preset(extra.scope_experiment)
+    preset_rank, targets = preset(extra.scope_experiment)
+    rank = extra.rank if extra.rank is not None else preset_rank
+    if rank < 1:
+        p.error("--rank must be positive")
     import _vislora_grpo_baseline_snapshot as base
     sys.argv = [sys.argv[0], *remaining]
     args = base.parse_args()
