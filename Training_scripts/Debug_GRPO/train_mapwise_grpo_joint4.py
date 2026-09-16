@@ -56,7 +56,7 @@ def preset(name):
 def main():
     p = argparse.ArgumentParser(add_help=False)
     p.add_argument("--scope-experiment", required=True,
-                   choices=("joint_r16",))
+                   choices=("joint_r16", "vision_r16"))
     p.add_argument("--max-steps", type=int, default=120)
     extra, remaining = p.parse_known_args()
     rank, targets = preset(extra.scope_experiment)
