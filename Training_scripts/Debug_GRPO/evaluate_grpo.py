@@ -1,4 +1,4 @@
-"""Four-QA E2 greedy trajectory and 100-draw milestone evaluations."""
+"""Standard greedy evaluation for any completed joint GRPO run."""
 import argparse
 import csv
 import gc
@@ -16,6 +16,11 @@ def write(path,value):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir',type=Path,required=True)
+    parser.add_argument('--qa-json',type=Path,required=True,
+                        help='QA dataset used by the training run.')
+    parser.add_argument('--max-new-tokens',type=int,default=1536)
+    parser.add_argument('--sampling-draws',type=int,default=100,
+                        help='Optional sampled diagnostic draws for selected checkpoints.')
     args=parser.parse_args()
     repo=Path(__file__).resolve().parents[2]
     sys.path.insert(0,str(repo/'Evaluation_scripts/GRPO_ablation'))
@@ -25,23 +30,24 @@ def main():
     import inference_mapwise_trl as inference
     from inference_mapwise_trl_e2 import install
     import mapwise_evaluation_exact as scorer
-    from validate_joint4 import validate_dataset
     from evaluate_single_qa_sampling_extended import paired_summary
-    qa=repo/'Datasets/Processed_Mapwise/Train_Val/mapwise_grpo_joint_debug4_src2051.json'
-    validate_dataset(qa)
+    qa=args.qa_json.expanduser().resolve()
+    if not qa.is_file():raise FileNotFoundError(qa)
     samples=inference.load_json_list(qa)
     run=args.run_dir.resolve()
     state=json.loads((run/'trainer_state.json').read_text())
-    if state['global_step']!=120 or not (run/'final_adapter/adapter_config.json').is_file():
-        raise ValueError('Require completed 120-update training with final adapter')
-    targets=[('baseline',None),*[(f'checkpoint-{s}',run/f'checkpoint-{s}') for s in range(20,121,20)]]
+    if not (run/'final_adapter/adapter_config.json').is_file():
+        raise ValueError('Require completed training with final adapter')
+    steps=sorted(int(p.name.split('-')[1]) for p in run.glob('checkpoint-*')
+                 if p.is_dir() and p.name.split('-')[1].isdigit())
+    targets=[('baseline',None),*[(f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps]]
     for _,cp in targets[1:]:
         if not (cp/'adapter_model.safetensors').is_file():raise FileNotFoundError(cp)
-    out=run/'evaluation_e2_joint4'
+    out=run/'evaluation_greedy'
     out.mkdir(exist_ok=True)
     def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-    manifest=dict(protocol='joint4_E2_v1',qa_sha256=sha(qa),max_new_tokens=1536,
-        temperature=.8,top_p=.95,top_k=0,seeds_per_qa=100,seed_start=900000,
+    manifest=dict(protocol='standard_greedy_v1',qa_sha256=sha(qa),max_new_tokens=args.max_new_tokens,
+        temperature=.8,top_p=.95,top_k=0,seeds_per_qa=args.sampling_draws,seed_start=900000,
         source_sha256=sha(Path(__file__)),
         dependency_hashes={name:sha(repo/'Evaluation_scripts/GRPO_ablation'/name) for name in
             ['inference_mapwise_trl.py','inference_mapwise_trl_e2.py','mapwise_evaluation_exact.py']},
@@ -70,12 +76,12 @@ def main():
                     inputs=inference.prepare_multimodal_inputs(processor,im.convert('RGB'),
                         inference.build_mapwise_prompt(sample['question']),thinking_mode='auto')
                 inputs=inference.move_inputs_to_model_device(inputs,model)
-                draws=100 if label in ['baseline','checkpoint-40','checkpoint-80','checkpoint-120'] else 0
+                draws=args.sampling_draws if label == 'baseline' or label == f'checkpoint-{steps[-1]}' else 0
                 scores=[];greedy=None;truncated=0
                 for index in range(-1,draws):
                     seed=900000+qi*1000+max(index,0)
                     set_seed(seed)
-                    settings=dict(do_sample=index>=0,max_new_tokens=1536,num_beams=1,num_return_sequences=1,
+                    settings=dict(do_sample=index>=0,max_new_tokens=args.max_new_tokens,num_beams=1,num_return_sequences=1,
                                   repetition_penalty=1.,use_cache=True)
                     if index>=0:settings.update(temperature=.8,top_p=.95,top_k=0,min_p=None)
                     start=time.perf_counter()
@@ -87,7 +93,7 @@ def main():
                     raw=processor.batch_decode(tokens[None,:],skip_special_tokens=True,clean_up_tokenization_spaces=False)[0].strip()
                     record=inference.build_prediction_record(sample=sample,sample_index=qi,image_path=path,
                         raw_response=raw,generated_tokens=int(tokens.numel()),model_name='Qwen/Qwen3-VL-8B-Thinking',
-                        adapter_path=loaded,thinking_mode='auto',max_new_tokens=1536,inference_seconds=time.perf_counter()-start)
+                        adapter_path=loaded,thinking_mode='auto',max_new_tokens=args.max_new_tokens,inference_seconds=time.perf_counter()-start)
                     record.update(decoding='greedy' if index<0 else 'sampling',sampling_seed=seed,
                                   terminated=terminated,generation_status='complete' if terminated else 'truncated')
                     record=scorer.evaluate_sample(record)

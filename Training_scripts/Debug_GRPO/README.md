@@ -11,7 +11,7 @@ for any validated dataset of 4, 20, 44, or a future size. The sbatch file suppli
 the dataset and update budget; the Python entry point supplies the common model,
 LoRA scope, GRPO objective, auditing and constant-LR diagnostic defaults.
 
-Current joint scope `joint_r16` adapts 368 projections across vision blocks,
+Current joint scope `joint` adapts 368 projections across vision blocks,
 mergers/deepstack mergers and language attention/MLP. Each QA has four fresh
 rollouts per update; the batch contains four QAs. The script checks that every
 batch has four rollouts per QA and that all QAs belong to the selected dataset.
@@ -30,16 +30,21 @@ learning rate 5e-6 and zero warmup. CLI arguments remain authoritative for
 dataset, steps, learning rate, batch size, generation length and seed. A new run
 must use a new output directory and cannot resume an older adapter.
 
-`train_mapwise_grpo_joint4.py` is the implementation module retained for backward
-compatibility with already submitted jobs. `train_mapwise_grpo_joint44.py` is the
-frozen historical 44-QA protocol (cosine schedule and warmup) and must not be
-relabelled as the new constant-LR protocol.
+`grpo_joint_debug.py` is the single implementation for joint debug runs. Pass a
+different `--qa-json` to select 4, 20, 44, or another validated QA set. The
+optional `--off-policy-mask-threshold 0.2` or `0.4` enables the TRL mask ablation;
+omit it for the original behavior. `--max-completion-length 500` is likewise a
+CLI override and does not require a second training script.
 
 ## Evaluation and audits
 
-Use the matching E2 evaluator for independent, non-training measurements. Report
-greedy (`do_sample=False`) accuracy as the deployment criterion. Sampled accuracy
-is a diagnostic of probability mass and does not replace greedy evaluation.
+Use `evaluate_grpo.py` for the standard greedy evaluation of any completed joint
+run. Provide `--run-dir` and the matching `--qa-json`; the evaluator discovers
+available checkpoints and writes results under `evaluation_greedy/`. Optional
+sampled draws are a diagnostic only and do not change the greedy criterion.
+
+Report greedy (`do_sample=False`) accuracy as the deployment criterion. Sampled
+accuracy is a diagnostic of probability mass and does not replace greedy evaluation.
 Loading audits record adapter tensors, dtype preparation and active adapters;
 training audits record optimizer membership, parameter changes and quantized
 bias first-use casts. The bitsandbytes frozen visual bias FP32→BF16 cast is an
@@ -63,8 +68,8 @@ silently merged into results from `grpo_joint_debug.py`.
 Run the relevant standard-library checks before pushing:
 
 ```text
-python Training_scripts/Vision_GRPO/test_joint4_setup.py
-python -m py_compile Training_scripts/Vision_GRPO/grpo_joint_debug.py Training_scripts/Vision_GRPO/train_mapwise_grpo_joint4.py
+python Training_scripts/Debug_GRPO/test_grpo_joint_debug.py
+python -m py_compile Training_scripts/Debug_GRPO/grpo_joint_debug.py
 ```
 
 Windows upload scripts normalize sbatch files to LF and verify remote hashes and

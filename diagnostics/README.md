@@ -1,125 +1,140 @@
-# Fixed20 batch gradient diagnostic
+# Online optimizer-batch gradient diagnostic
 
-This measures five **optimizer batches at one fixed parameter state**, using
-native TRL rollouts, correctness rewards, group advantages and `dr_grpo` loss.
-It does not construct an optimizer, call its step, or change the training files.
+**This replaces the former fixed20/offline diagnostic.** Train a random-order
+joint20 or joint44 run for 40 epochs and observe actual accumulated gradients.
+No per-question gradients, extra rollouts, extra backward passes, replay, gradient
+surgery or fixed-state batch comparisons. No checkpoint or final adapter saves.
 
-## Run
+## Euler: submit both experiments
 
-Use the original single-GPU training container (TRL **1.12.0**, dependencies in
-`../requirements_visiongrpo.txt` in the parent workspace). From `VLM_adaptation`:
+Upload the complete updated `VLM_adaptation` repo to `$HOME/VLM_adaptation`.
+Use the existing `$SCRATCH/containers/ablationgrpo.sif` training container.
+
+```bash
+cd "$HOME/VLM_adaptation"
+sbatch diagnostics/jobs/joint_online_gradient.sbatch
+```
+
+Array task 0 runs joint20; task 1 runs joint44, each with one RTX 4090, 64 GB CPU
+RAM and a 24-hour wall-time request. This is an allocation, not a measured runtime
+guarantee. Change resource directives for your available partition if necessary.
+Test one epoch on both datasets first if the updated container has not been checked:
+
+```bash
+sbatch --export=ALL,EPOCHS=1 diagnostics/jobs/joint_online_gradient.sbatch
+```
+
+Results: `$SCRATCH/thesis/diagnostics/joint_gradient_<array_job_id>/joint20/`
+and `joint44/`. Slurm logs are `joint-gradient-<array_job_id>_<task_id>.out`
+in the submission directory. Each task automatically generates its own plots.
+`REPO`, `CONTAINER`, `IMAGE_ROOT`, `RESULT_ROOT`, `SEED`, `EPOCHS` are overridable
+environment variables. Use a fresh result directory. There is no resume because
+weights are deliberately not saved. Timeouts can leave usable partial CSVs.
+
+## Direct training and plotting
+
+From `VLM_adaptation`, inside the training environment:
 
 ```bash
 python diagnostics/gradient/grpo_batch_gradient.py \
-  --checkpoint /path/to/run/checkpoint-100 \
-  --output-dir results/diagnostics/fixed20_gradient/checkpoint_100_seed42 \
-  --seed 42
+  --dataset-size 20 --epochs 40 --seed 3407 \
+  --output-dir results/diagnostics/joint20
+
+python diagnostics/gradient/grpo_batch_gradient.py \
+  --dataset-size 44 --epochs 40 --seed 3407 \
+  --output-dir results/diagnostics/joint44
 
 python diagnostics/visualization/plot_batch_gradient_matrix.py \
-  --results-dir results/diagnostics/fixed20_gradient/checkpoint_100_seed42 \
-  --dot-product
+  --results-dir results/diagnostics/joint20 results/diagnostics/joint44 \
+  --comparison-dir results/diagnostics/comparison
 ```
 
-Supply `--image-root` and `--qa-json` if the original datasets are elsewhere.
-`--training-config /path/to/effective_grpo_config.json` loads the original
-configuration; it is automatically detected in the checkpoint's parent directory.
-If absent, baseline generation defaults apply: temperature 0.8, top-p 0.95,
-1536 completion tokens, group reward scaling, truncated-completion masking.
-The effective settings and source hashes are saved. Use an empty output directory.
-The adapter must have the fixed20 joint scope and rank/alpha 16/16.
+Plotting needs only NumPy and Matplotlib and can run on Windows after downloading
+the result folders. The Euler script checks those imports before training. No
+package installation is attempted inside the container. Train first/plot locally
+with the direct training command if the container lacks Matplotlib.
 
-The historical local `train_joint20.sbatch` omits explicit 2x8 and fixed-order
-flags; it does not establish the actual remote training configuration. This
-diagnostic uses the user-confirmed 2x8 setup and declared QA IDs. Conflicting
-saved batch/objective settings fail explicitly. Match the base model revision,
-container and evaluator to the original run before interpreting results.
+CSV + automatically generated PNGs are the primary analysis outputs. Optional
+WandB scalar logging is enabled by `--wandb` or
+`sbatch --export=ALL,USE_WANDB=1 diagnostics/jobs/joint_online_gradient.sbatch`.
+Authenticate beforehand in the container's environment. `WANDB_MODE=offline`
+can be used when the compute node has no external connection. CSV outputs remain
+available regardless of WandB; images are saved locally rather than uploaded.
 
-## Reused code and data
+## What is trained and measured?
 
-- `Training_scripts/Debug_GRPO/grpo_joint_debug.py` delegates to
-  `train_mapwise_grpo_joint4.py`; its `preset('joint_r16')` defines the scope:
-  108 vision modules, 8 merger modules, 252 language modules; 736 LoRA tensors.
-- `_vislora_grpo_baseline_snapshot.run_training` supplies processor/model loading,
-  NF4/k-bit preparation, trainable adapter loading, dataset construction,
-  evaluator initialization and trainer construction.
-- `load_json_list` constructs missing `qa_id` from country/map/template/source.
-  `build_train_dataset` produces conversational `prompt`, decoded PIL `images`,
-  QA metadata, `ground_truth` and `ground_truth_type`. No alternate preprocessing.
-- `mapwise_correctness_reward` calls `mapwise_evaluation_exact.evaluate_sample`
-  and returns only binary strict exact correctness.
-- The 20-QA JSON is the existing `mapwise_grpo_joint44_improved_20.json`.
-  `Euler_results/VisionLoRA/debug50/analysis/select_joint4.py` retrospectively
-  selected QAs whose last-five-epoch correct count exceeded their first-five
-  count and ranked by late accuracy/truncation criteria. We validate exactly the
-  declared IDs and map batches by ID, without reselecting from current rewards.
-- Training checkpoints use Trainer/PEFT; final adapter uses `save_pretrained`.
-  Measurement uses the baseline's `init_adapter_path` path with
-  `PeftModel.from_pretrained(..., is_trainable=True)`, never optimizer resume.
+- Fresh Qwen3-VL-8B-Thinking + NF4 + joint LoRA, default rank/alpha 16/16.
+  `--rank` changes both consistently. Original loader, processor, preprocessing,
+  correctness evaluator and joint target preset are imported and reused.
+- Native TRL 1.12.0 / Transformers 5.5.0. Constant LR 5e-6, no warmup, group
+  rewards, `dr_grpo`, beta=0, truncation masking, 1536 completion tokens,
+  temperature 0.8, top-p 0.95; effective configuration saved in `config.json`.
+- `G=4`, microbatch=2, accumulation=8: four QA / 16 rollouts per optimizer update.
+  joint20 = 5 updates/epoch = 200 updates; joint44 = 11/epoch = 440 updates.
+  Same epoch budgets mean equal visits per QA, not equal optimizer-update budgets.
+- Randomized native sampling; actual IDs are logged. Every complete epoch is
+  checked to contain every QA exactly once. The 20-QA subset is the existing
+  retrospectively selected improved20 set, not a new random sample of the 44.
+- Gradient readout is at the end of the eighth `training_step`, after native
+  backward, BEFORE returning to the outer Trainer loop's clipping and update.
+  `on_pre_optimizer_step` is not used for readout because it is after clipping.
+  Native loss already handles accumulation scaling: do not divide again.
+- `.grad` is only copied, never zeroed, normalized or overwritten by diagnostics.
+  None gradients occupy zeros in a fixed named trainable-parameter order. There
+  is no extra differentiation. The normal training loop performs its own updates.
+- Copying uses one parameter at a time, avoiding a second full GPU gradient.
+  CPU float32 history defaults to 11 steps for BOTH datasets. CPU memory is about
+  `4 * trainable_parameter_count * (history_steps + 1)` bytes for vectors; dot
+  products accumulate in float64. `--history-steps` changes the bounded window.
+  Vectors are not written to disk, so larger windows cannot be recovered later.
+- Each captured batch is compared with all available prior batches in the
+  window. No complete 200x200/440x440 matrix is claimed. NaN cosine means either
+  norm < eps (default 1e-12); nonfinite gradients fail the run.
+- Native first-use frozen visual bias casts are audited using the joint trainer's
+  policy. No unsolicited base dtype conversions or alternate loading path.
+- Existing training files are unchanged. Process-local substitutions adapt the
+  monolithic baseline configuration and Trainer class. A private completion
+  exception exits before its final weight/state saving block. Original monitor
+  callback still records `step_metrics.jsonl`; its norms are post-clipping,
+  whereas `batch_metrics.csv` is authoritative for pre-clipping gradient geometry.
 
-The loader is monolithic. A temporary, process-local replacement of its trainer
-class overrides `train()` to measure and raise a private completion exception
-before the training/save continuation. Config and scope verification are also
-replaced locally and restored on exit. No training source is patched. Native
-generation and loss methods are inherited; reward interception only records
-the returned rewards. Training audit callbacks are never dispatched. The
-separate A/B reuse/replay trainers and Unsloth are not involved.
+## Outputs
 
-## Gradient definition and controls
+| File | Contents |
+|---|---|
+| `config.json` | Versions, source/data hashes, effective config, parameter inventory, status and budget |
+| `batch_metrics.csv` | Actual QA IDs, loss, rewards, signal count, pre-clip norm, valid mask, template mix, GPU peaks |
+| `gradient_pairs.csv` | Current/previous step, lag, shared QA count, cosine, dot product, distance, valid-pair mask |
+| `qa_metrics.csv` | Rewards per group, QA visit number/gap, country/template/ability/answer-type metadata |
+| `lag_summary.csv` | Valid pair counts, mean cosine, negative fraction per lag (generated by plotting) |
+| `qa_summary.csv` | Early/late visit reward means, active fractions and actual visit gaps |
+| `plots/training_overview.png` | Online rewards, gradient norms, signal and negative-cosine fractions |
+| `plots/qa_learning_heatmap.png` | Per-QA reward across visits |
+| `plots/gradient_lag_heatmap.png` | Step x lag cosine, fixed [-1,1], unavailable cells grey |
+| `plots/gradient_by_lag.png` | Cosine/negative fraction with valid comparison counts |
+| `plots/question_group_learning.png` | Existing ability-level or answer-type reward curves |
 
-Each batch contains four adjacent groups of four duplicated prompt rows. Native
-`_prepare_inputs` generates once, scores group rewards/advantages, shuffles and
-splits multimodal data into eight two-rollout microbatches. It retains the same
-generated trajectories for all eight losses. `_step` is incremented manually
-because no training loop is running; the generation buffer resets per batch.
+The multi-run plot command additionally creates `joint20_vs_joint44.png`, comparing
+rewards by epoch and step and negative cosine rates at the same step lags.
+Question-group plots are descriptive; no mixed-batch gradient is attributed to
+an individual task. Use QA IDs/template compositions and pair shared-QA counts
+for follow-up analysis. Different answer types do not establish different tasks.
 
-TRL 1.12 `dr_grpo` already divides each microbatch loss by 8. Therefore
+## Interpretation and verification limits
 
-`g_B = sum_m autograd.grad(native_loss_m, trainable_LoRA)`
+These are `g_Bt(theta_t)` versus `g_Bs(theta_s)`: **different batches AND different
+parameter states**. Negative cosine is not evidence by itself of fixed-state
+conflict, causal forgetting, or a task incompatibility. Reward curves use four
+online sampled responses per QA visit, not independent greedy evaluation.
+Inactive groups remain in the batch; zero gradients are unavailable rather than
+artificial zero cosines. Active rewards do not guarantee nonzero gradients after
+truncation masking. Pair statistics use only valid gradients and report counts.
 
-has the effective denominator `16 * max_completion_length`. There is **no
-second division by 8**, clipping, Adam transformation, or optimizer update.
-The reported loss is the sum of those native losses. Zero-valued policy loss
-does not imply zero gradient. Unused parameters occupy zero entries in the
-same named parameter order for every vector. Gradients accumulate on CPU in
-float32; pairwise products accumulate in float64. Full gradients are not saved.
+The 20-QA selection, different update budgets, changing batch composition, visit
+gaps and sampling noise confound causal claims. Forty epochs and one seed are an
+exploratory run, not a stability/significance guarantee.
 
-Accelerate prepares the model for the same mixed-precision forward behavior.
-Non-reentrant gradient checkpointing enables `autograd.grad`; no backward
-fallback silently changes behavior. If this fails in a different installation,
-the run fails and should be diagnosed before introducing a fallback.
-
-Frozen visual Linear4bit biases undergo their normal first-use BF16 conversion
-before theta is fixed. Parameters and buffers are hashed after this preparation
-and after every batch; changes abort the run. The preparation is recorded in
-config. All batches retain training mode, and dropout is zero. No model update
-occurs. CPU/GPU roundoff still prevents a promise of bitwise reproducibility
-across different software/hardware.
-
-`signal_group_count` counts reward groups with nonzero population standard
-deviation; it does not guarantee a nonzero gradient after truncation masking.
-`reward_std` is the population standard deviation across all 16 rewards.
-Norms below `--eps` (default `1e-12`) have `valid_gradient=False` and NaN cosine
-against every batch, including themselves. Dot products and distances retain
-their mathematical values. Nonfinite gradients abort rather than become zeros.
-
-## Outputs and interpretation
-
-`config.json`, `batch_metrics.csv`, `valid_gradient_mask.csv`,
-`cosine_matrix.csv`, `dot_product_matrix.csv`, `distance_matrix.csv`.
-Plotting creates `cosine_matrix.png`, `gradient_norms.png` and optionally
-`dot_product_matrix.png`. NaN cosine cells are grey and labelled N/A.
-`config.json` says `status=complete` only after successful state checks.
-
-Default: one realization, with batch seed `seed + batch_index`. Optional
-`--num-repeats 5` writes independent `repeat_000` etc. directories, with seeds
-`seed + 5 * repeat + batch_index`; plot each separately. No Monte Carlo inference
-or repeat-summary statistics are implemented in this first version.
-
-A negative cosine is descriptive evidence of opposing sampled gradient
-directions at this state. One realization does not establish stable/statistically
-significant conflict or catastrophic forgetting. Those require repeats and,
-later, a separate B-update/A-degradation experiment.
-
-CPU checks: `python -m pytest diagnostics/test_batch_gradients.py -q`.
-These cover geometry, zero handling, file/plot outputs and fixed20 IDs; they do
-not replace a real CUDA/TRL run.
+`python -m pytest diagnostics/test_batch_gradients.py -q` checks geometry, bounded
+history, QA coverage/gaps, zero handling, plots and read-only pre-clip capture in
+a toy accumulated training loop. It does not validate CUDA, real GRPO backward,
+container compatibility or GPU peak memory; run the one-epoch Euler smoke test.

@@ -1,1 +1,1 @@
-"""Measure gradients without optimizer updates."""
+"""Observe accumulated optimizer-batch gradients during diagnostic training."""
