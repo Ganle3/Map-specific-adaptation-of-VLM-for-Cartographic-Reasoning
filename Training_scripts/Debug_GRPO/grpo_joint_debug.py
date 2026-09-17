@@ -76,6 +76,8 @@ def main():
     p.add_argument("--rank", type=int, default=None,
                    help="LoRA rank; independent of the scope preset")
     p.add_argument("--max-steps", type=int, default=120)
+    p.add_argument("--num-iterations", type=int, default=1,
+                   help="Number of policy updates per generated rollout batch.")
     p.add_argument("--off-policy-mask-threshold", type=float, default=None,
                    choices=(0.2, 0.4),
                    help="Optional TRL off-policy negative-sequence mask threshold.")
@@ -96,7 +98,7 @@ def main():
     # passes --preserve-qa-order explicitly; random-order runs leave it off.
     args.save_steps = 20
     args.save_total_limit = extra.max_steps // 20 + 1
-    if extra.max_steps < 1 or args.learning_rate != 5e-6:
+    if extra.max_steps < 1 or extra.num_iterations < 1 or args.learning_rate != 5e-6:
         p.error('Use positive updates and LR 5e-6')
     base.validate_args(args)
     if args.init_adapter_path is not None or args.resume_from_checkpoint is not None:
@@ -120,7 +122,7 @@ def main():
         p.error("Use a new output directory")
     args.scope_experiment = extra.scope_experiment
     args.max_steps = extra.max_steps
-    args.num_iterations = 1
+    args.num_iterations = extra.num_iterations
     # Explicit anchored names prevent accidentally adapting norms/embeddings/head.
     base.VISION_TARGET_REGEX = "^(?:" + "|".join(re.escape(n) for n in sorted(targets)) + ")$"
     base.EXPECTED_TARGET_MODULES = len(targets)
@@ -143,7 +145,7 @@ def main():
     base.verify_vision_only_lora = verify
     Config = base.GRPOConfig
     def config(**kwargs):
-        kwargs.update(max_steps=extra.max_steps, num_iterations=1,
+        kwargs.update(max_steps=extra.max_steps, num_iterations=extra.num_iterations,
                       lr_scheduler_type='constant', warmup_steps=0,
                       off_policy_mask_threshold=extra.off_policy_mask_threshold)
         result = Config(**kwargs)
@@ -161,7 +163,7 @@ def main():
             payload.pop(key, None)
         payload.update(lora_target_modules=len(targets), lora_trainable_tensors=2*len(targets),
                        step_counts_are_estimates=False, budget_unit="optimizer_updates",
-                       replay=False, num_iterations=1, lr_scheduler_type='constant',
+                       replay=False, num_iterations=extra.num_iterations, lr_scheduler_type='constant',
                        off_policy_mask_threshold=extra.off_policy_mask_threshold,
                        qa_groups_per_update=len(rows), exposures_per_qa=extra.max_steps,
                        sha256={str(f): hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in
