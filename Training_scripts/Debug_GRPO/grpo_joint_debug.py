@@ -101,8 +101,10 @@ def main():
     if extra.max_steps < 1 or extra.num_iterations < 1 or args.learning_rate != 5e-6:
         p.error('Use positive updates and LR 5e-6')
     base.validate_args(args)
-    if args.init_adapter_path is not None or args.resume_from_checkpoint is not None:
-        p.error("Use a fresh raw base model, no init adapter or resume")
+    if args.init_adapter_path is not None:
+        p.error("Use a fresh raw base model; init adapters are not supported")
+    if args.resume_from_checkpoint is not None and not Path(args.resume_from_checkpoint).is_dir():
+        p.error("--resume-from-checkpoint must point to an existing checkpoint directory")
     if int(os.environ.get("WORLD_SIZE", "1")) != 1:
         p.error("This diagnostic requires one GPU per experiment")
     if extra.max_steps < 1 or args.beta != 0:
@@ -118,7 +120,7 @@ def main():
     if len(rows) == 20 and Path(args.qa_json).name != 'mapwise_grpo_joint44_improved_20.json':
         raise ValueError('20-QA run requires the selected improved_20 dataset')
     output = Path(args.output_dir).expanduser().resolve()
-    if (output / "run_config.json").exists() or list(output.glob("checkpoint-*")):
+    if args.resume_from_checkpoint is None and ((output / "run_config.json").exists() or list(output.glob("checkpoint-*"))):
         p.error("Use a new output directory")
     args.scope_experiment = extra.scope_experiment
     args.max_steps = extra.max_steps
