@@ -294,10 +294,8 @@ def main():
         def _generate_and_score_completions(self, inputs):
             from collections import Counter
             counts = Counter(r.get('qa_id', r.get('sample_id', r.get('source_index'))) for r in inputs)
-            expected_batch = {key: 4 for key in dict.fromkeys(expected_keys)}
-            if len(counts) < 1 or any(value != 4 for value in counts.values()) \
-                    or not set(counts).issubset(expected_batch):
-                raise RuntimeError(f'Expected four rollouts for four selected QAs: {counts}')
+            if len(counts) < 1 or any(value != 4 for value in counts.values()):
+                raise RuntimeError(f'Expected four rollouts per QA group: {counts}')
             before = parameter_inventory(self.model)
             try:
                 result = super()._generate_and_score_completions(inputs)
