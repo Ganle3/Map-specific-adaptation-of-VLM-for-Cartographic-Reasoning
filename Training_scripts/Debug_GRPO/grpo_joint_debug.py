@@ -131,7 +131,9 @@ def main():
     rows = (validate_debug_dataset(args.qa_json)
             if Path(args.qa_json).name == 'mapwise_grpo_joint_debug4_src2051.json'
             else json.loads(Path(args.qa_json).read_text(encoding='utf-8-sig')))
-    if not rows or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
+    raw_keys = [r.get('qa_id', r.get('sample_id', r.get('source_index', i)))
+                for i, r in enumerate(rows)]
+    if not rows or len(set(raw_keys)) != len(rows):
         raise ValueError('Training dataset must contain unique non-empty QA rows')
     expected_keys = [(r.get('qa_id', r.get('sample_id', r.get('source_index', i))))
                      for i, r in enumerate(rows)]
