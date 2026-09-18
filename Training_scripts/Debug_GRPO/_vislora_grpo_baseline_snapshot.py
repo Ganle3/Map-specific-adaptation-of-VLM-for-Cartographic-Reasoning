@@ -175,6 +175,7 @@ SUPPORTED_COUNTRIES = {
     "china",
     "india",
     "usa",
+    "mapverse",
 }
 
 SUPPORTED_IMAGE_SUFFIXES = (

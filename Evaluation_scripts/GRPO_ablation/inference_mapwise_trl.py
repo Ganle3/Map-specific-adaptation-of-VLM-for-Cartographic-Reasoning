@@ -51,7 +51,7 @@ SAVE_EVERY = 1
 SUPPORTED_IMAGE_SUFFIXES = (
     ".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff", ".bmp"
 )
-SUPPORTED_COUNTRIES = {"china", "india", "usa"}
+SUPPORTED_COUNTRIES = {"china", "india", "usa", "mapverse"}
 
 
 # ============================================================
@@ -110,6 +110,14 @@ def load_json_list(json_path: Path) -> list[dict[str, Any]]:
                 f"Sample {index} must be a dictionary, "
                 f"but received {type(sample).__name__}."
             )
+        if "correct_answer" in sample and "ground_truth" not in sample:
+            sample["ground_truth"] = sample["correct_answer"]
+            sample["ground_truth_type"] = sample.get("answer_type", "")
+            sample["country"] = sample.get("country", "mapverse")
+            sample["map_no"] = sample.get("image_name", str(sample.get("sample_id", index)))
+            sample["template_no"] = int(sample.get("sample_id", index))
+            sample["source_index"] = int(sample.get("source_row", index))
+            sample["qa_id"] = str(sample.get("qa_id", f"mapverse_{sample.get('sample_id', index)}"))
         missing = [field for field in required_fields if field not in sample]
         if missing:
             raise KeyError(f"Sample {index} is missing required fields: {missing}")
