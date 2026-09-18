@@ -1340,7 +1340,13 @@ def run_training(
     # Vision-only LoRA
     # --------------------------------------------------------
 
-    print("\nApplying Vision-only LoRA...")
+    scope_label = {
+        "joint": "Joint (vision + merger + language)",
+        "vision": "Vision only",
+        "vision_merger": "Vision + merger",
+        "language": "Language only",
+    }.get(getattr(args, "scope_experiment", None), "Vision only")
+    print(f"\nApplying {scope_label} LoRA...")
 
     lora_config = LoraConfig(
         r=args.lora_rank,
@@ -1543,9 +1549,17 @@ def run_training(
     print(f"learning rate:                 {args.learning_rate}")
     print(f"warmup steps (estimate):       {warmup_steps}")
     print(f"LoRA rank / alpha:             {args.lora_rank} / {args.lora_alpha}")
-    print("LoRA scope:                    Vision only")
-    print("Expected target modules:       108")
-    print("Expected trainable tensors:    216")
+    # Display the effective scope configured by the selected entry point.
+    scope_experiment = getattr(args, "scope_experiment", None)
+    scope_label = {
+        "joint": "Joint (vision + merger + language)",
+        "vision": "Vision only",
+        "vision_merger": "Vision + merger",
+        "language": "Language only",
+    }.get(scope_experiment, "Vision only")
+    print(f"LoRA scope:                    {scope_label}")
+    print(f"Expected target modules:       {EXPECTED_TARGET_MODULES}")
+    print(f"Expected trainable tensors:    {EXPECTED_LORA_TENSORS}")
     print("Reward:                        correctness only (0 / 1)")
     print("Format reward:                 False")
     print("Severe-loop penalty:           False")
