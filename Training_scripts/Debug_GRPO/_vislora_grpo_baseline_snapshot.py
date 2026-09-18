@@ -286,9 +286,9 @@ def load_evaluation_module(evaluation_script: Path):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
 
-    if not hasattr(module, "evaluate_sample"):
+    if not (hasattr(module, "evaluate_sample") or hasattr(module, "evaluate_exact")):
         raise AttributeError(
-            "MapWise evaluator must expose evaluate_sample(record)."
+            "Evaluator must expose evaluate_sample(record) or evaluate_exact(prediction, ground_truth, answer_type)."
         )
 
     return module
