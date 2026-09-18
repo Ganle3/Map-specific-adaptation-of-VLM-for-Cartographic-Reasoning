@@ -140,6 +140,11 @@ def validate_image(image_path: Path) -> None:
 
 
 def resolve_mapwise_image(sample: dict[str, Any], image_root: Path) -> Path:
+    if sample.get("image_name"):
+        direct = image_root / str(sample["image_name"])
+        if direct.is_file():
+            validate_image(direct)
+            return direct.resolve()
     country = str(sample.get("country", "")).strip().lower()
     map_no = str(sample.get("map_no", "")).strip()
     qa_id = str(sample.get("qa_id", "unknown"))

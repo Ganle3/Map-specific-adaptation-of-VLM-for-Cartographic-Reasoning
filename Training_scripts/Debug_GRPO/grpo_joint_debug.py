@@ -133,7 +133,8 @@ def main():
             else json.loads(Path(args.qa_json).read_text(encoding='utf-8-sig')))
     if not rows or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
         raise ValueError('Training dataset must contain unique non-empty QA rows')
-    expected_keys = [(r['country'], r['source_index']) for r in rows]
+    expected_keys = [(r.get('qa_id', r.get('sample_id', r.get('source_index', i))))
+                     for i, r in enumerate(rows)]
     output = Path(args.output_dir).expanduser().resolve()
     if args.resume_from_checkpoint is None and ((output / "run_config.json").exists() or list(output.glob("checkpoint-*"))):
         p.error("Use a new output directory")
@@ -287,7 +288,7 @@ def main():
 
         def _generate_and_score_completions(self, inputs):
             from collections import Counter
-            counts = Counter((r['country'], r['source_index']) for r in inputs)
+            counts = Counter(r.get('qa_id', r.get('sample_id', r.get('source_index'))) for r in inputs)
             expected_batch = {key: 4 for key in dict.fromkeys(expected_keys)}
             if len(counts) < 1 or any(value != 4 for value in counts.values()) \
                     or not set(counts).issubset(expected_batch):

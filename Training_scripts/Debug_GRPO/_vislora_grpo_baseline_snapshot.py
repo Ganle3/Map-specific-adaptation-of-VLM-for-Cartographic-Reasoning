@@ -343,6 +343,17 @@ def load_json_list(path: Path) -> list[dict[str, Any]]:
 
         row = dict(item)
 
+        # Accept the flat MapVerse screening schema through the same trainer
+        # interface. Image names remain relative to --image-root.
+        if "correct_answer" in row and "ground_truth" not in row:
+            row["ground_truth"] = row["correct_answer"]
+            row["ground_truth_type"] = row.get("answer_type", "")
+            row["country"] = row.get("country", "mapverse")
+            row["map_no"] = row.get("image_name", str(row.get("sample_id", index)))
+            row["template_no"] = int(row.get("sample_id", index))
+            row["source_index"] = int(row.get("source_row", index))
+            row["qa_id"] = str(row.get("qa_id", f"mapverse_{row.get('sample_id', index)}"))
+
         required = (
             "country",
             "map_no",
@@ -394,6 +405,11 @@ def resolve_mapwise_image(
     sample: Mapping[str, Any],
     image_root: Path,
 ) -> Path:
+
+    if sample.get("image_name"):
+        direct = image_root.expanduser().resolve() / str(sample["image_name"])
+        if direct.is_file():
+            return direct
 
     country = str(
         sample.get("country", "")

@@ -18,6 +18,7 @@ def main():
     parser.add_argument('--run-dir',type=Path,required=True)
     parser.add_argument('--qa-json',type=Path,required=True,
                         help='QA dataset used by the training run.')
+    parser.add_argument('--image-root',type=Path,required=True)
     parser.add_argument('--max-new-tokens',type=int,default=1536)
     parser.add_argument('--checkpoint-steps',type=int,nargs='+',default=None,
                         help='Evaluate only these checkpoint step numbers.')
@@ -42,6 +43,11 @@ def main():
     qa=args.qa_json.expanduser().resolve()
     if not qa.is_file():raise FileNotFoundError(qa)
     samples=inference.load_json_list(qa)
+    for index, sample in enumerate(samples):
+        if 'correct_answer' in sample and 'ground_truth' not in sample:
+            sample['ground_truth'] = sample['correct_answer']
+            sample['ground_truth_type'] = sample.get('answer_type', '')
+            sample['qa_id'] = str(sample.get('qa_id', f"mapverse_{sample.get('sample_id', index)}"))
     run=args.run_dir.resolve()
     state=json.loads((run/'trainer_state.json').read_text())
     if not (run/'final_adapter/adapter_config.json').is_file():
@@ -90,7 +96,7 @@ def main():
             model,processor,loaded=inference.load_model_and_processor(adapter_path=cp)
             perqa=[]
             for qi,sample in enumerate(samples):
-                path=inference.resolve_mapwise_image(sample,repo/'Datasets/mapwise-dataset')
+                path=inference.resolve_mapwise_image(sample,args.image_root)
                 with Image.open(path) as im:
                     inputs=inference.prepare_multimodal_inputs(processor,im.convert('RGB'),
                         inference.build_mapwise_prompt(sample['question']),thinking_mode='auto')
