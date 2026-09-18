@@ -83,6 +83,8 @@ def main():
                    help="First step of cosine decay for constant_then_cosine.")
     p.add_argument("--decay-final-factor", type=float, default=0.8,
                    help="Final LR multiplier for constant_then_cosine.")
+    p.add_argument("--min-pixels", type=int, default=None)
+    p.add_argument("--max-pixels", type=int, default=None)
     p.add_argument("--warmup-fraction", type=float, default=0.0)
     p.add_argument("--num-iterations", type=int, default=1,
                    help="Number of policy updates per generated rollout batch.")

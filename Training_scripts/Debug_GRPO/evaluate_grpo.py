@@ -32,6 +32,8 @@ def main():
                         help='Optional sampled diagnostic draws for selected checkpoints.')
     parser.add_argument('--output-subdir',default='evaluation_greedy',
                         help='Directory under run-dir for this evaluation manifest and CSVs.')
+    parser.add_argument('--min-pixels',type=int,default=None)
+    parser.add_argument('--max-pixels',type=int,default=None)
     args=parser.parse_args()
     repo=Path(__file__).resolve().parents[2]
     sys.path.insert(0,str(repo/'Evaluation_scripts/GRPO_ablation'))
@@ -44,6 +46,7 @@ def main():
     scorer = importlib.util.module_from_spec(spec); spec.loader.exec_module(scorer)
     from evaluate_single_qa_sampling_extended import paired_summary
     qa=args.qa_json.expanduser().resolve()
+    # Applied after each processor load below; values are also recorded in the manifest.
     if not qa.is_file():raise FileNotFoundError(qa)
     samples=inference.load_json_list(qa)
     for index, sample in enumerate(samples):
@@ -97,6 +100,8 @@ def main():
             inference.load_model_and_processor=original_load
             install(inference,dest)
             model,processor,loaded=inference.load_model_and_processor(adapter_path=cp)
+            if args.max_pixels is not None: processor.image_processor.max_pixels=args.max_pixels
+            if args.min_pixels is not None: processor.image_processor.min_pixels=args.min_pixels
             perqa=[]
             for qi,sample in enumerate(samples):
                 path=inference.resolve_mapwise_image(sample,args.image_root)

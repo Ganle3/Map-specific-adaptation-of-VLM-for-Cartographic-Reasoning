@@ -1311,6 +1311,10 @@ def run_training(
     processor = AutoProcessor.from_pretrained(
         args.model_name
     )
+    if getattr(args, "max_pixels", None) is not None:
+        processor.image_processor.max_pixels = args.max_pixels
+    if getattr(args, "min_pixels", None) is not None:
+        processor.image_processor.min_pixels = args.min_pixels
 
     if hasattr(processor, "tokenizer"):
         processor.tokenizer.padding_side = "left"
