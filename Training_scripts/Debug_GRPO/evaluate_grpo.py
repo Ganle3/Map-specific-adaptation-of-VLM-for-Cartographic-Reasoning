@@ -4,6 +4,7 @@ import csv
 import gc
 import hashlib
 import json
+import importlib.util
 from pathlib import Path
 import sys
 import time
@@ -19,6 +20,7 @@ def main():
     parser.add_argument('--qa-json',type=Path,required=True,
                         help='QA dataset used by the training run.')
     parser.add_argument('--image-root',type=Path,required=True)
+    parser.add_argument('--evaluation-script',type=Path,required=True)
     parser.add_argument('--max-new-tokens',type=int,default=1536)
     parser.add_argument('--checkpoint-steps',type=int,nargs='+',default=None,
                         help='Evaluate only these checkpoint step numbers.')
@@ -38,7 +40,8 @@ def main():
     from transformers import set_seed
     import inference_mapwise_trl as inference
     from inference_mapwise_trl_e2 import install
-    import mapwise_evaluation_exact as scorer
+    spec = importlib.util.spec_from_file_location('scorer', args.evaluation_script.expanduser().resolve())
+    scorer = importlib.util.module_from_spec(spec); spec.loader.exec_module(scorer)
     from evaluate_single_qa_sampling_extended import paired_summary
     qa=args.qa_json.expanduser().resolve()
     if not qa.is_file():raise FileNotFoundError(qa)
@@ -121,7 +124,13 @@ def main():
                         adapter_path=loaded,thinking_mode='auto',max_new_tokens=args.max_new_tokens,inference_seconds=time.perf_counter()-start)
                     record.update(decoding='greedy' if index<0 else 'sampling',sampling_seed=seed,
                                   terminated=terminated,generation_status='complete' if terminated else 'truncated')
-                    record=scorer.evaluate_sample(record)
+                    if hasattr(scorer, 'evaluate_exact'):
+                        scored = scorer.evaluate_exact(
+                            prediction=raw, ground_truth=sample.get('correct_answer', sample.get('ground_truth', '')),
+                            answer_type=sample.get('answer_type', sample.get('ground_truth_type', '')))
+                        record['strict_exact_match'] = int(bool(scored.get('correct', scored.get('reward', 0))))
+                    else:
+                        record=scorer.evaluate_sample(record)
                     with (dest/'responses.jsonl').open('a',encoding='utf-8') as f:f.write(json.dumps(record,ensure_ascii=False)+'\n')
                     if index<0:greedy=record['strict_exact_match']
                     else:

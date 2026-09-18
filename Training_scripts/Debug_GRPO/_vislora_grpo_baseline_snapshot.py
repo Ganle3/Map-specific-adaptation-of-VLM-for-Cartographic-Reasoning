@@ -809,17 +809,21 @@ def mapwise_correctness_reward(
             "final_answer": "",
         }
 
-        result = MAPWISE_EVALUATOR.evaluate_sample(
-            record
-        )
+        if hasattr(MAPWISE_EVALUATOR, "evaluate_exact"):
+            result = MAPWISE_EVALUATOR.evaluate_exact(
+                prediction=completion_to_text(completion),
+                ground_truth=str(gold or ""),
+                answer_type=str(kind or ""),
+            )
+            reward_value = result.get("reward", result.get("correct", 0))
+        else:
+            result = MAPWISE_EVALUATOR.evaluate_sample(record)
+            reward_value = result.get("strict_exact_match", 0)
 
         reward = (
             1.0
             if int(
-                result.get(
-                    "strict_exact_match",
-                    0,
-                )
+                reward_value
             ) == 1
             else 0.0
         )
