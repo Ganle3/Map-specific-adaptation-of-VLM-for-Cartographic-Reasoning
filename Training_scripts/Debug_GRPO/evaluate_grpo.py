@@ -19,6 +19,8 @@ def main():
     parser.add_argument('--qa-json',type=Path,required=True,
                         help='QA dataset used by the training run.')
     parser.add_argument('--max-new-tokens',type=int,default=1536)
+    parser.add_argument('--checkpoint-steps',type=int,nargs='+',default=None,
+                        help='Evaluate only these checkpoint step numbers.')
     parser.add_argument('--sampling-draws',type=int,default=100,
                         help='Optional sampled diagnostic draws for selected checkpoints.')
     args=parser.parse_args()
@@ -40,6 +42,11 @@ def main():
         raise ValueError('Require completed training with final adapter')
     steps=sorted(int(p.name.split('-')[1]) for p in run.glob('checkpoint-*')
                  if p.is_dir() and p.name.split('-')[1].isdigit())
+    if args.checkpoint_steps is not None:
+        requested=set(args.checkpoint_steps)
+        missing=requested-set(steps)
+        if missing: raise FileNotFoundError(f'Missing checkpoints: {sorted(missing)}')
+        steps=[step for step in steps if step in requested]
     targets=[('baseline',None),*[(f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps]]
     for _,cp in targets[1:]:
         if not (cp/'adapter_model.safetensors').is_file():raise FileNotFoundError(cp)
