@@ -21,8 +21,14 @@ def main():
     parser.add_argument('--max-new-tokens',type=int,default=1536)
     parser.add_argument('--checkpoint-steps',type=int,nargs='+',default=None,
                         help='Evaluate only these checkpoint step numbers.')
+    parser.add_argument('--checkpoint-stride',type=int,default=None,
+                        help='Evaluate checkpoints at this step interval.')
+    parser.add_argument('--include-final',action='store_true',
+                        help='Include the highest available checkpoint.')
     parser.add_argument('--sampling-draws',type=int,default=100,
                         help='Optional sampled diagnostic draws for selected checkpoints.')
+    parser.add_argument('--output-subdir',default='evaluation_greedy',
+                        help='Directory under run-dir for this evaluation manifest and CSVs.')
     args=parser.parse_args()
     repo=Path(__file__).resolve().parents[2]
     sys.path.insert(0,str(repo/'Evaluation_scripts/GRPO_ablation'))
@@ -47,10 +53,16 @@ def main():
         missing=requested-set(steps)
         if missing: raise FileNotFoundError(f'Missing checkpoints: {sorted(missing)}')
         steps=[step for step in steps if step in requested]
+    elif args.checkpoint_stride is not None:
+        if args.checkpoint_stride < 1: raise ValueError('--checkpoint-stride must be positive')
+        selected=[step for step in steps if step % args.checkpoint_stride == 0]
+        if args.include_final and steps and steps[-1] not in selected:
+            selected.append(steps[-1])
+        steps=sorted(set(selected))
     targets=[('baseline',None),*[(f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps]]
     for _,cp in targets[1:]:
         if not (cp/'adapter_model.safetensors').is_file():raise FileNotFoundError(cp)
-    out=run/'evaluation_greedy'
+    out=run/args.output_subdir
     out.mkdir(exist_ok=True)
     def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
     manifest=dict(protocol='standard_greedy_v1',qa_sha256=sha(qa),max_new_tokens=args.max_new_tokens,
@@ -129,6 +141,14 @@ def main():
         write(dest/'paired_vs_baseline.json',comparisons)
         with (out/'per_qa_accuracy.csv').open('w',newline='',encoding='utf-8') as f:
             w=csv.DictWriter(f,fieldnames=list(summary[0]));w.writeheader();w.writerows(summary)
+        overall=[]
+        for ckpt in sorted({r['checkpoint'] for r in summary}):
+            part=[r for r in summary if r['checkpoint']==ckpt]
+            correct=sum(bool(r['greedy_correct']) for r in part)
+            overall.append(dict(checkpoint=ckpt,status='ok',total=len(part),correct=correct,
+                                accuracy_percent=100*correct/len(part)))
+        with (out/'checkpoint_accuracy.csv').open('w',newline='',encoding='utf-8') as f:
+            w=csv.DictWriter(f,fieldnames=list(overall[0]));w.writeheader();w.writerows(overall)
     print('COMPLETE:',out/'per_qa_accuracy.csv',flush=True)
 
 
