@@ -1,0 +1,40 @@
+SCALE-UP DATASET SELECTION SUMMARY
+Random seed / deterministic tie-break seed: 42
+
+MAPWISE SCALE-1000
+Selected total: 1000
+Mixed retained: 445
+Ability-level target: L0=294, L1=191, L2=293, L3=222
+Fully-clipped 0/4 samples are excluded from the scale-1000 pool.
+
+signal_class   all_correct  all_wrong_nonfullclip  mixed
+ability_level                                           
+L0                     122                    123     49
+L1                      71                     58     62
+L2                      32                     31    230
+L3                      59                     59    104
+
+MAPVERSE SCALE-500
+Selected total: 500
+Mixed retained: 199
+Remaining all-wrong challenge set: 370
+Tag-combination targets:
+  Comparative: 64
+  Comparative+Positional: 64
+  Comparative+Positional+Visual: 58
+  Comparative+Visual: 60
+  Other: 63
+  Positional: 63
+  Positional+Visual: 64
+  Visual: 64
+
+diagnostic_class               all_correct  all_wrong  mixed
+tag_combo                                                   
+Comparative                             15         36     13
+Comparative+Positional                  17         33     14
+Comparative+Positional+Visual           14         33     11
+Comparative+Visual                      12         30     18
+Other                                   12         12     39
+Positional                               8          7     48
+Positional+Visual                       22         22     20
+Visual                                  14         14     36

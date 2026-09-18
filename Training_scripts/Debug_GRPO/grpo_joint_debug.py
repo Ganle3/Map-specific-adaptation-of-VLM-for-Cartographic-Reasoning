@@ -76,6 +76,14 @@ def main():
     p.add_argument("--rank", type=int, default=None,
                    help="LoRA rank; independent of the scope preset")
     p.add_argument("--max-steps", type=int, default=120)
+    p.add_argument("--save-steps", type=int, default=20)
+    p.add_argument("--save-total-limit", type=int, default=None)
+    p.add_argument("--lr-scheduler-type", choices=("constant", "cosine", "constant_then_cosine"), default="constant")
+    p.add_argument("--decay-start-step", type=int, default=None,
+                   help="First step of cosine decay for constant_then_cosine.")
+    p.add_argument("--decay-final-factor", type=float, default=0.8,
+                   help="Final LR multiplier for constant_then_cosine.")
+    p.add_argument("--warmup-fraction", type=float, default=0.0)
     p.add_argument("--num-iterations", type=int, default=1,
                    help="Number of policy updates per generated rollout batch.")
     p.add_argument("--off-policy-mask-threshold", type=float, default=None,
@@ -90,15 +98,24 @@ def main():
     sys.argv = [sys.argv[0], *remaining]
     args = base.parse_args()
     args.lora_rank = args.lora_alpha = rank
+    args.warmup_fraction = extra.warmup_fraction
     if args.per_device_train_batch_size < 1 or args.gradient_accumulation_steps < 1:
         p.error('Batch size and gradient accumulation must be positive')
     args.num_generations = 4
-    args.warmup_fraction = 0.0
+    if not 0 <= extra.warmup_fraction < 1:
+        p.error("--warmup-fraction must be in [0, 1)")
+    if extra.lr_scheduler_type == "constant_then_cosine" and not (
+            extra.decay_start_step is not None and 0 <= extra.decay_start_step < extra.max_steps):
+        p.error("constant_then_cosine requires 0 <= --decay-start-step < --max-steps")
+    if not 0 < extra.decay_final_factor <= 1:
+        p.error("--decay-final-factor must be in (0, 1]")
     # Preserve the caller's ordering choice.  The fixed-order experiment
     # passes --preserve-qa-order explicitly; random-order runs leave it off.
-    args.save_steps = 20
-    args.save_total_limit = extra.max_steps // 20 + 1
-    if extra.max_steps < 1 or extra.num_iterations < 1 or args.learning_rate != 5e-6:
+    args.save_steps = extra.save_steps
+    args.save_total_limit = (extra.save_total_limit if extra.save_total_limit is not None
+                             else extra.max_steps // extra.save_steps + 1)
+    if (extra.max_steps < 1 or extra.num_iterations < 1 or extra.save_steps < 1
+            or args.learning_rate != 5e-6):
         p.error('Use positive updates and LR 5e-6')
     base.validate_args(args)
     if args.init_adapter_path is not None:
@@ -114,11 +131,8 @@ def main():
     rows = (validate_debug_dataset(args.qa_json)
             if Path(args.qa_json).name == 'mapwise_grpo_joint_debug4_src2051.json'
             else json.loads(Path(args.qa_json).read_text(encoding='utf-8-sig')))
-    if len(rows) not in (4, 20, 44) or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
-        raise ValueError('Expected exactly 4, 20 or 44 unique QAs')
-    expected_keys = [(r['country'], r['source_index']) for r in rows]
-    if len(rows) == 20 and Path(args.qa_json).name != 'mapwise_grpo_joint44_improved_20.json':
-        raise ValueError('20-QA run requires the selected improved_20 dataset')
+    if not rows or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
+        raise ValueError('Training dataset must contain unique non-empty QA rows')
     output = Path(args.output_dir).expanduser().resolve()
     if args.resume_from_checkpoint is None and ((output / "run_config.json").exists() or list(output.glob("checkpoint-*"))):
         p.error("Use a new output directory")
@@ -147,8 +161,11 @@ def main():
     base.verify_vision_only_lora = verify
     Config = base.GRPOConfig
     def config(**kwargs):
+        config_scheduler = ('constant' if extra.lr_scheduler_type == 'constant_then_cosine'
+                            else extra.lr_scheduler_type)
         kwargs.update(max_steps=extra.max_steps, num_iterations=extra.num_iterations,
-                      lr_scheduler_type='constant', warmup_steps=0,
+                      lr_scheduler_type=config_scheduler,
+                      warmup_steps=math.ceil(extra.max_steps * extra.warmup_fraction),
                       off_policy_mask_threshold=extra.off_policy_mask_threshold)
         result = Config(**kwargs)
         (output / "effective_grpo_config.json").write_text(json.dumps(result.to_dict(), indent=2, default=str), encoding="utf-8")
@@ -165,9 +182,11 @@ def main():
             payload.pop(key, None)
         payload.update(lora_target_modules=len(targets), lora_trainable_tensors=2*len(targets),
                        step_counts_are_estimates=False, budget_unit="optimizer_updates",
-                       replay=False, num_iterations=extra.num_iterations, lr_scheduler_type='constant',
+                       replay=False, num_iterations=extra.num_iterations, lr_scheduler_type=extra.lr_scheduler_type,
                        off_policy_mask_threshold=extra.off_policy_mask_threshold,
                        qa_groups_per_update=len(rows), exposures_per_qa=extra.max_steps,
+                       save_steps=extra.save_steps, save_total_limit=args.save_total_limit,
+                       warmup_fraction=extra.warmup_fraction,
                        sha256={str(f): hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in
                                (args.qa_json, args.evaluation_script, Path(__file__), Path(base.__file__))},
                        versions={v: importlib.metadata.version(v) for v in
@@ -212,6 +231,22 @@ def main():
 
     Trainer = base.GRPOTrainer
     class AuditedTrainer(Trainer):
+        def create_scheduler(self, num_training_steps, optimizer=None):
+            if extra.lr_scheduler_type != 'constant_then_cosine':
+                return super().create_scheduler(num_training_steps, optimizer)
+            from torch.optim.lr_scheduler import LambdaLR
+            optimizer = optimizer or self.optimizer
+            start = extra.decay_start_step
+            span = max(1, num_training_steps - start)
+            def schedule(step):
+                if step <= start:
+                    return 1.0
+                progress = min(1.0, (step - start) / span)
+                return extra.decay_final_factor + (1.0 - extra.decay_final_factor) * \
+                    0.5 * (1.0 + math.cos(math.pi * progress))
+            self.lr_scheduler = LambdaLR(optimizer, schedule)
+            return self.lr_scheduler
+
         def __init__(self, *a, **kw):
             super().__init__(*a, **kw)
             from bitsandbytes.nn import Linear4bit
