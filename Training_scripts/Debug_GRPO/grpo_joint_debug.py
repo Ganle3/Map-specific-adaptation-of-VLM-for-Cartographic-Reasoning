@@ -133,6 +133,7 @@ def main():
             else json.loads(Path(args.qa_json).read_text(encoding='utf-8-sig')))
     if not rows or len({(r['country'], r['source_index']) for r in rows}) != len(rows):
         raise ValueError('Training dataset must contain unique non-empty QA rows')
+    expected_keys = [(r['country'], r['source_index']) for r in rows]
     output = Path(args.output_dir).expanduser().resolve()
     if args.resume_from_checkpoint is None and ((output / "run_config.json").exists() or list(output.glob("checkpoint-*"))):
         p.error("Use a new output directory")
