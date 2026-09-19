@@ -1316,6 +1316,12 @@ def run_training(
     if getattr(args, "min_pixels", None) is not None:
         processor.image_processor.min_pixels = args.min_pixels
 
+    print(
+        "Image processor pixel limits: "
+        f"min_pixels={getattr(processor.image_processor, 'min_pixels', None)}, "
+        f"max_pixels={getattr(processor.image_processor, 'max_pixels', None)}"
+    )
+
     if hasattr(processor, "tokenizer"):
         processor.tokenizer.padding_side = "left"
 
