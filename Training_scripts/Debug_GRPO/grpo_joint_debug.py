@@ -102,6 +102,8 @@ def main():
     args = base.parse_args()
     args.lora_rank = args.lora_alpha = rank
     args.warmup_fraction = extra.warmup_fraction
+    args.min_pixels = extra.min_pixels
+    args.max_pixels = extra.max_pixels
     if args.per_device_train_batch_size < 1 or args.gradient_accumulation_steps < 1:
         p.error('Batch size and gradient accumulation must be positive')
     args.num_generations = 4
@@ -112,6 +114,13 @@ def main():
         p.error("constant_then_cosine requires 0 <= --decay-start-step < --max-steps")
     if not 0 < extra.decay_final_factor <= 1:
         p.error("--decay-final-factor must be in (0, 1]")
+    if extra.min_pixels is not None and extra.min_pixels < 1:
+        p.error("--min-pixels must be positive")
+    if extra.max_pixels is not None and extra.max_pixels < 1:
+        p.error("--max-pixels must be positive")
+    if (extra.min_pixels is not None and extra.max_pixels is not None
+            and extra.min_pixels > extra.max_pixels):
+        p.error("--min-pixels cannot exceed --max-pixels")
     # Preserve the caller's ordering choice.  The fixed-order experiment
     # passes --preserve-qa-order explicitly; random-order runs leave it off.
     args.save_steps = extra.save_steps
@@ -195,9 +204,13 @@ def main():
                        step_counts_are_estimates=False, budget_unit="optimizer_updates",
                        replay=False, num_iterations=extra.num_iterations, lr_scheduler_type=extra.lr_scheduler_type,
                        off_policy_mask_threshold=extra.off_policy_mask_threshold,
-                       qa_groups_per_update=len(rows), exposures_per_qa=extra.max_steps,
+                       qa_groups_per_update=(args.per_device_train_batch_size
+                                             * args.gradient_accumulation_steps
+                                             // args.num_generations),
+                       exposures_per_qa=extra.max_steps,
                        save_steps=extra.save_steps, save_total_limit=args.save_total_limit,
                        warmup_fraction=extra.warmup_fraction,
+                       min_pixels=extra.min_pixels, max_pixels=extra.max_pixels,
                        sha256={str(f): hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in
                                (args.qa_json, args.evaluation_script, Path(__file__), Path(base.__file__))},
                        versions={v: importlib.metadata.version(v) for v in
