@@ -10,6 +10,26 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from statistics import mean
 
+import matplotlib.pyplot as plt
+
+
+CAPABILITIES_BY_TEMPLATE = {
+    1: ["visual.legend_category_enumeration", "symbolic.counting"],
+    2: ["visual.legend_order_reading", "symbolic.intensity_value_direction"],
+    3: ["visual.legend_endpoint_reading", "symbolic.range_composition"],
+    5: ["visual.palette_discrimination", "visual.legend_structure"],
+    6: ["visual.legend_semantics", "language.quantity_type_classification"],
+    9: ["visual.region_localization", "grounding.region_color_to_range", "symbolic.range_membership"],
+    13: ["spatial.directional_subset", "grounding.region_color_to_value", "symbolic.argmin"],
+    16: ["visual.region_localization", "grounding.region_color_to_range"],
+    18: ["spatial.adjacency", "grounding.region_color_to_value", "symbolic.similarity"],
+    19: ["visual.region_localization", "grounding.region_color_to_value", "symbolic.pairwise_comparison"],
+    21: ["visual.region_localization", "grounding.region_color_to_value", "symbolic.equality"],
+    34: ["spatial.directional_extremum", "spatial.adjacency", "symbolic.local_maximum"],
+    39: ["spatial.region_set_selection", "spatial.adjacency_or_coast", "symbolic.universal_quantification"],
+    41: ["visual.legend_endpoint_reading", "symbolic.interval_width_comparison"],
+}
+
 
 def read_jsonl(path: Path) -> list[dict]:
     with path.open(encoding="utf-8") as handle:
@@ -95,6 +115,7 @@ def main() -> None:
                 "ground_truth_type": base.get("ground_truth_type", ""),
                 "question": base.get("question", ""),
                 "ground_truth": base.get("ground_truth", ""),
+                "capabilities": "|".join(CAPABILITIES_BY_TEMPLATE.get(int(base.get("template_no", -1)), ["unclassified"])),
             }
             raw = {key: flat[key] for key in flat}
             for checkpoint in args.checkpoints:
@@ -166,6 +187,69 @@ def main() -> None:
         writer = csv.DictWriter(handle, fieldnames=list(comparison_rows[0]))
         writer.writeheader()
         writer.writerows(comparison_rows)
+
+    evidence_rows = []
+    for row in comparison_rows:
+        if (row["baseline_terminated"] and not row["baseline_correct"]
+                and row["step_3000_terminated"] and row["step_3000_correct"]):
+            evidence_rows.append(row)
+    with (output_dir / "strong_learning_evidence.csv").open("w", newline="", encoding="utf-8-sig") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(evidence_rows[0]))
+        writer.writeheader()
+        writer.writerows(evidence_rows)
+
+    metric_rows = []
+    for checkpoint in args.checkpoints:
+        metric_rows.append({"checkpoint": checkpoint, **summary["checkpoints"][checkpoint]})
+    with (output_dir / "checkpoint_metrics.csv").open("w", newline="", encoding="utf-8-sig") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(metric_rows[0]))
+        writer.writeheader()
+        writer.writerows(metric_rows)
+
+    transition_rows = []
+    for comparison, payload in summary["comparisons"].items():
+        transitions = payload["transitions"]
+        transition_rows.append({
+            "comparison": comparison,
+            "wrong_to_correct": transitions.get("wrong_to_correct", 0),
+            "correct_to_wrong": transitions.get("correct_to_wrong", 0),
+            "net_correct_gain": payload["net_correct_gain"],
+            "stable_terminated_wrong_to_correct": transitions.get("both_terminated_wrong_to_correct", 0),
+            "stable_terminated_correct_to_wrong": transitions.get("both_terminated_correct_to_wrong", 0),
+            "wrong_to_correct_from_truncated_baseline": transitions.get(
+                "wrong_to_correct_from_truncated_baseline", 0
+            ),
+        })
+    with (output_dir / "transition_summary.csv").open("w", newline="", encoding="utf-8-sig") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(transition_rows[0]))
+        writer.writeheader()
+        writer.writerows(transition_rows)
+
+    labels = [checkpoint.replace("checkpoint-", "step ") for checkpoint in args.checkpoints]
+    accuracy = [summary["checkpoints"][checkpoint]["accuracy_percent"] for checkpoint in args.checkpoints]
+    truncated = [summary["checkpoints"][checkpoint]["truncated_percent"] for checkpoint in args.checkpoints]
+    completed_accuracy = [
+        summary["checkpoints"][checkpoint]["accuracy_among_terminated_percent"]
+        for checkpoint in args.checkpoints
+    ]
+    fig, axis = plt.subplots(figsize=(10, 6))
+    axis.plot(labels, accuracy, marker="o", linewidth=2.2, label="Overall accuracy")
+    axis.plot(labels, truncated, marker="s", linewidth=2.2, label="Truncated fraction")
+    axis.plot(labels, completed_accuracy, marker="^", linewidth=2.2, label="Accuracy among completed")
+    axis.set_xlabel("Checkpoint")
+    axis.set_ylabel("Percent")
+    axis.set_ylim(0, 100)
+    axis.set_title("MapWise Test Metrics Across GRPO Training")
+    axis.grid(True, alpha=0.25)
+    axis.legend()
+    for series in (accuracy, truncated, completed_accuracy):
+        for index, value in enumerate(series):
+            axis.annotate(f"{value:.1f}", (index, value), xytext=(0, 7),
+                          textcoords="offset points", ha="center", fontsize=8)
+    fig.tight_layout()
+    fig.savefig(output_dir / "checkpoint_metric_curves.png", dpi=200)
+    fig.savefig(output_dir / "checkpoint_metric_curves.pdf")
+    plt.close(fig)
 
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print(f"Wrote {output_dir}")

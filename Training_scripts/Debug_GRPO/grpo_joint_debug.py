@@ -81,6 +81,8 @@ def main():
     p.add_argument("--lr-scheduler-type", choices=("constant", "cosine", "constant_then_cosine"), default="constant")
     p.add_argument("--decay-start-step", type=int, default=None,
                    help="First step of cosine decay for constant_then_cosine.")
+    p.add_argument("--decay-start-factor", type=float, default=1.0,
+                   help="LR multiplier at decay-start-step. Set below 1 for a continuous resumed decay stage.")
     p.add_argument("--decay-final-factor", type=float, default=0.8,
                    help="Final LR multiplier for constant_then_cosine.")
     p.add_argument("--min-pixels", type=int, default=None)
@@ -112,8 +114,8 @@ def main():
     if extra.lr_scheduler_type == "constant_then_cosine" and not (
             extra.decay_start_step is not None and 0 <= extra.decay_start_step < extra.max_steps):
         p.error("constant_then_cosine requires 0 <= --decay-start-step < --max-steps")
-    if not 0 < extra.decay_final_factor <= 1:
-        p.error("--decay-final-factor must be in (0, 1]")
+    if not 0 < extra.decay_final_factor <= extra.decay_start_factor <= 1:
+        p.error("Require 0 < decay-final-factor <= decay-start-factor <= 1")
     if extra.min_pixels is not None and extra.min_pixels < 1:
         p.error("--min-pixels must be positive")
     if extra.max_pixels is not None and extra.max_pixels < 1:
@@ -203,6 +205,9 @@ def main():
         payload.update(lora_target_modules=len(targets), lora_trainable_tensors=2*len(targets),
                        step_counts_are_estimates=False, budget_unit="optimizer_updates",
                        replay=False, num_iterations=extra.num_iterations, lr_scheduler_type=extra.lr_scheduler_type,
+                       decay_start_step=extra.decay_start_step,
+                       decay_start_factor=extra.decay_start_factor,
+                       decay_final_factor=extra.decay_final_factor,
                        off_policy_mask_threshold=extra.off_policy_mask_threshold,
                        qa_groups_per_update=(args.per_device_train_batch_size
                                              * args.gradient_accumulation_steps
@@ -264,10 +269,11 @@ def main():
             span = max(1, num_training_steps - start)
             def schedule(step):
                 if step <= start:
-                    return 1.0
+                    return extra.decay_start_factor
                 progress = min(1.0, (step - start) / span)
-                return extra.decay_final_factor + (1.0 - extra.decay_final_factor) * \
-                    0.5 * (1.0 + math.cos(math.pi * progress))
+                return extra.decay_final_factor + \
+                    0.5 * (extra.decay_start_factor - extra.decay_final_factor) * \
+                    (1.0 + math.cos(math.pi * progress))
             self.lr_scheduler = LambdaLR(optimizer, schedule)
             return self.lr_scheduler
 
