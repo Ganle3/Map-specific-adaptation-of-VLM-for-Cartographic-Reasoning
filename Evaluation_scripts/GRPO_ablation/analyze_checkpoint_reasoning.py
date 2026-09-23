@@ -256,7 +256,7 @@ def main() -> None:
 
     single_plots = (
         (accuracy, "Overall accuracy", "Acc (%)", "overall_accuracy_curve", "tab:blue"),
-        (truncated, "Truncated fraction", "Percentage", "truncated_fraction_curve", "tab:orange"),
+        (truncated, "Truncated fraction", "Truncated fraction", "truncated_fraction_curve", "tab:orange"),
     )
     for values, title, ylabel, filename, color in single_plots:
         fig, axis = plt.subplots(figsize=(8, 5.5))
@@ -285,8 +285,8 @@ def main() -> None:
             axis.plot(labels, values, marker="o", linewidth=2.4, color=color)
             axis.set_xlabel("Checkpoint")
         axis.set_ylabel(ylabel)
-        if filename != "overall_accuracy_curve":
-            axis.set_ylim(0, 100)
+        if filename == "truncated_fraction_curve":
+            axis.set_ylim(0, 50)
         axis.set_title(title)
         axis.grid(True, alpha=0.25)
         if filename != "overall_accuracy_curve":

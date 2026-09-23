@@ -24,6 +24,8 @@ def main():
     parser.add_argument('--max-new-tokens',type=int,default=1536)
     parser.add_argument('--checkpoint-steps',type=int,nargs='+',default=None,
                         help='Evaluate only these checkpoint step numbers.')
+    parser.add_argument('--skip-baseline',action='store_true',
+                        help='Evaluate only selected checkpoints, without the base model.')
     parser.add_argument('--checkpoint-stride',type=int,default=None,
                         help='Evaluate checkpoints at this step interval.')
     parser.add_argument('--include-final',action='store_true',
@@ -71,7 +73,10 @@ def main():
         if args.include_final and steps and steps[-1] not in selected:
             selected.append(steps[-1])
         steps=sorted(set(selected))
-    targets=[('baseline',None),*[(f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps]]
+    targets=[] if args.skip_baseline else [('baseline',None)]
+    targets.extend((f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps)
+    if not targets:
+        raise ValueError('No evaluation targets selected')
     for _,cp in targets[1:]:
         if not (cp/'adapter_model.safetensors').is_file():raise FileNotFoundError(cp)
     out=run/args.output_subdir
