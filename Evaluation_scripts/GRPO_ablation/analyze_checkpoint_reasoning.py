@@ -194,7 +194,10 @@ def main() -> None:
                 and row["step_3000_terminated"] and row["step_3000_correct"]):
             evidence_rows.append(row)
     with (output_dir / "strong_learning_evidence.csv").open("w", newline="", encoding="utf-8-sig") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(evidence_rows[0]))
+        # An empty result is meaningful: no baseline-wrong to target-correct
+        # transition survived the stable-termination filter.  Still emit a
+        # schema-valid CSV so downstream analysis does not need a special case.
+        writer = csv.DictWriter(handle, fieldnames=list(comparison_rows[0]))
         writer.writeheader()
         writer.writerows(evidence_rows)
 
@@ -250,6 +253,50 @@ def main() -> None:
     fig.savefig(output_dir / "checkpoint_metric_curves.png", dpi=200)
     fig.savefig(output_dir / "checkpoint_metric_curves.pdf")
     plt.close(fig)
+
+    single_plots = (
+        (accuracy, "Overall accuracy", "Acc (%)", "overall_accuracy_curve", "tab:blue"),
+        (truncated, "Truncated fraction", "Percentage", "truncated_fraction_curve", "tab:orange"),
+    )
+    for values, title, ylabel, filename, color in single_plots:
+        fig, axis = plt.subplots(figsize=(8, 5.5))
+        if filename == "overall_accuracy_curve":
+            training_steps = [int(checkpoint.removeprefix("checkpoint-"))
+                              for checkpoint in args.checkpoints[1:]]
+            axis.axhline(values[0], color="tab:gray", linestyle="--", linewidth=2.2,
+                         label="Baseline")
+            axis.plot(training_steps, values[1:], marker="o", linewidth=2.4,
+                      color=color, label="GRPO checkpoints")
+            axis.set_xlabel("Training steps")
+            axis.set_xlim(1000, 3050)
+            axis.set_xticks(list(range(1000, 3001, 500)))
+            axis.set_ylim(30, 100)
+            # Indicate that x=0--1000 steps and y=0--30% are omitted.
+            break_style = dict(transform=axis.transAxes, color="black",
+                               clip_on=False, linewidth=1.5)
+            # Break on the vertical axis.
+            axis.plot((-0.010, 0.010), (0.012, 0.038), **break_style)
+            axis.plot((-0.010, 0.010), (0.044, 0.070), **break_style)
+            # Break on the horizontal axis.
+            axis.plot((0.018, 0.038), (-0.012, 0.012), **break_style)
+            axis.plot((0.050, 0.070), (-0.012, 0.012), **break_style)
+            axis.legend()
+        else:
+            axis.plot(labels, values, marker="o", linewidth=2.4, color=color)
+            axis.set_xlabel("Checkpoint")
+        axis.set_ylabel(ylabel)
+        if filename != "overall_accuracy_curve":
+            axis.set_ylim(0, 100)
+        axis.set_title(title)
+        axis.grid(True, alpha=0.25)
+        if filename != "overall_accuracy_curve":
+            for index, value in enumerate(values):
+                axis.annotate(f"{value:.1f}", (index, value), xytext=(0, 7),
+                              textcoords="offset points", ha="center", fontsize=9)
+        fig.tight_layout()
+        fig.savefig(output_dir / f"{filename}.png", dpi=200)
+        fig.savefig(output_dir / f"{filename}.pdf")
+        plt.close(fig)
 
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print(f"Wrote {output_dir}")

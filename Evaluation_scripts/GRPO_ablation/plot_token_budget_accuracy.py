@@ -59,26 +59,28 @@ def main() -> None:
     output_dir = args.output_dir.expanduser().resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     token_budgets = [tokens for tokens, _ in evaluations]
+    checkpoint_labels = [
+        checkpoint.replace("checkpoint-", "step ") for checkpoint in args.checkpoints
+    ]
 
     table_rows = []
     fig, axis = plt.subplots(figsize=(8, 5.5))
-    for checkpoint in args.checkpoints:
-        values = [accuracy_by_tokens[tokens][checkpoint] for tokens in token_budgets]
-        label = checkpoint.replace("checkpoint-", "step ")
-        axis.plot(token_budgets, values, marker="o", linewidth=2.2, label=label)
-        for tokens, accuracy in zip(token_budgets, values):
+    for tokens in token_budgets:
+        values = [accuracy_by_tokens[tokens][checkpoint] for checkpoint in args.checkpoints]
+        axis.plot(checkpoint_labels, values, marker="o", linewidth=2.2,
+                  label=f"{tokens} tokens")
+        for checkpoint, accuracy in zip(args.checkpoints, values):
             table_rows.append({
                 "checkpoint": checkpoint,
                 "max_new_tokens": tokens,
                 "accuracy_percent": accuracy,
             })
 
-    axis.set_xlabel("Maximum completion tokens")
-    axis.set_ylabel("Test accuracy (%)")
+    axis.set_xlabel("Checkpoint")
+    axis.set_ylabel("Acc (%)")
     axis.set_title(args.title)
-    axis.set_xticks(token_budgets)
     axis.grid(True, alpha=0.25)
-    axis.legend(title="Checkpoint")
+    axis.legend(title="Maximum completion length")
     fig.tight_layout()
     fig.savefig(output_dir / "accuracy_vs_token_budget.png", dpi=220)
     fig.savefig(output_dir / "accuracy_vs_token_budget.pdf")

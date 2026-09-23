@@ -34,6 +34,10 @@ import torch
 from peft import PeftModel
 from PIL import Image
 from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
+try:
+    from transformers import AutoModelForMultimodalLM
+except ImportError:  # Older Transformers releases do not expose this class.
+    AutoModelForMultimodalLM = None
 
 
 # ============================================================
@@ -350,7 +354,12 @@ def load_model_and_processor(
         bnb_4bit_use_double_quant=True,
     )
 
-    model = AutoModelForImageTextToText.from_pretrained(
+    model_class = (
+        AutoModelForMultimodalLM
+        if "gemma-3n" in model_name.casefold() and AutoModelForMultimodalLM is not None
+        else AutoModelForImageTextToText
+    )
+    model = model_class.from_pretrained(
         model_name,
         quantization_config=quantization_config,
         dtype=torch.bfloat16,
@@ -684,6 +693,9 @@ def build_prediction_record(
             sample.get("legend_style", sample.get("c_or_d", ""))
         ).strip(),
         "reasoning_eligible": sample.get("reasoning_eligible"),
+        "ability_level": str(sample.get("ability_level", "")).strip(),
+        "corrected_template_no": sample.get("corrected_template_no"),
+        "map_family": str(sample.get("map_family", "")).strip(),
         "split": str(sample.get("split", "")).strip(),
         "resolved_image_path": str(image_path),
         "model_name": model_name,
