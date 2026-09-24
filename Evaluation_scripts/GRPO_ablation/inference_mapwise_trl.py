@@ -354,9 +354,11 @@ def load_model_and_processor(
         bnb_4bit_use_double_quant=True,
     )
 
+    normalized_model_name = model_name.casefold()
     model_class = (
         AutoModelForMultimodalLM
-        if "gemma-3n" in model_name.casefold() and AutoModelForMultimodalLM is not None
+        if any(family in normalized_model_name for family in ("gemma-3n", "gemma-4"))
+        and AutoModelForMultimodalLM is not None
         else AutoModelForImageTextToText
     )
     model = model_class.from_pretrained(

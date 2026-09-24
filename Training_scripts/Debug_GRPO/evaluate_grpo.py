@@ -32,6 +32,8 @@ def main():
                         help='Include the highest available checkpoint.')
     parser.add_argument('--sampling-draws',type=int,default=100,
                         help='Optional sampled diagnostic draws for selected checkpoints.')
+    parser.add_argument('--skip-greedy',action='store_true',
+                        help='Run only matched stochastic draws; useful for rollout-group diagnostics.')
     parser.add_argument('--output-subdir',default='evaluation_greedy',
                         help='Directory under run-dir for this evaluation manifest and CSVs.')
     parser.add_argument('--min-pixels',type=int,default=None)
@@ -84,6 +86,7 @@ def main():
     def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
     manifest=dict(protocol='standard_greedy_v1',qa_sha256=sha(qa),max_new_tokens=args.max_new_tokens,
         temperature=.8,top_p=.95,top_k=0,seeds_per_qa=args.sampling_draws,seed_start=900000,
+        include_greedy=not args.skip_greedy,
         source_sha256=sha(Path(__file__)),
         dependency_hashes={name:sha(repo/'Evaluation_scripts/GRPO_ablation'/name) for name in
             ['inference_mapwise_trl.py','inference_mapwise_trl_e2.py','mapwise_evaluation_exact.py']},
@@ -116,7 +119,8 @@ def main():
                 inputs=inference.move_inputs_to_model_device(inputs,model)
                 draws=args.sampling_draws if label == 'baseline' or label == f'checkpoint-{steps[-1]}' else 0
                 scores=[];greedy=None;truncated=0
-                for index in range(-1,draws):
+                first_draw = 0 if args.skip_greedy else -1
+                for index in range(first_draw,draws):
                     seed=900000+qi*1000+max(index,0)
                     set_seed(seed)
                     settings=dict(do_sample=index>=0,max_new_tokens=args.max_new_tokens,num_beams=1,num_return_sequences=1,
@@ -169,9 +173,15 @@ def main():
         overall=[]
         for ckpt in sorted({r['checkpoint'] for r in summary}):
             part=[r for r in summary if r['checkpoint']==ckpt]
-            correct=sum(bool(r['greedy_correct']) for r in part)
-            overall.append(dict(checkpoint=ckpt,status='ok',total=len(part),correct=correct,
-                                accuracy_percent=100*correct/len(part)))
+            greedy_available=any(r['greedy_correct'] is not None for r in part)
+            if greedy_available:
+                correct=sum(bool(r['greedy_correct']) for r in part)
+                total=len(part)
+            else:
+                correct=sum(sum(r['sampling_scores']) for r in part)
+                total=sum(len(r['sampling_scores']) for r in part)
+            overall.append(dict(checkpoint=ckpt,status='ok',total=total,correct=correct,
+                                accuracy_percent=100*correct/total))
         with (out/'checkpoint_accuracy.csv').open('w',newline='',encoding='utf-8') as f:
             w=csv.DictWriter(f,fieldnames=list(overall[0]));w.writeheader();w.writerows(overall)
     print('COMPLETE:',out/'per_qa_accuracy.csv',flush=True)
