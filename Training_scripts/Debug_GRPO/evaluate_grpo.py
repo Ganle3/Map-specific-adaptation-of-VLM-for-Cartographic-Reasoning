@@ -79,8 +79,9 @@ def main():
     targets.extend((f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps)
     if not targets:
         raise ValueError('No evaluation targets selected')
-    for _,cp in targets[1:]:
-        if not (cp/'adapter_model.safetensors').is_file():raise FileNotFoundError(cp)
+    for _,cp in targets:
+        if cp is not None and not (cp/'adapter_model.safetensors').is_file():
+            raise FileNotFoundError(cp)
     out=run/args.output_subdir
     out.mkdir(exist_ok=True)
     def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -166,7 +167,9 @@ def main():
                                 samples=len(scores),sampled_correct=sum(scores) if scores else '',
                                 sampled_accuracy_percent=100*sum(scores)/len(scores) if scores else '',
                                 truncated=r['sampling_truncated']))
-            if cp and scores:comparisons[str(r['source_index'])]=paired_summary(baseline_scores[r['source_index']],scores)
+            if cp and scores and baseline_scores:
+                comparisons[str(r['source_index'])]=paired_summary(
+                    baseline_scores[r['source_index']],scores)
         write(dest/'paired_vs_baseline.json',comparisons)
         with (out/'per_qa_accuracy.csv').open('w',newline='',encoding='utf-8') as f:
             w=csv.DictWriter(f,fieldnames=list(summary[0]));w.writeheader();w.writerows(summary)

@@ -35,12 +35,16 @@ def main() -> None:
     parser.add_argument("--baseline", default="baseline")
     parser.add_argument("--checkpoint", default="checkpoint-3000")
     parser.add_argument("--expected-draws", type=int, default=4)
+    parser.add_argument(
+        "--checkpoint-only", action="store_true",
+        help="Summarize one checkpoint without requiring or comparing a baseline.",
+    )
     args = parser.parse_args()
 
     root = args.evaluation_dir.expanduser().resolve()
+    labels = [args.checkpoint] if args.checkpoint_only else [args.baseline, args.checkpoint]
     model_rows = {
-        args.baseline: read_sampling(root / args.baseline / "responses.jsonl"),
-        args.checkpoint: read_sampling(root / args.checkpoint / "responses.jsonl"),
+        label: read_sampling(root / label / "responses.jsonl") for label in labels
     }
     sample_ids = sorted(set(model_rows[args.baseline]) | set(model_rows[args.checkpoint]))
     group_rows = []
@@ -50,7 +54,7 @@ def main() -> None:
         seed_sets = [set(model_rows[label].get(sample_index, {})) for label in model_rows]
         if any(len(seeds) != args.expected_draws for seeds in seed_sets):
             raise ValueError(f"Sample {sample_index} does not have {args.expected_draws} draws per model")
-        if seed_sets[0] != seed_sets[1]:
+        if len(seed_sets) == 2 and seed_sets[0] != seed_sets[1]:
             raise ValueError(f"Sample {sample_index} has unmatched sampling seeds")
 
         per_model = {}
@@ -69,25 +73,26 @@ def main() -> None:
                 "group_class": classify(rewards),
             })
 
-        base_rows, base_rewards = per_model[args.baseline]
-        ckpt_rows, ckpt_rewards = per_model[args.checkpoint]
-        for base, ckpt, before, after in zip(base_rows, ckpt_rows, base_rewards, ckpt_rewards):
-            if before == 0 and after == 1:
-                evidence.append({
-                    "sample_index": sample_index,
-                    "qa_id": ckpt.get("qa_id", ""),
-                    "sampling_seed": ckpt["sampling_seed"],
-                    "question": ckpt.get("question", ""),
-                    "ground_truth": ckpt.get("ground_truth", ""),
-                    "answer_type": ckpt.get("ground_truth_type", ""),
-                    "resolved_image_path": ckpt.get("resolved_image_path", ""),
-                    "baseline_final_answer": base.get("final_answer", ""),
-                    "checkpoint_final_answer": ckpt.get("final_answer", ""),
-                    "baseline_raw_response": base.get("raw_response", ""),
-                    "checkpoint_raw_response": ckpt.get("raw_response", ""),
-                    "baseline_terminated": base.get("terminated"),
-                    "checkpoint_terminated": ckpt.get("terminated"),
-                })
+        if not args.checkpoint_only:
+            base_rows, base_rewards = per_model[args.baseline]
+            ckpt_rows, ckpt_rewards = per_model[args.checkpoint]
+            for base, ckpt, before, after in zip(base_rows, ckpt_rows, base_rewards, ckpt_rewards):
+                if before == 0 and after == 1:
+                    evidence.append({
+                        "sample_index": sample_index,
+                        "qa_id": ckpt.get("qa_id", ""),
+                        "sampling_seed": ckpt["sampling_seed"],
+                        "question": ckpt.get("question", ""),
+                        "ground_truth": ckpt.get("ground_truth", ""),
+                        "answer_type": ckpt.get("ground_truth_type", ""),
+                        "resolved_image_path": ckpt.get("resolved_image_path", ""),
+                        "baseline_final_answer": base.get("final_answer", ""),
+                        "checkpoint_final_answer": ckpt.get("final_answer", ""),
+                        "baseline_raw_response": base.get("raw_response", ""),
+                        "checkpoint_raw_response": ckpt.get("raw_response", ""),
+                        "baseline_terminated": base.get("terminated"),
+                        "checkpoint_terminated": ckpt.get("terminated"),
+                    })
 
     summary_rows = []
     for label in model_rows:
@@ -118,7 +123,7 @@ def main() -> None:
         for row in evidence:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
     (root / "diagnostic_summary.json").write_text(json.dumps({
-        "matched_sampling": True,
+        "matched_sampling": not args.checkpoint_only,
         "draws_per_question": args.expected_draws,
         "summary": summary_rows,
         "wrong_to_correct_rollouts": len(evidence),
