@@ -26,6 +26,8 @@ def main():
                         help='Evaluate only these checkpoint step numbers.')
     parser.add_argument('--skip-baseline',action='store_true',
                         help='Evaluate only selected checkpoints, without the base model.')
+    parser.add_argument('--baseline-only',action='store_true',
+                        help='Evaluate only the untouched base model, without checkpoints.')
     parser.add_argument('--checkpoint-stride',type=int,default=None,
                         help='Evaluate checkpoints at this step interval.')
     parser.add_argument('--include-final',action='store_true',
@@ -39,6 +41,10 @@ def main():
     parser.add_argument('--min-pixels',type=int,default=None)
     parser.add_argument('--max-pixels',type=int,default=None)
     args=parser.parse_args()
+    if args.skip_baseline and args.baseline_only:
+        parser.error('--skip-baseline and --baseline-only are mutually exclusive')
+    if args.baseline_only and (args.checkpoint_steps is not None or args.checkpoint_stride is not None):
+        parser.error('--baseline-only cannot be combined with checkpoint selection')
     repo=Path(__file__).resolve().parents[2]
     sys.path.insert(0,str(repo/'Evaluation_scripts/GRPO_ablation'))
     import torch
@@ -64,7 +70,9 @@ def main():
         raise ValueError('Require completed training with final adapter')
     steps=sorted(int(p.name.split('-')[1]) for p in run.glob('checkpoint-*')
                  if p.is_dir() and p.name.split('-')[1].isdigit())
-    if args.checkpoint_steps is not None:
+    if args.baseline_only:
+        steps=[]
+    elif args.checkpoint_steps is not None:
         requested=set(args.checkpoint_steps)
         missing=requested-set(steps)
         if missing: raise FileNotFoundError(f'Missing checkpoints: {sorted(missing)}')
