@@ -12,7 +12,7 @@ from pathlib import Path
 
 def read_sampling(path: Path) -> dict[int, dict[int, dict]]:
     grouped: dict[int, dict[int, dict]] = defaultdict(dict)
-    with path.open(encoding="utf-8") as handle:
+    with path.open(encoding="utf-8-sig") as handle:
         for line in handle:
             row = json.loads(line)
             if row.get("decoding") != "sampling":
@@ -46,7 +46,7 @@ def main() -> None:
     model_rows = {
         label: read_sampling(root / label / "responses.jsonl") for label in labels
     }
-    sample_ids = sorted(set(model_rows[args.baseline]) | set(model_rows[args.checkpoint]))
+    sample_ids = sorted(set().union(*(set(rows) for rows in model_rows.values())))
     group_rows = []
     evidence = []
 
