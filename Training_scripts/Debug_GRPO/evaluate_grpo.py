@@ -181,8 +181,8 @@ def main():
                 correct=sum(bool(r['greedy_correct']) for r in part)
                 total=len(part)
             else:
-                correct=sum(sum(r['sampling_scores']) for r in part)
-                total=sum(len(r['sampling_scores']) for r in part)
+                correct=sum(int(r['sampled_correct']) for r in part if r['sampled_correct'] != '')
+                total=sum(int(r['samples']) for r in part)
             overall.append(dict(checkpoint=ckpt,status='ok',total=total,correct=correct,
                                 accuracy_percent=100*correct/total))
         with (out/'checkpoint_accuracy.csv').open('w',newline='',encoding='utf-8') as f:

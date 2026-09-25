@@ -61,6 +61,59 @@ def main() -> None:
         writer.writerows(results)
     print(output.resolve())
 
+    if len(args.checkpoints) == 2:
+        baseline_name, target_name = args.checkpoints
+        baseline_rows = {int(row["sample_index"]): row for row in read_jsonl(
+            evaluation_dir / baseline_name / "responses.jsonl"
+        )}
+        target_rows = {int(row["sample_index"]): row for row in read_jsonl(
+            evaluation_dir / target_name / "responses.jsonl"
+        )}
+        if set(baseline_rows) != set(target_rows):
+            raise ValueError("Baseline and target do not contain identical sample indices")
+
+        transition_rows = []
+        for level in sorted({str(qa_rows[index]["ability_level"]) for index in baseline_rows}):
+            indices = [index for index in baseline_rows
+                       if str(qa_rows[index]["ability_level"]) == level]
+            before_correct = lambda index: bool(baseline_rows[index].get("strict_exact_match", 0))
+            after_correct = lambda index: bool(target_rows[index].get("strict_exact_match", 0))
+            before_terminated = lambda index: bool(baseline_rows[index].get(
+                "terminated", baseline_rows[index].get("generation_status") == "complete"
+            ))
+            after_terminated = lambda index: bool(target_rows[index].get(
+                "terminated", target_rows[index].get("generation_status") == "complete"
+            ))
+            wrong_to_correct = [index for index in indices
+                                if not before_correct(index) and after_correct(index)]
+            transition_rows.append({
+                "ability_level": level,
+                "total": len(indices),
+                "baseline_correct": sum(before_correct(index) for index in indices),
+                "target_correct": sum(after_correct(index) for index in indices),
+                "wrong_to_correct": len(wrong_to_correct),
+                "wrong_to_correct_from_truncated_baseline": sum(
+                    not before_terminated(index) for index in wrong_to_correct
+                ),
+                "both_terminated_wrong_to_correct": sum(
+                    before_terminated(index) and after_terminated(index)
+                    for index in wrong_to_correct
+                ),
+                "correct_to_wrong": sum(
+                    before_correct(index) and not after_correct(index) for index in indices
+                ),
+                "baseline_truncated": sum(not before_terminated(index) for index in indices),
+                "target_truncated": sum(not after_terminated(index) for index in indices),
+            })
+        transition_output = output.with_name(
+            output.stem + "_transitions_by_ability.csv"
+        )
+        with transition_output.open("w", newline="", encoding="utf-8-sig") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(transition_rows[0]))
+            writer.writeheader()
+            writer.writerows(transition_rows)
+        print(transition_output.resolve())
+
 
 if __name__ == "__main__":
     main()

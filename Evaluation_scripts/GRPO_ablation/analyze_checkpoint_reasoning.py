@@ -189,9 +189,11 @@ def main() -> None:
         writer.writerows(comparison_rows)
 
     evidence_rows = []
+    evidence_target = args.checkpoints[-1].replace("checkpoint-", "step_").replace("-", "_")
     for row in comparison_rows:
         if (row["baseline_terminated"] and not row["baseline_correct"]
-                and row["step_3000_terminated"] and row["step_3000_correct"]):
+                and row[f"{evidence_target}_terminated"]
+                and row[f"{evidence_target}_correct"]):
             evidence_rows.append(row)
     with (output_dir / "strong_learning_evidence.csv").open("w", newline="", encoding="utf-8-sig") as handle:
         # An empty result is meaningful: no baseline-wrong to target-correct
