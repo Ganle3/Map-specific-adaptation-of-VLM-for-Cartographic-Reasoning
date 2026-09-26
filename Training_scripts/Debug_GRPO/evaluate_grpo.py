@@ -26,6 +26,10 @@ def main():
                         help='Evaluate only these checkpoint step numbers.')
     parser.add_argument('--skip-baseline',action='store_true',
                         help='Evaluate only selected checkpoints, without the base model.')
+    parser.add_argument('--baseline-adapter-path',type=Path,default=None,
+                        help='Optional adapter used for the step-0 evaluation target.')
+    parser.add_argument('--baseline-label',default='baseline',
+                        help='Label for the step-0 evaluation target.')
     parser.add_argument('--baseline-only',action='store_true',
                         help='Evaluate only the untouched base model, without checkpoints.')
     parser.add_argument('--checkpoint-stride',type=int,default=None,
@@ -43,6 +47,8 @@ def main():
     args=parser.parse_args()
     if args.skip_baseline and args.baseline_only:
         parser.error('--skip-baseline and --baseline-only are mutually exclusive')
+    if args.skip_baseline and args.baseline_adapter_path is not None:
+        parser.error('--skip-baseline cannot be combined with --baseline-adapter-path')
     if args.baseline_only and (args.checkpoint_steps is not None or args.checkpoint_stride is not None):
         parser.error('--baseline-only cannot be combined with checkpoint selection')
     repo=Path(__file__).resolve().parents[2]
@@ -83,7 +89,13 @@ def main():
         if args.include_final and steps and steps[-1] not in selected:
             selected.append(steps[-1])
         steps=sorted(set(selected))
-    targets=[] if args.skip_baseline else [('baseline',None)]
+    baseline_adapter = (
+        args.baseline_adapter_path.expanduser().resolve()
+        if args.baseline_adapter_path is not None else None
+    )
+    if baseline_adapter is not None and not (baseline_adapter/'adapter_config.json').is_file():
+        raise FileNotFoundError(f'No adapter_config.json in {baseline_adapter}')
+    targets=[] if args.skip_baseline else [(args.baseline_label,baseline_adapter)]
     targets.extend((f'checkpoint-{step}',run/f'checkpoint-{step}') for step in steps)
     if not targets:
         raise ValueError('No evaluation targets selected')
@@ -167,7 +179,8 @@ def main():
             write(done,result)
             del model,processor
             gc.collect();torch.cuda.empty_cache()
-        if label=='baseline':baseline_scores={r['source_index']:r['sampling_scores'] for r in result['per_qa']}
+        if label==args.baseline_label:
+            baseline_scores={r['source_index']:r['sampling_scores'] for r in result['per_qa']}
         comparisons={}
         for r in result['per_qa']:
             scores=r['sampling_scores']
