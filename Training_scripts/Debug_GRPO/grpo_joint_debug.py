@@ -132,8 +132,9 @@ def main():
             or args.learning_rate != 5e-6):
         p.error('Use positive updates and LR 5e-6')
     base.validate_args(args)
-    if args.init_adapter_path is not None:
-        p.error("Use a fresh raw base model; init adapters are not supported")
+    # The underlying snapshot trainer supports initializing a new run from a
+    # PEFT adapter.  This intentionally resets optimizer/scheduler/global
+    # step; --resume-from-checkpoint remains the separate stateful path.
     if args.resume_from_checkpoint is not None and not Path(args.resume_from_checkpoint).is_dir():
         p.error("--resume-from-checkpoint must point to an existing checkpoint directory")
     if int(os.environ.get("WORLD_SIZE", "1")) != 1:
