@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 
@@ -48,7 +48,10 @@ def main() -> None:
     }
     sample_ids = sorted(set().union(*(set(rows) for rows in model_rows.values())))
     group_rows = []
+    paired_group_rows = []
     evidence = []
+    rollout_transitions = Counter()
+    group_transitions = Counter()
 
     for sample_index in sample_ids:
         seed_sets = [set(model_rows[label].get(sample_index, {})) for label in model_rows]
@@ -71,13 +74,57 @@ def main() -> None:
                 "num_rollouts": len(rewards),
                 "rollout_accuracy_percent": 100 * sum(rewards) / len(rewards),
                 "group_class": classify(rewards),
+                "truncated_rollouts": sum(
+                    not bool(row.get("terminated", row.get("generation_status") == "complete"))
+                    for row in rows
+                ),
             })
 
         if not args.checkpoint_only:
             base_rows, base_rewards = per_model[args.baseline]
             ckpt_rows, ckpt_rewards = per_model[args.checkpoint]
+            base_class = classify(base_rewards)
+            ckpt_class = classify(ckpt_rewards)
+            group_transitions[f"{base_class}_to_{ckpt_class}"] += 1
+            paired_group_rows.append({
+                "sample_index": sample_index,
+                "qa_id": ckpt_rows[0].get("qa_id", ""),
+                "answer_type": ckpt_rows[0].get("ground_truth_type", ""),
+                "baseline_correct_rollouts": sum(base_rewards),
+                "checkpoint_correct_rollouts": sum(ckpt_rewards),
+                "correct_rollout_delta": sum(ckpt_rewards) - sum(base_rewards),
+                "baseline_group_class": base_class,
+                "checkpoint_group_class": ckpt_class,
+                "baseline_truncated_rollouts": sum(
+                    not bool(row.get("terminated", row.get("generation_status") == "complete"))
+                    for row in base_rows
+                ),
+                "checkpoint_truncated_rollouts": sum(
+                    not bool(row.get("terminated", row.get("generation_status") == "complete"))
+                    for row in ckpt_rows
+                ),
+            })
             for base, ckpt, before, after in zip(base_rows, ckpt_rows, base_rewards, ckpt_rewards):
+                transition = (
+                    "correct_to_correct" if before and after else
+                    "correct_to_wrong" if before else
+                    "wrong_to_correct" if after else
+                    "wrong_to_wrong"
+                )
+                rollout_transitions[transition] += 1
                 if before == 0 and after == 1:
+                    base_terminated = bool(base.get(
+                        "terminated", base.get("generation_status") == "complete"
+                    ))
+                    checkpoint_terminated = bool(ckpt.get(
+                        "terminated", ckpt.get("generation_status") == "complete"
+                    ))
+                    rollout_transitions[
+                        "wrong_to_correct_from_terminated_baseline"
+                        if base_terminated else "wrong_to_correct_from_truncated_baseline"
+                    ] += 1
+                    if base_terminated and checkpoint_terminated:
+                        rollout_transitions["both_terminated_wrong_to_correct"] += 1
                     evidence.append({
                         "sample_index": sample_index,
                         "qa_id": ckpt.get("qa_id", ""),
@@ -119,6 +166,11 @@ def main() -> None:
     with (root / "per_qa_rollout_groups.csv").open("w", newline="", encoding="utf-8-sig") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(group_rows[0]))
         writer.writeheader(); writer.writerows(group_rows)
+    if paired_group_rows:
+        with (root / "paired_qa_group_transitions.csv").open(
+                "w", newline="", encoding="utf-8-sig") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(paired_group_rows[0]))
+            writer.writeheader(); writer.writerows(paired_group_rows)
     with (root / "new_correct_evidence.jsonl").open("w", encoding="utf-8") as handle:
         for row in evidence:
             handle.write(json.dumps(row, ensure_ascii=False) + "\n")
@@ -127,6 +179,8 @@ def main() -> None:
         "draws_per_question": args.expected_draws,
         "summary": summary_rows,
         "wrong_to_correct_rollouts": len(evidence),
+        "rollout_transitions": dict(rollout_transitions),
+        "qa_group_transitions": dict(group_transitions),
         "evidence_file": "new_correct_evidence.jsonl",
         "interpretation_limit": (
             "New-correct records are candidates for qualitative image/reasoning review; "
