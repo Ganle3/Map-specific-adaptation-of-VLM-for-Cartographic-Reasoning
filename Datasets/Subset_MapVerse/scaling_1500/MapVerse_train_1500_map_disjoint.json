@@ -605,17 +605,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 487,
-    "image_name": "51.svg",
-    "question": "how many points are there?",
-    "correct_answer": "10",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
     "source_row": 507,
     "image_name": "53.jpg",
     "question": "Which route color reaches the area labeled “Gum Club Rd”?",
@@ -869,6 +858,17 @@
     "geographic_level": "_building"
   },
   {
+    "source_row": 725,
+    "image_name": "75.jpg",
+    "question": "How many waiting areas are left of elevator 6 in the map?",
+    "correct_answer": "0",
+    "answer_type": "Counting",
+    "ability_level": "L3",
+    "question_type": "['Positional']",
+    "map_type": "_layout",
+    "geographic_level": "_building"
+  },
+  {
     "source_row": 727,
     "image_name": "75.jpg",
     "question": "How many restrooms are next to an elevator on the map?",
@@ -948,7 +948,7 @@
   {
     "source_row": 799,
     "image_name": "83.jpg",
-    "question": "Which country is greatly enlarged in the cumulative CO2 emissions map but not in the population map?",
+    "question": "Which country is greatly enlarged in the cumulative COâ‚‚ emissions map but not in the population ma",
     "correct_answer": "United Kingdom",
     "answer_type": "Single Entity",
     "ability_level": "L4",
@@ -2706,17 +2706,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 2050,
-    "image_name": "211.svg",
-    "question": "Which postal district code does Santry belong to?",
-    "correct_answer": "9",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_layout",
-    "geographic_level": "_building"
-  },
-  {
     "source_row": 2066,
     "image_name": "213.png",
     "question": "What body of water is labeled \"Ostsee\"?",
@@ -3243,6 +3232,17 @@
     "question_type": "['Comparative']",
     "map_type": "_choropleth",
     "geographic_level": "_continent"
+  },
+  {
+    "source_row": 2620,
+    "image_name": "270.jpg",
+    "question": "What is the number of internally displaced persons in West Darfur?",
+    "correct_answer": "20000",
+    "answer_type": "Single Entity",
+    "ability_level": "L1",
+    "question_type": "['Positional']",
+    "map_type": "_multiple",
+    "geographic_level": "_world"
   },
   {
     "source_row": 2621,
@@ -3843,7 +3843,7 @@
     "image_name": "318.webp",
     "question": "What is the total number of oceans labeled on this world map?",
     "correct_answer": "3",
-    "answer_type": "Counting",
+    "answer_type": "Single Entity",
     "ability_level": "L2",
     "question_type": "['Visual']",
     "map_type": "_marker",
@@ -4270,7 +4270,7 @@
   {
     "source_row": 3313,
     "image_name": "341.jpeg",
-    "question": "How many separate smaller cells of intense precipitation (yellow or above) are visible outside the main precipitation area?",
+    "question": "How many separate smaller cells of intense precipitation (yellow or above) are visible outside the m",
     "correct_answer": "3-4",
     "answer_type": "Counting",
     "ability_level": "L3",
@@ -5955,7 +5955,7 @@
     "image_name": "452.png",
     "question": "State with lowest number of yellow or low growth reigons",
     "correct_answer": "Queensland",
-    "answer_type": "Single Entity",
+    "answer_type": "Counting",
     "ability_level": "L5",
     "question_type": "['Visual', 'Comparative']",
     "map_type": "_choropleth",
@@ -6158,6 +6158,17 @@
     "question_type": "['Positional']",
     "map_type": "_mixed",
     "geographic_level": "_city"
+  },
+  {
+    "source_row": 4531,
+    "image_name": "461.jpg",
+    "question": "Which beach is closest to Pural?",
+    "correct_answer": "Padavne",
+    "answer_type": "Single Entity",
+    "ability_level": "L3",
+    "question_type": "['Comparative']",
+    "map_type": "_marker",
+    "geographic_level": "_region"
   },
   {
     "source_row": 4534,
@@ -7876,39 +7887,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 5876,
-    "image_name": "385.svg",
-    "question": "how many regions share border with Nana-Grébizi?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5878,
-    "image_name": "385.svg",
-    "question": "Yes or No: are any two regions of same colors adjecent?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5879,
-    "image_name": "385.svg",
-    "question": "how many regions share border with two countries?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 5900,
     "image_name": "575.jpg",
     "question": "Yes or No: Is Palermo on the same island as Gela?",
@@ -8149,17 +8127,6 @@
     "question_type": "['Visual', 'Positional']",
     "map_type": "_divisional",
     "geographic_level": "_continent"
-  },
-  {
-    "source_row": 6077,
-    "image_name": "407.svg",
-    "question": "which easternmost is region adjecent to angola , based on the image only",
-    "correct_answer": "caprivi",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
   },
   {
     "source_row": 6086,
@@ -9911,6 +9878,17 @@
     "geographic_level": "_region"
   },
   {
+    "source_row": 7222,
+    "image_name": "613.png",
+    "question": "How many routes are in the map",
+    "correct_answer": "5",
+    "answer_type": "Counting",
+    "ability_level": "L2",
+    "question_type": "['Other']",
+    "map_type": "_network",
+    "geographic_level": "_region"
+  },
+  {
     "source_row": 7229,
     "image_name": "614.jpg",
     "question": "Which restaurant or pub is located closest to the Isar River?",
@@ -11029,6 +11007,17 @@
     "answer_type": "Single Entity",
     "ability_level": "L4",
     "question_type": "['Comparative']",
+    "map_type": "_layout",
+    "geographic_level": "_building"
+  },
+  {
+    "source_row": 8130,
+    "image_name": "649.jpg",
+    "question": "6. If walking from the Visitor's Lounge to elevator #3, how many room sections would you pass?",
+    "correct_answer": "0",
+    "answer_type": "Counting",
+    "ability_level": "L3",
+    "question_type": "['Visual']",
     "map_type": "_layout",
     "geographic_level": "_building"
   },
@@ -15205,6 +15194,17 @@
     "source_row": 10444,
     "image_name": "998.jpg",
     "question": "Yes or No: Is there a direct JR line connection between Shimbashi and Suidobashi Stations?",
+    "correct_answer": "Yes",
+    "answer_type": "Boolean",
+    "ability_level": "L3",
+    "question_type": "['Positional']",
+    "map_type": "_mixed",
+    "geographic_level": "_city"
+  },
+  {
+    "source_row": 10446,
+    "image_name": "999.png",
+    "question": "Yes or No: Is there a direct metro line connection between the Airport T2 and the Sagrada Familia?",
     "correct_answer": "Yes",
     "answer_type": "Boolean",
     "ability_level": "L3",

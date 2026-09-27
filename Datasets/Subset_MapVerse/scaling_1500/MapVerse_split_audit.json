@@ -1,11 +1,11 @@
 {
   "seed": 20260927,
-  "eligible_qa": 8744,
-  "eligible_maps": 954,
+  "eligible_qa": 8698,
+  "eligible_maps": 950,
   "test_qa": 900,
   "test_maps": 117,
   "train_qa": 1500,
-  "train_maps": 640,
+  "train_maps": 636,
   "overlapping_maps": 0,
   "test_level_answer_type": {
     "L0": {
@@ -52,8 +52,8 @@
     },
     "L2": {
       "Boolean": 111,
-      "Single Entity": 27,
-      "Counting": 162
+      "Single Entity": 28,
+      "Counting": 161
     },
     "L3": {
       "Boolean": 128,
@@ -67,12 +67,12 @@
     },
     "L5": {
       "Boolean": 10,
-      "Single Entity": 27,
-      "Counting": 180
+      "Single Entity": 26,
+      "Counting": 181
     }
   },
   "unused_test_map_rows": 70,
-  "unused_train_map_rows": 6274,
+  "unused_train_map_rows": 6228,
   "test_image_names": [
     "12.jpg",
     "122.png",
@@ -284,7 +284,6 @@
     "208.png",
     "21.jpeg",
     "210.jpg",
-    "211.svg",
     "213.png",
     "215.png",
     "216.jpg",
@@ -404,7 +403,6 @@
     "382.png",
     "383.jpg",
     "384.jpeg",
-    "385.svg",
     "387.jpg",
     "388.png",
     "389.png",
@@ -422,7 +420,6 @@
     "404.jpg",
     "405.jpg",
     "406.jpg",
-    "407.svg",
     "408.jpg",
     "409.jpg",
     "411.jpg",
@@ -502,7 +499,6 @@
     "504.jpg",
     "507.jpg",
     "509.png",
-    "51.svg",
     "510.jpg",
     "511.jpg",
     "513.png",
@@ -1037,6 +1033,31 @@
     "Only low-dispute L0-L5 QA were eligible; excluded and text-review rows were omitted.",
     "All QA with the same image_name are assigned to one map pool; unselected QA from a test map are never used in training.",
     "The test set has exactly 150 QA per level and 300 per answer type.",
-    "The training set has 500 QA per answer type; level balance is closest feasible under map disjointness and rare L0/L5 availability."
+    "The training set has 500 QA per answer type; level balance is closest feasible under map disjointness and rare L0/L5 availability.",
+    "Six training QA referencing SVG maps were replaced within identical level/answer-type cells using existing training maps; the test set was unchanged."
+  ],
+  "image_format_policy": "Selected QA reference JPEG, PNG, or WebP images directly readable by Pillow; SVG and GIF are excluded from the selection pool.",
+  "replaced_train_qa": 6,
+  "removed_source_rows": [
+    487,
+    2050,
+    5876,
+    5878,
+    5879,
+    6077
+  ],
+  "replacement_source_rows": [
+    2620,
+    7222,
+    10446,
+    8130,
+    725,
+    4531
+  ],
+  "removed_image_names": [
+    "211.svg",
+    "385.svg",
+    "407.svg",
+    "51.svg"
   ]
 }
