@@ -980,11 +980,17 @@ def load_prediction_records(path: str | Path) -> list[dict[str, Any]]:
 def summarize_group(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
     total = len(rows)
     correct = sum(int(row.get("strict_exact_match", 0)) for row in rows)
+    token_values = [float(row["generated_tokens"]) for row in rows
+                    if row.get("generated_tokens") is not None]
+    time_values = [float(row["inference_seconds"]) for row in rows
+                   if row.get("inference_seconds") is not None]
     return {
         "total": total,
         "correct": correct,
         "incorrect": total - correct,
         "accuracy": correct / total if total else None,
+        "average_generated_tokens": sum(token_values) / len(token_values) if token_values else None,
+        "average_inference_seconds": sum(time_values) / len(time_values) if time_values else None,
     }
 
 
@@ -1000,10 +1006,16 @@ def summarize_results(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
     for output_key, field in {
         "by_ground_truth_type": "ground_truth_type",
         "by_country": "country",
+        "by_ability_level": "ability_level",
+        "by_answer_type": "answer_type",
+        "by_task_category": "task_category",
     }.items():
         groups: dict[str, list[Mapping[str, Any]]] = defaultdict(list)
         for row in rows:
-            groups[str(row.get(field, "Unknown"))].append(row)
+            value = row.get(field)
+            if value is None or str(value).strip() == "":
+                value = "Unknown"
+            groups[str(value)].append(row)
         summary[output_key] = {
             key: summarize_group(group_rows)
             for key, group_rows in sorted(groups.items())
@@ -1061,6 +1073,9 @@ def save_results(
         "question",
         "ground_truth",
         "ground_truth_type",
+        "answer_type",
+        "ability_level",
+        "task_category",
         "declared_ground_truth_type",
         "effective_ground_truth_type",
         "generation_status",

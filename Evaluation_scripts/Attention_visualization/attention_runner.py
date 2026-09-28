@@ -88,7 +88,10 @@ class AttentionCapture:
             m.layer_idx: m for m in model.modules() if isinstance(m, Qwen3VLTextAttention)
         }
         count = len(self.modules)
+        # `layers` controls detailed per-step storage only. Every decoder layer
+        # contributes an online full-inference summary below.
         self.layers = tuple(i + count if i < 0 else i for i in settings.layers)
+        self.summary_layers = tuple(sorted(self.modules))
         self.heads = settings.heads
         if not self.layers or len(set(self.layers)) != len(self.layers):
             raise ValueError("Select unique layers.")
@@ -103,6 +106,12 @@ class AttentionCapture:
         self.positions = image_positions
         self.grid = grid
         self.rows = {layer: [] for layer in self.layers}
+        self.summary_raw = {layer: np.zeros(grid, dtype=np.float64) for layer in self.summary_layers}
+        self.summary_conditional = {layer: np.zeros(grid, dtype=np.float64) for layer in self.summary_layers}
+        self.summary_counts = {layer: 0 for layer in self.summary_layers}
+        # One map per generated token: direct elementwise sum of all 36 layers.
+        self.all_layer_step_sums: list[np.ndarray] = []
+        self._active_step_sum: np.ndarray | None = None
         self.handles = []
         self.original_configs = {}
 
@@ -116,8 +125,7 @@ class AttentionCapture:
             self.original_configs[layer] = module.config
             module.config = copy.copy(module.config)
             module.config._attn_implementation = "eager"
-            if layer in self.layers:
-                self.handles.append(module.register_forward_hook(self._hook(layer)))
+            self.handles.append(module.register_forward_hook(self._hook(layer)))
         return self
 
     def _hook(self, layer):
@@ -126,8 +134,26 @@ class AttentionCapture:
             if weights is None or weights.ndim != 4 or weights.shape[0] != 1:
                 raise RuntimeError("Expected eager attention [1, heads, queries, keys].")
             positions = self.positions.to(weights.device)
-            row = weights[0, self.heads, -1, :].index_select(-1, positions)
-            self.rows[layer].append(row.detach().float().cpu().numpy().reshape(len(self.heads), *self.grid))
+            # These are the actual attention weights used after QK softmax.
+            # Average query heads first, then accumulate all inference steps.
+            all_heads = weights[0, :, -1, :].index_select(-1, positions)
+            spatial = all_heads.mean(dim=0).detach().float().cpu().numpy().reshape(self.grid)
+            if layer == self.summary_layers[0]:
+                if self._active_step_sum is not None:
+                    raise RuntimeError("Decoder-layer hooks were not called in complete forward-pass order.")
+                self._active_step_sum = np.zeros(self.grid, dtype=np.float64)
+            if self._active_step_sum is None:
+                raise RuntimeError("Decoder-layer hooks did not begin at layer 0.")
+            self._active_step_sum += spatial
+            self.summary_raw[layer] += spatial
+            self.summary_conditional[layer] += spatial / max(float(spatial.sum()), np.finfo(np.float32).tiny)
+            self.summary_counts[layer] += 1
+            if layer in self.rows:
+                row = weights[0, self.heads, -1, :].index_select(-1, positions)
+                self.rows[layer].append(row.detach().float().cpu().numpy().reshape(len(self.heads), *self.grid))
+            if layer == self.summary_layers[-1]:
+                self.all_layer_step_sums.append(self._active_step_sum.astype(np.float32))
+                self._active_step_sum = None
         return capture
 
     def __exit__(self, *exc):
@@ -140,6 +166,17 @@ class AttentionCapture:
         if any(len(rows) != steps for rows in self.rows.values()):
             raise RuntimeError("Generation steps and captured forwards differ; refusing misaligned output.")
         return np.stack([np.stack(self.rows[layer]) for layer in self.layers], axis=1)
+
+    def summary(self, steps: int) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        if any(count != steps for count in self.summary_counts.values()) or len(self.all_layer_step_sums) != steps:
+            raise RuntimeError("Full-layer attention summaries and generation steps differ.")
+        if self._active_step_sum is not None:
+            raise RuntimeError("Generation ended in the middle of a decoder-layer capture.")
+        raw = np.stack([self.summary_raw[layer] / steps for layer in self.summary_layers]).astype(np.float32)
+        conditional = np.stack(
+            [self.summary_conditional[layer] / steps for layer in self.summary_layers]
+        ).astype(np.float32)
+        return raw, conditional, np.stack(self.all_layer_step_sums)
 
 
 def generate_one(model, processor, question: Question, settings: Settings, destination: Path) -> dict:
@@ -181,6 +218,7 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
         sequences = model.generate(**inputs, generation_config=generation_config)
     ids = sequences[0, prompt_length:].tolist()
     attention = capture.array(len(ids))
+    summary_raw, summary_conditional, all_layer_steps = capture.summary(len(ids))
     raw = processor.tokenizer.decode(ids, skip_special_tokens=False)
     text = processor.tokenizer.decode(ids, skip_special_tokens=True)
     reasoning, separator, answer = text.partition("</think>")
@@ -195,16 +233,25 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
         "status": "eos" if ids and ids[-1] in eos_ids else "token_limit",
         "token_ids": ids, "tokens": [processor.tokenizer.decode([i]) for i in ids],
         "layers": list(capture.layers), "heads": list(capture.heads),
+        "summary_layers": list(capture.summary_layers),
         "image_grid_thw": [t, h, w], "merged_grid_hw": list(grid), "original_size_wh": list(image.size),
         "image_token_positions": positions.cpu().tolist(), "prompt_tokens": prompt_length,
         "frame_semantics": "Frame t: last query attention in the forward predicting token t (zero-based). Frame 0 is prefill; later frames query the preceding generated token.",
         "attention_axes": ["step", "layer", "head", "patch_y", "patch_x"],
+        "summary_axes": ["layer", "patch_y", "patch_x"],
+        "all_layer_step_axes": ["step", "patch_y", "patch_x"],
+        "summary_definition": {
+            "raw": "Mean over all generated steps of the mean query-head attention assigned to each image token.",
+            "conditional": "At each generated step, normalize the mean query-head image attention over image tokens; then mean over all generated steps.",
+        },
         "settings": asdict(settings), "torch_version": torch.__version__, "transformers_version": transformers.__version__,
         "generation_config": generation_config.to_dict(),
         "model_commit": getattr(model.config, "_commit_hash", None),
     }
     destination.mkdir(parents=True, exist_ok=False)
     np.savez_compressed(destination / "attention.npz", attention=attention)
+    np.savez_compressed(destination / "full_layer_summary.npz", raw=summary_raw, conditional=summary_conditional)
+    np.savez_compressed(destination / "all_layer_steps.npz", direct_layer_sum=all_layer_steps)
     (destination / "result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     (destination / "response.txt").write_text(text, encoding="utf-8")
     return result

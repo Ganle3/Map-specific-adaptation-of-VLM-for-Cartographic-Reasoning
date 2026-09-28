@@ -20,6 +20,7 @@ Important:
 from __future__ import annotations
 
 import argparse
+import copy
 import gc
 import os
 import json
@@ -46,7 +47,10 @@ except ImportError:  # Older Transformers releases do not expose this class.
 
 # Keep this identical to the base model used for GRPO training.
 MODEL_NAME = "Qwen/Qwen3-VL-8B-Thinking"
-MAX_NEW_TOKENS = 3072
+# None means: omit max_new_tokens and let Transformers stop on EOS / model
+# stopping criteria.  This is intentionally opt-in from the CLI so old jobs
+# remain reproducible.
+MAX_NEW_TOKENS: Optional[int] = None
 DO_SAMPLE = False
 THINKING_MODE = "auto"  # auto | on | off
 PRINT_EVERY = 1
@@ -279,13 +283,13 @@ def classify_generation_status(
     raw_response: str,
     final_answer: str,
     generated_tokens: int,
-    max_new_tokens: int,
+    max_new_tokens: Optional[int],
 ) -> str:
     if not raw_response.strip():
         return "empty"
 
     has_marker = bool(re.search(r"final\s+answer\s*:", raw_response, flags=re.IGNORECASE))
-    reached_limit = generated_tokens >= max_new_tokens
+    reached_limit = max_new_tokens is not None and generated_tokens >= max_new_tokens
 
     if has_marker and final_answer.strip():
         return "complete"
@@ -473,7 +477,7 @@ def generate_response(
     image_path: Path,
     prompt: str,
     *,
-    max_new_tokens: int = MAX_NEW_TOKENS,
+    max_new_tokens: Optional[int] = MAX_NEW_TOKENS,
     do_sample: bool = DO_SAMPLE,
     thinking_mode: str = THINKING_MODE,
 ) -> tuple[str, int]:
@@ -495,10 +499,20 @@ def generate_response(
 
     input_length = inputs["input_ids"].shape[1]
     generation_kwargs = {
-        "max_new_tokens": max_new_tokens,
         "do_sample": do_sample,
         "use_cache": True,
     }
+    if max_new_tokens is not None:
+        if max_new_tokens < 1:
+            raise ValueError("max_new_tokens must be positive when supplied.")
+        generation_kwargs["max_new_tokens"] = max_new_tokens
+    else:
+        # Transformers can otherwise fall back to GenerationConfig.max_length
+        # (often a small/default cap).  Remove that implicit cap as well.
+        generation_config = copy.deepcopy(getattr(model, "generation_config", None))
+        if generation_config is not None:
+            generation_config.max_length = None
+            generation_kwargs["generation_config"] = generation_config
 
     with torch.inference_mode():
         generated_ids = model.generate(**inputs, **generation_kwargs)
@@ -664,7 +678,7 @@ def build_prediction_record(
     model_name: str,
     adapter_path: Optional[Path],
     thinking_mode: str,
-    max_new_tokens: int,
+    max_new_tokens: Optional[int],
     inference_seconds: float,
 ) -> dict[str, Any]:
     qa_id = str(sample.get("qa_id", make_qa_id(sample, sample_index)))
@@ -791,7 +805,7 @@ def run_mapwise_inference(
     print(f"Selected:       [{start_index}, {end_index}) = {selected_total}")
     print(f"Resume:         {resume}")
     print(f"Already done:   {len(completed)}")
-    print(f"Max tokens:     {max_new_tokens}")
+    print(f"Max tokens:     {max_new_tokens if max_new_tokens is not None else 'unlimited (EOS/stopping criteria)'}")
     print(f"Thinking mode:  {thinking_mode}")
     print(f"Sampling:       {DO_SAMPLE}")
 
@@ -973,7 +987,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--image-root", type=Path, default=MAPWISE_IMAGE_ROOT)
     parser.add_argument("--output-json", type=Path, default=DEFAULT_OUTPUT_JSON,
                         help="Explicit prediction file; otherwise uses VLM_EVALUATION_ROOT or project Evaluation_results.")
-    parser.add_argument("--max-new-tokens", type=int, default=MAX_NEW_TOKENS)
+    parser.add_argument(
+        "--max-new-tokens", type=int, default=MAX_NEW_TOKENS,
+        help="Optional output-token cap. Omit to let generation stop at EOS.",
+    )
     parser.add_argument(
         "--thinking",
         choices=("auto", "on", "off"),
