@@ -1,16 +1,5 @@
 [
   {
-    "source_row": 109,
-    "image_name": "12.jpg",
-    "question": "Which direction did Paraguay’s border move the least after the war?",
-    "correct_answer": "South western",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_conflict",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 110,
     "image_name": "12.jpg",
     "question": "Yes or No: Is the territory gained from Bolivia visually larger than any one of the areas lost to Argentina or",
@@ -18,28 +7,6 @@
     "answer_type": "Boolean",
     "ability_level": "L4",
     "question_type": "['Comparative']",
-    "map_type": "_conflict",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 112,
-    "image_name": "12.jpg",
-    "question": "Which country has a border with Paraguay but no arrow indicating territorial change?",
-    "correct_answer": "none",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_conflict",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 113,
-    "image_name": "12.jpg",
-    "question": "Yes or No: Does the red pre-war border ever fully re-enter the post-war border on the map?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
     "map_type": "_conflict",
     "geographic_level": "_country"
   },
@@ -66,17 +33,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 116,
-    "image_name": "12.jpg",
-    "question": "What is distance between Yacyreta and Itaipu dam?",
-    "correct_answer": "240 km",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_conflict",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 117,
     "image_name": "12.jpg",
     "question": "Which dam label appears closest to the southeastern edge of Paraguay’s border?",
@@ -97,39 +53,6 @@
     "question_type": "['Other']",
     "map_type": "_conflict",
     "geographic_level": "_country"
-  },
-  {
-    "source_row": 300,
-    "image_name": "32.jpg",
-    "question": " How many stops are there along the entire route?",
-    "correct_answer": "31",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
-    "source_row": 301,
-    "image_name": "32.jpg",
-    "question": "how many right turns are there if you start from great america",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
-    "source_row": 302,
-    "image_name": "32.jpg",
-    "question": "how many left turns are there if you start from great america",
-    "correct_answer": "10",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
   },
   {
     "source_row": 303,
@@ -176,44 +99,11 @@
     "geographic_level": "_neighborhood"
   },
   {
-    "source_row": 308,
-    "image_name": "32.jpg",
-    "question": "How many right turn if you start from El camino real",
-    "correct_answer": "11",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
-    "source_row": 309,
-    "image_name": "32.jpg",
-    "question": "How many left turn if you start from El camino real",
-    "correct_answer": "7",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
     "source_row": 401,
     "image_name": "42.png",
     "question": "According to the legend, how many ethnic groups are shown on this map?",
     "correct_answer": "9",
     "answer_type": "Counting",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_isopleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 402,
-    "image_name": "42.png",
-    "question": "What color represents the Hungarians on this map?",
-    "correct_answer": "Light green",
-    "answer_type": "Single Entity",
     "ability_level": "L0",
     "question_type": "['Visual']",
     "map_type": "_isopleth",
@@ -227,17 +117,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 404,
-    "image_name": "42.png",
-    "question": "What is the scale of this map as shown in the top left?",
-    "correct_answer": "0-100 km",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
     "map_type": "_isopleth",
     "geographic_level": "_subcontinent"
   },
@@ -451,17 +330,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 634,
-    "image_name": "66.webp",
-    "question": "What color represents the highest population value on this map?",
-    "correct_answer": "Light blue",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 635,
     "image_name": "66.webp",
     "question": "How many population value increments are shown in the legend?",
@@ -469,28 +337,6 @@
     "answer_type": "Counting",
     "ability_level": "L0",
     "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 636,
-    "image_name": "66.webp",
-    "question": "What scientific notation is used to represent population on this map?",
-    "correct_answer": "e+09",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 637,
-    "image_name": "66.webp",
-    "question": "What is the population range difference between each consecutive color in the legend?",
-    "correct_answer": "2.50e+08",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional']",
     "map_type": "_choropleth",
     "geographic_level": "_world"
   },
@@ -572,111 +418,12 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 840,
-    "image_name": "88.png",
-    "question": "Yes or No: Focusing on the UK, do the areas with higher population density also show a trend of higher covid",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 841,
-    "image_name": "88.png",
-    "question": "Yes or No: Conversely, are there regions with a higher number of COVID-19 cases but lower population density?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 844,
-    "image_name": "88.png",
-    "question": "Yes or No: Are there any island regions depicted that show notable combinations of population density and COVID",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 848,
-    "image_name": "88.png",
-    "question": "According to the legend, what color intensity indicates a higher population density?",
-    "correct_answer": "darker shades of red",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 849,
-    "image_name": "88.png",
-    "question": "According to the legend, what color intensity suggests a higher number of COVID-19 cases?",
-    "correct_answer": "darker shades of blue",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_subcontinent"
-  },
-  {
     "source_row": 1171,
     "image_name": "122.png",
     "question": "how many countries have 80-100% of people online?",
     "correct_answer": "21",
     "answer_type": "Counting",
     "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_cartogram",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1172,
-    "image_name": "122.png",
-    "question": "which countries in Africa have 80-100% of people online?",
-    "correct_answer": "none",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_cartogram",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1173,
-    "image_name": "122.png",
-    "question": "how many people are online in India?",
-    "correct_answer": "0-20%",
-    "answer_type": "Counting",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_cartogram",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1174,
-    "image_name": "122.png",
-    "question": "how many people are online in China?",
-    "correct_answer": "40-60%",
-    "answer_type": "Counting",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_cartogram",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1176,
-    "image_name": "122.png",
-    "question": "what does each hex in the hex map represent?",
-    "correct_answer": "470000 people online",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
     "question_type": "['Other']",
     "map_type": "_cartogram",
     "geographic_level": "_world"
@@ -748,55 +495,11 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 1213,
-    "image_name": "126.png",
-    "question": "What is the last name listed in the legend?",
-    "correct_answer": "Other form",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1214,
-    "image_name": "126.png",
-    "question": "Which region in the world has the most countries colored in light blue?",
-    "correct_answer": "South America",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 1215,
     "image_name": "126.png",
     "question": "How many continents have at least one country colored in dark blue?",
     "correct_answer": "3",
     "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1218,
-    "image_name": "126.png",
-    "question": "Count the number of gray countries visible on the map.",
-    "correct_answer": "114",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 1219,
-    "image_name": "126.png",
-    "question": "Which name variation is shown in the largest continuous land area?A",
-    "correct_answer": "Alice",
-    "answer_type": "Single Entity",
     "ability_level": "L2",
     "question_type": "['Visual', 'Comparative']",
     "map_type": "_choropleth",
@@ -858,17 +561,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 1487,
-    "image_name": "154.jpg",
-    "question": "how many cities are shown in this map?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_mixed",
-    "geographic_level": "_city"
-  },
-  {
     "source_row": 1529,
     "image_name": "159.jpg",
     "question": "How many different color shades are used in the legend scale?",
@@ -913,50 +605,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 1535,
-    "image_name": "159.jpg",
-    "question": "What shape is used to display the legend color scale?",
-    "correct_answer": "3×3 grid",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 1536,
-    "image_name": "159.jpg",
-    "question": "Which color represents the lowest values according to the legend?",
-    "correct_answer": "Lightest yellow",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 1538,
-    "image_name": "159.jpg",
-    "question": "What is the relationship between \"Percent Obese\" and \"Percent Poverty\" according to the legend axes?",
-    "correct_answer": "Perpendicular relationship",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Positional']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 1577,
-    "image_name": "164.png",
-    "question": "Which city in California is closest to the border with Nevada?",
-    "correct_answer": "San Francisco",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 1578,
     "image_name": "164.png",
     "question": "How many states are highlighted in pink on the West Coast?",
@@ -990,17 +638,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 1582,
-    "image_name": "164.png",
-    "question": "which state has a color that is unique to all other states ?",
-    "correct_answer": "Arizona",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 1583,
     "image_name": "164.png",
     "question": "How many cities are marked in state of Idaho ?",
@@ -1008,17 +645,6 @@
     "answer_type": "Counting",
     "ability_level": "L5",
     "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 1584,
-    "image_name": "164.png",
-    "question": "Which green-highlighted state has the most cities marked on the map, and how many are there?",
-    "correct_answer": "Idaho",
-    "answer_type": "Single Entity",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Comparative']",
     "map_type": "_divisional",
     "geographic_level": "_country"
   },
@@ -1032,17 +658,6 @@
     "question_type": "['Visual', 'Comparative']",
     "map_type": "_divisional",
     "geographic_level": "_country"
-  },
-  {
-    "source_row": 1635,
-    "image_name": "170.jpg",
-    "question": "How many countries are labeled that fall entirely within the UTC+01:00 timezone?",
-    "correct_answer": "23",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_world"
   },
   {
     "source_row": 1636,
@@ -1100,127 +715,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 1651,
-    "image_name": "172.jpg",
-    "question": "How many distinct areas in the map are shaded in purple, indicating a specific region or category?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1652,
-    "image_name": "172.jpg",
-    "question": "How many countries on the map have regions shaded in yellow?",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1653,
-    "image_name": "172.jpg",
-    "question": "How many distinct areas are shaded in red, possibly indicating a particular characteristic or catego",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1654,
-    "image_name": "172.jpg",
-    "question": "How many countries on the map have regions shaded in green?",
-    "correct_answer": "9",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1655,
-    "image_name": "172.jpg",
-    "question": "How many distinct areas are shaded in orange, indicating another specific category?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1656,
-    "image_name": "172.jpg",
-    "question": "How many countries on the map have regions shaded in green and yellow?",
-    "correct_answer": "10",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1657,
-    "image_name": "172.jpg",
-    "question": "How many distinct areas are shaded in pink in the Balkans?",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1658,
-    "image_name": "172.jpg",
-    "question": "How many distinct areas are shaded in light orange?",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1659,
-    "image_name": "172.jpg",
-    "question": "How many countries on the map have regions shaded in red and yellow?",
-    "correct_answer": "11",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1660,
-    "image_name": "172.jpg",
-    "question": "How many distinct areas are shaded in dark green?",
-    "correct_answer": "0",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 1813,
-    "image_name": "188.jpg",
-    "question": "which country has the largest cyclone in the map?",
-    "correct_answer": "Mexico",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 1814,
     "image_name": "188.jpg",
     "question": "Yes or No: Can South Carolina be seen in the map?",
@@ -1250,50 +744,6 @@
     "answer_type": "Boolean",
     "ability_level": "L1",
     "question_type": "['Visual']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 1818,
-    "image_name": "188.jpg",
-    "question": "Yes or No: Is there any cyclone cluster in North Carolina?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 1819,
-    "image_name": "188.jpg",
-    "question": "Which state seems to have the largest cyclone cluster?",
-    "correct_answer": "Alabama",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 1820,
-    "image_name": "188.jpg",
-    "question": "Yes or No: Is there any cyclone cluster over texas?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 1821,
-    "image_name": "188.jpg",
-    "question": "Where does the cyclone seem more prominent, in the US or Mexico?",
-    "correct_answer": "Mexico",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
     "map_type": "_isopleth",
     "geographic_level": "_region"
   },
@@ -1342,17 +792,6 @@
     "geographic_level": "_continent"
   },
   {
-    "source_row": 2117,
-    "image_name": "218.png",
-    "question": "What alphanumeric format does the orange dot southeast of the \"boot\" shaped area use?",
-    "correct_answer": "AAA 9999",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
     "source_row": 2118,
     "image_name": "218.png",
     "question": "What digit‑length format corresponds to the green‑shaded regions?",
@@ -1397,141 +836,9 @@
     "geographic_level": "_continent"
   },
   {
-    "source_row": 2252,
-    "image_name": "232.png",
-    "question": "Which state exhibits the greatest density of movers far away from their original state?",
-    "correct_answer": "Florida",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2253,
-    "image_name": "232.png",
-    "question": "Yes or No: Based on the map, are people moving to Texas primarily from states neighboring Texas?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Other']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2255,
-    "image_name": "232.png",
-    "question": "Yes or No: Can this map be used to determine the average distance people move?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2256,
-    "image_name": "232.png",
-    "question": "Yes or No: Does the map show where people from a state are moving to?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2257,
-    "image_name": "232.png",
-    "question": "Yes or No: Does the visualization definitively prove that people stay near their former home?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2258,
-    "image_name": "232.png",
-    "question": "Yes or No: Does the map show a trend of population redistribution across states?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2259,
-    "image_name": "232.png",
-    "question": "Yes or No: Can we use this map to estimate population growth in each state?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2260,
-    "image_name": "232.png",
-    "question": "Yes or No: Do the maps suggest that people moving from Illinois are more likely to stay closer to Illinois than",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2261,
-    "image_name": "232.png",
-    "question": "Comparing Florida and Texas, which state appears to have a greater influx of out-of-state movers, ju",
-    "correct_answer": "Texas",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2300,
-    "image_name": "237.jpg",
-    "question": "Which country experienced the single largest flood impact event (by population) between 2010 and2022",
-    "correct_answer": "Pakistan",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_subcontinent"
-  },
-  {
     "source_row": 2301,
     "image_name": "237.jpg",
     "question": "Yes or No: Did Thailand have more people affected by floods than Bangladesh from 2010 to 2022?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2304,
-    "image_name": "237.jpg",
-    "question": "Which regions in India are simultaneously at high flood risk and high poverty levels?",
-    "correct_answer": "North",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2305,
-    "image_name": "237.jpg",
-    "question": "Yes or No: Is the percentage of poor households in Vietnam generally higher than in Cambodia?",
     "correct_answer": "No",
     "answer_type": "Boolean",
     "ability_level": "L2",
@@ -1547,17 +854,6 @@
     "answer_type": "Boolean",
     "ability_level": "L4",
     "question_type": "['Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2309,
-    "image_name": "237.jpg",
-    "question": "What combination of colors indicates both high poverty and high flood risk?",
-    "correct_answer": "Dark blue",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
     "map_type": "_multiple",
     "geographic_level": "_subcontinent"
   },
@@ -1606,56 +902,12 @@
     "geographic_level": "_subcontinent"
   },
   {
-    "source_row": 2330,
-    "image_name": "240.jpg",
-    "question": "In the line chart, upper-secondary completion rises by how many percentage points from 2015 → 2021?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_multiple",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2331,
-    "image_name": "240.jpg",
-    "question": "Which mainland country shows a patchwork of at least three different province colours?",
-    "correct_answer": "Cambodia",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2391,
-    "image_name": "247.jpg",
-    "question": "How many urban centers were involved in this research?",
-    "correct_answer": "5749",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_multiple",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 2392,
     "image_name": "247.jpg",
     "question": "Which colour represents areas with > 100 persons km² in that legend?",
     "correct_answer": "Orange",
     "answer_type": "Single Entity",
     "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_multiple",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 2393,
-    "image_name": "247.jpg",
-    "question": "A QR code appears beside which main map?",
-    "correct_answer": "The 2023 purple-dot world map",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
     "question_type": "['Visual']",
     "map_type": "_multiple",
     "geographic_level": "_world"
@@ -1678,17 +930,6 @@
     "correct_answer": "5",
     "answer_type": "Counting",
     "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_multiple",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 2397,
-    "image_name": "247.jpg",
-    "question": "Which colour represents areas with 50-100 persons km² in that legend?",
-    "correct_answer": "Light Orange",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
     "question_type": "['Visual']",
     "map_type": "_multiple",
     "geographic_level": "_world"
@@ -1725,17 +966,6 @@
     "question_type": "['Visual']",
     "map_type": "_multiple",
     "geographic_level": "_world"
-  },
-  {
-    "source_row": 2471,
-    "image_name": "255.png",
-    "question": "Which urban area shows the highest population density based on the color intensity?",
-    "correct_answer": "Jakarta",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_mixed",
-    "geographic_level": "_state"
   },
   {
     "source_row": 2472,
@@ -1793,17 +1023,6 @@
     "geographic_level": "_state"
   },
   {
-    "source_row": 2479,
-    "image_name": "255.png",
-    "question": "Which coastline shows more consistently high population density?",
-    "correct_answer": "Northern coastline",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_mixed",
-    "geographic_level": "_state"
-  },
-  {
     "source_row": 2480,
     "image_name": "255.png",
     "question": "How many urban areas circled have deep red cores with density above 10,000/km²?",
@@ -1815,17 +1034,6 @@
     "geographic_level": "_state"
   },
   {
-    "source_row": 2533,
-    "image_name": "261.png",
-    "question": "Which area has both a large percentage and large count of Indigenous population: Salta (SA) or Bueno",
-    "correct_answer": "Salta (SA)",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 2534,
     "image_name": "261.png",
     "question": "What color represents departments with less than 2% Indigenous population?",
@@ -1833,17 +1041,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L0",
     "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2538,
-    "image_name": "261.png",
-    "question": "Which color indicates departments with 20% to 30% Indigenous population?",
-    "correct_answer": "Dark pink",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
     "map_type": "_choropleth",
     "geographic_level": "_country"
   },
@@ -2024,17 +1221,6 @@
     "geographic_level": "_subcontinent"
   },
   {
-    "source_row": 2716,
-    "image_name": "280.jpg",
-    "question": "How many states are present in map?",
-    "correct_answer": "16",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 2717,
     "image_name": "280.jpg",
     "question": "Yes or No: Is Yellowstone present in map?",
@@ -2044,39 +1230,6 @@
     "question_type": "['Other']",
     "map_type": "_network",
     "geographic_level": "_country"
-  },
-  {
-    "source_row": 2718,
-    "image_name": "280.jpg",
-    "question": "What number of states does the trail cover?",
-    "correct_answer": "8",
-    "answer_type": "Single Entity",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2723,
-    "image_name": "280.jpg",
-    "question": "In the trail what number of cities are covered from the state of wyoming?",
-    "correct_answer": "12",
-    "answer_type": "Single Entity",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2845,
-    "image_name": "294.png",
-    "question": "according to the map how many birds end their migration route in africa?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_world"
   },
   {
     "source_row": 2846,
@@ -2112,17 +1265,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 2850,
-    "image_name": "294.png",
-    "question": "According to the map, how many species’ routes pass through Eurasia?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 2851,
     "image_name": "294.png",
     "question": "Yes or No: According to the map, does Arctic tern pass through eurasia?",
@@ -2132,160 +1274,6 @@
     "question_type": "['Positional']",
     "map_type": "_network",
     "geographic_level": "_world"
-  },
-  {
-    "source_row": 2852,
-    "image_name": "294.png",
-    "question": "According to the map, how many species follow predominantly overland (inland) routes?",
-    "correct_answer": "4",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 2853,
-    "image_name": "294.png",
-    "question": "According to the map, how many species follow exclusively coastal routes?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 2902,
-    "image_name": "300.jpeg",
-    "question": "What do the teal lines represent?",
-    "correct_answer": "main migration routes",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2903,
-    "image_name": "300.jpeg",
-    "question": "Where does the route that leaves Bangladesh lead to?",
-    "correct_answer": "Malaysia",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2904,
-    "image_name": "300.jpeg",
-    "question": "How many lines lead to Malaysia?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2905,
-    "image_name": "300.jpeg",
-    "question": "How many lines lead to Australia?",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2906,
-    "image_name": "300.jpeg",
-    "question": "what scale is used in this map?",
-    "correct_answer": "800 mi",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2907,
-    "image_name": "300.jpeg",
-    "question": "How many lines lead to Bangladesh?",
-    "correct_answer": "0",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2908,
-    "image_name": "300.jpeg",
-    "question": "How many lines lead to Sri Lanka?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2909,
-    "image_name": "300.jpeg",
-    "question": "How many lines lead to Bankok?",
-    "correct_answer": "0",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2910,
-    "image_name": "300.jpeg",
-    "question": "How many lines lead to Christmas?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 2982,
-    "image_name": "308.webp",
-    "question": "How many states in India speak Hindi?",
-    "correct_answer": "11",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2983,
-    "image_name": "308.webp",
-    "question": "How many other countries, except India, are shown in the map?",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 2984,
-    "image_name": "308.webp",
-    "question": "What color is used to represent the language spoken in Andaman & Nicobar Islands?",
-    "correct_answer": "Light brown",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
   },
   {
     "source_row": 2986,
@@ -2398,17 +1386,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 3095,
-    "image_name": "319.jpeg",
-    "question": "What does a red circle on the map signify?",
-    "correct_answer": "Cultural heritage site",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 3096,
     "image_name": "319.jpeg",
     "question": "Which northern European country shows fewer sites?",
@@ -2442,72 +1419,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 3191,
-    "image_name": "329.png",
-    "question": "how many countries have a yellow dot",
-    "correct_answer": "33",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_marker",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 3192,
-    "image_name": "329.png",
-    "question": "how many countries have more than 2 yellow dots in green squares?",
-    "correct_answer": "0",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_marker",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 3193,
-    "image_name": "329.png",
-    "question": "how many countries have more than 2 yellow dots in black squares?",
-    "correct_answer": "9",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_marker",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 3194,
-    "image_name": "329.png",
-    "question": "how many countries have danger in all their squares?",
-    "correct_answer": "4",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 3195,
-    "image_name": "329.png",
-    "question": "how many countries have mixed sites?",
-    "correct_answer": "25",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 3196,
-    "image_name": "329.png",
-    "question": "what is the ratio of i fares : cultural in usa",
-    "correct_answer": "1:12",
-    "answer_type": "Single Entity",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 3197,
     "image_name": "329.png",
     "question": "Yes or No: Does russia have more \"misto\"s than canada?",
@@ -2537,17 +1448,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L0",
     "question_type": "['Visual']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3225,
-    "image_name": "332.jpeg",
-    "question": "Yes or No: Are the clouds exhibiting a symmetrical structure?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Other']",
     "map_type": "_isopleth",
     "geographic_level": "_region"
   },
@@ -2618,61 +1518,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 3288,
-    "image_name": "339.png",
-    "question": "How many islands can be seen in or near the storm system (within red/yellow areas)?",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3289,
-    "image_name": "339.png",
-    "question": "How many separate high-intensity storm clusters (red/black zones not connected directly to the core)",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3292,
-    "image_name": "339.png",
-    "question": "How many large storm clusters (red to black color) are positioned over open water?",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3293,
-    "image_name": "339.png",
-    "question": "How many countries have clear outlines visible on the map?",
-    "correct_answer": "4+",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3294,
-    "image_name": "339.png",
-    "question": "How many distinct areas in the image are shaded in black, indicating the coldest and tallest cloud t",
-    "correct_answer": "4+",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 3335,
     "image_name": "344.jpg",
     "question": "Which Florida coastline (east or west) lies directly under the larger red core?",
@@ -2684,39 +1529,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 3337,
-    "image_name": "344.jpg",
-    "question": "Yes or No: Do any colored (green/yellow/red) clouds extend west of the Florida peninsula’s western shore?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3338,
-    "image_name": "344.jpg",
-    "question": "Yes or No: Does any red colour extend north of the straight horizontal land boundary above Florida? (yes / no)",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3339,
-    "image_name": "344.jpg",
-    "question": "Yes or No: Are the Florida Keys entirely south of every red-coloured pixel? (yes / no)",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 3340,
     "image_name": "344.jpg",
     "question": "Which quadrant of the whole frame (NE / NW / SE / SW) contains the largest area of red?",
@@ -2724,17 +1536,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L2",
     "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3341,
-    "image_name": "344.jpg",
-    "question": "Yes or No: Does any coloured cloud (green/yellow/red) appear west of the peninsular Florida Gulf coastline? (ye",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
     "map_type": "_isopleth",
     "geographic_level": "_region"
   },
@@ -2783,39 +1584,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 3414,
-    "image_name": "352.jpeg",
-    "question": "Yes or No: Is this image taken during daylight hours?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3415,
-    "image_name": "352.jpeg",
-    "question": "Yes or No: Is the landmass visible on the left side of the image part of North America?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3416,
-    "image_name": "352.jpeg",
-    "question": "Yes or No: Is the storm system rotating in a counter-clockwise direction?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 3418,
     "image_name": "352.jpeg",
     "question": "Yes or No: Is the eye of the storm clearly visible in this image?",
@@ -2849,17 +1617,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 3435,
-    "image_name": "354.JPG",
-    "question": "Which is the largest city by population that can be seen on this map",
-    "correct_answer": "Charlotte",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 3436,
     "image_name": "354.JPG",
     "question": "Yes or No: Can Nashville and Memphis both be seen in the map?",
@@ -2867,39 +1624,6 @@
     "answer_type": "Boolean",
     "ability_level": "L1",
     "question_type": "['Visual']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3437,
-    "image_name": "354.JPG",
-    "question": "Yes or No: Does Cuba seem to be affected by cyclone?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Other']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3438,
-    "image_name": "354.JPG",
-    "question": "Yes or No: Is any part of cyclone entering North Carolina?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3439,
-    "image_name": "354.JPG",
-    "question": "Which state has the western most point that this cyclone is touching",
-    "correct_answer": "Florida",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
     "map_type": "_isopleth",
     "geographic_level": "_region"
   },
@@ -2926,76 +1650,10 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 3483,
-    "image_name": "359.png",
-    "question": "What is the state immediately to the east of the state affected second most by the weather on the ma",
-    "correct_answer": "South Carolina",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 3484,
     "image_name": "359.png",
     "question": "What is the state that does not contain any red or orange colors on the map?",
     "correct_answer": "Alabama",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3485,
-    "image_name": "359.png",
-    "question": "What is the total count of the states that contain only red colors on the map?",
-    "correct_answer": "0",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3486,
-    "image_name": "359.png",
-    "question": "What is the total count of the states that contain only green and red colors on the map?",
-    "correct_answer": "0",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3487,
-    "image_name": "359.png",
-    "question": "What state contains no colors on the map?",
-    "correct_answer": "none",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3488,
-    "image_name": "359.png",
-    "question": "What state contains only red on the map?",
-    "correct_answer": "none",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 3489,
-    "image_name": "359.png",
-    "question": "What state contains only one color on the map?",
-    "correct_answer": "none",
     "answer_type": "Single Entity",
     "ability_level": "L4",
     "question_type": "['Visual', 'Positional']",
@@ -3058,50 +1716,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 3526,
-    "image_name": "363.jpg",
-    "question": "Which part of the country has more counties under investigation ?",
-    "correct_answer": "Western",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 3690,
-    "image_name": "380.jpg",
-    "question": "How many labels are in is 01 - The old Transvaal province (Gauteng, Mpumalanga, Limpopo & North West",
-    "correct_answer": "9",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 3691,
-    "image_name": "380.jpg",
-    "question": "How many labels are in 02 - Western and Northern Cape?",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 3692,
-    "image_name": "380.jpg",
-    "question": "How many labels are in 05 - Free State and Northern Cape?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 3693,
     "image_name": "380.jpg",
     "question": "what color part is Malmesbury under?",
@@ -3144,50 +1758,6 @@
     "question_type": "['Visual', 'Comparative']",
     "map_type": "_divisional",
     "geographic_level": "_country"
-  },
-  {
-    "source_row": 3697,
-    "image_name": "380.jpg",
-    "question": "Yes or No: are the values listed under Cellular & other services (non-regional), denoted in the map?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Comparative']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 3698,
-    "image_name": "380.jpg",
-    "question": "how many labels are in 04 - Eastern Cape and eastern parts of the Western Cape?",
-    "correct_answer": "10",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 3699,
-    "image_name": "380.jpg",
-    "question": "how many labels are in 03 - KwaZulu-Natal?",
-    "correct_answer": "7",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 3991,
-    "image_name": "410.png",
-    "question": "1. How many store are there on the left side of highway?",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
   },
   {
     "source_row": 3992,
@@ -3252,17 +1822,6 @@
     "answer_type": "Counting",
     "ability_level": "L5",
     "question_type": "['Visual', 'Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
-    "source_row": 4000,
-    "image_name": "410.png",
-    "question": "10. What type of business is Frosty King shown on the map?",
-    "correct_answer": "ice cream shop",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
     "map_type": "_network",
     "geographic_level": "_neighborhood"
   },
@@ -3344,39 +1903,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 4509,
-    "image_name": "459.jpg",
-    "question": "what color represents the highest urban population percentage?",
-    "correct_answer": "dark red",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 4510,
-    "image_name": "459.jpg",
-    "question": "what does it mean if a contry is orange?",
-    "correct_answer": "about 50-75% of its population lives in cities",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 4511,
-    "image_name": "459.jpg",
-    "question": "Yes or No: do most african countries have high urban populations?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 4624,
     "image_name": "471.jpg",
     "question": "What color is Poland?",
@@ -3454,17 +1980,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 4675,
-    "image_name": "476.jpg",
-    "question": "Which marked port lies closest to Washington D.C.?",
-    "correct_answer": "New york",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 4676,
     "image_name": "476.jpg",
     "question": "how many ports do you see near the bahamas?",
@@ -3498,55 +2013,11 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 4680,
-    "image_name": "476.jpg",
-    "question": "How many ports are clustered within a 1-inch radius on the map near bahamas?",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 4714,
-    "image_name": "480.jpg",
-    "question": "What is the trend of income from west to east across the majority of the map?",
-    "correct_answer": "income decreasing",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Positional']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 4716,
-    "image_name": "480.jpg",
-    "question": "India is in which category?",
-    "correct_answer": "Lower middle income category",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 4718,
     "image_name": "480.jpg",
     "question": "Yes or No: Are Russia and China in the same category?",
     "correct_answer": "Yes",
     "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 4721,
-    "image_name": "480.jpg",
-    "question": "What is the income trend in Asia?",
-    "correct_answer": "decrease while moving from north to south",
-    "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Other']",
     "map_type": "_choropleth",
@@ -3696,28 +2167,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 4887,
-    "image_name": "497.jpg",
-    "question": "Excluding the title how many times is the text \"Los Angeles\" on the map",
-    "correct_answer": "12",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 4888,
-    "image_name": "497.jpg",
-    "question": "How many tree symbols are there on the map How many tree symbols are there on the map",
-    "correct_answer": "12",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
     "source_row": 4889,
     "image_name": "497.jpg",
     "question": "Which attraction number is the \"Malibu Wines and Safaris\"",
@@ -3749,28 +2198,6 @@
     "question_type": "['Positional']",
     "map_type": "_marker",
     "geographic_level": "_city"
-  },
-  {
-    "source_row": 5023,
-    "image_name": "512.jpg",
-    "question": "how many cross-border ferry ports have been identified?",
-    "correct_answer": "20",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 5024,
-    "image_name": "512.jpg",
-    "question": "which part of the map has been highlighted into focus?",
-    "correct_answer": "Greater Copenhagen Region",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
   },
   {
     "source_row": 5615,
@@ -3806,39 +2233,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 5621,
-    "image_name": "363.jpg",
-    "question": "Yes or No: Next to the gray map of Kenya, is 41 and 44 the closest numbers that can be seen in the map?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5622,
-    "image_name": "363.jpg",
-    "question": "Yes or No: Can the Indian ocean be seen in the map?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5623,
-    "image_name": "363.jpg",
-    "question": "Yes or No: Does Marsabit have something white covering it",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 5632,
     "image_name": "565.jpg",
     "question": "What does dark red mark in the map?",
@@ -3861,17 +2255,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 5634,
-    "image_name": "565.jpg",
-    "question": "What is the fifth label in the legend",
-    "correct_answer": "No religion",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 5635,
     "image_name": "565.jpg",
     "question": "How many labels are listed in the legend for this map?",
@@ -3890,39 +2273,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5638,
-    "image_name": "565.jpg",
-    "question": "How many islands are in this map?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5639,
-    "image_name": "565.jpg",
-    "question": "How many states in this map are Pentecostal?",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 5640,
-    "image_name": "565.jpg",
-    "question": "In the map, what does the color cyan represent?",
-    "correct_answer": "No Religion",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
     "map_type": "_choropleth",
     "geographic_level": "_country"
   },
@@ -4070,42 +2420,9 @@
     "geographic_level": "_county"
   },
   {
-    "source_row": 5981,
-    "image_name": "578.png",
-    "question": "Yes or No: Is Université Paris Nanterre shown south of the A86 highway?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
     "source_row": 5982,
     "image_name": "578.png",
     "question": "Yes or No: Is the Viaduc ferroviaire de Nanterre located south of Rue de Chatou?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 5983,
-    "image_name": "578.png",
-    "question": "Yes or No: Is the D986 road running east-west across the southern part of Nanterre?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 5984,
-    "image_name": "578.png",
-    "question": "Yes or No: Does the A86 highway run completely north of Nanterre without touching it?",
     "correct_answer": "No",
     "answer_type": "Boolean",
     "ability_level": "L4",
@@ -4123,72 +2440,6 @@
     "question_type": "['Other']",
     "map_type": "_mixed",
     "geographic_level": "_county"
-  },
-  {
-    "source_row": 5986,
-    "image_name": "578.png",
-    "question": "Yes or No: Is Nanterre-Ville train station located west of the city center marker (orange dot)?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 5987,
-    "image_name": "578.png",
-    "question": "Yes or No: Is La Seine river flowing south of Université Paris Nanterre on the map?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 5988,
-    "image_name": "578.png",
-    "question": "Yes or No: Is the D914 road shown north of the river Seine?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 6064,
-    "image_name": "410.png",
-    "question": "At how many points does the route from start to end intersect with itself?",
-    "correct_answer": "Infinity",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
-    "source_row": 6065,
-    "image_name": "410.png",
-    "question": "How many schools does the route pass by?",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
-    "source_row": 6066,
-    "image_name": "410.png",
-    "question": "How many churches does the route pass by?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
   },
   {
     "source_row": 6067,
@@ -4264,61 +2515,6 @@
     "answer_type": "Boolean",
     "ability_level": "L4",
     "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 6112,
-    "image_name": "583.jpg",
-    "question": "Yes or No: Does the bottom-right zoom-in map overlap with Tasmania?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 6113,
-    "image_name": "583.jpg",
-    "question": "Yes or No: Is the northeast corner of the base map clearly visible without overlap?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 6114,
-    "image_name": "583.jpg",
-    "question": "Yes or No: Are the borders drawn on the base map consistent across the entire continent?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 6115,
-    "image_name": "583.jpg",
-    "question": "Yes or No: Does the zoom-in map in the southwest align perfectly with the coastline shape?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 6119,
-    "image_name": "583.jpg",
-    "question": "Yes or No: Is the total combined visual area of overlays greater than the visual area of inland (central) Austr",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
     "map_type": "_divisional",
     "geographic_level": "_country"
   },
@@ -4433,28 +2629,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 6193,
-    "image_name": "588.jpg",
-    "question": "According to the legend on the top map, what color represents French Territory?",
-    "correct_answer": "light blue",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 6196,
-    "image_name": "588.jpg",
-    "question": "What happened to the large area labeled \"French Territory\" on the top map by the time of the bottom",
-    "correct_answer": "became Spanish Territory and British Territory",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 6197,
     "image_name": "588.jpg",
     "question": "Name the major river shown running south into the Gulf of Mexico.",
@@ -4543,17 +2717,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 6496,
-    "image_name": "444.jpg",
-    "question": "Yes or No: Is there no visible rangeland mapping in Western Australia according to the map?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 6497,
     "image_name": "444.jpg",
     "question": "Yes or No: Is the area around Darwin mapped at 1:15,000 according to the legend?",
@@ -4587,155 +2750,12 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 6706,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Is Canada shown with more viewers than the United States?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6707,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Is Australia one of the countries with high viewership (darker color)?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6708,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Are most African countries shown in gray (no data)?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6709,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Is Mexico colored darker than Brazil on the map?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6710,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Are most European countries shown in red or dark red colors?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6711,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Does the United States have a lighter color than Australia?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6712,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Is Spain shown with a color closer to orange than to red?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6713,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Is Russia mostly shown in gray (no viewer data)?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6714,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Is Germany shown in a darker shade compared to Italy?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6715,
-    "image_name": "602.jpg",
-    "question": "Yes or No: Does Australia have a color similar to the United States?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6810,
-    "image_name": "471.jpg",
-    "question": "How many pieces of area are in GMT +4?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
     "source_row": 6811,
     "image_name": "471.jpg",
     "question": "Name the country near Armenia boader with pink time zone in map",
     "correct_answer": "Turkey",
     "answer_type": "Single Entity",
     "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 6812,
-    "image_name": "471.jpg",
-    "question": "Count the number of country mark in the map which is in pink timezone",
-    "correct_answer": "13",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 6814,
-    "image_name": "471.jpg",
-    "question": "What is the timezone between GMT+1 and GMT+2 shown in the map. Give me short answer",
-    "correct_answer": "none",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
     "question_type": "['Visual', 'Positional']",
     "map_type": "_divisional",
     "geographic_level": "_continent"
@@ -4770,39 +2790,6 @@
     "answer_type": "Counting",
     "ability_level": "L0",
     "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6929,
-    "image_name": "480.jpg",
-    "question": "How many different colors are in this map?",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6931,
-    "image_name": "480.jpg",
-    "question": "In the legend what is the color below light orange?",
-    "correct_answer": "light blue",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 6932,
-    "image_name": "480.jpg",
-    "question": "What is the second color in the map legend",
-    "correct_answer": "light orange",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
     "map_type": "_choropleth",
     "geographic_level": "_world"
   },
@@ -4873,50 +2860,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 6968,
-    "image_name": "485.jpg",
-    "question": "what does orange route represent?",
-    "correct_answer": "Montmartre - Saint-Germain",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_mixed",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 6969,
-    "image_name": "485.jpg",
-    "question": "what does green route represent?",
-    "correct_answer": "paris grand tour",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_mixed",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 6970,
-    "image_name": "485.jpg",
-    "question": "what does yellow line represent?",
-    "correct_answer": "Montmartre - Saint-Germain",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_mixed",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 6971,
-    "image_name": "485.jpg",
-    "question": "what do the yellow circles with numbers represent?",
-    "correct_answer": "Bus Stops",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_mixed",
-    "geographic_level": "_city"
-  },
-  {
     "source_row": 6972,
     "image_name": "485.jpg",
     "question": "what bus stop is the Eiffel tower on?",
@@ -4924,17 +2867,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 6973,
-    "image_name": "485.jpg",
-    "question": "what do the navy blue routes represent?",
-    "correct_answer": "Bastille - Bercy",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
     "map_type": "_mixed",
     "geographic_level": "_city"
   },
@@ -4961,39 +2893,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 7095,
-    "image_name": "497.jpg",
-    "question": "Yes or No: do you see a hotel symbol or label near lax in the image?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 7096,
-    "image_name": "497.jpg",
-    "question": "where is the lighthouse located in the given image?",
-    "correct_answer": "On the long beach coast.",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Positional']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 7097,
-    "image_name": "497.jpg",
-    "question": "The eye label refers to sightseeing. How many such labels do you see on the way to santa monica pier",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
     "source_row": 7101,
     "image_name": "497.jpg",
     "question": "what is the number associated with the car label or symbol near hollywood sign?",
@@ -5003,160 +2902,6 @@
     "question_type": "['Visual', 'Positional']",
     "map_type": "_marker",
     "geographic_level": "_city"
-  },
-  {
-    "source_row": 7102,
-    "image_name": "497.jpg",
-    "question": "Yes or No: Are there any illustrations of animals in the image as a visual representation?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 7104,
-    "image_name": "497.jpg",
-    "question": "the fork and knife symbol represents dining as per the legend of the map. identify its location.",
-    "correct_answer": "Between entrance to the Santa monica pier and getty images",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Positional']",
-    "map_type": "_marker",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 7288,
-    "image_name": "512.jpg",
-    "question": "Based on the provided image, how many cross-border ferry port are there in norway",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7289,
-    "image_name": "512.jpg",
-    "question": "Yes or No: based on the map, are there any railway on the islands?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7290,
-    "image_name": "512.jpg",
-    "question": "Yes or No: based on the map, can i go to estonia from finland via railway?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7291,
-    "image_name": "512.jpg",
-    "question": "based on the map, how many cross-border ferry lines are identified?",
-    "correct_answer": "19",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7292,
-    "image_name": "512.jpg",
-    "question": "Yes or No: based on the map, is there main road connection between Finland and Estonia",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7293,
-    "image_name": "512.jpg",
-    "question": "Yes or No: based on the map, can I drive a car from Helsinki to Helsingborg?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7294,
-    "image_name": "512.jpg",
-    "question": "based on the map, give me the number of cross-border ferry ports of Germany on the map",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7295,
-    "image_name": "512.jpg",
-    "question": "based on the map, how many cross-border port from trelleborg can I go to via ferry",
-    "correct_answer": "4",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7296,
-    "image_name": "512.jpg",
-    "question": "based on the map, how many ferry lines are going out left of the map",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_subcontinent"
-  },
-  {
-    "source_row": 7999,
-    "image_name": "635.jpg",
-    "question": "Based on the map, how many charter schools are there in School Board District 2 and School Board Dis",
-    "correct_answer": "13",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 8000,
-    "image_name": "635.jpg",
-    "question": "Based on the map, Which School Board Disctrict does not have a K 8 school?",
-    "correct_answer": "School Board District 2",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 8001,
-    "image_name": "635.jpg",
-    "question": "Which School Board District does not have Alt or Spec School?",
-    "correct_answer": "School Board District 2",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
   },
   {
     "source_row": 8003,
@@ -5177,17 +2922,6 @@
     "answer_type": "Counting",
     "ability_level": "L5",
     "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 8005,
-    "image_name": "635.jpg",
-    "question": "Which School Board District has the most Tech schools?",
-    "correct_answer": "School Board District 6 Karen Castor Dentel",
-    "answer_type": "Single Entity",
-    "ability_level": "L5",
-    "question_type": "['Comparative']",
     "map_type": "_mixed",
     "geographic_level": "_county"
   },
@@ -5232,17 +2966,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L0",
     "question_type": "['Visual']",
-    "map_type": "_divisional",
-    "geographic_level": "_district"
-  },
-  {
-    "source_row": 8010,
-    "image_name": "636.png",
-    "question": "Which school lies almost on the boundary between districts 4 and 5?",
-    "correct_answer": "Middle",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
     "map_type": "_divisional",
     "geographic_level": "_district"
   },
@@ -5313,116 +3036,6 @@
     "geographic_level": "_city"
   },
   {
-    "source_row": 8068,
-    "image_name": "642.png",
-    "question": "how many stops are there between watsons bay and circular quay?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8070,
-    "image_name": "642.png",
-    "question": "how many stops are there between double bay and circular quay excluding these?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8071,
-    "image_name": "642.png",
-    "question": "how many stops are there between paramatta and sydney olympic park according to the image?",
-    "correct_answer": "1",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8072,
-    "image_name": "642.png",
-    "question": "how many stops are there between cabarita and sydney olympic park according to the image?",
-    "correct_answer": "2",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8073,
-    "image_name": "642.png",
-    "question": "how many stops are there between abbotsford and sydney olympic park according to the image?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8074,
-    "image_name": "642.png",
-    "question": "What does the symbol T in red indicate in the map., mentioned at the bottom?",
-    "correct_answer": "Train station",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8075,
-    "image_name": "642.png",
-    "question": "What is the symbol for bus interchange in the image?",
-    "correct_answer": "Blue B.",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8113,
-    "image_name": "647.jpg",
-    "question": "How many buiding and parking are present within the medical Park drive",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_layout",
-    "geographic_level": "_campus"
-  },
-  {
-    "source_row": 8260,
-    "image_name": "663.png",
-    "question": "How many letters represent mitochondrial DNA haplogroups that appear in asian?",
-    "correct_answer": "17",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Visual']",
-    "map_type": "_network",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 8261,
-    "image_name": "663.png",
-    "question": "Count the number of route human migrate from Asian to North Amerifca",
-    "correct_answer": "4",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 8262,
     "image_name": "663.png",
     "question": "How many arrows in this figure point to locations within Asia?",
@@ -5467,17 +3080,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 8266,
-    "image_name": "663.png",
-    "question": "Yes or No: Have A mitochondrial DNA haplogroups have never appear in australia?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_network",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 8338,
     "image_name": "672.png",
     "question": "From Earliest Modern Humans, how many paths does it diverge to?",
@@ -5511,28 +3113,6 @@
     "geographic_level": "_world"
   },
   {
-    "source_row": 8341,
-    "image_name": "672.png",
-    "question": "What human encounter is next to warmer latitudes?",
-    "correct_answer": "Neanderthal",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 8342,
-    "image_name": "672.png",
-    "question": "What climate condition is next to Early Southern Asians?",
-    "correct_answer": "Dropping Sea Levels",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 8343,
     "image_name": "672.png",
     "question": "Which encounter is not a Neanderthal encounter?",
@@ -5540,28 +3120,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 8344,
-    "image_name": "672.png",
-    "question": "According to the map, Which archeological site is closest to the north pole?",
-    "correct_answer": "Arctic Ancestors",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 8345,
-    "image_name": "672.png",
-    "question": "Which archeological site is closest to the arctic ancestors?",
-    "correct_answer": "Early East Asians",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
     "map_type": "_mixed",
     "geographic_level": "_world"
   },
@@ -5577,28 +3135,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 8484,
-    "image_name": "687.jpg",
-    "question": "Which climate type is least common across Australia?",
-    "correct_answer": "Rainforest (persistently wet)",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8485,
-    "image_name": "687.jpg",
-    "question": "What color indicates 'savanna' climate under tropical classification?",
-    "correct_answer": "Light yellow",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 8486,
     "image_name": "687.jpg",
     "question": "Which zone lies between tropical and desert climate regions?",
@@ -5606,61 +3142,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L3",
     "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8487,
-    "image_name": "687.jpg",
-    "question": "What coastal zone in Western Australia is mostly desert?",
-    "correct_answer": "Northwest coast",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8488,
-    "image_name": "687.jpg",
-    "question": "Which classification has the smallest coverage?",
-    "correct_answer": "Rainforest (persistently wet)",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8490,
-    "image_name": "687.jpg",
-    "question": "What is the southernmost temperate zone on the map?",
-    "correct_answer": "No dry season (cool summer)",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8491,
-    "image_name": "687.jpg",
-    "question": "What color represents 'no dry season (hot summer)' under temperate climate?",
-    "correct_answer": "Dark purple",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8492,
-    "image_name": "687.jpg",
-    "question": "Which coastal region has 'distinctly dry summer' climate?",
-    "correct_answer": "Southern coast near Adelaide",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Other']",
     "map_type": "_isopleth",
     "geographic_level": "_country"
   },
@@ -5687,28 +3168,6 @@
     "geographic_level": "_continent"
   },
   {
-    "source_row": 8552,
-    "image_name": "694.png",
-    "question": "Yes or No: Do larger warehouses tend to cluster in census districts with multiple motorway lines?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 8553,
-    "image_name": "694.png",
-    "question": "What does the size of each warehouse circle represent?",
-    "correct_answer": "Rateable value (£ thousands)",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_isopleth",
-    "geographic_level": "_continent"
-  },
-  {
     "source_row": 8555,
     "image_name": "694.png",
     "question": "What does the blue line represent on the map?",
@@ -5720,32 +3179,10 @@
     "geographic_level": "_continent"
   },
   {
-    "source_row": 8617,
-    "image_name": "700.jpg",
-    "question": "Which isopleth range (e.g., 150 cm, 200 cm) appears closest to the Bay of Bengal coastline?",
-    "correct_answer": "200+ cm",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_continent"
-  },
-  {
     "source_row": 8618,
     "image_name": "700.jpg",
     "question": "The Indus Valley region, running through Pakistan, is shown in which general color band?",
     "correct_answer": "Yellow-green",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 8620,
-    "image_name": "700.jpg",
-    "question": "Which color on the map suggests moderate precipitation across parts of central Iran?",
-    "correct_answer": "Light yellow-green",
     "answer_type": "Single Entity",
     "ability_level": "L0",
     "question_type": "['Visual', 'Positional']",
@@ -5764,28 +3201,6 @@
     "geographic_level": "_state"
   },
   {
-    "source_row": 8841,
-    "image_name": "724.jpg",
-    "question": "Count the cities near the southern border within 20km based on the map.",
-    "correct_answer": "17",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_state"
-  },
-  {
-    "source_row": 8842,
-    "image_name": "724.jpg",
-    "question": "Count the cities near the eastern border within 20km based on the map.",
-    "correct_answer": "17",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_state"
-  },
-  {
     "source_row": 8846,
     "image_name": "724.jpg",
     "question": "Which county seat is closest to the Flathead Lake?",
@@ -5795,50 +3210,6 @@
     "question_type": "['Comparative']",
     "map_type": "_isopleth",
     "geographic_level": "_state"
-  },
-  {
-    "source_row": 8887,
-    "image_name": "729.jpg",
-    "question": "Which icon represents “Tulips Blooming”?",
-    "correct_answer": "Red symbols",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 8888,
-    "image_name": "729.jpg",
-    "question": "Which marker (shape/color) indicates “Tulips Emerged”?",
-    "correct_answer": "Green triangles",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 8889,
-    "image_name": "729.jpg",
-    "question": "Which symbol in the legend stands for “Tulips Planted”?",
-    "correct_answer": "Brown squares",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Other']",
-    "map_type": "_marker",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 8890,
-    "image_name": "729.jpg",
-    "question": "Which region shows the earliest signs of blooming, based on the red markers?",
-    "correct_answer": "Southeastern U.S.",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Visual']",
-    "map_type": "_marker",
-    "geographic_level": "_continent"
   },
   {
     "source_row": 8891,
@@ -5874,28 +3245,6 @@
     "geographic_level": "_continent"
   },
   {
-    "source_row": 8895,
-    "image_name": "729.jpg",
-    "question": "Which symbol on the legend is shaped like a triangle?",
-    "correct_answer": "Tulips Emerged",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_marker",
-    "geographic_level": "_continent"
-  },
-  {
-    "source_row": 8927,
-    "image_name": "733.png",
-    "question": "How many stations does all four metro lines cover in common?",
-    "correct_answer": "9",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
     "source_row": 8928,
     "image_name": "733.png",
     "question": "Which direction a person have to go if he wants to travel from Ashby to Balboa Park?",
@@ -5903,17 +3252,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8929,
-    "image_name": "733.png",
-    "question": "How many stations have access to parking on the yellow line?",
-    "correct_answer": "15",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
     "map_type": "_network",
     "geographic_level": "_city"
   },
@@ -5938,116 +3276,6 @@
     "question_type": "['Positional']",
     "map_type": "_network",
     "geographic_level": "_city"
-  },
-  {
-    "source_row": 8934,
-    "image_name": "733.png",
-    "question": "How many stations have access to Light Rail?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8935,
-    "image_name": "733.png",
-    "question": "How many stations have access to Rail connection?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8936,
-    "image_name": "734.jpg",
-    "question": "How many stations does Aqua line have?",
-    "correct_answer": "23",
-    "answer_type": "Counting",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8937,
-    "image_name": "734.jpg",
-    "question": "How many stations have access to Railway station",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8939,
-    "image_name": "734.jpg",
-    "question": "How many intersection stations are there in total?",
-    "correct_answer": "25",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8942,
-    "image_name": "734.jpg",
-    "question": "how many tourist attractions are there on the yellow line?",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Visual']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8943,
-    "image_name": "734.jpg",
-    "question": "how many lines one can access if he goes in pink line?",
-    "correct_answer": "4",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Visual']",
-    "map_type": "_network",
-    "geographic_level": "_city"
-  },
-  {
-    "source_row": 8984,
-    "image_name": "739.png",
-    "question": "what is the color on the right side of the scale after yellow?",
-    "correct_answer": "green",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8985,
-    "image_name": "739.png",
-    "question": "what is the color on the least life expectency side?",
-    "correct_answer": "red",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8986,
-    "image_name": "739.png",
-    "question": "what is the color on the high life expectency side?",
-    "correct_answer": "purple",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
   },
   {
     "source_row": 8987,
@@ -6079,17 +3307,6 @@
     "answer_type": "Counting",
     "ability_level": "L3",
     "question_type": "['Positional']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 8991,
-    "image_name": "739.png",
-    "question": "which color/life expectancy range is more dominant in the life expectancy map?",
-    "correct_answer": "Yellow to green",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
     "map_type": "_choropleth",
     "geographic_level": "_country"
   },
@@ -6127,33 +3344,11 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 9102,
-    "image_name": "751.png",
-    "question": "Which region shows the highest population density in Florida?",
-    "correct_answer": "Southern Florida",
-    "answer_type": "Single Entity",
-    "ability_level": "L1",
-    "question_type": "['Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 9103,
     "image_name": "751.png",
     "question": "Yes or No: Are there any counties in the Mountain West with populations over 1 million?",
     "correct_answer": "Yes",
     "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9104,
-    "image_name": "751.png",
-    "question": "Which part of Texas has more high-population counties—north, south, east, or west?",
-    "correct_answer": "East Texas",
-    "answer_type": "Single Entity",
     "ability_level": "L3",
     "question_type": "['Positional', 'Comparative']",
     "map_type": "_choropleth",
@@ -6167,28 +3362,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L3",
     "question_type": "['Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9108,
-    "image_name": "751.png",
-    "question": "What does the darkest teal color on this map represent?",
-    "correct_answer": "Counties with over 5 million people",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9109,
-    "image_name": "751.png",
-    "question": "What population does the color brown represent?",
-    "correct_answer": "Fewer than 20000",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
     "map_type": "_choropleth",
     "geographic_level": "_country"
   },
@@ -6211,17 +3384,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L1",
     "question_type": "['Visual', 'Positional']",
-    "map_type": "_multiple",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 9123,
-    "image_name": "753.png",
-    "question": "What color on the choropleth map indicates areas with the lowest percentage of people under 18?",
-    "correct_answer": "Dark blue",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
     "map_type": "_multiple",
     "geographic_level": "_region"
   },
@@ -6259,28 +3421,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 9127,
-    "image_name": "753.png",
-    "question": "What feature is absent in the bivariate symbol map but present in the choropleth map?",
-    "correct_answer": "Census tract boundaries",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Other']",
-    "map_type": "_multiple",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 9128,
-    "image_name": "753.png",
-    "question": "Which map style uses varying circle sizes to show differences in population?",
-    "correct_answer": "Bivariate proportional symbols",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
-    "map_type": "_multiple",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 9129,
     "image_name": "753.png",
     "question": "Which side of the map shows more distinct variation between adjacent areas?",
@@ -6314,17 +3454,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 9139,
-    "image_name": "754.png",
-    "question": "What does the darkest color on the map represent?",
-    "correct_answer": "Counties with >50% Black population",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 9140,
     "image_name": "754.png",
     "question": "Yes or No: Are most counties in the western U.S. light-colored on this map?",
@@ -6336,28 +3465,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 9217,
-    "image_name": "763.png",
-    "question": "Which region, based on the map, shows some of the highest Average ED (far right of the legend)?",
-    "correct_answer": "Southern Africa",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 9218,
-    "image_name": "763.png",
-    "question": "Which color typically represents high Average ED and high Variance of ED (top-right on the legend)?",
-    "correct_answer": "Deep purple",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 9220,
     "image_name": "763.png",
     "question": "Which color range on the legend suggests low Variance of ED (bottom part of the vertical axis)?",
@@ -6365,28 +3472,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L0",
     "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 9222,
-    "image_name": "763.png",
-    "question": "Which color on the legend corresponds to very low Average ED (left side) and very high Variance?",
-    "correct_answer": "Blue shifting toward green",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 9225,
-    "image_name": "763.png",
-    "question": "Which hemisphere shows a more extensive spread of the highest Average ED values?",
-    "correct_answer": "Southern Hemisphere",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
     "map_type": "_choropleth",
     "geographic_level": "_world"
   },
@@ -6417,28 +3502,6 @@
     "image_name": "764.png",
     "question": "Which HTS controlled city is closest to Homs?",
     "correct_answer": "Rastan",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
-    "map_type": "_conflict",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9231,
-    "image_name": "764.png",
-    "question": "Which Anti Assad rebel controlled city is located in the US Declared deconfliction zone?",
-    "correct_answer": "Tanf",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_conflict",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9232,
-    "image_name": "764.png",
-    "question": "Which Anti Assad rebel controlled city is closest to Israel?",
-    "correct_answer": "Nawa",
     "answer_type": "Single Entity",
     "ability_level": "L4",
     "question_type": "['Comparative']",
@@ -6490,17 +3553,6 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 9353,
-    "image_name": "776.jpg",
-    "question": "Which time period shows the most large, high-value warehouse developments?",
-    "correct_answer": "1998–2000",
-    "answer_type": "Single Entity",
-    "ability_level": "L2",
-    "question_type": "['Comparative']",
-    "map_type": "_marker",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 9354,
     "image_name": "776.jpg",
     "question": "In the northeast region, which warehouse type is more common: built 1995–1997 or 2001–2003?",
@@ -6508,39 +3560,6 @@
     "answer_type": "Single Entity",
     "ability_level": "L2",
     "question_type": "['Positional', 'Comparative']",
-    "map_type": "_marker",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9355,
-    "image_name": "776.jpg",
-    "question": "Which region in the south has a major warehouse concentration not along the coast?",
-    "correct_answer": "North of Bristol",
-    "answer_type": "Single Entity",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_marker",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9357,
-    "image_name": "776.jpg",
-    "question": "Yes or No: Is there a strong correlation between warehouse clustering and motorway locations?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_marker",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9358,
-    "image_name": "776.jpg",
-    "question": "What do the circle sizes represent on the map?",
-    "correct_answer": "Rateable value in thousands (£)",
-    "answer_type": "Single Entity",
-    "ability_level": "L0",
-    "question_type": "['Visual']",
     "map_type": "_marker",
     "geographic_level": "_country"
   },
@@ -6629,17 +3648,6 @@
     "answer_type": "Counting",
     "ability_level": "L3",
     "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_district"
-  },
-  {
-    "source_row": 9508,
-    "image_name": "791.jpg",
-    "question": "How many different school regions are there on the banks of the river?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Other']",
     "map_type": "_divisional",
     "geographic_level": "_district"
   },
@@ -6776,28 +3784,6 @@
     "geographic_level": "_county"
   },
   {
-    "source_row": 9619,
-    "image_name": "803.jpg",
-    "question": "In which district is the school “Johnson” located?",
-    "correct_answer": "2",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
-    "source_row": 9620,
-    "image_name": "803.jpg",
-    "question": "In which district is the school “Johnson” located?",
-    "correct_answer": "High School",
-    "answer_type": "Single Entity",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_county"
-  },
-  {
     "source_row": 9621,
     "image_name": "803.jpg",
     "question": "Which district has the fewest elementary schools?",
@@ -6864,17 +3850,6 @@
     "geographic_level": "_county"
   },
   {
-    "source_row": 9641,
-    "image_name": "805.jpeg",
-    "question": "How many different attendance areas does Grand Ave cross, including those on the edge?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_district"
-  },
-  {
     "source_row": 9642,
     "image_name": "805.jpeg",
     "question": "How many different attendance areas are adjacent to Whittier attendance areas?",
@@ -6884,39 +3859,6 @@
     "question_type": "['Positional']",
     "map_type": "_divisional",
     "geographic_level": "_district"
-  },
-  {
-    "source_row": 9643,
-    "image_name": "805.jpeg",
-    "question": "In the city, How many different attendance areas are located on the north side of Grand Avenue?",
-    "correct_answer": "11",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_district"
-  },
-  {
-    "source_row": 9644,
-    "image_name": "805.jpeg",
-    "question": "How many attendance areas are there in all the regions south of Grand Avenue?",
-    "correct_answer": "10",
-    "answer_type": "Counting",
-    "ability_level": "L5",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_district"
-  },
-  {
-    "source_row": 9793,
-    "image_name": "837.png",
-    "question": "Yes or No: In the 2010 map, is there a state represented by more than 12 individual squares of the same color?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_multiple",
-    "geographic_level": "_country"
   },
   {
     "source_row": 9794,
@@ -7040,17 +3982,6 @@
     "geographic_level": "_state"
   },
   {
-    "source_row": 9869,
-    "image_name": "856.jpg",
-    "question": "Yes or No: Is the number of states in the Mountain Time Zone an even number?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 9870,
     "image_name": "856.jpg",
     "question": "Yes or No: Does the Eastern Time Zone include more states than the Pacific Time Zone?",
@@ -7170,17 +4101,6 @@
     "question_type": "['Visual', 'Positional']",
     "map_type": "_conflict",
     "geographic_level": "_country"
-  },
-  {
-    "source_row": 9893,
-    "image_name": "862.jpg",
-    "question": "Yes or No: Does the purple line pass through Roosevelt Island?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_network",
-    "geographic_level": "_region"
   },
   {
     "source_row": 9894,
@@ -7601,34 +4521,12 @@
     "geographic_level": "_country"
   },
   {
-    "source_row": 9986,
-    "image_name": "885.jpg",
-    "question": "Yes or No: Is there a ferry route that goes directly from Phuket to Koh Lanta without passing through any other islands?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
     "source_row": 9987,
     "image_name": "885.jpg",
     "question": "Yes or No: Does the map indicate any ferry routes to or from Phang Nga?",
     "correct_answer": "No",
     "answer_type": "Boolean",
     "ability_level": "L2",
-    "question_type": "['Other']",
-    "map_type": "_network",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 9988,
-    "image_name": "885.jpg",
-    "question": "Yes or No: Does the ferry route connect Ao Nang and Koh Yao Noi directly without any intermediate stops?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
     "question_type": "['Other']",
     "map_type": "_network",
     "geographic_level": "_country"
@@ -7810,17 +4708,6 @@
     "geographic_level": "_region"
   },
   {
-    "source_row": 10117,
-    "image_name": "918.jpg",
-    "question": "Yes or No: Is Bakhmut located closer to the area marked as a Russian advance\" than to the area marked \"Ukrainian recapture 2/24-8/29\"?\"",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_conflict",
-    "geographic_level": "_region"
-  },
-  {
     "source_row": 10118,
     "image_name": "918.jpg",
     "question": "Yes or No: Does the legend indicate that the yellow areas represent Russian advances since February 2022?",
@@ -7920,17 +4807,6 @@
     "geographic_level": "_neighborhood"
   },
   {
-    "source_row": 10135,
-    "image_name": "922.jpg",
-    "question": "Yes or No: Is there an off-street bike path that connects Kokomo Park and Valley Oak Park?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Positional']",
-    "map_type": "_network",
-    "geographic_level": "_neighborhood"
-  },
-  {
     "source_row": 10136,
     "image_name": "922.jpg",
     "question": "Yes or No: Is Natomas Middle School located closer to the highway (Route 5) than H. Allen Hight Elementary?",
@@ -7982,17 +4858,6 @@
     "answer_type": "Boolean",
     "ability_level": "L4",
     "question_type": "['Positional']",
-    "map_type": "_conflict",
-    "geographic_level": "_region"
-  },
-  {
-    "source_row": 10141,
-    "image_name": "924.webp",
-    "question": "Yes or No: Does the map show any areas identified as Held or regained by Ukraine\" completely encircled by areas under Russian control?\"",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L4",
-    "question_type": "['Comparative']",
     "map_type": "_conflict",
     "geographic_level": "_region"
   },
@@ -8071,50 +4936,6 @@
     "ability_level": "L4",
     "question_type": "['Positional', 'Comparative']",
     "map_type": "_mixed",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 10193,
-    "image_name": "687.jpg",
-    "question": "Yes or No: Is the area in Australia that has a distinctly dry winter climate bigger than 10 climate regions?",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 10194,
-    "image_name": "687.jpg",
-    "question": "Yes or No: Does the map show any area classified as rainforest (monsoonal)\" in the southernmost part of Australia?\"",
-    "correct_answer": "No",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 10195,
-    "image_name": "687.jpg",
-    "question": "Yes or No: Is there at least one region in the map that shows both Tropical Rainforest\" and \"Subtropical\" climate side by side?\"",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L3",
-    "question_type": "['Positional', 'Comparative']",
-    "map_type": "_isopleth",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 10196,
-    "image_name": "687.jpg",
-    "question": "Yes or No: Is there a region in Australia classified as hot (persistently dry) desert climate that is larger than 100,000 sq km?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_isopleth",
     "geographic_level": "_country"
   },
   {
@@ -8492,17 +5313,6 @@
     "geographic_level": "_continent"
   },
   {
-    "source_row": 10423,
-    "image_name": "993.png",
-    "question": "Yes or No: Is there a region in the map that is significantly lighter in color than the others?",
-    "correct_answer": "Yes",
-    "answer_type": "Boolean",
-    "ability_level": "L1",
-    "question_type": "['Visual', 'Comparative']",
-    "map_type": "_cartogram",
-    "geographic_level": "_continent"
-  },
-  {
     "source_row": 10424,
     "image_name": "993.png",
     "question": "Yes or No: Is it true that the darkest shaded areas represent populations over 50 million people, considering the legend?",
@@ -8622,39 +5432,6 @@
     "question_type": "['Positional', 'Comparative']",
     "map_type": "_marker",
     "geographic_level": "_state"
-  },
-  {
-    "source_row": 10619,
-    "image_name": "856.jpg",
-    "question": "How many states are fully in the Pacific and Mountain Time Zones?",
-    "correct_answer": "11",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Other']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 10620,
-    "image_name": "856.jpg",
-    "question": "How many states are entirely within the Central Time Zone?",
-    "correct_answer": "8",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
-  },
-  {
-    "source_row": 10621,
-    "image_name": "856.jpg",
-    "question": "How many states in the map provided are partially in the Central and partially in the Eastern Time Zones?",
-    "correct_answer": "4",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_country"
   },
   {
     "source_row": 10623,
@@ -8954,50 +5731,6 @@
     "geographic_level": "_subcontinent"
   },
   {
-    "source_row": 10699,
-    "image_name": "880.jpeg",
-    "question": "How many time zones are represented in the map by countries located entirely in North America?",
-    "correct_answer": "6",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 10700,
-    "image_name": "880.jpeg",
-    "question": "In the +5 time zone, how many countries are completely surrounded by land (excluding any coastline)?",
-    "correct_answer": "3",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 10701,
-    "image_name": "880.jpeg",
-    "question": "How many countries have a portion of their landmass located within the +8 time zone?",
-    "correct_answer": "9",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 10702,
-    "image_name": "880.jpeg",
-    "question": "How many countries are shown in South America in the -3 time zone?",
-    "correct_answer": "5",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Visual', 'Positional']",
-    "map_type": "_divisional",
-    "geographic_level": "_world"
-  },
-  {
     "source_row": 10707,
     "image_name": "882.jpeg",
     "question": "How many of the Micro-states\" have less than 50% appearance in the map?\"",
@@ -9027,17 +5760,6 @@
     "answer_type": "Counting",
     "ability_level": "L0",
     "question_type": "['Visual', 'Comparative']",
-    "map_type": "_choropleth",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 10710,
-    "image_name": "882.jpeg",
-    "question": "Considering only the countries listed as appearing less than 100% of the time, how many have an appearance percentage between 50-59%?",
-    "correct_answer": "21",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Visual', 'Positional', 'Comparative']",
     "map_type": "_choropleth",
     "geographic_level": "_world"
   },
@@ -9709,28 +6431,6 @@
     "answer_type": "Counting",
     "ability_level": "L2",
     "question_type": "['Other']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 11055,
-    "image_name": "971.jpg",
-    "question": "How many countries are completely or partially inside the circled number 200 representing the migration path out of Africa?",
-    "correct_answer": "9",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
-    "map_type": "_mixed",
-    "geographic_level": "_world"
-  },
-  {
-    "source_row": 11056,
-    "image_name": "971.jpg",
-    "question": "How many circled regions show migration numbers between 40 and 70 (inclusive)?",
-    "correct_answer": "7",
-    "answer_type": "Counting",
-    "ability_level": "L3",
-    "question_type": "['Positional']",
     "map_type": "_mixed",
     "geographic_level": "_world"
   },

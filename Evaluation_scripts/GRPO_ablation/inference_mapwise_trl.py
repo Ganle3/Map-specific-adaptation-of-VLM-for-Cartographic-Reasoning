@@ -471,6 +471,60 @@ def prepare_multimodal_inputs(
             ) from fallback_error
 
 
+def prepare_multimodal_inputs_multi(
+    processor,
+    images: list[Image.Image],
+    prompt: str,
+    *,
+    thinking_mode: str = THINKING_MODE,
+):
+    """Prepare one prompt with multiple images, preserving image order."""
+    if not images:
+        raise ValueError("At least one image is required.")
+    messages = [{
+        "role": "user",
+        "content": [
+            *({"type": "image", "image": image} for image in images),
+            {"type": "text", "text": prompt},
+        ],
+    }]
+    template_kwargs = {}
+    mode = str(thinking_mode).casefold().strip()
+    if mode not in {"auto", "on", "off"}:
+        raise ValueError(f"Invalid thinking_mode: {thinking_mode!r}")
+    if mode != "auto":
+        template_kwargs["enable_thinking"] = mode == "on"
+    try:
+        return processor.apply_chat_template(
+            messages, tokenize=True, add_generation_prompt=True,
+            return_dict=True, return_tensors="pt", **template_kwargs,
+        )
+    except Exception as primary_error:
+        placeholders = [{
+            "role": "user",
+            "content": [
+                *({"type": "image"} for _ in images),
+                {"type": "text", "text": prompt},
+            ],
+        }]
+        try:
+            rendered = processor.apply_chat_template(
+                placeholders, tokenize=False, add_generation_prompt=True,
+                **template_kwargs,
+            )
+            try:
+                return processor(images=images, text=rendered,
+                                 add_special_tokens=False, return_tensors="pt")
+            except TypeError:
+                return processor(images=images, text=rendered,
+                                 return_tensors="pt")
+        except Exception as fallback_error:
+            raise RuntimeError(
+                "Could not prepare multi-image input. "
+                f"Primary: {primary_error}; fallback: {fallback_error}"
+            ) from fallback_error
+
+
 def generate_response(
     model,
     processor,
