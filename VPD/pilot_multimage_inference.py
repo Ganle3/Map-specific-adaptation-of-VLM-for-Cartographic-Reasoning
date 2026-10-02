@@ -19,8 +19,8 @@ sys.path.insert(0, str(VLM_DIR / "Evaluation_scripts" / "GRPO_ablation"))
 import inference_mapwise_trl as inference  # noqa: E402
 
 DEFAULT_ADAPTER = VLM_DIR / "Training_outputs" / (
-    "MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12"
-) / "checkpoints" / "checkpoint-3000"
+    "MapVerse_scaling1500_GRPO_from_MapWise3000_tokens500"
+) / "checkpoints" / "checkpoint-5000"
 
 
 def main() -> None:
@@ -71,9 +71,9 @@ def main() -> None:
         prompt = (
             "You are given multiple views of the same map. Image 1 is the full map; "
             "the later image(s) are detail crops for visual verification. Use and only according to all "
-            "images, especially the detail crop, before answering."
-            "Use the black dot as the "
-            "city location, not the text label. Read the fill immediately surrounding the dot\n\n"
+            "images, especially the detail crop, before answering.\n\n"
+            # "Use the black dot as the "
+            # "city location, not the text label. Read the fill immediately surrounding the dot\n\n"
             + inference.build_mapwise_prompt(args.question)
         #     # "Image 1 is the full map and provides context only. "
         #     # "Image 2 is a detail crop. Answer the question using Image 2 alone.\n"

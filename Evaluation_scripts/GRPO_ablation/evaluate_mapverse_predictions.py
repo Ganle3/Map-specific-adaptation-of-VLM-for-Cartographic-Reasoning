@@ -7,6 +7,7 @@ import argparse
 import csv
 import json
 from pathlib import Path
+from collections import defaultdict
 
 from mapverse_evaluation_exact import evaluate_exact
 
@@ -60,6 +61,41 @@ def main() -> None:
             writer.writerows(details)
 
     correct = sum(row["correct"] for row in details)
+
+    def grouped_summary(field_names):
+        groups = defaultdict(list)
+        for row in details:
+            value = ""
+            for field in field_names:
+                if str(row.get(field, "")).strip():
+                    value = str(row[field]).strip()
+                    break
+            groups[value or "unknown"].append(row)
+
+        result = {}
+        for group, rows in sorted(groups.items()):
+            group_correct = sum(bool(row["correct"]) for row in rows)
+            group_truncated = sum(
+                row.get("generation_status") == "truncated" for row in rows
+            )
+            group_final_answer = sum(
+                bool(str(row.get("final_answer", "")).strip())
+                and row.get("generation_status") != "truncated"
+                for row in rows
+            )
+            result[group] = {
+                "total": len(rows),
+                "correct": group_correct,
+                "accuracy_percent": 100 * group_correct / len(rows),
+                "truncated": group_truncated,
+                "truncated_fraction": group_truncated / len(rows),
+                "final_answer_nontruncated": group_final_answer,
+                "final_answer_nontruncated_fraction": group_final_answer / len(rows),
+            }
+        return result
+
+    by_ability_level = grouped_summary(("ability_level",))
+    by_answer_type = grouped_summary(("answer_type", "ground_truth_type"))
     timed_rows = [
         row for row in details
         if isinstance(row.get("inference_seconds"), (int, float))
@@ -108,10 +144,27 @@ def main() -> None:
         ),
         "inference_min_seconds": min(inference_times) if inference_times else 0.0,
         "inference_max_seconds": max(inference_times) if inference_times else 0.0,
+        "by_ability_level": by_ability_level,
+        "by_answer_type": by_answer_type,
     }
     (output / "evaluation_summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+    def write_group_csv(filename, grouped):
+        with (output / filename).open("w", newline="", encoding="utf-8-sig") as handle:
+            fields = [
+                "group", "total", "correct", "accuracy_percent", "truncated",
+                "truncated_fraction", "final_answer_nontruncated",
+                "final_answer_nontruncated_fraction",
+            ]
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            for group, values in grouped.items():
+                writer.writerow({"group": group, **values})
+
+    write_group_csv("accuracy_by_ability_level.csv", by_ability_level)
+    write_group_csv("accuracy_by_answer_type.csv", by_answer_type)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print(f"Details: {output / 'evaluation_details.json'}")
 

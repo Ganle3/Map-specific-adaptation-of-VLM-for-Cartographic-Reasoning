@@ -1,0 +1,12 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "How many of the cities are in Russian military control?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1500_GRPO_from_MapWise3000_tokens500\\checkpoints\\checkpoint-5000",
+  "raw_response": "So, let's look at the map. The legend says \"Russian military control\" is the pink color. Now, check each city label: Kharkiv, Bakhmut, Pokrovsk, Zaporizhzhia, Luhansk, Donetsk, Mariupol, Melitopol. Which of these are in the pink area (Russian military control)?\n\nKharkiv is white (Ukraine), Bakhmut is white (Ukraine), Pokrovsk is white, Zaporizhzhia is white, Luhansk is pink (Russian control), Donetsk is pink, Mariupol is pink, Melitopol is pink. Let's count: Luhansk, Donetsk, Mariupol, Melitopol. That's 4 cities.\n</think>\n\nFinal answer: 4",
+  "final_answer": "4",
+  "generated_tokens": 165,
+  "inference_seconds": 97.381
+}

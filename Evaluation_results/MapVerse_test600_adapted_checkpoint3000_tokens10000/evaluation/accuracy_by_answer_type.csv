@@ -1,0 +1,4 @@
+﻿group,total,correct,accuracy_percent,truncated,truncated_fraction,final_answer_nontruncated,final_answer_nontruncated_fraction
+Boolean,227,161,70.9251101321586,0,0.0,227,1.0
+Counting,195,61,31.28205128205128,1,0.005128205128205128,194,0.9948717948717949
+Single Entity,178,61,34.26966292134831,3,0.016853932584269662,175,0.9831460674157303

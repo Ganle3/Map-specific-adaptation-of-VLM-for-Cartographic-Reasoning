@@ -1,0 +1,12 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\82.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\82_detail.jpg"
+  ],
+  "question": "How many yellow M4 boxes that are in the Regime forces area are on the map?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1500_GRPO_from_MapWise3000_tokens500\\checkpoints\\checkpoint-5000",
+  "raw_response": "So, let's look at the problem. We need to find how many yellow M4 boxes are in the Regime forces area. First, check the legend: Regime forces is the pink area. Now, look at the detail crop (second image) and the full map (first image). The yellow M4 boxes are in the Regime forces area. Let's count. In the full map, the Regime forces area is pink. The M4 boxes: let's see. In the first image, the pink area (Regime forces) has M4 boxes. Let's check each M4. The M4 boxes are in the pink region. How many? Let's count. The first image shows M4 boxes in the pink area. Let's see: there are M4 boxes at certain locations. Let's check the detail crop. The detail crop (second image) shows the pink area (Regime forces) with M4 boxes. Let's count the M4 boxes in the pink area. In the full map, the pink area (Regime forces) has M4 boxes. Let's count: looking at the first image, the pink region (Regime forces) has M4 boxes. Let's see: there are three M4 boxes in the pink area. Wait, let's check. The first image: the pink area (Regime forces) has M4 boxes. Let's count. The M4 labels: in the pink area, how many? Let's see. The first image shows M4 boxes in the pink region. Let's count: there are three M4 boxes in the Regime forces area. Wait, let's check the detail crop. The second image (detail crop) shows the pink area (Regime forces) with M4 boxes. Let's count: in the detail crop, the pink area has M4 boxes. Let's see: the M4 boxes in the pink area. Let's count. The first image: the pink area (Regime forces) has M4 boxes. Let's count them. There are three M4 boxes in the Regime forces area. Let me confirm. The legend says Regime forces is pink. The yellow M4 boxes are in the pink area. Counting the M4 boxes in pink: in the first image, the pink region has M4 at certain points. Let's check: the first image shows M4 boxes in the pink area. Let's count: there are three M4 boxes. So the answer is 3.\n</think>\n\nFinal answer: 3",
+  "final_answer": "3",
+  "generated_tokens": 524,
+  "inference_seconds": 87.023
+}

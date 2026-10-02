@@ -74,7 +74,7 @@ def main():
     # A baseline-only evaluation may use an adapter from another completed
     # run and a fresh output directory.  In that mode no trainer state or
     # local final_adapter is needed; the supplied adapter is validated below.
-    if not (args.baseline_only and args.baseline_adapter_path is not None):
+    if not args.baseline_only:
         json.loads((run/'trainer_state.json').read_text())
         if not (run/'final_adapter/adapter_config.json').is_file():
             raise ValueError('Require completed training with final adapter')
