@@ -1,0 +1,11 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "What is the background map color surrounding the black dot for Bakhmut?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's continue. The question is about the background map color around the black dot for Bakhmut. Looking at the image, the black dot is labeled Bakhmut. The area around it—what color is that? The map has a pink area which is Russian military control. The black dot for Bakhmut is in that pink region. So the background color surrounding the black dot is pink.\n</think>\n\nFinal answer: pink",
+  "final_answer": "pink",
+  "generated_tokens": 91,
+  "inference_seconds": 14.875
+}

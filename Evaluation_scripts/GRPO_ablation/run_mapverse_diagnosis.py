@@ -20,11 +20,18 @@ EVALUATE = HERE / "evaluate_mapverse_predictions.py"
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--model-name", default="Qwen/Qwen3-VL-8B-Thinking")
-    p.add_argument("--adapter-path", required=True, type=Path)
+    p.add_argument(
+        "--adapter-path",
+        type=Path,
+        default=None,
+        help="Optional PEFT/LoRA checkpoint. Omit this argument for baseline inference.",
+    )
     p.add_argument("--qa-json", required=True, type=Path)
     p.add_argument("--image-root", required=True, type=Path)
     p.add_argument("--output-dir", required=True, type=Path)
     p.add_argument("--max-new-tokens", type=int, default=500)
+    p.add_argument("--min-pixels", type=int, default=65536)
+    p.add_argument("--max-pixels", type=int, default=1000000)
     p.add_argument("--thinking", choices=("auto", "on", "off"), default="auto")
     p.add_argument("--save-every", type=int, default=10)
     p.add_argument("--print-every", type=int, default=1)
@@ -34,14 +41,18 @@ def main() -> None:
 
     out = args.output_dir.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    predictions = out / f"predictions_mapwise3000_tokens{args.max_new_tokens}.json"
+    model_tag = "baseline" if args.adapter_path is None else args.adapter_path.name
+    predictions = out / f"predictions_{model_tag}_tokens{args.max_new_tokens}.json"
     detail_dir = out / "evaluation"
 
     infer = [sys.executable, str(INFER), "--model-name", args.model_name,
-             "--adapter-path", str(args.adapter_path), "--qa-json", str(args.qa_json),
+             "--qa-json", str(args.qa_json),
              "--image-root", str(args.image_root), "--output-json", str(predictions),
              "--max-new-tokens", str(args.max_new_tokens), "--thinking", args.thinking,
+             "--min-pixels", str(args.min_pixels), "--max-pixels", str(args.max_pixels),
              "--save-every", str(args.save_every), "--print-every", str(args.print_every)]
+    if args.adapter_path is not None:
+        infer.extend(["--adapter-path", str(args.adapter_path)])
     if args.no_resume:
         infer.append("--no-resume")
     if args.overwrite:

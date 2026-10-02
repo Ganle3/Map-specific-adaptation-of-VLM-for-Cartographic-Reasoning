@@ -138,7 +138,10 @@ def main():
                     inputs=inference.prepare_multimodal_inputs(processor,im.convert('RGB'),
                         inference.build_mapwise_prompt(sample['question']),thinking_mode='auto')
                 inputs=inference.move_inputs_to_model_device(inputs,model)
-                draws=args.sampling_draws if label == 'baseline' or label == f'checkpoint-{steps[-1]}' else 0
+                # baseline-only evaluations have no checkpoint steps; do not
+                # index an empty list.  Custom baseline labels are also valid.
+                is_last_checkpoint = bool(steps) and label == f'checkpoint-{steps[-1]}'
+                draws=args.sampling_draws if label == 'baseline' or not steps or is_last_checkpoint else 0
                 scores=[];greedy=None;truncated=0
                 first_draw = 0 if args.skip_greedy else -1
                 for index in range(first_draw,draws):

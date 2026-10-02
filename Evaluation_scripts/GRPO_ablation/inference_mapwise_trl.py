@@ -336,6 +336,8 @@ def normalize_adapter_path(adapter_path: Optional[Path]) -> Optional[Path]:
 def load_model_and_processor(
     model_name: str = MODEL_NAME,
     adapter_path: Optional[Path] = None,
+    min_pixels: Optional[int] = None,
+    max_pixels: Optional[int] = None,
 ):
     """Load native Qwen3-VL in the same 4-bit NF4 form used for GRPO."""
     adapter_path = normalize_adapter_path(adapter_path)
@@ -346,6 +348,17 @@ def load_model_and_processor(
     print_gpu_information()
 
     processor = AutoProcessor.from_pretrained(model_name)
+    if hasattr(processor, "image_processor"):
+        if min_pixels is not None:
+            processor.image_processor.min_pixels = min_pixels
+        if max_pixels is not None:
+            processor.image_processor.max_pixels = max_pixels
+        print(
+            "Image processor pixel limits: "
+            f"min_pixels={getattr(processor.image_processor, 'min_pixels', None)}, "
+            f"max_pixels={getattr(processor.image_processor, 'max_pixels', None)}",
+            flush=True,
+        )
     if hasattr(processor, "tokenizer"):
         processor.tokenizer.padding_side = "left"
         if processor.tokenizer.pad_token_id is None:
@@ -790,6 +803,8 @@ def run_mapwise_inference(
     image_root: Path = MAPWISE_IMAGE_ROOT,
     output_json: Optional[Path] = DEFAULT_OUTPUT_JSON,
     max_new_tokens: int = MAX_NEW_TOKENS,
+    min_pixels: Optional[int] = None,
+    max_pixels: Optional[int] = None,
     thinking_mode: str = THINKING_MODE,
     start_index: int = 0,
     end_index: Optional[int] = None,
@@ -866,6 +881,8 @@ def run_mapwise_inference(
     model, processor, adapter_path = load_model_and_processor(
         model_name=model_name,
         adapter_path=adapter_path,
+        min_pixels=min_pixels,
+        max_pixels=max_pixels,
     )
 
     newly_completed = 0
@@ -1045,6 +1062,8 @@ def parse_args() -> argparse.Namespace:
         "--max-new-tokens", type=int, default=MAX_NEW_TOKENS,
         help="Optional output-token cap. Omit to let generation stop at EOS.",
     )
+    parser.add_argument("--min-pixels", type=int, default=65536)
+    parser.add_argument("--max-pixels", type=int, default=1000000)
     parser.add_argument(
         "--thinking",
         choices=("auto", "on", "off"),
@@ -1068,6 +1087,8 @@ def main() -> Path:
         image_root=args.image_root,
         output_json=args.output_json,
         max_new_tokens=args.max_new_tokens,
+        min_pixels=args.min_pixels,
+        max_pixels=args.max_pixels,
         thinking_mode=args.thinking,
         start_index=args.start_index,
         end_index=args.end_index,

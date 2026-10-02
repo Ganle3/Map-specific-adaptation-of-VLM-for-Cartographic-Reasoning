@@ -46,12 +46,42 @@ def main() -> None:
     images = []
     try:
         images = [Image.open(path).convert("RGB") for path in paths]
+        # reasoning_prefix = (
+        #     'Got it, let\'s look at the map. The legend says '
+        #     '"Russian military control" is the pink color. '
+        #     "Now, we need to count the cities that are in that pink area. "
+        #     "Let's list the cities: Kharkiv, Bakhmut, Pokrovsk, Zaporizhzhia, "
+        #     "Mariupol, Melitopol, Donetsk, Luhansk.\n\n"
+        #     "Check each city's location:\n"
+        #     "Kharkiv: white (Ukraine), so not Russian control.\n"
+        # )
+
+        # prompt = (
+        #     "You are given multiple views of the same map. Image 1 is the full map; "
+        #     "the later image(s) are detail crops for visual verification. Use and only according to all "
+        #     "images, especially the detail crop, before answering.\n\n"
+        #     + inference.build_mapwise_prompt(args.question)
+        #     + "\n\n"
+        #     "Continue the partial reasoning below from where it stops. "
+        #     "Do not repeat the existing text. "
+        #     "Evaluate the remaining cities, then provide the final answer.\n\n"
+        #     "Partial reasoning:\n"
+        #     + reasoning_prefix
+        # )
         prompt = (
             "You are given multiple views of the same map. Image 1 is the full map; "
             "the later image(s) are detail crops for visual verification. Use and only according to all "
-            "images, especially the detail crop, before answering.\n\n"
+            "images, especially the detail crop, before answering."
+            "Use the black dot as the "
+            "city location, not the text label. Read the fill immediately surrounding the dot\n\n"
             + inference.build_mapwise_prompt(args.question)
-        )
+        #     # "Image 1 is the full map and provides context only. "
+        #     # "Image 2 is a detail crop. Answer the question using Image 2 alone.\n"
+        #     # "Read the visible fill color immediately surrounding the target black dot. "
+        #     # "Ignore the background behind the text label. "
+        #     # "Do not infer the color from the place's identity, country, or territorial status.\n\n"
+        #     # + inference.build_mapwise_prompt(args.question)
+         )
         inputs = inference.prepare_multimodal_inputs_multi(
             processor, images, prompt, thinking_mode=args.thinking_mode
         )

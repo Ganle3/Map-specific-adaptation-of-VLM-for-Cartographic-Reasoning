@@ -1,0 +1,12 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "How many of the cities are in Russian military control?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's solve this. First, we need to check each city's location relative to the map's color coding. The legend says \"Russian military control\" is the solid pink (or red-brown) color. \n\nLooking at the cities in Image 1: Kharkiv, Bakhmut, Pokrovsk, Zaporizhzhia, Mariupol, Melitopol, Donetsk, Luhansk. \n\nNow, for each city, check the color around the black dot (since the question says to use the black dot as the city location, not the text label). \n\n- Kharkiv: The dot is in white (Ukraine's territory, not Russian control). \n- Bakhmut: The detail crop shows the dot is in the white area (Ukraine), so not Russian control. \n- Pokrovsk: The dot is in white (Ukraine). \n- Zaporizhzhia: Dot is in white (Ukraine). \n- Mariupol: The dot is in the pink (Russian military control) area. \n- Melitopol: Dot is in pink (Russian control). \n- Donetsk: Dot is in pink (Russian control). \n- Luhansk: Dot is in pink (Russian control). \n\nNow count the cities in Russian military control: Mariupol, Melitopol, Donetsk, Luhansk. That's 4 cities. Let's confirm each:\n\nMariupol: pink area. Melitopol: pink. Donetsk: pink. Luhansk: pink. The others are white (Ukraine). So 4.\n</think>\n\nFinal answer: 4",
+  "final_answer": "4",
+  "generated_tokens": 339,
+  "inference_seconds": 153.382
+}

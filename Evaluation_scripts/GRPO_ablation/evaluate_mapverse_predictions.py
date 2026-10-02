@@ -60,6 +60,30 @@ def main() -> None:
             writer.writerows(details)
 
     correct = sum(row["correct"] for row in details)
+    timed_rows = [
+        row for row in details
+        if isinstance(row.get("inference_seconds"), (int, float))
+    ]
+    # A generation that reaches its configured token cap has an unusually
+    # long runtime by construction. Exclude it from runtime aggregates so
+    # averages compare actual completed generations rather than token-limit
+    # outliers. Keep the count explicit in the summary.
+    capped_rows = [
+        row for row in timed_rows
+        if isinstance(row.get("max_new_tokens"), (int, float))
+        and isinstance(row.get("generated_tokens"), (int, float))
+        and row["generated_tokens"] >= row["max_new_tokens"]
+    ]
+    inference_times = [
+        float(row["inference_seconds"])
+        for row in timed_rows
+        if row not in capped_rows
+    ]
+    nontruncated_final_answer = sum(
+        bool(str(row.get("final_answer", "")).strip())
+        and row.get("generation_status") != "truncated"
+        for row in details
+    )
     summary = {
         "total": len(details),
         "correct": correct,
@@ -69,6 +93,21 @@ def main() -> None:
             sum(row.get("generation_status") == "truncated" for row in details) / len(details)
             if details else 0.0
         ),
+        "final_answer_nontruncated": nontruncated_final_answer,
+        "final_answer_nontruncated_fraction": (
+            nontruncated_final_answer / len(details) if details else 0.0
+        ),
+        "inference_timed_records": len(inference_times),
+        "inference_capped_records_excluded": len(capped_rows),
+        "inference_capped_records_excluded_fraction": (
+            len(capped_rows) / len(timed_rows) if timed_rows else 0.0
+        ),
+        "inference_total_seconds": sum(inference_times),
+        "inference_average_seconds": (
+            sum(inference_times) / len(inference_times) if inference_times else 0.0
+        ),
+        "inference_min_seconds": min(inference_times) if inference_times else 0.0,
+        "inference_max_seconds": max(inference_times) if inference_times else 0.0,
     }
     (output / "evaluation_summary.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8"

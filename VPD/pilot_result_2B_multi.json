@@ -1,0 +1,12 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "What is the background map color surrounding the black dot for Bakhmut?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's check the background color around Bakhmut. The detail crop shows Bakhmut with a black dot. Looking at the map, the area around Bakhmut is the white part (Ukraine), since Bakhmut is in the white region. The legend says white is Ukraine, so the background there is white.\n</think>\n\nFinal answer: white",
+  "final_answer": "white",
+  "generated_tokens": 76,
+  "inference_seconds": 15.447
+}

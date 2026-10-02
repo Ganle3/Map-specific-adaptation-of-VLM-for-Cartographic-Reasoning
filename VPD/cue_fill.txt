@@ -1,0 +1,3 @@
+﻿
+Read the fill immediately surrounding each city's black dot.
+

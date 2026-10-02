@@ -1,0 +1,16 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_ir.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_ir.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_ir.jpg"
+  ],
+  "question": "What is the background map color surrounding the black dot for Bakhmut?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's check the background color for Bakhmut. In the detail crop of Bakhmut, the background around the black dot is white. The legend shows that white is Ukraine's territory, which is \"Held or regained by Ukraine\" (purple) or just Ukraine's area. Wait, the main map has Ukraine as white, so Bakhmut's background is white. Let me confirm. The detail crop for Bakhmut shows the dot on a white area, which is Ukraine. So the background color is white.\n</think>\n\nFinal answer: white",
+  "final_answer": "white",
+  "generated_tokens": 117,
+  "inference_seconds": 22.633
+}

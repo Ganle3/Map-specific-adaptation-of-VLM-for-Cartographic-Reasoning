@@ -1,0 +1,16 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "What is the background map color surrounding the black dot for Bakhmut?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's check the background color around Bakhmut. The detail crop shows Bakhmut with a black dot. The area around Bakhmut is the pink color, which according to the legend is \"Russian military control\". So the background map color there is pink.\n</think>\n\nFinal answer: pink",
+  "final_answer": "pink",
+  "generated_tokens": 64,
+  "inference_seconds": 16.136
+}

@@ -1,0 +1,16 @@
+{
+  "total": 136,
+  "correct": 59,
+  "accuracy_percent": 43.38235294117647,
+  "truncated": 7,
+  "truncated_fraction": 0.051470588235294115,
+  "final_answer_nontruncated": 123,
+  "final_answer_nontruncated_fraction": 0.9044117647058824,
+  "inference_timed_records": 129,
+  "inference_capped_records_excluded": 7,
+  "inference_capped_records_excluded_fraction": 0.051470588235294115,
+  "inference_total_seconds": 7004.5289999999995,
+  "inference_average_seconds": 54.29867441860465,
+  "inference_min_seconds": 3.901,
+  "inference_max_seconds": 609.992
+}

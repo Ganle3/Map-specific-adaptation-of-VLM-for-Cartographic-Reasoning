@@ -1,0 +1,16 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "How many cities are under Russian military control?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's go through each city. The map has a legend where pink is Russian military control. Let's check each city:\n\n- Kharkiv: white (Ukraine), so not Russian.\n- Bakhmut: the detail crop shows it's on the white area (Ukraine), so not Russian.\n- Pokrovsk: white (Ukraine), so no.\n- Zaporizhzhia: white (Ukraine), no.\n- Mariupol: pink (Russian control), yes.\n- Melitopol: pink (Russian control), yes.\n- Donetsk: pink (Russian control), yes.\n- Luhansk: pink (Russian control), yes.\n\nNow count the ones in pink: Mariupol, Melitopol, Donetsk, Luhansk. That's 4 cities.\n</think>\n\nFinal answer: 4",
+  "final_answer": "4",
+  "generated_tokens": 174,
+  "inference_seconds": 121.144
+}

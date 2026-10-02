@@ -1,0 +1,13 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg",
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "What is the background map color surrounding the black dot for Bakhmut?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "Got it, let's check the background color around Bakhmut. In the detail crop image, the black dot for Bakhmut is on a white area. The full map shows that white is Ukraine, so the background around Bakhmut is white. Let me confirm. The detail crop has Bakhmut with a black dot, and the surrounding area is white, which matches the full map where Ukraine is white. So the background color is white.\n</think>\n\nFinal answer: white",
+  "final_answer": "white",
+  "generated_tokens": 99,
+  "inference_seconds": 19.924
+}

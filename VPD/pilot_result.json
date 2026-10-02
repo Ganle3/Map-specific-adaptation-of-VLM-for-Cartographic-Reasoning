@@ -1,12 +1,11 @@
 {
   "images": [
-    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
-    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.png"
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp"
   ],
-  "question": "What is the background map color surrounding the black dot for Bakhmut? (Ignore the background immediately behind the text itself.)",
+  "question": "how many of the cities are in Russian military control?",
   "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
-  "raw_response": "Got it, let's look at the problem. We need to find the background color around the black dot for Bakhmut. First, check the detail crop image where Bakhmut is shown. The detail crop has \"Bakhmut\" with a black dot. The background around that dot—what color is it? \n\nIn the full map (Image 1), Bakhmut is a black dot. The area around Bakhmut: looking at the map, the regions are colored. The legend says \"Russian military control\" is the pinkish-red color. Bakhmut is in the white area (Ukraine), so the background around the dot should be white. Let's confirm with the detail crop. The detail crop shows the black dot, and the background is white. So the background color is white.\n</think>\n\nFinal answer: white",
-  "final_answer": "white",
-  "generated_tokens": 173,
-  "inference_seconds": 21.726
+  "raw_response": "Got it, let's continue checking each city. Bakhmut: the map shows Bakhmut is in the white area (Ukraine), so not Russian control. Pokrovsk: also white, so no. Zaporizhzhia: white, so no. Mariupol: pink (Russian military control), so that's one. Melitopol: pink, that's two. Donetsk: pink, three. Luhansk: pink, four. Now check the others. Kharkiv is white, Bakhmut white, Pokrovsk white, Zaporizhzhia white. So the cities in Russian military control are Mariupol, Melitopol, Donetsk, Luhansk. Let's count: 4.\n</think>\n\nFinal answer: 4",
+  "final_answer": "4",
+  "generated_tokens": 161,
+  "inference_seconds": 98.205
 }

@@ -1,0 +1,11 @@
+{
+  "images": [
+    "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\local_details\\2_detail.jpg"
+  ],
+  "question": "What is the background map color surrounding the black dot?",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapWise_scaling1000_GRPO_Qwen3VL8B_BS2GA8_epoch12\\checkpoints\\checkpoint-3000",
+  "raw_response": "So, let's look at the image. The black dot is labeled Bakhmut. The background around the dot—what color is that? The map has a pinkish or reddish area. Let me check. The detail crop shows the area around the dot is a pinkish color. So the background map color surrounding the black dot is pink.\n</think>\n\nFinal answer: pink",
+  "final_answer": "pink",
+  "generated_tokens": 78,
+  "inference_seconds": 11.227
+}
