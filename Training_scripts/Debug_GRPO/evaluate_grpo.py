@@ -71,9 +71,13 @@ def main():
             sample['ground_truth_type'] = sample.get('answer_type', '')
             sample['qa_id'] = str(sample.get('qa_id', f"mapverse_{sample.get('sample_id', index)}"))
     run=args.run_dir.resolve()
-    state=json.loads((run/'trainer_state.json').read_text())
-    if not (run/'final_adapter/adapter_config.json').is_file():
-        raise ValueError('Require completed training with final adapter')
+    # A baseline-only evaluation may use an adapter from another completed
+    # run and a fresh output directory.  In that mode no trainer state or
+    # local final_adapter is needed; the supplied adapter is validated below.
+    if not (args.baseline_only and args.baseline_adapter_path is not None):
+        json.loads((run/'trainer_state.json').read_text())
+        if not (run/'final_adapter/adapter_config.json').is_file():
+            raise ValueError('Require completed training with final adapter')
     steps=sorted(int(p.name.split('-')[1]) for p in run.glob('checkpoint-*')
                  if p.is_dir() and p.name.split('-')[1].isdigit())
     if args.baseline_only:
