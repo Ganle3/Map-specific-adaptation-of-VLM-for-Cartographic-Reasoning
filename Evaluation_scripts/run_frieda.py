@@ -168,6 +168,7 @@ def run_inference_stage(
     end_index: Optional[int],
     resume: bool,
     overwrite: bool,
+    max_new_tokens: int = MAX_NEW_TOKENS,
 ) -> Path:
     print("\n" + "=" * 80)
     print("STAGE 1: FRIEDA INFERENCE")
@@ -179,7 +180,7 @@ def run_inference_stage(
         qa_json=qa_json,
         image_root=image_root,
         output_json=prediction_json,
-        max_new_tokens=MAX_NEW_TOKENS,
+        max_new_tokens=max_new_tokens,
         start_index=start_index,
         end_index=end_index,
         resume=resume,
@@ -238,6 +239,7 @@ def run_frieda_pipeline(
     resume: bool = True,
     overwrite: bool = False,
     judge_model: Optional[str] = JUDGE_MODEL,
+    max_new_tokens: int = MAX_NEW_TOKENS,
 ) -> Optional[dict[str, Any]]:
     if inference_only and evaluation_only:
         raise ValueError(
@@ -285,6 +287,7 @@ def run_frieda_pipeline(
             end_index=end_index,
             resume=resume,
             overwrite=overwrite,
+            max_new_tokens=max_new_tokens,
         )
 
     if inference_only:
@@ -330,6 +333,12 @@ def parse_args() -> argparse.Namespace:
         help="Dataset split to evaluate. Default: test.",
     )
     parser.add_argument("--model-name", default=MODEL_NAME)
+    parser.add_argument(
+        "--max-new-tokens",
+        type=int,
+        default=MAX_NEW_TOKENS,
+        help="Maximum number of generated tokens per FRIEDA question.",
+    )
     parser.add_argument(
         "--judge-model",
         default=JUDGE_MODEL,
@@ -409,6 +418,7 @@ def main() -> Optional[dict[str, Any]]:
         resume=not args.no_resume,
         overwrite=args.overwrite,
         judge_model=args.judge_model,
+        max_new_tokens=args.max_new_tokens,
     )
 
 
