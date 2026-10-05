@@ -27,12 +27,17 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 
-# # Unsloth must be imported before transformers.
-# import unsloth  # noqa: F401
-
 import torch
 from PIL import Image
-from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
+from transformers import (
+    AutoModelForImageTextToText,
+    AutoProcessor,
+    Qwen3VLForConditionalGeneration,
+)
+try:
+    from transformers import AutoModelForMultimodalLM
+except ImportError:
+    AutoModelForMultimodalLM = None
 from peft import PeftModel
 
 
@@ -232,8 +237,8 @@ def load_model_and_processor(
     model_name: str = MODEL_NAME,
     adapter_path: Optional[Path] = None,
 ):
-    """Load the baseline model or the base model with a PEFT/LoRA adapter."""
-    print("\nLoading Qwen3-VL model...", flush=True)
+    """Load a FRIEDA VLM, optionally wrapped with a PEFT/LoRA adapter."""
+    print("\nLoading FRIEDA vision-language model...", flush=True)
     print(f"Base model: {model_name}", flush=True)
     print_gpu_information()
 
@@ -260,7 +265,16 @@ def load_model_and_processor(
         trust_remote_code=True,
     )
 
-    base_model = Qwen3VLForConditionalGeneration.from_pretrained(
+    normalized_name = str(model_name).casefold()
+    if "gemma-4" in normalized_name and AutoModelForMultimodalLM is not None:
+        model_class = AutoModelForMultimodalLM
+    elif "qwen3-vl" in normalized_name:
+        model_class = Qwen3VLForConditionalGeneration
+    else:
+        model_class = AutoModelForImageTextToText
+
+    print(f"Model loader: {model_class.__name__}", flush=True)
+    base_model = model_class.from_pretrained(
         model_name,
         device_map="auto",
         dtype=torch.bfloat16,

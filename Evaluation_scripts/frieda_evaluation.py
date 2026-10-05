@@ -43,7 +43,7 @@ import math
 import pickle
 import re
 import unicodedata
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Iterable, Mapping, Optional, Protocol
@@ -751,6 +751,62 @@ def load_predictions(path: str | Path) -> dict[str, str]:
     raise ValueError("Unsupported prediction JSON structure.")
 
 
+def load_prediction_records_by_id(path: str | Path) -> dict[str, Mapping[str, Any]]:
+    """Load complete prediction records keyed by question ID."""
+    with Path(path).open("r", encoding="utf-8") as handle:
+        obj = json.load(handle)
+
+    if isinstance(obj, dict):
+        for wrapper_key in ("results", "predictions", "data"):
+            if isinstance(obj.get(wrapper_key), list):
+                obj = obj[wrapper_key]
+                break
+
+    records: dict[str, Mapping[str, Any]] = {}
+    if isinstance(obj, list):
+        for record in obj:
+            if not isinstance(record, Mapping):
+                continue
+            qid = record.get("question_ref") or record.get("qa_id") or record.get("id")
+            if qid is not None:
+                records[str(qid)] = record
+    return records
+
+
+def annotate_inference_time(
+    rows: list[dict[str, Any]],
+    prediction_records: Mapping[str, Mapping[str, Any]],
+) -> None:
+    """Attach inference timing and mark unusable long-generation samples."""
+    for row in rows:
+        qid = str(row.get("question_ref", ""))
+        record = prediction_records.get(qid, {})
+        raw = str(record.get("raw_response", row.get("raw_response", "")) or "").strip()
+        final = str(record.get("final_answer", "") or "").strip()
+        value = record.get("inference_seconds")
+
+        row["inference_seconds"] = value
+        row["inference_time_included"] = False
+        row["inference_time_exclusion_reason"] = ""
+
+        try:
+            seconds = float(value)
+            if not math.isfinite(seconds) or seconds < 0:
+                raise ValueError
+        except (TypeError, ValueError):
+            row["inference_time_exclusion_reason"] = "missing_or_invalid_time"
+            continue
+
+        if not raw:
+            row["inference_time_exclusion_reason"] = "empty_raw_response"
+        elif not final:
+            row["inference_time_exclusion_reason"] = "missing_final_answer"
+        elif final == raw:
+            row["inference_time_exclusion_reason"] = "final_answer_equals_raw_response"
+        else:
+            row["inference_time_included"] = True
+
+
 def summarize_results(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
     def summarize_group(items: list[Mapping[str, Any]]) -> dict[str, Any]:
         total = len(items)
@@ -804,6 +860,29 @@ def summarize_results(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
     summary["missing_or_empty_predictions"] = sum(
         not str(row.get("raw_response", "")).strip() for row in rows
     )
+
+    timed_rows = [
+        row for row in rows
+        if row.get("inference_time_included")
+        and row.get("inference_seconds") is not None
+    ]
+    excluded_rows = [row for row in rows if not row.get("inference_time_included")]
+    summary["inference_time"] = {
+        "mean_seconds": (
+            sum(float(row["inference_seconds"]) for row in timed_rows)
+            / len(timed_rows)
+            if timed_rows else None
+        ),
+        "included_count": len(timed_rows),
+        "excluded_count": len(excluded_rows),
+        "total_count": len(rows),
+        "excluded_by_reason": dict(
+            Counter(
+                str(row.get("inference_time_exclusion_reason", "unknown"))
+                for row in excluded_rows
+            )
+        ),
+    }
     return summary
 
 
@@ -871,6 +950,9 @@ def save_results(
         "distance_prediction_m",
         "absolute_percentage_error",
         "evaluation_note",
+        "inference_seconds",
+        "inference_time_included",
+        "inference_time_exclusion_reason",
     ]
     with details_csv.open(
         "w", encoding="utf-8-sig", newline=""
@@ -1046,6 +1128,8 @@ def evaluate_frieda(
         orientation_map=orientation_map,
         distance_tolerance=distance_tolerance,
     )
+    annotate_inference_time(rows, load_prediction_records_by_id(prediction_path))
+    summary = summarize_results(rows)
     summary = _flatten_summary(summary)
 
     destination = (

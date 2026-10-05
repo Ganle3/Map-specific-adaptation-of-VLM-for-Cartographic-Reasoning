@@ -201,6 +201,7 @@ def run_evaluation_stage(
     prediction_json: Path,
     qa_json: Path,
     output_dir: Path,
+    judge_model: Optional[str] = JUDGE_MODEL,
 ) -> dict[str, Any]:
     print("\n" + "=" * 80)
     print("STAGE 2: FRIEDA EVALUATION")
@@ -212,7 +213,7 @@ def run_evaluation_stage(
         output_dir=output_dir,
         orientation_pkl=resolve_orientation_path(),
         distance_tolerance=DISTANCE_TOLERANCE,
-        judge_model=JUDGE_MODEL,
+        judge_model=judge_model,
         judge_load_in_4bit=True,
     )
 
@@ -236,6 +237,7 @@ def run_frieda_pipeline(
     end_index: Optional[int] = None,
     resume: bool = True,
     overwrite: bool = False,
+    judge_model: Optional[str] = JUDGE_MODEL,
 ) -> Optional[dict[str, Any]]:
     if inference_only and evaluation_only:
         raise ValueError(
@@ -294,6 +296,7 @@ def run_frieda_pipeline(
         prediction_json=prediction_path,
         qa_json=qa_json,
         output_dir=output_dir,
+        judge_model=judge_model,
     )
 
     print("\n")
@@ -327,6 +330,11 @@ def parse_args() -> argparse.Namespace:
         help="Dataset split to evaluate. Default: test.",
     )
     parser.add_argument("--model-name", default=MODEL_NAME)
+    parser.add_argument(
+        "--judge-model",
+        default=JUDGE_MODEL,
+        help="Optional local/Hugging Face model used for textual-answer judging.",
+    )
     parser.add_argument(
         "--adapter-path",
         type=Path,
@@ -400,6 +408,7 @@ def main() -> Optional[dict[str, Any]]:
         end_index=args.end_index,
         resume=not args.no_resume,
         overwrite=args.overwrite,
+        judge_model=args.judge_model,
     )
 
 
