@@ -27,8 +27,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 
-# Unsloth must be imported before transformers.
-import unsloth  # noqa: F401
+# # Unsloth must be imported before transformers.
+# import unsloth  # noqa: F401
 
 import torch
 from PIL import Image

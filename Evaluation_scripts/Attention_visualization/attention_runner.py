@@ -111,7 +111,10 @@ class AttentionCapture:
         self.summary_counts = {layer: 0 for layer in self.summary_layers}
         # One map per generated token: direct elementwise sum of all 36 layers.
         self.all_layer_step_sums: list[np.ndarray] = []
+        # One map per generated token: elementwise max over all 36 layers.
+        self.all_layer_step_maxes: list[np.ndarray] = []
         self._active_step_sum: np.ndarray | None = None
+        self._active_step_max: np.ndarray | None = None
         self.handles = []
         self.original_configs = {}
 
@@ -142,9 +145,11 @@ class AttentionCapture:
                 if self._active_step_sum is not None:
                     raise RuntimeError("Decoder-layer hooks were not called in complete forward-pass order.")
                 self._active_step_sum = np.zeros(self.grid, dtype=np.float64)
-            if self._active_step_sum is None:
+                self._active_step_max = np.full(self.grid, -np.inf, dtype=np.float64)
+            if self._active_step_sum is None or self._active_step_max is None:
                 raise RuntimeError("Decoder-layer hooks did not begin at layer 0.")
             self._active_step_sum += spatial
+            np.maximum(self._active_step_max, spatial, out=self._active_step_max)
             self.summary_raw[layer] += spatial
             self.summary_conditional[layer] += spatial / max(float(spatial.sum()), np.finfo(np.float32).tiny)
             self.summary_counts[layer] += 1
@@ -153,7 +158,9 @@ class AttentionCapture:
                 self.rows[layer].append(row.detach().float().cpu().numpy().reshape(len(self.heads), *self.grid))
             if layer == self.summary_layers[-1]:
                 self.all_layer_step_sums.append(self._active_step_sum.astype(np.float32))
+                self.all_layer_step_maxes.append(self._active_step_max.astype(np.float32))
                 self._active_step_sum = None
+                self._active_step_max = None
         return capture
 
     def __exit__(self, *exc):
@@ -167,16 +174,18 @@ class AttentionCapture:
             raise RuntimeError("Generation steps and captured forwards differ; refusing misaligned output.")
         return np.stack([np.stack(self.rows[layer]) for layer in self.layers], axis=1)
 
-    def summary(self, steps: int) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        if any(count != steps for count in self.summary_counts.values()) or len(self.all_layer_step_sums) != steps:
+    def summary(self, steps: int) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        if (any(count != steps for count in self.summary_counts.values())
+                or len(self.all_layer_step_sums) != steps
+                or len(self.all_layer_step_maxes) != steps):
             raise RuntimeError("Full-layer attention summaries and generation steps differ.")
-        if self._active_step_sum is not None:
+        if self._active_step_sum is not None or self._active_step_max is not None:
             raise RuntimeError("Generation ended in the middle of a decoder-layer capture.")
         raw = np.stack([self.summary_raw[layer] / steps for layer in self.summary_layers]).astype(np.float32)
         conditional = np.stack(
             [self.summary_conditional[layer] / steps for layer in self.summary_layers]
         ).astype(np.float32)
-        return raw, conditional, np.stack(self.all_layer_step_sums)
+        return raw, conditional, np.stack(self.all_layer_step_sums), np.stack(self.all_layer_step_maxes)
 
 
 def generate_one(model, processor, question: Question, settings: Settings, destination: Path) -> dict:
@@ -218,7 +227,7 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
         sequences = model.generate(**inputs, generation_config=generation_config)
     ids = sequences[0, prompt_length:].tolist()
     attention = capture.array(len(ids))
-    summary_raw, summary_conditional, all_layer_steps = capture.summary(len(ids))
+    summary_raw, summary_conditional, all_layer_steps, all_layer_step_maxes = capture.summary(len(ids))
     raw = processor.tokenizer.decode(ids, skip_special_tokens=False)
     text = processor.tokenizer.decode(ids, skip_special_tokens=True)
     reasoning, separator, answer = text.partition("</think>")
@@ -240,6 +249,7 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
         "attention_axes": ["step", "layer", "head", "patch_y", "patch_x"],
         "summary_axes": ["layer", "patch_y", "patch_x"],
         "all_layer_step_axes": ["step", "patch_y", "patch_x"],
+        "all_layer_step_max_definition": "At each step, each patch is the maximum of the 36 decoder-layer mean-query-head attention values.",
         "summary_definition": {
             "raw": "Mean over all generated steps of the mean query-head attention assigned to each image token.",
             "conditional": "At each generated step, normalize the mean query-head image attention over image tokens; then mean over all generated steps.",
@@ -251,7 +261,8 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
     destination.mkdir(parents=True, exist_ok=False)
     np.savez_compressed(destination / "attention.npz", attention=attention)
     np.savez_compressed(destination / "full_layer_summary.npz", raw=summary_raw, conditional=summary_conditional)
-    np.savez_compressed(destination / "all_layer_steps.npz", direct_layer_sum=all_layer_steps)
+    np.savez_compressed(destination / "all_layer_steps.npz", direct_layer_sum=all_layer_steps,
+                        direct_layer_max=all_layer_step_maxes)
     (destination / "result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     (destination / "response.txt").write_text(text, encoding="utf-8")
     return result
