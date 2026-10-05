@@ -17,8 +17,8 @@ from frieda_evaluation import evaluate_frieda, print_summary
 # 1. Stable experiment settings
 # ============================================================
 
-MODEL_NAME = "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit"
-MAX_NEW_TOKENS = 3072
+MODEL_NAME = "Qwen/Qwen3-VL-8B-Thinking"
+MAX_NEW_TOKENS = 10000
 DISTANCE_TOLERANCE = 0.20
 JUDGE_MODEL: Optional[str] = "mistralai/Ministral-8B-Instruct-2410"
 

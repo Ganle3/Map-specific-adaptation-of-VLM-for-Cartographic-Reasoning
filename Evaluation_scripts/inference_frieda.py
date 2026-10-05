@@ -40,8 +40,8 @@ from peft import PeftModel
 # 1. Default configuration
 # ============================================================
 
-MODEL_NAME = "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit"
-MAX_NEW_TOKENS = 3072
+MODEL_NAME = "Qwen/Qwen3-VL-8B-Thinking"
+MAX_NEW_TOKENS = 10000
 DO_SAMPLE = False
 PRINT_EVERY = 1
 SAVE_EVERY = 1
@@ -434,6 +434,8 @@ def build_prediction_record(
         ).strip(),
         "map_count": str(sample.get("map_count", "")).strip(),
         "domain": str(sample.get("domain", "")).strip(),
+        "ability_level": str(sample.get("ability_level", "")).strip(),
+        "ability_rationale": str(sample.get("ability_rationale", "")).strip(),
         "image_urls": list(sample.get("image_urls", [])),
         "resolved_image_paths": [str(path) for path in image_paths],
         "base_model_name": model_name,

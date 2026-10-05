@@ -767,6 +767,7 @@ def summarize_results(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
         "by_spatial_relationship": {},
         "by_map_count": {},
         "by_domain": {},
+        "by_ability_level": {},
         "by_evaluator": {},
     }
 
@@ -775,6 +776,7 @@ def summarize_results(rows: list[Mapping[str, Any]]) -> dict[str, Any]:
         "by_spatial_relationship": "spatial_relationship",
         "by_map_count": "map_count",
         "by_domain": "domain",
+        "by_ability_level": "ability_level",
         "by_evaluator": "evaluator",
     }
 
@@ -857,6 +859,7 @@ def save_results(
         "spatial_relationship",
         "map_count",
         "domain",
+        "ability_level",
         "question_text",
         "expected_answer",
         "extracted_answer",
@@ -1122,6 +1125,23 @@ def print_summary(summary: Mapping[str, Any]) -> None:
     print(f"Textual accuracy:      {_format_accuracy(summary.get('textual_accuracy'))}")
     print(f"Distance accuracy:     {_format_accuracy(summary.get('distance_accuracy'))}")
     print(f"Cardinal accuracy:     {_format_accuracy(summary.get('cardinal_accuracy'))}")
+
+    ability_groups = summary.get("by_ability_level", {})
+    if ability_groups:
+        print("Ability-level accuracy:")
+        for level in ("L4", "L5", "L6", "L7"):
+            if level in ability_groups:
+                group = ability_groups[level]
+                print(
+                    f"  {level}: {_format_accuracy(group.get('accuracy'))} "
+                    f"({group.get('correct', 0)}/{group.get('total', 0)})"
+                )
+        for level, group in ability_groups.items():
+            if level not in {"L4", "L5", "L6", "L7"}:
+                print(
+                    f"  {level}: {_format_accuracy(group.get('accuracy'))} "
+                    f"({group.get('correct', 0)}/{group.get('total', 0)})"
+                )
 
     distance_mape = summary.get("distance_mape")
     if distance_mape is not None:
