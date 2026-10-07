@@ -550,8 +550,21 @@ def generate_response(
     *,
     max_new_tokens: Optional[int] = MAX_NEW_TOKENS,
     do_sample: bool = DO_SAMPLE,
+    temperature: Optional[float] = None,
+    top_p: Optional[float] = None,
+    top_k: Optional[int] = None,
+    seed: Optional[int] = None,
     thinking_mode: str = THINKING_MODE,
 ) -> tuple[str, int]:
+    """Generate one response.
+
+    Stochastic arguments are optional so the established deterministic
+    inference entry point retains its exact previous behaviour.  Rollout
+    evaluations can pass them to use this shared multimodal preparation and
+    decoding path instead of maintaining a second implementation.
+    """
+    if do_sample and temperature is not None and temperature <= 0:
+        raise ValueError("temperature must be positive when sampling.")
     with Image.open(image_path) as source_image:
         image = source_image.convert("RGB")
         inputs = prepare_multimodal_inputs(
@@ -573,6 +586,13 @@ def generate_response(
         "do_sample": do_sample,
         "use_cache": True,
     }
+    if do_sample:
+        if temperature is not None:
+            generation_kwargs["temperature"] = temperature
+        if top_p is not None:
+            generation_kwargs["top_p"] = top_p
+        if top_k is not None:
+            generation_kwargs["top_k"] = top_k
     if max_new_tokens is not None:
         if max_new_tokens < 1:
             raise ValueError("max_new_tokens must be positive when supplied.")
@@ -584,6 +604,11 @@ def generate_response(
         if generation_config is not None:
             generation_config.max_length = None
             generation_kwargs["generation_config"] = generation_config
+
+    if seed is not None:
+        torch.manual_seed(seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(seed)
 
     with torch.inference_mode():
         generated_ids = model.generate(**inputs, **generation_kwargs)
