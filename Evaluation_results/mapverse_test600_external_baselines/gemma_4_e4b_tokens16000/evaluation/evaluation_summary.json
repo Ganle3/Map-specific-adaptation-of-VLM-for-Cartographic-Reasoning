@@ -1,0 +1,101 @@
+{
+  "total": 600,
+  "correct": 103,
+  "accuracy_percent": 17.166666666666668,
+  "truncated": 0,
+  "truncated_fraction": 0.0,
+  "final_answer_nontruncated": 600,
+  "final_answer_nontruncated_fraction": 1.0,
+  "inference_timed_records": 600,
+  "inference_capped_records_excluded": 0,
+  "inference_capped_records_excluded_fraction": 0.0,
+  "inference_total_seconds": 2450.231000000001,
+  "inference_average_seconds": 4.083718333333335,
+  "inference_min_seconds": 0.157,
+  "inference_max_seconds": 47.363,
+  "by_ability_level": {
+    "L0": {
+      "total": 100,
+      "correct": 13,
+      "accuracy_percent": 13.0,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 100,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "L1": {
+      "total": 100,
+      "correct": 24,
+      "accuracy_percent": 24.0,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 100,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "L2": {
+      "total": 100,
+      "correct": 18,
+      "accuracy_percent": 18.0,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 100,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "L3": {
+      "total": 100,
+      "correct": 18,
+      "accuracy_percent": 18.0,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 100,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "L4": {
+      "total": 100,
+      "correct": 27,
+      "accuracy_percent": 27.0,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 100,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "L5": {
+      "total": 100,
+      "correct": 3,
+      "accuracy_percent": 3.0,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 100,
+      "final_answer_nontruncated_fraction": 1.0
+    }
+  },
+  "by_answer_type": {
+    "Boolean": {
+      "total": 227,
+      "correct": 97,
+      "accuracy_percent": 42.731277533039645,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 227,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "Counting": {
+      "total": 195,
+      "correct": 4,
+      "accuracy_percent": 2.051282051282051,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 195,
+      "final_answer_nontruncated_fraction": 1.0
+    },
+    "Single Entity": {
+      "total": 178,
+      "correct": 2,
+      "accuracy_percent": 1.1235955056179776,
+      "truncated": 0,
+      "truncated_fraction": 0.0,
+      "final_answer_nontruncated": 178,
+      "final_answer_nontruncated_fraction": 1.0
+    }
+  }
+}

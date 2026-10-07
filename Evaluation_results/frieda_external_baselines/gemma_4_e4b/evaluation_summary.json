@@ -1,0 +1,179 @@
+{
+  "overall": {
+    "total": 200,
+    "correct": 41,
+    "accuracy": 0.205
+  },
+  "by_answer_type": {
+    "cardinal": {
+      "total": 24,
+      "correct": 12,
+      "accuracy": 0.5
+    },
+    "distance": {
+      "total": 19,
+      "correct": 3,
+      "accuracy": 0.15789473684210525
+    },
+    "textual": {
+      "total": 157,
+      "correct": 26,
+      "accuracy": 0.16560509554140126
+    }
+  },
+  "by_spatial_relationship": {
+    "Border": {
+      "total": 31,
+      "correct": 6,
+      "accuracy": 0.1935483870967742
+    },
+    "Distance": {
+      "total": 37,
+      "correct": 8,
+      "accuracy": 0.21621621621621623
+    },
+    "Equal": {
+      "total": 16,
+      "correct": 2,
+      "accuracy": 0.125
+    },
+    "Intersect": {
+      "total": 41,
+      "correct": 5,
+      "accuracy": 0.12195121951219512
+    },
+    "Orientation": {
+      "total": 27,
+      "correct": 12,
+      "accuracy": 0.4444444444444444
+    },
+    "Within": {
+      "total": 48,
+      "correct": 8,
+      "accuracy": 0.16666666666666666
+    }
+  },
+  "by_map_count": {
+    "Multi": {
+      "total": 101,
+      "correct": 23,
+      "accuracy": 0.22772277227722773
+    },
+    "Single": {
+      "total": 99,
+      "correct": 18,
+      "accuracy": 0.18181818181818182
+    }
+  },
+  "by_domain": {
+    "Disaster/hazard": {
+      "total": 28,
+      "correct": 8,
+      "accuracy": 0.2857142857142857
+    },
+    "Environmental review": {
+      "total": 43,
+      "correct": 11,
+      "accuracy": 0.2558139534883721
+    },
+    "Geology report": {
+      "total": 73,
+      "correct": 15,
+      "accuracy": 0.2054794520547945
+    },
+    "Investment/infrastructure": {
+      "total": 10,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "Park & trail map": {
+      "total": 5,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "Planning (city/region)": {
+      "total": 41,
+      "correct": 7,
+      "accuracy": 0.17073170731707318
+    }
+  },
+  "by_ability_level": {
+    "L4": {
+      "total": 50,
+      "correct": 6,
+      "accuracy": 0.12
+    },
+    "L5": {
+      "total": 50,
+      "correct": 12,
+      "accuracy": 0.24
+    },
+    "L6": {
+      "total": 50,
+      "correct": 16,
+      "accuracy": 0.32
+    },
+    "L7": {
+      "total": 50,
+      "correct": 7,
+      "accuracy": 0.14
+    }
+  },
+  "by_evaluator": {
+    "cardinal_adjacent": {
+      "total": 20,
+      "correct": 12,
+      "accuracy": 0.6
+    },
+    "cardinal_parse_error": {
+      "total": 4,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "distance_mape": {
+      "total": 18,
+      "correct": 3,
+      "accuracy": 0.16666666666666666
+    },
+    "distance_parse_error": {
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "llm_judge": {
+      "total": 134,
+      "correct": 3,
+      "accuracy": 0.022388059701492536
+    },
+    "normalized_exact": {
+      "total": 22,
+      "correct": 22,
+      "accuracy": 1.0
+    },
+    "normalized_item_match": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 1.0
+    }
+  },
+  "distance_mape": 0.6848065829196197,
+  "missing_or_empty_predictions": 0,
+  "inference_time": {
+    "mean_seconds": 20.704615000000004,
+    "included_count": 200,
+    "excluded_count": 0,
+    "total_count": 200,
+    "excluded_by_reason": {}
+  },
+  "total": 200,
+  "correct": 41,
+  "overall_accuracy": 0.205,
+  "textual_accuracy": 0.16560509554140126,
+  "distance_accuracy": 0.15789473684210525,
+  "cardinal_accuracy": 0.5,
+  "artifacts": {
+    "details_json": "/cluster/scratch/junyhuang/thesis/benchmarks/frieda_external_baselines/gemma_4_e4b/evaluation_details.json",
+    "summary_json": "/cluster/scratch/junyhuang/thesis/benchmarks/frieda_external_baselines/gemma_4_e4b/evaluation_summary.json",
+    "details_csv": "/cluster/scratch/junyhuang/thesis/benchmarks/frieda_external_baselines/gemma_4_e4b/evaluation_details.csv"
+  }
+}

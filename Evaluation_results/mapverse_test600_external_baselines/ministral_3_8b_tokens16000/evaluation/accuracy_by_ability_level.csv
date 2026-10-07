@@ -1,0 +1,7 @@
+﻿group,total,correct,accuracy_percent,truncated,truncated_fraction,final_answer_nontruncated,final_answer_nontruncated_fraction
+L0,100,39,39.0,13,0.13,87,0.87
+L1,100,53,53.0,16,0.16,84,0.84
+L2,100,29,29.0,34,0.34,66,0.66
+L3,100,28,28.0,26,0.26,74,0.74
+L4,100,35,35.0,21,0.21,79,0.79
+L5,100,23,23.0,42,0.42,58,0.58

@@ -338,13 +338,15 @@ def load_model_and_processor(
     adapter_path: Optional[Path] = None,
     min_pixels: Optional[int] = None,
     max_pixels: Optional[int] = None,
+    load_in_4bit: bool = True,
 ):
-    """Load native Qwen3-VL in the same 4-bit NF4 form used for GRPO."""
+    """Load a VLM in 4-bit NF4 or native BF16 precision."""
     adapter_path = normalize_adapter_path(adapter_path)
 
     print("\nLoading VLM...", flush=True)
     print(f"Base model: {model_name}", flush=True)
     print(f"Adapter:    {adapter_path if adapter_path else 'None (baseline)'}", flush=True)
+    print(f"Precision:  {'4-bit NF4' if load_in_4bit else 'BF16'}", flush=True)
     print_gpu_information()
 
     processor = AutoProcessor.from_pretrained(model_name)
@@ -364,12 +366,14 @@ def load_model_and_processor(
         if processor.tokenizer.pad_token_id is None:
             processor.tokenizer.pad_token = processor.tokenizer.eos_token
 
-    quantization_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16,
-        bnb_4bit_use_double_quant=True,
-    )
+    quantization_config = None
+    if load_in_4bit:
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True,
+        )
 
     normalized_model_name = model_name.casefold()
     model_class = (
@@ -805,6 +809,7 @@ def run_mapwise_inference(
     max_new_tokens: int = MAX_NEW_TOKENS,
     min_pixels: Optional[int] = None,
     max_pixels: Optional[int] = None,
+    load_in_4bit: bool = True,
     thinking_mode: str = THINKING_MODE,
     start_index: int = 0,
     end_index: Optional[int] = None,
@@ -876,6 +881,7 @@ def run_mapwise_inference(
     print(f"Already done:   {len(completed)}")
     print(f"Max tokens:     {max_new_tokens if max_new_tokens is not None else 'unlimited (EOS/stopping criteria)'}")
     print(f"Thinking mode:  {thinking_mode}")
+    print(f"Precision:      {'4-bit NF4' if load_in_4bit else 'BF16'}")
     print(f"Sampling:       {DO_SAMPLE}")
 
     model, processor, adapter_path = load_model_and_processor(
@@ -883,6 +889,7 @@ def run_mapwise_inference(
         adapter_path=adapter_path,
         min_pixels=min_pixels,
         max_pixels=max_pixels,
+        load_in_4bit=load_in_4bit,
     )
 
     newly_completed = 0
@@ -1065,6 +1072,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--min-pixels", type=int, default=65536)
     parser.add_argument("--max-pixels", type=int, default=1000000)
     parser.add_argument(
+        "--no-load-in-4bit",
+        action="store_false",
+        dest="load_in_4bit",
+        help="Load the model in BF16 rather than the default 4-bit NF4 mode.",
+    )
+    parser.add_argument(
         "--thinking",
         choices=("auto", "on", "off"),
         default=THINKING_MODE,
@@ -1089,6 +1102,7 @@ def main() -> Path:
         max_new_tokens=args.max_new_tokens,
         min_pixels=args.min_pixels,
         max_pixels=args.max_pixels,
+        load_in_4bit=args.load_in_4bit,
         thinking_mode=args.thinking,
         start_index=args.start_index,
         end_index=args.end_index,
