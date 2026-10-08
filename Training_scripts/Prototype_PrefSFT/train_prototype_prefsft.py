@@ -14,6 +14,7 @@ from contextlib import nullcontext
 from pathlib import Path
 
 import torch
+from torch import nn
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import LambdaLR
 
@@ -84,7 +85,9 @@ def _scores(model, hook, rows, processor, *, micro_batch: int, with_grad: bool,
             cache_context = vision_cache.use([vision_key] * len(batch["input_ids"])) if vision_cache else nullcontext()
             with cache_context:
                 with hook.context(grids, capture_attention=retain_attention):
-                    logits = model(**batch).logits
+                    # KV cache is useful for generation, but only wastes memory during
+                    # full teacher forcing and multiplies retained-graph memory here.
+                    logits = model(**batch, use_cache=False).logits
             values.append(normalized_logprob(logits, labels))
     return torch.cat(values)
 
@@ -138,7 +141,19 @@ def train(args: argparse.Namespace) -> None:
         wandb.init(project=args.wandb_project, name=args.wandb_run_name, config=vars(args))
     except ImportError:
         wandb = None
-    model.eval(); prototype.train()
+    # Decoder checkpointing is required on a 24-GB GPU because preference loss
+    # retains all eight trajectory graphs until same-question pairing. The
+    # backbone stays frozen; Dropout is forced back to eval for deterministic
+    # fixed-rollout scoring while model.train() activates HF checkpoint paths.
+    if hasattr(model, "gradient_checkpointing_enable"):
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+    if hasattr(model, "config"):
+        model.config.use_cache = False
+    model.train()
+    for module in model.modules():
+        if isinstance(module, nn.Dropout):
+            module.eval()
+    prototype.train()
     try:
         for epoch in range(start_epoch, args.epochs):
             random.shuffle(questions)

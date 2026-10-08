@@ -37,7 +37,7 @@ def main():
             labels = batch.pop("labels")
             cache_context = vision_cache.use([vision_cache_key(q)] * len(ts)) if vision_cache else nullcontext()
             with cache_context:
-                with torch.no_grad(): scores = normalized_logprob(model(**batch).logits, labels)
+                with torch.no_grad(): scores = normalized_logprob(model(**batch, use_cache=False).logits, labels)
             for t, score in zip(ts, scores):
                 existing[trajectory_key(q, t)] = {"baseline_normalized_logprob": float(score.cpu())}
         if qi % 10 == 0 or qi == len(questions):

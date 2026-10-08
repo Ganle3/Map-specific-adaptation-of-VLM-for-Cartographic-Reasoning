@@ -36,7 +36,7 @@ def main():
             inputs = make_trajectory_inputs(processor, question, question["trajectories"][0], image, device)
             inputs.pop("labels")
             with cache.capture(key):
-                with torch.no_grad(): model(**inputs)
+                with torch.no_grad(): model(**inputs, use_cache=False)
             print(f"[{index}/{len(questions)}] cached {question['qa_id']}", flush=True)
     finally:
         cache.remove()
