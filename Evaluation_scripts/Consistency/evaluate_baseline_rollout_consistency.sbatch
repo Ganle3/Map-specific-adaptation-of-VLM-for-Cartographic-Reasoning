@@ -2,7 +2,7 @@
 # GRPO-style baseline consistency on the held-out MapWise-400 and MapVerse-600 tests.
 #SBATCH --account=es_ikg
 #SBATCH --partition=gpupr.120
-#SBATCH --gpus=a100:1
+#SBATCH --gpus=rtx_4090:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=8G

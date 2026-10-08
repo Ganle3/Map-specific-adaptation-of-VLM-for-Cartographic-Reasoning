@@ -2,7 +2,7 @@
 # GRPO-style consistency of the MapWise-3000 adapter on both held-out tests.
 #SBATCH --account=es_ikg
 #SBATCH --partition=gpupr.120
-#SBATCH --gpus=a100:1
+#SBATCH --gpus=rtx_4090:1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=8G
