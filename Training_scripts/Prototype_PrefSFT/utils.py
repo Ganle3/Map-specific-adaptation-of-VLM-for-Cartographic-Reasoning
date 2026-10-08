@@ -79,26 +79,24 @@ def make_trajectory_inputs(processor, question: dict[str, Any], trajectory: dict
     input_ids = torch.cat((prompt_ids, response_ids)).unsqueeze(0)
     labels = torch.full_like(input_ids, -100)
     labels[:, prompt_ids.numel():] = response_ids
-    # Processor output can include a per-token type tensor. It must grow with
-    # raw_response just like input_ids; leaving its prompt-only length causes
-    # Qwen3-VL's RoPE indexing mask-shape failure. Position/rope values, if a
-    # processor version supplied them, are intentionally recomputed by model.
-    result = {
-        key: value for key, value in prompt_inputs.items()
-        if torch.is_tensor(value) and key not in {
-            "input_ids", "attention_mask", "token_type_ids", "input_token_type",
-            "position_ids", "rope_deltas",
-        }
-    }
-    for type_key in ("token_type_ids", "input_token_type"):
-        if type_key in prompt_inputs:
-            prompt_types = prompt_inputs[type_key]
-            if prompt_types.ndim != 2 or prompt_types.shape != prompt_inputs["input_ids"].shape:
-                raise RuntimeError(f"Unexpected {type_key} shape {tuple(prompt_types.shape)}")
-            # Assistant completion tokens are ordinary text tokens (type 0).
-            result[type_key] = torch.cat((prompt_types, torch.zeros(
-                (1, response_ids.numel()), dtype=prompt_types.dtype)), dim=1)
-    result.update(input_ids=input_ids, labels=labels, attention_mask=torch.ones_like(input_ids))
+    # A processor version may name its token-type field differently. Extend
+    # *every* 2-D tensor aligned with prompt input_ids rather than relying on a
+    # field name, otherwise Qwen3-VL RoPE sees a prompt-length type tensor and
+    # a longer attention mask. Explicit position/rope caches must be rebuilt.
+    result = {}
+    prompt_shape = prompt_inputs["input_ids"].shape
+    for key, value in prompt_inputs.items():
+        if not torch.is_tensor(value) or key in {"input_ids", "attention_mask", "position_ids", "rope_deltas"}:
+            continue
+        if value.ndim == 2 and value.shape == prompt_shape:
+            result[key] = torch.cat((value, torch.zeros(
+                (1, response_ids.numel()), dtype=value.dtype)), dim=1)
+        else:
+            result[key] = value
+    prompt_mask = prompt_inputs.get("attention_mask", torch.ones_like(prompt_inputs["input_ids"]))
+    result.update(input_ids=input_ids, labels=labels,
+                  attention_mask=torch.cat((prompt_mask, torch.ones(
+                      (1, response_ids.numel()), dtype=prompt_mask.dtype)), dim=1))
     return {k: v.to(device) for k, v in result.items()}
 
 
@@ -106,13 +104,18 @@ def collate_trajectory_inputs(rows: list[dict[str, torch.Tensor]], pad_token_id:
     """Right-pad text; concatenate Qwen flattened visual tensors/grids."""
     maximum = max(x["input_ids"].shape[1] for x in rows)
     result: dict[str, torch.Tensor] = {}
-    for key in ("input_ids", "labels", "attention_mask"):
+    sequence_keys = ["input_ids", "labels", "attention_mask"] + [
+        key for key, value in rows[0].items()
+        if key not in {"input_ids", "labels", "attention_mask"}
+        and value.ndim == 2 and value.shape == rows[0]["input_ids"].shape
+    ]
+    for key in sequence_keys:
         chunks = []
         for row in rows:
             value = row[key]
             pad = maximum - value.shape[1]
             if pad:
-                fill = pad_token_id if key == "input_ids" else (0 if key == "attention_mask" else -100)
+                fill = pad_token_id if key == "input_ids" else (-100 if key == "labels" else 0)
                 value = torch.nn.functional.pad(value, (0, pad), value=fill)
             chunks.append(value)
         result[key] = torch.cat(chunks, dim=0)
