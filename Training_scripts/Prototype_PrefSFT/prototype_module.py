@@ -29,7 +29,9 @@ class PrototypeRoutingModule(nn.Module):
         if tau1 <= 0 or tau2 <= 0:
             raise ValueError("tau1 and tau2 must be positive")
         self.prototypes = nn.Parameter(torch.randn(num_prototypes, hidden_size) * 0.02)
-        self.alpha = nn.Parameter(torch.tensor(float(alpha_init)))
+        # Fixed residual scale: persisted in state_dict and device-aware, but
+        # deliberately excluded from optimization for controlled intervention.
+        self.register_buffer("alpha", torch.tensor(float(alpha_init)))
         self.num_prototypes = num_prototypes
         self.tau1, self.tau2 = float(tau1), float(tau2)
         self.last_collect_attention: Optional[torch.Tensor] = None

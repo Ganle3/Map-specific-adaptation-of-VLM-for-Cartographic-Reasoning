@@ -42,9 +42,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--tau1", type=float, default=0.1, help="Prototype-to-patch collection temperature.")
     p.add_argument("--tau2", type=float, default=0.1, help="Patch-to-prototype distribution temperature.")
     p.add_argument("--prototype-learning-rate", type=float, default=5e-4,
-                   help="Learning rate for P tokens and residual gate alpha.")
-    p.add_argument("--alpha-learning-rate", type=float, default=None,
-                   help="Defaults to prototype LR. Kept separate for controlled gate tuning.")
+                   help="Learning rate for the only trainable routing parameters, P tokens.")
     p.add_argument("--beta", type=float, default=1.0)
     p.add_argument("--warmup-ratio", type=float, default=0.03)
     p.add_argument("--max-grad-norm", type=float, default=1.0)
@@ -120,10 +118,8 @@ def train(args: argparse.Namespace) -> None:
                                            device=device, dtype=torch.bfloat16)
     hook = VisionPrototypeHook(visual, prototype)
     vision_cache = CachedVisionForward(visual, args.vision_cache_dir) if args.vision_cache_dir else None
-    alpha_lr = args.alpha_learning_rate if args.alpha_learning_rate is not None else args.prototype_learning_rate
     optimizer = AdamW([
         {"params": [prototype.prototypes], "lr": args.prototype_learning_rate, "weight_decay": 0.0},
-        {"params": [prototype.alpha], "lr": alpha_lr, "weight_decay": 0.0},
     ])
     total_steps = math.ceil(len(questions) / args.question_batch_size) * args.epochs
     warmup = int(total_steps * args.warmup_ratio)
@@ -184,7 +180,6 @@ def train(args: argparse.Namespace) -> None:
                                for parameter in parameters if parameter.grad is not None]
                     return torch.sqrt(torch.stack(squared).sum()) if squared else torch.zeros((), device=device)
                 p_grad_norm = gradient_norm([prototype.prototypes])
-                alpha_grad_norm = gradient_norm([prototype.alpha])
                 grad_norm = torch.nn.utils.clip_grad_norm_(prototype.parameters(), args.max_grad_norm)
                 optimizer.step(); scheduler.step(); step += 1
                 metrics = {"loss/preference": float(torch.stack([x.loss for x in logged]).mean().detach().cpu()),
@@ -196,10 +191,10 @@ def train(args: argparse.Namespace) -> None:
                            "pref/positive_score_baseline": float(torch.stack([x.positive_score_baseline for x in logged]).mean().detach().cpu()),
                            "pref/negative_score_baseline": float(torch.stack([x.negative_score_baseline for x in logged]).mean().detach().cpu()),
                            "train/alpha": float(prototype.alpha.detach().cpu()), "train/lr": scheduler.get_last_lr()[0],
-                           "train/lr_prototype": scheduler.get_last_lr()[0], "train/lr_alpha": scheduler.get_last_lr()[1],
+                           "train/lr_prototype": scheduler.get_last_lr()[0],
                            "train/grad_norm": float(grad_norm.detach().cpu()),
                            "grad_norm/P": float(p_grad_norm.detach().cpu()),
-                           "grad_norm/alpha": float(alpha_grad_norm.detach().cpu()),
+                           "grad_norm/alpha": 0.0,
                            "representation/residual_relative_norm": float(prototype.last_residual_relative_norm.cpu())}
                 metrics.update(cosine_metrics(prototype.prototypes, collect_attention_for_metrics))
                 if wandb: wandb.log(metrics, step=step)
