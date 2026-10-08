@@ -19,9 +19,13 @@ def main():
     p.add_argument("--rollouts", type=Path, required=True); p.add_argument("--cache-dir", type=Path, required=True)
     p.add_argument("--mapwise-image-root", type=Path, required=True); p.add_argument("--mapverse-image-root", type=Path, required=True)
     p.add_argument("--adapter-path", type=Path, required=True); p.add_argument("--model-name", default="Qwen/Qwen3-VL-8B-Thinking")
-    p.add_argument("--full-precision", action="store_true"); args = p.parse_args()
-    questions = load_questions(args.rollouts)
-    model, processor = load_backbone(args.model_name, args.adapter_path, load_in_4bit=not args.full_precision)
+    p.add_argument("--full-precision", action="store_true")
+    p.add_argument("--min-pixels", type=int, default=65536); p.add_argument("--max-pixels", type=int, default=1000000)
+    p.add_argument("--min-correct", type=int, default=1); p.add_argument("--max-correct", type=int, default=7)
+    args = p.parse_args()
+    questions = load_questions(args.rollouts, min_correct=args.min_correct, max_correct=args.max_correct)
+    model, processor = load_backbone(args.model_name, args.adapter_path, load_in_4bit=not args.full_precision,
+                                     min_pixels=args.min_pixels, max_pixels=args.max_pixels)
     model.eval(); device = model_device(model); cache = CachedVisionForward(qwen_visual(model), args.cache_dir)
     try:
         for index, question in enumerate(questions, 1):

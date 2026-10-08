@@ -19,10 +19,13 @@ def main():
     p.add_argument("--trajectory-micro-batch-size", type=int, default=1)
     p.add_argument("--full-precision", action="store_true")
     p.add_argument("--vision-cache-dir", type=Path, default=None)
+    p.add_argument("--min-pixels", type=int, default=65536); p.add_argument("--max-pixels", type=int, default=1000000)
+    p.add_argument("--min-correct", type=int, default=1); p.add_argument("--max-correct", type=int, default=7)
     args = p.parse_args()
     existing = json.loads(args.output.read_text(encoding="utf-8")).get("scores", {}) if args.output.exists() else {}
-    questions = load_questions(args.rollouts)
-    model, processor = load_backbone(args.model_name, args.adapter_path, load_in_4bit=not args.full_precision); model.eval(); device = model_device(model)
+    questions = load_questions(args.rollouts, min_correct=args.min_correct, max_correct=args.max_correct)
+    model, processor = load_backbone(args.model_name, args.adapter_path, load_in_4bit=not args.full_precision,
+                                     min_pixels=args.min_pixels, max_pixels=args.max_pixels); model.eval(); device = model_device(model)
     vision_cache = CachedVisionForward(qwen_visual(model), args.vision_cache_dir) if args.vision_cache_dir else None
     for qi, q in enumerate(questions, 1):
         image = image_for_question(q, args.mapwise_image_root, args.mapverse_image_root)

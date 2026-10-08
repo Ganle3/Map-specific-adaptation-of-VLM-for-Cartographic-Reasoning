@@ -1,0 +1,150 @@
+{
+  "overall": {
+    "total": 400,
+    "correct": 206,
+    "incorrect": 194,
+    "accuracy": 0.515,
+    "average_generated_tokens": 367.72,
+    "average_inference_seconds": 13.254310000000002
+  },
+  "total": 400,
+  "correct": 206,
+  "validation_accuracy": 0.515,
+  "inference_time_normal_responses": {
+    "inclusion_rule": "generated_tokens < max_new_tokens and neither raw_response nor final_answer indicates that the answer cannot be determined or answered",
+    "total_records": 400,
+    "included_count": 399,
+    "excluded_count": 1,
+    "excluded_unanswerable_count": 1,
+    "excluded_token_cap_count": 0,
+    "total_seconds": 5226.558,
+    "average_seconds": 13.099142857142859,
+    "min_seconds": 0.216,
+    "max_seconds": 67.054
+  },
+  "by_ground_truth_type": {
+    "Binary": {
+      "total": 219,
+      "correct": 124,
+      "incorrect": 95,
+      "accuracy": 0.5662100456621004,
+      "average_generated_tokens": 321.89497716894977,
+      "average_inference_seconds": 11.586470319634708
+    },
+    "Count": {
+      "total": 25,
+      "correct": 9,
+      "incorrect": 16,
+      "accuracy": 0.36,
+      "average_generated_tokens": 494.08,
+      "average_inference_seconds": 17.81376
+    },
+    "Range": {
+      "total": 69,
+      "correct": 29,
+      "incorrect": 40,
+      "accuracy": 0.42028985507246375,
+      "average_generated_tokens": 309.60869565217394,
+      "average_inference_seconds": 11.108347826086959
+    },
+    "Single": {
+      "total": 87,
+      "correct": 44,
+      "incorrect": 43,
+      "accuracy": 0.5057471264367817,
+      "average_generated_tokens": 492.85057471264366,
+      "average_inference_seconds": 17.844448275862067
+    }
+  },
+  "by_country": {
+    "china": {
+      "total": 134,
+      "correct": 63,
+      "incorrect": 71,
+      "accuracy": 0.4701492537313433,
+      "average_generated_tokens": 376.54477611940297,
+      "average_inference_seconds": 13.583507462686567
+    },
+    "india": {
+      "total": 133,
+      "correct": 67,
+      "incorrect": 66,
+      "accuracy": 0.5037593984962406,
+      "average_generated_tokens": 417.23308270676694,
+      "average_inference_seconds": 15.064323308270676
+    },
+    "usa": {
+      "total": 133,
+      "correct": 76,
+      "incorrect": 57,
+      "accuracy": 0.5714285714285714,
+      "average_generated_tokens": 309.3157894736842,
+      "average_inference_seconds": 11.112624060150381
+    }
+  },
+  "by_ability_level": {
+    "L0": {
+      "total": 100,
+      "correct": 77,
+      "incorrect": 23,
+      "accuracy": 0.77,
+      "average_generated_tokens": 81.06,
+      "average_inference_seconds": 2.9448899999999982
+    },
+    "L1": {
+      "total": 100,
+      "correct": 35,
+      "incorrect": 65,
+      "accuracy": 0.35,
+      "average_generated_tokens": 263.75,
+      "average_inference_seconds": 9.414339999999994
+    },
+    "L2": {
+      "total": 100,
+      "correct": 48,
+      "incorrect": 52,
+      "accuracy": 0.48,
+      "average_generated_tokens": 500.86,
+      "average_inference_seconds": 18.058210000000003
+    },
+    "L3": {
+      "total": 100,
+      "correct": 46,
+      "incorrect": 54,
+      "accuracy": 0.46,
+      "average_generated_tokens": 625.21,
+      "average_inference_seconds": 22.599799999999995
+    }
+  },
+  "by_answer_type": {
+    "Unknown": {
+      "total": 400,
+      "correct": 206,
+      "incorrect": 194,
+      "accuracy": 0.515,
+      "average_generated_tokens": 367.72,
+      "average_inference_seconds": 13.254310000000002
+    }
+  },
+  "by_task_category": {
+    "Unknown": {
+      "total": 400,
+      "correct": 206,
+      "incorrect": 194,
+      "accuracy": 0.515,
+      "average_generated_tokens": 367.72,
+      "average_inference_seconds": 13.254310000000002
+    }
+  },
+  "generation": {
+    "extractable_answers": 400,
+    "answer_extraction_rate": 1.0,
+    "complete_generations": 400,
+    "completion_rate": 1.0
+  },
+  "artifacts": {
+    "details_json": "/cluster/scratch/junyhuang/thesis/benchmarks/mapwise_test400_external_baselines/gemma_4_e4b_bf16_tokens10000/evaluation/evaluation_details.json",
+    "details_csv": "/cluster/scratch/junyhuang/thesis/benchmarks/mapwise_test400_external_baselines/gemma_4_e4b_bf16_tokens10000/evaluation/evaluation_details.csv",
+    "summary_json": "/cluster/scratch/junyhuang/thesis/benchmarks/mapwise_test400_external_baselines/gemma_4_e4b_bf16_tokens10000/evaluation/evaluation_summary.json"
+  }
+}

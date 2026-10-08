@@ -14,51 +14,57 @@ import torch
 from torch import nn
 
 
-class PrototypeTransformer(nn.Module):
-    """One pre-norm Transformer block operating on [vision, prototypes]."""
+class PrototypeRoutingModule(nn.Module):
+    """Parameter-light image-conditioned prototype routing before Qwen merger.
 
-    def __init__(self, hidden_size: int, num_prototypes: int, num_heads: int = 16,
-                 mlp_ratio: float = 4.0, alpha_init: float = 0.01):
+    P reads image patches (P -> Z), producing P_img, then patches read only
+    image-conditioned prototypes (Z -> P_img). There are deliberately no Q/K/V
+    projections: the only learned visual-routing parameters are P and alpha.
+    """
+
+    def __init__(self, hidden_size: int, num_prototypes: int, alpha_init: float = 0.01,
+                 tau1: float = 0.1, tau2: float = 0.1):
         super().__init__()
-        if hidden_size % num_heads:
-            raise ValueError(f"hidden_size={hidden_size} is not divisible by heads={num_heads}")
-        self.prototypes = nn.Parameter(torch.randn(1, num_prototypes, hidden_size) * 0.02)
-        self.norm1 = nn.LayerNorm(hidden_size)
-        self.attn = nn.MultiheadAttention(hidden_size, num_heads, batch_first=True)
-        self.norm2 = nn.LayerNorm(hidden_size)
-        self.mlp = nn.Sequential(
-            nn.Linear(hidden_size, int(hidden_size * mlp_ratio)), nn.GELU(),
-            nn.Linear(int(hidden_size * mlp_ratio), hidden_size),
-        )
+        if tau1 <= 0 or tau2 <= 0:
+            raise ValueError("tau1 and tau2 must be positive")
+        self.prototypes = nn.Parameter(torch.randn(num_prototypes, hidden_size) * 0.02)
         self.alpha = nn.Parameter(torch.tensor(float(alpha_init)))
         self.num_prototypes = num_prototypes
-        self.last_attention: Optional[torch.Tensor] = None
+        self.tau1, self.tau2 = float(tau1), float(tau2)
+        self.last_collect_attention: Optional[torch.Tensor] = None
+        self.last_distribute_attention: Optional[torch.Tensor] = None
+        self.last_image_prototypes: Optional[torch.Tensor] = None
         self.last_residual_relative_norm: Optional[torch.Tensor] = None
 
-    def forward(self, z: torch.Tensor, *, retain_attention: bool = False) -> torch.Tensor:
-        # z is [images, patches, D]; P exists only within this method.
-        p = self.prototypes.expand(z.shape[0], -1, -1).to(dtype=z.dtype)
-        x = torch.cat((z, p), dim=1)
-        h = self.norm1(x)
-        attended, weights = self.attn(h, h, h, need_weights=retain_attention,
-                                      average_attn_weights=False)
-        x = x + attended
-        x = x + self.mlp(self.norm2(x))
-        z_prime = x[:, :z.shape[1]]
-        z_out = z + self.alpha.to(z.dtype) * (z_prime - z)
+    def forward(self, z: torch.Tensor, *, return_maps: bool = False) -> torch.Tensor | dict[str, torch.Tensor]:
+        z_norm = torch.nn.functional.normalize(z.float(), dim=-1).to(z.dtype)
+        p_norm = torch.nn.functional.normalize(self.prototypes.float(), dim=-1).to(z.dtype)
+        collect_logits = torch.einsum("kd,bnd->bkn", p_norm, z_norm) / self.tau1
+        collect_attn = torch.softmax(collect_logits, dim=-1)
+        p_img = torch.einsum("bkn,bnd->bkd", collect_attn, z)
+        p_img_norm = torch.nn.functional.normalize(p_img.float(), dim=-1).to(z.dtype)
+        distribute_logits = torch.einsum("bnd,bkd->bnk", z_norm, p_img_norm) / self.tau2
+        distribute_attn = torch.softmax(distribute_logits, dim=-1)
+        delta_z = torch.einsum("bnk,bkd->bnd", distribute_attn, p_img)
+        z_out = z + self.alpha.to(z.dtype) * delta_z
         with torch.no_grad():
             self.last_residual_relative_norm = (
                 (z_out - z).float().norm(dim=-1).mean() /
                 z.float().norm(dim=-1).mean().clamp_min(1e-8)
             ).detach()
-            self.last_attention = weights.detach() if retain_attention else None
+            self.last_collect_attention = collect_attn.detach() if return_maps else None
+            self.last_distribute_attention = distribute_attn.detach() if return_maps else None
+            self.last_image_prototypes = p_img.detach() if return_maps else None
+        if return_maps:
+            return {"z_out": z_out, "collect_attn": collect_attn,
+                    "distribute_attn": distribute_attn, "image_prototypes": p_img}
         return z_out
 
 
 class VisionPrototypeHook:
     """Injects the module exactly before Qwen's final vision-language merger."""
 
-    def __init__(self, visual: nn.Module, prototype: PrototypeTransformer):
+    def __init__(self, visual: nn.Module, prototype: PrototypeRoutingModule):
         self.visual, self.prototype = visual, prototype
         if not hasattr(visual, "merger"):
             raise AttributeError("Expected Qwen visual.merger; unsupported Qwen architecture.")
@@ -78,8 +84,9 @@ class VisionPrototypeHook:
             )
         pieces, start = [], 0
         for length in lengths:
-            pieces.append(self.prototype(z[start:start + length].unsqueeze(0),
-                                         retain_attention=self.capture_attention).squeeze(0))
+            routed = self.prototype(z[start:start + length].unsqueeze(0),
+                                     return_maps=self.capture_attention)
+            pieces.append((routed["z_out"] if self.capture_attention else routed).squeeze(0))
             start += length
         return (torch.cat(pieces, dim=0), *args[1:])
 

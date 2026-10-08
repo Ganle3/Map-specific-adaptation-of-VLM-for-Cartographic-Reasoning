@@ -17,10 +17,14 @@ if str(INFERENCE_DIR) not in sys.path:
 import inference_mapwise_trl as inference  # noqa: E402
 
 
-def load_questions(path: str | Path, cache_path: str | Path | None = None) -> list[dict[str, Any]]:
-    """Load only complete mixed groups and merge immutable baseline cache by key."""
+def load_questions(path: str | Path, cache_path: str | Path | None = None,
+                   min_correct: int = 1, max_correct: int = 7) -> list[dict[str, Any]]:
+    """Load all complete mixed groups and merge immutable baseline cache by key."""
     source = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not 0 < min_correct <= max_correct < 8:
+        raise ValueError("Require 0 < min_correct <= max_correct < 8")
     questions = [q for q in source["questions"] if q.get("rollout_outcome") == "mixed"
+                 and min_correct <= int(q.get("num_correct", 0)) <= max_correct
                  and any(t.get("correct") for t in q["trajectories"])
                  and any(not t.get("correct") for t in q["trajectories"])]
     if cache_path is not None:
@@ -111,11 +115,15 @@ def normalized_logprob(logits: torch.Tensor, labels: torch.Tensor) -> torch.Tens
 
 
 def load_backbone(model_name: str, adapter_path: str | Path, *, device_map: str = "auto",
-                  load_in_4bit: bool = True):
+                  load_in_4bit: bool = True, min_pixels: int | None = 65536,
+                  max_pixels: int | None = 1000000):
     """Load base+GRPO adapter and freeze absolutely every existing parameter."""
     from transformers import AutoModelForImageTextToText, AutoProcessor
     from peft import PeftModel
     processor = AutoProcessor.from_pretrained(model_name)
+    if hasattr(processor, "image_processor"):
+        if min_pixels is not None: processor.image_processor.min_pixels = min_pixels
+        if max_pixels is not None: processor.image_processor.max_pixels = max_pixels
     if hasattr(processor, "tokenizer"):
         processor.tokenizer.padding_side = "right"
         if processor.tokenizer.pad_token_id is None:
@@ -147,15 +155,15 @@ def qwen_visual(model):
     raise AttributeError("Could not find visual module on loaded Qwen3-VL/PEFT model.")
 
 
-def cosine_metrics(prototypes: torch.Tensor, attention: torch.Tensor | None) -> dict[str, float]:
-    p = torch.nn.functional.normalize(prototypes.detach().float(), dim=-1)[0]
+def cosine_metrics(prototypes: torch.Tensor, collect_attention: torch.Tensor | None) -> dict[str, float]:
+    p = torch.nn.functional.normalize(prototypes.detach().float(), dim=-1)
     matrix = p @ p.T
     offdiag = matrix[~torch.eye(matrix.shape[0], dtype=torch.bool, device=matrix.device)]
     output = {"prototype/mean_cosine_similarity": float(offdiag.mean().cpu()) if offdiag.numel() else 1.0}
-    if attention is not None:
-        # attention is [images, heads, N+K, N+K]; compare P->Z maps.
+    if collect_attention is not None:
+        # Collection maps are [images, K, N], directly comparable P -> patch maps.
         k = p.shape[0]
-        a = attention[:, :, -k:, :-k].mean(dim=(0, 1)).float()
+        a = collect_attention.mean(dim=0).float()
         a = torch.nn.functional.normalize(a, dim=-1)
         am = a @ a.T
         off = am[~torch.eye(k, dtype=torch.bool, device=am.device)]

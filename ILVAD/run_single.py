@@ -30,7 +30,7 @@ def arguments():
     p.add_argument("--window", type=int, default=4, help="Rolling mode: latest native-attention steps per fresh map.")
     p.add_argument("--update-interval", type=int, default=4, help="Rolling mode: replace map every K steps.")
     p.add_argument("--warmup", type=int, default=4, help="Rolling mode: native-attention steps before first map.")
-    p.add_argument("--alpha", type=float, default=1.5)
+    p.add_argument("--alpha", type=float, default=2.0)
     p.add_argument("--beta", type=float, default=0.0)
     p.add_argument("--tau", type=float, default=5.0)
     p.add_argument("--layers", nargs="+", type=int, default=list(range(8, 36)))
