@@ -7,6 +7,7 @@ Qwen's spatial merger.
 from __future__ import annotations
 
 from contextlib import contextmanager
+import copy
 from pathlib import Path
 from typing import Optional
 
@@ -112,6 +113,7 @@ class CachedVisionForward:
     features are supported by caching/replaying their second return value.
     """
     def __init__(self, visual: nn.Module, cache_dir: str | Path):
+        self.cache_version = 2
         self.visual, self.root = visual, Path(cache_dir)
         self.root.mkdir(parents=True, exist_ok=True)
         self.original_forward = visual.forward
@@ -126,7 +128,13 @@ class CachedVisionForward:
         return self.root / (hashlib.sha256(key.encode("utf-8")).hexdigest() + ".pt")
 
     def has(self, key: str) -> bool:
-        return self._path(key).is_file()
+        path = self._path(key)
+        if not path.is_file():
+            return False
+        try:
+            return torch.load(path, map_location="cpu").get("version") == self.cache_version
+        except Exception:
+            return False
 
     def _capture_before_merger(self, module, args):
         if self.capture_key is not None:
@@ -135,6 +143,14 @@ class CachedVisionForward:
     @staticmethod
     def _cpu(value):
         if torch.is_tensor(value): return value.detach().cpu()
+        if isinstance(value, dict):
+            copied = copy.copy(value)
+            for key, item in value.items():
+                converted = CachedVisionForward._cpu(item)
+                copied[key] = converted
+                try: setattr(copied, key, converted)
+                except (AttributeError, TypeError): pass
+            return copied
         if isinstance(value, tuple): return tuple(CachedVisionForward._cpu(x) for x in value)
         if isinstance(value, list): return [CachedVisionForward._cpu(x) for x in value]
         return value
@@ -144,6 +160,14 @@ class CachedVisionForward:
         first = values[0]
         if torch.is_tensor(first):
             return torch.cat([x.to(device=device, dtype=dtype) for x in values], dim=0)
+        if isinstance(first, dict):
+            copied = copy.copy(first)
+            for key in first:
+                joined = CachedVisionForward._cat([x[key] for x in values], device, dtype)
+                copied[key] = joined
+                try: setattr(copied, key, joined)
+                except (AttributeError, TypeError): pass
+            return copied
         if isinstance(first, tuple):
             return tuple(CachedVisionForward._cat([x[i] for x in values], device, dtype) for i in range(len(first)))
         if isinstance(first, list):
@@ -156,15 +180,21 @@ class CachedVisionForward:
             z = self._cat([x["z"] for x in entries], next(self.visual.merger.parameters()).device,
                           next(self.visual.merger.parameters()).dtype)
             merged = self.visual.merger(z)
-            auxiliary = self._cat([x["auxiliary"] for x in entries], z.device, z.dtype)
-            return merged if auxiliary is None else (merged, *auxiliary)
+            output = self._cat([x["template"] for x in entries], z.device, z.dtype)
+            if not hasattr(output, "pooler_output"):
+                raise RuntimeError("Cached vision template lacks pooler_output; rebuild the vision cache.")
+            output["pooler_output"] = merged
+            output.pooler_output = merged
+            return output
         output = self.original_forward(*args, **kwargs)
         if self.capture_key is not None:
             if self._captured_z is None:
                 raise RuntimeError("Did not observe final ViT states at visual.merger while building cache.")
-            auxiliary = output[1:] if isinstance(output, tuple) else None
             temporary = self._path(self.capture_key).with_suffix(".tmp")
-            torch.save({"z": self._captured_z, "auxiliary": self._cpu(auxiliary)}, temporary)
+            if not hasattr(output, "pooler_output"):
+                raise RuntimeError("Unsupported Qwen visual output: expected object with pooler_output.")
+            torch.save({"version": self.cache_version, "z": self._captured_z,
+                        "template": self._cpu(output)}, temporary)
             temporary.replace(self._path(self.capture_key))
             self._captured_z = None
         return output
