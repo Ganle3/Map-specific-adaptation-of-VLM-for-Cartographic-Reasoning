@@ -132,7 +132,7 @@ class CachedVisionForward:
         if not path.is_file():
             return False
         try:
-            return torch.load(path, map_location="cpu").get("version") == self.cache_version
+            return torch.load(path, map_location="cpu", weights_only=False).get("version") == self.cache_version
         except Exception:
             return False
 
@@ -176,7 +176,9 @@ class CachedVisionForward:
 
     def _forward(self, *args, **kwargs):
         if self.keys is not None:
-            entries = [torch.load(self._path(key), map_location="cpu") for key in self.keys]
+            # Cache files are local artifacts produced by this script and contain
+            # a trusted Transformers ModelOutput template, not weights only.
+            entries = [torch.load(self._path(key), map_location="cpu", weights_only=False) for key in self.keys]
             z = self._cat([x["z"] for x in entries], next(self.visual.merger.parameters()).device,
                           next(self.visual.merger.parameters()).dtype)
             merged = self.visual.merger(z)
