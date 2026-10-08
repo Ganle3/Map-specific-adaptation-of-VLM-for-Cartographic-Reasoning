@@ -79,9 +79,26 @@ def make_trajectory_inputs(processor, question: dict[str, Any], trajectory: dict
     input_ids = torch.cat((prompt_ids, response_ids)).unsqueeze(0)
     labels = torch.full_like(input_ids, -100)
     labels[:, prompt_ids.numel():] = response_ids
-    result = {k: v for k, v in prompt_inputs.items() if torch.is_tensor(v)}
-    result.update(input_ids=input_ids, labels=labels,
-                  attention_mask=torch.ones_like(input_ids))
+    # Processor output can include a per-token type tensor. It must grow with
+    # raw_response just like input_ids; leaving its prompt-only length causes
+    # Qwen3-VL's RoPE indexing mask-shape failure. Position/rope values, if a
+    # processor version supplied them, are intentionally recomputed by model.
+    result = {
+        key: value for key, value in prompt_inputs.items()
+        if torch.is_tensor(value) and key not in {
+            "input_ids", "attention_mask", "token_type_ids", "input_token_type",
+            "position_ids", "rope_deltas",
+        }
+    }
+    for type_key in ("token_type_ids", "input_token_type"):
+        if type_key in prompt_inputs:
+            prompt_types = prompt_inputs[type_key]
+            if prompt_types.ndim != 2 or prompt_types.shape != prompt_inputs["input_ids"].shape:
+                raise RuntimeError(f"Unexpected {type_key} shape {tuple(prompt_types.shape)}")
+            # Assistant completion tokens are ordinary text tokens (type 0).
+            result[type_key] = torch.cat((prompt_types, torch.zeros(
+                (1, response_ids.numel()), dtype=prompt_types.dtype)), dim=1)
+    result.update(input_ids=input_ids, labels=labels, attention_mask=torch.ones_like(input_ids))
     return {k: v.to(device) for k, v in result.items()}
 
 
