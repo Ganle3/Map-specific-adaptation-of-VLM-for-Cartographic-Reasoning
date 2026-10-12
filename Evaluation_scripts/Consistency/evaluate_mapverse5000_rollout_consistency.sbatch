@@ -58,18 +58,4 @@ run_test() {
 run_test mapwise_test400 "$MAPWISE_QA" "$IMG_MAPWISE" "$MAPWISE_EVAL"
 run_test mapverse_test600 "$MAPVERSE_QA" "$IMG_MAPVERSE" "$MAPVERSE_EVAL"
 
-# Map-wise test set: final checkpoints produced by this new run.
-srun "${CONTAINER[@]}" \
-  python -u "$EVALUATE" \
-    --run-dir "$RUN_DIR" \
-    --qa-json "$MAPWISE_QA" \
-    --image-root "$IMG_MAPWISE" \
-    --evaluation-script "$MAPWISE_EVAL" \
-    --max-new-tokens 10000 \
-    --min-pixels 65536 \
-    --max-pixels 1000000 \
-    --sampling-draws 0 \
-    --checkpoint-steps 5000 \
-    --output-subdir "evaluation_test400_final_adapter_unlimited_tokens"
-
 echo "COMPLETE: $RUN_DIR"
