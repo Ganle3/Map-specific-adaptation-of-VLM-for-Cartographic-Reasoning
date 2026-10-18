@@ -1,0 +1,51 @@
+{
+  "roi_original_pixels": [
+    544,
+    355,
+    800,
+    485
+  ],
+  "global_grid": [
+    28,
+    34
+  ],
+  "roi_token_count": 28,
+  "global_token_count": 952,
+  "prefix": "So, let's look at the map. The legend says \"Russian military control\" is the solid\n pink color. Now, identify which cities are in that pink area. Let's list the cities:\n Kharkiv is white (Ukraine held), Zaporizhzhia is white, Pok\nrovsk is white. Then Luhansk is pink, Mariupol is pink, Donetsk is",
+  "conditions": [
+    {
+      "condition": "global_roi_bias",
+      "bias": 0.0,
+      "equivalent_copies": 1.0,
+      "continuation": " pink, Melitopol is pink, Bakhmut is white. Wait, check each city:\n\n- Kharkiv: white (Ukraine)\n- Zaporizhzhia: white\n- Pokrovsk: white\n- Bakhmut: white\n- Luhansk: pink (Russian control)\n- Donetsk: pink\n- Mariupol: pink\n- Melitopol: pink\n\nSo that's Luhansk, Donetsk, Mariupol, Melitopol. Let's count: 4 cities.\n</think>\n\nTo determine how many cities are under Russian military control, we analyze the map using the legend:  \n\n1. **Identify the color for \"Russian military control\"**: The legend specifies that solid pink represents this category.  \n2. **List all cities on the map and check their color**:  \n   - Kharkiv: White (not Russian control)  \n   - Zaporizhzhia: White (not Russian control)  \n   - Pokrovsk: White (not Russian control)  \n   - Bakhmut: White (not Russian control)  \n   - Luhansk: Solid pink (Russian military control)  \n   - Donetsk: Solid pink (Russian military control)  \n   - Mariupol: Solid pink (Russian military control)  \n   - Melitopol: Solid pink (Russian military control)  \n\n3. **Count the cities in solid pink**: Luhansk, Donetsk, Mariupol, and"
+    },
+    {
+      "condition": "global_roi_bias",
+      "bias": 0.693,
+      "equivalent_copies": 1.9997056605411638,
+      "continuation": " pink, Melitopol is pink, Bakhmut is white. Wait, check each city:\n\n- Kharkiv: white (Ukraine)\n- Zaporizhzhia: white\n- Pokrovsk: white\n- Bakhmut: white\n- Luhansk: pink (Russian control)\n- Donetsk: pink\n- Mariupol: pink\n- Melitopol: pink\n\nSo that's Luhansk, Donetsk, Mariupol, Melitopol. Let's count: 4 cities.\n</think>\n\nTo determine how many cities are under Russian military control, we analyze the map using the legend:  \n\n1. **Identify the color for \"Russian military control\"**: The legend specifies that solid pink represents this category.  \n2. **List all cities on the map and check their color**:  \n   - Kharkiv: White (not Russian control)  \n   - Zaporizhzhia: White (not Russian control)  \n   - Pokrovsk: White (not Russian control)  \n   - Bakhmut: White (not Russian control)  \n   - Luhansk: Solid pink (Russian military control)  \n   - Donetsk: Solid pink (Russian military control)  \n   - Mariupol: Solid pink (Russian military control)  \n   - Melitopol: Solid pink (Russian military control)  \n\n3. **Count the cities in solid pink**: Luhansk, Donetsk, Mariupol, and"
+    },
+    {
+      "condition": "global_roi_bias",
+      "bias": 1.386,
+      "equivalent_copies": 3.998822728800372,
+      "continuation": " pink, Melitopol is pink, Bakhmut is white (wait, Bakhmut is in the white area, right? The white is Ukraine held or regained. So the pink cities: Luhansk, Mariupol, Donetsk, Melitopol. Let's check each:\n\n- Kharkiv: white (Ukraine)\n- Zaporizhzhia: white (Ukraine)\n- Bakhmut: white (Ukraine)\n- Pokrovsk: white (Ukraine)\n- Luhansk: pink (Russian control)\n- Donetsk: pink (Russian control)\n- Mariupol: pink (Russian control)\n- Melitopol: pink (Russian control)\n\nSo that's four cities: Luhansk, Donetsk, Mariupol, Melitopol.\n</think>\n\nTo determine how many cities are under Russian military control, we analyze the map using the legend:  \n\n1. **Identify the color for \"Russian military control\"**: The legend specifies that solid pink represents \"Russian military control.\"  \n2. **List all cities on the map and check their color**:  \n   - Kharkiv: White (Ukraine-held)  \n   - Zaporizhzhia: White (Ukraine-held)  \n   - Bakhmut: White (Ukraine-held)  \n   - Pokrovsk: White (Ukraine-held)  \n   - Luhansk: Solid pink (Russian military control)  \n   - Donetsk: Solid pink ("
+    },
+    {
+      "condition": "global_roi_bias",
+      "bias": 2.079,
+      "equivalent_copies": 7.99646844628277,
+      "continuation": " pink, Melitopol is pink, Bakhmut is pink, Bakhmut is pink, Bakhm\nmut is pink, Luhansk is pink. Wait, let's check each city:\n\n- Kharkiv: white (Ukraine)\n- Zaporizhzhia: white (Ukraine)\n- Pokrovsk: white (Ukraine)\n- Bakhmut: pink (Russian control)\n- Bakhm\nmut: pink (Russian control)\n- Luhansk: pink (Russian control)\n- Donetsk: pink (Russian control)\n- Mariupol: pink (Russian control)\n- Melitopol: pink (Russian control)\n\nWait, let's count. The cities in pink (Russian military control) are Bakhmut, Bakhm\nmut, Luhansk, Donetsk, Mariupol, Melitopol. Let's check each:\n\nBakhmut: yes, pink. Bakhm\nmut: yes, pink. Luhansk: yes. Donetsk: yes. Mariupol: yes. Melitopol: yes. That's 6 cities. Wait, are there any others? Let's check the map again.\n\nThe cities marked with dots:\n\nKharkiv (white), Zaporizhzhia (white), Pokrovsk (white), Bakhmut (pink), Bakhm\nmut (pink), Luhansk (pink), Donetsk (pink), Mariupol (pink), Melitopol (pink). So that"
+    },
+    {
+      "condition": "global_roi_bias",
+      "bias": 4.0,
+      "equivalent_copies": 54.598150033144236,
+      "continuation": " pink, Melitopol is pink. Wait, let's check each city:\n\n- Kharkiv: white (Ukraine)\n- Zaporizhzhia: white (Ukraine)\n- Pokrovsk: white (Ukraine)\n- Luhansk: pink (Russian control)\n- Donetsk: pink (Russian control)\n- Mariupol: pink (Russian control)\n- Melitopol: pink (Russian control)\n- Bakhmut: the dots are in the pink area, but Bakhmut is a city, so that's another one. Wait, the map has Bakhmut repeated multiple times, but it's one city. So Bakhmut is a city under Russian control.\n\nWait, let's count all cities marked with dots in the pink area:\n\n1. Bakhmut (the city, with multiple dots but it's one city)\n2. Luhansk\n3. Donetsk\n4. Mariupol\n5. Melitopol\n\nWait, are there others? Let's check:\n\n- Kharkiv: white\n- Zaporizhzhia: white\n- Pokrovsk: white\n- Bakhmut: pink (yes, the dots are in the pink region)\n- Luhansk: pink\n- Donetsk: pink\n- Mariupol: pink\n- Melitopol: pink\n\nSo that's Bakhmut, Luhansk, Donetsk, Mariupol, Melitopol. Let's count:"
+    },
+    {
+      "condition": "new_highres_crop_anchor_replay",
+      "continuation": " pink, Melitopol is pink. Wait, check each city:\n\n- Kharkiv: white (Ukraine)\n- Zaporizhzhia: white (Ukraine)\n- Pokrovsk: white (Ukraine)\n- Bakhmut: white (Ukraine)\n- Luhansk: pink (Russian control)\n- Donetsk: pink (Russian control)\n- Mariupol: pink (Russian control)\n- Melitopol: pink (Russian control)\n\nSo count the pink cities: Luhansk, Donetsk, Mariupol, Melitopol. That's 4 cities. Let me confirm. The map shows those four in the pink region. Yep, that's four.\n</think>\n\nTo determine how many cities are under Russian military control, we analyze the map using the legend:  \n\n1. **Identify the color for \"Russian military control\"**: The legend specifies that solid pink represents this category.  \n2. **Locate cities in the solid pink region**:  \n   - Luhansk  \n   - Donetsk  \n   - Mariupol  \n   - Melitopol  \n\n3. **Verify other cities**:  \n   - Kharkiv, Zaporizhzhia, Pokrovsk, and Bakhmut are in white (indicating \"Held or regained by Ukraine\"), so they are not under Russian military control.  \n\nThus, the cities under Russian military control are Luhansk, Donetsk, Mariupol, and Melitopol."
+    }
+  ]
+}

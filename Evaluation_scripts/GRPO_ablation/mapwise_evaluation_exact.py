@@ -711,7 +711,15 @@ def parse_semantic_range(value: Any) -> Optional[tuple[float, float]]:
 
     One-sided categories such as '>350' are NOT converted to a two-ended range.
     """
-    values = _extract_numeric_tokens(value)
+    # A hyphen between two displayed endpoints is a range delimiter, not the
+    # unary minus of the second endpoint.  Without this rewrite, e.g.
+    # ``14.0%-15.9%`` is parsed as ``[14.0, -15.9]`` while ``14-15.9%`` may
+    # be parsed differently depending on surrounding punctuation. Preserve a
+    # leading negative endpoint such as ``-0.01 - 100`` because its first
+    # minus is not preceded by a digit/percent sign.
+    text = _ascii_text(value).replace(",", "")
+    text = re.sub(r"(?<=[\d%])\s*-\s*(?=>?\s*\d)", " to ", text)
+    values = _extract_numeric_tokens(text)
 
     if len(values) != 2:
         return None

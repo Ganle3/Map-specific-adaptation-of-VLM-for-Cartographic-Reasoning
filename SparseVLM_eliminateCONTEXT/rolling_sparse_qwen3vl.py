@@ -265,7 +265,13 @@ def render_window_crops(image_path: Path, result: dict, destination: Path) -> No
     palette = [(231, 76, 60), (46, 204, 113), (52, 152, 219), (241, 196, 15), (155, 89, 182), (26, 188, 156)]
     for window in result["windows"]:
         index = int(window["window"])
-        for kind, label in (("input_regions", "input"), ("next_regions", "next")):
+        kinds = [("input_regions", "input"), ("next_regions", "next")]
+        # Continuous-cache runs optionally add a separate, ungated global
+        # scout.  Render it independently so a focus-pass crop cannot be
+        # mistaken for a full-image rediscovery proposal.
+        if window.get("ungated_global_scout_regions"):
+            kinds.append(("ungated_global_scout_regions", "global_scout"))
+        for kind, label in kinds:
             regions = [PixelRegion(**row) for row in window[kind]]
             overlay = original.copy()
             draw = ImageDraw.Draw(overlay)

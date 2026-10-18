@@ -14,7 +14,8 @@ class MultiImageAttentionCapture:
     full image.
     """
 
-    def __init__(self, model, image_positions: list, grids: list[tuple[int, int]]):
+    def __init__(self, model, image_positions: list, grids: list[tuple[int, int]],
+                 score_mode: str = "attention"):
         from transformers.models.qwen3_vl.modeling_qwen3_vl import Qwen3VLTextAttention
 
         self.modules = {m.layer_idx: m for m in model.modules() if isinstance(m, Qwen3VLTextAttention)}
@@ -22,6 +23,9 @@ class MultiImageAttentionCapture:
             raise ValueError("Need decoder layers and matching image position/grid metadata.")
         self.positions = image_positions
         self.grids = grids
+        if score_mode not in {"attention", "value_norm", "projected_value_norm"}:
+            raise ValueError(f"Unknown visual score mode: {score_mode}")
+        self.score_mode = score_mode
         self.layers = tuple(sorted(self.modules))
         self.raw = {layer: [np.zeros(grid, np.float64) for grid in grids] for layer in self.layers}
         self.conditional = {layer: [np.zeros(grid, np.float64) for grid in grids] for layer in self.layers}
@@ -34,7 +38,11 @@ class MultiImageAttentionCapture:
             self.configs[layer] = module.config
             module.config = copy.copy(module.config)
             module.config._attn_implementation = "eager"
-            self.handles.append(module.register_forward_hook(self._hook(layer)))
+            # Value vectors are available only inside eager_attention_forward;
+            # that path calls record_eager below.  Raw attention can retain the
+            # lighter forward-hook implementation.
+            if self.score_mode == "attention":
+                self.handles.append(module.register_forward_hook(self._hook(layer)))
         return self
 
     def _hook(self, layer):
@@ -50,6 +58,40 @@ class MultiImageAttentionCapture:
                 self.conditional[layer][index] += spatial / max(float(spatial.sum()), np.finfo(np.float32).tiny)
             self.counts[layer] += 1
         return capture
+
+    def record_eager(self, layer, module, weights, value):
+        """Record a value-aware patch score from Qwen eager-attention inputs.
+
+        ``value`` is the cached KV-head tensor; repeat_kv expands it to query
+        heads exactly as Qwen's eager attention implementation does.
+        """
+        if self.score_mode == "attention":
+            return
+        import torch
+        from transformers.models.qwen3_vl.modeling_qwen3_vl import repeat_kv
+
+        value_states = repeat_kv(value, module.num_key_value_groups)[0]
+        for index, (positions, grid) in enumerate(zip(self.positions, self.grids)):
+            patch_values = value_states.index_select(1, positions.to(value_states.device))
+            patch_attention = weights[0, :, -1, :].index_select(-1, positions.to(weights.device))
+            if self.score_mode == "value_norm":
+                score = patch_attention * patch_values.float().norm(dim=-1)
+            else:
+                # o_proj.weight has [hidden_size, num_heads * head_dim].  The
+                # norm is computed in chunks to avoid materialising
+                # [heads, patches, hidden_size] for a whole image at once.
+                heads, _, dim = patch_values.shape
+                out_dim = module.o_proj.weight.shape[0]
+                projection = module.o_proj.weight.float().view(out_dim, heads, dim).permute(1, 2, 0)
+                norms = []
+                for chunk in patch_values.float().split(64, dim=1):
+                    projected = torch.einsum("hpd,hdo->hpo", chunk, projection)
+                    norms.append(projected.norm(dim=-1))
+                score = patch_attention * torch.cat(norms, dim=1)
+            spatial = score.mean(dim=0).detach().float().cpu().numpy().reshape(grid)
+            self.raw[layer][index] += spatial
+            self.conditional[layer][index] += spatial / max(float(spatial.sum()), np.finfo(np.float32).tiny)
+        self.counts[layer] += 1
 
     def __exit__(self, *exc):
         for handle in self.handles:

@@ -104,3 +104,8 @@ global-image attention map; the full image is not re-encoded.
 This is an experimental cache-continuation implementation tied to the local
 Qwen3-VL Transformers version. Start with a single image and inspect its JSON
 `attention_mass.global_share` before drawing conclusions from the bias.
+
+Use `--min-crop-global-patches 2` (the default) to prevent recursive crops
+from shrinking below two-by-two cells of the *initial full-image* patch grid.
+This is a physical original-image constraint, not a count on a later,
+independently resized crop grid.

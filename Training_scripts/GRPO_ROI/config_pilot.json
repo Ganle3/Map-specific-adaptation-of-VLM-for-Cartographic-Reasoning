@@ -1,0 +1,18 @@
+{
+  "num_generations": 4,
+  "max_new_tokens": 1024,
+  "roi_prior_mode": "attention_guided",
+  "attention_prior_alpha": 0.5,
+  "roi_residual_enabled": true,
+  "roi_temperature": 1.0,
+  "initial_attention_strength": 0.5,
+  "max_attention_strength": 4.0,
+  "center_exploration_std": 0.22,
+  "size_exploration_std": 0.25,
+  "strength_exploration_std": 2.0,
+  "roi_boundary_softness": 0.025,
+  "learning_rate": 0.0002,
+  "clip_ratio": 0.2,
+  "ppo_epochs": 1,
+  "pilot_questions": 4
+}
