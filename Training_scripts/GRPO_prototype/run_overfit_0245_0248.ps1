@@ -22,7 +22,7 @@ $output = Join-Path $vlmRoot "Training_outputs\GRPO_prototype_overfit_0245_0248"
     --start-index 245 --end-index 248 `
     --epochs $Epochs --group-size $GroupSize --questions-per-update 4 --eval-after-epoch --save-every-epoch `
     --stop-at-eval-accuracy 1.0 `
-    --max-new-tokens $MaxNewTokens --look-every 20 --max-looks 10 `
+    --max-new-tokens $MaxNewTokens --look-every 20 --max-looks 9 `
     --global-max-pixels 1000000 --crop-max-pixels 1000000 `
     --wandb-project $WandbProject --wandb-mode $WandbMode
 

@@ -199,7 +199,6 @@ def main():
                        "train/mixed_reward_question_fraction": sum(info.get("reward_std", 0.0) > 0
                                                                  for _, info in results) / len(results),
                        "train/crop_append_count": sum(row["crop_append_count"] for row in rows),
-                       "train/crop_replacement_count": sum(row["crop_replacement_count"] for row in rows),
                        "train/questions_per_update": len(batch), "train/rollouts_per_update": len(rows)}
             if torch.cuda.is_available():
                 metrics["system/peak_memory_allocated_gib"] = torch.cuda.max_memory_allocated(device) / 2**30

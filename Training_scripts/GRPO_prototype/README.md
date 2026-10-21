@@ -9,7 +9,7 @@
 
 ## Stage B: live inference
 
-`region_policy.py` defines nine shared action prototypes and nonoverlapping row-major image boxes. `live_rollout.py` preprocesses and runs the native ViT/merger on each crop once per question, then substitutes its cached vision output when the selected crop is appended. The existing global image remains in KV. The look schedule is a fixed reasoning-token window via `--look-every`; no WHEN policy is trained.
+`region_policy.py` defines nine shared action prototypes and nonoverlapping row-major image boxes. `live_rollout.py` preprocesses and runs the native ViT/merger on each crop once per question, then substitutes its cached vision output when the selected crop is appended. The full image, existing reasoning, and every appended crop remain in decoder KV. The look schedule is a fixed reasoning-token window via `--look-every`; no WHEN policy is trained.
 
 ## Stage C: region GRPO
 
@@ -29,7 +29,7 @@ python train.py \
 
 For a deterministic untrained inference pass, add `--eval-only --limit 1`. Run `python self_check.py` for geometry and optimizer checks. Loading a saved region policy uses `--policy-checkpoint /path/to/region_policy.pt`.
 
-For the local four-question overfit experiment, `run_overfit_0245_0248.ps1` selects 1-based JSON rows 245–248, repeats them for 10 epochs, samples 16 rollouts for each question, and updates once per four-question epoch. It also runs one deterministic region-policy evaluation on each selected question after each epoch. Its default W&B mode is online; use `-WandbMode offline` when disconnected. The generated `rollouts.jsonl` records each rollout's epoch, phase and reward, while W&B/console reports training reward, deterministic evaluation accuracy, mixed-reward question fraction, gradient, parameter change and peak VRAM. The overfit criterion is improving deterministic evaluation accuracy across epochs, not a nonzero loss alone.
+For the local four-question overfit experiment, `run_overfit_0245_0248.ps1` selects 1-based JSON rows 245–248, repeats them for 10 epochs, samples 16 rollouts for each question, and updates once per four-question epoch. It uses a fixed LOOK every 20 reasoning tokens with at most 9 crop appends per rollout. It also runs one deterministic region-policy evaluation on each selected question after each epoch. Its default W&B mode is online; use `-WandbMode offline` when disconnected. The generated `rollouts.jsonl` records each rollout's epoch, phase and reward, while W&B/console reports training reward, deterministic evaluation accuracy, mixed-reward question fraction, gradient, parameter change and peak VRAM. The overfit criterion is improving deterministic evaluation accuracy across epochs, not a nonzero loss alone.
 
 ## Verification status
 

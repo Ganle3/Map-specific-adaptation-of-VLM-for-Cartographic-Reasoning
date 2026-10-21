@@ -34,33 +34,6 @@ def _visual_module(model):
     return base.model.visual
 
 
-def _move_dynamic_cache(cache, device):
-    """Move an isolated DynamicCache without changing its sequence contents."""
-    for layer in cache.layers:
-        if getattr(layer, "is_initialized", False):
-            layer.keys = layer.keys.to(device)
-            layer.values = layer.values.to(device)
-            layer.device = torch.device(device)
-    return cache
-
-
-def _replay_visible_trace(model, anchor_past, anchor_cursor: int, token_ids: list[int], device):
-    """Restore global-image KV and assistant text while omitting every prior crop turn."""
-    if not token_ids:
-        raise RuntimeError("Cannot rebuild a crop-free cache without visible assistant tokens.")
-    past = _move_dynamic_cache(copy.deepcopy(anchor_past), device)
-    tokens = torch.tensor([token_ids], device=device, dtype=torch.long)
-    length = tokens.shape[1]
-    positions = torch.arange(anchor_cursor, anchor_cursor + length, device=device, dtype=torch.long)
-    position_ids = positions.view(1, 1, length).expand(3, -1, -1)
-    mask = torch.ones((1, past.get_seq_length() + length), dtype=torch.long, device=device)
-    with torch.inference_mode():
-        output = model(input_ids=tokens, attention_mask=mask, position_ids=position_ids,
-                       past_key_values=past, use_cache=True, return_dict=True, output_hidden_states=True)
-    return (output.logits[:, -1].argmax(dim=-1), output.past_key_values,
-            anchor_cursor + length, output.hidden_states[-1][:, -1, :].detach().clone())
-
-
 def prepare_crops(model, processor, original: Image.Image, device, max_pixels: int, instruction: str):
     """Encode all nine crops once per question, preserving native ViT and merger outputs."""
     visual = _visual_module(model)
@@ -111,16 +84,9 @@ def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global
     pending, past = output.logits[:, -1].argmax(dim=-1), output.past_key_values
     cursor = int(positions.max().item()) + 1
     hidden = output.hidden_states[-1][:, -1, :].detach().clone()
-    # Crop turns are intentionally ephemeral. Keep only the immutable full-map
-    # anchor on CPU, then rebuild global-KV + visible assistant text before
-    # each replacement crop. This avoids retaining old crop K/V in the decoder.
-    anchor_past = _move_dynamic_cache(copy.deepcopy(past), torch.device("cpu"))
-    anchor_cursor = cursor
-    del output
     eos = processor.tokenizer.eos_token_id
     eos_ids = set(map(int, eos)) if isinstance(eos, (list, tuple, set)) else {int(eos)}
     ids, actions, diagnostics = [], [], []
-    replacement_count = 0
     for _ in range(max_new_tokens):
         token = int(pending.item())
         ids.append(token)
@@ -140,24 +106,10 @@ def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global
                                 "probabilities": probs[0].detach().cpu().tolist(),
                                 "selected_action": action, "crop_box": box,
                                 "selected_log_probability": float(logp.detach())})
-            if actions[:-1]:
-                # The old crop turn lies before recent reasoning K/V, so it
-                # cannot be safely excised in place. Rebuild from the global
-                # anchor and replay only visible assistant tokens instead.
-                del past
-                if torch.cuda.is_available():
-                    torch.cuda.empty_cache()
-                pending, past, cursor, hidden = _replay_visible_trace(
-                    model, anchor_past, anchor_cursor, ids, device
-                )
-                diagnostics[-1]["replaced_previous_crop"] = True
-                replacement_count += 1
-            else:
-                diagnostics[-1]["replaced_previous_crop"] = False
             pending, past, cursor, hidden = _append_prepared(model, prepared[action], past, cursor, device)
     response = processor.tokenizer.decode(ids, skip_special_tokens=True)
     return {"question_id": item.sample_id, "rollout_id": rollout_id,
             "response": response, "actions": actions, "diagnostics": diagnostics,
-            "crop_append_count": len(actions), "crop_replacement_count": replacement_count,
+            "crop_append_count": len(actions),
             "cache_length": int(past.get_seq_length()),
-            "cache_policy": "global_anchor_plus_visible_trace_plus_latest_crop_only"}
+            "cache_policy": "continuous_global_reasoning_and_all_crop_kv"}
