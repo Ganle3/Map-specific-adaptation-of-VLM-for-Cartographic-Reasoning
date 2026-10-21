@@ -13,8 +13,18 @@ SPARSE = Path(__file__).resolve().parents[2] / "SparseVLM_eliminateCONTEXT"
 if str(SPARSE) not in sys.path:
     sys.path.insert(0, str(SPARSE))
 from continuous_cache_qwen3vl import _append_turn_inputs, _content_inputs, _resize_to_pixel_cap, _segment_positions
-from live_crop_append_interactive import _prompt
 from region_policy import nine_grid_boxes
+
+
+def _prompt(question: str) -> str:
+    """Training prompt copied from the interactive script, without GUI imports."""
+    return ("This is a cartographic reasoning question.\n\n"
+            "Use only the supplied map image to answer the question. Carefully inspect the\n"
+            "map legend, labels, colors, boundaries, spatial relationships, and other\n"
+            "relevant visual information.\n\n"
+            f"Question:\n{question}\n\n"
+            "Provide your answer on a separate line using exactly this format:\n"
+            "Final answer: <answer>")
 
 
 @contextmanager
