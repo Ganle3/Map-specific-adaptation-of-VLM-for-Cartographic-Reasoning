@@ -1,0 +1,89 @@
+{
+  "experiment": "local_qwen3vl_image_zoom_agent",
+  "model_name": "Qwen/Qwen3-VL-8B-Thinking",
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-2500",
+  "quantization": "4-bit NF4, BF16 compute",
+  "generation": {
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "max_new_tokens": 1536,
+    "seed": 3407,
+    "max_tool_calls": 3,
+    "thinking": "auto"
+  },
+  "results": [
+    {
+      "mode": "sanity",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+      "question": "how many of the cities are in Russian military control?",
+      "prompt": "You are solving a cartographic reasoning question. Use only the supplied map image. Think carefully about the legend, city markers, colors, and territorial regions.\n\nFor this tool-calling syntax sanity test, you MUST call request_local_region exactly once before answering. Choose a useful region yourself. Do not invent a crop; use the official tool format.\nThe original image size is 1280 by 1066 pixels. If you call the tool, use absolute pixel bbox_2d coordinates [x1, y1, x2, y2] from top-left to bottom-right, and img_idx=0.\n\nQuestion: how many of the cities are in Russian military control?\n\nAfter any tool response, continue your reasoning and finish with exactly one line: Final answer: <answer>",
+      "tool_name": "request_local_region",
+      "status": "tool_executed",
+      "tool_call_attempted": true,
+      "tool_call_count": 1,
+      "turns": [
+        {
+          "turn_index": 0,
+          "raw_response": "Okay, let's see. The user is asking how many cities are in Russian military control based on the map.\n\nFirst, I need to check the legend. The pink color represents Russian military control. Now, look at the cities marked on the map. The cities listed are Kharkiv, Bakhmut, Luhansk, Pokrovske, Donetsk, Mariupol, Melitopol, and Zaporizhzhia.\n\nNow, which of these are in the pink area (Russian control)? Let's go through each:\n\n- Kharkiv: It's in the white area (Ukraine), so not Russian control.\n- Bakhmut: Also white, so no.\n- Luhansk: Pink, so yes.\n- Pokrovske: White, no.\n- Donetsk: Pink, yes.\n- Mariupol: Pink, yes.\n- Melitopol: Pink, yes.\n- Zaporizhzhia: White, no.\n\nSo that's Luhansk, Donetsk, Mariupol, Melitopol. That's 4 cities. Wait, let me double-check. The map shows Luhansk, Donetsk, Mariupol, and Melitopol in the pink region. The others are in white. So the answer should be 4.\n\nBut the user wants me to call the request_local_region tool first. The instruction says to call it exactly once before answering. The original image is 1280x1066. I need to choose a region. Maybe zoom in on the area where the cities are. Let's pick a bounding box around the cities in Russian control. For example, from around x=400 to x=800 and y=400 to y=900. But the exact coordinates need to be absolute. Let me think: the cities like Donetsk, Luhansk, Mariupol are in the pink area. The bounding box should cover those cities. Maybe [450, 400, 850, 900] as a sample. But the exact values might vary. Wait, the user said to use the official tool format. Since the image is 1280x1066, the coordinates should be absolute. Let me check the positions.\n\nLooking at the map, the pink area is the eastern part. The cities in Russian control are Donetsk, Luhansk, Mariupol, Melitopol. So the region around those cities. Let's say the bounding box from x=400 to x=850, y=400 to y=900. But maybe better to pick a specific area. Alternatively, the user might expect a crop that includes the cities in question. Since the answer is 4, but the tool call is required first. So I need to make a tool call with a bbox that's relevant. Let's choose [450, 400, 850, 900] as an example. Then proceed to answer.\n</think>\n\n<tool_call>\n{\"name\": \"request_local_region\", \"arguments\": {\"bbox_2d\": [450, 400, 850, 900], \"label\": \"Russian military control cities\", \"img_idx\": 0}}\n</tool_call>",
+          "generated_tokens": 689,
+          "tool_calls": [
+            {
+              "raw": "{\"name\": \"request_local_region\", \"arguments\": {\"bbox_2d\": [450, 400, 850, 900], \"label\": \"Russian military control cities\", \"img_idx\": 0}}",
+              "name": "request_local_region",
+              "arguments": {
+                "bbox_2d": [
+                  450,
+                  400,
+                  850,
+                  900
+                ],
+                "label": "Russian military control cities",
+                "img_idx": 0
+              }
+            }
+          ]
+        },
+        {
+          "turn_index": 1,
+          "raw_response": "Okay, let's see. The user asked how many cities are in Russian military control. The map shows the legend where pink is Russian military control.\n\nLooking at the original image, the cities marked are Kharkiv, Bakhmut, Luhansk, Pokrovske, Donetsk, Mariupol, Melitopol, and Zaporizhzhia. Now, checking which of these are in the pink area.\n\nKharkiv is white (Ukraine), so not Russian. Bakhmut is also white. Luhansk is pink. Pokrovske is white. Donetsk is pink. Mariupol is pink. Melitopol is pink. Zaporizhzhia is white.\n\nSo Luhansk, Donetsk, Mariupol, Melitopol are in Russian control. That's 4 cities.\n\nThe tool call was made to zoom into the region, and the cropped image shows those cities. Confirming again, the four cities are in the pink area. So the answer should be 4.\n</think>\n\nFinal answer: 4",
+          "generated_tokens": 218,
+          "tool_calls": []
+        }
+      ],
+      "crops": [
+        {
+          "source_image": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+          "source_size": [
+            1280,
+            1066
+          ],
+          "bbox_2d_absolute_pixels": [
+            450.0,
+            400.0,
+            850.0,
+            900.0
+          ],
+          "bbox_pixels_before_resize": [
+            450.0,
+            400.0,
+            850.0,
+            900.0
+          ],
+          "crop_size_lossless": [
+            400,
+            500
+          ],
+          "img_idx": 0,
+          "label": "Russian military control cities",
+          "crop_path": "VLM_adaptation\\VPD\\agent_crop\\outputs_checkpoint2500_absolute_bbox\\sanity\\crops\\crop_12f2eaf65bec4418853940c9e9304c5b.png"
+        }
+      ],
+      "final_raw_response": "Okay, let's see. The user asked how many cities are in Russian military control. The map shows the legend where pink is Russian military control.\n\nLooking at the original image, the cities marked are Kharkiv, Bakhmut, Luhansk, Pokrovske, Donetsk, Mariupol, Melitopol, and Zaporizhzhia. Now, checking which of these are in the pink area.\n\nKharkiv is white (Ukraine), so not Russian. Bakhmut is also white. Luhansk is pink. Pokrovske is white. Donetsk is pink. Mariupol is pink. Melitopol is pink. Zaporizhzhia is white.\n\nSo Luhansk, Donetsk, Mariupol, Melitopol are in Russian control. That's 4 cities.\n\nThe tool call was made to zoom into the region, and the cropped image shows those cities. Confirming again, the four cities are in the pink area. So the answer should be 4.\n</think>\n\nFinal answer: 4",
+      "final_answer": "4",
+      "elapsed_seconds": 95.633,
+      "model_name": "Qwen/Qwen3-VL-8B-Thinking",
+      "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-2500",
+      "quantization": "4-bit NF4, BF16 compute"
+    }
+  ]
+}

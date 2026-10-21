@@ -42,6 +42,10 @@ class RolloutConfig:
     # the full-image anchor *and* assistant trace under the new ROI bias.
     # Reusing an ungated anchor cache is not equivalent: prompt/header KVs
     # retain an earlier visual routing decision (verified by the HOW test).
+    # ``roi_only`` preserves the existing token-by-token cache; selected ROI
+    # keys are biased only on future decoder forwards.  The default retains
+    # the previously validated intervention: rebuild anchor + visible trace
+    # under the ROI bias without changing visible text.
     how_refresh: str = "roi_biased_full_anchor_trace"
     # Optionally rewrite the newest visible reasoning suffix after LOOK. The
     # preserved prefix is teacher-forced from the immutable anchor under the
@@ -208,6 +212,10 @@ def rollout(model, processor, item: MapQuestion, controller: WhenWhereController
     Qwen computation graph.
     """
     device = model.get_input_embeddings().weight.device
+    if cfg.how_refresh not in {"roi_only", "roi_biased_full_anchor_trace"}:
+        raise ValueError(f"Unknown how_refresh={cfg.how_refresh!r}.")
+    if cfg.how_refresh == "roi_only" and cfg.revision_tokens:
+        raise ValueError("revision_tokens requires how_refresh='roi_biased_full_anchor_trace'.")
     original = Image.open(item.image_path).convert("RGB")
     global_image = _resize_to_pixel_cap(original, cfg.global_max_pixels)
     # Match the native GRPO inference contract.  This asks Qwen itself to
@@ -310,21 +318,33 @@ def rollout(model, processor, item: MapQuestion, controller: WhenWhereController
                         # global gate rather than receiving a net penalty.
                         active_visual_bias = torch.maximum(global_gate, roi_bias)
                         tracked, grids = [global_positions], [global_grid]
-                        # Discard the old working cache before the ROI-biased
-                        # anchor re-prefill. The emitted trace stays exactly
-                        # unchanged; only its hidden/KV states change.
-                        del past
-                        if torch.cuda.is_available():
-                            torch.cuda.empty_cache()
-                        revised_count = min(cfg.revision_tokens, max(0, len(trace_token_ids) - 1))
-                        replay_ids = trace_token_ids[:-revised_count] if revised_count else trace_token_ids
-                        pending, past, cursor = _refresh_trace_from_anchor(
-                            model, initial, replay_ids,
-                            global_positions, active_visual_bias,
-                        )
-                        replayed_tokens = len(replay_ids)
+                        # This is the literal assistant-text boundary at which
+                        # LOOK is selected: ``trace_token_ids`` contains all
+                        # tokens already emitted, while ``pending`` is the next
+                        # token to be generated under the refreshed ROI bias.
+                        # Record it before refresh/regeneration so diagnostics
+                        # cannot accidentally highlight the first post-LOOK
+                        # token as if it preceded LOOK.
+                        visible_trace_before_look = trace
+                        visible_token_count_before_look = len(trace_token_ids)
+                        revised_count = 0
+                        replayed_tokens = 0
                         regenerated = 0
-                        if revised_count:
+                        if cfg.how_refresh == "roi_biased_full_anchor_trace":
+                            # Discard the old working cache before the ROI-biased
+                            # anchor re-prefill. The emitted trace stays exactly
+                            # unchanged; only its hidden/KV states change.
+                            del past
+                            if torch.cuda.is_available():
+                                torch.cuda.empty_cache()
+                            revised_count = min(cfg.revision_tokens, max(0, len(trace_token_ids) - 1))
+                            replay_ids = trace_token_ids[:-revised_count] if revised_count else trace_token_ids
+                            pending, past, cursor = _refresh_trace_from_anchor(
+                                model, initial, replay_ids,
+                                global_positions, active_visual_bias,
+                            )
+                            replayed_tokens = len(replay_ids)
+                        if cfg.how_refresh == "roi_biased_full_anchor_trace" and revised_count:
                             # Keep the textual prefix verbatim, then let the
                             # new ROI-conditioned cache replace only its recent
                             # suffix. The final ``pending`` remains outside KV,
@@ -341,13 +361,19 @@ def rollout(model, processor, item: MapQuestion, controller: WhenWhereController
                                         model, pending, past, cursor, global_positions, tracked, grids,
                                         active_visual_bias, 0.0, "attention")
                             trace = processor.tokenizer.decode(trace_token_ids, skip_special_tokens=True)
-                        else:
+                        elif cfg.how_refresh == "roi_biased_full_anchor_trace":
                             if _is_terminal_token(model, pending):
                                 reasoning_ended = True
                             else:
                                 trace_token_ids.append(int(pending.item()))
                                 trace = processor.tokenizer.decode(trace_token_ids, skip_special_tokens=True)
                         look_events.append({"token": token_index, "regions": [asdict(r) for r in selected],
+                                            # Exact visible text boundary at which the controller
+                                            # chose LOOK: the token with this index has not yet
+                                            # been emitted.  Kept for diagnostics/HTML alignment;
+                                            # it is not fed back to the policy.
+                                            "visible_trace_before_look": visible_trace_before_look,
+                                            "visible_token_count_before_look": visible_token_count_before_look,
                                             "roi_visual_tokens": int((roi_bias > 0).sum().item()),
                                             # Auditable mapping from original-image ROI to the
                                             # immutable global visual KV.  Local indices are in
@@ -363,9 +389,10 @@ def rollout(model, processor, item: MapQuestion, controller: WhenWhereController
                         visited.extend(selected)
                         previous_attention, latest_main_attention, latest_main_layers = None, None, None
                         cooldown = cfg.cooldown_tokens
-                        if not revised_count:
+                        if cfg.how_refresh == "roi_biased_full_anchor_trace" and not revised_count:
                             token_index += 1
-                        continue
+                        if cfg.how_refresh == "roi_biased_full_anchor_trace":
+                            continue
             previous_attention = diagnostic_attention
         active_gate = active_visual_bias
         pending, past, cursor, _maps = _continue_one(model, pending, past, cursor, global_positions, tracked, grids,

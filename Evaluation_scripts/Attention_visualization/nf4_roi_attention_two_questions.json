@@ -1,0 +1,14 @@
+[
+  {
+    "qa_id": "mapverse_764_damascus_assad_south",
+    "question": "How many cities south of Damascus are Assad government controlled?",
+    "prompt": "This is a cartographic reasoning question.\n\nUse only the supplied map image to answer the question. Carefully inspect the\nmap legend, labels, colors, boundaries, spatial relationships, and other\nrelevant visual information.\n\nQuestion:\nHow many cities south of Damascus are Assad government controlled?\n\nProvide your answer on a separate line using exactly this format:\nFinal answer: <answer>",
+    "image": "../../../MapVerse/data/imgs/764.png"
+  },
+  {
+    "qa_id": "mapverse_82_yellow_m4_regime",
+    "question": "How many yellow M4 boxes that are in the Regime forces area are on the map?",
+    "prompt": "This is a cartographic reasoning question.\n\nUse only the supplied map image to answer the question. Carefully inspect the\nmap legend, labels, colors, boundaries, spatial relationships, and other\nrelevant visual information.\n\nQuestion:\nHow many yellow M4 boxes that are in the Regime forces area are on the map?\n\nProvide your answer on a separate line using exactly this format:\nFinal answer: <answer>",
+    "image": "../../../MapVerse/data/imgs/82.jpg"
+  }
+]

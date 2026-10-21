@@ -28,21 +28,20 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
 
-# Unsloth must be imported before transformers / peft.
-import unsloth  # noqa: F401
-
 import torch
 from peft import PeftModel
 from PIL import Image
-from transformers import AutoModelForImageTextToText, AutoProcessor
+from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
 
 
 # ============================================================
 # 1. Default configuration
 # ============================================================
 
-# Keep this identical to the base model used for GRPO training.
-MODEL_NAME = "unsloth/Qwen3-VL-8B-Thinking-unsloth-bnb-4bit"
+# Match the official base plus bitsandbytes NF4 configuration used by the
+# Debug_GRPO QLoRA trainer.  An Unsloth-prequantized checkpoint is a distinct
+# numerical backbone and is not an exact replacement for this adapter.
+MODEL_NAME = "Qwen/Qwen3-VL-8B-Thinking"
 MAX_NEW_TOKENS = 3072
 DO_SAMPLE = False
 THINKING_MODE = "auto"  # auto | on | off
@@ -347,6 +346,10 @@ def load_model_and_processor(
         model_name,
         device_map="auto",
         dtype=torch.bfloat16,
+        quantization_config=BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True,
+        ),
         trust_remote_code=True,
         low_cpu_mem_usage=True,
     )

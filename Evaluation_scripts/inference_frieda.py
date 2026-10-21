@@ -32,6 +32,7 @@ from PIL import Image
 from transformers import (
     AutoModelForImageTextToText,
     AutoProcessor,
+    BitsAndBytesConfig,
     Qwen3VLForConditionalGeneration,
 )
 try:
@@ -236,6 +237,7 @@ def print_gpu_information() -> None:
 def load_model_and_processor(
     model_name: str = MODEL_NAME,
     adapter_path: Optional[Path] = None,
+    load_in_4bit: bool = True,
 ):
     """Load a FRIEDA VLM, optionally wrapped with a PEFT/LoRA adapter."""
     print("\nLoading FRIEDA vision-language model...", flush=True)
@@ -274,13 +276,15 @@ def load_model_and_processor(
         model_class = AutoModelForImageTextToText
 
     print(f"Model loader: {model_class.__name__}", flush=True)
-    base_model = model_class.from_pretrained(
-        model_name,
-        device_map="auto",
-        dtype=torch.bfloat16,
-        trust_remote_code=True,
-        low_cpu_mem_usage=True,
-    )
+    kwargs = dict(device_map="auto", dtype=torch.bfloat16, trust_remote_code=True, low_cpu_mem_usage=True)
+    # This evaluator also supports Gemma; the requested QLoRA parity applies
+    # only to Qwen3-VL adapters, never to the Gemma branch.
+    if load_in_4bit and "qwen3-vl" in normalized_name:
+        kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True,
+        )
+    base_model = model_class.from_pretrained(model_name, **kwargs)
 
     if resolved_adapter is None:
         model = base_model

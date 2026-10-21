@@ -44,7 +44,7 @@ import unsloth  # noqa: F401
 
 import torch
 from PIL import Image
-from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
+from transformers import AutoProcessor, BitsAndBytesConfig, Qwen3VLForConditionalGeneration
 from peft import PeftModel
 
 
@@ -498,6 +498,7 @@ def _infer_base_model_name(adapter_path: Path, fallback: str) -> str:
 def load_model_and_processor(
     model_name: str,
     adapter_path: Optional[Path] = None,
+    load_in_4bit: bool = True,
 ):
     print("\nLoading Qwen3-VL model...")
     print(f"Base model: {model_name}")
@@ -508,13 +509,13 @@ def load_model_and_processor(
         trust_remote_code=True,
     )
 
-    base_model = Qwen3VLForConditionalGeneration.from_pretrained(
-        model_name,
-        device_map="auto",
-        dtype=torch.bfloat16,
-        trust_remote_code=True,
-        low_cpu_mem_usage=True,
-    )
+    kwargs = dict(device_map="auto", dtype=torch.bfloat16, trust_remote_code=True, low_cpu_mem_usage=True)
+    if load_in_4bit:
+        kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True,
+        )
+    base_model = Qwen3VLForConditionalGeneration.from_pretrained(model_name, **kwargs)
 
     if adapter_path is None:
         print("Adapter:    None (baseline)")

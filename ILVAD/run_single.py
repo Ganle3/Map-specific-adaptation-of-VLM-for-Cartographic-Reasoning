@@ -35,8 +35,8 @@ def arguments():
     p.add_argument("--tau", type=float, default=5.0)
     p.add_argument("--layers", nargs="+", type=int, default=list(range(8, 36)))
     p.add_argument("--thinking-mode", choices=("auto", "on", "off"), default="auto")
-    p.add_argument("--load-in-4bit", action="store_true",
-                   help="Optional bitsandbytes quantization; off means official BF16 loading.")
+    p.add_argument("--load-in-4bit", action=argparse.BooleanOptionalAction, default=True,
+                   help="Use QLoRA-matched NF4 by default; pass --no-load-in-4bit for an explicit BF16 ablation.")
     p.add_argument("--local-files-only", action="store_true")
     p.add_argument("--baseline-only", action="store_true")
     return p.parse_args()

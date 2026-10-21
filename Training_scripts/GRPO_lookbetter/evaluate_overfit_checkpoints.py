@@ -26,9 +26,10 @@ from rollout import RolloutConfig, rollout
 
 
 def _controller(device: torch.device, checkpoint: dict | None, tau0: float, temperature: float,
-                initial_size_scale: float) -> WhenWhereController:
+                initial_size_scale: float, architecture: str, mlp_hidden_dim: int) -> WhenWhereController:
     if checkpoint is None:
-        cfg = ControllerConfig(tau0=tau0, temperature=temperature, initial_size_scale=initial_size_scale)
+        cfg = ControllerConfig(tau0=tau0, temperature=temperature, initial_size_scale=initial_size_scale,
+                               architecture=architecture, mlp_hidden_dim=mlp_hidden_dim)
     else:
         cfg = ControllerConfig(**checkpoint["controller_config"])
     result = WhenWhereController(cfg).to(device).eval()
@@ -95,8 +96,13 @@ def main() -> None:
     parser.add_argument("--attention-mass", type=float, default=0.75)
     parser.add_argument("--proposal-cap", type=int, default=6)
     parser.add_argument("--initial-size-scale", type=float, default=1.5)
+    parser.add_argument("--controller-architecture", choices=("linear", "residual_mlp"), default="linear")
+    parser.add_argument("--mlp-hidden-dim", type=int, default=16)
     parser.add_argument("--roi-key-bias", type=float, default=3.079442)
     parser.add_argument("--global-max-pixels", type=int, default=1_000_000)
+    parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit",
+                        help="Use the old BF16/auto backbone instead of the QLoRA-matched NF4 default.")
+    parser.set_defaults(load_in_4bit=True)
     parser.add_argument("--seed", type=int, default=20261017)
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -105,7 +111,7 @@ def main() -> None:
     checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
     if "controller" not in checkpoint or "controller_config" not in checkpoint:
         raise ValueError("Checkpoint lacks controller/controller_config; require a completed training checkpoint.")
-    model, processor = load_model(None, args.adapter)
+    model, processor = load_model(None, args.adapter, load_in_4bit=args.load_in_4bit)
     model.requires_grad_(False).eval()
     device = model.get_input_embeddings().weight.device
     base = dict(max_reasoning_tokens=args.max_reasoning_tokens, revision_tokens=args.revision_tokens,
@@ -114,11 +120,15 @@ def main() -> None:
                 attention_mass=args.attention_mass, proposal_cap=args.proposal_cap,
                 global_bias_mode="off", roi_key_bias=args.roi_key_bias, global_max_pixels=args.global_max_pixels)
     modes = [
-        ("initial_policy", _controller(device, None, args.tau0, args.temperature, args.initial_size_scale), RolloutConfig(**base)),
-        ("trained_policy", _controller(device, checkpoint, args.tau0, args.temperature, args.initial_size_scale), RolloutConfig(**base)),
-        ("no_look_adapter", _controller(device, None, 1e6, args.temperature, args.initial_size_scale), RolloutConfig(**{**base, "max_looks": 0})),
+        ("initial_policy", _controller(device, None, args.tau0, args.temperature, args.initial_size_scale,
+                                        args.controller_architecture, args.mlp_hidden_dim), RolloutConfig(**base)),
+        ("trained_policy", _controller(device, checkpoint, args.tau0, args.temperature, args.initial_size_scale,
+                                        args.controller_architecture, args.mlp_hidden_dim), RolloutConfig(**base)),
+        ("no_look_adapter", _controller(device, None, 1e6, args.temperature, args.initial_size_scale,
+                                         args.controller_architecture, args.mlp_hidden_dim), RolloutConfig(**{**base, "max_looks": 0})),
     ]
-    result = {"evaluation_config": vars(args), "trained_controller_config": checkpoint["controller_config"],
+    result = {"evaluation_config": vars(args), "backbone_precision": "nf4_4bit_bf16_compute" if args.load_in_4bit else "torch_dtype_auto",
+              "trained_controller_config": checkpoint["controller_config"],
               "modes": []}
     for name, controller, cfg in modes:
         result["modes"].append(_evaluate_mode(name, model, processor, records, controller, cfg,

@@ -357,14 +357,14 @@ def run(model, processor, image_path: Path, question: str, cfg: RollingConfig) -
             "final_answer": _extract_final_answer(final_text), "final_text": final_text}
 
 
-def load_model(model_name: str | None, adapter_path: Path | None):
+def load_model(model_name: str | None, adapter_path: Path | None, *, load_in_4bit: bool = False):
     import torch
     # The project's 4-bit Unsloth checkpoints patch Transformers at import time.
     # Keep the normal Hugging Face path dependency-free for standard adapters.
     if model_name and model_name.lower().startswith("unsloth/"):
         import unsloth  # noqa: F401
     from peft import PeftModel
-    from transformers import AutoModelForImageTextToText, AutoProcessor
+    from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
 
     if adapter_path:
         config_file = adapter_path / "adapter_config.json"
@@ -376,9 +376,16 @@ def load_model(model_name: str | None, adapter_path: Path | None):
         elif adapter_base and model_name != adapter_base:
             raise ValueError(f"Adapter expects base {adapter_base!r}, but --model is {model_name!r}.")
     model_name = model_name or "Qwen/Qwen3-VL-8B-Thinking"
-    model = AutoModelForImageTextToText.from_pretrained(
-        model_name, torch_dtype="auto", device_map="auto", attn_implementation="eager"
-    ).eval()
+    kwargs = dict(device_map="auto", attn_implementation="eager")
+    if load_in_4bit:
+        # Match the frozen backbone used by the Debug_GRPO QLoRA trainer.
+        kwargs.update(torch_dtype=torch.bfloat16, quantization_config=BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True,
+        ))
+    else:
+        kwargs["torch_dtype"] = "auto"
+    model = AutoModelForImageTextToText.from_pretrained(model_name, **kwargs).eval()
     if adapter_path:
         model = PeftModel.from_pretrained(model, str(adapter_path)).eval()
     return model, AutoProcessor.from_pretrained(model_name)

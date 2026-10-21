@@ -1,0 +1,26 @@
+[
+  {
+    "qa_id": "overfit_0245",
+    "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Datasets\\mapwise-dataset\\usa\\images\\with_annotations\\map_104.png",
+    "question": "Which state in the highest range borders at least 1 state with missing data?",
+    "prompt": "This is a cartographic reasoning question.\n\nUse only the supplied map image to answer the question. Carefully inspect the\nmap legend, labels, colors, boundaries, spatial relationships, and other\nrelevant visual information.\n\nQuestion:\nWhich state in the highest range borders at least 1 state with missing data?\n\nProvide your answer on a separate line using exactly this format:\nFinal answer: <answer>"
+  },
+  {
+    "qa_id": "overfit_0246",
+    "image": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Datasets\\mapwise-dataset\\india\\images\\with_annotations\\map22_6C.png",
+    "question": "Which state has the highest value in the west of Odisha?",
+    "prompt": "This is a cartographic reasoning question.\n\nUse only the supplied map image to answer the question. Carefully inspect the\nmap legend, labels, colors, boundaries, spatial relationships, and other\nrelevant visual information.\n\nQuestion:\nWhich state has the highest value in the west of Odisha?\n\nProvide your answer on a separate line using exactly this format:\nFinal answer: <answer>"
+  },
+  {
+    "qa_id": "overfit_0247",
+    "image": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "question": "how many of the cities are in Russian military control?",
+    "prompt": "This is a cartographic reasoning question.\n\nUse only the supplied map image to answer the question. Carefully inspect the\nmap legend, labels, colors, boundaries, spatial relationships, and other\nrelevant visual information.\n\nQuestion:\nhow many of the cities are in Russian military control?\n\nProvide your answer on a separate line using exactly this format:\nFinal answer: <answer>"
+  },
+  {
+    "qa_id": "overfit_0248",
+    "image": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+    "question": "how many of the cities are in Held or regained by Ukraine?",
+    "prompt": "This is a cartographic reasoning question.\n\nUse only the supplied map image to answer the question. Carefully inspect the\nmap legend, labels, colors, boundaries, spatial relationships, and other\nrelevant visual information.\n\nQuestion:\nhow many of the cities are in Held or regained by Ukraine?\n\nProvide your answer on a separate line using exactly this format:\nFinal answer: <answer>"
+  }
+]

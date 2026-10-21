@@ -103,6 +103,8 @@ def main() -> None:
     parser.add_argument("--mapwise-root", type=Path, required=True)
     parser.add_argument("--adapter", type=Path, required=True)
     parser.add_argument("--model", default=None)
+    parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit",
+                        help="Use the legacy non-NF4 loader. Default matches Debug_GRPO QLoRA: NF4 + BF16 compute.")
     parser.add_argument("--controller-checkpoint", type=Path, default=None,
                         help="Optional controller_final.pt/controller_last.pt from train_when_where_grpo.py.")
     parser.add_argument("--output-dir", type=Path, required=True)
@@ -113,11 +115,16 @@ def main() -> None:
     parser.add_argument("--rollouts-per-question", type=int, default=6)
     parser.add_argument("--tau0", type=float, default=None)
     parser.add_argument("--temperature", type=float, default=0.02)
+    parser.add_argument("--controller-architecture", choices=("linear", "residual_mlp"), default="linear")
+    parser.add_argument("--mlp-hidden-dim", type=int, default=16)
     parser.add_argument("--calibration-examples", type=int, default=8)
     parser.add_argument("--target-jsd-quantile", type=float, default=0.85)
     parser.add_argument("--max-reasoning-tokens", type=int, default=320)
     parser.add_argument("--revision-tokens", type=int, default=0,
                         help="After a successful LOOK, regenerate this recent reasoning suffix under its ROI-conditioned anchor refresh.")
+    parser.add_argument("--how-refresh", choices=("roi_only", "roi_biased_full_anchor_trace"),
+                        default="roi_biased_full_anchor_trace",
+                        help="roi_only preserves the current KV cache and biases ROI keys only on future forwards; anchor_trace rebuilds the anchor and visible trace under ROI bias.")
     parser.add_argument("--max-looks", type=int, default=10)
     parser.add_argument("--cooldown-tokens", type=int, default=20)
     parser.add_argument("--eligible-after-tokens", type=int, default=12)
@@ -137,6 +144,7 @@ def main() -> None:
     parser.add_argument("--roi-key-bias", type=float, default=2.079442,
                         help="Additive attention-logit bias for selected existing global visual KV keys.")
     parser.add_argument("--seed", type=int, default=1234)
+    parser.set_defaults(load_in_4bit=True)
     args = parser.parse_args()
     if args.start_index < 1 or args.end_index < args.start_index or args.rollouts_per_question < 2:
         parser.error("Use 1-based start/end indices and at least two rollouts per question.")
@@ -157,10 +165,11 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     readable_dir = args.readable_output_dir or args.output_dir / "readable"
     readable_dir.mkdir(parents=True, exist_ok=True)
-    model, processor = load_model(args.model, args.adapter)
+    model, processor = load_model(args.model, args.adapter, load_in_4bit=args.load_in_4bit)
     model.requires_grad_(False).eval()
     rollout_cfg = RolloutConfig(
         max_reasoning_tokens=args.max_reasoning_tokens,
+        how_refresh=args.how_refresh,
         revision_tokens=args.revision_tokens,
         max_looks=args.max_looks, cooldown_tokens=args.cooldown_tokens,
         eligible_after_tokens=args.eligible_after_tokens, eligible_stride=args.eligible_stride,
@@ -187,14 +196,16 @@ def main() -> None:
     else:
         checkpoint = None
         controller_cfg = ControllerConfig(
-            tau0=tau0, temperature=args.temperature, initial_size_scale=args.initial_size_scale
+            tau0=tau0, temperature=args.temperature, initial_size_scale=args.initial_size_scale,
+            architecture=args.controller_architecture, mlp_hidden_dim=args.mlp_hidden_dim,
         )
     controller = WhenWhereController(controller_cfg).to(
         model.get_input_embeddings().weight.device
     ).eval()
     if checkpoint is not None:
         controller.load_state_dict(checkpoint["controller"], strict=True)
-    settings = {"args": vars(args), "controller": asdict(controller.cfg), "rollout": asdict(rollout_cfg),
+    settings = {"args": vars(args), "backbone_precision": "nf4_4bit_bf16_compute" if args.load_in_4bit else "torch_dtype_auto",
+                "controller": asdict(controller.cfg), "rollout": asdict(rollout_cfg),
                 "calibration": calibration, "dataset_size": len(records)}
     (args.output_dir / "cold_start_config.json").write_text(json.dumps(settings, default=str, indent=2), encoding="utf-8")
     output = args.output_dir / f"cold_start_{args.start_index:04d}_{args.end_index:04d}.jsonl"

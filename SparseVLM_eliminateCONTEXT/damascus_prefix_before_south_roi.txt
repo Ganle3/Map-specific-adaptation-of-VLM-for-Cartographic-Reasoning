@@ -1,0 +1,1 @@
+So, let's look at the map. Damascus is a city, and we need to find cities south of it that are Assad government controlled.

@@ -37,7 +37,7 @@ from typing import Any, Mapping, Optional
 import unsloth  # noqa: F401  # must precede transformers
 import torch
 from PIL import Image
-from transformers import AutoModelForImageTextToText, AutoProcessor
+from transformers import AutoModelForImageTextToText, AutoProcessor, BitsAndBytesConfig
 
 try:
     from peft import PeftModel
@@ -353,7 +353,7 @@ def infer_base_model_name(adapter_path: Path, fallback: str) -> str:
         return fallback
 
 
-def load_model_and_processor(model_name: str, adapter_path: Optional[Path]):
+def load_model_and_processor(model_name: str, adapter_path: Optional[Path], load_in_4bit: bool = True):
     if adapter_path is not None:
         adapter_path = adapter_path.expanduser().resolve()
         model_name = infer_base_model_name(adapter_path, model_name)
@@ -363,13 +363,13 @@ def load_model_and_processor(model_name: str, adapter_path: Optional[Path]):
     print_gpu_information()
 
     processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True)
-    base_model = AutoModelForImageTextToText.from_pretrained(
-        model_name,
-        device_map="auto",
-        torch_dtype=torch.bfloat16,
-        trust_remote_code=True,
-        low_cpu_mem_usage=True,
-    )
+    kwargs = dict(device_map="auto", torch_dtype=torch.bfloat16, trust_remote_code=True, low_cpu_mem_usage=True)
+    if load_in_4bit:
+        kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16, bnb_4bit_use_double_quant=True,
+        )
+    base_model = AutoModelForImageTextToText.from_pretrained(model_name, **kwargs)
 
     if adapter_path is None:
         print("Adapter:    None (baseline)")

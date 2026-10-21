@@ -1,0 +1,24 @@
+[
+  {
+    "source_row": 9235,
+    "image_name": "764.png",
+    "question": "How many cities south of Damascus are Assad government controlled?",
+    "correct_answer": "1",
+    "answer_type": "Counting",
+    "ability_level": "L5",
+    "question_type": "['Positional']",
+    "map_type": "_conflict",
+    "geographic_level": "_country"
+  },
+  {
+    "source_row": 789,
+    "image_name": "82.jpg",
+    "question": "How many yellow M4 boxes that are in the Regime forces area are on the map?",
+    "correct_answer": "0",
+    "answer_type": "Counting",
+    "ability_level": "L5",
+    "question_type": "['Visual']",
+    "map_type": "_conflict",
+    "geographic_level": "_country"
+  }
+]

@@ -18,10 +18,32 @@ class ControllerConfig:
     tau0: float
     temperature: float
     size_sigma: float = 0.35
+    architecture: str = "linear"
+    mlp_hidden_dim: int = 16
     # Multiplicative cold-start centre for legal ROI width/height actions.
     # It is represented by trainable log-scale biases, so GRPO can later
     # learn either expansion or contraction from this prior.
     initial_size_scale: float = 1.0
+
+
+class ZeroInitialisedResidual(nn.Module):
+    """Small nonlinear residual that is exactly zero at cold start.
+
+    The first layer is normally trainable from the second optimizer step; the
+    final layer starts at zero so selecting this module cannot change the
+    validated linear policy before GRPO updates it.
+    """
+    def __init__(self, input_dim: int, hidden_dim: int):
+        super().__init__()
+        self.input = nn.Linear(input_dim, hidden_dim)
+        self.output = nn.Linear(hidden_dim, 1)
+        nn.init.orthogonal_(self.input.weight)
+        nn.init.zeros_(self.input.bias)
+        nn.init.zeros_(self.output.weight)
+        nn.init.zeros_(self.output.bias)
+
+    def forward(self, features: Tensor) -> Tensor:
+        return self.output(torch.tanh(self.input(features))).squeeze(-1)
 
 
 class WhenWhereController(nn.Module):
@@ -33,8 +55,10 @@ class WhenWhereController(nn.Module):
     """
     def __init__(self, cfg: ControllerConfig):
         super().__init__()
-        if cfg.temperature <= 0 or cfg.size_sigma <= 0 or cfg.initial_size_scale <= 0:
-            raise ValueError("temperature, size_sigma, and initial_size_scale must be positive.")
+        if cfg.temperature <= 0 or cfg.size_sigma <= 0 or cfg.initial_size_scale <= 0 or cfg.mlp_hidden_dim < 1:
+            raise ValueError("temperature, size_sigma, initial_size_scale, and mlp_hidden_dim must be positive.")
+        if cfg.architecture not in {"linear", "residual_mlp"}:
+            raise ValueError("architecture must be 'linear' or 'residual_mlp'.")
         self.cfg = cfg
         self.delta_tau = nn.Parameter(torch.zeros(()))
         self.when_linear = nn.Parameter(torch.zeros(WHEN_FEATURES))  # c, g, budget
@@ -44,16 +68,28 @@ class WhenWhereController(nn.Module):
         self.width_bias = nn.Parameter(torch.tensor(math.log(cfg.initial_size_scale), dtype=torch.float32))
         self.height_weight = nn.Parameter(torch.zeros(WHERE_FEATURES))
         self.height_bias = nn.Parameter(torch.tensor(math.log(cfg.initial_size_scale), dtype=torch.float32))
+        if cfg.architecture == "residual_mlp":
+            self.when_residual = ZeroInitialisedResidual(4, cfg.mlp_hidden_dim)
+            self.keep_residual = ZeroInitialisedResidual(WHERE_FEATURES, cfg.mlp_hidden_dim)
+            self.width_residual = ZeroInitialisedResidual(WHERE_FEATURES, cfg.mlp_hidden_dim)
+            self.height_residual = ZeroInitialisedResidual(WHERE_FEATURES, cfg.mlp_hidden_dim)
+        else:
+            self.when_residual = None
+            self.keep_residual = None
+            self.width_residual = None
+            self.height_residual = None
 
     def when_logits(self, features: Tensor) -> Tensor:
         """features is ``[..., jsd, concentration, growth, budget_fraction]``."""
         if features.shape[-1] != 4:
             raise ValueError("When features must be [jsd, concentration, growth, budget].")
         threshold = self.cfg.tau0 + self.delta_tau + (features[..., 1:] * self.when_linear).sum(-1)
-        return (features[..., 0] - threshold) / self.cfg.temperature
+        base_logits = (features[..., 0] - threshold) / self.cfg.temperature
+        return base_logits if self.when_residual is None else base_logits + self.when_residual(features)
 
     def keep_logits(self, features: Tensor, heuristic_logits: Tensor) -> Tensor:
-        return heuristic_logits + features @ self.keep_weight + self.keep_bias
+        base_logits = heuristic_logits + features @ self.keep_weight + self.keep_bias
+        return base_logits if self.keep_residual is None else base_logits + self.keep_residual(features)
 
     def size_logits(self, features: Tensor, candidates_log_ratio: Tensor) -> Tensor:
         """Score valid [width,height] log-ratios about each heuristic bbox.
@@ -63,6 +99,9 @@ class WhenWhereController(nn.Module):
         """
         mu_w = features @ self.width_weight + self.width_bias
         mu_h = features @ self.height_weight + self.height_bias
+        if self.width_residual is not None:
+            mu_w = mu_w + self.width_residual(features)
+            mu_h = mu_h + self.height_residual(features)
         delta_w = candidates_log_ratio[..., 0] - mu_w.unsqueeze(-1)
         delta_h = candidates_log_ratio[..., 1] - mu_h.unsqueeze(-1)
         return -(delta_w.square() + delta_h.square()) / (2 * self.cfg.size_sigma ** 2)

@@ -16,10 +16,12 @@ def main():
     p = argparse.ArgumentParser(); p.add_argument("--model", required=True); p.add_argument("--dataset", required=True)
     p.add_argument("--image-root", required=True); p.add_argument("--checkpoint"); p.add_argument("--adapter")
     p.add_argument("--mode", choices=("baseline", "fixed_grid", "learned_roi", "random_roi"), default="learned_roi")
+    p.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit")
+    p.set_defaults(load_in_4bit=True)
     p.add_argument("--limit", type=int); p.add_argument("--max-new-tokens", type=int, default=256); p.add_argument("--output", required=True)
     args = p.parse_args(); sparse = Path(__file__).resolve().parents[2] / "SparseVLM_eliminateCONTEXT"; sys.path.insert(0, str(sparse))
     from rolling_sparse_qwen3vl import load_model
-    model, processor = load_model(args.model, Path(args.adapter) if args.adapter else None); device = model.get_input_embeddings().weight.device
+    model, processor = load_model(args.model, Path(args.adapter) if args.adapter else None, load_in_4bit=args.load_in_4bit); device = model.get_input_embeddings().weight.device
     policy = DynamicROIPolicy(ROIPolicyConfig(model.config.text_config.hidden_size)).to(device)
     if args.checkpoint: policy.load_state_dict(torch.load(args.checkpoint, map_location=device)["policy"])
     if args.mode == "baseline":

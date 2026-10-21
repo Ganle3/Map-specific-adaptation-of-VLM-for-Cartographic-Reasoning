@@ -81,8 +81,36 @@ class MultiImageAttentionCapture:
                 # norm is computed in chunks to avoid materialising
                 # [heads, patches, hidden_size] for a whole image at once.
                 heads, _, dim = patch_values.shape
-                out_dim = module.o_proj.weight.shape[0]
-                projection = module.o_proj.weight.float().view(out_dim, heads, dim).permute(1, 2, 0)
+                out_dim = module.o_proj.out_features
+                in_dim = module.o_proj.in_features
+                weight = module.o_proj.weight
+                # bitsandbytes Linear4bit stores packed nibbles in ``weight``.
+                # Its storage shape/numel is therefore not the logical
+                # [out_features, in_features] matrix.  Treating it as BF16
+                # caused the NF4-only reshape failure during a WHERE probe.
+                # Dequantize exactly this frozen output projection for the
+                # one probe forward, then retain the original A * ||V W_O||
+                # attribution definition.  Normal BF16/FP weights take the
+                # inexpensive direct branch.
+                if weight.numel() != out_dim * in_dim:
+                    try:
+                        import bitsandbytes.functional as bnb_functional
+                        matrix = bnb_functional.dequantize_4bit(
+                            weight.data, quant_state=weight.quant_state
+                        )
+                    except (AttributeError, ImportError) as exc:
+                        raise RuntimeError(
+                            "projected_value_norm requires access to the NF4 quantization state "
+                            "of decoder o_proj."
+                        ) from exc
+                else:
+                    matrix = weight
+                if matrix.numel() != out_dim * in_dim:
+                    raise RuntimeError(
+                        f"Unexpected o_proj matrix size after dequantization: got {matrix.numel()}, "
+                        f"expected {out_dim * in_dim}."
+                    )
+                projection = matrix.float().view(out_dim, heads, dim).permute(1, 2, 0)
                 norms = []
                 for chunk in patch_values.float().split(64, dim=1):
                     projected = torch.einsum("hpd,hdo->hpo", chunk, projection)

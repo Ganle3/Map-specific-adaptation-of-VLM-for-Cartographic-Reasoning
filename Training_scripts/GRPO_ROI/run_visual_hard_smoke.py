@@ -37,6 +37,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default=None, help="Base model; defaults through existing loader to Qwen/Qwen3-VL-8B-Thinking.")
     parser.add_argument("--adapter", type=Path, default=None, help="Frozen existing reasoning LoRA, if applicable.")
+    parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit",
+                        help="Use BF16/auto rather than the QLoRA-matched NF4 default.")
+    parser.set_defaults(load_in_4bit=True)
     parser.add_argument("--dataset", type=Path, default=DEFAULT_DATASET)
     parser.add_argument("--mapverse-image-root", type=Path, default=DEFAULT_MAPVERSE_IMAGES)
     parser.add_argument("--mapwise-root", type=Path, default=DEFAULT_MAPWISE)
@@ -55,7 +58,7 @@ def main() -> None:
     torch.manual_seed(args.seed)
     sys.path.insert(0, str(PROJECT_ROOT / "VLM_adaptation" / "SparseVLM_eliminateCONTEXT"))
     from rolling_sparse_qwen3vl import load_model
-    model, processor = load_model(args.model, args.adapter)
+    model, processor = load_model(args.model, args.adapter, load_in_4bit=args.load_in_4bit)
     device = model.get_input_embeddings().weight.device
     hidden_size = model.config.text_config.hidden_size
     policy = DynamicROIPolicy(ROIPolicyConfig(hidden_size=hidden_size)).to(device).eval()
