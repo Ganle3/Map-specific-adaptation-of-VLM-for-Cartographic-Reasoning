@@ -47,6 +47,10 @@ def main():
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--learning-rate", type=float, default=2e-3)
     parser.add_argument("--clip-ratio", type=float, default=0.2)
+    parser.add_argument("--num-policy-updates", type=int, default=1,
+                        help="PPO updates on each freshly generated rollout batch.")
+    parser.add_argument("--off-policy-mask-threshold", type=float, default=None,
+                        help="Discard an action in reused updates when |exp(logp-old_logp)-1| exceeds this value.")
     parser.add_argument("--seed", type=int, default=1234)
     parser.add_argument("--eval-only", action="store_true")
     parser.add_argument("--eval-after-epoch", action="store_true",
@@ -66,8 +70,11 @@ def main():
     if args.group_size < 2 and not args.eval_only:
         parser.error("Training requires --group-size >= 2")
     if (args.look_every <= 0 or args.max_looks < 0 or args.epochs <= 0 or args.start_index <= 0
-            or (args.limit is not None and args.limit <= 0) or args.questions_per_update <= 0):
+            or (args.limit is not None and args.limit <= 0) or args.questions_per_update <= 0
+            or args.num_policy_updates <= 0):
         parser.error("look-every and questions-per-update must be positive; max-looks must be nonnegative")
+    if args.off_policy_mask_threshold is not None and args.off_policy_mask_threshold <= 0:
+        parser.error("off-policy-mask-threshold must be positive when set")
     if args.save_steps <= 0:
         parser.error("save-steps must be positive")
     if args.end_index is not None and args.end_index < args.start_index:
@@ -176,21 +183,27 @@ def main():
                     group.append(row)
                 del prepared
                 batch.append((item, group))
-            results = [region_grpo_loss(policy, group, args.clip_ratio) if not args.eval_only else (None, {})
-                       for _, group in batch]
-            losses = [loss for loss, _ in results if loss is not None]
-            loss = torch.stack(losses).mean() if losses else None
-            gradient_norm = 0.0
-            if loss is not None:
+            results, policy_losses, gradient_norms = [], [], []
+            for _ in range(1 if args.eval_only else args.num_policy_updates):
+                results = [region_grpo_loss(policy, group, args.clip_ratio, args.off_policy_mask_threshold)
+                           if not args.eval_only else (None, {}) for _, group in batch]
+                losses = [item_loss for item_loss, _ in results if item_loss is not None]
+                if not losses:
+                    break
+                loss = torch.stack(losses).mean()
                 optimizer.zero_grad(set_to_none=True)
                 loss.backward()
-                gradient_norm = float(policy.nine_blocks.grad.norm())
+                gradient_norms.append(float(policy.nine_blocks.grad.norm()))
                 optimizer.step()
+                policy_losses.append(float(loss.detach()))
+            loss = policy_losses[-1] if policy_losses else None
+            gradient_norm = gradient_norms[-1] if gradient_norms else 0.0
             rows = [row for _, group in batch for row in group]
             frequency = Counter(event["selected_action"] for row in rows for event in row["diagnostics"])
-            metrics = {"train/region_policy_loss": float(loss.detach()) if loss is not None else 0.0,
+            metrics = {"train/region_policy_loss": loss if loss is not None else 0.0,
                        "train/action_entropy": sum(info.get("action_entropy", 0.0) for _, info in results) / len(results),
                        "train/gradient_norm": gradient_norm,
+                       "train/learning_rate": float(optimizer.param_groups[0]["lr"]),
                        "train/parameter_norm": float(policy.nine_blocks.detach().norm()),
                        "train/parameter_delta_norm": float((policy.nine_blocks.detach() - original_blocks).norm()),
                        "train/reward_mean": sum(row["reward"] for row in rows) / len(rows),
@@ -198,6 +211,12 @@ def main():
                        "train/reward_std": sum(info.get("reward_std", 0.0) for _, info in results) / len(results),
                        "train/mixed_reward_question_fraction": sum(info.get("reward_std", 0.0) > 0
                                                                  for _, info in results) / len(results),
+                       "train/policy_updates_completed": len(policy_losses),
+                       "train/off_policy_mask_fraction": sum(info.get("off_policy_mask_fraction", 0.0)
+                                                                for _, info in results) / len(results),
+                       "train/mean_abs_action_ratio_drift": sum(info.get("mean_abs_ratio_drift", 0.0)
+                                                                  for _, info in results) / len(results),
+                       "train/active_region_actions": sum(info.get("active_action_count", 0) for _, info in results),
                        "train/crop_append_count": sum(row["crop_append_count"] for row in rows),
                        "train/questions_per_update": len(batch), "train/rollouts_per_update": len(rows)}
             if torch.cuda.is_available():
