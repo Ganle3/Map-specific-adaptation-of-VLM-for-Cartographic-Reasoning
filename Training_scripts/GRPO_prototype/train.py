@@ -6,6 +6,7 @@ import argparse
 import json
 import sys
 import math
+import random
 from collections import Counter
 from pathlib import Path
 
@@ -52,6 +53,8 @@ def main():
     parser.add_argument("--off-policy-mask-threshold", type=float, default=None,
                         help="Discard an action in reused updates when |exp(logp-old_logp)-1| exceeds this value.")
     parser.add_argument("--seed", type=int, default=1234)
+    parser.add_argument("--preserve-question-order", action="store_true",
+                        help="Disable the default reproducible per-epoch question shuffle.")
     parser.add_argument("--eval-only", action="store_true")
     parser.add_argument("--eval-after-epoch", action="store_true",
                         help="Run one deterministic region-policy rollout per selected question after each epoch.")
@@ -102,6 +105,7 @@ def main():
         records = records[:args.limit]
     if not records:
         parser.error("Selected question range is empty")
+    indexed_records = list(enumerate(records, start=args.start_index))
     wandb_run = None
     if args.wandb_project and args.wandb_mode != "disabled":
         import wandb
@@ -157,8 +161,11 @@ def main():
         for step in range(steps_per_epoch * args.epochs):
             epoch = step // steps_per_epoch
             start = (step % steps_per_epoch) * args.questions_per_update
+            epoch_records = list(indexed_records)
+            if not args.preserve_question_order:
+                random.Random(args.seed + epoch).shuffle(epoch_records)
             batch = []
-            for offset, item in enumerate(records[start:start + args.questions_per_update]):
+            for dataset_index, item in epoch_records[start:start + args.questions_per_update]:
                 with Image.open(item.image_path) as file:
                     original = file.convert("RGB")
                 prepared = prepare_crops(model, processor, original, device, args.crop_max_pixels,
@@ -172,7 +179,7 @@ def main():
                     row["reward"] = evaluation["reward"]
                     row["evaluation"] = evaluation
                     row["epoch"] = epoch + 1
-                    row["dataset_index"] = args.start_index + start + offset
+                    row["dataset_index"] = dataset_index
                     row["phase"] = "eval" if args.eval_only else "train"
                     for event in row["diagnostics"]:
                         event["reward"] = row["reward"]
@@ -182,11 +189,11 @@ def main():
                     trace.flush()
                     group.append(row)
                 del prepared
-                batch.append((item, group))
+                batch.append((dataset_index, item, group))
             results, policy_losses, gradient_norms = [], [], []
             for _ in range(1 if args.eval_only else args.num_policy_updates):
                 results = [region_grpo_loss(policy, group, args.clip_ratio, args.off_policy_mask_threshold)
-                           if not args.eval_only else (None, {}) for _, group in batch]
+                           if not args.eval_only else (None, {}) for _, _, group in batch]
                 losses = [item_loss for item_loss, _ in results if item_loss is not None]
                 if not losses:
                     break
@@ -198,8 +205,54 @@ def main():
                 policy_losses.append(float(loss.detach()))
             loss = policy_losses[-1] if policy_losses else None
             gradient_norm = gradient_norms[-1] if gradient_norms else 0.0
-            rows = [row for _, group in batch for row in group]
-            frequency = Counter(event["selected_action"] for row in rows for event in row["diagnostics"])
+            rows = [row for _, _, group in batch for row in group]
+            reward_groups = []
+            for dataset_index, item, group in batch:
+                rewards = [float(row["reward"]) for row in group]
+                correct_count = int(sum(rewards))
+                payload = {"dataset_index": dataset_index, "qa_id": item.sample_id,
+                           "group_valid": len(group) == args.group_size,
+                           "rewards": rewards, "correct_count": correct_count,
+                           "incorrect_count": len(group) - correct_count,
+                           "reward_variance": len(set(rewards)) > 1,
+                           "untruncated_count": sum(not row.get("truncated", False) for row in group),
+                           "truncated_count": sum(row.get("truncated", False) for row in group),
+                           "signal_group": len(set(rewards)) > 1}
+                reward_groups.append(payload)
+                print(f"[REWARD {step + 1:05d}] {json.dumps(payload, ensure_ascii=False)}", flush=True)
+            events = [event for row in rows for event in row["diagnostics"]]
+            frequency = Counter(event["selected_action"] for event in events)
+
+            def behavior_metrics(prefix: str, subset: list[dict]) -> dict[str, float]:
+                """Separate state-conditional sharpness from global action collapse."""
+                if not subset:
+                    return {f"{prefix}/decision_count": 0.0,
+                            f"{prefix}/conditional_entropy": 0.0,
+                            f"{prefix}/marginal_entropy": 0.0,
+                            f"{prefix}/state_mutual_information": 0.0,
+                            f"{prefix}/mean_probability_std": 0.0}
+                probabilities = torch.tensor([event["probabilities"] for event in subset], dtype=torch.float64)
+                conditional_entropy = -(probabilities * probabilities.clamp_min(1e-12).log()).sum(dim=-1).mean()
+                marginal = probabilities.mean(dim=0)
+                marginal_entropy = -(marginal * marginal.clamp_min(1e-12).log()).sum()
+                return {f"{prefix}/decision_count": float(len(subset)),
+                        f"{prefix}/conditional_entropy": float(conditional_entropy),
+                        f"{prefix}/marginal_entropy": float(marginal_entropy),
+                        # H(E[p(a|h)]) - E[H(p(a|h))] estimates I(action; state).
+                        f"{prefix}/state_mutual_information": float(marginal_entropy - conditional_entropy),
+                        f"{prefix}/mean_probability_std": float(probabilities.std(dim=0, unbiased=False).mean())}
+
+            behavior = behavior_metrics("train/behavior", events)
+            if events:
+                first_index = min(event["reasoning_token_index"] for event in events)
+                behavior.update(behavior_metrics("train/first_look", [event for event in events
+                                                                         if event["reasoning_token_index"] == first_index]))
+            else:
+                behavior.update(behavior_metrics("train/first_look", []))
+            for look_slot in range(1, args.max_looks + 1):
+                behavior.update(behavior_metrics(f"train/look_{look_slot}",
+                                                 [event for event in events
+                                                  if event["reasoning_token_index"] == look_slot * args.look_every]))
             metrics = {"train/region_policy_loss": loss if loss is not None else 0.0,
                        "train/action_entropy": sum(info.get("action_entropy", 0.0) for _, info in results) / len(results),
                        "train/gradient_norm": gradient_norm,
@@ -207,6 +260,13 @@ def main():
                        "train/parameter_norm": float(policy.nine_blocks.detach().norm()),
                        "train/parameter_delta_norm": float((policy.nine_blocks.detach() - original_blocks).norm()),
                        "train/reward_mean": sum(row["reward"] for row in rows) / len(rows),
+                       "train/rollouts_correct": sum(row["reward"] for row in rows),
+                       "train/rollouts_incorrect": sum(1 - row["reward"] for row in rows),
+                       "train/questions_all_correct": sum(group["correct_count"] == len(group["rewards"])
+                                                           for group in reward_groups),
+                       "train/questions_all_incorrect": sum(group["correct_count"] == 0
+                                                             for group in reward_groups),
+                       "train/questions_mixed_correctness": sum(group["signal_group"] for group in reward_groups),
                        "train/active_rollouts": sum(info.get("active_rollouts", 0) for _, info in results),
                        "train/reward_std": sum(info.get("reward_std", 0.0) for _, info in results) / len(results),
                        "train/mixed_reward_question_fraction": sum(info.get("reward_std", 0.0) > 0
@@ -219,6 +279,7 @@ def main():
                        "train/active_region_actions": sum(info.get("active_action_count", 0) for _, info in results),
                        "train/crop_append_count": sum(row["crop_append_count"] for row in rows),
                        "train/questions_per_update": len(batch), "train/rollouts_per_update": len(rows)}
+            metrics.update(behavior)
             if torch.cuda.is_available():
                 metrics["system/peak_memory_allocated_gib"] = torch.cuda.max_memory_allocated(device) / 2**30
                 metrics["system/peak_memory_reserved_gib"] = torch.cuda.max_memory_reserved(device) / 2**30
@@ -229,12 +290,18 @@ def main():
             if args.eval_after_epoch and not args.eval_only and (step + 1) % steps_per_epoch == 0:
                 metrics.update(evaluate_selected(epoch + 1))
             print(json.dumps({"step": step, "epoch": epoch + 1,
-                              "dataset_indices": list(range(args.start_index + start,
-                                                             args.start_index + start + len(batch))),
-                              "question_ids": [item.sample_id for item, _ in batch],
+                              "dataset_indices": [dataset_index for dataset_index, _, _ in batch],
+                              "question_ids": [item.sample_id for _, item, _ in batch],
                               **metrics}), flush=True)
             if wandb_run:
-                wandb_run.log(metrics, step=step + 1)
+                reward_table = wandb.Table(
+                    columns=["dataset_index", "qa_id", "rewards", "correct_count", "incorrect_count",
+                             "reward_variance", "untruncated_count", "truncated_count", "signal_group"],
+                    data=[[group[key] if key != "rewards" else json.dumps(group[key])
+                           for key in ("dataset_index", "qa_id", "rewards", "correct_count", "incorrect_count",
+                                       "reward_variance", "untruncated_count", "truncated_count", "signal_group")]
+                          for group in reward_groups])
+                wandb_run.log({**metrics, "train/reward_groups": reward_table}, step=step + 1)
             last_completed_step = step
             last_completed_epoch = epoch + 1
             if (step + 1) % args.save_steps == 0:

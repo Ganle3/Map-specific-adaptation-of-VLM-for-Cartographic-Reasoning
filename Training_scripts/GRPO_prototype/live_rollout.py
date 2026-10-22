@@ -97,10 +97,12 @@ def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global
     eos = processor.tokenizer.eos_token_id
     eos_ids = set(map(int, eos)) if isinstance(eos, (list, tuple, set)) else {int(eos)}
     ids, actions, diagnostics = [], [], []
+    terminated = False
     for _ in range(max_new_tokens):
         token = int(pending.item())
         ids.append(token)
         if token in eos_ids:
+            terminated = True
             break
         pending, past, cursor, hidden = _commit(model, pending, past, cursor)
         token_index = len(ids)
@@ -121,5 +123,7 @@ def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global
     return {"question_id": item.sample_id, "rollout_id": rollout_id,
             "response": response, "actions": actions, "diagnostics": diagnostics,
             "crop_append_count": len(actions),
+            "terminated": terminated,
+            "truncated": not terminated and len(ids) >= max_new_tokens,
             "cache_length": int(past.get_seq_length()),
             "cache_policy": "continuous_global_reasoning_and_all_crop_kv"}
