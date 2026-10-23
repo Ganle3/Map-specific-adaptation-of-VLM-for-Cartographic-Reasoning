@@ -135,6 +135,8 @@ def main() -> None:
                         help="Generated phrase required before drawing the ROI. Can be repeated.")
     parser.add_argument("--roi", nargs=4, type=int, action="append", metavar=("X1", "Y1", "X2", "Y2"),
                         help="Optional repeatable original-pixel bbox; omit to draw interactively.")
+    parser.add_argument("--no-append", action="store_true",
+                        help="Matched greedy control: keep generating without an ROI turn.")
     parser.add_argument("--global-max-pixels", type=int, default=1_000_000)
     parser.add_argument("--crop-instruction", default="Continue the unfinished reasoning using this additional visual evidence.")
     parser.add_argument("--max-new-tokens", type=int, default=500)
@@ -176,7 +178,7 @@ def main() -> None:
     for _ in range(args.max_new_tokens):
         ids.append(int(pending.item()))
         text = processor.tokenizer.decode(ids, skip_special_tokens=True)
-        if insertion is None and all(phrase.casefold() in text.casefold() for phrase in triggers):
+        if insertion is None and not args.no_append and all(phrase.casefold() in text.casefold() for phrase in triggers):
             trigger_token = len(ids)
             print("\n=== PAUSED AFTER TRIGGER: global + reasoning KV retained ===\n" + text)
             if args.roi:
@@ -211,7 +213,8 @@ def main() -> None:
         "global_original_size": list(original.size), "global_submitted_size": list(submitted.size),
         "global_visual_grid": list(global_grids[0]), "global_merger_token_count": len(merger),
         "insertion": insertion, "response": response,
-        "how": "live_append_global_merger_roi_via_decoder_no_roi_vit_no_anchor_refresh",
+        "how": ("matched_greedy_no_append" if args.no_append else
+                "live_append_global_merger_roi_via_decoder_no_roi_vit_no_anchor_refresh"),
         "backbone_precision": "nf4_4bit_bf16_compute" if args.load_in_4bit else "torch_dtype_auto",
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

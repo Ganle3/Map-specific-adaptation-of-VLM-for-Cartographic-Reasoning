@@ -100,6 +100,8 @@ def main() -> None:
     parser.add_argument("--model", default=None)
     parser.add_argument("--pause-after", action="append", default=["Bakhmut"],
                         help="Generated case-insensitive phrase required before crop insertion.")
+    parser.add_argument("--roi", nargs=4, type=int, action="append", metavar=("X1", "Y1", "X2", "Y2"),
+                        help="Optional repeatable original-pixel bbox; omit to draw interactively.")
     parser.add_argument("--crop-max-pixels", type=int, default=1_000_000)
     parser.add_argument("--global-max-pixels", type=int, default=1_000_000)
     parser.add_argument("--crop-instruction", default="Continue the unfinished reasoning using this additional visual evidence.",
@@ -139,8 +141,12 @@ def main() -> None:
             trigger_token = len(ids)
             print("\n\n=== PAUSED AFTER TRIGGER: live global + reasoning KV retained ===")
             print(text)
-            print(f"\nDraw one or more evidence crop(s) on the original {original.width} x {original.height} image.")
-            boxes = draw_rois(original)
+            if args.roi:
+                boxes = [tuple(box) for box in args.roi]
+                print(f"\nUsing supplied original-pixel crop ROI(s): {boxes}")
+            else:
+                print(f"\nDraw one or more evidence crop(s) on the original {original.width} x {original.height} image.")
+                boxes = draw_rois(original)
             # The just-emitted trigger token belongs to the assistant prefix;
             # commit it before opening a later user crop turn.
             _, past, cursor = _forward_token(model, pending, past, cursor)

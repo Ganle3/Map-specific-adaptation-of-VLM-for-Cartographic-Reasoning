@@ -4,6 +4,73 @@ from __future__ import annotations
 import torch
 
 
+@torch.no_grad()
+def capture_policy_update_diagnostics(policy, batch: list[tuple[int, object, list[dict]]]) -> dict:
+    """Snapshot the exact sampled actions before one PPO/GRPO update.
+
+    This is intentionally diagnostic-only.  It uses the same per-question
+    normalized advantage definition as :func:`region_grpo_loss`, but does not
+    create a graph or change the loss.
+    """
+    hiddens, actions, advantages = [], [], []
+    group_summaries = []
+    for dataset_index, item, group in batch:
+        rewards = torch.tensor([row["reward"] for row in group], dtype=torch.float32)
+        group_advantages = (rewards - rewards.mean()) / (rewards.std(unbiased=False) + 1e-6)
+        group_summaries.append({"dataset_index": dataset_index, "qa_id": item.sample_id,
+                                "rewards": [float(value) for value in rewards],
+                                "advantages": [float(value) for value in group_advantages]})
+        for row, advantage in zip(group, group_advantages):
+            for entry in row["actions"]:
+                hiddens.append(entry["hidden"].detach().cpu())
+                actions.append(int(entry["action"]))
+                advantages.append(float(advantage))
+    if not hiddens:
+        return {"groups": group_summaries, "count": 0}
+    device = policy.nine_blocks.device
+    hidden_tensor = torch.stack(hiddens).to(device=device, dtype=torch.float32)
+    action_tensor = torch.tensor(actions, device=device, dtype=torch.long)
+    before_log_probs = policy.distribution(hidden_tensor).log_prob(action_tensor).cpu()
+    return {"groups": group_summaries, "count": len(actions),
+            "hidden": hidden_tensor.cpu(), "actions": action_tensor.cpu(),
+            "advantages": torch.tensor(advantages, dtype=torch.float32),
+            "before_log_probs": before_log_probs}
+
+
+@torch.no_grad()
+def finalize_policy_update_diagnostics(policy, snapshot: dict, prototype_gradient_norms: torch.Tensor,
+                                       prototype_delta_norms: torch.Tensor) -> dict:
+    """Turn a pre-update snapshot into JSON-safe evidence of a real update."""
+    result = {"groups": snapshot["groups"], "action_count": snapshot["count"],
+              "prototype_gradient_norms": [float(x) for x in prototype_gradient_norms.cpu()],
+              "prototype_delta_norms": [float(x) for x in prototype_delta_norms.cpu()]}
+    if not snapshot["count"]:
+        result.update({"selected_action_counts": [0] * 9,
+                       "selected_action_advantage_sum": [0.0] * 9,
+                       "positive_advantage_logprob_delta_mean": None,
+                       "negative_advantage_logprob_delta_mean": None})
+        return result
+    device = policy.nine_blocks.device
+    hidden = snapshot["hidden"].to(device=device, dtype=torch.float32)
+    actions = snapshot["actions"].to(device=device, dtype=torch.long)
+    after_log_probs = policy.distribution(hidden).log_prob(actions).cpu()
+    deltas = after_log_probs - snapshot["before_log_probs"]
+    advantages = snapshot["advantages"]
+    counts = torch.bincount(snapshot["actions"], minlength=9)
+    advantage_sums = torch.zeros(9, dtype=torch.float32)
+    advantage_sums.scatter_add_(0, snapshot["actions"], advantages)
+    positive = deltas[advantages > 0]
+    negative = deltas[advantages < 0]
+    result.update({
+        "selected_action_counts": [int(x) for x in counts],
+        "selected_action_advantage_sum": [float(x) for x in advantage_sums],
+        "positive_advantage_logprob_delta_mean": float(positive.mean()) if positive.numel() else None,
+        "negative_advantage_logprob_delta_mean": float(negative.mean()) if negative.numel() else None,
+        "zero_advantage_action_count": int((advantages == 0).sum()),
+    })
+    return result
+
+
 def region_grpo_loss(policy, group: list[dict], clip_ratio: float = 0.2,
                      off_policy_mask_threshold: float | None = None):
     """GRPO loss for one question's region-action trajectories.

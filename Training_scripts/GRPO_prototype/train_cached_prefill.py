@@ -20,7 +20,8 @@ for sibling in (ROOT / "SparseVLM_eliminateCONTEXT", ROOT / "Training_scripts" /
 from rolling_sparse_qwen3vl import load_model
 from data import evaluate_answer, load_mapverse_questions
 from live_rollout_cached_prefill import prepare_crops, prepare_global_prefill, rollout
-from region_grpo import region_grpo_loss
+from region_grpo import (capture_policy_update_diagnostics, finalize_policy_update_diagnostics,
+                         region_grpo_loss)
 from region_policy import NineGridRegionPolicy, decoder_hidden_size
 
 
@@ -33,9 +34,13 @@ def main():
     parser.add_argument("--model", default=None)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--policy-checkpoint", type=Path)
+    parser.add_argument("--resume-from-checkpoint", type=Path,
+                        help="Resume policy, AdamW state, epoch and optimizer-step count; --epochs means additional epochs.")
     parser.add_argument("--limit", type=int, default=None, help="Number of questions; all records by default.")
     parser.add_argument("--start-index", type=int, default=1, help="1-based inclusive index in the input JSON.")
     parser.add_argument("--end-index", type=int, default=None, help="1-based inclusive index in the input JSON.")
+    parser.add_argument("--exclude-indices", type=int, nargs="*", default=[],
+                        help="1-based input rows to exclude after start/end selection.")
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--group-size", type=int, default=16)
     parser.add_argument("--questions-per-update", type=int, default=4)
@@ -46,12 +51,16 @@ def main():
     parser.add_argument("--crop-max-pixels", type=int, default=1_000_000)
     parser.add_argument("--crop-instruction", default="Continue the unfinished reasoning using this additional visual evidence.")
     parser.add_argument("--temperature", type=float, default=1.0)
+    parser.add_argument("--policy-hidden-layer", type=int, default=-1,
+                        help="-1: final normalized decoder state; i>=0: Transformers hidden_states[i] at each decision.")
     parser.add_argument("--learning-rate", type=float, default=2e-3)
     parser.add_argument("--clip-ratio", type=float, default=0.2)
     parser.add_argument("--num-policy-updates", type=int, default=1,
                         help="PPO updates on each freshly generated rollout batch.")
     parser.add_argument("--off-policy-mask-threshold", type=float, default=None,
                         help="Discard an action in reused updates when |exp(logp-old_logp)-1| exceeds this value.")
+    parser.add_argument("--print-policy-update-diagnostics", action="store_true",
+                        help="Print reward/advantage, per-prototype gradient and parameter-update evidence after each policy update.")
     parser.add_argument("--seed", type=int, default=1234)
     parser.add_argument("--preserve-question-order", action="store_true",
                         help="Disable the default reproducible per-epoch question shuffle.")
@@ -70,6 +79,8 @@ def main():
     parser.add_argument("--wandb-mode", choices=("online", "offline", "disabled"), default="online")
     parser.set_defaults(load_in_4bit=True)
     args = parser.parse_args()
+    if args.policy_checkpoint and args.resume_from_checkpoint:
+        parser.error("Use either --policy-checkpoint or --resume-from-checkpoint, not both")
     if args.group_size < 2 and not args.eval_only:
         parser.error("Training requires --group-size >= 2")
     if (args.look_every <= 0 or args.max_looks < 0 or args.epochs <= 0 or args.start_index <= 0
@@ -96,6 +107,13 @@ def main():
         saved = torch.load(args.policy_checkpoint, map_location="cpu", weights_only=True)
         policy.load_state_dict(saved["policy"])
     optimizer = torch.optim.AdamW([policy.nine_blocks], lr=args.learning_rate, weight_decay=0.0)
+    resume_state = None
+    if args.resume_from_checkpoint:
+        resume_state = torch.load(args.resume_from_checkpoint, map_location="cpu", weights_only=True)
+        if "optimizer" not in resume_state:
+            parser.error("Resume checkpoint lacks optimizer state; use --policy-checkpoint for weights-only loading")
+        policy.load_state_dict(resume_state["policy"])
+        optimizer.load_state_dict(resume_state["optimizer"])
     assert any(p is policy.nine_blocks for group in optimizer.param_groups for p in group["params"])
     original_blocks = policy.nine_blocks.detach().clone()
     all_records = load_mapverse_questions(args.dataset, args.mapverse_root,
@@ -103,9 +121,11 @@ def main():
     records = all_records[args.start_index - 1:args.end_index]
     if args.limit is not None:
         records = records[:args.limit]
+    indexed_records = [(index, record) for index, record in
+                       enumerate(records, start=args.start_index) if index not in set(args.exclude_indices)]
+    records = [record for _, record in indexed_records]
     if not records:
         parser.error("Selected question range is empty")
-    indexed_records = list(enumerate(records, start=args.start_index))
     wandb_run = None
     if args.wandb_project and args.wandb_mode != "disabled":
         import wandb
@@ -115,19 +135,23 @@ def main():
                                name=args.wandb_run_name, mode=args.wandb_mode, config=wandb_config)
     trace_path = args.output_dir / "rollouts.jsonl"
     steps_per_epoch = math.ceil(len(records) / args.questions_per_update)
-    last_completed_step = -1
-    last_completed_epoch = 0
+    resumed_epoch = int(resume_state["epoch"]) if resume_state is not None else 0
+    resumed_step = int(resume_state["step"]) if resume_state is not None else -1
+    if resume_state is not None and resumed_step + 1 != resumed_epoch * steps_per_epoch:
+        parser.error("Resume checkpoint is not at an epoch boundary for the selected data/batch configuration")
+    last_completed_step = resumed_step
+    last_completed_epoch = resumed_epoch
 
     def save_checkpoint(path: Path, step: int, epoch: int) -> None:
         torch.save({"policy": policy.state_dict(), "optimizer": optimizer.state_dict(),
                     "hidden_size": policy.hidden_size, "temperature": policy.temperature,
                     "step": step, "epoch": epoch}, path)
 
-    with trace_path.open("w", encoding="utf-8") as trace:
+    with trace_path.open("a" if resume_state is not None else "w", encoding="utf-8") as trace:
         def evaluate_selected(epoch_number: int) -> dict[str, float]:
             eval_metrics = {}
             eval_rewards = []
-            for offset, item in enumerate(records):
+            for dataset_index, item in indexed_records:
                 with Image.open(item.image_path) as file:
                     eval_image = file.convert("RGB")
                 eval_crops = prepare_crops(model, processor, eval_image, device, args.crop_max_pixels,
@@ -135,10 +159,11 @@ def main():
                 eval_row = rollout(model, processor, policy, item, eval_crops, rollout_id=0,
                                    global_max_pixels=args.global_max_pixels,
                                    max_new_tokens=args.max_new_tokens, look_every=args.look_every,
-                                   max_looks=args.max_looks, sample=False)
+                                   max_looks=args.max_looks, sample=False,
+                                   policy_hidden_layer=args.policy_hidden_layer)
                 eval_result = evaluate_answer(eval_row["response"], item)
                 eval_row.update({"reward": eval_result["reward"], "evaluation": eval_result,
-                                 "epoch": epoch_number, "dataset_index": args.start_index + offset,
+                                 "epoch": epoch_number, "dataset_index": dataset_index,
                                  "phase": "eval"})
                 for event in eval_row["diagnostics"]:
                     event["reward"] = eval_row["reward"]
@@ -147,20 +172,21 @@ def main():
                                        ensure_ascii=False) + "\n")
                 trace.flush()
                 eval_rewards.append(eval_row["reward"])
-                eval_metrics[f"eval/reward_{args.start_index + offset}"] = eval_row["reward"]
+                eval_metrics[f"eval/reward_{dataset_index}"] = eval_row["reward"]
                 del eval_crops
             eval_metrics["eval/accuracy"] = sum(eval_rewards) / len(eval_rewards)
             return eval_metrics
 
-        if args.eval_after_epoch and not args.eval_only:
+        if args.eval_after_epoch and not args.eval_only and resume_state is None:
             baseline_metrics = evaluate_selected(0)
             print(json.dumps({"step": -1, "epoch": 0, **baseline_metrics}), flush=True)
             if wandb_run:
                 wandb_run.log(baseline_metrics, step=0)
 
-        for step in range(steps_per_epoch * args.epochs):
-            epoch = step // steps_per_epoch
-            start = (step % steps_per_epoch) * args.questions_per_update
+        for local_step in range(steps_per_epoch * args.epochs):
+            step = resumed_step + 1 + local_step
+            epoch = resumed_epoch + local_step // steps_per_epoch
+            start = (local_step % steps_per_epoch) * args.questions_per_update
             epoch_records = list(indexed_records)
             if not args.preserve_question_order:
                 random.Random(args.seed + epoch).shuffle(epoch_records)
@@ -171,13 +197,14 @@ def main():
                 prepared = prepare_crops(model, processor, original, device, args.crop_max_pixels,
                                          args.crop_instruction)
                 prefill = prepare_global_prefill(model, processor, item,
-                                                 global_max_pixels=args.global_max_pixels)
+                                                 global_max_pixels=args.global_max_pixels,
+                                                 policy_hidden_layer=args.policy_hidden_layer)
                 group = []
                 for rollout_id in range(1 if args.eval_only else args.group_size):
                     row = rollout(model, processor, policy, item, prepared, rollout_id=rollout_id,
                                   global_max_pixels=args.global_max_pixels, max_new_tokens=args.max_new_tokens,
                                   look_every=args.look_every, max_looks=args.max_looks, sample=not args.eval_only,
-                                  prefill=prefill)
+                                  prefill=prefill, policy_hidden_layer=args.policy_hidden_layer)
                     evaluation = evaluate_answer(row["response"], item)
                     row["reward"] = evaluation["reward"]
                     row["evaluation"] = evaluation
@@ -194,7 +221,10 @@ def main():
                 del prepared, prefill
                 batch.append((dataset_index, item, group))
             results, policy_losses, gradient_norms = [], [], []
-            for _ in range(1 if args.eval_only else args.num_policy_updates):
+            for policy_update_index in range(1 if args.eval_only else args.num_policy_updates):
+                snapshot = (capture_policy_update_diagnostics(policy, batch)
+                            if args.print_policy_update_diagnostics and not args.eval_only else None)
+                blocks_before_update = policy.nine_blocks.detach().clone() if snapshot is not None else None
                 results = [region_grpo_loss(policy, group, args.clip_ratio, args.off_policy_mask_threshold)
                            if not args.eval_only else (None, {}) for _, _, group in batch]
                 losses = [item_loss for item_loss, _ in results if item_loss is not None]
@@ -204,7 +234,18 @@ def main():
                 optimizer.zero_grad(set_to_none=True)
                 loss.backward()
                 gradient_norms.append(float(policy.nine_blocks.grad.norm()))
+                per_prototype_gradient_norms = (policy.nine_blocks.grad.detach().norm(dim=1).cpu()
+                                                if snapshot is not None else None)
                 optimizer.step()
+                if snapshot is not None:
+                    diagnostic = finalize_policy_update_diagnostics(
+                        policy, snapshot, per_prototype_gradient_norms,
+                        (policy.nine_blocks.detach() - blocks_before_update).norm(dim=1).cpu())
+                    diagnostic.update({"outer_step": step + 1, "epoch": epoch + 1,
+                                       "policy_update": policy_update_index + 1,
+                                       "region_policy_loss": float(loss.detach())})
+                    print(f"[POLICY_UPDATE {step + 1:05d}.{policy_update_index + 1}] "
+                          f"{json.dumps(diagnostic, ensure_ascii=False)}", flush=True)
                 policy_losses.append(float(loss.detach()))
             loss = policy_losses[-1] if policy_losses else None
             gradient_norm = gradient_norms[-1] if gradient_norms else 0.0

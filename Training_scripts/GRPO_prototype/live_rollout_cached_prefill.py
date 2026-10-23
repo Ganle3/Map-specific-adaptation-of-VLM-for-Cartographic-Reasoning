@@ -16,6 +16,13 @@ from continuous_cache_qwen3vl import _append_turn_inputs, _content_inputs, _resi
 from region_policy import nine_grid_boxes
 
 
+def _decision_hidden(output, policy_hidden_layer: int) -> torch.Tensor:
+    states = output.hidden_states
+    if policy_hidden_layer < -1 or policy_hidden_layer >= len(states):
+        raise ValueError(f"policy_hidden_layer={policy_hidden_layer} is invalid; available indices are -1, 0..{len(states)-1}")
+    return states[policy_hidden_layer][:, -1, :].detach().clone()
+
+
 def _prompt(question: str) -> str:
     """Training prompt copied from the interactive script, without GUI imports."""
     return ("This is a cartographic reasoning question.\n\n"
@@ -57,7 +64,7 @@ def prepare_crops(model, processor, original: Image.Image, device, max_pixels: i
     return prepared
 
 
-def _append_prepared(model, prepared, past, cursor, device):
+def _append_prepared(model, prepared, past, cursor, device, policy_hidden_layer):
     box, inputs, features = prepared
     positions = _segment_positions(model, inputs, cursor)
     full_mask = torch.ones((1, past.get_seq_length() + inputs["input_ids"].shape[1]),
@@ -68,10 +75,10 @@ def _append_prepared(model, prepared, past, cursor, device):
         output = model(**kwargs, attention_mask=full_mask, position_ids=positions,
                        past_key_values=past, use_cache=True, return_dict=True, output_hidden_states=True)
     return (output.logits[:, -1].argmax(dim=-1), output.past_key_values,
-            int(positions.max().item()) + 1, output.hidden_states[-1][:, -1, :].detach().clone())
+            int(positions.max().item()) + 1, _decision_hidden(output, policy_hidden_layer))
 
 
-def prepare_global_prefill(model, processor, item, *, global_max_pixels: int):
+def prepare_global_prefill(model, processor, item, *, global_max_pixels: int, policy_hidden_layer: int = -1):
     """Run the common full-map prefill once, before a question's rollout group.
 
     The returned cache is never appended to.  Each rollout receives a deep copy
@@ -89,24 +96,26 @@ def prepare_global_prefill(model, processor, item, *, global_max_pixels: int):
     return {"pending": output.logits[:, -1].argmax(dim=-1).detach().clone(),
             "past": output.past_key_values,
             "cursor": int(positions.max().item()) + 1,
-            "hidden": output.hidden_states[-1][:, -1, :].detach().clone()}
+            "hidden": _decision_hidden(output, policy_hidden_layer)}
 
 
-def _commit(model, token, past, cursor):
+def _commit(model, token, past, cursor, policy_hidden_layer):
     mask = torch.ones((1, past.get_seq_length() + 1), dtype=torch.long, device=token.device)
     positions = torch.full((3, 1, 1), cursor, dtype=torch.long, device=token.device)
     with torch.inference_mode():
         output = model(input_ids=token.view(1, 1), attention_mask=mask, position_ids=positions,
                        past_key_values=past, use_cache=True, return_dict=True, output_hidden_states=True)
     return (output.logits[:, -1].argmax(dim=-1), output.past_key_values,
-            cursor + 1, output.hidden_states[-1][:, -1, :].detach().clone())
+            cursor + 1, _decision_hidden(output, policy_hidden_layer))
 
 
 def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global_max_pixels: int,
-            max_new_tokens: int, look_every: int, max_looks: int, sample: bool, prefill=None):
+            max_new_tokens: int, look_every: int, max_looks: int, sample: bool, prefill=None,
+            policy_hidden_layer: int = -1):
     device = model.get_input_embeddings().weight.device
     if prefill is None:
-        prefill = prepare_global_prefill(model, processor, item, global_max_pixels=global_max_pixels)
+        prefill = prepare_global_prefill(model, processor, item, global_max_pixels=global_max_pixels,
+                                         policy_hidden_layer=policy_hidden_layer)
         prefill_reused = False
     else:
         prefill_reused = True
@@ -126,7 +135,7 @@ def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global
         if token in eos_ids:
             terminated = True
             break
-        pending, past, cursor, hidden = _commit(model, pending, past, cursor)
+        pending, past, cursor, hidden = _commit(model, pending, past, cursor, policy_hidden_layer)
         token_index = len(ids)
         if look_every > 0 and token_index % look_every == 0 and len(actions) < max_looks:
             logits, probs, selected, logp = policy(hidden.to(policy.nine_blocks.device).float(), sample=sample)
@@ -140,7 +149,8 @@ def rollout(model, processor, policy, item, prepared, *, rollout_id: int, global
                                 "probabilities": probs[0].detach().cpu().tolist(),
                                 "selected_action": action, "crop_box": box,
                                 "selected_log_probability": float(logp.detach())})
-            pending, past, cursor, hidden = _append_prepared(model, prepared[action], past, cursor, device)
+            pending, past, cursor, hidden = _append_prepared(model, prepared[action], past, cursor, device,
+                                                              policy_hidden_layer)
     response = processor.tokenizer.decode(ids, skip_special_tokens=True)
     return {"question_id": item.sample_id, "rollout_id": rollout_id,
             "response": response, "actions": actions, "diagnostics": diagnostics,
