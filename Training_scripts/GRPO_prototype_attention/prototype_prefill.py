@@ -140,10 +140,17 @@ def encode_global_image(model, processor_inputs: dict):
         features = base.get_image_features(
             processor_inputs["pixel_values"], processor_inputs["image_grid_thw"], return_dict=True
         )
+    def image_tuple(value):
+        # Transformers releases differ here: one returns a tuple containing
+        # one [N,H] tensor per image, another returns the [N,H] tensor itself.
+        # Never iterate a tensor, which would turn it into N separate [H] rows.
+        if isinstance(value, torch.Tensor):
+            return (value.detach().clone(),)
+        return tuple(t.detach().clone() for t in value)
+
     return BaseModelOutputWithDeepstackFeatures(
-        pooler_output=tuple(t.detach().clone() for t in features.pooler_output),
-        deepstack_features=[tuple(t.detach().clone() for t in level)
-                            for level in features.deepstack_features],
+        pooler_output=image_tuple(features.pooler_output),
+        deepstack_features=[image_tuple(level) for level in features.deepstack_features],
     )
 
 
@@ -216,9 +223,12 @@ def build_prototype_prefill(model, tokenizer, source_inputs: dict, global_featur
     # Original DeepStack features remain intact.  The prototype block has no
     # separate ViT DeepStack outputs, so zeros isolate the new main-merger
     # memory while preserving Qwen's expected tensor alignment.
+    def image_tuple(value):
+        return (value,) if isinstance(value, torch.Tensor) else tuple(value)
+
     combined = BaseModelOutputWithDeepstackFeatures(
         pooler_output=tuple(global_features.pooler_output) + (memory,),
-        deepstack_features=[tuple(level) + (torch.zeros_like(memory),)
+        deepstack_features=[image_tuple(level) + (torch.zeros_like(memory),)
                             for level in global_features.deepstack_features],
     )
     return {

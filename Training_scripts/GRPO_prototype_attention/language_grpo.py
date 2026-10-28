@@ -38,10 +38,17 @@ def _qwen_language_logits(model, input_ids: torch.Tensor, attention_mask: torch.
     if not inputs_embeds.requires_grad:
         raise RuntimeError("Differentiable prototype memory did not reach Qwen inputs_embeds")
 
-    deepstack = [
-        torch.cat(tuple(level), dim=0).to(inputs_embeds.device, inputs_embeds.dtype)
-        for level in image_features.deepstack_features
-    ]
+    deepstack = []
+    for level in image_features.deepstack_features:
+        tensors = (level,) if isinstance(level, torch.Tensor) else tuple(level)
+        if any(tensor.ndim != 2 for tensor in tensors):
+            raise RuntimeError(
+                "Expected each DeepStack image feature to have shape [N,H], got "
+                f"{[tuple(tensor.shape) for tensor in tensors]}"
+            )
+        deepstack.append(
+            torch.cat(tensors, dim=0).to(inputs_embeds.device, inputs_embeds.dtype)
+        )
     rope_owner = qwen
     for _ in range(4):
         if hasattr(rope_owner, "get_rope_index"):
