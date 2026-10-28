@@ -23,6 +23,7 @@ from data import (MapQuestion, build_cartographic_prompt, evaluate_answer,
                   load_mapverse_questions)
 from rolling_sparse_qwen3vl import load_model
 
+from prototype_cross_attention_block_policy import PrototypeCrossAttentionBlockPolicy
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
 from prototype_prefill import (build_prototype_prefill, encode_global_image,
                                generate_from_preencoded_vision)
@@ -80,25 +81,36 @@ def checkpoint_path(run_dir: Path, step: int) -> Path:
     return path
 
 
-def load_prototypes(policy, path: Path, expected_placement: str) -> dict:
+def load_policy(policy, path: Path, expected_placement: str,
+                expected_policy_kind: str) -> dict:
     state = torch.load(path, map_location="cpu")
     if state.get("placement") != expected_placement:
         raise ValueError(
             f"Checkpoint {path} placement={state.get('placement')!r}; expected {expected_placement!r}"
         )
+    if state.get("policy_kind", "image_only") != expected_policy_kind:
+        raise ValueError(
+            f"Checkpoint {path} policy_kind={state.get('policy_kind')!r}; "
+            f"expected {expected_policy_kind!r}"
+        )
     saved = state["policy"]
-    prototypes = saved["prototypes"]
-    if tuple(prototypes.shape) != tuple(policy.prototypes.shape):
-        raise ValueError(f"Prototype shape mismatch in {path}: {tuple(prototypes.shape)}")
-    with torch.no_grad():
-        policy.prototypes.copy_(prototypes.to(policy.prototypes.device, policy.prototypes.dtype))
+    missing, unexpected = policy.load_state_dict(saved, strict=False)
+    trainable_names = {name for name, parameter in policy.named_parameters()
+                       if parameter.requires_grad}
+    missing_trainable = sorted(trainable_names.intersection(missing))
+    if missing_trainable or unexpected:
+        raise ValueError(
+            f"Policy state mismatch in {path}: missing trainable={missing_trainable}, "
+            f"unexpected={unexpected}"
+        )
     return state
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--placement", required=True, choices=("after_image", "after_question"))
-    parser.add_argument("--policy-kind", choices=("image_only", "question_conditioned"),
+    parser.add_argument("--policy-kind", choices=("image_only", "image_transformer_block",
+                                                   "question_conditioned"),
                         default="image_only")
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--mapverse-root", type=Path, required=True)
@@ -112,6 +124,8 @@ def main() -> None:
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-prototypes", type=int, default=9)
     parser.add_argument("--attention-heads", type=int, default=8)
+    parser.add_argument("--ffn-multiplier", type=int, default=4)
+    parser.add_argument("--block-dropout", type=float, default=0.0)
     parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit")
     parser.set_defaults(load_in_4bit=True)
     args = parser.parse_args()
@@ -134,17 +148,30 @@ def main() -> None:
     for parameter in model.parameters():
         parameter.requires_grad_(False)
     device = model.get_input_embeddings().weight.device
-    policy_class = (PrototypeCrossAttentionPolicy if args.policy_kind == "image_only"
-                    else QuestionConditionedPrototypePolicy)
-    policy = policy_class(decoder_hidden_size(model), num_prototypes=args.num_prototypes,
-                          num_heads=args.attention_heads, train_projections=False).to(device).eval()
-    if args.policy_kind != "image_only":
+    hidden_size = decoder_hidden_size(model)
+    if args.policy_kind == "image_only":
+        policy = PrototypeCrossAttentionPolicy(
+            hidden_size, num_prototypes=args.num_prototypes,
+            num_heads=args.attention_heads, train_projections=False,
+        ).to(device).eval()
+    elif args.policy_kind == "image_transformer_block":
+        policy = PrototypeCrossAttentionBlockPolicy(
+            hidden_size, num_prototypes=args.num_prototypes,
+            num_heads=args.attention_heads, ffn_multiplier=args.ffn_multiplier,
+            dropout=args.block_dropout,
+        ).to(device).eval()
+    else:
+        policy = QuestionConditionedPrototypePolicy(
+            hidden_size, num_prototypes=args.num_prototypes,
+            num_heads=args.attention_heads, train_projections=False,
+        ).to(device).eval()
+    if args.policy_kind == "question_conditioned":
         raise NotImplementedError(
-            "This full evaluator currently targets the requested image_only after-image/after-question ablation"
+            "Question-conditioned evaluation requires cached question states"
         )
     # Validate every checkpoint before starting the expensive evaluation.
     for step, path in checkpoints.items():
-        state = load_prototypes(policy, path, args.placement)
+        state = load_policy(policy, path, args.placement, args.policy_kind)
         if int(state.get("step", -1)) != step:
             raise ValueError(f"Checkpoint metadata step mismatch: {path}")
 
@@ -161,7 +188,7 @@ def main() -> None:
             # Reuse the frozen ViT+merger result across all requested checkpoints.
             global_features = encode_global_image(model, source_inputs)
             for step in pending:
-                load_prototypes(policy, checkpoints[step], args.placement)
+                load_policy(policy, checkpoints[step], args.placement, args.policy_kind)
                 augmented, attention = build_prototype_prefill(
                     model, processor.tokenizer, source_inputs, global_features,
                     policy, args.placement, with_grad=False,

@@ -21,6 +21,7 @@ from continuous_cache_qwen3vl import _content_inputs, _resize_to_pixel_cap
 from data import build_cartographic_prompt, load_mapverse_questions
 from rolling_sparse_qwen3vl import load_model
 from language_grpo import completion_log_probs
+from prototype_cross_attention_block_policy import PrototypeCrossAttentionBlockPolicy
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
 from prototype_prefill import (build_prototype_prefill, encode_global_image,
                                encode_question_context, generate_from_preencoded_vision)
@@ -88,6 +89,32 @@ def main() -> None:
                "prototype_gradient_norm": prototype_grad,
                "backbone_parameter_grad_count": backbone_grads,
                "sampled_generation_tokens": int(generated_count)}, flush=True)
+
+    # Full trainable cross-attention + AddNorm + 4H FFN route.
+    block_policy = PrototypeCrossAttentionBlockPolicy(
+        decoder_hidden_size(model), num_prototypes=9, num_heads=8, ffn_multiplier=4,
+    ).to(device)
+    augmented, weights = build_prototype_prefill(
+        model, processor.tokenizer, source, global_features, block_policy,
+        "after_question", with_grad=True,
+    )
+    logp = completion_log_probs(model, augmented, target)
+    (-logp.mean()).backward()
+    missing_policy_grads = [name for name, parameter in block_policy.named_parameters()
+                            if parameter.requires_grad and parameter.grad is None]
+    backbone_grads = sum(parameter.grad is not None for parameter in model.parameters())
+    if missing_policy_grads or backbone_grads:
+        raise RuntimeError(
+            f"Bad Transformer-block gradient route: missing={missing_policy_grads}, "
+            f"backbone_parameter_grads={backbone_grads}"
+        )
+    print({"policy_kind": "image_transformer_block", "placement": "after_question",
+           "attention_shape": tuple(weights.shape),
+           "trainable_parameter_count": sum(parameter.numel() for parameter
+                                               in block_policy.parameters()
+                                               if parameter.requires_grad),
+           "all_policy_parameters_have_grad": True,
+           "backbone_parameter_grad_count": backbone_grads}, flush=True)
 
     question_tokens = encode_question_context(
         model, processor.tokenizer, source, global_features, item.question

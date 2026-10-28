@@ -26,6 +26,7 @@ from rolling_sparse_qwen3vl import load_model
 
 from language_grpo import (clipped_language_grpo_loss, completion_log_probs,
                            group_advantages, off_policy_sequence_keep)
+from prototype_cross_attention_block_policy import PrototypeCrossAttentionBlockPolicy
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
 from prototype_prefill import (build_prototype_prefill, encode_global_image,
                                encode_question_context, generate_from_preencoded_vision)
@@ -129,7 +130,8 @@ def generate_rollout(model, processor, policy, item, source_inputs, global_featu
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--placement", required=True, choices=("after_image", "after_question"))
-    parser.add_argument("--policy-kind", choices=("image_only", "question_conditioned"),
+    parser.add_argument("--policy-kind", choices=("image_only", "image_transformer_block",
+                                                   "question_conditioned"),
                         default="image_only")
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--mapverse-root", type=Path, required=True)
@@ -148,7 +150,13 @@ def main() -> None:
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-prototypes", type=int, default=9)
     parser.add_argument("--attention-heads", type=int, default=8)
+    parser.add_argument("--ffn-multiplier", type=int, default=4,
+                        help="FFN expansion used by image_transformer_block.")
+    parser.add_argument("--block-dropout", type=float, default=0.0,
+                        help="Residual dropout in image_transformer_block; keep 0 for GRPO ratios.")
     parser.add_argument("--learning-rate", type=float, default=2e-3)
+    parser.add_argument("--block-learning-rate", type=float, default=1e-5,
+                        help="LR for MHA/Norm/FFN in image_transformer_block.")
     parser.add_argument("--clip-ratio", type=float, default=0.2)
     parser.add_argument("--num-policy-updates", type=int, default=1,
                         help="Optimizer updates made from each freshly generated rollout batch.")
@@ -178,6 +186,12 @@ def main() -> None:
         parser.error("save-steps must be positive")
     if args.off_policy_mask_threshold is not None and args.off_policy_mask_threshold <= 0:
         parser.error("off-policy-mask-threshold must be positive")
+    if args.ffn_multiplier < 1:
+        parser.error("ffn-multiplier must be positive")
+    if not 0.0 <= args.block_dropout < 1.0:
+        parser.error("block-dropout must be in [0, 1)")
+    if args.learning_rate <= 0 or args.block_learning_rate <= 0:
+        parser.error("learning rates must be positive")
     if not 0 < args.decay_final_factor <= 1:
         parser.error("decay-final-factor must be in (0, 1]")
     if args.lr_scheduler_type == "constant_then_cosine":
@@ -198,13 +212,38 @@ def main() -> None:
     for parameter in model.parameters():
         parameter.requires_grad_(False)
     device = model.get_input_embeddings().weight.device
-    policy_class = (PrototypeCrossAttentionPolicy if args.policy_kind == "image_only"
-                    else QuestionConditionedPrototypePolicy)
-    policy = policy_class(decoder_hidden_size(model), num_prototypes=args.num_prototypes,
-                          num_heads=args.attention_heads, train_projections=False).to(device)
-    optimizer = torch.optim.AdamW(policy.trainable_parameters(), lr=args.learning_rate, weight_decay=0.0)
+    hidden_size = decoder_hidden_size(model)
+    if args.policy_kind == "image_only":
+        policy = PrototypeCrossAttentionPolicy(
+            hidden_size, num_prototypes=args.num_prototypes,
+            num_heads=args.attention_heads, train_projections=False,
+        ).to(device)
+    elif args.policy_kind == "image_transformer_block":
+        policy = PrototypeCrossAttentionBlockPolicy(
+            hidden_size, num_prototypes=args.num_prototypes,
+            num_heads=args.attention_heads, ffn_multiplier=args.ffn_multiplier,
+            dropout=args.block_dropout,
+        ).to(device)
+    else:
+        policy = QuestionConditionedPrototypePolicy(
+            hidden_size, num_prototypes=args.num_prototypes,
+            num_heads=args.attention_heads, train_projections=False,
+        ).to(device)
+    if args.policy_kind == "image_transformer_block":
+        block_parameters = [parameter for name, parameter in policy.named_parameters()
+                            if name != "prototypes" and parameter.requires_grad]
+        optimizer = torch.optim.AdamW([
+            {"params": [policy.prototypes], "lr": args.learning_rate},
+            {"params": block_parameters, "lr": args.block_learning_rate},
+        ], weight_decay=0.0)
+    else:
+        optimizer = torch.optim.AdamW(
+            policy.trainable_parameters(), lr=args.learning_rate, weight_decay=0.0,
+        )
     optimized = [parameter for group in optimizer.param_groups for parameter in group["params"]]
-    assert len(optimized) == 1 and optimized[0] is policy.prototypes
+    if args.policy_kind != "image_transformer_block":
+        assert len(optimized) == 1 and optimized[0] is policy.prototypes
+    trainable_parameter_count = sum(parameter.numel() for parameter in optimized)
     initial_prototypes = policy.prototypes.detach().clone()
     if args.lr_scheduler_type == "constant_then_cosine":
         def lr_factor(update: int) -> float:
@@ -233,16 +272,23 @@ def main() -> None:
         wandb_run = wandb.init(project=args.wandb_project, name=args.wandb_run_name,
                                mode=args.wandb_mode, config=config)
     def save_checkpoint(path: Path, *, step: int, epoch: int) -> None:
-        # Q/K/V/O projections are deterministic frozen identity matrices.
-        # Store only the sole learned tensor rather than duplicating hundreds
-        # of MB of frozen attention weights in every checkpoint.
+        # Save exactly the optimized policy state.  Lightweight policies store
+        # only prototypes; the full Transformer block stores MHA, norms and FFN.
+        policy_state = {
+            name: parameter.detach().cpu()
+            for name, parameter in policy.named_parameters() if parameter.requires_grad
+        }
         torch.save({
-            "policy": {"prototypes": policy.prototypes.detach().cpu()},
+            "policy": policy_state,
             "optimizer": optimizer.state_dict(),
             "scheduler": scheduler.state_dict(), "epoch": epoch, "step": step,
             "placement": args.placement, "policy_kind": args.policy_kind,
             "num_prototypes": args.num_prototypes, "attention_heads": args.attention_heads,
+            "ffn_multiplier": args.ffn_multiplier,
+            "block_dropout": args.block_dropout,
+            "trainable_parameter_count": trainable_parameter_count,
             "learning_rate": args.learning_rate,
+            "block_learning_rate": args.block_learning_rate,
             "lr_scheduler_type": args.lr_scheduler_type,
             "decay_start_step": args.decay_start_step,
             "decay_final_factor": args.decay_final_factor,
@@ -276,7 +322,7 @@ def main() -> None:
                         processor, [image], build_cartographic_prompt(item.question), device, args.max_pixels
                     )
                     global_features = encode_global_image(model, source_inputs)
-                    question_tokens = (None if args.policy_kind == "image_only" else
+                    question_tokens = (None if args.policy_kind != "question_conditioned" else
                                        encode_question_context(model, processor.tokenizer, source_inputs,
                                                                global_features, item.question))
                     group = [generate_rollout(
@@ -414,8 +460,14 @@ def main() -> None:
                         break
                     gradient_norm = (float(policy.prototypes.grad.norm())
                                      if policy.prototypes.grad is not None else 0.0)
+                    policy_gradient_norm = math.sqrt(sum(
+                        float(parameter.grad.float().norm()) ** 2
+                        for parameter in optimized if parameter.grad is not None
+                    ))
                     before = policy.prototypes.detach().clone()
                     lr_used = float(optimizer.param_groups[0]["lr"])
+                    block_lr_used = (float(optimizer.param_groups[1]["lr"])
+                                     if len(optimizer.param_groups) > 1 else 0.0)
                     optimizer.step()
                     scheduler.step()
                     step += 1
@@ -435,10 +487,13 @@ def main() -> None:
                         "train/mean_sequence_forward_kl": sum(sequence_kls) / len(sequence_kls) if sequence_kls else 0.0,
                         "train/truncated_trajectories": sum(row["truncated"] for row in rows),
                         "train/prototype_gradient_norm": gradient_norm,
+                        "train/policy_gradient_norm": policy_gradient_norm,
+                        "train/trainable_parameter_count": trainable_parameter_count,
                         "train/prototype_parameter_norm": float(policy.prototypes.detach().norm()),
                         "train/prototype_delta_from_init": float((policy.prototypes.detach() - initial_prototypes).norm()),
                         "train/prototype_update_norm": update_norm,
                         "train/learning_rate": lr_used,
+                        "train/block_learning_rate": block_lr_used,
                         "train/mean_abs_ratio_drift": sum(ratio_drifts) / len(ratio_drifts) if ratio_drifts else 0.0,
                         "train/cross_attention_entropy": sum(row["prototype_attention_entropy"] for row in rows) / len(rows),
                         "train/cross_attention_max_weight": sum(row["prototype_attention_max"] for row in rows) / len(rows),
