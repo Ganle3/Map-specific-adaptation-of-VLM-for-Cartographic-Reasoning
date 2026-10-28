@@ -88,6 +88,8 @@ def main():
     p.add_argument("--min-pixels", type=int, default=None)
     p.add_argument("--max-pixels", type=int, default=None)
     p.add_argument("--generation-batch-size", type=int, default=None)
+    p.add_argument("--generation-chunk-size", type=int, default=None,
+                   help="Maximum prompts passed to one model.generate call; logical generation batch is unchanged.")
     p.add_argument("--warmup-fraction", type=float, default=0.0)
     p.add_argument("--num-iterations", type=int, default=1,
                    help="Number of policy updates per generated rollout batch.")
@@ -124,6 +126,8 @@ def main():
     if (extra.min_pixels is not None and extra.max_pixels is not None
             and extra.min_pixels > extra.max_pixels):
         p.error("--min-pixels cannot exceed --max-pixels")
+    if extra.generation_chunk_size is not None and extra.generation_chunk_size < 1:
+        p.error("--generation-chunk-size must be positive")
     # Preserve the caller's ordering choice.  The fixed-order experiment
     # passes --preserve-qa-order explicitly; random-order runs leave it off.
     args.save_steps = extra.save_steps
@@ -217,6 +221,7 @@ def main():
                        exposures_per_qa=extra.max_steps,
                        save_steps=extra.save_steps, save_total_limit=args.save_total_limit,
                        warmup_fraction=extra.warmup_fraction,
+                       generation_chunk_size=extra.generation_chunk_size,
                        min_pixels=extra.min_pixels, max_pixels=extra.max_pixels,
                        sha256={str(f): hashlib.sha256(Path(f).read_bytes()).hexdigest() for f in
                                (args.qa_json, args.evaluation_script, Path(__file__), Path(base.__file__))},
@@ -306,7 +311,8 @@ def main():
             with (output / 'rollout_dtype_audit.jsonl').open('a', encoding='utf-8') as f:
                 f.write(json.dumps(record) + '\n')
             if changes:
-                print('DTYPE CHANGE ' + phase + ': ' + json.dumps(changes), flush=True)
+                print(f'DTYPE CHANGE {phase}: {len(changes)} tensors; '
+                      f'full details in {output / "rollout_dtype_audit.jsonl"}', flush=True)
             return after
 
         def _generate_single_turn(self, *a, **kw):
@@ -315,6 +321,35 @@ def main():
                 return super()._generate_single_turn(*a, **kw)
             finally:
                 self._write_dtype_audit('native_generation', before)
+
+        def _generate(self, prompts):
+            """Generate a logical batch in bounded chunks without changing grouping/order."""
+            chunk = extra.generation_chunk_size
+            if chunk is None or len(prompts) <= chunk:
+                return super()._generate(prompts)
+            outputs = [super(AuditedTrainer, self)._generate(prompts[start:start + chunk])
+                       for start in range(0, len(prompts), chunk)]
+            # TRL returns eight aligned fields. This experiment has no tools
+            # or custom rollout fields, but merge those containers defensively.
+            prompt_ids = sum((part[0] for part in outputs), [])
+            completion_ids = sum((part[1] for part in outputs), [])
+            tool_mask = None if all(part[2] is None for part in outputs) else sum(
+                ((part[2] or []) for part in outputs), []
+            )
+            completions = sum((part[3] for part in outputs), [])
+            logprobs = None if all(part[4] is None for part in outputs) else sum(
+                ((part[4] or []) for part in outputs), []
+            )
+            extra_fields = {}
+            for part in outputs:
+                for key, value in part[5].items():
+                    extra_fields.setdefault(key, []).extend(value)
+            images = None if all(part[6] is None for part in outputs) else sum(
+                ((part[6] or []) for part in outputs), []
+            )
+            tool_images = sum((part[7] for part in outputs), [])
+            return (prompt_ids, completion_ids, tool_mask, completions,
+                    logprobs, extra_fields, images, tool_images)
 
         def _generate_and_score_completions(self, inputs):
             from collections import Counter

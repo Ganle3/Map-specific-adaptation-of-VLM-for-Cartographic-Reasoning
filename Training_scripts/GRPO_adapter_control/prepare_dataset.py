@@ -48,8 +48,10 @@ def normalize(row: dict, index: int, mapverse_root: Path, mapwise_root: Path) ->
         image_name=str(image),
         map_no=str(out.get("map_no", out.get("image_name", index))),
         template_no=int(out.get("template_no", out.get("source_id", index))),
-        source_index=int(out.get("source_index", out.get("source_id", index))),
-        qa_id=str(out.get("qa_id", f"{dataset}_{out.get('source_id', index)}")),
+        # Preserve the same 1-based dataset index / 0-based qa_id convention
+        # used by the prototype trainer's easier1000 logs.
+        source_index=index + 1,
+        qa_id=str(out.get("qa_id", index)),
         ground_truth=str(out.get("ground_truth", out.get("correct_answer", ""))),
         ground_truth_type=str(out.get("ground_truth_type", out.get("answer_type", ""))),
     )

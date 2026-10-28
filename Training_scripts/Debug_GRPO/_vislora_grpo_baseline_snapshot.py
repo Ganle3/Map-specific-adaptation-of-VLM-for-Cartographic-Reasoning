@@ -671,7 +671,8 @@ def _as_list(
 # 13. Correctness-only reward
 # ============================================================
 
-def log_qa_reward_groups(qa_ids, rewards, completion_ids=None, log_metric=None, trainer_state=None):
+def log_qa_reward_groups(qa_ids, rewards, completion_ids=None, log_metric=None,
+                         trainer_state=None, dataset_indices=None):
     """Single-GPU diagnostics; grouping follows TRL's contiguous G completions.
 
     Termination matches TRL 1.12's EOS/pad test, not answer-text parsing.
@@ -690,6 +691,10 @@ def log_qa_reward_groups(qa_ids, rewards, completion_ids=None, log_metric=None, 
                      for tokens in completion_ids[start:start + REWARD_GROUP_SIZE]]
         variance = len(set(values)) > 1 if valid else None
         group = {
+            "generation_batch": REWARD_CALL_COUNT,
+            "optimizer_step_before_update": getattr(trainer_state, "global_step", None),
+            "dataset_index": (dataset_indices[start] if dataset_indices is not None
+                              and start < len(dataset_indices) else None),
             "qa_id": ids[0] if ids else None,
             "group_valid": valid,
             "rewards": values,
@@ -697,6 +702,8 @@ def log_qa_reward_groups(qa_ids, rewards, completion_ids=None, log_metric=None, 
             "untruncated_count": sum(ended) if ended is not None else None,
             "truncated_count": len(values) - sum(ended) if ended is not None else None,
             "signal_group": (variance and any(ended)) if valid and ended is not None else None,
+            "correct_count": int(sum(values)),
+            "incorrect_count": len(values) - int(sum(values)),
         }
         groups.append(group)
         print(f"[REWARD {REWARD_CALL_COUNT:05d}] " + json.dumps(group, ensure_ascii=False))
@@ -708,6 +715,10 @@ def log_qa_reward_groups(qa_ids, rewards, completion_ids=None, log_metric=None, 
             metrics["qa_groups/signal_count"] = sum(g["signal_group"] for g in valid_groups)
             metrics["qa_groups/signal_fraction"] = metrics["qa_groups/signal_count"] / len(valid_groups)
             metrics["qa_groups/truncated_fraction"] = sum(g["truncated_count"] for g in valid_groups) / sum(len(g["rewards"]) for g in valid_groups)
+        metrics["qa_groups/mixed_count"] = sum(bool(g["reward_variance"]) for g in valid_groups)
+        metrics["qa_groups/all_correct_count"] = sum(g["correct_count"] == len(g["rewards"]) for g in valid_groups)
+        metrics["qa_groups/all_wrong_count"] = sum(g["correct_count"] == 0 for g in valid_groups)
+        metrics["qa_groups/correct_rollout_count"] = sum(g["correct_count"] for g in valid_groups)
     if callable(log_metric):
         for name, value in metrics.items():
             log_metric(name, float(value))
@@ -835,6 +846,7 @@ def mapwise_correctness_reward(
         completion_ids=kwargs.get("completion_ids"),
         log_metric=kwargs.get("log_metric"),
         trainer_state=kwargs.get("trainer_state"),
+        dataset_indices=_as_list(kwargs.get("source_index", ""), n),
     )
 
     return rewards
