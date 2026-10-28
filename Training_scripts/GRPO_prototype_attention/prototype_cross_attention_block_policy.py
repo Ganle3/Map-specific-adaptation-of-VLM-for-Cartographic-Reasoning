@@ -49,15 +49,30 @@ class PrototypeCrossAttentionBlockPolicy(nn.Module):
 
     @torch.no_grad()
     def reset_parameters(self) -> None:
-        """Transformer-style initialization for stable initial variance."""
+        """Warm-start in Qwen's native visual-feature coordinate system.
+
+        The full MHA and FFN remain trainable.  Identity Q/K/V/O projections
+        initially preserve the merger embedding basis that the frozen decoder
+        already understands.  The FFN output projection starts at zero, so the
+        randomly initialized nonlinear branch cannot corrupt that visual
+        memory before GRPO has supplied a learning signal.
+        """
         # bias=False and equal Q/K/V dimensions make MHA store the three input
         # projections together as [3H,H].
-        nn.init.xavier_uniform_(self.cross_attention.in_proj_weight)
-        nn.init.xavier_uniform_(self.cross_attention.out_proj.weight)
-        for module in self.ffn:
-            if isinstance(module, nn.Linear):
-                nn.init.xavier_uniform_(module.weight)
-                nn.init.zeros_(module.bias)
+        eye = torch.eye(
+            self.hidden_size,
+            device=self.cross_attention.in_proj_weight.device,
+            dtype=self.cross_attention.in_proj_weight.dtype,
+        )
+        self.cross_attention.in_proj_weight.copy_(torch.cat((eye, eye, eye), dim=0))
+        self.cross_attention.out_proj.weight.copy_(eye)
+
+        first_linear = self.ffn[0]
+        second_linear = self.ffn[2]
+        nn.init.xavier_uniform_(first_linear.weight)
+        nn.init.zeros_(first_linear.bias)
+        nn.init.zeros_(second_linear.weight)
+        nn.init.zeros_(second_linear.bias)
         for norm in (self.norm1, self.norm2):
             nn.init.ones_(norm.weight)
             nn.init.zeros_(norm.bias)
