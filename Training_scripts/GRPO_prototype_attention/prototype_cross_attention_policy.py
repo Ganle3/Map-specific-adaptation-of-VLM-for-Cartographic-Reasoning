@@ -61,9 +61,7 @@ class PrototypeCrossAttentionPolicy(nn.Module):
         if image_tokens.ndim != 3 or image_tokens.shape[-1] != self.hidden_size:
             raise ValueError(f"Expected image tokens [N,{self.hidden_size}] or [B,N,{self.hidden_size}]")
         batch = image_tokens.shape[0]
-        # Layer-normalization has no trainable affine parameters.  Keys are
-        # normalized for stable matching; Values retain the native visual
-        # feature scale and content.
+        # Layer-normalization has no trainable affine parameters.  Keys are normalized for stable matching; Values retain the native visual feature scale and content.
         query = F.layer_norm(self.prototypes, (self.hidden_size,)).unsqueeze(0).expand(batch, -1, -1)
         key = F.layer_norm(image_tokens.float(), (self.hidden_size,))
         value = image_tokens.float()
