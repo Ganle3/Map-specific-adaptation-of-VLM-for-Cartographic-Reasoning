@@ -280,17 +280,38 @@ def main() -> None:
                         break
                     optimizer.zero_grad(set_to_none=True)
                     losses, ratio_drifts, sequence_kls = [], [], []
-                    active = masked_off_policy = 0
+                    active = masked_off_policy = zero_advantage = truncated_without_eos = 0
                     for _, _, source_inputs, global_features, question_tokens, group, advantages in prepared_groups:
                         for row, advantage in zip(group, advantages):
                             if not bool(row["completion_mask"].any()):
+                                truncated_without_eos += 1
                                 continue
-                            augmented, _ = build_prototype_prefill(
-                                model, processor.tokenizer, source_inputs, global_features,
-                                policy, args.placement, with_grad=True,
-                                question_tokens=question_tokens,
-                            )
-                            current = completion_log_probs(model, augmented, row["completion_ids"])
+                            # A uniform-reward GRPO group has exactly zero
+                            # advantage and contributes identically zero policy
+                            # gradient. Do not run an expensive Qwen recompute
+                            # or call backward on such trajectories.
+                            if float(advantage) == 0.0:
+                                zero_advantage += 1
+                                continue
+                            # Be explicit because rollout generation runs under
+                            # no_grad and older Euler torch/PEFT combinations
+                            # have differed in their restoration of grad mode.
+                            with torch.enable_grad():
+                                augmented, _ = build_prototype_prefill(
+                                    model, processor.tokenizer, source_inputs, global_features,
+                                    policy, args.placement, with_grad=True,
+                                    question_tokens=question_tokens,
+                                )
+                                current = completion_log_probs(
+                                    model, augmented, row["completion_ids"]
+                                )
+                            if not current.requires_grad:
+                                raise RuntimeError(
+                                    "Current-policy log probabilities are detached despite a nonzero "
+                                    f"advantage={float(advantage):.6g}; "
+                                    f"grad_enabled={torch.is_grad_enabled()}, "
+                                    f"prototype_requires_grad={policy.prototypes.requires_grad}"
+                                )
                             keep, mean_kl = off_policy_sequence_keep(
                                 current, row["old_logps"], advantage,
                                 row["completion_mask"], args.off_policy_mask_threshold,
@@ -309,6 +330,22 @@ def main() -> None:
                             (loss / total_trajectories).backward()
                             losses.append(float(loss.detach()))
                             active += 1
+                    if active == 0:
+                        payload = {
+                            "generation_batch": generation_batch,
+                            "optimizer_step_unchanged": step,
+                            "epoch": epoch,
+                            "policy_update": policy_update,
+                            "reason": "no_usable_nonzero_advantage_trajectories",
+                            "zero_advantage_terminated": zero_advantage,
+                            "truncated_without_eos": truncated_without_eos,
+                            "off_policy_masked": masked_off_policy,
+                        }
+                        print(f"[SKIP_UPDATE {generation_batch:05d}.{policy_update}] "
+                              f"{json.dumps(payload, ensure_ascii=False)}", flush=True)
+                        # A second off-policy pass over the same empty signal
+                        # cannot create a gradient; generate a fresh batch.
+                        break
                     gradient_norm = (float(policy.prototypes.grad.norm())
                                      if policy.prototypes.grad is not None else 0.0)
                     before = policy.prototypes.detach().clone()
@@ -325,6 +362,8 @@ def main() -> None:
                         "train/signal_question_fraction": sum(len(set(row["reward"] for row in group)) > 1
                                                                for *_, group, _ in prepared_groups) / len(prepared_groups),
                         "train/active_trajectories": active,
+                        "train/zero_advantage_terminated": zero_advantage,
+                        "train/truncated_without_eos": truncated_without_eos,
                         "train/off_policy_masked_trajectories": masked_off_policy,
                         "train/off_policy_mask_fraction": masked_off_policy / max(1, active + masked_off_policy),
                         "train/mean_sequence_forward_kl": sum(sequence_kls) / len(sequence_kls) if sequence_kls else 0.0,

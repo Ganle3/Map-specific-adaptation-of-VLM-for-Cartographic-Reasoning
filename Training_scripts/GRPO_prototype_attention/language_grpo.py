@@ -17,15 +17,30 @@ def completion_log_probs(model, augmented_prompt: dict, completion_ids: torch.Te
     full_mask = torch.ones_like(full_ids)
     mm_types = torch.cat((augmented_prompt["mm_token_type_ids"],
                           torch.zeros_like(completion_ids)), dim=1)
-    output = model(
-        input_ids=full_ids,
-        attention_mask=full_mask,
-        mm_token_type_ids=mm_types,
-        image_grid_thw=augmented_prompt["image_grid_thw"],
-        mm_encoder_outputs=augmented_prompt["mm_encoder_outputs"],
-        use_cache=False,
-        return_dict=True,
-    )
+    visual = augmented_prompt["mm_encoder_outputs"]["image"]
+    prototype_memory = visual.pooler_output[-1]
+    if not prototype_memory.requires_grad:
+        raise RuntimeError(
+            "Prototype visual memory is detached before the Qwen current-policy forward"
+        )
+    # Standard LoRA modules are already injected into the underlying Qwen
+    # layers. Calling that model directly avoids version-specific PEFT wrapper
+    # inference behaviour while keeping the frozen adapter active.
+    forward_model = model.get_base_model() if hasattr(model, "get_base_model") else model
+    with torch.enable_grad():
+        output = forward_model(
+            input_ids=full_ids,
+            attention_mask=full_mask,
+            mm_token_type_ids=mm_types,
+            image_grid_thw=augmented_prompt["image_grid_thw"],
+            mm_encoder_outputs=augmented_prompt["mm_encoder_outputs"],
+            use_cache=False,
+            return_dict=True,
+        )
+    if not output.logits.requires_grad:
+        raise RuntimeError(
+            "Qwen current-policy logits are detached from trainable prototype memory"
+        )
     prefix_length = prefix_ids.shape[1]
     # Logit at prefix_length-1 predicts completion token 0.
     logits = output.logits[:, prefix_length - 1:prefix_length + completion_ids.shape[1] - 1, :].float()
