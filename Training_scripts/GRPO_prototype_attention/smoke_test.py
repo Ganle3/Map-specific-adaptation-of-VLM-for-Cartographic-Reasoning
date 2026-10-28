@@ -22,7 +22,8 @@ from data import build_cartographic_prompt, load_mapverse_questions
 from rolling_sparse_qwen3vl import load_model
 from language_grpo import completion_log_probs
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
-from prototype_prefill import build_prototype_prefill, encode_global_image, encode_question_context
+from prototype_prefill import (build_prototype_prefill, encode_global_image,
+                               encode_question_context, generate_from_preencoded_vision)
 from question_conditioned_policy import QuestionConditionedPrototypePolicy
 
 
@@ -73,7 +74,8 @@ def main() -> None:
             model, processor.tokenizer, source, global_features, policy, placement, with_grad=False
         )
         with torch.no_grad():
-            generated = model.generate(
+            generated = generate_from_preencoded_vision(
+                model,
                 **rollout_prompt, do_sample=True, temperature=1.0, top_p=1.0, top_k=0,
                 max_new_tokens=2, return_dict_in_generate=True, output_scores=True,
             )

@@ -12,6 +12,19 @@ def qwen_lm(model):
     return model.get_base_model() if hasattr(model, "get_base_model") else model
 
 
+def generate_from_preencoded_vision(model, **kwargs):
+    """Generate from cached vision features through the actual Qwen model.
+
+    Some PEFT releases delegate ``PeftModel.generate`` through ``LoraModel``.
+    Transformers then validates generation kwargs against that generic wrapper
+    instead of Qwen3-VL's forward signature and rejects the valid
+    ``mm_encoder_outputs`` argument. LoRA layers are already injected into the
+    returned base model, so this keeps the active adapter while exposing
+    Qwen3-VL's multimodal signature to generation validation.
+    """
+    return qwen_lm(model).generate(**kwargs)
+
+
 def encode_global_image(model, processor_inputs: dict):
     """Run the frozen ViT+merger once; returned tensors are detached reusable constants."""
     base = qwen_lm(model)

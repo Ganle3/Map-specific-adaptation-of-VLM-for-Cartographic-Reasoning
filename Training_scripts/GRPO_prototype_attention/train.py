@@ -27,7 +27,8 @@ from rolling_sparse_qwen3vl import load_model
 from language_grpo import (clipped_language_grpo_loss, completion_log_probs,
                            group_advantages, off_policy_sequence_keep)
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
-from prototype_prefill import build_prototype_prefill, encode_global_image, encode_question_context
+from prototype_prefill import (build_prototype_prefill, encode_global_image,
+                               encode_question_context, generate_from_preencoded_vision)
 from question_conditioned_policy import QuestionConditionedPrototypePolicy
 
 
@@ -46,7 +47,8 @@ def generate_rollout(model, processor, policy, item, source_inputs, global_featu
     )
     prefix_length = augmented["input_ids"].shape[1]
     with torch.no_grad():
-        output = model.generate(
+        output = generate_from_preencoded_vision(
+            model,
             **augmented,
             do_sample=True,
             temperature=1.0,

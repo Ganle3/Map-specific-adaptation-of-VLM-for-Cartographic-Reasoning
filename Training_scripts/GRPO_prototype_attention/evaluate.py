@@ -24,7 +24,8 @@ from data import (MapQuestion, build_cartographic_prompt, evaluate_answer,
 from rolling_sparse_qwen3vl import load_model
 
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
-from prototype_prefill import build_prototype_prefill, encode_global_image
+from prototype_prefill import (build_prototype_prefill, encode_global_image,
+                               generate_from_preencoded_vision)
 from question_conditioned_policy import QuestionConditionedPrototypePolicy
 
 
@@ -167,7 +168,8 @@ def main() -> None:
                 )
                 prefix_length = augmented["input_ids"].shape[1]
                 with torch.inference_mode():
-                    generated = model.generate(
+                    generated = generate_from_preencoded_vision(
+                        model,
                         **augmented, do_sample=False, num_beams=1,
                         max_new_tokens=args.max_new_tokens, use_cache=True,
                     )
