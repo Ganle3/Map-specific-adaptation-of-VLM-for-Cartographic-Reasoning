@@ -7,6 +7,7 @@ import json
 import sys
 import math
 import random
+import importlib
 from collections import Counter
 from pathlib import Path
 
@@ -19,7 +20,6 @@ for sibling in (ROOT / "SparseVLM_eliminateCONTEXT", ROOT / "Training_scripts" /
         sys.path.insert(0, str(sibling))
 from rolling_sparse_qwen3vl import load_model
 from data import evaluate_answer, load_mapverse_questions
-from live_rollout import prepare_crops, rollout
 from region_grpo import (capture_policy_update_diagnostics, finalize_policy_update_diagnostics,
                          region_grpo_loss)
 from region_policy import NineGridRegionPolicy, decoder_hidden_size
@@ -50,6 +50,10 @@ def main():
     parser.add_argument("--global-max-pixels", type=int, default=1_000_000)
     parser.add_argument("--crop-max-pixels", type=int, default=1_000_000)
     parser.add_argument("--crop-instruction", default="Continue the unfinished reasoning using this additional visual evidence.")
+    parser.add_argument("--rollout-module", default="live_rollout",
+                        choices=("live_rollout", "live_rollout_direct_visual"),
+                        help="live_rollout is the legacy chat-turn crop append; "
+                             "live_rollout_direct_visual appends cached merger tokens at the current cache tail.")
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--policy-hidden-layer", type=int, default=-1,
                         help="-1: final normalized decoder state; i>=0: Transformers hidden_states[i] at each decision.")
@@ -96,6 +100,8 @@ def main():
     if args.stop_at_eval_accuracy is not None and not (0 < args.stop_at_eval_accuracy <= 1):
         parser.error("stop-at-eval-accuracy must be in (0, 1]")
     torch.manual_seed(args.seed)
+    rollout_module = importlib.import_module(args.rollout_module)
+    prepare_crops, rollout = rollout_module.prepare_crops, rollout_module.rollout
     args.output_dir.mkdir(parents=True, exist_ok=True)
     model, processor = load_model(args.model, args.adapter, load_in_4bit=args.load_in_4bit)
     model.eval()
