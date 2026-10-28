@@ -1,8 +1,8 @@
-"""Post-norm Transformer cross-attention block for prototype visual memory::
+"""Pre-norm Transformer cross-attention block for prototype visual memory::
 
-    A = CrossMHA(Q=P, K=Z_image, V=Z_image)
-    X = LayerNorm(P + Dropout(A))
-    R = LayerNorm(X + Dropout(MLP(X)))
+    A = CrossMHA(Q=LN(P), K=LN(Z_image), V=Z_image)
+    X = P + Dropout(A)
+    R = X + Dropout(MLP(LN(X)))
 
 All policy parameters are trainable; the Qwen3-VL backbone and its loaded
 adapter remain frozen by the trainer.
@@ -37,8 +37,9 @@ class PrototypeCrossAttentionBlockPolicy(nn.Module):
         self.cross_attention = nn.MultiheadAttention(
             hidden_size, num_heads, bias=False, batch_first=True,
         )
-        self.norm1 = nn.LayerNorm(hidden_size)
-        self.norm2 = nn.LayerNorm(hidden_size)
+        self.query_norm = nn.LayerNorm(hidden_size)
+        self.context_norm = nn.LayerNorm(hidden_size)
+        self.ffn_norm = nn.LayerNorm(hidden_size)
         self.ffn = nn.Sequential(
             nn.Linear(hidden_size, ffn_multiplier * hidden_size),
             nn.GELU(),
@@ -73,7 +74,7 @@ class PrototypeCrossAttentionBlockPolicy(nn.Module):
         nn.init.zeros_(first_linear.bias)
         nn.init.zeros_(second_linear.weight)
         nn.init.zeros_(second_linear.bias)
-        for norm in (self.norm1, self.norm2):
+        for norm in (self.query_norm, self.context_norm, self.ffn_norm):
             nn.init.ones_(norm.weight)
             nn.init.zeros_(norm.bias)
 
@@ -90,13 +91,13 @@ class PrototypeCrossAttentionBlockPolicy(nn.Module):
         batch = image_tokens.shape[0]
         query = self.prototypes.unsqueeze(0).expand(batch, -1, -1)
         attended, weights = self.cross_attention(
-            query=query,
-            key=image_tokens,
+            query=self.query_norm(query),
+            key=self.context_norm(image_tokens),
             value=image_tokens,
             need_weights=True, average_attn_weights=False,
         )
-        hidden = self.norm1(query + self.dropout(attended))
-        memory = self.norm2(hidden + self.dropout(self.ffn(hidden)))
+        hidden = query + self.dropout(attended)
+        memory = hidden + self.dropout(self.ffn(self.ffn_norm(hidden)))
         return (memory[0], weights) if unbatched else (memory, weights)
 
     def trainable_parameters(self) -> list[nn.Parameter]:
