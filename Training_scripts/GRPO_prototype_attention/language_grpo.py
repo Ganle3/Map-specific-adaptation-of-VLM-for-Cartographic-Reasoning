@@ -4,6 +4,71 @@ from __future__ import annotations
 import torch
 
 
+def _qwen_language_logits(model, input_ids: torch.Tensor, attention_mask: torch.Tensor,
+                          mm_token_type_ids: torch.Tensor, image_grid_thw: torch.Tensor,
+                          image_features) -> torch.Tensor:
+    """Run Qwen's decoder from differentiable pre-encoded visual embeddings.
+
+    Some Transformers versions used on Euler accept ``mm_encoder_outputs``
+    but detach those cached tensors inside the multimodal wrapper.  Build the
+    exact decoder inputs explicitly so the prototype-memory graph is retained.
+    Frozen Qwen/PEFT weights still participate in autograd with respect to the
+    inputs; they remain excluded from the optimizer.
+    """
+    qwen = model.get_base_model() if hasattr(model, "get_base_model") else model
+    vl_model = getattr(qwen, "model", None)
+    language_model = getattr(vl_model, "language_model", None)
+    lm_head = getattr(qwen, "lm_head", None)
+    if vl_model is None or language_model is None or lm_head is None:
+        raise RuntimeError("Could not locate Qwen3-VL language decoder and LM head")
+
+    inputs_embeds = qwen.get_input_embeddings()(input_ids)
+    pooled = torch.cat(tuple(image_features.pooler_output), dim=0).to(
+        device=inputs_embeds.device, dtype=inputs_embeds.dtype
+    )
+    image_token_id = int(qwen.config.image_token_id)
+    visual_pos_masks = input_ids.eq(image_token_id)
+    if int(visual_pos_masks.sum()) != int(pooled.shape[0]):
+        raise RuntimeError(
+            "Visual placeholder/embedding mismatch: "
+            f"tokens={int(visual_pos_masks.sum())}, embeddings={pooled.shape[0]}"
+        )
+    scatter_mask = visual_pos_masks.unsqueeze(-1).expand_as(inputs_embeds)
+    inputs_embeds = inputs_embeds.masked_scatter(scatter_mask, pooled)
+    if not inputs_embeds.requires_grad:
+        raise RuntimeError("Differentiable prototype memory did not reach Qwen inputs_embeds")
+
+    deepstack = [
+        torch.cat(tuple(level), dim=0).to(inputs_embeds.device, inputs_embeds.dtype)
+        for level in image_features.deepstack_features
+    ]
+    rope_owner = qwen
+    for _ in range(4):
+        if hasattr(rope_owner, "get_rope_index"):
+            break
+        rope_owner = getattr(rope_owner, "model", None)
+        if rope_owner is None:
+            raise RuntimeError("Could not locate Qwen3-VL get_rope_index")
+    position_ids, _ = rope_owner.get_rope_index(
+        input_ids, mm_token_type_ids, image_grid_thw=image_grid_thw,
+        attention_mask=attention_mask,
+    )
+    decoder_output = language_model(
+        input_ids=None,
+        inputs_embeds=inputs_embeds,
+        attention_mask=attention_mask,
+        position_ids=position_ids,
+        visual_pos_masks=visual_pos_masks,
+        deepstack_visual_embeds=deepstack,
+        use_cache=False,
+        return_dict=True,
+    )
+    logits = lm_head(decoder_output.last_hidden_state)
+    if not logits.requires_grad:
+        raise RuntimeError("Qwen decoder logits are detached from explicit prototype inputs_embeds")
+    return logits
+
+
 def group_advantages(rewards: list[float], device) -> torch.Tensor:
     values = torch.tensor(rewards, dtype=torch.float32, device=device)
     return (values - values.mean()) / (values.std(unbiased=False) + 1e-6)
@@ -23,27 +88,14 @@ def completion_log_probs(model, augmented_prompt: dict, completion_ids: torch.Te
         raise RuntimeError(
             "Prototype visual memory is detached before the Qwen current-policy forward"
         )
-    # Standard LoRA modules are already injected into the underlying Qwen
-    # layers. Calling that model directly avoids version-specific PEFT wrapper
-    # inference behaviour while keeping the frozen adapter active.
-    forward_model = model.get_base_model() if hasattr(model, "get_base_model") else model
     with torch.enable_grad():
-        output = forward_model(
-            input_ids=full_ids,
-            attention_mask=full_mask,
-            mm_token_type_ids=mm_types,
-            image_grid_thw=augmented_prompt["image_grid_thw"],
-            mm_encoder_outputs=augmented_prompt["mm_encoder_outputs"],
-            use_cache=False,
-            return_dict=True,
-        )
-    if not output.logits.requires_grad:
-        raise RuntimeError(
-            "Qwen current-policy logits are detached from trainable prototype memory"
+        logits = _qwen_language_logits(
+            model, full_ids, full_mask, mm_types,
+            augmented_prompt["image_grid_thw"], visual,
         )
     prefix_length = prefix_ids.shape[1]
     # Logit at prefix_length-1 predicts completion token 0.
-    logits = output.logits[:, prefix_length - 1:prefix_length + completion_ids.shape[1] - 1, :].float()
+    logits = logits[:, prefix_length - 1:prefix_length + completion_ids.shape[1] - 1, :].float()
     return torch.log_softmax(logits, dim=-1).gather(-1, completion_ids.unsqueeze(-1)).squeeze(0).squeeze(-1)
 
 
