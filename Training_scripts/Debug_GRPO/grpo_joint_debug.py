@@ -92,7 +92,7 @@ def main():
     p.add_argument("--num-iterations", type=int, default=1,
                    help="Number of policy updates per generated rollout batch.")
     p.add_argument("--off-policy-mask-threshold", type=float, default=None,
-                   choices=(0.2, 0.4),
+                   choices=(0.02, 0.2, 0.4),
                    help="Optional TRL off-policy negative-sequence mask threshold.")
     extra, remaining = p.parse_known_args()
     preset_rank, targets = preset(extra.scope_experiment)
@@ -108,7 +108,8 @@ def main():
     args.max_pixels = extra.max_pixels
     if args.per_device_train_batch_size < 1 or args.gradient_accumulation_steps < 1:
         p.error('Batch size and gradient accumulation must be positive')
-    args.num_generations = 4
+    # Keep the baseline default (4), but respect an explicit CLI value.  This
+    # is needed for matched controls whose GRPO group contains 8 rollouts.
     if not 0 <= extra.warmup_fraction < 1:
         p.error("--warmup-fraction must be in [0, 1)")
     if extra.lr_scheduler_type == "constant_then_cosine" and not (
@@ -318,8 +319,10 @@ def main():
         def _generate_and_score_completions(self, inputs):
             from collections import Counter
             counts = Counter(r.get('qa_id', r.get('sample_id', r.get('source_index'))) for r in inputs)
-            if len(counts) < 1 or any(value != 4 for value in counts.values()):
-                raise RuntimeError(f'Expected four rollouts per QA group: {counts}')
+            if len(counts) < 1 or any(value != args.num_generations for value in counts.values()):
+                raise RuntimeError(
+                    f'Expected {args.num_generations} rollouts per QA group: {counts}'
+                )
             before = parameter_inventory(self.model)
             try:
                 result = super()._generate_and_score_completions(inputs)
