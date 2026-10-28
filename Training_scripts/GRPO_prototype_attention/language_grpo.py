@@ -1,12 +1,15 @@
 """Language-token PPO/GRPO loss whose only trainable source is prototype memory."""
 from __future__ import annotations
 
+from functools import partial
+
 import torch
+from torch.utils.checkpoint import checkpoint
 
 
 def _qwen_language_logits(model, input_ids: torch.Tensor, attention_mask: torch.Tensor,
                           mm_token_type_ids: torch.Tensor, image_grid_thw: torch.Tensor,
-                          image_features) -> torch.Tensor:
+                          image_features, *, checkpoint_decoder: bool = True) -> torch.Tensor:
     """Run Qwen's decoder from differentiable pre-encoded visual embeddings.
 
     Some Transformers versions used on Euler accept ``mm_encoder_outputs``
@@ -60,16 +63,49 @@ def _qwen_language_logits(model, input_ids: torch.Tensor, attention_mask: torch.
         input_ids, mm_token_type_ids, image_grid_thw=image_grid_thw,
         attention_mask=attention_mask,
     )
-    decoder_output = language_model(
-        input_ids=None,
-        inputs_embeds=inputs_embeds,
-        attention_mask=attention_mask,
-        position_ids=position_ids,
-        visual_pos_masks=visual_pos_masks,
-        deepstack_visual_embeds=deepstack,
-        use_cache=False,
-        return_dict=True,
-    )
+    # Only the prototype input requires gradients; all decoder weights are
+    # frozen.  A full 500-token completion nevertheless retains every decoder
+    # layer's activations unless the layers are checkpointed, which exceeds a
+    # 24 GiB 4090 for large maps.  Temporarily activate the Transformers layer
+    # checkpoint wrapper for this differentiable current-policy pass.  Setting
+    # the parent layer's flag directly leaves all frozen child modules in eval
+    # mode and therefore does not introduce dropout.  Rollout generation never
+    # enters this function and remains unchanged.
+    layer_states = []
+    if checkpoint_decoder:
+        checkpoint_func = partial(checkpoint, use_reentrant=False)
+        for layer in language_model.layers:
+            layer_states.append((
+                layer,
+                layer.training,
+                getattr(layer, "gradient_checkpointing", False),
+                getattr(layer, "_gradient_checkpointing_func", None),
+            ))
+            layer.training = True
+            layer.gradient_checkpointing = True
+            layer._gradient_checkpointing_func = checkpoint_func
+    try:
+        decoder_output = language_model(
+            input_ids=None,
+            inputs_embeds=inputs_embeds,
+            attention_mask=attention_mask,
+            position_ids=position_ids,
+            visual_pos_masks=visual_pos_masks,
+            deepstack_visual_embeds=deepstack,
+            use_cache=False,
+            return_dict=True,
+        )
+    finally:
+        for layer, was_training, was_checkpointing, old_checkpoint_func in layer_states:
+            layer.training = was_training
+            layer.gradient_checkpointing = was_checkpointing
+            if old_checkpoint_func is None:
+                try:
+                    delattr(layer, "_gradient_checkpointing_func")
+                except AttributeError:
+                    pass
+            else:
+                layer._gradient_checkpointing_func = old_checkpoint_func
     logits = lm_head(decoder_output.last_hidden_state)
     if not logits.requires_grad:
         raise RuntimeError("Qwen decoder logits are detached from explicit prototype inputs_embeds")

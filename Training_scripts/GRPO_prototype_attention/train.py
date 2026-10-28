@@ -32,6 +32,40 @@ from prototype_prefill import (build_prototype_prefill, encode_global_image,
 from question_conditioned_policy import QuestionConditionedPrototypePolicy
 
 
+_RECOMPUTE_INPUT_KEYS = ("input_ids", "mm_token_type_ids", "image_grid_thw")
+
+
+def _cache_recompute_inputs(source_inputs: dict) -> dict:
+    """Keep only the small frozen prompt tensors needed by policy recomputation.
+
+    In particular, do not retain ``pixel_values`` for every question in an
+    optimizer batch after its ViT features and rollouts have been produced.
+    """
+    missing = [key for key in _RECOMPUTE_INPUT_KEYS if key not in source_inputs]
+    if missing:
+        raise KeyError(f"Processor inputs are missing recomputation keys: {missing}")
+    return {
+        key: source_inputs[key].detach().to("cpu", copy=True)
+        for key in _RECOMPUTE_INPUT_KEYS
+    }
+
+
+def _move_recompute_inputs(cached_inputs: dict, device) -> dict:
+    return {key: value.to(device, non_blocking=True) for key, value in cached_inputs.items()}
+
+
+def _move_visual_features(features, device):
+    """Move the detached ViT/merger cache without changing its nested shape."""
+    def move_group(value):
+        tensors = (value,) if isinstance(value, torch.Tensor) else tuple(value)
+        return tuple(tensor.detach().to(device, non_blocking=True) for tensor in tensors)
+
+    return type(features)(
+        pooler_output=move_group(features.pooler_output),
+        deepstack_features=[move_group(level) for level in features.deepstack_features],
+    )
+
+
 def _eos_ids(tokenizer) -> set[int]:
     value = tokenizer.eos_token_id
     return set(map(int, value)) if isinstance(value, (list, tuple, set)) else {int(value)}
@@ -233,6 +267,8 @@ def main() -> None:
                 question_batch = epoch_records[start:start + args.questions_per_update]
                 prepared_groups = []
                 generation_batch += 1
+                if torch.cuda.is_available():
+                    torch.cuda.reset_peak_memory_stats()
                 for dataset_index, item in question_batch:
                     with Image.open(item.image_path) as image_file:
                         image = _resize_to_pixel_cap(image_file.convert("RGB"), args.max_pixels)
@@ -249,8 +285,18 @@ def main() -> None:
                     ) for rollout_id in range(args.group_size)]
                     rewards = [row["reward"] for row in group]
                     advantages = group_advantages(rewards, device).detach().cpu()
-                    prepared_groups.append((dataset_index, item, source_inputs, global_features,
-                                            question_tokens, group, advantages))
+                    # The eight questions form one logical optimizer batch, but
+                    # their frozen image pixels/features do not need to occupy
+                    # GPU memory together.  Cache the minimal state on CPU and
+                    # move back exactly one question during current-policy
+                    # recomputation below.
+                    cached_source_inputs = _cache_recompute_inputs(source_inputs)
+                    cached_global_features = _move_visual_features(global_features, "cpu")
+                    cached_question_tokens = (None if question_tokens is None else
+                                              question_tokens.detach().to("cpu", copy=True))
+                    prepared_groups.append((dataset_index, item, cached_source_inputs,
+                                            cached_global_features, cached_question_tokens,
+                                            group, advantages))
                     payload = {
                         "generation_batch": generation_batch, "optimizer_step_before_update": step,
                         "dataset_index": dataset_index, "qa_id": item.sample_id,
@@ -271,6 +317,10 @@ def main() -> None:
                                                 "qa_id": item.sample_id, **serializable},
                                                ensure_ascii=False) + "\n")
                     trace.flush()
+                    del source_inputs, global_features, question_tokens
+                    del cached_source_inputs, cached_global_features, cached_question_tokens
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
 
                 total_trajectories = sum(len(group) for *_, group, _ in prepared_groups)
                 rows = [row for *_, group, _ in prepared_groups for row in group]
@@ -281,7 +331,15 @@ def main() -> None:
                     optimizer.zero_grad(set_to_none=True)
                     losses, ratio_drifts, sequence_kls = [], [], []
                     active = masked_off_policy = zero_advantage = truncated_without_eos = 0
-                    for _, _, source_inputs, global_features, question_tokens, group, advantages in prepared_groups:
+                    for _, _, cached_source_inputs, cached_global_features, cached_question_tokens, group, advantages in prepared_groups:
+                        # Only one question's frozen visual cache is resident on
+                        # the GPU while its trajectories are recomputed.
+                        source_inputs = _move_recompute_inputs(cached_source_inputs, device)
+                        global_features = _move_visual_features(cached_global_features, device)
+                        question_tokens = (None if cached_question_tokens is None else
+                                           cached_question_tokens.to(device, non_blocking=True))
+                        if torch.cuda.is_available():
+                            torch.cuda.empty_cache()
                         for row, advantage in zip(group, advantages):
                             if not bool(row["completion_mask"].any()):
                                 truncated_without_eos += 1
@@ -322,6 +380,7 @@ def main() -> None:
                             ).abs().mean()))
                             if not keep:
                                 masked_off_policy += 1
+                                del current, augmented
                                 continue
                             loss = clipped_language_grpo_loss(
                                 current, row["old_logps"], advantage.to(device),
@@ -330,6 +389,13 @@ def main() -> None:
                             (loss / total_trajectories).backward()
                             losses.append(float(loss.detach()))
                             active += 1
+                            # Backward has consumed this trajectory's graph.
+                            # Releasing the final references here prevents the
+                            # next 500-token forward from overlapping it.
+                            del loss, current, augmented
+                        del source_inputs, global_features, question_tokens
+                        if torch.cuda.is_available():
+                            torch.cuda.empty_cache()
                     if active == 0:
                         payload = {
                             "generation_batch": generation_batch,
@@ -379,6 +445,15 @@ def main() -> None:
                         "train/policy_update_in_generation": policy_update,
                         "train/generation_batch": generation_batch,
                     }
+                    if torch.cuda.is_available():
+                        metrics.update({
+                            "system/gpu_memory_allocated_gib":
+                                torch.cuda.memory_allocated() / (1024 ** 3),
+                            "system/gpu_peak_memory_allocated_gib":
+                                torch.cuda.max_memory_allocated() / (1024 ** 3),
+                            "system/gpu_peak_memory_reserved_gib":
+                                torch.cuda.max_memory_reserved() / (1024 ** 3),
+                        })
                     print(json.dumps({"step": step, "epoch": epoch, "placement": args.placement,
                                       "policy_kind": args.policy_kind,
                                       "dataset_indices": [entry[0] for entry in prepared_groups],
