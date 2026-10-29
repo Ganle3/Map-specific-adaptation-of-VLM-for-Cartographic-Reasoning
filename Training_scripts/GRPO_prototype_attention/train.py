@@ -301,6 +301,12 @@ def main() -> None:
     epoch = 0
     generation_batch = 0
     save_checkpoint(args.output_dir / "checkpoint-0.pt", step=0, epoch=0)
+    # Make rollout sampling independent of how many random values a policy
+    # architecture consumed during its own parameter initialization.  This is
+    # required for fair image_only versus full-block initialization checks.
+    torch.manual_seed(args.seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(args.seed)
     with trace_path.open("w", encoding="utf-8") as trace:
         while args.max_steps is None and epoch < args.epochs or (
                 args.max_steps is not None and step < args.max_steps):
@@ -464,6 +470,43 @@ def main() -> None:
                         float(parameter.grad.float().norm()) ** 2
                         for parameter in optimized if parameter.grad is not None
                     ))
+                    def gradient_rms(parameter_or_gradient) -> float:
+                        gradient = (parameter_or_gradient.grad
+                                    if isinstance(parameter_or_gradient, torch.nn.Parameter)
+                                    else parameter_or_gradient)
+                        if gradient is None:
+                            return 0.0
+                        return float(gradient.float().norm()) / math.sqrt(gradient.numel())
+
+                    block_gradient_metrics = {
+                        "train/grad_rms_prototypes": gradient_rms(policy.prototypes),
+                    }
+                    if args.policy_kind == "image_transformer_block":
+                        in_projection_gradient = policy.cross_attention.in_proj_weight.grad
+                        if in_projection_gradient is None:
+                            q_gradient = k_gradient = v_gradient = None
+                        else:
+                            q_gradient, k_gradient, v_gradient = in_projection_gradient.chunk(3, dim=0)
+                        q_rms = gradient_rms(q_gradient)
+                        k_rms = gradient_rms(k_gradient)
+                        v_rms = gradient_rms(v_gradient)
+                        o_rms = gradient_rms(policy.cross_attention.out_proj.weight)
+                        mean_qkvo_rms = (q_rms + k_rms + v_rms + o_rms) / 4.0
+                        block_gradient_metrics.update({
+                            "train/grad_rms_mha_q": q_rms,
+                            "train/grad_rms_mha_k": k_rms,
+                            "train/grad_rms_mha_v": v_rms,
+                            "train/grad_rms_mha_o": o_rms,
+                            "train/grad_rms_ffn_input": gradient_rms(policy.ffn[0].weight),
+                            "train/grad_rms_ffn_output": gradient_rms(policy.ffn[2].weight),
+                            "train/grad_rms_query_norm": gradient_rms(policy.query_norm.weight),
+                            "train/grad_rms_context_norm": gradient_rms(policy.context_norm.weight),
+                            "train/grad_rms_ffn_norm": gradient_rms(policy.ffn_norm.weight),
+                            "train/prototype_to_mean_qkvo_grad_rms_ratio": (
+                                block_gradient_metrics["train/grad_rms_prototypes"]
+                                / max(mean_qkvo_rms, 1e-30)
+                            ),
+                        })
                     before = policy.prototypes.detach().clone()
                     lr_used = float(optimizer.param_groups[0]["lr"])
                     block_lr_used = (float(optimizer.param_groups[1]["lr"])
@@ -500,6 +543,7 @@ def main() -> None:
                         "train/policy_update_in_generation": policy_update,
                         "train/generation_batch": generation_batch,
                     }
+                    metrics.update(block_gradient_metrics)
                     if torch.cuda.is_available():
                         metrics.update({
                             "system/gpu_memory_allocated_gib":

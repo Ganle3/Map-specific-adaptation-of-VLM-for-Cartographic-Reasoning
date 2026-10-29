@@ -1,8 +1,12 @@
-"""Pre-norm Transformer cross-attention block for prototype visual memory::
+"""Prototype-query cross-attention block for visual memory::
 
     A = CrossMHA(Q=LN(P), K=LN(Z_image), V=Z_image)
-    X = P + Dropout(A)
-    R = X + Dropout(MLP(LN(X)))
+    R = A + Dropout(MLP(LN(A)))
+
+The learnable prototypes determine how image tokens are queried, but are not
+added directly to the memory inserted into the frozen Qwen decoder.  With
+identity attention projections and a zero-initialized FFN output projection,
+the initial output exactly matches the original prototype-only policy.
 
 All policy parameters are trainable; the Qwen3-VL backbone and its loaded
 adapter remain frozen by the trainer.
@@ -96,8 +100,10 @@ class PrototypeCrossAttentionBlockPolicy(nn.Module):
             value=image_tokens,
             need_weights=True, average_attn_weights=False,
         )
-        hidden = query + self.dropout(attended)
-        memory = hidden + self.dropout(self.ffn(self.ffn_norm(hidden)))
+        # The random prototype is a query, not decoder-visible content.  The
+        # residual stream therefore starts from the image-derived attention
+        # result rather than from ``query + attended``.
+        memory = attended + self.dropout(self.ffn(self.ffn_norm(attended)))
         return (memory[0], weights) if unbatched else (memory, weights)
 
     def trainable_parameters(self) -> list[nn.Parameter]:
