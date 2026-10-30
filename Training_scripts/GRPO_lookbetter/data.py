@@ -9,12 +9,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-_EVALUATOR_ROOT = Path(__file__).resolve().parents[2] / "Evaluation_scripts" / "GRPO_ablation"
-if str(_EVALUATOR_ROOT) not in sys.path:
-    sys.path.insert(0, str(_EVALUATOR_ROOT))
+_ADAPTER_CONTROL_ROOT = Path(__file__).resolve().parents[1] / "GRPO_adapter_control"
+if str(_ADAPTER_CONTROL_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ADAPTER_CONTROL_ROOT))
 
-from mapverse_evaluation_exact import evaluate_exact as evaluate_mapverse_exact
-from mapwise_evaluation_exact import evaluate_sample as evaluate_mapwise_sample
+# This is the exact dataset-aware scorer used by the matched adapter control,
+# whose trainer enters through Debug_GRPO/grpo_joint_debug.py.
+from unified_evaluation_exact import evaluate_sample as evaluate_unified_sample
 
 
 def build_cartographic_prompt(question: str) -> str:
@@ -134,38 +135,30 @@ def evaluate_answer(response: str, item: MapQuestion) -> dict:
     evaluator. Neither path uses an LLM judge or fuzzy similarity.
     """
     dataset = str(item.metadata.get("dataset", "mapverse")).casefold()
-    if dataset == "mapwise":
-        record = {
-            "raw_response": response,
-            "final_answer": "",
-            "ground_truth": item.answer,
-            "ground_truth_type": item.answer_type,
-            "country": item.metadata.get("country", ""),
-            "template_no": item.metadata.get("template_no", -1),
-            "qa_id": item.metadata.get("qa_id", item.sample_id),
-        }
-        result = evaluate_mapwise_sample(record)
-        return {
-            "reward": float(result["strict_exact_match"]),
-            "evaluator": "mapwise_evaluation_exact",
-            "prediction": result.get("evaluated_answer", ""),
-            "metric": result.get("metric", ""),
-            "note": result.get("evaluation_note", ""),
-            "canonical_prediction": result.get("normalized_prediction", ""),
-            "canonical_target": result.get("normalized_ground_truth", ""),
-        }
-    if dataset == "mapverse":
-        result = evaluate_mapverse_exact(response, item.answer, item.answer_type)
-        return {
-            "reward": float(result["reward"]),
-            "evaluator": "mapverse_evaluation_exact",
-            "prediction": result.get("prediction_raw", ""),
-            "metric": "mapverse_exact",
-            "note": "",
-            "canonical_prediction": result.get("prediction_canonical", ""),
-            "canonical_target": result.get("ground_truth_canonical", ""),
-        }
-    raise ValueError(f"Unsupported dataset for exact evaluation: {dataset!r}")
+    if dataset not in {"mapwise", "mapverse"}:
+        raise ValueError(f"Unsupported dataset for exact evaluation: {dataset!r}")
+    record = {
+        "raw_response": response,
+        "final_answer": "",
+        "ground_truth": item.answer,
+        "ground_truth_type": item.answer_type,
+        "country": ("mapverse" if dataset == "mapverse"
+                    else item.metadata.get("country", "")),
+        "template_no": item.metadata.get("template_no", -1),
+        "legend_style": item.metadata.get("legend_style", ""),
+        "c_or_d": item.metadata.get("c_or_d", ""),
+        "qa_id": item.metadata.get("qa_id", item.sample_id),
+    }
+    result = evaluate_unified_sample(record)
+    return {
+        "reward": float(result["strict_exact_match"]),
+        "evaluator": "unified_evaluation_exact",
+        "prediction": result.get("evaluated_answer", ""),
+        "metric": result.get("metric", ""),
+        "note": result.get("evaluation_note", ""),
+        "canonical_prediction": result.get("normalized_prediction", ""),
+        "canonical_target": result.get("normalized_ground_truth", ""),
+    }
 
 
 def answer_reward(response: str, item: MapQuestion) -> float:

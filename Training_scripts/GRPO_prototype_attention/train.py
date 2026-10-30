@@ -26,17 +26,21 @@ from rolling_sparse_qwen3vl import load_model
 
 from language_grpo import (clipped_language_grpo_loss, completion_log_probs,
                            group_advantages, off_policy_sequence_keep)
+from only_visual_relay_policy import OnlyVisualRelayPolicy
+from only_visual_relay_prefill import (build_only_visual_relay_prefill,
+                                       generate_from_visual_relays)
 from prototype_cross_attention_block_policy import PrototypeCrossAttentionBlockPolicy
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
 from prototype_prefill import (build_prototype_prefill, encode_global_image,
-                               encode_question_context, generate_from_preencoded_vision)
+                               encode_global_image_with_grad, encode_question_context,
+                               generate_from_preencoded_vision)
 from question_conditioned_policy import QuestionConditionedPrototypePolicy
 
 
-_RECOMPUTE_INPUT_KEYS = ("input_ids", "mm_token_type_ids", "image_grid_thw")
+_RECOMPUTE_INPUT_KEYS = ("input_ids", "attention_mask", "mm_token_type_ids", "image_grid_thw")
 
 
-def _cache_recompute_inputs(source_inputs: dict) -> dict:
+def _cache_recompute_inputs(source_inputs: dict, *, include_pixels: bool = False) -> dict:
     """Keep only the small frozen prompt tensors needed by policy recomputation.
 
     In particular, do not retain ``pixel_values`` for every question in an
@@ -45,9 +49,10 @@ def _cache_recompute_inputs(source_inputs: dict) -> dict:
     missing = [key for key in _RECOMPUTE_INPUT_KEYS if key not in source_inputs]
     if missing:
         raise KeyError(f"Processor inputs are missing recomputation keys: {missing}")
+    keys = _RECOMPUTE_INPUT_KEYS + (("pixel_values",) if include_pixels else ())
     return {
         key: source_inputs[key].detach().to("cpu", copy=True)
-        for key in _RECOMPUTE_INPUT_KEYS
+        for key in keys
     }
 
 
@@ -74,15 +79,24 @@ def _eos_ids(tokenizer) -> set[int]:
 
 def generate_rollout(model, processor, policy, item, source_inputs, global_features, placement: str,
                      max_new_tokens: int, rollout_id: int,
-                     question_tokens: torch.Tensor | None = None) -> dict:
+                     question_tokens: torch.Tensor | None = None,
+                     policy_kind: str = "image_only") -> dict:
     """Sample language tokens; no gradient is retained during generation."""
-    augmented, attention = build_prototype_prefill(
-        model, processor.tokenizer, source_inputs, global_features, policy, placement,
-        with_grad=False, question_tokens=question_tokens,
-    )
+    if policy_kind == "only_visual_relay":
+        augmented, attention = build_only_visual_relay_prefill(
+            model, processor.tokenizer, source_inputs, global_features, policy,
+            with_grad=False,
+        )
+        generator = generate_from_visual_relays
+    else:
+        augmented, attention = build_prototype_prefill(
+            model, processor.tokenizer, source_inputs, global_features, policy, placement,
+            with_grad=False, question_tokens=question_tokens,
+        )
+        generator = generate_from_preencoded_vision
     prefix_length = augmented["input_ids"].shape[1]
     with torch.no_grad():
-        output = generate_from_preencoded_vision(
+        output = generator(
             model,
             **augmented,
             do_sample=True,
@@ -109,8 +123,7 @@ def generate_rollout(model, processor, policy, item, source_inputs, global_featu
         completion.numel(), dtype=torch.float32
     )
     evaluation = evaluate_answer(response, item)
-    weights = attention.detach().float().cpu()
-    return {
+    result = {
         "rollout_id": rollout_id,
         "completion_ids": completion.cpu(),
         "old_logps": old_logps,
@@ -120,18 +133,24 @@ def generate_rollout(model, processor, policy, item, source_inputs, global_featu
         "evaluation": evaluation,
         "terminated": terminated,
         "truncated": not terminated,
-        "prototype_attention_entropy": float(
-            -(weights.clamp_min(1e-12) * weights.clamp_min(1e-12).log()).sum(dim=-1).mean()
-        ),
-        "prototype_attention_max": float(weights.max(dim=-1).values.mean()),
     }
+    if attention is not None:
+        weights = attention.detach().float().cpu()
+        result.update({
+            "prototype_attention_entropy": float(
+                -(weights.clamp_min(1e-12) * weights.clamp_min(1e-12).log()).sum(dim=-1).mean()
+            ),
+            "prototype_attention_max": float(weights.max(dim=-1).values.mean()),
+        })
+    return result
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--placement", required=True, choices=("after_image", "after_question"))
+    parser.add_argument("--placement", required=True,
+                        choices=("after_image", "after_question", "after_vision_end"))
     parser.add_argument("--policy-kind", choices=("image_only", "image_transformer_block",
-                                                   "question_conditioned"),
+                                                   "question_conditioned", "only_visual_relay"),
                         default="image_only")
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--mapverse-root", type=Path, required=True)
@@ -149,12 +168,21 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=500)
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-prototypes", type=int, default=9)
+    parser.add_argument("--num-relay-tokens", type=int, default=2)
     parser.add_argument("--attention-heads", type=int, default=8)
     parser.add_argument("--ffn-multiplier", type=int, default=4,
                         help="FFN expansion used by image_transformer_block.")
     parser.add_argument("--block-dropout", type=float, default=0.0,
                         help="Residual dropout in image_transformer_block; keep 0 for GRPO ratios.")
     parser.add_argument("--learning-rate", type=float, default=2e-3)
+    parser.add_argument("--train-adapter", action="store_true",
+                        help="Jointly update every LoRA tensor in the loaded adapter.")
+    parser.add_argument("--adapter-learning-rate", type=float, default=5e-6)
+    parser.add_argument("--adapter-weight-decay", type=float, default=0.1)
+    parser.add_argument("--max-grad-norm", type=float,
+                        help="Optional global gradient clipping threshold.")
+    parser.add_argument("--min-gradient-rms", type=float, default=1e-12,
+                        help="Joint-mode failure threshold for numerically vanished group gradients.")
     parser.add_argument("--block-learning-rate", type=float, default=1e-5,
                         help="LR for MHA/Norm/FFN in image_transformer_block.")
     parser.add_argument("--clip-ratio", type=float, default=0.2)
@@ -170,6 +198,8 @@ def main() -> None:
                         help="Save policy/optimizer/scheduler every N optimizer updates.")
     parser.add_argument("--seed", type=int, default=1234)
     parser.add_argument("--save-every-epoch", action="store_true")
+    parser.add_argument("--eval-every-epochs", type=int, default=0,
+                        help="Run greedy evaluation on the selected training questions every N epochs; 0 disables it.")
     parser.add_argument("--wandb-project")
     parser.add_argument("--wandb-run-name")
     parser.add_argument("--wandb-mode", choices=("online", "offline", "disabled"), default="online")
@@ -184,14 +214,25 @@ def main() -> None:
         parser.error("num-policy-updates must be positive")
     if args.save_steps is not None and args.save_steps < 1:
         parser.error("save-steps must be positive")
+    if args.eval_every_epochs < 0:
+        parser.error("eval-every-epochs must be non-negative")
     if args.off_policy_mask_threshold is not None and args.off_policy_mask_threshold <= 0:
         parser.error("off-policy-mask-threshold must be positive")
     if args.ffn_multiplier < 1:
         parser.error("ffn-multiplier must be positive")
     if not 0.0 <= args.block_dropout < 1.0:
         parser.error("block-dropout must be in [0, 1)")
-    if args.learning_rate <= 0 or args.block_learning_rate <= 0:
+    if (args.learning_rate <= 0 or args.block_learning_rate <= 0
+            or args.adapter_learning_rate <= 0):
         parser.error("learning rates must be positive")
+    if args.adapter_weight_decay < 0:
+        parser.error("adapter-weight-decay must be non-negative")
+    if args.max_grad_norm is not None and args.max_grad_norm <= 0:
+        parser.error("max-grad-norm must be positive")
+    if args.min_gradient_rms < 0:
+        parser.error("min-gradient-rms must be non-negative")
+    if args.train_adapter and args.policy_kind != "only_visual_relay":
+        parser.error("joint adapter training is currently restricted to only_visual_relay")
     if not 0 < args.decay_final_factor <= 1:
         parser.error("decay-final-factor must be in (0, 1]")
     if args.lr_scheduler_type == "constant_then_cosine":
@@ -201,7 +242,15 @@ def main() -> None:
             parser.error("constant_then_cosine requires 0 <= decay-start-step < max-steps")
     if args.end_index is not None and args.end_index < args.start_index:
         parser.error("end-index must be >= start-index")
-    if math.isqrt(args.num_prototypes) ** 2 != args.num_prototypes:
+    if args.policy_kind == "only_visual_relay":
+        if args.placement != "after_vision_end":
+            parser.error("only_visual_relay requires --placement after_vision_end")
+        if args.num_relay_tokens < 1:
+            parser.error("num-relay-tokens must be positive")
+    elif args.placement == "after_vision_end":
+        parser.error("after_vision_end is reserved for only_visual_relay")
+    if (args.policy_kind != "only_visual_relay"
+            and math.isqrt(args.num_prototypes) ** 2 != args.num_prototypes):
         parser.error("num-prototypes must currently be a square count such as 9, 16, or 36")
 
     torch.manual_seed(args.seed)
@@ -211,6 +260,24 @@ def main() -> None:
     model.eval()
     for parameter in model.parameters():
         parameter.requires_grad_(False)
+    adapter_parameters = []
+    adapter_parameter_names = []
+    if args.train_adapter:
+        if not hasattr(model, "peft_config"):
+            raise RuntimeError("--train-adapter requires a loaded PEFT adapter")
+        for name, parameter in model.named_parameters():
+            if any(marker in name for marker in (".lora_A.", ".lora_B.",
+                                                  ".lora_embedding_A.",
+                                                  ".lora_embedding_B.")):
+                parameter.requires_grad_(True)
+                adapter_parameters.append(parameter)
+                adapter_parameter_names.append(name)
+        if not adapter_parameters:
+            raise RuntimeError("Loaded PEFT model exposes no LoRA parameters")
+        unexpected = [name for name, parameter in model.named_parameters()
+                      if parameter.requires_grad and name not in set(adapter_parameter_names)]
+        if unexpected:
+            raise RuntimeError(f"Unexpected trainable backbone parameters: {unexpected[:10]}")
     device = model.get_input_embeddings().weight.device
     hidden_size = decoder_hidden_size(model)
     if args.policy_kind == "image_only":
@@ -224,26 +291,50 @@ def main() -> None:
             num_heads=args.attention_heads, ffn_multiplier=args.ffn_multiplier,
             dropout=args.block_dropout,
         ).to(device)
-    else:
+    elif args.policy_kind == "question_conditioned":
         policy = QuestionConditionedPrototypePolicy(
             hidden_size, num_prototypes=args.num_prototypes,
             num_heads=args.attention_heads, train_projections=False,
         ).to(device)
+    else:
+        policy = OnlyVisualRelayPolicy(
+            hidden_size, num_relays=args.num_relay_tokens,
+        ).to(device)
+    optimizer_groups = []
     if args.policy_kind == "image_transformer_block":
         block_parameters = [parameter for name, parameter in policy.named_parameters()
                             if name != "prototypes" and parameter.requires_grad]
-        optimizer = torch.optim.AdamW([
-            {"params": [policy.prototypes], "lr": args.learning_rate},
-            {"params": block_parameters, "lr": args.block_learning_rate},
-        ], weight_decay=0.0)
+        optimizer_groups.extend([
+            {"params": [policy.prototypes], "lr": args.learning_rate,
+             "weight_decay": 0.0, "group_name": "relay"},
+            {"params": block_parameters, "lr": args.block_learning_rate,
+             "weight_decay": 0.0, "group_name": "prototype_block"},
+        ])
     else:
-        optimizer = torch.optim.AdamW(
-            policy.trainable_parameters(), lr=args.learning_rate, weight_decay=0.0,
-        )
+        optimizer_groups.append({"params": policy.trainable_parameters(),
+                                 "lr": args.learning_rate, "weight_decay": 0.0,
+                                 "group_name": "relay"})
+    if adapter_parameters:
+        optimizer_groups.append({
+            "params": adapter_parameters,
+            "lr": args.adapter_learning_rate,
+            "weight_decay": args.adapter_weight_decay,
+            "group_name": "adapter",
+        })
+    optimizer = torch.optim.AdamW(optimizer_groups, weight_decay=0.0)
     optimized = [parameter for group in optimizer.param_groups for parameter in group["params"]]
-    if args.policy_kind != "image_transformer_block":
+    if args.policy_kind != "image_transformer_block" and not args.train_adapter:
         assert len(optimized) == 1 and optimized[0] is policy.prototypes
+    registered = {id(parameter) for parameter in optimized}
+    missing_adapter = [name for name, parameter in zip(adapter_parameter_names, adapter_parameters)
+                       if id(parameter) not in registered]
+    if missing_adapter or id(policy.prototypes) not in registered:
+        raise RuntimeError(
+            f"Optimizer membership failure: relay={id(policy.prototypes) in registered}, "
+            f"missing_adapter={missing_adapter[:10]}"
+        )
     trainable_parameter_count = sum(parameter.numel() for parameter in optimized)
+    adapter_trainable_parameter_count = sum(parameter.numel() for parameter in adapter_parameters)
     initial_prototypes = policy.prototypes.detach().clone()
     if args.lr_scheduler_type == "constant_then_cosine":
         def lr_factor(update: int) -> float:
@@ -265,6 +356,69 @@ def main() -> None:
     if not records:
         parser.error("Selected dataset range is empty")
 
+    def greedy_evaluate_selected(epoch_number: int, optimizer_step: int) -> dict:
+        """Evaluate the live policy and live adapter without sampling."""
+        rewards_by_index = {}
+        truncated = 0
+        for dataset_index, item in records:
+            with Image.open(item.image_path) as image_file:
+                image = _resize_to_pixel_cap(image_file.convert("RGB"), args.max_pixels)
+            source_inputs = _content_inputs(
+                processor, [image], build_cartographic_prompt(item.question), device, args.max_pixels
+            )
+            with torch.inference_mode():
+                global_features = encode_global_image(model, source_inputs)
+                if args.policy_kind == "only_visual_relay":
+                    augmented, _ = build_only_visual_relay_prefill(
+                        model, processor.tokenizer, source_inputs, global_features,
+                        policy, with_grad=False,
+                    )
+                    generator = generate_from_visual_relays
+                else:
+                    question_tokens = (None if args.policy_kind != "question_conditioned" else
+                                       encode_question_context(
+                                           model, processor.tokenizer, source_inputs,
+                                           global_features, item.question,
+                                       ))
+                    augmented, _ = build_prototype_prefill(
+                        model, processor.tokenizer, source_inputs, global_features,
+                        policy, args.placement, with_grad=False,
+                        question_tokens=question_tokens,
+                    )
+                    generator = generate_from_preencoded_vision
+                prefix_length = augmented["input_ids"].shape[1]
+                generated = generator(
+                    model, **augmented, do_sample=False, num_beams=1,
+                    max_new_tokens=args.max_new_tokens, use_cache=True,
+                )
+            completion = generated[0, prefix_length:]
+            response = processor.tokenizer.decode(completion, skip_special_tokens=True)
+            eos_ids = _eos_ids(processor.tokenizer)
+            terminated = bool(completion.numel() and int(completion[-1]) in eos_ids)
+            evaluation = evaluate_answer(response, item)
+            reward = float(evaluation["reward"])
+            rewards_by_index[dataset_index] = reward
+            truncated += int(not terminated)
+            print(
+                f"[EVAL epoch={epoch_number:03d} step={optimizer_step:05d}] "
+                f"dataset_index={dataset_index} qa_id={item.sample_id} "
+                f"reward={reward:.1f} terminated={terminated}",
+                flush=True,
+            )
+            del source_inputs, global_features, augmented, generated, completion
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        metrics = {
+            "eval/epoch": epoch_number,
+            "eval/greedy_accuracy": sum(rewards_by_index.values()) / len(rewards_by_index),
+            "eval/greedy_correct": sum(rewards_by_index.values()),
+            "eval/greedy_truncated": truncated,
+        }
+        metrics.update({f"eval/greedy_reward_{index}": reward
+                        for index, reward in rewards_by_index.items()})
+        print(json.dumps({"step": optimizer_step, **metrics}, ensure_ascii=False), flush=True)
+        return metrics
+
     wandb_run = None
     if args.wandb_project and args.wandb_mode != "disabled":
         import wandb
@@ -278,15 +432,27 @@ def main() -> None:
             name: parameter.detach().cpu()
             for name, parameter in policy.named_parameters() if parameter.requires_grad
         }
+        adapter_directory = None
+        if args.train_adapter:
+            adapter_directory = path.with_suffix("")
+            adapter_directory.mkdir(parents=True, exist_ok=True)
+            model.save_pretrained(adapter_directory)
         torch.save({
             "policy": policy_state,
             "optimizer": optimizer.state_dict(),
             "scheduler": scheduler.state_dict(), "epoch": epoch, "step": step,
             "placement": args.placement, "policy_kind": args.policy_kind,
-            "num_prototypes": args.num_prototypes, "attention_heads": args.attention_heads,
+            "num_prototypes": policy.num_prototypes, "attention_heads": args.attention_heads,
+            "num_relay_tokens": args.num_relay_tokens,
             "ffn_multiplier": args.ffn_multiplier,
             "block_dropout": args.block_dropout,
             "trainable_parameter_count": trainable_parameter_count,
+            "train_adapter": args.train_adapter,
+            "adapter_directory": None if adapter_directory is None else str(adapter_directory),
+            "adapter_trainable_parameter_count": adapter_trainable_parameter_count,
+            "adapter_trainable_tensor_count": len(adapter_parameters),
+            "adapter_learning_rate": args.adapter_learning_rate,
+            "adapter_weight_decay": args.adapter_weight_decay,
             "learning_rate": args.learning_rate,
             "block_learning_rate": args.block_learning_rate,
             "lr_scheduler_type": args.lr_scheduler_type,
@@ -334,6 +500,7 @@ def main() -> None:
                     group = [generate_rollout(
                         model, processor, policy, item, source_inputs, global_features,
                         args.placement, args.max_new_tokens, rollout_id, question_tokens,
+                        args.policy_kind,
                     ) for rollout_id in range(args.group_size)]
                     rewards = [row["reward"] for row in group]
                     advantages = group_advantages(rewards, device).detach().cpu()
@@ -342,7 +509,9 @@ def main() -> None:
                     # GPU memory together.  Cache the minimal state on CPU and
                     # move back exactly one question during current-policy
                     # recomputation below.
-                    cached_source_inputs = _cache_recompute_inputs(source_inputs)
+                    cached_source_inputs = _cache_recompute_inputs(
+                        source_inputs, include_pixels=args.train_adapter,
+                    )
                     cached_global_features = _move_visual_features(global_features, "cpu")
                     cached_question_tokens = (None if question_tokens is None else
                                               question_tokens.detach().to("cpu", copy=True))
@@ -387,7 +556,8 @@ def main() -> None:
                         # Only one question's frozen visual cache is resident on
                         # the GPU while its trajectories are recomputed.
                         source_inputs = _move_recompute_inputs(cached_source_inputs, device)
-                        global_features = _move_visual_features(cached_global_features, device)
+                        global_features = (None if args.train_adapter else
+                                           _move_visual_features(cached_global_features, device))
                         question_tokens = (None if cached_question_tokens is None else
                                            cached_question_tokens.to(device, non_blocking=True))
                         if torch.cuda.is_available():
@@ -407,11 +577,25 @@ def main() -> None:
                             # no_grad and older Euler torch/PEFT combinations
                             # have differed in their restoration of grad mode.
                             with torch.enable_grad():
-                                augmented, _ = build_prototype_prefill(
-                                    model, processor.tokenizer, source_inputs, global_features,
-                                    policy, args.placement, with_grad=True,
-                                    question_tokens=question_tokens,
-                                )
+                                if args.train_adapter:
+                                    # The loaded adapter spans ViT, merger/deepstack merger,
+                                    # and language modules. Detached rollout features are
+                                    # valid for sampling, but current-policy recomputation
+                                    # must rebuild them so visual LoRA receives gradients.
+                                    global_features = encode_global_image_with_grad(
+                                        model, source_inputs,
+                                    )
+                                if args.policy_kind == "only_visual_relay":
+                                    augmented, _ = build_only_visual_relay_prefill(
+                                        model, processor.tokenizer, source_inputs,
+                                        global_features, policy, with_grad=True,
+                                    )
+                                else:
+                                    augmented, _ = build_prototype_prefill(
+                                        model, processor.tokenizer, source_inputs, global_features,
+                                        policy, args.placement, with_grad=True,
+                                        question_tokens=question_tokens,
+                                    )
                                 current = completion_log_probs(
                                     model, augmented, row["completion_ids"]
                                 )
@@ -464,8 +648,108 @@ def main() -> None:
                         # A second off-policy pass over the same empty signal
                         # cannot create a gradient; generate a fresh batch.
                         break
-                    gradient_norm = (float(policy.prototypes.grad.norm())
-                                     if policy.prototypes.grad is not None else 0.0)
+                    def named_gradient_stats(named_parameters) -> dict:
+                        gradients = [(name, parameter.grad.float())
+                                     for name, parameter in named_parameters
+                                     if parameter.grad is not None]
+                        total_elements = sum(gradient.numel() for _, gradient in gradients)
+                        squared_norm = sum(float(gradient.norm()) ** 2
+                                           for _, gradient in gradients)
+                        norm = math.sqrt(squared_norm)
+                        return {
+                            "norm": norm,
+                            "rms": norm / math.sqrt(max(1, total_elements)),
+                            "max_abs": max((float(gradient.abs().max())
+                                            for _, gradient in gradients), default=0.0),
+                            "finite": all(bool(torch.isfinite(gradient).all())
+                                          for _, gradient in gradients),
+                            "gradient_tensor_count": len(gradients),
+                            "nonzero_gradient_tensor_count": sum(
+                                bool(gradient.count_nonzero()) for _, gradient in gradients
+                            ),
+                            "gradient_element_count": total_elements,
+                        }
+
+                    relay_gradient_stats = named_gradient_stats(
+                        [("relay.prototypes", policy.prototypes)]
+                    )
+                    adapter_named_parameters = list(zip(adapter_parameter_names,
+                                                        adapter_parameters))
+                    adapter_gradient_stats = named_gradient_stats(adapter_named_parameters)
+                    visual_block_gradient_stats = named_gradient_stats([
+                        (name, parameter) for name, parameter in adapter_named_parameters
+                        if ".visual.blocks." in name
+                    ])
+                    merger_gradient_stats = named_gradient_stats([
+                        (name, parameter) for name, parameter in adapter_named_parameters
+                        if ".visual.merger." in name
+                        or ".visual.deepstack_merger_list." in name
+                    ])
+                    language_gradient_stats = named_gradient_stats([
+                        (name, parameter) for name, parameter in adapter_named_parameters
+                        if ".language_model." in name
+                    ])
+                    all_gradient_stats = named_gradient_stats([
+                        ("relay.prototypes", policy.prototypes), *adapter_named_parameters
+                    ])
+                    gradient_norm = relay_gradient_stats["norm"]
+                    adapter_gradient_norm = adapter_gradient_stats["norm"]
+                    adapter_nonzero_gradient_tensors = sum(
+                        parameter.grad is not None and bool(parameter.grad.count_nonzero())
+                        for parameter in adapter_parameters
+                    )
+                    visual_adapter_gradient_tensors = sum(
+                        ".visual." in name and parameter.grad is not None
+                        and bool(parameter.grad.count_nonzero())
+                        for name, parameter in zip(adapter_parameter_names, adapter_parameters)
+                    )
+                    language_adapter_gradient_tensors = sum(
+                        ".language_model." in name and parameter.grad is not None
+                        and bool(parameter.grad.count_nonzero())
+                        for name, parameter in zip(adapter_parameter_names, adapter_parameters)
+                    )
+                    merger_adapter_gradient_tensors = sum(
+                        (".visual.merger." in name or ".visual.deepstack_merger_list." in name)
+                        and parameter.grad is not None and bool(parameter.grad.count_nonzero())
+                        for name, parameter in zip(adapter_parameter_names, adapter_parameters)
+                    )
+                    if args.train_adapter and (
+                            adapter_gradient_norm <= 0 or visual_adapter_gradient_tensors == 0
+                            or language_adapter_gradient_tensors == 0
+                            or merger_adapter_gradient_tensors == 0):
+                        raise RuntimeError(
+                            "Joint gradient audit failed: "
+                            f"adapter_norm={adapter_gradient_norm}, "
+                            f"visual={visual_adapter_gradient_tensors}, "
+                            f"merger={merger_adapter_gradient_tensors}, "
+                            f"language={language_adapter_gradient_tensors}"
+                        )
+                    if args.train_adapter:
+                        vanished = {
+                            name: stats["rms"] for name, stats in (
+                                ("relay", relay_gradient_stats),
+                                ("visual_block", visual_block_gradient_stats),
+                                ("merger", merger_gradient_stats),
+                                ("language", language_gradient_stats),
+                            ) if stats["rms"] <= args.min_gradient_rms
+                        }
+                        if vanished:
+                            raise RuntimeError(
+                                f"Numerically vanished gradient groups (threshold="
+                                f"{args.min_gradient_rms}): {vanished}"
+                            )
+                    if not all_gradient_stats["finite"]:
+                        raise FloatingPointError(
+                            f"Non-finite joint gradients before optimizer step: {all_gradient_stats}"
+                        )
+                    pre_clip_global_norm = all_gradient_stats["norm"]
+                    if args.max_grad_norm is not None:
+                        torch.nn.utils.clip_grad_norm_(
+                            optimized, args.max_grad_norm, error_if_nonfinite=True,
+                        )
+                    post_clip_gradient_stats = named_gradient_stats([
+                        ("relay.prototypes", policy.prototypes), *adapter_named_parameters
+                    ])
                     policy_gradient_norm = math.sqrt(sum(
                         float(parameter.grad.float().norm()) ** 2
                         for parameter in optimized if parameter.grad is not None
@@ -508,9 +792,32 @@ def main() -> None:
                             ),
                         })
                     before = policy.prototypes.detach().clone()
-                    lr_used = float(optimizer.param_groups[0]["lr"])
-                    block_lr_used = (float(optimizer.param_groups[1]["lr"])
-                                     if len(optimizer.param_groups) > 1 else 0.0)
+                    group_lrs = {group.get("group_name", f"group_{index}"): float(group["lr"])
+                                 for index, group in enumerate(optimizer.param_groups)}
+                    lr_used = group_lrs["relay"]
+                    block_lr_used = group_lrs.get("prototype_block", 0.0)
+                    adapter_lr_used = group_lrs.get("adapter", 0.0)
+                    gradient_payload = {
+                        "generation_batch": generation_batch,
+                        "optimizer_step_before_update": step,
+                        "policy_update": policy_update,
+                        "all_finite": all_gradient_stats["finite"],
+                        "relay": relay_gradient_stats,
+                        "adapter_all": adapter_gradient_stats,
+                        "visual_blocks": visual_block_gradient_stats,
+                        "merger_and_deepstack": merger_gradient_stats,
+                        "language": language_gradient_stats,
+                        "pre_clip_global_norm": pre_clip_global_norm,
+                        "post_clip_global_norm": post_clip_gradient_stats["norm"],
+                        "clip_threshold": args.max_grad_norm,
+                        "relay_lr": lr_used,
+                        "adapter_lr": adapter_lr_used,
+                    }
+                    print(
+                        f"[GRADIENT {generation_batch:05d}.{policy_update}] "
+                        f"{json.dumps(gradient_payload, ensure_ascii=False)}",
+                        flush=True,
+                    )
                     optimizer.step()
                     scheduler.step()
                     step += 1
@@ -530,19 +837,60 @@ def main() -> None:
                         "train/mean_sequence_forward_kl": sum(sequence_kls) / len(sequence_kls) if sequence_kls else 0.0,
                         "train/truncated_trajectories": sum(row["truncated"] for row in rows),
                         "train/prototype_gradient_norm": gradient_norm,
+                        "train/prototype_gradient_rms": relay_gradient_stats["rms"],
+                        "train/prototype_gradient_max_abs": relay_gradient_stats["max_abs"],
+                        "train/adapter_gradient_norm": adapter_gradient_norm,
+                        "train/adapter_gradient_rms": adapter_gradient_stats["rms"],
+                        "train/adapter_gradient_max_abs": adapter_gradient_stats["max_abs"],
+                        "train/visual_block_adapter_gradient_norm": visual_block_gradient_stats["norm"],
+                        "train/visual_block_adapter_gradient_rms": visual_block_gradient_stats["rms"],
+                        "train/visual_block_adapter_gradient_max_abs": visual_block_gradient_stats["max_abs"],
+                        "train/merger_adapter_gradient_norm": merger_gradient_stats["norm"],
+                        "train/merger_adapter_gradient_rms": merger_gradient_stats["rms"],
+                        "train/merger_adapter_gradient_max_abs": merger_gradient_stats["max_abs"],
+                        "train/language_adapter_gradient_norm": language_gradient_stats["norm"],
+                        "train/language_adapter_gradient_rms": language_gradient_stats["rms"],
+                        "train/language_adapter_gradient_max_abs": language_gradient_stats["max_abs"],
+                        "train/gradients_all_finite": float(all_gradient_stats["finite"]),
+                        "train/pre_clip_global_gradient_norm": pre_clip_global_norm,
+                        "train/post_clip_global_gradient_norm": post_clip_gradient_stats["norm"],
+                        "train/gradient_clip_threshold": (args.max_grad_norm
+                                                          if args.max_grad_norm is not None else 0.0),
+                        "train/relay_to_adapter_gradient_rms_ratio": (
+                            relay_gradient_stats["rms"]
+                            / max(adapter_gradient_stats["rms"], 1e-30)
+                        ),
+                        "train/visual_to_language_gradient_rms_ratio": (
+                            visual_block_gradient_stats["rms"]
+                            / max(language_gradient_stats["rms"], 1e-30)
+                        ),
+                        "train/adapter_nonzero_gradient_tensor_count": adapter_nonzero_gradient_tensors,
+                        "train/visual_adapter_nonzero_gradient_tensor_count": visual_adapter_gradient_tensors,
+                        "train/merger_adapter_nonzero_gradient_tensor_count": merger_adapter_gradient_tensors,
+                        "train/language_adapter_nonzero_gradient_tensor_count": language_adapter_gradient_tensors,
                         "train/policy_gradient_norm": policy_gradient_norm,
                         "train/trainable_parameter_count": trainable_parameter_count,
+                        "train/adapter_trainable_parameter_count": adapter_trainable_parameter_count,
                         "train/prototype_parameter_norm": float(policy.prototypes.detach().norm()),
                         "train/prototype_delta_from_init": float((policy.prototypes.detach() - initial_prototypes).norm()),
                         "train/prototype_update_norm": update_norm,
                         "train/learning_rate": lr_used,
                         "train/block_learning_rate": block_lr_used,
+                        "train/adapter_learning_rate": adapter_lr_used,
                         "train/mean_abs_ratio_drift": sum(ratio_drifts) / len(ratio_drifts) if ratio_drifts else 0.0,
-                        "train/cross_attention_entropy": sum(row["prototype_attention_entropy"] for row in rows) / len(rows),
-                        "train/cross_attention_max_weight": sum(row["prototype_attention_max"] for row in rows) / len(rows),
                         "train/policy_update_in_generation": policy_update,
                         "train/generation_batch": generation_batch,
                     }
+                    attention_rows = [row for row in rows if "prototype_attention_entropy" in row]
+                    if attention_rows:
+                        metrics.update({
+                            "train/cross_attention_entropy": sum(
+                                row["prototype_attention_entropy"] for row in attention_rows
+                            ) / len(attention_rows),
+                            "train/cross_attention_max_weight": sum(
+                                row["prototype_attention_max"] for row in attention_rows
+                            ) / len(attention_rows),
+                        })
                     metrics.update(block_gradient_metrics)
                     if torch.cuda.is_available():
                         metrics.update({
@@ -566,6 +914,10 @@ def main() -> None:
             if args.save_every_epoch:
                 save_checkpoint(args.output_dir / f"prototype_attention_epoch_{epoch:03d}.pt",
                                 step=step, epoch=epoch)
+            if args.eval_every_epochs and epoch % args.eval_every_epochs == 0:
+                eval_metrics = greedy_evaluate_selected(epoch, step)
+                if wandb_run:
+                    wandb_run.log(eval_metrics, step=step)
     final_checkpoint = args.output_dir / f"checkpoint-{step}.pt"
     if not final_checkpoint.exists():
         save_checkpoint(final_checkpoint, step=step, epoch=epoch)

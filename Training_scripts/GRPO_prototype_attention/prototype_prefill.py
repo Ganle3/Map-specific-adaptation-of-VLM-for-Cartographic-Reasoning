@@ -2,9 +2,11 @@
 from __future__ import annotations
 
 import math
+from functools import partial
 from types import SimpleNamespace
 
 import torch
+from torch.utils.checkpoint import checkpoint
 from transformers.models.qwen3_vl.modeling_qwen3_vl import BaseModelOutputWithDeepstackFeatures
 
 
@@ -152,6 +154,63 @@ def encode_global_image(model, processor_inputs: dict):
         pooler_output=image_tuple(features.pooler_output),
         deepstack_features=[image_tuple(level) for level in features.deepstack_features],
     )
+
+
+def encode_global_image_with_grad(model, processor_inputs: dict):
+    """Run ViT+merger with autograd for joint relay + visual-LoRA updates."""
+    base = qwen_lm(model)
+    vl_model = getattr(base, "model", None)
+    visual = getattr(vl_model, "visual", None)
+    blocks = getattr(visual, "blocks", None)
+    if blocks is None:
+        raise RuntimeError("Could not locate Qwen3-VL visual blocks for checkpointing")
+
+    # The joint adapter includes every ViT block. At a one-million-pixel cap,
+    # retaining all 27 eager-attention block activations exceeds a 20/24 GiB
+    # GPU. Match the original adapter trainer's checkpointed training behavior.
+    block_states = []
+    checkpoint_func = partial(checkpoint, use_reentrant=False)
+    for block in blocks:
+        block_states.append((
+            block,
+            block.training,
+            getattr(block, "gradient_checkpointing", False),
+            getattr(block, "_gradient_checkpointing_func", None),
+        ))
+        block.training = True
+        block.gradient_checkpointing = True
+        block._gradient_checkpointing_func = checkpoint_func
+    try:
+        features = base.get_image_features(
+            processor_inputs["pixel_values"], processor_inputs["image_grid_thw"],
+            return_dict=True,
+        )
+    finally:
+        for block, was_training, was_checkpointing, old_checkpoint_func in block_states:
+            block.training = was_training
+            block.gradient_checkpointing = was_checkpointing
+            if old_checkpoint_func is None:
+                try:
+                    delattr(block, "_gradient_checkpointing_func")
+                except AttributeError:
+                    pass
+            else:
+                block._gradient_checkpointing_func = old_checkpoint_func
+
+    def image_tuple(value):
+        return (value,) if isinstance(value, torch.Tensor) else tuple(value)
+
+    result = BaseModelOutputWithDeepstackFeatures(
+        pooler_output=image_tuple(features.pooler_output),
+        deepstack_features=[image_tuple(level) for level in features.deepstack_features],
+    )
+    tensors = [*result.pooler_output,
+               *(tensor for level in result.deepstack_features for tensor in level)]
+    if not any(tensor.requires_grad for tensor in tensors):
+        raise RuntimeError(
+            "Differentiable ViT/merger recomputation produced no trainable visual graph"
+        )
+    return result
 
 
 def _prototype_block(model, source_inputs: dict, count: int):

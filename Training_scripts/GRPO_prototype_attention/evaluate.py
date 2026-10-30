@@ -25,6 +25,9 @@ from rolling_sparse_qwen3vl import load_model
 
 from prototype_cross_attention_block_policy import PrototypeCrossAttentionBlockPolicy
 from prototype_cross_attention_policy import PrototypeCrossAttentionPolicy, decoder_hidden_size
+from only_visual_relay_policy import OnlyVisualRelayPolicy
+from only_visual_relay_prefill import (build_only_visual_relay_prefill,
+                                       generate_from_visual_relays)
 from prototype_prefill import (build_prototype_prefill, encode_global_image,
                                generate_from_preencoded_vision)
 from question_conditioned_policy import QuestionConditionedPrototypePolicy
@@ -108,9 +111,10 @@ def load_policy(policy, path: Path, expected_placement: str,
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--placement", required=True, choices=("after_image", "after_question"))
+    parser.add_argument("--placement", required=True,
+                        choices=("after_image", "after_question", "after_vision_end"))
     parser.add_argument("--policy-kind", choices=("image_only", "image_transformer_block",
-                                                   "question_conditioned"),
+                                                   "question_conditioned", "only_visual_relay"),
                         default="image_only")
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--mapverse-root", type=Path, required=True)
@@ -123,12 +127,20 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=500)
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-prototypes", type=int, default=9)
+    parser.add_argument("--num-relay-tokens", type=int, default=2)
     parser.add_argument("--attention-heads", type=int, default=8)
     parser.add_argument("--ffn-multiplier", type=int, default=4)
     parser.add_argument("--block-dropout", type=float, default=0.0)
     parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit")
     parser.set_defaults(load_in_4bit=True)
     args = parser.parse_args()
+    if args.policy_kind == "only_visual_relay":
+        if args.placement != "after_vision_end":
+            parser.error("only_visual_relay requires --placement after_vision_end")
+        if args.num_relay_tokens < 1:
+            parser.error("num-relay-tokens must be positive")
+    elif args.placement == "after_vision_end":
+        parser.error("after_vision_end is reserved for only_visual_relay")
 
     steps = list(dict.fromkeys(args.checkpoint_steps))
     checkpoints = {step: checkpoint_path(args.run_dir, step) for step in steps}
@@ -160,10 +172,16 @@ def main() -> None:
             num_heads=args.attention_heads, ffn_multiplier=args.ffn_multiplier,
             dropout=args.block_dropout,
         ).to(device).eval()
-    else:
+    elif args.policy_kind == "question_conditioned":
         policy = QuestionConditionedPrototypePolicy(
             hidden_size, num_prototypes=args.num_prototypes,
             num_heads=args.attention_heads, train_projections=False,
+        ).to(device).eval()
+    else:
+        if args.placement != "after_vision_end":
+            parser.error("only_visual_relay requires --placement after_vision_end")
+        policy = OnlyVisualRelayPolicy(
+            hidden_size, num_relays=args.num_relay_tokens,
         ).to(device).eval()
     if args.policy_kind == "question_conditioned":
         raise NotImplementedError(
@@ -189,13 +207,21 @@ def main() -> None:
             global_features = encode_global_image(model, source_inputs)
             for step in pending:
                 load_policy(policy, checkpoints[step], args.placement, args.policy_kind)
-                augmented, attention = build_prototype_prefill(
-                    model, processor.tokenizer, source_inputs, global_features,
-                    policy, args.placement, with_grad=False,
-                )
+                if args.policy_kind == "only_visual_relay":
+                    augmented, attention = build_only_visual_relay_prefill(
+                        model, processor.tokenizer, source_inputs, global_features,
+                        policy, with_grad=False,
+                    )
+                    generator = generate_from_visual_relays
+                else:
+                    augmented, attention = build_prototype_prefill(
+                        model, processor.tokenizer, source_inputs, global_features,
+                        policy, args.placement, with_grad=False,
+                    )
+                    generator = generate_from_preencoded_vision
                 prefix_length = augmented["input_ids"].shape[1]
                 with torch.inference_mode():
-                    generated = generate_from_preencoded_vision(
+                    generated = generator(
                         model,
                         **augmented, do_sample=False, num_beams=1,
                         max_new_tokens=args.max_new_tokens, use_cache=True,
@@ -206,7 +232,6 @@ def main() -> None:
                 eos = set(map(int, eos)) if isinstance(eos, (list, tuple, set)) else {int(eos)}
                 terminated = bool(tokens.numel() and int(tokens[-1]) in eos)
                 evaluation = evaluate_answer(response, item)
-                weights = attention.detach().float()
                 row = {
                     "checkpoint_step": step, "dataset_index": dataset_index,
                     "qa_id": item.sample_id,
@@ -216,11 +241,15 @@ def main() -> None:
                     "response": response, "reward": float(evaluation["reward"]),
                     "evaluation": evaluation, "generated_tokens": int(tokens.numel()),
                     "terminated": terminated,
-                    "prototype_attention_entropy": float(
-                        -(weights.clamp_min(1e-12) * weights.clamp_min(1e-12).log()).sum(dim=-1).mean()
-                    ),
-                    "prototype_attention_max": float(weights.max(dim=-1).values.mean()),
                 }
+                if attention is not None:
+                    weights = attention.detach().float()
+                    row.update({
+                        "prototype_attention_entropy": float(
+                            -(weights.clamp_min(1e-12) * weights.clamp_min(1e-12).log()).sum(dim=-1).mean()
+                        ),
+                        "prototype_attention_max": float(weights.max(dim=-1).values.mean()),
+                    })
                 response_file.write(json.dumps(row, ensure_ascii=False) + "\n")
                 response_file.flush()
                 completed[(step, dataset_index)] = row

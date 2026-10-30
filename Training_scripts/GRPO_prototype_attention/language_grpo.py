@@ -9,7 +9,9 @@ from torch.utils.checkpoint import checkpoint
 
 def _qwen_language_logits(model, input_ids: torch.Tensor, attention_mask: torch.Tensor,
                           mm_token_type_ids: torch.Tensor, image_grid_thw: torch.Tensor,
-                          image_features, *, checkpoint_decoder: bool = True) -> torch.Tensor:
+                          image_features, *, checkpoint_decoder: bool = True,
+                          relay_embeddings: torch.Tensor | None = None,
+                          relay_positions: torch.Tensor | None = None) -> torch.Tensor:
     """Run Qwen's decoder from differentiable pre-encoded visual embeddings.
 
     Some Transformers versions used on Euler accept ``mm_encoder_outputs``
@@ -26,6 +28,21 @@ def _qwen_language_logits(model, input_ids: torch.Tensor, attention_mask: torch.
         raise RuntimeError("Could not locate Qwen3-VL language decoder and LM head")
 
     inputs_embeds = qwen.get_input_embeddings()(input_ids)
+    if (relay_embeddings is None) != (relay_positions is None):
+        raise ValueError("relay_embeddings and relay_positions must be supplied together")
+    if relay_embeddings is not None:
+        positions = relay_positions.to(input_ids.device, dtype=torch.long).flatten()
+        if positions.numel() != relay_embeddings.shape[0]:
+            raise RuntimeError("Relay position/embedding count mismatch")
+        start = int(positions[0])
+        expected = torch.arange(start, start + positions.numel(), device=positions.device)
+        if not torch.equal(positions, expected):
+            raise RuntimeError("Relay positions must form one contiguous span")
+        end = start + int(positions.numel())
+        relays = relay_embeddings.to(inputs_embeds.device, inputs_embeds.dtype).unsqueeze(0)
+        inputs_embeds = torch.cat(
+            (inputs_embeds[:, :start], relays, inputs_embeds[:, end:]), dim=1
+        )
     pooled = torch.cat(tuple(image_features.pooler_output), dim=0).to(
         device=inputs_embeds.device, dtype=inputs_embeds.dtype
     )
@@ -126,15 +143,25 @@ def completion_log_probs(model, augmented_prompt: dict, completion_ids: torch.Te
     mm_types = torch.cat((augmented_prompt["mm_token_type_ids"],
                           torch.zeros_like(completion_ids)), dim=1)
     visual = augmented_prompt["mm_encoder_outputs"]["image"]
-    prototype_memory = visual.pooler_output[-1]
-    if not prototype_memory.requires_grad:
-        raise RuntimeError(
-            "Prototype visual memory is detached before the Qwen current-policy forward"
-        )
+    is_relay = augmented_prompt.get("policy_kind") == "only_visual_relay"
+    if is_relay:
+        prototype_memory = augmented_prompt["relay_embeddings"]
+        relay_positions = augmented_prompt["relay_positions"]
+        if not prototype_memory.requires_grad:
+            raise RuntimeError("Visual relay embeddings are detached before current-policy forward")
+    else:
+        prototype_memory = visual.pooler_output[-1]
+        relay_positions = None
+        if not prototype_memory.requires_grad:
+            raise RuntimeError(
+                "Prototype visual memory is detached before the Qwen current-policy forward"
+            )
     with torch.enable_grad():
         logits = _qwen_language_logits(
             model, full_ids, full_mask, mm_types,
             augmented_prompt["image_grid_thw"], visual,
+            relay_embeddings=prototype_memory if is_relay else None,
+            relay_positions=relay_positions,
         )
     prefix_length = prefix_ids.shape[1]
     # Logit at prefix_length-1 predicts completion token 0.

@@ -100,8 +100,8 @@ class PrototypeCrossAttentionBlockPolicy(nn.Module):
             value=image_tokens,
             need_weights=True, average_attn_weights=False,
         )
-        # The random prototype is a query, not decoder-visible content.  The
-        # residual stream therefore starts from the image-derived attention
+        # The random prototype is a query, not decoder-visible content.
+        # The residual stream therefore starts from the image-derived attention
         # result rather than from ``query + attended``.
         memory = attended + self.dropout(self.ffn(self.ffn_norm(attended)))
         return (memory[0], weights) if unbatched else (memory, weights)

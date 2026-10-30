@@ -40,6 +40,46 @@ The Qwen backbone and the loaded GRPO adapter are frozen. Language generation
 is sampled at temperature 1.0 because language tokens are the GRPO actions.
 Evaluation can use greedy decoding separately.
 
+## Only visual relay
+
+`only_visual_relay_policy.py` is a separate minimal policy with two trainable
+decoder embeddings by default. `only_visual_relay_prefill.py` inserts them in
+the native Qwen causal sequence:
+
+```text
+<vision_start> image holders <vision_end> R1 R2 question assistant-prefix
+```
+
+The relays use `mm_token_type_ids=0`. They do not add image holders, a visual
+grid, or DeepStack tensors. During prefill, R1 can attend to the complete image
+span, R2 can attend to that span and R1, and all later question/reasoning tokens
+can attend to both relay K/V states. Only `policy.prototypes [2,H]` is optimized.
+
+Use `train_only_visual_relay.py`; it fixes `--policy-kind only_visual_relay`
+and `--placement after_vision_end`. Run the fast structural regression with:
+
+```powershell
+python .\smoke_only_visual_relay.py
+```
+
+### Joint relay + existing LoRA adapter
+
+`train_only_visual_relay_joint.py` enables every LoRA A/B tensor in the loaded
+adapter and optimizes it together with the relay tokens. Rollouts may use the
+detached frozen visual cache, but every current-policy GRPO recomputation runs
+ViT and merger again with autograd. This is required because the existing
+adapter includes visual blocks, merger/deepstack merger and language layers.
+
+Checkpoints contain `checkpoint-N.pt` for relay/optimizer/scheduler state and a
+matching `checkpoint-N/` PEFT adapter directory. Joint WandB metrics separately
+report relay, visual adapter, merger adapter and language adapter gradients.
+
+Run the four-question experiment with:
+
+```powershell
+.\run_overfit_only_visual_relay_joint_0245_0248.ps1
+```
+
 ## Explicit question-conditioned query experiment
 
 `question_conditioned_policy.py` implements a third architecture:
