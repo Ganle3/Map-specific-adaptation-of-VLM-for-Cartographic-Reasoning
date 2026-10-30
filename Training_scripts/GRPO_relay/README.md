@@ -6,13 +6,16 @@ The existing directories remain untouched as historical experiment copies.
 
 ## Layout
 
-- `utils.py`: shared Qwen3-VL visual encoding, relay insertion, explicit
+- `relay_module.py`: the only shared relay parameter class, `RelayModule`.
+- `utils.py`: shared Qwen3-VL visual encoding, tensor splicing, native
   generation, differentiable current-policy forward, and language GRPO loss.
-- `train_core.py`: common training loop used by both relay placements.
+- `train_core.py`: common GRPO/reward/optimizer loop used by all schemes.
 - `evaluate_core.py`: common MapVerse/MapWise evaluator.
 - `smoke_gradient_core.py`: real-model relay/LoRA gradient audit.
-- `only_visual_relay/`: scheme 1.
-- `Image_question_shared_relay/`: scheme 2A.
+- `only_visual_relay/layout.py`: scheme 1 placement logic.
+- `Image_question_shared_relay/layout.py`: scheme 2 placement logic.
+- `Image_question_CoT_shared_relay/`: scheme 3 dynamic mask, temporary-cache
+  decode, placement metadata, and entry points.
 
 Both training entry points jointly train the loaded LoRA adapter and relay
 parameters while leaving the quantized Qwen base weights frozen.
@@ -35,6 +38,18 @@ In scheme 2A both spans use the exact same `[2,H]` `nn.Parameter`. The second
 span can causally read the image, first relay states, and question. It cannot
 write information backward into the first span.
 
+Scheme 3, at each autoregressive decision:
+
+```text
+persistent cache + [x_t, r_t]
+```
+
+`x_t` reads the ordinary causal past and current `r_t`. `r_t` reads cached
+image/question positions and current `x_t`. After all decoder layers,
+`cache.crop(-1)` removes only `r_t`; `x_t` remains in the persistent cache.
+The GRPO replay reconstructs the same permissions with a 4-D block mask and
+collects LM logits only at language predictor positions.
+
 ## Entry points
 
 ```powershell
@@ -43,6 +58,9 @@ write information backward into the first span.
 
 # Scheme 2A four-question overfit
 .\VLM_adaptation\Training_scripts\GRPO_relay\Image_question_shared_relay\run_overfit_0245_0248.ps1
+
+# Scheme 3 four-question overfit
+.\VLM_adaptation\Training_scripts\GRPO_relay\Image_question_CoT_shared_relay\run_overfit_0245_0248.ps1
 ```
 
 Use each directory's `smoke_gradient.py` before a cluster run. A passing audit

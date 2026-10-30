@@ -23,17 +23,48 @@ from continuous_cache_qwen3vl import _content_inputs, _resize_to_pixel_cap
 from data import build_cartographic_prompt, evaluate_answer, load_mapverse_questions
 from rolling_sparse_qwen3vl import load_model
 
-from utils import (build_adapter_only_prefill, build_relay_prefill,
-                   clipped_language_grpo_loss,
+from utils import (build_adapter_only_prefill, clipped_language_grpo_loss,
                    completion_log_probs, decoder_hidden_size,
                    encode_global_image, encode_global_image_with_grad,
                    generate_from_relays, group_advantages,
                    off_policy_sequence_keep)
-from only_visual_relay.policy import OnlyVisualRelayPolicy
-from Image_question_shared_relay.policy import ImageQuestionSharedRelayPolicy
+from relay_module import RelayModule
+from only_visual_relay.layout import build_prefill as build_only_visual_prefill
+from Image_question_shared_relay.layout import build_prefill as build_shared_prefill
+from Image_question_CoT_shared_relay.layout import build_prefill as build_cot_prefill
+from Image_question_CoT_shared_relay.dynamic_decode import (
+    cot_relay_completion_log_probs, generate_with_cot_relay,
+)
 
 
 _RECOMPUTE_INPUT_KEYS = ("input_ids", "attention_mask", "mm_token_type_ids", "image_grid_thw")
+
+
+def _build_scheme_prefill(model, tokenizer, source_inputs, global_features,
+                          policy, policy_kind: str, *, with_grad: bool):
+    if policy_kind == "adapter_only":
+        return build_adapter_only_prefill(source_inputs, global_features)
+    builders = {
+        "only_visual": build_only_visual_prefill,
+        "image_question_shared": build_shared_prefill,
+        "image_question_cot_shared": build_cot_prefill,
+    }
+    return builders[policy_kind](
+        model, tokenizer, source_inputs, global_features, policy,
+        with_grad=with_grad,
+    )
+
+
+def _generate_scheme(model, augmented: dict, **kwargs):
+    if augmented["policy_kind"] == "image_question_cot_shared":
+        return generate_with_cot_relay(model, **augmented, **kwargs)
+    return generate_from_relays(model, **augmented, **kwargs)
+
+
+def _current_log_probs(model, augmented: dict, completion_ids: torch.Tensor):
+    if augmented["policy_kind"] == "image_question_cot_shared":
+        return cot_relay_completion_log_probs(model, augmented, completion_ids)
+    return completion_log_probs(model, augmented, completion_ids)
 
 
 def _cache_recompute_inputs(source_inputs: dict, *, include_pixels: bool = False) -> dict:
@@ -76,18 +107,14 @@ def _eos_ids(tokenizer) -> set[int]:
 def generate_rollout(model, processor, policy, item, source_inputs, global_features,
                      max_new_tokens: int, rollout_id: int, policy_kind: str) -> dict:
     """Sample language tokens; no gradient is retained during generation."""
-    if policy_kind == "adapter_only":
-        augmented, attention = build_adapter_only_prefill(source_inputs, global_features)
-    else:
-        augmented, attention = build_relay_prefill(
-            model, processor.tokenizer, source_inputs, global_features, policy,
-            scheme=policy_kind, with_grad=False,
-        )
+    augmented, attention = _build_scheme_prefill(
+        model, processor.tokenizer, source_inputs, global_features, policy,
+        policy_kind, with_grad=False,
+    )
     prefix_length = augmented["input_ids"].shape[1]
     with torch.no_grad():
-        output = generate_from_relays(
-            model,
-            **augmented,
+        output = _generate_scheme(
+            model, augmented,
             do_sample=True,
             temperature=1.0,
             top_p=1.0,
@@ -137,9 +164,11 @@ def generate_rollout(model, processor, policy, item, source_inputs, global_featu
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--placement", required=True,
-                        choices=("none", "after_vision_end", "shared_dual_placement"))
+                        choices=("none", "after_vision_end", "shared_dual_placement",
+                                 "dynamic_cot_relay"))
     parser.add_argument("--policy-kind",
-                        choices=("adapter_only", "only_visual", "image_question_shared"),
+                        choices=("adapter_only", "only_visual", "image_question_shared",
+                                 "image_question_cot_shared"),
                         required=True)
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--mapverse-root", type=Path, required=True)
@@ -207,7 +236,8 @@ def main() -> None:
         parser.error("max-grad-norm must be positive")
     if args.min_gradient_rms < 0:
         parser.error("min-gradient-rms must be non-negative")
-    if args.train_adapter and args.policy_kind not in {"only_visual", "image_question_shared"}:
+    if args.train_adapter and args.policy_kind not in {
+            "only_visual", "image_question_shared", "image_question_cot_shared"}:
         if args.policy_kind != "adapter_only":
             parser.error("unsupported adapter-training policy")
     if args.policy_kind == "adapter_only" and not args.train_adapter:
@@ -225,11 +255,14 @@ def main() -> None:
         "adapter_only": "none",
         "only_visual": "after_vision_end",
         "image_question_shared": "shared_dual_placement",
+        "image_question_cot_shared": "dynamic_cot_relay",
     }[args.policy_kind]
     if args.placement != expected_placement:
         parser.error(f"{args.policy_kind} requires --placement {expected_placement}")
     if args.policy_kind != "adapter_only" and args.num_relay_tokens < 1:
         parser.error("num-relay-tokens must be positive")
+    if args.policy_kind == "image_question_cot_shared" and args.num_relay_tokens != 1:
+        parser.error("image_question_cot_shared currently requires --num-relay-tokens 1")
 
     torch.manual_seed(args.seed)
     random.seed(args.seed)
@@ -260,12 +293,8 @@ def main() -> None:
     hidden_size = decoder_hidden_size(model)
     if args.policy_kind == "adapter_only":
         policy = None
-    elif args.policy_kind == "only_visual":
-        policy = OnlyVisualRelayPolicy(
-            hidden_size, num_relays=args.num_relay_tokens,
-        ).to(device)
     else:
-        policy = ImageQuestionSharedRelayPolicy(
+        policy = RelayModule(
             hidden_size, num_relays=args.num_relay_tokens,
         ).to(device)
     optimizer_groups = []
@@ -328,16 +357,13 @@ def main() -> None:
             )
             with torch.inference_mode():
                 global_features = encode_global_image(model, source_inputs)
-                if args.policy_kind == "adapter_only":
-                    augmented, _ = build_adapter_only_prefill(source_inputs, global_features)
-                else:
-                    augmented, _ = build_relay_prefill(
-                        model, processor.tokenizer, source_inputs, global_features,
-                        policy, scheme=args.policy_kind, with_grad=False,
-                    )
+                augmented, _ = _build_scheme_prefill(
+                    model, processor.tokenizer, source_inputs, global_features,
+                    policy, args.policy_kind, with_grad=False,
+                )
                 prefix_length = augmented["input_ids"].shape[1]
-                generated = generate_from_relays(
-                    model, **augmented, do_sample=False, num_beams=1,
+                generated = _generate_scheme(
+                    model, augmented, do_sample=False, num_beams=1,
                     max_new_tokens=args.max_new_tokens, use_cache=True,
                 )
             completion = generated[0, prefix_length:]
@@ -525,17 +551,12 @@ def main() -> None:
                                     global_features = encode_global_image_with_grad(
                                         model, source_inputs,
                                     )
-                                if args.policy_kind == "adapter_only":
-                                    augmented, _ = build_adapter_only_prefill(
-                                        source_inputs, global_features,
-                                    )
-                                else:
-                                    augmented, _ = build_relay_prefill(
-                                        model, processor.tokenizer, source_inputs,
-                                        global_features, policy,
-                                        scheme=args.policy_kind, with_grad=True,
-                                    )
-                                current = completion_log_probs(
+                                augmented, _ = _build_scheme_prefill(
+                                    model, processor.tokenizer, source_inputs,
+                                    global_features, policy, args.policy_kind,
+                                    with_grad=True,
+                                )
+                                current = _current_log_probs(
                                     model, augmented, row["completion_ids"]
                                 )
                             if not current.requires_grad:

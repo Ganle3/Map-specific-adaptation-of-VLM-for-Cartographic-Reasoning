@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-token real-Qwen gradient audit shared by both relay layouts."""
+"""One-token real-Qwen gradient audit shared by all relay layouts."""
 from __future__ import annotations
 
 import argparse
@@ -18,10 +18,13 @@ for path in (VLM_ROOT / "SparseVLM_eliminateCONTEXT",):
 from continuous_cache_qwen3vl import _content_inputs, _resize_to_pixel_cap
 from data import build_cartographic_prompt, load_mapverse_questions
 from rolling_sparse_qwen3vl import load_model
-from utils import (build_relay_prefill, completion_log_probs,
-                   decoder_hidden_size, encode_global_image_with_grad)
-from only_visual_relay.policy import OnlyVisualRelayPolicy
-from Image_question_shared_relay.policy import ImageQuestionSharedRelayPolicy
+from utils import completion_log_probs, decoder_hidden_size, encode_global_image_with_grad
+from relay_module import RelayModule
+from only_visual_relay.layout import build_prefill as build_only_visual_prefill
+from Image_question_shared_relay.layout import build_prefill as build_shared_prefill
+from Image_question_CoT_shared_relay.layout import build_prefill as build_cot_prefill
+from Image_question_CoT_shared_relay.dynamic_decode import cot_relay_completion_log_probs
+from Image_question_CoT_shared_relay.dynamic_decode import generate_with_cot_relay
 
 
 def main(*, scheme: str) -> None:
@@ -60,21 +63,39 @@ def main(*, scheme: str) -> None:
         processor, [image], build_cartographic_prompt(item.question), device,
         args.max_pixels,
     )
-    policy_type = (OnlyVisualRelayPolicy if scheme == "only_visual"
-                   else ImageQuestionSharedRelayPolicy)
-    policy = policy_type(
+    policy = RelayModule(
         decoder_hidden_size(model), num_relays=args.num_relay_tokens,
     ).to(device)
     features = encode_global_image_with_grad(model, source)
-    augmented, _ = build_relay_prefill(
-        model, processor.tokenizer, source, features, policy,
-        scheme=scheme, with_grad=True,
+    builder = {
+        "only_visual": build_only_visual_prefill,
+        "image_question_shared": build_shared_prefill,
+        "image_question_cot_shared": build_cot_prefill,
+    }[scheme]
+    augmented, _ = builder(
+        model, processor.tokenizer, source, features, policy, with_grad=True,
     )
+    generated_tokens = None
+    if scheme == "image_question_cot_shared":
+        rollout_augmented, _ = builder(
+            model, processor.tokenizer, source, features, policy, with_grad=False,
+        )
+        with torch.no_grad():
+            generated = generate_with_cot_relay(
+                model, **rollout_augmented, do_sample=False, num_beams=1,
+                max_new_tokens=2, use_cache=True,
+            )
+        generated_tokens = int(generated.shape[1] - source["input_ids"].shape[1])
+        if generated_tokens < 1:
+            raise RuntimeError("Scheme-3 cache decode generated no token")
     target = torch.tensor(
         processor.tokenizer.encode(" So", add_special_tokens=False)[:1],
         dtype=torch.long,
     )
-    (-completion_log_probs(model, augmented, target).mean()).backward()
+    log_probs = (cot_relay_completion_log_probs(model, augmented, target)
+                 if scheme == "image_question_cot_shared"
+                 else completion_log_probs(model, augmented, target))
+    (-log_probs.mean()).backward()
 
     adapter_names = {name for name, _ in adapter}
     def nonzero(part: str) -> int:
@@ -82,10 +103,12 @@ def main(*, scheme: str) -> None:
                    and bool(parameter.grad.count_nonzero())
                    for name, parameter in adapter)
 
-    positions = augmented["relay_positions"]
+    positions = augmented.get("relay_positions")
     result = {
         "status": "PASS", "scheme": scheme,
-        "relay_position_groups": positions.detach().cpu().tolist(),
+        "relay_position_groups": ("dynamic_[x_t,r_t]_pair"
+                                  if positions is None
+                                  else positions.detach().cpu().tolist()),
         "shared_parameter_object_count": 1,
         "relay_gradient_norm": float(policy.prototypes.grad.norm())
         if policy.prototypes.grad is not None else 0.0,
@@ -101,9 +124,12 @@ def main(*, scheme: str) -> None:
             if name not in adapter_names
         ),
     }
+    if generated_tokens is not None:
+        result["dynamic_cache_generation_tokens"] = generated_tokens
     expected_groups = 1 if scheme == "only_visual" else 2
-    if (positions.shape != (expected_groups, args.num_relay_tokens)
-            or result["relay_gradient_norm"] <= 0
+    invalid_positions = (positions is not None and
+                         positions.shape != (expected_groups, args.num_relay_tokens))
+    if (invalid_positions or result["relay_gradient_norm"] <= 0
             or result["visual_nonzero_gradient_tensors"] == 0
             or result["merger_nonzero_gradient_tensors"] == 0
             or result["language_nonzero_gradient_tensors"] == 0

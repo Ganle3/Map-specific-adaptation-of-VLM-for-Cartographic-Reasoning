@@ -230,38 +230,6 @@ def decoder_hidden_size(model) -> int:
     return int(text_config.hidden_size)
 
 
-def relay_insertion_index(model, source_inputs: dict) -> int:
-    """Return the position immediately after the original vision-end token."""
-    ids = source_inputs["input_ids"][0]
-    config = qwen_lm(model).config
-    image_positions = ids.eq(int(config.image_token_id)).nonzero().flatten()
-    if not len(image_positions):
-        raise RuntimeError("Processor input contains no image placeholder tokens")
-    final_image = int(image_positions[-1])
-    vision_end = int(config.vision_end_token_id)
-    later_end = ids[final_image + 1:].eq(vision_end).nonzero().flatten()
-    if not len(later_end):
-        raise RuntimeError("Cannot locate <vision_end> after the final image placeholder")
-    end_position = final_image + 1 + int(later_end[0])
-    return end_position + 1
-
-
-def question_relay_insertion_index(tokenizer, source_inputs: dict) -> int:
-    """Return the position before the user ``<|im_end|>``/assistant prefix.
-
-    The cartographic prompt contains a single user turn.  Using its final
-    ``<|im_end|>`` keeps the relay after all question/instruction tokens while
-    leaving the assistant generation prefix intact.
-    """
-    im_end = tokenizer.encode("<|im_end|>", add_special_tokens=False)
-    if len(im_end) != 1:
-        raise RuntimeError("Unexpected Qwen <|im_end|> tokenization")
-    positions = source_inputs["input_ids"][0].eq(int(im_end[0])).nonzero().flatten()
-    if not len(positions):
-        raise RuntimeError("Cannot locate the user-turn end before the assistant prefix")
-    return int(positions[-1])
-
-
 def _carrier_token_id(model, tokenizer) -> int:
     """Choose an existing vocabulary ID whose embedding is always replaced."""
     qwen = qwen_lm(model)
@@ -283,28 +251,21 @@ def _carrier_token_id(model, tokenizer) -> int:
     return int(candidate)
 
 
-def build_relay_prefill(model, tokenizer, source_inputs: dict, global_features,
-                        policy, *, scheme: str, with_grad: bool) -> tuple[dict, None]:
-    """Insert one or two placements backed by the same relay parameter bank.
-
-    ``only_visual`` produces ``image <vision_end> P question``.
-    ``image_question_shared`` produces
-    ``image <vision_end> P question P assistant``.  The two spans in the
-    second layout reference the same ``policy.prototypes`` tensor.
-    """
-    if scheme not in {"only_visual", "image_question_shared"}:
-        raise ValueError(f"Unknown relay scheme: {scheme!r}")
+def build_relay_prefill_at_indices(
+        model, tokenizer, source_inputs: dict, global_features, relay_module, *,
+        insertion_indices: list[int], policy_kind: str,
+        with_grad: bool) -> tuple[dict, None]:
+    """Shared tensor splicing used after a scheme chooses its own positions."""
+    if not insertion_indices:
+        raise ValueError("At least one relay insertion index is required")
+    if insertion_indices != sorted(insertion_indices):
+        raise ValueError("Relay insertion indices must be sorted")
     # This is the nn.Parameter.
     # Rollout construction uses an explicit detached view; current-policy recomputation keeps the graph.
-    relays = policy.prototypes if with_grad else policy.prototypes.detach()
+    relays = (relay_module.prototypes if with_grad
+              else relay_module.prototypes.detach())
     count = int(relays.shape[0])
-    visual_index = relay_insertion_index(model, source_inputs)
-    original_indices = [visual_index]
-    if scheme == "image_question_shared":
-        question_index = question_relay_insertion_index(tokenizer, source_inputs)
-        if question_index <= visual_index:
-            raise RuntimeError("Question relay position must follow the visual relay position")
-        original_indices.append(question_index)
+    original_indices = list(insertion_indices)
     carrier = _carrier_token_id(model, tokenizer)
 
     source_ids = source_inputs["input_ids"][0]
@@ -322,15 +283,11 @@ def build_relay_prefill(model, tokenizer, source_inputs: dict, global_features,
             result = torch.cat((result[:index], addition, result[index:]), dim=0)
         return result.unsqueeze(0)
 
-    visual_positions = torch.arange(
-        visual_index, visual_index + count, device=source_ids.device
-    )
-    position_groups = [visual_positions]
-    if scheme == "image_question_shared":
-        # Inserting the earlier visual span shifts the later question span.
-        question_start = original_indices[1] + count
+    position_groups = []
+    for group_index, original_index in enumerate(original_indices):
+        shifted_start = original_index + group_index * count
         position_groups.append(torch.arange(
-            question_start, question_start + count, device=source_ids.device
+            shifted_start, shifted_start + count, device=source_ids.device
         ))
     relay_positions = torch.stack(position_groups, dim=0)
 
@@ -342,7 +299,7 @@ def build_relay_prefill(model, tokenizer, source_inputs: dict, global_features,
         "mm_encoder_outputs": {"image": global_features},
         "relay_embeddings": relays,
         "relay_positions": relay_positions,
-        "policy_kind": scheme,
+        "policy_kind": policy_kind,
     }
     return augmented, None
 

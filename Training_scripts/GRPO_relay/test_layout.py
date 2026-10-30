@@ -3,9 +3,10 @@ from types import SimpleNamespace
 
 import torch
 
-from utils import build_relay_prefill, explicit_relay_decoder_inputs
-from only_visual_relay.policy import OnlyVisualRelayPolicy
-from Image_question_shared_relay.policy import ImageQuestionSharedRelayPolicy
+from utils import explicit_relay_decoder_inputs
+from relay_module import RelayModule
+from only_visual_relay.layout import build_prefill as build_only_visual_prefill
+from Image_question_shared_relay.layout import build_prefill as build_shared_prefill
 
 
 class FakeModel(torch.nn.Module):
@@ -48,15 +49,13 @@ def main():
     features = SimpleNamespace(
         pooler_output=(torch.zeros(2, 8),), deepstack_features=[],
     )
-    only = OnlyVisualRelayPolicy(8, num_relays=2)
-    dual = ImageQuestionSharedRelayPolicy(8, num_relays=2)
-    one, _ = build_relay_prefill(
-        model, tokenizer, source(), features, only,
-        scheme="only_visual", with_grad=True,
+    only = RelayModule(8, num_relays=2)
+    dual = RelayModule(8, num_relays=2)
+    one, _ = build_only_visual_prefill(
+        model, tokenizer, source(), features, only, with_grad=True,
     )
-    two, _ = build_relay_prefill(
-        model, tokenizer, source(), features, dual,
-        scheme="image_question_shared", with_grad=True,
+    two, _ = build_shared_prefill(
+        model, tokenizer, source(), features, dual, with_grad=True,
     )
     assert one["relay_positions"].tolist() == [[4, 5]]
     assert two["relay_positions"].tolist() == [[4, 5], [8, 9]]
