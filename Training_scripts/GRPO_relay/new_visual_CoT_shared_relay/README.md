@@ -29,5 +29,25 @@ VLM_adaptation/Training_outputs/GRPO_relay/relay4_demo_qa318/
 ```
 
 The first lookup while processing token 10 affects prediction from token 11.
+
+## Grad-Att supervised cold start
+
+`prepare_cold_start_cache.py` computes and caches the frozen ViT+merger output
+once per unique source image. `train_cold_start.py` pairs the saved final
+decoder hidden states with connected Grad-Att crop targets and updates only the
+Relay4 prototype tensor. Multiple crop components are matched to different
+relays and a probability-overlap penalty discourages slot collapse.
+
+On every runtime LOOK step, decoding is intentionally two-pass. A provisional
+forward obtains the final hidden state used by the supervised selector. Its
+current-token KV is removed. The same token is rerun with the selected local
+visual readout injected before decoder layer 0, and only the refined KV is
+kept. HR visual tokens themselves never enter the persistent language cache.
+
+Run cache preparation, prototype training, and QA318 evaluation with:
+
+```powershell
+.\run_cold_start.ps1
+```
 The JSON trace records each selected global patch, original bbox, crop path,
 cache hit/miss, attention diagnostics, and reasoning generated so far.

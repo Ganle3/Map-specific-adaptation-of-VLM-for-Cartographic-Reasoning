@@ -152,8 +152,6 @@ def main() -> None:
         parser.error(f"{args.policy_kind} requires --placement {expected_placement}")
     if args.num_relay_tokens < 1:
         parser.error("num-relay-tokens must be positive")
-    if args.policy_kind == "image_question_cot_shared" and args.num_relay_tokens != 1:
-        parser.error("image_question_cot_shared requires --num-relay-tokens 1")
 
     steps = list(dict.fromkeys(args.checkpoint_steps))
     # Step zero is deliberately the native Qwen + input adapter baseline.  It

@@ -10,14 +10,16 @@ sys.path.insert(0, str(ROOT))
 from evaluate_core import main
 
 if __name__ == "__main__":
-    forbidden = {"--policy-kind", "--placement", "--num-relay-tokens"}.intersection(
+    forbidden = {"--policy-kind", "--placement"}.intersection(
         sys.argv[1:]
     )
     if forbidden:
         raise SystemExit("This entry point fixes " + ", ".join(sorted(forbidden)))
-    sys.argv[1:1] = [
+    fixed = [
         "--policy-kind", "image_question_cot_shared",
         "--placement", "dynamic_cot_relay",
-        "--num-relay-tokens", "1",
     ]
+    if "--num-relay-tokens" not in sys.argv[1:]:
+        fixed += ["--num-relay-tokens", "1"]
+    sys.argv[1:1] = fixed
     main()

@@ -52,12 +52,15 @@ def parse_args():
     parser.add_argument("--max-new-tokens", type=int, default=500)
     parser.add_argument("--lookup-start-token", type=int, default=10)
     parser.add_argument("--lookup-every", type=int, default=10)
-    parser.add_argument("--relay-layer", type=int, default=16,
-                        help="Zero-based decoder layer after which HR relay fusion occurs.")
+    parser.add_argument("--relay-layer", type=int, default=0,
+                        help="Must be 0: HR evidence is injected before decoder layer 0.")
     parser.add_argument("--num-relays", type=int, default=2)
     parser.add_argument("--window-side", type=int, default=5)
     parser.add_argument("--margin-fraction", type=float, default=0.10)
     parser.add_argument("--injection-scale", type=float, default=0.10)
+    parser.add_argument("--selector-temperature", type=float, default=0.07)
+    parser.add_argument("--policy-checkpoint", type=Path, default=None,
+                        help="Optional supervised cold-start Relay4 checkpoint.")
     parser.add_argument("--seed", type=int, default=318)
     parser.add_argument("--sample-tiles", action="store_true")
     parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit")
@@ -67,6 +70,8 @@ def parse_args():
         parser.error(f"Image does not exist: {args.image}")
     if not args.adapter.is_dir():
         parser.error(f"Adapter directory does not exist: {args.adapter}")
+    if args.policy_checkpoint is not None and not args.policy_checkpoint.is_file():
+        parser.error(f"Policy checkpoint does not exist: {args.policy_checkpoint}")
     return args
 
 
@@ -106,15 +111,29 @@ def main() -> None:
         window_side=args.window_side,
         margin_fraction=args.margin_fraction,
     )
-    policy = NewVisualCoTRelay(
-        decoder_hidden_size(model), num_relays=args.num_relays,
-        injection_scale=args.injection_scale,
-    ).to(device)
-    torch.save({
-        "policy_kind": "new_visual_cot_shared_relay_demo",
-        "seed": args.seed,
-        "state_dict": policy.state_dict(),
-    }, args.output_dir / "random_relay_initialization.pt")
+    policy_payload = None
+    policy_config = {
+        "hidden_size": decoder_hidden_size(model),
+        "num_relays": args.num_relays,
+        "temperature": args.selector_temperature,
+        "injection_scale": args.injection_scale,
+    }
+    if args.policy_checkpoint is not None:
+        policy_payload = torch.load(args.policy_checkpoint, map_location="cpu", weights_only=False)
+        policy_config.update(policy_payload.get("policy_config", {}))
+        if int(policy_config["hidden_size"]) != decoder_hidden_size(model):
+            raise RuntimeError("Cold-start policy hidden size does not match Qwen decoder")
+    policy = NewVisualCoTRelay(**policy_config).to(device)
+    if policy_payload is None:
+        torch.save({
+            "policy_kind": "new_visual_cot_shared_relay_demo",
+            "seed": args.seed,
+            "policy_config": policy_config,
+            "state_dict": policy.state_dict(),
+        }, args.output_dir / "random_relay_initialization.pt")
+    else:
+        policy.load_state_dict(policy_payload["state_dict"], strict=True)
+        print(f"Loaded supervised Relay4 cold start: {args.policy_checkpoint}", flush=True)
     tile_cache = OnDemandTileFeatureCache(
         model=model, processor=processor, original_image=original,
         device=device, max_pixels=args.local_max_pixels,
@@ -150,8 +169,9 @@ def main() -> None:
         "response": response,
         "evaluation": evaluation,
         "generated_tokens": int(completion.numel()),
-        "random_relay_seed": args.seed,
-        "num_relays": args.num_relays,
+        "random_relay_seed": args.seed if policy_payload is None else None,
+        "policy_checkpoint": str(args.policy_checkpoint.resolve()) if args.policy_checkpoint else None,
+        "num_relays": policy.num_relays,
         "relay_parameter_count": int(policy.prototypes.numel()),
         "global_submitted_size": list(global_submitted.size),
         "global_visual_tokens": int(global_memory.shape[0]),
@@ -179,4 +199,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

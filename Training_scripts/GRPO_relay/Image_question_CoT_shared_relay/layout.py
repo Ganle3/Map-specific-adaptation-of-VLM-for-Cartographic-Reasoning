@@ -38,11 +38,11 @@ def relay_visible_prompt_positions(model, tokenizer, source_inputs: dict) -> tor
 
 def build_prefill(model, tokenizer, source_inputs: dict, global_features,
                   relay_module, *, with_grad: bool):
-    """Keep the native prompt and attach one shared relay for dynamic steps."""
+    """Keep the native prompt and attach the shared relay bank for dynamic steps."""
     relays = (relay_module.prototypes if with_grad
               else relay_module.prototypes.detach())
-    if relays.shape[0] != 1:
-        raise ValueError("Scheme 3 currently requires exactly one relay token")
+    if relays.ndim != 2 or relays.shape[0] < 1:
+        raise ValueError("Scheme 3 requires relay embeddings with shape [R,H], R >= 1")
     return {
         "input_ids": source_inputs["input_ids"],
         "attention_mask": source_inputs["attention_mask"],
@@ -55,4 +55,3 @@ def build_prefill(model, tokenizer, source_inputs: dict, global_features,
         ),
         "policy_kind": "image_question_cot_shared",
     }, None
-

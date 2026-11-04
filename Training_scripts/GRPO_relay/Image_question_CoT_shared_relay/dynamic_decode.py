@@ -1,10 +1,11 @@
 """Dynamic per-step relay decoding and differentiable current-policy replay.
 
-Each decision processes ``[x_t, r_t]`` jointly.  A custom block mask lets the
-language query read the current relay and lets the relay query read only image
-K/V, question K/V, its current language state, and itself.  During generation
-both positions are temporarily appended to every DynamicCache layer; after the
-decoder step ``cache.crop(-1)`` removes the relay K/V and retains ``x_t``.
+Each decision processes ``[x_t, r_t,1, ..., r_t,R]`` jointly.  A custom block
+mask lets the language query read every current relay and lets each relay query
+read only image K/V, question K/V, its current language state, and the current
+relay bank.  During generation all positions are temporarily appended to every
+DynamicCache layer; after the decoder step the relay K/V positions are removed
+and only ``x_t`` is retained.
 """
 from __future__ import annotations
 
@@ -38,23 +39,34 @@ def _additive_mask(allowed: torch.Tensor, dtype: torch.dtype) -> torch.Tensor:
 
 
 def _step_attention_mask(past_length: int, relay_visible_past: torch.Tensor,
-                         dtype: torch.dtype, device) -> torch.Tensor:
+                         dtype: torch.dtype, device,
+                         num_relays: int = 1) -> torch.Tensor:
     if relay_visible_past.shape != (past_length,):
         raise RuntimeError(
             f"Relay-visible mask length {relay_visible_past.numel()} != cache {past_length}"
         )
-    allowed = torch.zeros((2, past_length + 2), dtype=torch.bool, device=device)
+    if num_relays < 1:
+        raise ValueError("num_relays must be positive")
+    group_size = 1 + num_relays
+    allowed = torch.zeros((group_size, past_length + group_size),
+                          dtype=torch.bool, device=device)
     allowed[0, :] = True  # x_t reads all causal history, itself, and current r_t
-    allowed[1, :past_length] = relay_visible_past.to(device=device, dtype=torch.bool)
-    allowed[1, past_length:] = True  # r_t reads current x_t and itself
+    allowed[1:, :past_length] = relay_visible_past.to(
+        device=device, dtype=torch.bool
+    ).unsqueeze(0)
+    allowed[1:, past_length:] = True  # each relay reads current x_t + relay bank
     return _additive_mask(allowed, dtype)
 
 
 def _full_attention_mask(prefix_length: int, target_count: int,
                          relay_visible_prefix: torch.Tensor,
-                         dtype: torch.dtype, device) -> torch.Tensor:
-    """Mask native prompt prefix plus ``target_count`` [predictor, relay] pairs."""
-    total = prefix_length + 2 * target_count
+                         dtype: torch.dtype, device,
+                         num_relays: int = 1) -> torch.Tensor:
+    """Mask prompt prefix plus target groups of one predictor and R relays."""
+    if num_relays < 1:
+        raise ValueError("num_relays must be positive")
+    group_size = 1 + num_relays
+    total = prefix_length + group_size * target_count
     allowed = torch.zeros((total, total), dtype=torch.bool, device=device)
     prefix_visible = relay_visible_prefix.to(device=device, dtype=torch.bool)
     if prefix_visible.shape != (prefix_length,):
@@ -63,16 +75,16 @@ def _full_attention_mask(prefix_length: int, target_count: int,
         allowed[query, :query + 1] = True
     prior_language_positions: list[int] = []
     for index in range(target_count):
-        language_position = prefix_length + 2 * index
-        relay_position = language_position + 1
+        language_position = prefix_length + group_size * index
+        relay_positions = slice(language_position + 1,
+                                language_position + group_size)
         allowed[language_position, :prefix_length] = True
         if prior_language_positions:
             allowed[language_position, prior_language_positions] = True
         allowed[language_position, language_position] = True
-        allowed[language_position, relay_position] = True
-        allowed[relay_position, :prefix_length] = prefix_visible
-        allowed[relay_position, language_position] = True
-        allowed[relay_position, relay_position] = True
+        allowed[language_position, relay_positions] = True
+        allowed[relay_positions, :prefix_length] = prefix_visible.unsqueeze(0)
+        allowed[relay_positions, language_position:language_position + group_size] = True
         prior_language_positions.append(language_position)
     return _additive_mask(allowed, dtype)
 
@@ -100,34 +112,39 @@ def _decoder_layers(language_model, hidden_states: torch.Tensor,
     return language_model.norm(hidden_states)
 
 
-def _pair_position_ids(position: torch.Tensor) -> torch.Tensor:
-    """Give x_t and temporary r_t the same logical multimodal RoPE position."""
+def _group_position_ids(position: torch.Tensor, num_relays: int) -> torch.Tensor:
+    """Give x_t and all temporary relays the same multimodal RoPE position."""
     if position.ndim != 3 or position.shape[1:] != (1, 1):
         raise ValueError(f"Expected position [D,1,1], got {tuple(position.shape)}")
-    return position.expand(-1, -1, 2)
+    if num_relays < 1:
+        raise ValueError("num_relays must be positive")
+    return position.expand(-1, -1, 1 + num_relays)
 
 
 def _decode_pair(model, *, token: torch.Tensor, relay: torch.Tensor,
                  position: torch.Tensor, past, relay_visible_past: torch.Tensor):
     language_model, lm_head = _decoder_and_head(model)
     token_embed = qwen_lm(model).get_input_embeddings()(token.view(1, 1))
-    relay_embed = relay.to(token_embed.device, token_embed.dtype).view(1, 1, -1)
+    if relay.ndim != 2 or relay.shape[0] < 1:
+        raise ValueError("relay must have shape [R,H], R >= 1")
+    relay_embed = relay.to(token_embed.device, token_embed.dtype).unsqueeze(0)
     pair = torch.cat((token_embed, relay_embed), dim=1)
+    num_relays = relay.shape[0]
     past_length = past.get_seq_length()
     mask = _step_attention_mask(
-        past_length, relay_visible_past, pair.dtype, pair.device
+        past_length, relay_visible_past, pair.dtype, pair.device, num_relays
     )
     _set_custom_mask_attention(language_model)
     hidden = _decoder_layers(
-        language_model, pair, _pair_position_ids(position), mask,
+        language_model, pair, _group_position_ids(position, num_relays), mask,
         past_key_values=past,
     )
-    if past.get_seq_length() != past_length + 2:
-        raise RuntimeError("DynamicCache did not append both x_t and r_t positions")
+    if past.get_seq_length() != past_length + 1 + num_relays:
+        raise RuntimeError("DynamicCache did not append x_t and every relay position")
     logits = lm_head(hidden[:, 0, :])
-    past.crop(-1)
+    past.crop(-num_relays)
     if past.get_seq_length() != past_length + 1:
-        raise RuntimeError("cache.crop(-1) did not retain x_t and remove r_t")
+        raise RuntimeError("cache crop did not retain x_t and remove every relay")
     return logits, past
 
 
@@ -143,8 +160,9 @@ def generate_with_cot_relay(
         output_scores: bool = False, use_cache: bool = True):
     if policy_kind != "image_question_cot_shared":
         raise ValueError(f"Unexpected policy_kind={policy_kind!r}")
-    if input_ids.shape[0] != 1 or num_beams != 1 or relay_embeddings.shape[0] != 1:
-        raise ValueError("Dynamic relay generation requires batch=1, beams=1, one relay")
+    if (input_ids.shape[0] != 1 or num_beams != 1
+            or relay_embeddings.ndim != 2 or relay_embeddings.shape[0] < 1):
+        raise ValueError("Dynamic relay generation requires batch=1, beams=1, relays [R,H]")
     if input_ids.shape[1] < 2 or max_new_tokens < 1 or not use_cache:
         raise ValueError("Prompt must have >=2 tokens; max_new_tokens>0 and cache are required")
 
@@ -180,7 +198,7 @@ def generate_with_cot_relay(
 
     for _ in range(max_new_tokens):
         next_logits, past = _decode_pair(
-            model, token=token, relay=relay_embeddings[0], position=position,
+            model, token=token, relay=relay_embeddings, position=position,
             past=past, relay_visible_past=visible,
         )
         step_scores = _sampling_logits(next_logits, temperature, top_p, top_k)
@@ -211,8 +229,10 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
     if targets.shape[1] < 1:
         return torch.empty(0, device=prompt_ids.device)
     relay = augmented_prompt["relay_embeddings"]
-    if relay.shape[0] != 1 or not relay.requires_grad:
-        raise RuntimeError("Current-policy scheme-3 replay requires one attached relay")
+    if relay.ndim != 2 or relay.shape[0] < 1 or not relay.requires_grad:
+        raise RuntimeError("Current-policy scheme-3 replay requires attached relays [R,H]")
+    num_relays = relay.shape[0]
+    group_size = 1 + num_relays
 
     visual = augmented_prompt["mm_encoder_outputs"]["image"]
     prompt_embeds, visual_mask, deepstack = explicit_relay_decoder_inputs(
@@ -226,12 +246,14 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
     prefix_length = prompt_ids.shape[1] - 1
     predictors = torch.cat((prompt_ids[:, -1:], targets[:, :-1]), dim=1)
     predictor_embeds = qwen_lm(model).get_input_embeddings()(predictors)
-    relay_embed = relay.to(predictor_embeds.device, predictor_embeds.dtype).view(1, 1, -1)
-    relay_embeds = relay_embed.expand(1, targets.shape[1], -1)
-    pairs = torch.stack((predictor_embeds, relay_embeds), dim=2).reshape(
-        1, 2 * targets.shape[1], -1
+    relay_embed = relay.to(predictor_embeds.device, predictor_embeds.dtype)
+    relay_embeds = relay_embed.view(1, 1, num_relays, -1).expand(
+        1, targets.shape[1], num_relays, -1
     )
-    hidden = torch.cat((prompt_embeds[:, :prefix_length], pairs), dim=1)
+    groups = torch.cat((predictor_embeds.unsqueeze(2), relay_embeds), dim=2).reshape(
+        1, group_size * targets.shape[1], -1
+    )
+    hidden = torch.cat((prompt_embeds[:, :prefix_length], groups), dim=1)
 
     first_position = positions[..., -1:]
     extra_positions = [first_position]
@@ -240,17 +262,18 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
         extra_positions.append(torch.full_like(first_position, cursor))
         cursor += 1
     paired_positions = torch.cat(
-        [position.expand(-1, -1, 2) for position in extra_positions], dim=-1
+        [position.expand(-1, -1, group_size) for position in extra_positions], dim=-1
     )
     all_positions = torch.cat((positions[..., :prefix_length], paired_positions), dim=-1)
     visible_prefix = augmented_prompt["relay_visible_prompt_mask"][:prefix_length]
     block_mask = _full_attention_mask(
         prefix_length, targets.shape[1], visible_prefix,
-        hidden.dtype, hidden.device,
+        hidden.dtype, hidden.device, num_relays,
     )
     extended_visual_mask = torch.cat((
         visual_mask[:, :prefix_length],
-        torch.zeros((1, 2 * targets.shape[1]), dtype=torch.bool, device=hidden.device),
+        torch.zeros((1, group_size * targets.shape[1]),
+                    dtype=torch.bool, device=hidden.device),
     ), dim=1)
     language_model, lm_head = _decoder_and_head(model)
     _set_custom_mask_attention(language_model)
@@ -260,7 +283,7 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
             visual_pos_masks=extended_visual_mask,
             deepstack_visual_embeds=deepstack, checkpoint_layers=True,
         )
-        predictor_positions = prefix_length + 2 * torch.arange(
+        predictor_positions = prefix_length + group_size * torch.arange(
             targets.shape[1], device=hidden.device
         )
         logits = lm_head(decoded[:, predictor_positions, :])

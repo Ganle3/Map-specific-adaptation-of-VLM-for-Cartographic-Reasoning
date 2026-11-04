@@ -36,7 +36,7 @@ def main() -> None:
         input_ids=prefix, attention_mask=torch.ones_like(prefix),
         position_ids=positions, use_cache=True, return_dict=True,
     )
-    relay = nn.Parameter(torch.randn(32) * 0.02)
+    relay = nn.Parameter(torch.randn(4, 32) * 0.02)
     visible = torch.tensor([False, True, True])
     step_position = torch.full((3, 1, 1), 3, dtype=torch.long)
     logits, cache = _decode_pair(

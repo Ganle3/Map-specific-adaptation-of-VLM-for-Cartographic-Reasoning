@@ -261,8 +261,6 @@ def main() -> None:
         parser.error(f"{args.policy_kind} requires --placement {expected_placement}")
     if args.policy_kind != "adapter_only" and args.num_relay_tokens < 1:
         parser.error("num-relay-tokens must be positive")
-    if args.policy_kind == "image_question_cot_shared" and args.num_relay_tokens != 1:
-        parser.error("image_question_cot_shared currently requires --num-relay-tokens 1")
 
     torch.manual_seed(args.seed)
     random.seed(args.seed)

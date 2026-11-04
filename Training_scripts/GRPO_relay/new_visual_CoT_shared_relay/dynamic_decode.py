@@ -1,4 +1,4 @@
-"""Greedy decoder demo with lazy high-resolution visual relay lookups."""
+"""Greedy Relay4 decoding with final-state selection and layer-0 refinement."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -19,9 +19,37 @@ def _flatten_pooler(image_features) -> torch.Tensor:
 
 
 def _all_visible_mask(past_length: int, dtype: torch.dtype, device) -> torch.Tensor:
-    # A single current language query may read every causal past position and
-    # itself.  HR tile features never appear in this mask or in DynamicCache.
     return torch.zeros((1, 1, 1, past_length + 1), dtype=dtype, device=device)
+
+
+def _crop_cache(cache, length: int) -> None:
+    """Remove provisional current-token KV while retaining causal history."""
+    crop = getattr(cache, "crop", None)
+    if crop is not None:
+        remove = cache.get_seq_length() - length
+        if remove < 0:
+            raise RuntimeError("Requested cache rollback length exceeds current cache")
+        if remove:
+            crop(-remove)
+    else:
+        for layer in cache.layers:
+            if getattr(layer, "is_initialized", False):
+                layer.keys = layer.keys[..., :length, :]
+                layer.values = layer.values[..., :length, :]
+    if cache.get_seq_length() != length:
+        raise RuntimeError(
+            f"Could not roll provisional cache back to {length}; got {cache.get_seq_length()}"
+        )
+
+
+def _decoder_step(language_model, hidden, step_mask, position_embeddings, past):
+    for layer in language_model.layers:
+        hidden = layer(
+            hidden, attention_mask=step_mask,
+            position_embeddings=position_embeddings,
+            past_key_values=past, use_cache=True,
+        )
+    return language_model.norm(hidden)
 
 
 @torch.no_grad()
@@ -29,18 +57,19 @@ def generate_with_new_visual_relay(
         model, *, source_inputs: dict, global_features, policy, coarse_grid,
         tile_cache, tokenizer, max_new_tokens: int = 500,
         lookup_start_token: int = 10, lookup_every: int = 10,
-        relay_layer: int = 16, sample_tiles: bool = False):
-    """Generate while introducing HR visual information only after token 10.
+        relay_layer: int = 0, sample_tiles: bool = False):
+    """Generate with a provisional and refined pass on every LOOK step.
 
-    The first lookup occurs while processing generated token 10 and therefore
-    affects the distribution for token 11.  Subsequent lookups happen at
-    20, 30, ... by default.  Between lookups, the active cached tile is read
-    again using the new token's layer-specific hidden state.
+    The provisional pass obtains the current token's final decoder hidden
+    state. That state selects and reads original-resolution evidence. Its new
+    KV is discarded. The same token is then rerun with the visual readout
+    injected before decoder layer 0; only refined KV remains persistent.
     """
     if max_new_tokens < 1 or lookup_start_token < 1 or lookup_every < 1:
         raise ValueError("token limits and lookup interval must be positive")
+    if relay_layer != 0:
+        raise ValueError("Two-pass Relay4 requires relay_layer=0")
 
-    # Delayed imports avoid duplicating the project's Qwen wrapper logic.
     from utils import (_decoder_and_head, _sampling_logits, _vl_backbone,
                        explicit_relay_decoder_inputs, qwen_lm)
 
@@ -49,7 +78,7 @@ def generate_with_new_visual_relay(
     mm_types = source_inputs["mm_token_type_ids"]
     grid_thw = source_inputs["image_grid_thw"]
     if input_ids.shape[0] != 1:
-        raise ValueError("Relay-4 demo supports one question at a time")
+        raise ValueError("Relay4 demo supports one question at a time")
 
     global_memory = _flatten_pooler(global_features).to(
         input_ids.device, qwen_lm(model).get_input_embeddings().weight.dtype
@@ -62,11 +91,6 @@ def generate_with_new_visual_relay(
         attention_mask=attention_mask,
     )
     language_model, lm_head = _decoder_and_head(model)
-    if not 0 <= relay_layer < len(language_model.layers) - 1:
-        raise ValueError(
-            f"relay_layer must leave at least one following decoder layer; "
-            f"got {relay_layer} for {len(language_model.layers)} layers"
-        )
     prefill = language_model(
         input_ids=None, inputs_embeds=prompt_embeds,
         attention_mask=attention_mask, position_ids=positions,
@@ -94,84 +118,79 @@ def generate_with_new_visual_relay(
         position_embeddings = language_model.rotary_emb(hidden, position)
         past_length = past.get_seq_length()
         step_mask = _all_visible_mask(past_length, hidden.dtype, hidden.device)
-        should_use_hr = generated_count >= lookup_start_token
-        should_lookup = should_use_hr and (
+        should_lookup = generated_count >= lookup_start_token and (
             (generated_count - lookup_start_token) % lookup_every == 0
         )
 
-        for layer_index, layer in enumerate(language_model.layers):
-            hidden = layer(
-                hidden, attention_mask=step_mask,
-                position_embeddings=position_embeddings,
-                past_key_values=past, use_cache=True,
+        if should_lookup:
+            provisional = _decoder_step(
+                language_model, hidden.clone(), step_mask, position_embeddings, past
             )
-            if layer_index != relay_layer or not should_use_hr:
-                continue
-
-            if should_lookup:
-                selection = policy.select_global_patches(
-                    hidden, global_memory, sample=sample_tiles
-                )
-                actions = [int(value) for value in selection["actions"][0].tolist()]
-                state.active_actions = actions
-                state.active_local_memories = []
-                decoded_so_far = tokenizer.decode(
+            _crop_cache(past, past_length)
+            selection = policy.select_global_patches(
+                provisional, global_memory, sample=sample_tiles
+            )
+            actions = [int(value) for value in selection["actions"][0].tolist()]
+            state.active_actions = actions
+            state.active_local_memories = []
+            event = {
+                "generated_token_count": generated_count,
+                "affects_prediction_from_token": generated_count + 1,
+                "controller_hidden_source": "provisional_final_decoder_state",
+                "visual_injection_point": "before_decoder_layer_0",
+                "decoder_layer_zero_based": 0,
+                "reasoning_so_far": tokenizer.decode(
                     torch.stack(generated, dim=1)[0], skip_special_tokens=True
+                ),
+                "relay_selections": [],
+            }
+            for relay_index, action in enumerate(actions):
+                geometry = coarse_grid.geometry(action)
+                local_memory, cache_hit, metadata = tile_cache.get(geometry)
+                state.active_local_memories.append(local_memory.unsqueeze(0))
+                probabilities = selection["patch_probabilities"][0, relay_index]
+                top_values, top_indices = probabilities.topk(min(5, probabilities.numel()))
+                event["relay_selections"].append({
+                    "relay_index": relay_index,
+                    "selected_probability": float(probabilities[action]),
+                    "selected_log_probability": float(
+                        selection["selected_log_probs"][0, relay_index]
+                    ),
+                    "top5_actions": [int(value) for value in top_indices.cpu().tolist()],
+                    "top5_probabilities": [float(value) for value in top_values.cpu().tolist()],
+                    "cache_hit": bool(cache_hit),
+                    **metadata,
+                })
+                print(
+                    f"[RELAY4 LOOKUP token={generated_count} relay={relay_index}] "
+                    f"action={action} row={geometry.row} col={geometry.col} "
+                    f"bbox={list(geometry.bbox)} cache_hit={cache_hit} "
+                    f"local_tokens={metadata['local_visual_tokens']}",
+                    flush=True,
                 )
-                event = {
-                    "generated_token_count": generated_count,
-                    "affects_prediction_from_token": generated_count + 1,
-                    "decoder_layer_zero_based": relay_layer,
-                    "reasoning_so_far": decoded_so_far,
-                    "relay_selections": [],
-                }
-                for relay_index, action in enumerate(actions):
-                    geometry = coarse_grid.geometry(action)
-                    local_memory, cache_hit, metadata = tile_cache.get(geometry)
-                    state.active_local_memories.append(local_memory.unsqueeze(0))
-                    probabilities = selection["patch_probabilities"][0, relay_index]
-                    top_values, top_indices = probabilities.topk(min(5, probabilities.numel()))
-                    event["relay_selections"].append({
-                        "relay_index": relay_index,
-                        "selected_probability": float(probabilities[action]),
-                        "selected_log_probability": float(
-                            selection["selected_log_probs"][0, relay_index]
-                        ),
-                        "top5_actions": [int(value) for value in top_indices.cpu().tolist()],
-                        "top5_probabilities": [float(value) for value in top_values.cpu().tolist()],
-                        "cache_hit": bool(cache_hit),
-                        **metadata,
-                    })
-                    print(
-                        f"[RELAY4 LOOKUP token={generated_count} relay={relay_index}] "
-                        f"action={action} row={geometry.row} col={geometry.col} "
-                        f"bbox={list(geometry.bbox)} cache_hit={cache_hit} "
-                        f"local_tokens={metadata['local_visual_tokens']}",
-                        flush=True,
-                    )
-                state.trace.append(event)
 
-            if state.active_local_memories:
-                local_memories = [
-                    memory.to(hidden.device, hidden.dtype)
-                    for memory in state.active_local_memories
-                ]
-                visual_relays, _, local_attentions = policy.read_assigned_local_memories(
-                    hidden, local_memories
+            local_memories = [
+                memory.to(hidden.device, hidden.dtype)
+                for memory in state.active_local_memories
+            ]
+            visual_relays, _, local_attentions = policy.read_assigned_local_memories(
+                provisional, local_memories
+            )
+            hidden, _, relay_attention = policy.fuse_hidden_state(hidden, visual_relays)
+            for relay_event, local_attention in zip(
+                    event["relay_selections"], local_attentions):
+                relay_event["local_attention_entropy"] = float(
+                    -(local_attention.clamp_min(1e-12)
+                      * local_attention.clamp_min(1e-12).log()).sum(dim=-1).mean()
                 )
-                hidden, _, relay_attention = policy.fuse_hidden_state(hidden, visual_relays)
-                if should_lookup and state.trace:
-                    for relay_event, local_attention in zip(
-                            state.trace[-1]["relay_selections"], local_attentions):
-                        relay_event["local_attention_entropy"] = float(
-                            -(local_attention.clamp_min(1e-12)
-                              * local_attention.clamp_min(1e-12).log()).sum(dim=-1).mean()
-                        )
-                    state.trace[-1]["hidden_to_relay_probabilities"] = [
-                        float(value) for value in relay_attention[0, 0].cpu().tolist()
-                    ]
+            event["hidden_to_relay_probabilities"] = [
+                float(value) for value in relay_attention[0, 0].cpu().tolist()
+            ]
+            state.trace.append(event)
 
-        hidden = language_model.norm(hidden)
+        hidden = _decoder_step(
+            language_model, hidden, step_mask, position_embeddings, past
+        )
         next_logits = lm_head(hidden[:, -1, :])
         cursor += 1
 
