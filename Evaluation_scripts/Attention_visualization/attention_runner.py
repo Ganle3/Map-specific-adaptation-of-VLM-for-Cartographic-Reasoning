@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import math
 import re
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -193,6 +194,13 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
     import transformers
 
     image = Image.open(question.image).convert("RGB")
+    original_size = image.size
+    if image.width * image.height > settings.max_pixels:
+        scale = math.sqrt(settings.max_pixels / (image.width * image.height))
+        image = image.resize(
+            (max(1, int(image.width * scale)), max(1, int(image.height * scale))),
+            Image.Resampling.LANCZOS,
+        )
     prompt = question.prompt or mapwise_prompt(question.question)
     messages = [{"role": "user", "content": [
         {"type": "image", "image": image}, {"type": "text", "text": prompt}
@@ -243,7 +251,8 @@ def generate_one(model, processor, question: Question, settings: Settings, desti
         "token_ids": ids, "tokens": [processor.tokenizer.decode([i]) for i in ids],
         "layers": list(capture.layers), "heads": list(capture.heads),
         "summary_layers": list(capture.summary_layers),
-        "image_grid_thw": [t, h, w], "merged_grid_hw": list(grid), "original_size_wh": list(image.size),
+        "image_grid_thw": [t, h, w], "merged_grid_hw": list(grid), "original_size_wh": list(original_size),
+        "submitted_size_wh": list(image.size),
         "image_token_positions": positions.cpu().tolist(), "prompt_tokens": prompt_length,
         "frame_semantics": "Frame t: last query attention in the forward predicting token t (zero-based). Frame 0 is prefill; later frames query the preceding generated token.",
         "attention_axes": ["step", "layer", "head", "patch_y", "patch_x"],

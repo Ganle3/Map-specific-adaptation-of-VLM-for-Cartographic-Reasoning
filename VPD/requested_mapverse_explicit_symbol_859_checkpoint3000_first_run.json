@@ -1,0 +1,18 @@
+{
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-3000",
+  "max_pixels": 1000000,
+  "results": [
+    {
+      "image_name": "859.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\859.jpg",
+      "question": "How many toilets are shown on this map of the hospital?",
+      "correct_answer": "11",
+      "raw_response": "So, let's look at the map. In the bottom right corner, there's a yellow square with a toilet icon labeled \"Toile\". Let's check if there are any others. The rest of the map doesn't have other toilet icons. So only one toilet is shown.\n</think>\n\nFinal answer: 1",
+      "final_answer": "1",
+      "generated_tokens": 65,
+      "input_tokens": 1083,
+      "generation_status": "complete",
+      "inference_seconds": 8.585
+    }
+  ]
+}

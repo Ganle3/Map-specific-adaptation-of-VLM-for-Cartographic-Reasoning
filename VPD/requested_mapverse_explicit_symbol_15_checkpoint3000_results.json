@@ -1,0 +1,42 @@
+{
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-3000",
+  "max_pixels": 1000000,
+  "results": [
+    {
+      "image_name": "15.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\15.jpg",
+      "question": "How many bars and pubs do you see?",
+      "correct_answer": "2",
+      "raw_response": "So, let's look at the map. The legend on the left has \"Bar/Pub\" with a circle icon. Now, check the stadium map. Are there any labels for bars or pubs? The map shows the stadium layout, and in the legend, \"Bar/Pub\" is listed, but we need to count how many are on the map. Wait, the map's legend has \"Bar/Pub\" as an item, but the actual map—do we see any bar/pub markers? Let me check. The map has various sections, but the legend's \"Bar/Pub\" is a category. The question is how many bars and pubs are seen. Looking at the map, there's a label \"KARMA LOUNGE\" which might be a bar/pub. Let's check. The legend includes \"Bar/Pub\", and on the map, the KARMA LOUNGE is a bar/pub. So how many? The KARMA LOUNGE is one. Are there others? Let's see. The map has \"KARMA LOUNGE\" as a label. So that's one bar/pub.\n</think>\n\nFinal answer: 1",
+      "final_answer": "1",
+      "generated_tokens": 241,
+      "input_tokens": 1056,
+      "generation_status": "complete",
+      "inference_seconds": 27.316
+    },
+    {
+      "image_name": "15.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\15.jpg",
+      "question": "How many restrooms can a woman use here?",
+      "correct_answer": "8",
+      "raw_response": "So, let's look at the legend on the left side of the map. The restrooms for women are marked with a pink circle. The legend shows \"Womens Restroom\" and \"Family Restroom (can be used by both women and men)\". So women can use the Women's Restroom and the Family Restroom. That's two restrooms. Let me check again. The icons: pink circle is Women's Restroom, and the Family Restroom is also accessible to women. So total two.\n</think>\n\nFinal answer: 2",
+      "final_answer": "2",
+      "generated_tokens": 112,
+      "input_tokens": 1057,
+      "generation_status": "complete",
+      "inference_seconds": 12.979
+    },
+    {
+      "image_name": "15.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\15.jpg",
+      "question": "How many of the restrooms can men use?",
+      "correct_answer": "8",
+      "raw_response": "So, let's look at the legend on the left side of the map. The restrooms are listed as \"Womens Restroom\", \"Mens Restroom\", and \"Family Restroom (can be used by both women and men)\". So we need to count how many restrooms men can use. The Mens Restroom is one, and the Family Restroom is also usable by men. So that's two. Let me check again. The options: Mens Restroom (men can use), Family Restroom (both, so men can use). So total two.\n</think>\n\nFinal answer: 2",
+      "final_answer": "2",
+      "generated_tokens": 124,
+      "input_tokens": 1057,
+      "generation_status": "complete",
+      "inference_seconds": 14.209
+    }
+  ]
+}

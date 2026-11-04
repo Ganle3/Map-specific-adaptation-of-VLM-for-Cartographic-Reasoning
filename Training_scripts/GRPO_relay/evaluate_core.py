@@ -123,10 +123,10 @@ def load_policy(policy, path: Path, expected_placement: str,
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--placement", required=True,
-                        choices=("after_vision_end", "shared_dual_placement",
+                        choices=("none", "after_vision_end", "shared_dual_placement",
                                  "dynamic_cot_relay"))
     parser.add_argument("--policy-kind",
-                        choices=("only_visual", "image_question_shared",
+                        choices=("adapter_only", "only_visual", "image_question_shared",
                                  "image_question_cot_shared"), required=True)
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--mapverse-root", type=Path, required=True)
@@ -143,6 +143,7 @@ def main() -> None:
     parser.set_defaults(load_in_4bit=True)
     args = parser.parse_args()
     expected_placement = {
+        "adapter_only": "none",
         "only_visual": "after_vision_end",
         "image_question_shared": "shared_dual_placement",
         "image_question_cot_shared": "dynamic_cot_relay",
@@ -190,13 +191,23 @@ def main() -> None:
                 parameter.requires_grad_(False)
             device = model.get_input_embeddings().weight.device
             policy = None
-            if step != 0:
+            if step != 0 and args.policy_kind != "adapter_only":
                 policy = RelayModule(
                     decoder_hidden_size(model), num_relays=args.num_relay_tokens,
                 ).to(device).eval()
                 state = load_policy(
                     policy, checkpoints[step], args.placement, args.policy_kind
                 )
+                if int(state.get("step", -1)) != step:
+                    raise ValueError(
+                        f"Checkpoint metadata step mismatch: {checkpoints[step]}"
+                    )
+            elif step != 0:
+                state = torch.load(checkpoints[step], map_location="cpu")
+                if state.get("placement") != "none" or state.get("policy_kind") != "adapter_only":
+                    raise ValueError(
+                        f"Checkpoint {checkpoints[step]} is not an adapter-only checkpoint"
+                    )
                 if int(state.get("step", -1)) != step:
                     raise ValueError(
                         f"Checkpoint metadata step mismatch: {checkpoints[step]}"
@@ -212,7 +223,7 @@ def main() -> None:
                     device, args.max_pixels
                 )
                 global_features = encode_global_image(model, source_inputs)
-                if step == 0:
+                if step == 0 or args.policy_kind == "adapter_only":
                     augmented, attention = build_adapter_only_prefill(
                         source_inputs, global_features
                     )
@@ -232,7 +243,8 @@ def main() -> None:
                                  else generate_from_relays)
                 builder = {
                     "initial_adapter_without_relay": step == 0,
-                    "trained_checkpoint_with_relay": step != 0,
+                    "trained_checkpoint": step != 0,
+                    "relay_enabled": step != 0 and args.policy_kind != "adapter_only",
                 }
                 prefix_length = augmented["input_ids"].shape[1]
                 with torch.inference_mode():

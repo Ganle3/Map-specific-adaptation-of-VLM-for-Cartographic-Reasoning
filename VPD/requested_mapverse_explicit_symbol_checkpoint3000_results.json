@@ -1,0 +1,42 @@
+{
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-3000",
+  "max_pixels": 1000000,
+  "results": [
+    {
+      "image_name": "764.png",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\764.png",
+      "question": "Is Mansurah on the north or south side of the river?",
+      "correct_answer": "South",
+      "raw_response": "So, let's look at the map. First, find Mansurah. Then check the rivers. The Euphrates is a river on the map. Mansurah is located near the Euphrates. Now, determine north or south. The Euphrates flows through the region, and Mansurah is to the north of the Euphrates. Let me confirm the position. The Euphrates is labeled, and Mansurah is above (north) of the river.\n</think>\n\nFinal answer: north",
+      "final_answer": "north",
+      "generated_tokens": 111,
+      "input_tokens": 1055,
+      "generation_status": "complete",
+      "inference_seconds": 15.644
+    },
+    {
+      "image_name": "764.png",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\764.png",
+      "question": "Which mixed territorial controlled city is south of Tel Abyad?",
+      "correct_answer": "Ayn Issa",
+      "raw_response": "So, let's look at the map. The question is asking for a mixed territorial controlled city south of Tel Abyad. First, find Tel Abyad on the map. Tel Abyad is in the red area (Rebels + Turkish military). Now, check the legend: \"mixed controlled city\" is marked with a blue circle. We need a city south of Tel Abyad. Let's see the cities. Tel Abyad is in the north, so south of it would be areas like Raqqa, but wait, Raqqa is a city. Wait, the map has Raqqa. Let's check the legend: blue circles are mixed controlled cities. Raqqa is a blue circle. Is Raqqa south of Tel Abyad? Tel Abyad is in the north, Raqqa is to the south. Let's confirm. Tel Abyad is in the upper middle, Raqqa is below it. So Raqqa is the mixed controlled city south of Tel Abyad.\n</think>\n\nFinal answer: Raqqa",
+      "final_answer": "Raqqa",
+      "generated_tokens": 206,
+      "input_tokens": 1054,
+      "generation_status": "complete",
+      "inference_seconds": 23.282
+    },
+    {
+      "image_name": "2.png",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\2.png",
+      "question": "How many of the cities are in Russian military control?",
+      "correct_answer": "2",
+      "raw_response": "So, let's look at the map. The cities are marked with black dots. We need to check which cities are in Russian military control. The legend says Russian military control is the pink color. Let's list the cities: Kharkiv, Bakhmut, Luhansk, Pokrovsk, Donetsk, Mariupol, Melitopol, Zaporizhzhia. Now, check each city's location. \n\nKharkiv is in white (Ukraine), so not Russian control. Bakhmut is white. Luhansk is in pink (Russian control). Pokrovsk is white. Donetsk is pink. Mariupol is pink. Melitopol is pink. Zaporizhzhia is white. \n\nSo the cities in Russian military control are Luhansk, Donetsk, Mariupol, Melitopol. Let's count: that's 4 cities.\n</think>\n\nFinal answer: 4",
+      "final_answer": "4",
+      "generated_tokens": 191,
+      "input_tokens": 1044,
+      "generation_status": "complete",
+      "inference_seconds": 21.034
+    }
+  ]
+}

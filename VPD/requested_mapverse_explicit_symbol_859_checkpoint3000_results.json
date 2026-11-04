@@ -1,0 +1,18 @@
+{
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-3000",
+  "max_pixels": 1000000,
+  "results": [
+    {
+      "image_name": "859.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\explicit_symbol\\859.jpg",
+      "question": "How many toilets are shown on this map of the hospital?",
+      "correct_answer": "11",
+      "raw_response": "So, let's look at the map. The legend says a yellow square with a toilet icon is a toilet. Now, count all the yellow squares with the toilet symbol. Let's check each one:\n\n1. Near the top left, there's a yellow square (Nurse Station area).\n2. Another one next to it (Private area).\n3. Then in the middle, there's a yellow square (near the Surgery area).\n4. Another one in the lower right (near Imaging).\n5. Also, in the bottom left, there's a yellow square (near the Infusion Center).\n\nWait, let's count again. The map has yellow squares with the toilet icon. Let's list them:\n\n- Top left, near Nurse Station: 1\n- Top left, next to Private: 2\n- Middle, near Surgery: 3\n- Lower right, near Imaging: 4\n- Bottom left, near Infusion Center: 5\n\nYes, that's 5 toilets.\n</think>\n\nFinal answer: 5",
+      "final_answer": "5",
+      "generated_tokens": 212,
+      "input_tokens": 1083,
+      "generation_status": "complete",
+      "inference_seconds": 24.412
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "adapter_path": "C:\\Users\\junyhuang\\Thesis\\VLM_adaptation\\Training_outputs\\MapVerse_scaling1000_GRPO_from_MapVerse5000_token500\\checkpoint-3000",
+  "max_pixels": 1000000,
+  "results": [
+    {
+      "image_name": "859.jpg",
+      "question": "How many toilets are shown on this map of the hospital?",
+      "correct_answer": "11",
+      "raw_response": "So, let's look at the map. The yellow icons with the toilet symbol—those are toilets. Let's count them. \n\nFirst, in the top left area, there's a section with \"Outpatient Specialty Clinics\" and a Nurse Station. There are two yellow toilet icons there. Then, in the middle area, near the \"Infusion Center\" and \"Cardiac Rehab,\" there's another yellow toilet icon. Also, in the lower part, near the \"Imaging\" section, there's a yellow toilet icon. Let's check each:\n\n1. Top left, near Nurse Station (Outpatient Specialty Clinics) – 2 toilets.\n2. Middle, near Infusion Center/Cardiac Rehab – 1 toilet.\n3. Lower part, near Imaging – 1 toilet.\n\nWait, let's count again. The yellow squares with the toilet symbol: \n\n- Top left: two (next to Nurse Station, under Outpatient Specialty Clinics)\n- Then, in the middle left, near Infusion Center, there's one.\n- Then, in the lower right, near Imaging, there's one.\n\nSo total: 2 + 1 + 1 = 4? Wait, let's check the map again.\n\nLooking at the map:\n\n- The first cluster: top left, under \"Outpatient Specialty Clinics\" (the area with Nurse Station), there are two yellow squares with toilet icons.\n- Then, in the left middle, near \"Infusion Center\" and \"Cardiac Rehab,\" there's one yellow square with toilet icon.\n- Then, in the lower middle, near \"Imaging,\" there's one yellow square with toilet icon.\n\nYes, that's 2 + 1 + 1 = 4.\n</think>\n\nFinal answer: 4",
+      "final_answer": "4",
+      "generated_tokens": 364,
+      "input_tokens": 1083,
+      "generation_status": "complete",
+      "inference_seconds": 41.727
+    },
+    {
+      "image_name": "874.jpg",
+      "question": "Is the helipad in the east or west part of the Titus Regional Medical Center?",
+      "correct_answer": "East",
+      "raw_response": "So, let's look at the map. The Titus Regional Medical Center is the yellow building with \"H\" for helipad. Now, check the direction. The map has a north arrow, so east is to the right. The helipad (H) is on the right side of the Titus Regional Medical Center, which is the east part. So the answer is east.\n</think>\n\nFinal answer: east",
+      "final_answer": "east",
+      "generated_tokens": 87,
+      "input_tokens": 748,
+      "generation_status": "complete",
+      "inference_seconds": 9.666
+    },
+    {
+      "image_name": "648.png",
+      "question": "How many traffic lights are on the Ribaut Road?",
+      "correct_answer": "2",
+      "raw_response": "So, let's look at the map. The question is about traffic lights on Ribaut Road. First, find Ribaut Road on the map. Ribaut Road is the main road shown. Now, check for traffic lights. The map has icons: the red triangles are probably traffic lights. Let's count. On Ribaut Road, there are red triangles. Let's see: near the top right, there's a red triangle, then another. Wait, the map shows Ribaut Road with red triangles (traffic lights). Let's count. The red triangles along Ribaut Road: there are two. Let me confirm. The map has Ribaut Road, and the red triangles (traffic lights) are at certain points. Looking at the image, there are two red triangles on Ribaut Road. So the answer is 2.\n</think>\n\nFinal answer: 2",
+      "final_answer": "2",
+      "generated_tokens": 176,
+      "input_tokens": 1052,
+      "generation_status": "complete",
+      "inference_seconds": 20.839
+    },
+    {
+      "image_name": "15.jpg",
+      "question": "How many bars and pubs do you see?",
+      "correct_answer": "2",
+      "raw_response": "So, let's look at the map. The legend on the left has \"Bar/Pub\" with a circle icon. Now, check the stadium map. Are there any labels for Bar/Pub? Let's see the icons. The map has various icons, but the Bar/Pub is listed in the legend. Wait, the question is how many bars and pubs are seen. Looking at the map, the \"Bar/Pub\" icon—do we see it on the map? Let's check. The map's legend shows \"Bar/Pub\" as an item, but in the stadium layout, are there any markers for Bar/Pub? Let's check the icons around the stadium. The top part has some icons: there's a circle with a \"B\" maybe? Wait, the legend says \"Bar/Pub\" is one of the items. But in the map, how many instances of Bar/Pub are there? Let's count. The map has icons: the legend lists Bar/Pub, and in the stadium, the icons for Bar/Pub—let's see. The top section has icons, and the Bar/Pub is marked. Wait, the legend shows that \"Bar/Pub\" is an item, but the question is how many are present. Looking at the map, there's one \"Bar/Pub\" icon. Let me check again. The map's top has various icons, and the Bar/Pub is one of them. So the answer is 1.\n</think>\n\nFinal answer: 1",
+      "final_answer": "1",
+      "generated_tokens": 312,
+      "input_tokens": 1056,
+      "generation_status": "complete",
+      "inference_seconds": 34.734
+    },
+    {
+      "image_name": "15.jpg",
+      "question": "How many restrooms can a woman use here?",
+      "correct_answer": "8",
+      "raw_response": "So, let's look at the map legend. The restrooms are marked: \"Womens Restroom\" is listed with a pink circle icon. Now, check the stadium map. The pink circles on the map correspond to restrooms. Let's count how many pink circles there are. On the top part of the stadium (around the upper sections), there are pink circles. Let's see: the legend says \"Womens Restroom\" and the icons. The map has pink icons. Let's count them. The top section has several pink circles. Let's check: the upper part of the stadium (150 Level) has pink icons. Let's count: there are 4 pink circles. Wait, the legend shows \"Womens Restroom\" as one category, and the map has pink icons. How many pink icons are there? Let's look at the map. The pink circles are at the top (around the upper seating). Let's count: 1, 2, 3, 4. So there are 4 women's restrooms.\n</think>\n\nFinal answer: 4",
+      "final_answer": "4",
+      "generated_tokens": 226,
+      "input_tokens": 1057,
+      "generation_status": "complete",
+      "inference_seconds": 25.614
+    },
+    {
+      "image_name": "15.jpg",
+      "question": "How many of the restrooms can men use?",
+      "correct_answer": "8",
+      "raw_response": "So, let's look at the legend on the left side of the map. The restrooms are listed as \"Womens Restroom\" and \"Mens Restroom\". So we need to count how many men's restrooms there are. The legend shows \"Mens Restroom\" once. So the answer is 1.\n</think>\n\nFinal answer: 1",
+      "final_answer": "1",
+      "generated_tokens": 75,
+      "input_tokens": 1057,
+      "generation_status": "complete",
+      "inference_seconds": 9.619
+    },
+    {
+      "image_name": "764.png",
+      "question": "Is Mansurah on the north or south side of the river?",
+      "correct_answer": "South",
+      "raw_response": "So, let's look at the map. First, find Mansurah. The river here is the Euphrates, which is labeled on the map. Mansurah is a city marked on the map. Now, check its position relative to the Euphrates. The Euphrates flows through the southern part of Syria in this region. Mansurah is located to the north of the Euphrates. Let me confirm: the Euphrates is on the right side (east) of the map, and Mansurah is north of that river.\n</think>\n\nFinal answer: north",
+      "final_answer": "north",
+      "generated_tokens": 126,
+      "input_tokens": 1055,
+      "generation_status": "complete",
+      "inference_seconds": 14.62
+    },
+    {
+      "image_name": "764.png",
+      "question": "Which mixed territorial controlled city is south of Tel Abyad?",
+      "correct_answer": "Ayn Issa",
+      "raw_response": "So, let's look at the map. First, find Tel Abyad. It's in the red area (Rebels + Turkish military). Now, we need a city south of Tel Abyad. Let's check the cities. Deir ez-Zor is south of Tel Abyad. What's the control for Deir ez-Zor? The legend says yellow is \"Unclear, no control, or mixed\". So Deir ez-Zor is in the yellow area, which is mixed control.\n</think>\n\nFinal answer: Deir ez-Zor",
+      "final_answer": "Deir ez-Zor",
+      "generated_tokens": 117,
+      "input_tokens": 1054,
+      "generation_status": "complete",
+      "inference_seconds": 13.883
+    },
+    {
+      "image_name": "2.webp",
+      "question": "How many of the cities are in Russian military control?",
+      "correct_answer": "2",
+      "raw_response": "So, let's look at the map. The legend says \"Russian military control\" is the pink color. Now, check each city label: Kharkiv, Bakhmut, Pokrovsk, Zaporizhzhia, Donetsk, Luhansk, Mariupol, Melitopol. Which of these are in the pink area (Russian military control)? Let's see:\n\n- Kharkiv: white (Ukraine)\n- Bakhmut: white\n- Pokrovsk: white\n- Zaporizhzhia: white\n- Donetsk: pink (Russian control)\n- Luhansk: pink\n- Mariupol: pink\n- Melitopol: pink\n\nSo Donetsk, Luhansk, Mariupol, Melitopol are in Russian military control. That's 4 cities.\n</think>\n\nFinal answer: 4",
+      "final_answer": "4",
+      "generated_tokens": 176,
+      "input_tokens": 1044,
+      "generation_status": "complete",
+      "inference_seconds": 19.652
+    }
+  ]
+}

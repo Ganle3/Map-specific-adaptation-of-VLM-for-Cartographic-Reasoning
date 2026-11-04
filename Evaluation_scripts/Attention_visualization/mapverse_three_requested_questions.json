@@ -1,0 +1,17 @@
+[
+  {
+    "qa_id": "mapverse_859_toilets_original",
+    "question": "How many toilets are shown on this map of the hospital?",
+    "image": "../../../MapVerse/data/imgs/859.jpg"
+  },
+  {
+    "qa_id": "mapverse_15_woman_restrooms_original",
+    "question": "How many restrooms can a woman use here?",
+    "image": "../../../MapVerse/data/imgs/15.jpg"
+  },
+  {
+    "qa_id": "mapverse_2_russian_control_explicit",
+    "question": "How many of the cities are in Russian military control?",
+    "image": "../../../MapVerse/data/explicit_symbol/2.png"
+  }
+]

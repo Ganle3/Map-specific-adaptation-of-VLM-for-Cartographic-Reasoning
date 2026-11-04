@@ -1,0 +1,118 @@
+{
+  "model_repo": "unsloth/Qwen3-VL-8B-Instruct-unsloth-bnb-4bit",
+  "snapshot": "C:\\Users\\junyhuang\\.cache\\huggingface\\hub\\models--unsloth--Qwen3-VL-8B-Instruct-unsloth-bnb-4bit\\snapshots\\b5b904c3fcdc7541adf2a2bb219b0ed95288c794",
+  "restored_bf16_visual_merger_layers": [
+    "model.visual.merger.linear_fc1",
+    "model.visual.merger.linear_fc2",
+    "model.visual.deepstack_merger_list.0.linear_fc1",
+    "model.visual.deepstack_merger_list.0.linear_fc2",
+    "model.visual.deepstack_merger_list.1.linear_fc1",
+    "model.visual.deepstack_merger_list.1.linear_fc2",
+    "model.visual.deepstack_merger_list.2.linear_fc1",
+    "model.visual.deepstack_merger_list.2.linear_fc2"
+  ],
+  "adapter": null,
+  "max_pixels": 1000000,
+  "results": [
+    {
+      "image_name": "859.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\859.jpg",
+      "question": "How many toilets are shown on this map of the hospital?",
+      "correct_answer": "11",
+      "raw_response": "Final answer: 4",
+      "final_answer": "4",
+      "original_size_wh": [
+        3870,
+        3485
+      ],
+      "submitted_size_wh": [
+        1053,
+        948
+      ],
+      "input_tokens": 1081,
+      "generated_tokens": 6,
+      "generation_status": "complete",
+      "inference_seconds": 2.6
+    },
+    {
+      "image_name": "15.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\15.jpg",
+      "question": "How many bars and pubs do you see?",
+      "correct_answer": "2",
+      "raw_response": "Final answer: 2",
+      "final_answer": "2",
+      "original_size_wh": [
+        1920,
+        1078
+      ],
+      "submitted_size_wh": [
+        1334,
+        749
+      ],
+      "input_tokens": 1054,
+      "generated_tokens": 6,
+      "generation_status": "complete",
+      "inference_seconds": 1.214
+    },
+    {
+      "image_name": "15.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\15.jpg",
+      "question": "How many restrooms can a woman use here?",
+      "correct_answer": "8",
+      "raw_response": "Final answer: 2",
+      "final_answer": "2",
+      "original_size_wh": [
+        1920,
+        1078
+      ],
+      "submitted_size_wh": [
+        1334,
+        749
+      ],
+      "input_tokens": 1055,
+      "generated_tokens": 6,
+      "generation_status": "complete",
+      "inference_seconds": 1.131
+    },
+    {
+      "image_name": "15.jpg",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\15.jpg",
+      "question": "How many of the restrooms can men use?",
+      "correct_answer": "8",
+      "raw_response": "Final answer: 2",
+      "final_answer": "2",
+      "original_size_wh": [
+        1920,
+        1078
+      ],
+      "submitted_size_wh": [
+        1334,
+        749
+      ],
+      "input_tokens": 1055,
+      "generated_tokens": 6,
+      "generation_status": "complete",
+      "inference_seconds": 1.177
+    },
+    {
+      "image_name": "2.webp",
+      "image_path": "C:\\Users\\junyhuang\\Thesis\\MapVerse\\data\\imgs\\2.webp",
+      "question": "How many of the cities are in Russian military control?",
+      "correct_answer": "2",
+      "raw_response": "Final answer: 5",
+      "final_answer": "5",
+      "original_size_wh": [
+        1280,
+        1066
+      ],
+      "submitted_size_wh": [
+        1095,
+        912
+      ],
+      "input_tokens": 1042,
+      "generated_tokens": 6,
+      "generation_status": "complete",
+      "inference_seconds": 1.204
+    }
+  ]
+}
