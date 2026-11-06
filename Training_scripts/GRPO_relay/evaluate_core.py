@@ -6,6 +6,7 @@ import argparse
 import csv
 import json
 import sys
+import time
 from pathlib import Path
 
 import torch
@@ -214,6 +215,7 @@ def main() -> None:
             for dataset_index, item in enumerate(records, start=1):
                 if (step, dataset_index) in completed:
                     continue
+                inference_started = time.perf_counter()
                 with Image.open(item.image_path) as image_file:
                     image = _resize_to_pixel_cap(image_file.convert("RGB"), args.max_pixels)
                 source_inputs = _content_inputs(
@@ -253,6 +255,7 @@ def main() -> None:
                     )
                 tokens = generated[0, prefix_length:]
                 response = processor.tokenizer.decode(tokens, skip_special_tokens=True)
+                inference_seconds = time.perf_counter() - inference_started
                 eos = model.generation_config.eos_token_id
                 eos = set(map(int, eos)) if isinstance(eos, (list, tuple, set)) else {int(eos)}
                 terminated = bool(tokens.numel() and int(tokens[-1]) in eos)
@@ -266,6 +269,7 @@ def main() -> None:
                     "response": response, "reward": float(evaluation["reward"]),
                     "evaluation": evaluation, "generated_tokens": int(tokens.numel()),
                     "terminated": terminated, **builder,
+                    "inference_seconds": inference_seconds,
                 }
                 if attention is not None:
                     weights = attention.detach().float()
@@ -279,7 +283,9 @@ def main() -> None:
                 response_file.flush()
                 completed[(step, dataset_index)] = row
                 print(f"[EVAL step={step:05d}] {dataset_index}/{len(records)} "
-                      f"qa_id={item.sample_id} reward={row['reward']}", flush=True)
+                      f"qa_id={item.sample_id} reward={row['reward']} "
+                      f"tokens={row['generated_tokens']} "
+                      f"inference_s={inference_seconds:.3f}", flush=True)
                 del generated, tokens
                 del source_inputs, global_features, augmented
             del policy, model, processor
