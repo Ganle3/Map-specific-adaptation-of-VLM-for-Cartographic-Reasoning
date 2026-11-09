@@ -36,7 +36,8 @@ from frieda_evaluation import evaluate_frieda, print_summary
 from continuous_cache_qwen3vl import _content_inputs, _resize_to_pixel_cap
 from rolling_sparse_qwen3vl import load_model
 from relay_module import RelayModule
-from utils import decoder_hidden_size, encode_global_image, generate_from_relays
+from utils import (build_adapter_only_prefill, decoder_hidden_size,
+                   encode_global_image, generate_from_relays)
 from only_visual_relay.layout import build_prefill as build_only_visual_prefill
 from Image_question_shared_relay.layout import build_prefill as build_shared_prefill
 from Image_question_CoT_shared_relay.dynamic_decode import generate_with_cot_relay
@@ -44,6 +45,11 @@ from Image_question_CoT_shared_relay.layout import build_prefill as build_cot_pr
 
 
 SCHEMES = {
+    "adapter_only": {
+        "placement": "none",
+        "builder": None,
+        "generator": generate_from_relays,
+    },
     "only_visual": {
         "placement": "after_vision_end",
         "builder": build_only_visual_prefill,
@@ -84,7 +90,8 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.checkpoint_step < 1:
         parser.error("checkpoint-step must identify a trained checkpoint")
-    if args.num_relay_tokens < 1 or args.max_new_tokens < 1 or args.max_pixels < 1:
+    if ((args.policy_kind != "adapter_only" and args.num_relay_tokens < 1)
+            or args.max_new_tokens < 1 or args.max_pixels < 1):
         parser.error("relay count and token/pixel limits must be positive")
     return args
 
@@ -125,7 +132,9 @@ def main() -> None:
     print(f"Run directory:  {run_dir}", flush=True)
     print(f"Checkpoint:     {checkpoint}", flush=True)
     print(f"Adapter:        {adapter}", flush=True)
-    print(f"Relay tokens:   {args.num_relay_tokens}", flush=True)
+    effective_relay_count = (0 if args.policy_kind == "adapter_only"
+                             else args.num_relay_tokens)
+    print(f"Relay tokens:   {effective_relay_count}", flush=True)
     print(f"QA JSON:        {qa_json}", flush=True)
     print(f"Images:         {image_root}", flush=True)
     print(f"Max new tokens: {args.max_new_tokens}", flush=True)
@@ -140,17 +149,24 @@ def main() -> None:
     for parameter in model.parameters():
         parameter.requires_grad_(False)
     device = model.get_input_embeddings().weight.device
-    policy = RelayModule(
-        decoder_hidden_size(model), num_relays=args.num_relay_tokens,
-    ).to(device).eval()
-    state = load_policy(
-        policy, checkpoint, scheme["placement"], args.policy_kind
-    )
+    policy = None
+    if args.policy_kind == "adapter_only":
+        state = torch.load(checkpoint, map_location="cpu")
+        if state.get("placement") != "none" or state.get("policy_kind") != "adapter_only":
+            raise ValueError(f"Checkpoint is not adapter-only: {checkpoint}")
+    else:
+        policy = RelayModule(
+            decoder_hidden_size(model), num_relays=args.num_relay_tokens,
+        ).to(device).eval()
+        state = load_policy(
+            policy, checkpoint, scheme["placement"], args.policy_kind
+        )
     if int(state.get("step", -1)) != args.checkpoint_step:
         raise ValueError(
             f"Checkpoint metadata step={state.get('step')}; expected {args.checkpoint_step}"
         )
-    if int(state.get("num_relay_tokens", -1)) != args.num_relay_tokens:
+    if (args.policy_kind != "adapter_only"
+            and int(state.get("num_relay_tokens", -1)) != args.num_relay_tokens):
         raise ValueError(
             "Checkpoint relay count does not match --num-relay-tokens: "
             f"{state.get('num_relay_tokens')} != {args.num_relay_tokens}"
@@ -182,10 +198,15 @@ def main() -> None:
             )
             with torch.inference_mode():
                 global_features = encode_global_image(model, source_inputs)
-                augmented, _ = scheme["builder"](
-                    model, processor.tokenizer, source_inputs, global_features,
-                    policy, with_grad=False,
-                )
+                if args.policy_kind == "adapter_only":
+                    augmented, _ = build_adapter_only_prefill(
+                        source_inputs, global_features
+                    )
+                else:
+                    augmented, _ = scheme["builder"](
+                        model, processor.tokenizer, source_inputs, global_features,
+                        policy, with_grad=False,
+                    )
                 prefix_length = augmented["input_ids"].shape[1]
                 generated = scheme["generator"](
                     model, **augmented, do_sample=False, num_beams=1,
@@ -211,7 +232,8 @@ def main() -> None:
                 "relay_placement": scheme["placement"],
                 "relay_checkpoint": str(checkpoint),
                 "relay_checkpoint_step": args.checkpoint_step,
-                "num_relay_tokens": args.num_relay_tokens,
+                "num_relay_tokens": (0 if args.policy_kind == "adapter_only"
+                                     else args.num_relay_tokens),
                 "max_pixels": args.max_pixels,
                 "generated_tokens": int(completion.shape[1]),
             })
@@ -258,7 +280,7 @@ def main() -> None:
         "predictions": str(prediction_json),
         "summary": str(output_dir / "evaluation_summary.json"),
         "checkpoint_step": args.checkpoint_step,
-        "num_relay_tokens": args.num_relay_tokens,
+        "num_relay_tokens": effective_relay_count,
     }, ensure_ascii=False), flush=True)
 
 
