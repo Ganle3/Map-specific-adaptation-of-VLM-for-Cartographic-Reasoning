@@ -191,7 +191,12 @@ def main() -> None:
                         help="Initialization used only for a newly created relay bank.")
     parser.add_argument("--learning-rate", type=float, default=2e-3)
     parser.add_argument("--train-adapter", action="store_true",
-                        help="Jointly update every LoRA tensor in the loaded adapter.")
+                        help="Update LoRA tensors selected by --adapter-train-scope.")
+    parser.add_argument(
+        "--adapter-train-scope", choices=("all", "merger_only"), default="all",
+        help=("LoRA tensors admitted to the optimizer. merger_only trains the main "
+              "visual merger and all DeepStack mergers while freezing ViT and language LoRA."),
+    )
     parser.add_argument("--adapter-learning-rate", type=float, default=5e-6)
     parser.add_argument("--adapter-weight-decay", type=float, default=0.1)
     parser.add_argument("--expected-adapter-rank", type=int,
@@ -298,9 +303,16 @@ def main() -> None:
         if not hasattr(model, "peft_config"):
             raise RuntimeError("--train-adapter requires a loaded PEFT adapter")
         for name, parameter in model.named_parameters():
-            if any(marker in name for marker in (".lora_A.", ".lora_B.",
-                                                  ".lora_embedding_A.",
-                                                  ".lora_embedding_B.")):
+            is_lora = any(marker in name for marker in (
+                ".lora_A.", ".lora_B.", ".lora_embedding_A.", ".lora_embedding_B."
+            ))
+            is_merger = (".visual.merger." in name
+                         or ".visual.deepstack_merger_list." in name)
+            selected = is_lora and (
+                args.adapter_train_scope == "all"
+                or (args.adapter_train_scope == "merger_only" and is_merger)
+            )
+            if selected:
                 parameter.requires_grad_(True)
                 adapter_parameters.append(parameter)
                 adapter_parameter_names.append(name)
@@ -446,6 +458,7 @@ def main() -> None:
             "adapter_directory": None if adapter_directory is None else str(adapter_directory),
             "adapter_trainable_parameter_count": adapter_trainable_parameter_count,
             "adapter_trainable_tensor_count": len(adapter_parameters),
+            "adapter_train_scope": args.adapter_train_scope,
             "adapter_rank": loaded_adapter_rank,
             "adapter_alpha": loaded_adapter_alpha,
             "adapter_learning_rate": args.adapter_learning_rate,
@@ -698,25 +711,41 @@ def main() -> None:
                         and parameter.grad is not None and bool(parameter.grad.count_nonzero())
                         for name, parameter in zip(adapter_parameter_names, adapter_parameters)
                     )
+                    expected_gradient_groups = {
+                        "all": {
+                            "visual": visual_adapter_gradient_tensors,
+                            "merger": merger_adapter_gradient_tensors,
+                            "language": language_adapter_gradient_tensors,
+                        },
+                        "merger_only": {
+                            "merger": merger_adapter_gradient_tensors,
+                        },
+                    }[args.adapter_train_scope]
+                    missing_gradient_groups = {
+                        name: count for name, count in expected_gradient_groups.items()
+                        if count == 0
+                    }
                     if args.train_adapter and (
-                            adapter_gradient_norm <= 0 or visual_adapter_gradient_tensors == 0
-                            or language_adapter_gradient_tensors == 0
-                            or merger_adapter_gradient_tensors == 0):
+                            adapter_gradient_norm <= 0 or missing_gradient_groups):
                         raise RuntimeError(
-                            "Joint gradient audit failed: "
+                            f"Adapter gradient audit failed for scope={args.adapter_train_scope}: "
                             f"adapter_norm={adapter_gradient_norm}, "
-                            f"visual={visual_adapter_gradient_tensors}, "
-                            f"merger={merger_adapter_gradient_tensors}, "
-                            f"language={language_adapter_gradient_tensors}"
+                            f"missing={missing_gradient_groups}, "
+                            f"observed={{'visual': {visual_adapter_gradient_tensors}, "
+                            f"'merger': {merger_adapter_gradient_tensors}, "
+                            f"'language': {language_adapter_gradient_tensors}}}"
                         )
                     if args.train_adapter:
-                        vanished = {
-                            name: stats["rms"] for name, stats in (
+                        audited_stats = {
+                            "all": (
                                 ("visual_block", visual_block_gradient_stats),
                                 ("merger", merger_gradient_stats),
                                 ("language", language_gradient_stats),
-                            ) if stats["rms"] <= args.min_gradient_rms
-                        }
+                            ),
+                            "merger_only": (("merger", merger_gradient_stats),),
+                        }[args.adapter_train_scope]
+                        vanished = {name: stats["rms"] for name, stats in audited_stats
+                                    if stats["rms"] <= args.min_gradient_rms}
                         if (policy is not None
                                 and relay_gradient_stats["rms"] <= args.min_gradient_rms):
                             vanished["relay"] = relay_gradient_stats["rms"]
