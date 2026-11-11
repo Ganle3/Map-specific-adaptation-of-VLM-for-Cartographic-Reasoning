@@ -13,15 +13,23 @@ class RelayModule(nn.Module):
     """
 
     def __init__(self, hidden_size: int, *, num_relays: int = 2,
-                 init_std: float = 0.02) -> None:
+                 init_std: float = 0.02,
+                 initialization: str = "normal_0.02") -> None:
         super().__init__()
         if hidden_size <= 0 or num_relays <= 0 or init_std <= 0:
             raise ValueError("hidden_size, num_relays and init_std must be positive")
+        if initialization not in {"normal_0.02", "xavier_normal"}:
+            raise ValueError(f"Unsupported relay initialization: {initialization!r}")
         self.hidden_size = int(hidden_size)
         self.num_prototypes = int(num_relays)
-        self.prototypes = nn.Parameter(
-            torch.randn(self.num_prototypes, self.hidden_size) * float(init_std)
-        )
+        self.initialization = initialization
+        self.prototypes = nn.Parameter(torch.empty(
+            self.num_prototypes, self.hidden_size
+        ))
+        if initialization == "normal_0.02":
+            nn.init.normal_(self.prototypes, mean=0.0, std=float(init_std))
+        else:
+            nn.init.xavier_normal_(self.prototypes)
 
     @property
     def relay_tokens(self) -> nn.Parameter:
@@ -29,4 +37,3 @@ class RelayModule(nn.Module):
 
     def trainable_parameters(self) -> list[nn.Parameter]:
         return [self.prototypes]
-

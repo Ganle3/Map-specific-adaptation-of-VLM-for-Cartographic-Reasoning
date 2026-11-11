@@ -186,11 +186,16 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=500)
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-relay-tokens", type=int, default=2)
+    parser.add_argument("--relay-init", choices=("normal_0.02", "xavier_normal"),
+                        default="normal_0.02",
+                        help="Initialization used only for a newly created relay bank.")
     parser.add_argument("--learning-rate", type=float, default=2e-3)
     parser.add_argument("--train-adapter", action="store_true",
                         help="Jointly update every LoRA tensor in the loaded adapter.")
     parser.add_argument("--adapter-learning-rate", type=float, default=5e-6)
     parser.add_argument("--adapter-weight-decay", type=float, default=0.1)
+    parser.add_argument("--expected-adapter-rank", type=int,
+                        help="Fail early unless the loaded PEFT adapter has this global rank.")
     parser.add_argument("--max-grad-norm", type=float,
                         help="Optional global gradient clipping threshold.")
     parser.add_argument("--min-gradient-rms", type=float, default=1e-12,
@@ -232,6 +237,8 @@ def main() -> None:
         parser.error("learning rates must be positive")
     if args.adapter_weight_decay < 0:
         parser.error("adapter-weight-decay must be non-negative")
+    if args.expected_adapter_rank is not None and args.expected_adapter_rank < 1:
+        parser.error("expected-adapter-rank must be positive")
     if args.max_grad_norm is not None and args.max_grad_norm <= 0:
         parser.error("max-grad-norm must be positive")
     if args.min_gradient_rms < 0:
@@ -267,6 +274,22 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
     model, processor = load_model(args.model, args.adapter, load_in_4bit=args.load_in_4bit)
     model.eval()
+    loaded_adapter_rank = None
+    loaded_adapter_alpha = None
+    if hasattr(model, "peft_config"):
+        peft_configs = list(model.peft_config.values())
+        ranks = {int(config.r) for config in peft_configs}
+        alphas = {int(config.lora_alpha) for config in peft_configs}
+        if len(ranks) != 1 or len(alphas) != 1:
+            raise RuntimeError(f"Expected one uniform PEFT rank/alpha, got {ranks}/{alphas}")
+        loaded_adapter_rank = ranks.pop()
+        loaded_adapter_alpha = alphas.pop()
+    if (args.expected_adapter_rank is not None
+            and loaded_adapter_rank != args.expected_adapter_rank):
+        raise RuntimeError(
+            f"Loaded adapter rank {loaded_adapter_rank} != requested "
+            f"{args.expected_adapter_rank}"
+        )
     for parameter in model.parameters():
         parameter.requires_grad_(False)
     adapter_parameters = []
@@ -294,6 +317,7 @@ def main() -> None:
     else:
         policy = RelayModule(
             hidden_size, num_relays=args.num_relay_tokens,
+            initialization=args.relay_init,
         ).to(device)
     optimizer_groups = []
     if policy is not None:
@@ -416,11 +440,14 @@ def main() -> None:
             "scheduler": scheduler.state_dict(), "epoch": epoch, "step": step,
             "placement": args.placement, "policy_kind": args.policy_kind,
             "num_relay_tokens": args.num_relay_tokens,
+            "relay_initialization": args.relay_init,
             "trainable_parameter_count": trainable_parameter_count,
             "train_adapter": args.train_adapter,
             "adapter_directory": None if adapter_directory is None else str(adapter_directory),
             "adapter_trainable_parameter_count": adapter_trainable_parameter_count,
             "adapter_trainable_tensor_count": len(adapter_parameters),
+            "adapter_rank": loaded_adapter_rank,
+            "adapter_alpha": loaded_adapter_alpha,
             "adapter_learning_rate": args.adapter_learning_rate,
             "adapter_weight_decay": args.adapter_weight_decay,
             "learning_rate": args.learning_rate,
