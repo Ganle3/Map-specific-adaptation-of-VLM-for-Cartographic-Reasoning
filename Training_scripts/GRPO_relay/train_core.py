@@ -397,6 +397,25 @@ def main() -> None:
     resume_state = None
     if args.resume_from_checkpoint is not None:
         resume_state = torch.load(args.resume_from_checkpoint, map_location="cpu")
+        checkpoint_adapter_train_scope = resume_state.get("adapter_train_scope")
+        if checkpoint_adapter_train_scope is None and resume_state.get("train_adapter"):
+            # Legacy joint-training checkpoints predate adapter_train_scope.
+            # At that time the only supported behavior trained every LoRA
+            # tensor. Infer `all` only when the serialized parameter count
+            # proves that it matches the currently constructed all-LoRA set.
+            saved_adapter_count = resume_state.get("adapter_trainable_parameter_count")
+            if saved_adapter_count != adapter_trainable_parameter_count:
+                raise RuntimeError(
+                    "Legacy resume checkpoint has no adapter_train_scope and its "
+                    f"adapter parameter count ({saved_adapter_count}) does not match "
+                    f"the current all-LoRA count ({adapter_trainable_parameter_count})"
+                )
+            checkpoint_adapter_train_scope = "all"
+            print(
+                "[RESUME] legacy checkpoint has no adapter_train_scope; "
+                f"inferred all from {saved_adapter_count} serialized trainable adapter parameters",
+                flush=True,
+            )
         expected_metadata = {
             "placement": args.placement,
             "policy_kind": args.policy_kind,
@@ -412,7 +431,8 @@ def main() -> None:
         mismatches = {
             key: {"checkpoint": resume_state.get(key), "requested": value}
             for key, value in expected_metadata.items()
-            if resume_state.get(key) != value
+            if (checkpoint_adapter_train_scope if key == "adapter_train_scope"
+                else resume_state.get(key)) != value
         }
         float_metadata = {
             "learning_rate": args.learning_rate,
