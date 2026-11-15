@@ -176,6 +176,12 @@ def main() -> None:
     parser.add_argument("--adapter", type=Path, required=True)
     parser.add_argument("--model", default=None)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--resume-from-checkpoint", type=Path,
+        help=("Resume policy, AdamW, scheduler and global counters from a native "
+              "relay checkpoint .pt. Load --adapter from the checkpoint's sibling "
+              "PEFT directory."),
+    )
     parser.add_argument("--start-index", type=int, default=1)
     parser.add_argument("--end-index", type=int)
     parser.add_argument("--epochs", type=int, default=10)
@@ -263,6 +269,15 @@ def main() -> None:
             parser.error("constant_then_cosine requires 0 <= decay-start-step < max-steps")
     if args.end_index is not None and args.end_index < args.start_index:
         parser.error("end-index must be >= start-index")
+    if args.resume_from_checkpoint is not None:
+        args.resume_from_checkpoint = args.resume_from_checkpoint.expanduser().resolve()
+        if not args.resume_from_checkpoint.is_file():
+            parser.error(f"resume checkpoint does not exist: {args.resume_from_checkpoint}")
+        if args.resume_from_checkpoint.parent != args.output_dir.expanduser().resolve():
+            parser.error("resume checkpoint must be directly inside --output-dir")
+        expected_adapter = args.resume_from_checkpoint.with_suffix("")
+        if args.train_adapter and not (expected_adapter / "adapter_config.json").is_file():
+            parser.error(f"resume checkpoint adapter directory is missing: {expected_adapter}")
     expected_placement = {
         "adapter_only": "none",
         "only_visual": "after_vision_end",
@@ -277,6 +292,13 @@ def main() -> None:
     torch.manual_seed(args.seed)
     random.seed(args.seed)
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    if args.resume_from_checkpoint is not None:
+        expected_adapter = args.resume_from_checkpoint.with_suffix("").resolve()
+        if args.adapter.expanduser().resolve() != expected_adapter:
+            parser.error(
+                "When resuming joint training, --adapter must be the PEFT directory "
+                f"saved beside the checkpoint: {expected_adapter}"
+            )
     model, processor = load_model(args.model, args.adapter, load_in_4bit=args.load_in_4bit)
     model.eval()
     loaded_adapter_rank = None
@@ -372,6 +394,73 @@ def main() -> None:
     else:
         scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda _: 1.0)
 
+    resume_state = None
+    if args.resume_from_checkpoint is not None:
+        resume_state = torch.load(args.resume_from_checkpoint, map_location="cpu")
+        expected_metadata = {
+            "placement": args.placement,
+            "policy_kind": args.policy_kind,
+            "num_relay_tokens": args.num_relay_tokens,
+            "relay_initialization": args.relay_init,
+            "train_adapter": args.train_adapter,
+            "adapter_train_scope": args.adapter_train_scope,
+            "adapter_rank": loaded_adapter_rank,
+            "lr_scheduler_type": args.lr_scheduler_type,
+            "decay_start_step": args.decay_start_step,
+            "num_policy_updates": args.num_policy_updates,
+        }
+        mismatches = {
+            key: {"checkpoint": resume_state.get(key), "requested": value}
+            for key, value in expected_metadata.items()
+            if resume_state.get(key) != value
+        }
+        float_metadata = {
+            "learning_rate": args.learning_rate,
+            "adapter_learning_rate": args.adapter_learning_rate,
+            "adapter_weight_decay": args.adapter_weight_decay,
+            "decay_final_factor": args.decay_final_factor,
+            "off_policy_mask_threshold": args.off_policy_mask_threshold,
+        }
+        mismatches.update({
+            key: {"checkpoint": resume_state.get(key), "requested": value}
+            for key, value in float_metadata.items()
+            if resume_state.get(key) != value
+        })
+        if mismatches:
+            raise RuntimeError(f"Resume configuration mismatch: {mismatches}")
+        resume_step = int(resume_state.get("step", -1))
+        if resume_step < 1:
+            raise RuntimeError(f"Invalid resume step in {args.resume_from_checkpoint}: {resume_step}")
+        if args.max_steps is not None and resume_step >= args.max_steps:
+            raise RuntimeError(
+                f"Resume step {resume_step} must be below max_steps={args.max_steps}"
+            )
+        if policy is not None:
+            missing, unexpected = policy.load_state_dict(resume_state["policy"], strict=True)
+            if missing or unexpected:
+                raise RuntimeError(
+                    f"Relay resume state mismatch: missing={missing}, unexpected={unexpected}"
+                )
+        elif resume_state.get("policy"):
+            raise RuntimeError("Adapter-only resume checkpoint unexpectedly contains relay state")
+        optimizer.load_state_dict(resume_state["optimizer"])
+        scheduler.load_state_dict(resume_state["scheduler"])
+        if scheduler.last_epoch != resume_step:
+            raise RuntimeError(
+                f"Scheduler last_epoch={scheduler.last_epoch} does not match "
+                f"checkpoint step={resume_step}"
+            )
+        initial_prototypes = (
+            None if policy is None else
+            resume_state.get("initial_prototypes", policy.prototypes.detach().cpu()).to(device)
+        )
+        print(
+            f"[RESUME] checkpoint={args.resume_from_checkpoint} "
+            f"step={resume_step} epoch={int(resume_state.get('epoch', 0))} "
+            f"scheduler_last_epoch={scheduler.last_epoch}",
+            flush=True,
+        )
+
     all_records = load_mapverse_questions(
         args.dataset, args.mapverse_root, mapwise_root=args.mapwise_root, limit=args.end_index
     )
@@ -446,10 +535,17 @@ def main() -> None:
             adapter_directory = path.with_suffix("")
             adapter_directory.mkdir(parents=True, exist_ok=True)
             model.save_pretrained(adapter_directory)
-        torch.save({
+        payload = {
             "policy": policy_state,
             "optimizer": optimizer.state_dict(),
             "scheduler": scheduler.state_dict(), "epoch": epoch, "step": step,
+            "generation_batch": generation_batch,
+            "python_rng_state": random.getstate(),
+            "torch_rng_state": torch.get_rng_state(),
+            "cuda_rng_state_all": (torch.cuda.get_rng_state_all()
+                                   if torch.cuda.is_available() else None),
+            "initial_prototypes": (None if initial_prototypes is None else
+                                   initial_prototypes.detach().cpu()),
             "placement": args.placement, "policy_kind": args.policy_kind,
             "num_relay_tokens": args.num_relay_tokens,
             "relay_initialization": args.relay_init,
@@ -469,26 +565,118 @@ def main() -> None:
             "decay_final_factor": args.decay_final_factor,
             "num_policy_updates": args.num_policy_updates,
             "off_policy_mask_threshold": args.off_policy_mask_threshold,
-        }, path)
+        }
+        # Write the small native state atomically so a transient filesystem
+        # failure cannot replace a valid checkpoint with a partial .pt file.
+        temporary = path.with_name(path.name + ".tmp")
+        if temporary.exists():
+            temporary.unlink()
+        torch.save(payload, temporary)
+        temporary.replace(path)
 
-    trace_path = args.output_dir / "rollouts.jsonl"
-    step = 0
-    epoch = 0
-    generation_batch = 0
-    save_checkpoint(args.output_dir / "checkpoint-0.pt", step=0, epoch=0)
-    # Make rollout sampling independent of how many random values a policy
-    # architecture consumed during its own parameter initialization.  This is
-    # required for fair image_only versus full-block initialization checks.
-    torch.manual_seed(args.seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(args.seed)
+    if resume_state is None:
+        trace_path = args.output_dir / "rollouts.jsonl"
+        step = 0
+        epoch = 0
+        generation_batch = 0
+        save_checkpoint(args.output_dir / "checkpoint-0.pt", step=0, epoch=0)
+        # Make rollout sampling independent of how many random values a policy
+        # architecture consumed during its own parameter initialization.
+        torch.manual_seed(args.seed)
+        random.seed(args.seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(args.seed)
+        resume_first_start = None
+    else:
+        step = int(resume_state["step"])
+        epoch = int(resume_state.get("epoch", 0))
+        generation_batch = int(resume_state.get("generation_batch", 0))
+        original_trace = args.output_dir / "rollouts.jsonl"
+        original_trace_rows = []
+        if original_trace.is_file():
+            for line_number, line in enumerate(
+                    original_trace.read_text(encoding="utf-8", errors="replace").splitlines(), start=1):
+                if not line.strip():
+                    continue
+                try:
+                    original_trace_rows.append(json.loads(line))
+                except json.JSONDecodeError as error:
+                    # A filesystem interruption can leave only the final JSONL
+                    # record partially written. Complete preceding records are
+                    # still sufficient to recover the next data cursor.
+                    print(
+                        f"[RESUME] ignoring malformed rollout trace line "
+                        f"{line_number}: {error}",
+                        flush=True,
+                    )
+        # Older checkpoints did not serialize generation_batch. Recover the
+        # last pre-checkpoint identifier from the preserved rollout trace for
+        # monotonic, readable logs; it does not affect optimization.
+        if generation_batch == 0:
+            for row in original_trace_rows:
+                if int(row.get("optimizer_step_before_update", -1)) < step:
+                    generation_batch = max(generation_batch, int(row.get("generation_batch", 0)))
+        # This failed run continued beyond checkpoint-3000, so its preserved
+        # trace can identify the next generated question batch after the rewind
+        # point. Reuse that data cursor instead of discarding the rest of the
+        # checkpoint epoch. Stochastic rollouts still branch because legacy
+        # checkpoints did not serialize RNG state.
+        resume_first_start = None
+        next_rows = [
+            row for row in original_trace_rows
+            if int(row.get("optimizer_step_before_update", -1)) >= step
+        ]
+        if next_rows:
+            next_generation = int(next_rows[0]["generation_batch"])
+            next_group = [row for row in next_rows
+                          if int(row["generation_batch"]) == next_generation]
+            next_epoch = int(next_group[0]["epoch"])
+            next_indices = list(dict.fromkeys(int(row["dataset_index"]) for row in next_group))
+            candidate_records = list(records)
+            random.Random(args.seed + next_epoch - 1).shuffle(candidate_records)
+            for candidate_start in range(0, len(candidate_records), args.questions_per_update):
+                candidate_indices = [index for index, _ in
+                                     candidate_records[candidate_start:candidate_start + args.questions_per_update]]
+                if candidate_indices == next_indices:
+                    epoch = next_epoch - 1
+                    resume_first_start = candidate_start
+                    generation_batch = next_generation - 1
+                    print(
+                        f"[RESUME] recovered next data cursor: epoch={next_epoch} "
+                        f"batch_start={candidate_start} generation_batch={next_generation}",
+                        flush=True,
+                    )
+                    break
+        trace_path = args.output_dir / f"rollouts.resume-from-{step}.jsonl"
+        if resume_state.get("python_rng_state") is not None:
+            random.setstate(resume_state["python_rng_state"])
+            torch.set_rng_state(resume_state["torch_rng_state"])
+            if torch.cuda.is_available() and resume_state.get("cuda_rng_state_all") is not None:
+                torch.cuda.set_rng_state_all(resume_state["cuda_rng_state_all"])
+            print("[RESUME] restored serialized Python/Torch RNG states", flush=True)
+        else:
+            # Legacy checkpoints cannot reproduce the exact next stochastic
+            # rollout because they did not save RNG/cursor state. Avoid replaying
+            # the initial stream and continue deterministically from a new seed.
+            resume_seed = args.seed + step
+            random.seed(resume_seed)
+            torch.manual_seed(resume_seed)
+            if torch.cuda.is_available():
+                torch.cuda.manual_seed_all(resume_seed)
+            print(
+                f"[RESUME] legacy checkpoint has no RNG state; using seed={resume_seed}. "
+                "Sampled rollouts form a deterministic continuation branch.",
+                flush=True,
+            )
     with trace_path.open("w", encoding="utf-8") as trace:
         while args.max_steps is None and epoch < args.epochs or (
                 args.max_steps is not None and step < args.max_steps):
             epoch += 1
             epoch_records = list(records)
             random.Random(args.seed + epoch - 1).shuffle(epoch_records)
-            for start in range(0, len(epoch_records), args.questions_per_update):
+            first_start = resume_first_start if resume_first_start is not None else 0
+            resume_first_start = None
+            for start in range(first_start, len(epoch_records), args.questions_per_update):
                 if args.max_steps is not None and step >= args.max_steps:
                     break
                 question_batch = epoch_records[start:start + args.questions_per_update]
