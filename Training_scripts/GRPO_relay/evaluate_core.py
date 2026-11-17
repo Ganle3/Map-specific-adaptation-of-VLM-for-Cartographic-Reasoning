@@ -300,11 +300,26 @@ def main() -> None:
         if len(part) != expected:
             raise RuntimeError(f"Step {step} has {len(part)}/{expected} completed evaluations")
         correct = sum(row["reward"] for row in part)
+        non_truncated = [row for row in part if row["terminated"]]
+        non_truncated_count = len(non_truncated)
+        if non_truncated_count:
+            average_inference_time_seconds = sum(
+                float(row["inference_seconds"]) for row in non_truncated
+            ) / non_truncated_count
+            average_inference_tokens = sum(
+                int(row["generated_tokens"]) for row in non_truncated
+            ) / non_truncated_count
+        else:
+            average_inference_time_seconds = None
+            average_inference_tokens = None
         summaries.append({
             "checkpoint": "initial" if step == 0 else f"checkpoint-{step}",
             "step": step, "total": expected, "correct": int(correct),
             "accuracy": correct / expected,
             "truncated": sum(not row["terminated"] for row in part),
+            "non_truncated": non_truncated_count,
+            "average_inference_time_seconds": average_inference_time_seconds,
+            "average_inference_tokens": average_inference_tokens,
         })
     (output / "accuracy.json").write_text(
         json.dumps(summaries, ensure_ascii=False, indent=2), encoding="utf-8"
