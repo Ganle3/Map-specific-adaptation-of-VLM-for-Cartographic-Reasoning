@@ -63,6 +63,11 @@ def validate_pair(adapter: dict, relay: dict, dataset: str) -> list[int]:
             raise ValueError(f"Question mismatch at {dataset}/{index}")
         if tuple(adapter[index]["arrays"]["metric_names"]) != tuple(relay[index]["arrays"]["metric_names"]):
             raise ValueError("Metric schema mismatch")
+        if not a.get("matches_official_response", False) or not r.get("matches_official_response", False):
+            raise ValueError(
+                f"Fresh greedy capture differs from official evaluation at {dataset}/{index}; "
+                "reward and efficiency labels cannot safely be joined"
+            )
     return sorted(adapter)
 
 
@@ -112,6 +117,8 @@ def correlation(x: np.ndarray, y: np.ndarray, rank: bool = False) -> float:
 
 def correlation_ci(x, y, samples, rng, rank=False):
     point = correlation(x, y, rank)
+    if not math.isfinite(point):
+        return point, float("nan"), float("nan")
     draws = []
     for _ in range(samples):
         ids = rng.integers(0, len(x), len(x))
@@ -178,10 +185,13 @@ def binned_matrix(record, metric: str) -> np.ndarray:
 
 def plot_delta_heatmap(pairs, output):
     metric = "attention_weighted_key_distance"
-    delta = np.nanmean(np.stack([
+    stacked = np.stack([
         binned_matrix(pair["adapter_only"], metric) - binned_matrix(pair["relay3"], metric)
         for pair in pairs
-    ]), axis=0)
+    ])
+    counts = np.isfinite(stacked).sum(axis=0)
+    delta = np.divide(np.nansum(stacked, axis=0), counts,
+                      out=np.full(stacked.shape[1:], np.nan), where=counts > 0)
     bound = max(abs(float(np.nanmin(delta))), abs(float(np.nanmax(delta))), 1e-5)
     fig, ax = plt.subplots(figsize=(12, 4.8))
     image = ax.imshow(delta, aspect="auto", cmap="RdBu_r", vmin=-bound, vmax=bound)
@@ -345,6 +355,42 @@ def ability_summary(rows):
     return result
 
 
+def plot_ability_summary(rows, output):
+    levels = [f"L{i}" for i in range(6)]
+    fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
+    for column, dataset in enumerate(("mapverse", "mapwise")):
+        cells = [row for row in rows if row["dataset"] == dataset]
+        gains, distance, saving = [], [], []
+        for level in levels:
+            group = [row for row in cells if row["ability_level"] == level]
+            gains.append(np.mean([row["relay_reward"] - row["adapter_reward"]
+                                  for row in group]) if group else np.nan)
+            distance.append(np.mean([row["relay_distance_improvement"]
+                                     for row in group]) if group else np.nan)
+            correct = [row for row in group if row["both_correct_terminated"]]
+            saving.append(np.mean([row["token_saving"] for row in correct])
+                          if correct else np.nan)
+        x = np.arange(len(levels))
+        axes[0, column].bar(x - .18, gains, width=.36, color="#4b8bc8",
+                            label="accuracy gain")
+        twin = axes[0, column].twinx()
+        twin.plot(x, distance, color="#d84a3a", marker="o", label="Q-K distance improvement")
+        axes[0, column].axhline(0, color="#777", lw=.7)
+        twin.axhline(0, color="#d84a3a", lw=.5, alpha=.4)
+        axes[0, column].set_title(dataset)
+        axes[0, column].set_ylabel("Relay3 − adapter accuracy")
+        twin.set_ylabel("adapter − Relay3 Q-K distance", color="#d84a3a")
+        axes[1, column].bar(x, saving, color="#56a36c")
+        axes[1, column].axhline(0, color="#777", lw=.7)
+        axes[1, column].set_ylabel("Token saving when both correct")
+        axes[1, column].set_xticks(x, levels)
+        axes[1, column].set_xlabel("Map-reading ability level")
+    fig.suptitle("Accuracy, visual alignment and efficiency by ability level")
+    fig.tight_layout()
+    fig.savefig(output / "ability_level_accuracy_alignment_efficiency.png", dpi=180)
+    plt.close(fig)
+
+
 def write_report(output, total, stats, ability):
     lines = [
         "# Relay3 population hidden-Q / image-K analysis", "",
@@ -395,6 +441,7 @@ def main():
     stats = plot_efficiency(rows, args, args.output, rng)
     ability = ability_summary(rows)
     write_csv(args.output / "ability_summary.csv", ability)
+    plot_ability_summary(rows, args.output)
     write_report(args.output, len(pairs), stats, ability)
     print(json.dumps({"questions": len(pairs), "output": str(args.output),
                       "report": str(args.output / 'report.md')}, ensure_ascii=False))
@@ -402,4 +449,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
