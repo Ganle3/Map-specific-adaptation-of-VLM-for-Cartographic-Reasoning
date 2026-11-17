@@ -4,7 +4,8 @@ mapverse_evaluation_exact.py
 Deterministic correctness evaluator for the first MapVerse GRPO diagnostic.
 
 Supported answer types:
-  - Boolean
+  - Boolean (the MapVerse field name; labels may be Yes/No *or* categorical
+    values such as Blue, East, Higher, Lighter Red, etc.)
   - Counting
   - Single Entity
 
@@ -44,27 +45,17 @@ def extract_final_answer(text: Any) -> str:
     if not s:
         return ""
 
-    # Preferred formal format shared with MapWise:
-    #   Final answer: <answer>
-    matches = re.findall(
-        r"Final\s+answer\s*:\s*(.+)",
-        s,
-        flags=re.I,
-    )
-    if matches:
-        return matches[-1].strip()
-
     # If Qwen exposes a textual thinking block, score only the answer after it.
+    # This must happen before looking for ``Final answer:``: the reasoning
+    # itself can contain an earlier quoted/example final answer.
     if "</think>" in s.lower():
         s = re.split(r"</think>", s, flags=re.I)[-1].strip()
 
-        matches = re.findall(
-            r"Final\s+answer\s*:\s*(.+)",
-            s,
-            flags=re.I,
-        )
-        if matches:
-            return matches[-1].strip()
+    # Preferred formal format shared with MapWise:
+    #   Final answer: <answer>
+    matches = re.findall(r"Final\s+answer\s*:\s*(.+)", s, flags=re.I)
+    if matches:
+        return matches[-1].strip()
 
     # Backward-compatible fallbacks for older diagnostic outputs.
     matches = re.findall(r"<answer>\s*(.*?)\s*</answer>", s, flags=re.I | re.S)
@@ -101,6 +92,15 @@ def normalize_text(text: Any) -> str:
 
 
 def canonical_boolean(text: Any) -> Optional[str]:
+    """Canonicalize MapVerse's ``Boolean`` field without assuming binary labels.
+
+    MapVerse uses ``answer_type=Boolean`` for several categorical questions.
+    The original evaluation notebook compares the cleaned answer to the
+    cleaned ground truth, so labels such as ``East`` or ``Blue`` must remain
+    valid.  We preserve the existing true/false <-> yes/no equivalence for
+    genuinely binary rows, while rejecting unresolved answers such as
+    ``Yes or No``.
+    """
     s = normalize_text(text)
     if not s:
         return None
@@ -109,19 +109,40 @@ def canonical_boolean(text: Any) -> Optional[str]:
     if not tokens:
         return None
 
-    # Permit concise natural-language final answers ("yes it is", "no").
+    # A slash is removed by normalize_text, so both "yes/no" and
+    # "yes or no" need explicit rejection.  These are unresolved answers,
+    # not valid predictions for either class.
+    binary = {"yes", "no", "true", "false"}
+    if (
+        len(tokens) >= 3
+        and tokens[0] in binary
+        and tokens[1] == "or"
+        and tokens[2] in binary
+    ) or (
+        len(tokens) == 2
+        and tokens[0] in binary
+        and tokens[1] in binary
+    ) or (
+        len(tokens) >= 4
+        and tokens[0] == "either"
+        and tokens[1] in binary
+        and tokens[2] == "or"
+        and tokens[3] in binary
+    ):
+        return None
+
+    # Keep the historical binary behavior for concise explanations such as
+    # "Yes, because ...", but only after the ambiguity check above.
     first = tokens[0]
     if first in {"yes", "true"}:
         return "yes"
     if first in {"no", "false"}:
         return "no"
 
-    # If the whole normalized answer is exactly a Boolean class.
-    if s in {"yes", "true"}:
-        return "yes"
-    if s in {"no", "false"}:
-        return "no"
-    return None
+    # All non-binary MapVerse labels use the cleaned full answer.  This is the
+    # notebook's second rule (clean + exact equality), without substring
+    # matching that could turn an explanation into a false positive.
+    return s
 
 
 _NUMBER_WORDS = {
@@ -190,6 +211,9 @@ def canonical_count(text: Any) -> Optional[str]:
     if range_match:
         left = _canonical_decimal(range_match.group(1))
         right = _canonical_decimal(range_match.group(2))
+        # If either endpoint or the range wording carried a percent unit,
+        # apply it to the whole range. Bare ``20-30`` remains distinct from
+        # ``20-30%``.
         suffix = "%" if range_match.group(3) else ""
         return f"{left}-{right}{suffix}"
 
@@ -228,6 +252,29 @@ def canonical_count(text: Any) -> Optional[str]:
         "not possible": "not possible",
     }
     return qualitative.get(word_form)
+
+
+def _numeric_signature(text: Any) -> Tuple[str, ...]:
+    """Extract normalized numeric values while ignoring surrounding format.
+
+    Unlike a raw substring test, this keeps ``2`` from matching ``12`` and
+    treats ``1,200`` and ``1200`` as the same value. Counting answers are
+    compared as an order-insensitive multiset, so ``2 and 3`` equals
+    ``3 and 2`` while ``2 and 2`` remains different from ``2``.
+    """
+    cleaned = unicodedata.normalize("NFKC", extract_final_answer(text)).casefold()
+    cleaned = cleaned.replace("âˆ’", "-").replace("â€“", "-").replace("â€”", "-")
+    matches = re.findall(
+        r"(?<!\w)[+-]?(?:\d[\d,]*(?:\.\d+)?|\.\d+)(?!\w)",
+        cleaned,
+    )
+    values = []
+    for value in matches:
+        value = value.replace(",", "")
+        canonical = _canonical_decimal(value)
+        if canonical is not None:
+            values.append(canonical)
+    return tuple(sorted(values, key=lambda value: Decimal(value)))
 
 
 def canonical_single_entity(text: Any) -> str:
@@ -373,6 +420,21 @@ def evaluate_exact(
 
     if answer_type == "Single Entity":
         correct = _single_entity_equivalent(prediction, ground_truth)
+    elif answer_type == "Counting":
+        # Apply the notebook's format-insensitive idea only to numeric
+        # content. Numeric values must match exactly as an order-insensitive
+        # multiset, so ``2`` does not match ``12`` while ``2 and 3`` matches
+        # ``3 and 2``. Units, punctuation, percent signs, and prose around
+        # the numbers do not affect the result.
+        pred_numbers = _numeric_signature(prediction)
+        gold_numbers = _numeric_signature(ground_truth)
+        if pred_numbers and gold_numbers:
+            correct = pred_numbers == gold_numbers
+        elif pred_c is not None and gold_c is not None:
+            # Preserve number-word equivalence such as ``twenty`` vs ``20``.
+            correct = pred_c == gold_c
+        else:
+            correct = False
     else:
         correct = pred_c is not None and gold_c is not None and pred_c == gold_c
 

@@ -102,6 +102,6 @@ def generate_relay_with_capture(model, augmented: dict, image_positions,
             cursor += 1
     completion = torch.stack(generated, dim=1)
     hidden, relay_maps = capture.arrays(completion.shape[1])
+    qkv = capture.qkv_arrays(completion.shape[1])
     assert relay_maps is not None
-    return torch.cat((input_ids, completion), dim=1), hidden, relay_maps
-
+    return torch.cat((input_ids, completion), dim=1), hidden, relay_maps, qkv

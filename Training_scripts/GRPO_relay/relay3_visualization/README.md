@@ -70,6 +70,24 @@ inference:
   .\VLM_adaptation\Training_outputs\Prototype\relay3_visualization_step4000
 ```
 
+## Post-RoPE Q/K and image-V extension
+
+The extended capture additionally stores, for both adapter-only and Relay3
+language queries, exact post-RoPE query-to-cached-image-key cosine, exact
+pre-softmax scaled QK logits, and patch-wise image-value contribution magnitude
+`||concat_h(a_hi v_hi)||_2` before the attention output projection. Relay-query
+versions are stored as secondary mechanism evidence. The primary comparison is
+adapter-only `x_t` versus relay-affected Relay3 `x_t`.
+
+Run it into a separate output directory with:
+
+```powershell
+.\VLM_adaptation\Training_scripts\GRPO_relay\relay3_visualization\run_qkv_step4000.ps1
+```
+
+Each question then includes `qkv_comparison.html` alongside the original
+`comparison.html`. Raw float32 Q/K/V maps remain in each `attention.npz`.
+
 PowerPoint-compatible relay-query GIFs for MapVerse 273 and MapWise 294 can be
 regenerated with:
 

@@ -175,11 +175,14 @@ def completion_record(model, processor, selected, source, generated, maps, grid,
 
 
 def save_variant(destination: Path, record: dict, hidden: np.ndarray,
-                 relay: np.ndarray | None = None):
+                 relay: np.ndarray | None = None,
+                 qkv: dict[str, np.ndarray] | None = None):
     destination.mkdir(parents=True, exist_ok=False)
     arrays = {"hidden_attention": hidden.astype(np.float32)}
     if relay is not None:
         arrays["relay_attention"] = relay.astype(np.float32)
+    if qkv:
+        arrays.update({name: value.astype(np.float32) for name, value in qkv.items()})
     np.savez_compressed(destination / "attention.npz", **arrays)
     (destination / "result.json").write_text(
         json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -214,13 +217,14 @@ def run_adapter(selected, args, output):
                 )
             token_count = generated.shape[1] - source["input_ids"].shape[1]
             hidden, _ = capture.arrays(token_count, allow_one_unused_tail=True)
+            qkv = capture.qkv_arrays(token_count)
             record = completion_record(
                 model, processor, row, source, generated, hidden, grid, image_grid,
                 original_size, submitted_size, checkpoint, "adapter_only",
             )
-            save_variant(output / row.folder / "adapter_only", record, hidden)
+            save_variant(output / row.folder / "adapter_only", record, hidden, qkv=qkv)
             print(f"  steps={token_count} status={record['status']}", flush=True)
-            del source, features, augmented, generated, hidden
+            del source, features, augmented, generated, hidden, qkv
     finally:
         del model, processor
         gc.collect()
@@ -257,16 +261,16 @@ def run_relay(selected, args, output):
             augmented, _ = build_relay_prefill(
                 model, processor.tokenizer, source, features, policy, with_grad=False
             )
-            generated, hidden, relay = generate_relay_with_capture(
+            generated, hidden, relay, qkv = generate_relay_with_capture(
                 model, augmented, positions, grid, args.max_new_tokens
             )
             record = completion_record(
                 model, processor, row, source, generated, hidden, grid, image_grid,
                 original_size, submitted_size, checkpoint, "relay3",
             )
-            save_variant(output / row.folder / "relay3", record, hidden, relay)
+            save_variant(output / row.folder / "relay3", record, hidden, relay, qkv)
             print(f"  steps={record['steps']} status={record['status']}", flush=True)
-            del source, features, augmented, generated, hidden, relay
+            del source, features, augmented, generated, hidden, relay, qkv
     finally:
         del policy, model, processor
         gc.collect()
