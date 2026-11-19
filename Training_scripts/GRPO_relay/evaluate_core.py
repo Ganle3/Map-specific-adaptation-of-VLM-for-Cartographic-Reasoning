@@ -29,7 +29,9 @@ from relay_module import RelayModule
 from only_visual_relay.layout import build_prefill as build_only_visual_prefill
 from Image_question_shared_relay.layout import build_prefill as build_shared_prefill
 from Image_question_CoT_shared_relay.layout import build_prefill as build_cot_prefill
-from Image_question_CoT_shared_relay.dynamic_decode import generate_with_cot_relay
+from Image_question_CoT_shared_relay.dynamic_decode import (
+    RELAY_LAYER_MODES, generate_with_cot_relay,
+)
 
 
 IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff", ".bmp")
@@ -140,6 +142,8 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=500)
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-relay-tokens", type=int, default=2)
+    parser.add_argument("--relay-layer-mode", choices=RELAY_LAYER_MODES,
+                        default="continuous")
     parser.add_argument("--no-load-in-4bit", action="store_false", dest="load_in_4bit")
     parser.set_defaults(load_in_4bit=True)
     args = parser.parse_args()
@@ -153,6 +157,9 @@ def main() -> None:
         parser.error(f"{args.policy_kind} requires --placement {expected_placement}")
     if args.num_relay_tokens < 1:
         parser.error("num-relay-tokens must be positive")
+    if args.relay_layer_mode != "continuous":
+        if args.policy_kind != "image_question_cot_shared" or args.num_relay_tokens != 4:
+            parser.error("Layer-segment evaluation requires scheme 3 and four relay parameters")
 
     steps = list(dict.fromkeys(args.checkpoint_steps))
     # Step zero is deliberately the native Qwen + input adapter baseline.  It
@@ -201,6 +208,14 @@ def main() -> None:
                     raise ValueError(
                         f"Checkpoint metadata step mismatch: {checkpoints[step]}"
                     )
+                saved_mode = state.get("relay_layer_mode", "continuous")
+                if saved_mode != args.relay_layer_mode:
+                    raise ValueError(
+                        f"Checkpoint relay layer mode {saved_mode!r} != "
+                        f"requested {args.relay_layer_mode!r}"
+                    )
+                if int(state.get("num_relay_tokens", -1)) != args.num_relay_tokens:
+                    raise ValueError("Checkpoint relay parameter count differs from evaluator")
             elif step != 0:
                 state = torch.load(checkpoints[step], map_location="cpu")
                 if state.get("placement") != "none" or state.get("policy_kind") != "adapter_only":
@@ -238,6 +253,8 @@ def main() -> None:
                         model, processor.tokenizer, source_inputs, global_features,
                         policy, with_grad=False,
                     )
+                    if args.policy_kind == "image_question_cot_shared":
+                        augmented["relay_layer_mode"] = args.relay_layer_mode
                     generator = (generate_with_cot_relay
                                  if args.policy_kind == "image_question_cot_shared"
                                  else generate_from_relays)
@@ -269,6 +286,7 @@ def main() -> None:
                     "response": response, "reward": float(evaluation["reward"]),
                     "evaluation": evaluation, "generated_tokens": int(tokens.numel()),
                     "terminated": terminated, **builder,
+                    "relay_layer_mode": args.relay_layer_mode,
                     "inference_seconds": inference_seconds,
                 }
                 if attention is not None:

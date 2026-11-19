@@ -6,6 +6,7 @@ import argparse
 import csv
 import json
 import math
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -18,8 +19,16 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 VLM_ROOT = HERE.parents[2]
+RELAY_ROOT = HERE.parent
+if str(RELAY_ROOT) not in sys.path:
+    sys.path.insert(0, str(RELAY_ROOT))
+
+from data import MapQuestion, evaluate_answer
+
 DEFAULT_INPUT = VLM_ROOT / "Training_outputs/Prototype/relay3_global_qk_step4000"
 DEFAULT_OUTPUT = DEFAULT_INPUT / "analysis"
+DEFAULT_MAPVERSE = VLM_ROOT / "Datasets/Subset_MapVerse/scaling_1500/MapVerse_test_600_quality_screened.json"
+DEFAULT_MAPWISE = VLM_ROOT / "Datasets/Processed_Mapwise/Test/mapwise_grpo_test_400.json"
 STEP_BINS = ((0, 5), (5, 10), (10, 20), (20, 40), (40, 80),
              (80, 160), (160, 320), (320, 10_000))
 COLORS = {"adapter_only": "#3274b9", "relay3": "#d64a3a"}
@@ -29,6 +38,8 @@ def parse_args():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     p.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    p.add_argument("--mapverse-dataset", type=Path, default=DEFAULT_MAPVERSE)
+    p.add_argument("--mapwise-dataset", type=Path, default=DEFAULT_MAPWISE)
     p.add_argument("--bootstrap-samples", type=int, default=2000)
     p.add_argument("--seed", type=int, default=20261117)
     p.add_argument("--early-steps", type=int, default=20)
@@ -63,12 +74,46 @@ def validate_pair(adapter: dict, relay: dict, dataset: str) -> list[int]:
             raise ValueError(f"Question mismatch at {dataset}/{index}")
         if tuple(adapter[index]["arrays"]["metric_names"]) != tuple(relay[index]["arrays"]["metric_names"]):
             raise ValueError("Metric schema mismatch")
-        if not a.get("matches_official_response", False) or not r.get("matches_official_response", False):
-            raise ValueError(
-                f"Fresh greedy capture differs from official evaluation at {dataset}/{index}; "
-                "reward and efficiency labels cannot safely be joined"
-            )
     return sorted(adapter)
+
+
+def scoring_questions(path: Path, dataset: str) -> dict[int, MapQuestion]:
+    """Build evaluator inputs without reopening or re-encoding any images."""
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    result = {}
+    for index, row in enumerate(raw, start=1):
+        metadata = dict(row)
+        metadata["dataset"] = dataset
+        if dataset == "mapverse":
+            answer = str(row["correct_answer"])
+            answer_type = str(row.get("answer_type", "Single Entity"))
+            sample_id = str(row.get("sample_id", index - 1))
+        else:
+            answer = str(row["ground_truth"])
+            answer_type = str(row["ground_truth_type"])
+            sample_id = str(row.get(
+                "qa_id", f"mapwise_{row['country']}_{row['map_no']}_{index - 1}"
+            ))
+            metadata.setdefault("qa_id", sample_id)
+        result[index] = MapQuestion(
+            sample_id=sample_id, image_path=Path(), question=str(row["question"]),
+            answer=answer, answer_type=answer_type, metadata=metadata,
+        )
+    return result
+
+
+def attach_fresh_scores(records: dict[int, dict], questions: dict[int, MapQuestion]):
+    if set(records) != set(questions):
+        raise ValueError("Captured rows and source scoring rows are not aligned")
+    for index, record in records.items():
+        item = questions[index]
+        metadata = record["metadata"]
+        if (metadata["question"] != item.question
+                or str(metadata["ground_truth"]) != str(item.answer)):
+            raise ValueError(f"Scoring row mismatch at dataset_index={index}")
+        evaluation = evaluate_answer(metadata["response"], item)
+        metadata["fresh_evaluation"] = evaluation
+        metadata["fresh_reward"] = float(evaluation["reward"])
 
 
 def metric_index(record: dict, name: str) -> int:
@@ -287,13 +332,13 @@ def efficiency_rows(pairs, args):
         rows.append({
             "dataset": am["dataset"], "dataset_index": am["dataset_index"],
             "qa_id": am["qa_id"], "ability_level": am.get("ability_level") or "unknown",
-            "adapter_reward": am["official_reward"], "relay_reward": rm["official_reward"],
+            "adapter_reward": am["fresh_reward"], "relay_reward": rm["fresh_reward"],
             "adapter_tokens": am["generated_tokens"], "relay_tokens": rm["generated_tokens"],
             "adapter_terminated": int(am["terminated"]), "relay_terminated": int(rm["terminated"]),
             "adapter_early_distance": ad, "relay_early_distance": rd,
             "relay_distance_improvement": ad - rd,
             "token_saving": am["generated_tokens"] - rm["generated_tokens"],
-            "both_correct_terminated": int(am["official_reward"] == 1 and rm["official_reward"] == 1
+            "both_correct_terminated": int(am["fresh_reward"] == 1 and rm["fresh_reward"] == 1
                                            and am["terminated"] and rm["terminated"]),
         })
     return rows
@@ -305,6 +350,15 @@ def plot_efficiency(rows, args, output, rng):
     y = np.asarray([row["token_saving"] for row in subset])
     pearson = correlation_ci(x, y, args.bootstrap_samples, rng, rank=False)
     spearman = correlation_ci(x, y, args.bootstrap_samples, rng, rank=True)
+    correct_subset = [row for row in subset if row["both_correct_terminated"]]
+    correct_x = np.asarray([row["relay_distance_improvement"] for row in correct_subset])
+    correct_y = np.asarray([row["token_saving"] for row in correct_subset])
+    correct_pearson = correlation_ci(
+        correct_x, correct_y, args.bootstrap_samples, rng, rank=False
+    )
+    correct_spearman = correlation_ci(
+        correct_x, correct_y, args.bootstrap_samples, rng, rank=True
+    )
     fig, ax = plt.subplots(figsize=(7, 5.5))
     for dataset, marker in (("mapverse", "o"), ("mapwise", "s")):
         mask = np.asarray([row["dataset"] == dataset for row in subset])
@@ -323,10 +377,18 @@ def plot_efficiency(rows, args, output, rng):
     fig.savefig(output / "early_alignment_vs_token_saving.png", dpi=180)
     plt.close(fig)
     stats = {
-        "population": "both models terminated",
-        "n": len(subset),
-        "pearson": {"estimate": pearson[0], "bootstrap_ci95": pearson[1:]},
-        "spearman": {"estimate": spearman[0], "bootstrap_ci95": spearman[1:]},
+        "both_terminated": {
+            "n": len(subset),
+            "pearson": {"estimate": pearson[0], "bootstrap_ci95": pearson[1:]},
+            "spearman": {"estimate": spearman[0], "bootstrap_ci95": spearman[1:]},
+        },
+        "both_correct_and_terminated": {
+            "n": len(correct_subset),
+            "pearson": {"estimate": correct_pearson[0],
+                        "bootstrap_ci95": correct_pearson[1:]},
+            "spearman": {"estimate": correct_spearman[0],
+                         "bootstrap_ci95": correct_spearman[1:]},
+        },
         "early_window": {"steps": [0, args.early_steps - 1],
                          "layers": [args.early_layer_start, args.early_layer_end - 1]},
     }
@@ -392,14 +454,20 @@ def plot_ability_summary(rows, output):
 
 
 def write_report(output, total, stats, ability):
+    terminated = stats["both_terminated"]
+    correct = stats["both_correct_and_terminated"]
     lines = [
         "# Relay3 population hidden-Q / image-K analysis", "",
         f"Aligned paired questions: **{total}**.", "",
         "The distance metrics use the actual post-RoPE language query and cached image keys at each decoder layer. "
         "Positive `adapter distance - Relay3 distance` means the relay-trained system's hidden query is closer to image keys.", "",
         "## Efficiency association", "",
-        f"Among {stats['n']} pairs where both models terminated, the correlation between early alignment improvement and token saving was "
-        f"Pearson **{stats['pearson']['estimate']:.3f}** and Spearman **{stats['spearman']['estimate']:.3f}**.", "",
+        f"Among {terminated['n']} pairs where both models terminated, the correlation between early alignment improvement and token saving was "
+        f"Pearson **{terminated['pearson']['estimate']:.3f}** and Spearman **{terminated['spearman']['estimate']:.3f}**. "
+        f"Among the {correct['n']} pairs where both were also correct, it was Pearson "
+        f"**{correct['pearson']['estimate']:.3f}** and Spearman **{correct['spearman']['estimate']:.3f}**.", "",
+        "Accuracy in this report is rescored from each newly captured response with the shared dataset-aware exact evaluator; "
+        "old evaluation rewards are retained only as provenance and are not joined onto a different greedy trajectory.", "",
         "This is system-level associational evidence. Adapter weights and relay tokens were jointly trained, so it should be described as the "
         "effect of the Relay3 training configuration rather than an isolated causal effect of the single relay parameter.", "",
         "## Ability-level summary", "",
@@ -428,9 +496,15 @@ def main():
     args.output.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(args.seed)
     pairs = []
+    question_sets = {
+        "mapverse": scoring_questions(args.mapverse_dataset, "mapverse"),
+        "mapwise": scoring_questions(args.mapwise_dataset, "mapwise"),
+    }
     for dataset in ("mapverse", "mapwise"):
         adapter = load_variant(args.input, dataset, "adapter_only")
         relay = load_variant(args.input, dataset, "relay3")
+        attach_fresh_scores(adapter, question_sets[dataset])
+        attach_fresh_scores(relay, question_sets[dataset])
         for index in validate_pair(adapter, relay, dataset):
             pairs.append({"adapter_only": adapter[index], "relay3": relay[index]})
     plot_layer_curves(pairs, args, args.output, rng)

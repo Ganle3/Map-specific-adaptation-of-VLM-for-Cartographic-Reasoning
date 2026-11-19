@@ -18,6 +18,50 @@ from utils import (_decoder_and_head, _sampling_logits, _vl_backbone,
                    explicit_relay_decoder_inputs, qwen_lm)
 
 
+RELAY_LAYER_MODES = ("continuous", "reset_shared4", "reset_stage1")
+_STAGE_STARTS = (0, 8, 16, 24)
+
+
+def _active_relay(bank: torch.Tensor, mode: str) -> torch.Tensor:
+    if mode not in RELAY_LAYER_MODES:
+        raise ValueError(f"Unknown relay layer mode: {mode}")
+    if mode != "continuous" and bank.shape[0] != 4:
+        raise ValueError(f"{mode} requires exactly four trainable relay tokens")
+    return bank[:1] if mode == "reset_stage1" else bank
+
+
+def _stage_relay(bank: torch.Tensor, mode: str, layer_index: int) -> torch.Tensor:
+    if mode == "reset_shared4":
+        return bank
+    if mode == "reset_stage1":
+        stage_index = max(i for i, start in enumerate(_STAGE_STARTS)
+                          if start <= layer_index)
+        return bank[stage_index:stage_index + 1]
+    raise ValueError(f"No stage seed for mode {mode}")
+
+
+def _reset_relay_states(hidden: torch.Tensor, bank: torch.Tensor, mode: str,
+                        layer_index: int, prefix_length: int,
+                        target_count: int, num_relays: int) -> torch.Tensor:
+    """Replace only relay rows; preserve prompt and language hidden states."""
+    seed = _stage_relay(bank, mode, layer_index).to(hidden.device, hidden.dtype)
+    if seed.shape != (num_relays, hidden.shape[-1]):
+        raise RuntimeError("Stage relay shape differs from decoder group width")
+    group_size = 1 + num_relays
+    if hidden.shape[1] != prefix_length + group_size * target_count:
+        raise RuntimeError("Stage reset does not match packed decoder sequence")
+    groups = hidden[:, prefix_length:].reshape(
+        hidden.shape[0], target_count, group_size, hidden.shape[-1]
+    )
+    repeated = seed.reshape(1, 1, num_relays, -1).expand(
+        hidden.shape[0], target_count, -1, -1
+    )
+    updated = torch.cat((groups[:, :, :1, :], repeated), dim=2).reshape(
+        hidden.shape[0], target_count * group_size, hidden.shape[-1]
+    )
+    return torch.cat((hidden[:, :prefix_length], updated), dim=1)
+
+
 def _set_custom_mask_attention(language_model) -> None:
     """Permanently select SDPA for this scheme's custom 4-D block mask.
 
@@ -92,9 +136,25 @@ def _full_attention_mask(prefix_length: int, target_count: int,
 def _decoder_layers(language_model, hidden_states: torch.Tensor,
                     position_ids: torch.Tensor, attention_mask: torch.Tensor, *,
                     past_key_values=None, visual_pos_masks=None,
-                    deepstack_visual_embeds=None, checkpoint_layers: bool = False):
+                    deepstack_visual_embeds=None, checkpoint_layers: bool = False,
+                    relay_bank: torch.Tensor | None = None,
+                    relay_layer_mode: str = "continuous",
+                    relay_prefix_length: int = 0,
+                    relay_target_count: int = 1,
+                    relay_count: int = 1):
+    if relay_layer_mode not in RELAY_LAYER_MODES:
+        raise ValueError(f"Unknown relay layer mode: {relay_layer_mode}")
+    if relay_layer_mode != "continuous":
+        if relay_bank is None or len(language_model.layers) <= _STAGE_STARTS[-1]:
+            raise ValueError("Layer-segment relay requires a bank and at least 25 decoder layers")
     position_embeddings = language_model.rotary_emb(hidden_states, position_ids)
     for layer_index, layer in enumerate(language_model.layers):
+        if (relay_layer_mode != "continuous"
+                and layer_index in _STAGE_STARTS):
+            hidden_states = _reset_relay_states(
+                hidden_states, relay_bank, relay_layer_mode, layer_index,
+                relay_prefix_length, relay_target_count, relay_count,
+            )
         def run_layer(states, layer=layer):
             return layer(
                 states, attention_mask=attention_mask,
@@ -122,14 +182,16 @@ def _group_position_ids(position: torch.Tensor, num_relays: int) -> torch.Tensor
 
 
 def _decode_pair(model, *, token: torch.Tensor, relay: torch.Tensor,
-                 position: torch.Tensor, past, relay_visible_past: torch.Tensor):
+                 position: torch.Tensor, past, relay_visible_past: torch.Tensor,
+                 relay_layer_mode: str = "continuous"):
     language_model, lm_head = _decoder_and_head(model)
     token_embed = qwen_lm(model).get_input_embeddings()(token.view(1, 1))
     if relay.ndim != 2 or relay.shape[0] < 1:
         raise ValueError("relay must have shape [R,H], R >= 1")
-    relay_embed = relay.to(token_embed.device, token_embed.dtype).unsqueeze(0)
+    active_relay = _active_relay(relay, relay_layer_mode)
+    relay_embed = active_relay.to(token_embed.device, token_embed.dtype).unsqueeze(0)
     pair = torch.cat((token_embed, relay_embed), dim=1)
-    num_relays = relay.shape[0]
+    num_relays = active_relay.shape[0]
     past_length = past.get_seq_length()
     mask = _step_attention_mask(
         past_length, relay_visible_past, pair.dtype, pair.device, num_relays
@@ -137,7 +199,8 @@ def _decode_pair(model, *, token: torch.Tensor, relay: torch.Tensor,
     _set_custom_mask_attention(language_model)
     hidden = _decoder_layers(
         language_model, pair, _group_position_ids(position, num_relays), mask,
-        past_key_values=past,
+        past_key_values=past, relay_bank=relay,
+        relay_layer_mode=relay_layer_mode, relay_count=num_relays,
     )
     if past.get_seq_length() != past_length + 1 + num_relays:
         raise RuntimeError("DynamicCache did not append x_t and every relay position")
@@ -154,6 +217,7 @@ def generate_with_cot_relay(
         mm_token_type_ids: torch.Tensor, image_grid_thw: torch.Tensor,
         mm_encoder_outputs: dict, relay_embeddings: torch.Tensor,
         relay_visible_prompt_mask: torch.Tensor, policy_kind: str,
+        relay_layer_mode: str = "continuous",
         do_sample: bool = False, temperature: float = 1.0,
         top_p: float = 1.0, top_k: int = 0, num_beams: int = 1,
         max_new_tokens: int, return_dict_in_generate: bool = False,
@@ -165,6 +229,7 @@ def generate_with_cot_relay(
         raise ValueError("Dynamic relay generation requires batch=1, beams=1, relays [R,H]")
     if input_ids.shape[1] < 2 or max_new_tokens < 1 or not use_cache:
         raise ValueError("Prompt must have >=2 tokens; max_new_tokens>0 and cache are required")
+    _active_relay(relay_embeddings, relay_layer_mode)
 
     visual = mm_encoder_outputs["image"]
     prompt_embeds, visual_mask, deepstack = explicit_relay_decoder_inputs(
@@ -200,6 +265,7 @@ def generate_with_cot_relay(
         next_logits, past = _decode_pair(
             model, token=token, relay=relay_embeddings, position=position,
             past=past, relay_visible_past=visible,
+            relay_layer_mode=relay_layer_mode,
         )
         step_scores = _sampling_logits(next_logits, temperature, top_p, top_k)
         sampled = (torch.distributions.Categorical(logits=step_scores).sample()
@@ -231,7 +297,9 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
     relay = augmented_prompt["relay_embeddings"]
     if relay.ndim != 2 or relay.shape[0] < 1 or not relay.requires_grad:
         raise RuntimeError("Current-policy scheme-3 replay requires attached relays [R,H]")
-    num_relays = relay.shape[0]
+    relay_layer_mode = augmented_prompt.get("relay_layer_mode", "continuous")
+    active_relay = _active_relay(relay, relay_layer_mode)
+    num_relays = active_relay.shape[0]
     group_size = 1 + num_relays
 
     visual = augmented_prompt["mm_encoder_outputs"]["image"]
@@ -246,7 +314,7 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
     prefix_length = prompt_ids.shape[1] - 1
     predictors = torch.cat((prompt_ids[:, -1:], targets[:, :-1]), dim=1)
     predictor_embeds = qwen_lm(model).get_input_embeddings()(predictors)
-    relay_embed = relay.to(predictor_embeds.device, predictor_embeds.dtype)
+    relay_embed = active_relay.to(predictor_embeds.device, predictor_embeds.dtype)
     relay_embeds = relay_embed.view(1, 1, num_relays, -1).expand(
         1, targets.shape[1], num_relays, -1
     )
@@ -282,6 +350,9 @@ def cot_relay_completion_log_probs(model, augmented_prompt: dict,
             language_model, hidden, all_positions, block_mask,
             visual_pos_masks=extended_visual_mask,
             deepstack_visual_embeds=deepstack, checkpoint_layers=True,
+            relay_bank=relay, relay_layer_mode=relay_layer_mode,
+            relay_prefix_length=prefix_length,
+            relay_target_count=targets.shape[1], relay_count=num_relays,
         )
         predictor_positions = prefix_length + group_size * torch.arange(
             targets.shape[1], device=hidden.device

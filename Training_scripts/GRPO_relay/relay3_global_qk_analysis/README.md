@@ -32,6 +32,11 @@ in its own answer. The analysis does not claim that the single relay parameter
 alone caused the difference because Relay3 and its LoRA adapter were jointly
 trained.
 
+Fresh captures are rescored with the same dataset-aware exact evaluator used by
+training and evaluation. Older evaluation rewards are not attached to a newly
+generated trajectory because NF4/CUDA greedy runs can diverge at near-tied
+argmax decisions even when the checkpoint and prompt are unchanged.
+
 ## Euler
 
 ```bash
@@ -50,6 +55,17 @@ Default output:
 The job is restartable: completed question files are skipped. Set `OUTPUT` to a
 new directory for an independent run.
 
+## Local PowerShell
+
+From the Thesis workspace root in VS Code PowerShell:
+
+```powershell
+& ".\VLM_adaptation\Training_scripts\GRPO_relay\relay3_global_qk_analysis\run_step4000_local.ps1"
+```
+
+The local runner is also restartable and uses the downloaded step-4000
+checkpoints and evaluation JSONL files below `Training_outputs/Prototype`.
+
 ## Main outputs
 
 - `early_qk_distance_by_layer.png`
@@ -60,4 +76,3 @@ new directory for an independent run.
 - `per_question_efficiency.csv`
 - `ability_summary.csv`
 - `report.md`
-

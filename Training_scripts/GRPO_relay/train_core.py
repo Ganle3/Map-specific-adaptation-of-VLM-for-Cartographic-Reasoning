@@ -33,7 +33,7 @@ from only_visual_relay.layout import build_prefill as build_only_visual_prefill
 from Image_question_shared_relay.layout import build_prefill as build_shared_prefill
 from Image_question_CoT_shared_relay.layout import build_prefill as build_cot_prefill
 from Image_question_CoT_shared_relay.dynamic_decode import (
-    cot_relay_completion_log_probs, generate_with_cot_relay,
+    RELAY_LAYER_MODES, cot_relay_completion_log_probs, generate_with_cot_relay,
 )
 
 
@@ -41,7 +41,8 @@ _RECOMPUTE_INPUT_KEYS = ("input_ids", "attention_mask", "mm_token_type_ids", "im
 
 
 def _build_scheme_prefill(model, tokenizer, source_inputs, global_features,
-                          policy, policy_kind: str, *, with_grad: bool):
+                          policy, policy_kind: str, *, with_grad: bool,
+                          relay_layer_mode: str = "continuous"):
     if policy_kind == "adapter_only":
         return build_adapter_only_prefill(source_inputs, global_features)
     builders = {
@@ -49,10 +50,13 @@ def _build_scheme_prefill(model, tokenizer, source_inputs, global_features,
         "image_question_shared": build_shared_prefill,
         "image_question_cot_shared": build_cot_prefill,
     }
-    return builders[policy_kind](
+    augmented, attention = builders[policy_kind](
         model, tokenizer, source_inputs, global_features, policy,
         with_grad=with_grad,
     )
+    if policy_kind == "image_question_cot_shared":
+        augmented["relay_layer_mode"] = relay_layer_mode
+    return augmented, attention
 
 
 def _generate_scheme(model, augmented: dict, **kwargs):
@@ -105,11 +109,12 @@ def _eos_ids(tokenizer) -> set[int]:
 
 
 def generate_rollout(model, processor, policy, item, source_inputs, global_features,
-                     max_new_tokens: int, rollout_id: int, policy_kind: str) -> dict:
+                     max_new_tokens: int, rollout_id: int, policy_kind: str,
+                     relay_layer_mode: str = "continuous") -> dict:
     """Sample language tokens; no gradient is retained during generation."""
     augmented, attention = _build_scheme_prefill(
         model, processor.tokenizer, source_inputs, global_features, policy,
-        policy_kind, with_grad=False,
+        policy_kind, with_grad=False, relay_layer_mode=relay_layer_mode,
     )
     prefix_length = augmented["input_ids"].shape[1]
     with torch.no_grad():
@@ -192,6 +197,9 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=500)
     parser.add_argument("--max-pixels", type=int, default=1_000_000)
     parser.add_argument("--num-relay-tokens", type=int, default=2)
+    parser.add_argument("--relay-layer-mode", choices=RELAY_LAYER_MODES,
+                        default="continuous",
+                        help="Relay state transfer across four decoder layer segments.")
     parser.add_argument("--relay-init", choices=("normal_0.02", "xavier_normal"),
                         default="normal_0.02",
                         help="Initialization used only for a newly created relay bank.")
@@ -288,6 +296,9 @@ def main() -> None:
         parser.error(f"{args.policy_kind} requires --placement {expected_placement}")
     if args.policy_kind != "adapter_only" and args.num_relay_tokens < 1:
         parser.error("num-relay-tokens must be positive")
+    if args.relay_layer_mode != "continuous":
+        if args.policy_kind != "image_question_cot_shared" or args.num_relay_tokens != 4:
+            parser.error("Layer-segment relay modes require scheme 3 and exactly four trainable tokens")
 
     torch.manual_seed(args.seed)
     random.seed(args.seed)
@@ -420,6 +431,7 @@ def main() -> None:
             "placement": args.placement,
             "policy_kind": args.policy_kind,
             "num_relay_tokens": args.num_relay_tokens,
+            "relay_layer_mode": args.relay_layer_mode,
             "relay_initialization": args.relay_init,
             "train_adapter": args.train_adapter,
             "adapter_train_scope": args.adapter_train_scope,
@@ -432,6 +444,7 @@ def main() -> None:
             key: {"checkpoint": resume_state.get(key), "requested": value}
             for key, value in expected_metadata.items()
             if (checkpoint_adapter_train_scope if key == "adapter_train_scope"
+                else resume_state.get(key, "continuous") if key == "relay_layer_mode"
                 else resume_state.get(key)) != value
         }
         float_metadata = {
@@ -503,6 +516,7 @@ def main() -> None:
                 augmented, _ = _build_scheme_prefill(
                     model, processor.tokenizer, source_inputs, global_features,
                     policy, args.policy_kind, with_grad=False,
+                    relay_layer_mode=args.relay_layer_mode,
                 )
                 prefix_length = augmented["input_ids"].shape[1]
                 generated = _generate_scheme(
@@ -568,6 +582,7 @@ def main() -> None:
                                    initial_prototypes.detach().cpu()),
             "placement": args.placement, "policy_kind": args.policy_kind,
             "num_relay_tokens": args.num_relay_tokens,
+            "relay_layer_mode": args.relay_layer_mode,
             "relay_initialization": args.relay_init,
             "trainable_parameter_count": trainable_parameter_count,
             "train_adapter": args.train_adapter,
@@ -714,6 +729,7 @@ def main() -> None:
                     group = [generate_rollout(
                         model, processor, policy, item, source_inputs, global_features,
                         args.max_new_tokens, rollout_id, args.policy_kind,
+                        args.relay_layer_mode,
                     ) for rollout_id in range(args.group_size)]
                     rewards = [row["reward"] for row in group]
                     advantages = group_advantages(rewards, device).detach().cpu()
@@ -801,6 +817,7 @@ def main() -> None:
                                     model, processor.tokenizer, source_inputs,
                                     global_features, policy, args.policy_kind,
                                     with_grad=True,
+                                    relay_layer_mode=args.relay_layer_mode,
                                 )
                                 current = _current_log_probs(
                                     model, augmented, row["completion_ids"]
