@@ -11,18 +11,21 @@ esac
 REPO="$HOME/VLM_adaptation"
 TRAIN="$REPO/Training_scripts/GRPO_relay/Image_question_CoT_shared_relay/train.py"
 EVALUATE="$REPO/Training_scripts/GRPO_relay/Image_question_CoT_shared_relay/evaluate.py"
-TRAIN_DATA="$REPO/Datasets/When_Where_Crop/visual_easier_1000.json"
+EXPAND="$REPO/Training_scripts/GRPO_relay/expand_lora_rank.py"
+TRAIN_DATA="$REPO/Datasets/Processed_Mapwise/mapwise_filtered_1058.json"
 MAPWISE_TEST="$REPO/Datasets/Processed_Mapwise/Test/mapwise_grpo_test_400.json"
 MAPVERSE_TEST="$REPO/Datasets/Subset_MapVerse/scaling_1500/MapVerse_test_600_quality_screened.json"
 MAPVERSE_IMAGES="$HOME/MapVerse/data/imgs"
 MAPWISE_IMAGES="$REPO/Datasets/mapwise-dataset"
 SIF="$SCRATCH/containers/ablationgrpo.sif"
-ADAPTER="${ADAPTER:-$SCRATCH/thesis/runs/mapverse_train1000_reviewed_from_mapverse1500_5000_tokens500_15683546/checkpoint-2500}"
-RUN_ID="relay3_r4_${MODE}_easier1000_q4r4_ppo2_${SLURM_JOB_ID}"
+SOURCE_ADAPTER="$SCRATCH/thesis/runs/mapwise_scaling1000_iter2_mask0p2_retry/checkpoints/checkpoint-3000"
+RUN_ID="relay3_r4_${MODE}_mapwise1058_xavier_rank32_q4r4_ppo2_${SLURM_JOB_ID}"
 RUN_DIR="$SCRATCH/thesis/runs/$RUN_ID"
+INIT_ADAPTER="$RUN_DIR/initial_adapter_rank32"
 
-for required in "$TRAIN" "$EVALUATE" "$TRAIN_DATA" "$MAPWISE_TEST" \
-  "$MAPVERSE_TEST" "$SIF" "$ADAPTER/adapter_config.json"; do
+for required in "$TRAIN" "$EVALUATE" "$EXPAND" "$TRAIN_DATA" "$MAPWISE_TEST" \
+  "$MAPVERSE_TEST" "$SIF" "$SOURCE_ADAPTER/adapter_config.json" \
+  "$SOURCE_ADAPTER/adapter_model.safetensors"; do
   test -f "$required" || { echo "Missing required file: $required" >&2; exit 2; }
 done
 test -d "$MAPVERSE_IMAGES" || { echo "Missing MapVerse images: $MAPVERSE_IMAGES" >&2; exit 2; }
@@ -48,16 +51,24 @@ CONTAINER=(
 
 echo "RUN_ID=$RUN_ID"
 echo "RUN_DIR=$RUN_DIR"
+echo "TRAIN_DATA=$TRAIN_DATA"
+echo "SOURCE_ADAPTER=$SOURCE_ADAPTER"
+echo "INITIAL_ADAPTER=$INIT_ADAPTER"
 echo "RELAY_LAYER_MODE=$MODE"
 echo "RELAY_PARAMETER_SHAPE=[4,4096]"
-echo "TRAIN=1000 easier questions; 4 questions x 4 rollouts; 2 policy updates per generation"
+echo "TRAIN=MapWise filtered 1058; rank-16 source expanded to rank 32; Xavier relay initialization"
+echo "4 questions x 4 rollouts; 2 policy updates per generation"
+
+srun "${CONTAINER[@]}" python -u "$EXPAND" \
+  --source "$SOURCE_ADAPTER" --output "$INIT_ADAPTER" \
+  --target-rank 32 --seed 1234
 
 srun "${CONTAINER[@]}" python -u "$TRAIN" \
   --dataset "$TRAIN_DATA" --mapverse-root "$MAPVERSE_IMAGES" --mapwise-root "$MAPWISE_IMAGES" \
-  --adapter "$ADAPTER" --output-dir "$RUN_DIR" \
+  --adapter "$INIT_ADAPTER" --expected-adapter-rank 32 --output-dir "$RUN_DIR" \
   --max-steps 4000 --group-size 4 --questions-per-update 4 \
   --max-new-tokens 500 --max-pixels 1000000 --num-relay-tokens 4 \
-  --relay-layer-mode "$MODE" \
+  --relay-layer-mode "$MODE" --relay-init xavier_normal \
   --learning-rate 0.002 --adapter-learning-rate 5e-6 --adapter-weight-decay 0.1 \
   --clip-ratio 0.2 --num-policy-updates 2 --off-policy-mask-threshold 0.02 \
   --lr-scheduler-type constant_then_cosine --decay-start-step 3000 --decay-final-factor 0.6 \
@@ -66,7 +77,7 @@ srun "${CONTAINER[@]}" python -u "$TRAIN" \
 
 COMMON=(
   --mapverse-root "$MAPVERSE_IMAGES" --mapwise-root "$MAPWISE_IMAGES"
-  --adapter "$ADAPTER" --run-dir "$RUN_DIR" --max-new-tokens 500
+  --adapter "$INIT_ADAPTER" --run-dir "$RUN_DIR" --max-new-tokens 500
   --max-pixels 1000000 --num-relay-tokens 4 --relay-layer-mode "$MODE"
 )
 
@@ -86,4 +97,3 @@ srun "${CONTAINER[@]}" python -u "$EVALUATE" \
   --output-subdir evaluation_mapverse_test600_initial_without_relay_2000_4000
 
 echo "COMPLETE RUN_DIR=$RUN_DIR"
-

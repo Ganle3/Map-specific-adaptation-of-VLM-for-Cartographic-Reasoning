@@ -1,8 +1,12 @@
 # Four relay parameters across decoder depth
 
 All three experiments use one `RelayModule.prototypes` parameter with shape
-`[4, H]`. They use the same NF4 Qwen base, initial LoRA adapter, easier 1000
-training data, GRPO reward, optimizer, rollout count, and evaluator.
+`[4, H]`. They use the same NF4 Qwen base, MapWise filtered 1058 training
+data, GRPO reward, optimizer, rollout count, and evaluator. Each starts from
+`mapwise_scaling1000_iter2_mask0p2_retry/checkpoints/checkpoint-3000`, expands
+its rank-16 LoRA adapter to rank 32 with seed 1234, and initializes the relay
+parameters with `xavier_normal`. This matches the starting configuration of
+`train_relay_scheme3_r2_mapwise1058_xavier_rank32_q4r4_eval_4090.sbatch`.
 
 | `--relay-layer-mode` | Relay state in each decoder layer |
 |---|---|
@@ -33,9 +37,9 @@ After syncing the updated repository and copying the sbatch files to
 
 ```bash
 JOBS=/cluster/scratch/junyhuang/thesis/jobs
-sbatch "$JOBS/train_relay3_r4_continuous_easier1000_4090.sbatch"
-sbatch "$JOBS/train_relay3_r4_reset_shared4_easier1000_4090.sbatch"
-sbatch "$JOBS/train_relay3_r4_reset_stage1_easier1000_4090.sbatch"
+sbatch "$JOBS/train_relay3_r4_continuous_mapwise1058_rank32_4090.sbatch"
+sbatch "$JOBS/train_relay3_r4_reset_shared4_mapwise1058_rank32_4090.sbatch"
+sbatch "$JOBS/train_relay3_r4_reset_stage1_mapwise1058_rank32_4090.sbatch"
 ```
 
 To have all three wait until **all** specified existing jobs finish
@@ -43,9 +47,9 @@ successfully, submit now with a Slurm dependency. Replace the example IDs:
 
 ```bash
 WAIT_FOR=afterok:12345678:12345679
-sbatch --dependency="$WAIT_FOR" "$JOBS/train_relay3_r4_continuous_easier1000_4090.sbatch"
-sbatch --dependency="$WAIT_FOR" "$JOBS/train_relay3_r4_reset_shared4_easier1000_4090.sbatch"
-sbatch --dependency="$WAIT_FOR" "$JOBS/train_relay3_r4_reset_stage1_easier1000_4090.sbatch"
+sbatch --dependency="$WAIT_FOR" "$JOBS/train_relay3_r4_continuous_mapwise1058_rank32_4090.sbatch"
+sbatch --dependency="$WAIT_FOR" "$JOBS/train_relay3_r4_reset_shared4_mapwise1058_rank32_4090.sbatch"
+sbatch --dependency="$WAIT_FOR" "$JOBS/train_relay3_r4_reset_stage1_mapwise1058_rank32_4090.sbatch"
 ```
 
 `afterok` waits for successful completion. Use `afterany` if the new work
@@ -53,4 +57,3 @@ should start even when a predecessor fails. Slurm holds pending jobs without
 allocating their GPU/CPU resources. For a calendar start, Slurm also supports
 `sbatch --begin=YYYY-MM-DDTHH:MM ...`, though dependencies are better when the
 actual finishing time is uncertain.
-
