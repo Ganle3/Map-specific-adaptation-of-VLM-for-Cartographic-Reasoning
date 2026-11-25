@@ -228,6 +228,10 @@ def main() -> None:
                         default="constant")
     parser.add_argument("--decay-start-step", type=int)
     parser.add_argument("--decay-final-factor", type=float, default=0.6)
+    parser.add_argument("--lr-extension-start-step", type=int,
+                        help="Preserve the original cosine endpoint here, then continue decaying.")
+    parser.add_argument("--lr-extension-final-factor", type=float,
+                        help="Cosine endpoint at --max-steps after an LR extension.")
     parser.add_argument("--save-steps", type=int,
                         help="Save policy/optimizer/scheduler every N optimizer updates.")
     parser.add_argument("--seed", type=int, default=1234)
@@ -275,6 +279,14 @@ def main() -> None:
             parser.error("constant_then_cosine requires --max-steps")
         if args.decay_start_step is None or not 0 <= args.decay_start_step < args.max_steps:
             parser.error("constant_then_cosine requires 0 <= decay-start-step < max-steps")
+    if (args.lr_extension_start_step is None) != (args.lr_extension_final_factor is None):
+        parser.error("LR extension requires both --lr-extension-start-step and --lr-extension-final-factor")
+    if args.lr_extension_start_step is not None:
+        if args.lr_scheduler_type != "constant_then_cosine" or not (
+                args.decay_start_step < args.lr_extension_start_step < args.max_steps):
+            parser.error("LR extension requires decay-start-step < extension-start-step < max-steps")
+        if not 0 < args.lr_extension_final_factor <= args.decay_final_factor:
+            parser.error("LR extension final factor must be in (0, decay-final-factor]")
     if args.end_index is not None and args.end_index < args.start_index:
         parser.error("end-index must be >= start-index")
     if args.resume_from_checkpoint is not None:
@@ -396,8 +408,15 @@ def main() -> None:
         def lr_factor(update: int) -> float:
             if update <= args.decay_start_step:
                 return 1.0
+            original_end = args.lr_extension_start_step or args.max_steps
+            if args.lr_extension_start_step is not None and update > original_end:
+                progress = min(1.0, (update - original_end)
+                               / (args.max_steps - original_end))
+                return (args.lr_extension_final_factor
+                        + 0.5 * (args.decay_final_factor - args.lr_extension_final_factor)
+                        * (1.0 + math.cos(math.pi * progress)))
             progress = min(1.0, (update - args.decay_start_step)
-                           / max(1, args.max_steps - args.decay_start_step))
+                           / max(1, original_end - args.decay_start_step))
             return args.decay_final_factor + 0.5 * (1.0 - args.decay_final_factor) * (
                 1.0 + math.cos(math.pi * progress)
             )
@@ -459,6 +478,26 @@ def main() -> None:
             for key, value in float_metadata.items()
             if resume_state.get(key) != value
         })
+        saved_step = int(resume_state.get("step", -1))
+        saved_extension_start = resume_state.get("lr_extension_start_step")
+        saved_extension_final = resume_state.get("lr_extension_final_factor")
+        saved_extension_target = resume_state.get("lr_extension_target_step")
+        if saved_extension_start is None and args.lr_extension_start_step is not None:
+            # The source checkpoint predates the extension. It must be exactly
+            # at the original cosine endpoint to avoid a learning-rate jump.
+            if saved_step != args.lr_extension_start_step:
+                mismatches["lr_extension_start_step"] = {
+                    "checkpoint": saved_step, "requested": args.lr_extension_start_step,
+                }
+        elif (saved_extension_start != args.lr_extension_start_step
+              or saved_extension_final != args.lr_extension_final_factor
+              or saved_extension_target != (
+                  args.max_steps if args.lr_extension_start_step is not None else None)):
+            mismatches["lr_extension"] = {
+                "checkpoint": (saved_extension_start, saved_extension_final, saved_extension_target),
+                "requested": (args.lr_extension_start_step, args.lr_extension_final_factor,
+                              args.max_steps if args.lr_extension_start_step is not None else None),
+            }
         if mismatches:
             raise RuntimeError(f"Resume configuration mismatch: {mismatches}")
         resume_step = int(resume_state.get("step", -1))
@@ -483,6 +522,16 @@ def main() -> None:
                 f"Scheduler last_epoch={scheduler.last_epoch} does not match "
                 f"checkpoint step={resume_step}"
             )
+        if args.lr_extension_start_step is not None:
+            expected_factor = lr_factor(resume_step)
+            for group_index, (group, base_lr) in enumerate(
+                    zip(optimizer.param_groups, scheduler.base_lrs)):
+                expected_lr = base_lr * expected_factor
+                if not math.isclose(group["lr"], expected_lr, rel_tol=1e-4, abs_tol=1e-12):
+                    raise RuntimeError(
+                        f"LR extension would jump at step {resume_step}, group {group_index}: "
+                        f"checkpoint LR={group['lr']}, expected LR={expected_lr}"
+                    )
         initial_prototypes = (
             None if policy is None else
             resume_state.get("initial_prototypes", policy.prototypes.detach().cpu()).to(device)
@@ -600,6 +649,10 @@ def main() -> None:
             "lr_scheduler_type": args.lr_scheduler_type,
             "decay_start_step": args.decay_start_step,
             "decay_final_factor": args.decay_final_factor,
+            "lr_extension_start_step": args.lr_extension_start_step,
+            "lr_extension_final_factor": args.lr_extension_final_factor,
+            "lr_extension_target_step": (args.max_steps if args.lr_extension_start_step is not None
+                                          else None),
             "num_policy_updates": args.num_policy_updates,
             "off_policy_mask_threshold": args.off_policy_mask_threshold,
         }
