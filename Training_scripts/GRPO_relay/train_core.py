@@ -557,6 +557,7 @@ def main() -> None:
         config = {key: str(value) if isinstance(value, Path) else value for key, value in vars(args).items()}
         wandb_run = wandb.init(project=args.wandb_project, name=args.wandb_run_name,
                                mode=args.wandb_mode, config=config)
+    next_data_cursor = None
     def save_checkpoint(path: Path, *, step: int, epoch: int) -> None:
         # Save exactly the optimized policy state.  Lightweight policies store
         # only prototypes; the full Transformer block stores MHA, norms and FFN.
@@ -574,6 +575,7 @@ def main() -> None:
             "optimizer": optimizer.state_dict(),
             "scheduler": scheduler.state_dict(), "epoch": epoch, "step": step,
             "generation_batch": generation_batch,
+            "next_data_cursor": next_data_cursor,
             "python_rng_state": random.getstate(),
             "torch_rng_state": torch.get_rng_state(),
             "cuda_rng_state_all": (torch.cuda.get_rng_state_all()
@@ -651,37 +653,49 @@ def main() -> None:
             for row in original_trace_rows:
                 if int(row.get("optimizer_step_before_update", -1)) < step:
                     generation_batch = max(generation_batch, int(row.get("generation_batch", 0)))
-        # This failed run continued beyond checkpoint-3000, so its preserved
-        # trace can identify the next generated question batch after the rewind
-        # point. Reuse that data cursor instead of discarding the rest of the
-        # checkpoint epoch. Stochastic rollouts still branch because legacy
-        # checkpoints did not serialize RNG state.
+        # New checkpoints store the next question-batch cursor directly.
+        # For older checkpoints, recover it from the original rollout trace
+        # when that trace continued beyond the saved optimizer step.
         resume_first_start = None
-        next_rows = [
-            row for row in original_trace_rows
-            if int(row.get("optimizer_step_before_update", -1)) >= step
-        ]
-        if next_rows:
-            next_generation = int(next_rows[0]["generation_batch"])
-            next_group = [row for row in next_rows
-                          if int(row["generation_batch"]) == next_generation]
-            next_epoch = int(next_group[0]["epoch"])
-            next_indices = list(dict.fromkeys(int(row["dataset_index"]) for row in next_group))
-            candidate_records = list(records)
-            random.Random(args.seed + next_epoch - 1).shuffle(candidate_records)
-            for candidate_start in range(0, len(candidate_records), args.questions_per_update):
-                candidate_indices = [index for index, _ in
-                                     candidate_records[candidate_start:candidate_start + args.questions_per_update]]
-                if candidate_indices == next_indices:
-                    epoch = next_epoch - 1
-                    resume_first_start = candidate_start
-                    generation_batch = next_generation - 1
-                    print(
-                        f"[RESUME] recovered next data cursor: epoch={next_epoch} "
-                        f"batch_start={candidate_start} generation_batch={next_generation}",
-                        flush=True,
-                    )
-                    break
+        saved_cursor = resume_state.get("next_data_cursor")
+        if saved_cursor is not None:
+            next_epoch = int(saved_cursor["epoch"])
+            candidate_start = int(saved_cursor["batch_start"])
+            if next_epoch < 1 or not 0 <= candidate_start <= len(records):
+                raise RuntimeError(f"Invalid saved next_data_cursor: {saved_cursor}")
+            epoch = next_epoch - 1
+            resume_first_start = candidate_start
+            print(
+                f"[RESUME] restored saved data cursor: epoch={next_epoch} "
+                f"batch_start={candidate_start} generation_batch={generation_batch + 1}",
+                flush=True,
+            )
+        else:
+            next_rows = [
+                row for row in original_trace_rows
+                if int(row.get("optimizer_step_before_update", -1)) >= step
+            ]
+            if next_rows:
+                next_generation = int(next_rows[0]["generation_batch"])
+                next_group = [row for row in next_rows
+                              if int(row["generation_batch"]) == next_generation]
+                next_epoch = int(next_group[0]["epoch"])
+                next_indices = list(dict.fromkeys(int(row["dataset_index"]) for row in next_group))
+                candidate_records = list(records)
+                random.Random(args.seed + next_epoch - 1).shuffle(candidate_records)
+                for candidate_start in range(0, len(candidate_records), args.questions_per_update):
+                    candidate_indices = [index for index, _ in
+                                         candidate_records[candidate_start:candidate_start + args.questions_per_update]]
+                    if candidate_indices == next_indices:
+                        epoch = next_epoch - 1
+                        resume_first_start = candidate_start
+                        generation_batch = next_generation - 1
+                        print(
+                            f"[RESUME] recovered next data cursor: epoch={next_epoch} "
+                            f"batch_start={candidate_start} generation_batch={next_generation}",
+                            flush=True,
+                        )
+                        break
         trace_path = args.output_dir / f"rollouts.resume-from-{step}.jsonl"
         if resume_state.get("python_rng_state") is not None:
             random.setstate(resume_state["python_rng_state"])
@@ -714,6 +728,11 @@ def main() -> None:
             for start in range(first_start, len(epoch_records), args.questions_per_update):
                 if args.max_steps is not None and step >= args.max_steps:
                     break
+                next_data_cursor = (
+                    {"epoch": epoch, "batch_start": start + args.questions_per_update}
+                    if start + args.questions_per_update < len(epoch_records)
+                    else {"epoch": epoch + 1, "batch_start": 0}
+                )
                 question_batch = epoch_records[start:start + args.questions_per_update]
                 prepared_groups = []
                 generation_batch += 1
